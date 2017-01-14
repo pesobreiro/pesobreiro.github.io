@@ -1,0 +1,38 @@
+BODY, TD {
+	color : black;
+	font-family :  Arial, sans-serif;
+	font-size: 14px;
+	text-align: justify;
+}
+
+H2 {
+	font-size: 14pt;
+	color: #000066;
+}
+
+H3 {
+	font-size: 13pt;
+	color: #7FFFD4;
+}
+
+H4 {
+    font-size: small;
+	font-variant: small-caps;
+	font-weight: bold;
+	color : black;
+	}
+
+A {
+	text-decoration: underline;
+	color: #000000;
+	}
+
+A:Hover {
+	text-decoration: underline;
+	color: #ff0000;
+}
+
+HR {
+	color: blue;
+	height: 1pt;
+}
