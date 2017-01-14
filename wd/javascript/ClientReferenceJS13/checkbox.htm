@@ -1,0 +1,558 @@
+<HTML>
+<HEAD>
+<TITLE>
+</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="button.htm">Previous</A>
+ | <A HREF="date.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT><BR><BR>
+<HR>
+
+<H1><A NAME="Checkbox"></A>
+<A NAME="1193137">
+ Checkbox
+</A></H1>
+<A NAME="1193139">
+A checkbox on an HTML form. A checkbox is a toggle switch that lets the user set a value on or off.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193142">
+<I>Client-side object</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193144">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193146">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193148">
+JavaScript 1.0</A></P><P><A NAME="1195139">
+</A></P><P><A NAME="1195142">
+JavaScript 1.1: added <CODE>type</CODE> property; added <CODE>onBlur</CODE> and <CODE>onFocus</CODE> event handlers; added <CODE>blur</CODE> and <CODE>focus</CODE> methods.</A></P><P><A NAME="1195140">
+</A></P><P><A NAME="1195141">
+JavaScript 1.2: added <CODE>handleEvent</CODE> method.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193149">
+ Created by
+</A></H4>
+
+<A NAME="1193152">
+The HTML <CODE><A HREF="http://developer.netscape.com/docs/manuals/htmlguid/index.htm?content=tags10.htm#tags:INPUT" TARGET="_top">INPUT</A></CODE> tag, with <CODE>"checkbox"</CODE> as the value of the <CODE>TYPE</CODE> attribute. For a given form, the JavaScript runtime engine creates appropriate <CODE>Checkbox</CODE> objects and puts these objects in the <A HREF="form.htm#1193375"><CODE>elements</CODE></A> array of the corresponding <A HREF="form.htm#1197470"><CODE>Form</CODE></A> object. You access a <CODE>Checkbox</CODE> object by indexing this array. You can index the array either by number or, if supplied, by using the value of the <CODE>NAME</CODE> attribute.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193159">
+ Event handlers
+</A></H4>
+
+<ul><LI><A NAME="1193163">
+<A HREF="handlers.htm#1119670"><CODE>onBlur</CODE></A>
+</A></LI><LI><A NAME="1193167">
+<A HREF="handlers.htm#1119876"><CODE>onClick</CODE></A>
+</A></LI><LI><A NAME="1193171">
+<A HREF="handlers.htm#1120186"><CODE>onFocus</CODE></A>
+</A></LI></ul>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193172">
+ Description
+</A></H4>
+
+<A NAME="1193176">
+A <CODE>Checkbox</CODE> object on a form looks as follows:<P>
+<IMG SRC="graphics/checkbox.gif">
+</A></P>
+<A NAME="1193179">
+A <CODE>Checkbox</CODE> object is a form element and must be defined within a <CODE><A HREF="http://developer.netscape.com/docs/manuals/htmlguid/index.htm?content=tags10.htm#tags:FORM" TARGET="_top">FORM</A></CODE> tag.</A></P>
+<A NAME="1193180">
+Use the <CODE>checked</CODE> property to specify whether the checkbox is currently checked. Use the <CODE>defaultChecked</CODE> property to specify whether the checkbox is checked when the form is loaded or reset.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193181">
+ Property Summary
+</A></H4>
+
+<A NAME="1193229">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1193184">
+<B>Property
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1193186">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193191"><A HREF="checkbox.htm#1193280"><CODE>checked</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193193">
+Boolean property that reflects the current state of the checkbox.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193198"><A HREF="checkbox.htm#1193309"><CODE>defaultChecked</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193200">
+Boolean property that reflects the <CODE>CHECKED</CODE> attribute.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193205"><A HREF="checkbox.htm#1193338"><CODE>form</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193207">
+Specifies the form containing the <CODE>Checkbox</CODE> object.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193212"><A HREF="checkbox.htm#1193365"><CODE>name</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193214">
+Reflects the <CODE>NAME</CODE> attribute.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193219"><A HREF="checkbox.htm#1193398"><CODE>type</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193221">
+Reflects the <CODE>TYPE</CODE> attribute.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193226"><A HREF="checkbox.htm#1193420"><CODE>value</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193228">
+Reflects the <CODE>TYPE</CODE> attribute.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193230">
+ Method Summary
+</A></H4>
+
+<A NAME="1193264">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1193233">
+<B>Method
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1193235">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193240"><A HREF="checkbox.htm#1193729"><CODE>blur</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193242">
+Removes focus from the checkbox.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193247"><A HREF="checkbox.htm#1193823"><CODE>click</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193249">
+Simulates a mouse-click on the checkbox.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193254"><A HREF="checkbox.htm#1194275"><CODE>focus</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193256">
+Gives focus to the checkbox.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193261"><A HREF="checkbox.htm#1194203"><CODE>handleEvent</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193263">
+Invokes the handler for the specified event.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+<A NAME="1197060">
+In addition, this object inherits the <A HREF="object.htm#1193628"><CODE>watch</CODE></A> and <A HREF="object.htm#1193499"><CODE>unwatch</CODE></A> methods from <A HREF="object.htm#1193136"><CODE>Object</CODE></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193265">
+ Examples
+</A></H4>
+
+<A NAME="1193266">
+<B>Example 1.</B> The following example displays a group of four checkboxes that all appear checked by default:</A></P>
+<PRE><A NAME="1193267">&lt;B&gt;Specify your music preferences (check all that apply):&lt;/B&gt;<br>&lt;BR&gt;&lt;INPUT TYPE="checkbox" NAME="musicpref_rnb" CHECKED&gt; R&amp;B<br>&lt;BR&gt;&lt;INPUT TYPE="checkbox" NAME="musicpref_jazz" CHECKED&gt; Jazz<br>&lt;BR&gt;&lt;INPUT TYPE="checkbox" NAME="musicpref_blues" CHECKED&gt; Blues<br>&lt;BR&gt;&lt;INPUT TYPE="checkbox" NAME="musicpref_newage" CHECKED&gt; New Age</A></PRE><A NAME="1193268">
+<B>Example 2.</B> The following example contains a form with three text boxes and one checkbox. The user can use the checkbox to choose whether the text fields are converted to uppercase. Each text field has an <CODE>onChange</CODE> event handler that converts the field value to uppercase if the checkbox is checked. The checkbox has an <CODE>onClick</CODE> event handler that converts all fields to uppercase when the user checks the checkbox.</A></P>
+<PRE><A NAME="1193269">&lt;HTML&gt;<br>&lt;HEAD&gt;<br>&lt;TITLE&gt;Checkbox object example&lt;/TITLE&gt;<br>&lt;/HEAD&gt;<br>&lt;SCRIPT&gt;<br>function convertField(field) {<br>&nbsp;&nbsp;&nbsp;if (document.form1.convertUpper.checked) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field.value = field.value.toUpperCase()}<br>}<br>function convertAllFields() {<br>&nbsp;&nbsp;&nbsp;document.form1.lastName.value = document.form1.lastName.value.toUpperCase()<br>&nbsp;&nbsp;&nbsp;document.form1.firstName.value = document.form1.firstName.value.toUpperCase()<br>&nbsp;&nbsp;&nbsp;document.form1.cityName.value = document.form1.cityName.value.toUpperCase()<br>}<br>&lt;/SCRIPT&gt;</A></PRE><PRE><A NAME="1198432">&lt;BODY&gt;<br>&lt;FORM NAME="form1"&gt;<br>&lt;B&gt;Last name:&lt;/B&gt;<br>&lt;INPUT TYPE="text" NAME="lastName" SIZE=20 onChange="convertField(this)"&gt;<br>&lt;BR&gt;&lt;B&gt;First name:&lt;/B&gt;<br>&lt;INPUT TYPE="text" NAME="firstName" SIZE=20 onChange="convertField(this)"&gt;<br>&lt;BR&gt;&lt;B&gt;City:&lt;/B&gt;<br>&lt;INPUT TYPE="text" NAME="cityName" SIZE=20 onChange="convertField(this)"&gt;<br>&lt;P&gt;&lt;INPUT TYPE="checkBox" NAME="convertUpper"<br>&nbsp;&nbsp;&nbsp;onClick="if (this.checked) {convertAllFields()}"<br>&nbsp;&nbsp;&nbsp;&gt; Convert fields to upper case<br>&lt;/FORM&gt;<br>&lt;/BODY&gt;<br>&lt;/HTML&gt;</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193270">
+ See also
+</A></H4>
+
+<A NAME="1193277">
+<A HREF="form.htm#1197470"><CODE>Form</CODE></A>, <A HREF="radio.htm#1193137"><CODE>Radio</CODE></A> </A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193729">
+blur
+</A></H2>
+
+<A NAME="1193742">
+Removes focus from the checkbox.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193732">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193737">
+<A HREF="checkbox.htm#1193137"><CODE>Checkbox</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193739">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193741">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193743">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1193744">blur()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193745">
+ Parameters
+</A></H4>
+
+<A NAME="1193746">
+None</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193747">
+ See also
+</A></H4>
+
+<A NAME="1193751">
+<A HREF="checkbox.htm#1194275"><CODE>Checkbox.focus</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193280">
+checked
+</A></H2>
+
+<A NAME="1193293">
+A Boolean value specifying the selection state of the checkbox.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193283">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193288">
+<A HREF="checkbox.htm#1193137"><CODE>Checkbox</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193290">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193292">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193294">
+ Security
+</A></H4>
+
+<B><A NAME="HeadRunIn;"></A>
+<A NAME="1199945">
+JavaScript 1.1. </A></B><A NAME="1193295">
+This property is tainted by default. For information on data tainting, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193299">
+ Description
+</A></H4>
+
+<A NAME="1193300">
+If a checkbox button is selected, the value of its <CODE>checked</CODE> property is true; otherwise, it is false.</A></P>
+<A NAME="1193301">
+You can set the <CODE>checked</CODE> property at any time. The display of the checkbox button updates immediately when you set the <CODE>checked</CODE> property.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193302">
+ See also
+</A></H4>
+
+<A NAME="1193306">
+<A HREF="checkbox.htm#1193309"><CODE>Checkbox.defaultChecked</CODE></A> </A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193823">
+click
+</A></H2>
+
+<A NAME="1193824">
+Simulates a mouse-click on the checkbox, but does not trigger its <CODE>onClick</CODE> event handler. The method checks the checkbox and sets toggles its value. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193827">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193832">
+<A HREF="checkbox.htm#1193137"><CODE>Checkbox</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193834">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193836">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193837">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1193838">click()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193839">
+ Parameters
+</A></H4>
+
+<A NAME="1193840">
+None.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193841">
+ Examples
+</A></H4>
+
+<A NAME="1193842">
+The following example toggles the selection status of the <CODE>newAge</CODE> checkbox on the <CODE>musicForm</CODE> form:</A></P>
+<PRE><A NAME="1193843">document.musicForm.newAge.click()</A></PRE>
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193309">
+defaultChecked
+</A></H2>
+
+<A NAME="1193322">
+A Boolean value indicating the default selection state of a checkbox button.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193312">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193317">
+<A HREF="checkbox.htm#1193137"><CODE>Checkbox</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193319">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193321">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193323">
+ Security
+</A></H4>
+
+<B><A NAME="HeadRunIn;"></A>
+<A NAME="1199980">
+JavaScript 1.1. </A></B><A NAME="1193324">
+This property is tainted by default. For information on data tainting, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193328">
+ Description
+</A></H4>
+
+<A NAME="1193329">
+If a checkbox is selected by default, the value of the <CODE>defaultChecked</CODE> property is true; otherwise, it is false. <CODE>defaultChecked</CODE> initially reflects whether the <CODE>CHECKED</CODE> attribute is used within an <CODE>INPUT</CODE> tag; however, setting <CODE>defaultChecked</CODE> overrides the <CODE>CHECKED</CODE> attribute.</A></P>
+<A NAME="1193330">
+You can set the <CODE>defaultChecked</CODE> property at any time. The display of the checkbox does not update when you set the <CODE>defaultChecked</CODE> property, only when you set the <CODE>checked</CODE> property.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193331">
+ See also
+</A></H4>
+
+<A NAME="1193335">
+<A HREF="checkbox.htm#1193280"><CODE>Checkbox.checked</CODE></A> </A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1194275">
+focus
+</A></H2>
+
+<A NAME="1194288">
+Gives focus to the checkbox.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194278">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194283">
+<A HREF="checkbox.htm#1193137"><CODE>Checkbox</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194285">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194287">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194289">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1194290">focus()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194291">
+ Parameters
+</A></H4>
+
+<A NAME="1194292">
+None</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194293">
+ Description
+</A></H4>
+
+<A NAME="1194294">
+Use the <CODE>focus</CODE> method to navigate to a the checkbox and give it focus. The user can then toggle the state of the checkbox. </A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194295">
+ See also
+</A></H4>
+
+<A NAME="1194299">
+<A HREF="checkbox.htm#1193729"><CODE>Checkbox.blur</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193338">
+form
+</A></H2>
+
+<A NAME="1193355">
+An object reference specifying the form containing the checkbox.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193341">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193346">
+<A HREF="checkbox.htm#1193137"><CODE>Checkbox</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193348">
+<I>Read-only</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193350">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193352">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193354">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193356">
+ Description
+</A></H4>
+
+<A NAME="1193357">
+Each form element has a <CODE>form</CODE> property that is a reference to the element's parent form. This property is especially useful in event handlers, where you might need to refer to another element on the current form.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193358">
+ See also
+</A></H4>
+
+<A NAME="1194173">
+<A HREF="form.htm#1197470"><CODE>Form</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1194203">
+handleEvent
+</A></H2>
+
+<A NAME="1194084">
+Invokes the handler for the specified event. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194074">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194079">
+<A HREF="checkbox.htm#1193137"><CODE>Checkbox</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194081">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194083">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194085">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1194086">handleEvent(<I>event</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194087">
+ Parameters
+</A></H4>
+
+<A NAME="1194093">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1194090">event</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1194092">
+The name of an event for which the specified object has an event handler.</A></P>
+
+</TABLE>
+</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193365">
+name
+</A></H2>
+
+<A NAME="1193379">
+A string specifying the checkbox's name.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193369">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193374">
+<A HREF="checkbox.htm#1193137"><CODE>Checkbox</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193376">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193378">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193380">
+ Security
+</A></H4>
+
+<B><A NAME="HeadRunIn;"></A>
+<A NAME="1200008">
+JavaScript 1.1. </A></B><A NAME="1193381">
+This property is tainted by default. For information on data tainting, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193385">
+ Description
+</A></H4>
+
+<A NAME="1193386">
+If multiple objects on the same form have the same <CODE>NAME</CODE> attribute, an array of the given name is created automatically. Each element in the array represents an individual <CODE>Form</CODE> object. Elements are indexed in source order starting at 0. For example, if two <A HREF="text.htm#1193137"><CODE>Text</CODE></A> elements and a <A HREF="button.htm#1193137"><CODE>Button</CODE></A> element on the same form have their <CODE>NAME</CODE> attribute set to <CODE>"myField"</CODE>, an array with the elements <CODE>myField[0]</CODE>, <CODE>myField[1]</CODE>, and <CODE>myField[2]</CODE> is created. You need to be aware of this situation in your code and know whether <CODE>myField</CODE> refers to a single element or to an array of elements.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193393">
+ Examples
+</A></H4>
+
+<A NAME="1193394">
+In the following example, the <CODE>valueGetter</CODE> function uses a <CODE>for</CODE> loop to iterate over the array of elements on the <CODE>valueTest</CODE> form. The <CODE>msgWindow</CODE> window displays the names of all the elements on the form:</A></P>
+<PRE><A NAME="1193395">newWindow=window.open("http://home.netscape.com")</A></PRE><PRE><A NAME="1193396">function valueGetter() {<br>&nbsp;&nbsp;&nbsp;var msgWindow=window.open("")<br>&nbsp;&nbsp;&nbsp;for (var i = 0; i &lt; newWindow.document.valueTest.elements.length; i++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msgWindow.document.write(newWindow.document.valueTest.elements[i].name + "&lt;BR&gt;")<br>&nbsp;&nbsp;&nbsp;}<br>}</A></PRE>
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193398">
+type
+</A></H2>
+
+<A NAME="1193399">
+For all <CODE>Checkbox</CODE> objects, the value of the <CODE>type</CODE> property is <CODE>"checkbox"</CODE>. This property specifies the form element's type. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193402">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193407">
+<A HREF="checkbox.htm#1193137"><CODE>Checkbox</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193409">
+<I>Read-only</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193411">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193413">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193415">
+JavaScript 1.1</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193416">
+ Examples
+</A></H4>
+
+<A NAME="1193417">
+The following example writes the value of the <CODE>type</CODE> property for every element on a form.</A></P>
+<PRE><A NAME="1193418">for (var i = 0; i &lt; document.form1.elements.length; i++) {<br>&nbsp;&nbsp;&nbsp;document.writeln("&lt;BR&gt;type is " + document.form1.elements[i].type)<br>}</A></PRE>
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193420">
+value
+</A></H2>
+
+<A NAME="1193433">
+A string that reflects the <CODE>VALUE</CODE> attribute of the checkbox.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193423">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193428">
+<A HREF="checkbox.htm#1193137"><CODE>Checkbox</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193430">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193432">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193434">
+ Security
+</A></H4>
+
+<B><A NAME="HeadRunIn;"></A>
+<A NAME="1200024">
+JavaScript 1.1. </A></B><A NAME="1193435">
+This property is tainted by default. For information on data tainting, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193439">
+ See also
+</A></H4>
+
+<A NAME="1193446">
+<A HREF="checkbox.htm#1193280"><CODE>Checkbox.checked</CODE></A>, <A HREF="checkbox.htm#1193309"><CODE>Checkbox.defaultChecked</CODE></A></A></P>
+
+<HR>
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="button.htm">Previous</A>
+ | <A HREF="date.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT>
+<P ALIGN=right>
+<FONT SIZE=-2><I>Last Updated:  05/28/99  11:59:07</I></FONT>
+<P> <CENTER>Copyright (c) 1999
+<A HREF="http://home.netscape.com/misc/contact_info.html"
+TARGET=_top>Netscape Communications Corporation</A></FONT>
+</CENTER>
+<P>
+</BODY>
+</HTML>
+
+

@@ -1,0 +1,57 @@
+<xml xmlns:v="urn:schemas-microsoft-com:vml"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:p="urn:schemas-microsoft-com:office:powerpoint">
+ <p:presentation slidesizex="6240" notessizey="6084">
+  <p:master id="36" type="main" href="master36.htm" xmlhref="master36.xml"
+   template="Engrenagens" layout="title_body"
+   slots="title,body,dateTime,footer,slideNumber">
+   <p:schemes>
+    <p:colorscheme
+     colors="#00007A,#EAEAEA,#000054,#EBD189,#FCAB40,#555BAD,#B97C01,#CCFF33"/>
+    <p:colorscheme
+     colors="#FFFFCC,#000000,#EDE1AF,#993300,#CAC0E2,#DFC977,#660033,#993366"/>
+    <p:colorscheme
+     colors="#FFFFFF,#000000,#EAEAEA,#000000,#DDDDDD,#B2B2B2,#4D4D4D,#969696"/>
+    <p:colorscheme
+     colors="#762700,#EAEAEA,#481800,#EBD189,#FCAB40,#AD717F,#FFFF99,#CC9900"/>
+    <p:colorscheme
+     colors="#4E009C,#EAEAEA,#330066,#EBD189,#FCAB40,#8871BB,#99CC00,#808000"/>
+    <p:colorscheme
+     colors="#4D6A2A,#EAEAEA,#454425,#EBD189,#FCAB40,#A59E79,#FFCC00,#CCCC00"/>
+    <p:colorscheme
+     colors="#0D0A46,#EAEAEA,#3C2924,#EBD189,#FCAB40,#633D4E,#FFCC66,#99CC00"/>
+   </p:schemes>
+  </p:master>
+  <p:master id="37" type="title" href="master37.htm" xmlhref="master37.xml"
+   layout="title_subtitle"
+   slots="centerTitle,subTitle,dateTime,footer,slideNumber"/>
+  <p:master id="1" type="notes" href="master01.htm" layout="notes"
+   slots="header,dateTime,slideImage,body,footer,slideNumber"/>
+  <p:master id="2" type="handout" href="master02.htm" layout="handout"
+   slots="header,dateTime,footer,slideNumber"/>
+  <p:slide id="2" href="slide0002.htm" masterhref="master37.htm"
+   layout="title_subtitle" slots="centerTitle,subTitle" omitmastershapes="t"/>
+  <p:slide id="15" href="slide0015.htm" layout="title_body" slots="title,body"/>
+  <p:slide id="16" href="slide0016.htm" layout="title_body" slots="title,body"/>
+  <p:slide id="30" href="slide0030.htm" layout="title_body" slots="title,body"/>
+  <p:slide id="40" href="slide0040.htm" layout="title_body" slots="title,body"/>
+  <p:slide id="34" href="slide0034.htm" layout="title_body" slots="title,body"/>
+  <p:slide id="41" href="slide0041.htm" layout="title_body" slots="title,body"/>
+  <p:slide id="42" href="slide0042.htm" layout="title_body" slots="title,body"/>
+  <p:viewstate type="outline" scale="50"/>
+  <p:slideshowsettings pencolor="schemeText" manualadvance="t"/>
+  <p:kinsoku language="Japanese" level="levelCustom"
+   leading="‘“（〔［｛〈《「『【￥＄$([\{｢￡"
+   following="、。，．・：；？！゛゜ヽヾゝゞ々ー’”）〕］｝〉》」』】°‰′″℃￠％ぁぃぅぇぉっゃゅょゎァィゥェォッャュョヮヵヶ!%),.:;?]}｡｣､･ｧｨｩｪｫｬｭｮｯｰﾞﾟ"/>
+  <p:font name="Times New Roman" charset="0" type="4"/>
+  <p:font name="Arial" charset="0" type="4" family="34"/>
+  <p:font name="Arial Narrow" charset="0" type="6" family="34"/>
+  <p:font name="Wingdings" charset="2" type="4" family="2"/>
+  <p:font name="Arial Black" charset="0" type="4" family="34"/>
+  <p:headersfooters noheader="t"/>
+  <p:headersfooters notes="t" slidenumber="t"/>
+  <p:pptdocumentsettings framecolors="WhiteTextOnBlack" hideslideanimation="t"/>
+ </p:presentation>
+ <o:shapedefaults v:ext="edit" spidmax="119810" style='mso-wrap-style:none'>
+  <o:colormru v:ext="edit" colors="aqua,black,#039,green,#009,white,#06f,#ff6"/>
+ </o:shapedefaults></xml>

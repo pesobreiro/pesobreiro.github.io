@@ -1,0 +1,78 @@
+<!doctype html public" -//IETF//DTD 	HTML//EN">
+<HTML>
+
+<HEAD>
+<SCRIPT LANGUAGE="JAVASCRIPT">
+<!-- 
+
+function checkbrowse()
+{
+var bn, bv, ver
+bn = navigator.appName;
+bv = parseInt(navigator.appVersion);
+if (bn=="Microsoft Internet Explorer" && bv<"4") ver = "IE3";
+else ver = "NotIE3";
+if (ver=="IE3") top.cont.parts.location.href="part11.htm";
+if (ver=="NotIE3") top.cont.parts.location.href="nav/part11.htm";
+}
+//-->
+</SCRIPT>
+<TITLE>Determine the True Length of a Schedule with Slipped Tasks and Inflexible Constraints</TITLE>
+<META NAME="GENERATOR" 	CONTENT="Merch. System HTML Development">
+<META NAME="AUTHOR" 	CONTENT="Merch. System HTML Development">
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" OnLoad="checkbrowse();">
+<Font Face ="Verdana, Arial, Helvetica">
+
+<P align=right><SMALL>
+<A HREF="p11985.htm" Target="TOC"><IMG SRC="prev.gif"ALT="Previous page"BORDER=0></A>
+<A HREF="p11981.htm" Target="TOC"><IMG SRC="toc11.gif"ALT="Contents"BORDER=0></A>
+<A HREF="p11987.htm" Target="TOC"><IMG SRC="Next.gif"ALT="Next 
+page"BORDER=0></A></SMALL></P>
+<H1>Determine the True Length of a Schedule with Slipped Tasks and Inflexible Constraints</H1>
+
+<P>
+As you track progress by entering actual start and finish dates for tasks, you may find that the project finish 
+date remains the same, even when a number of tasks have been completed later or have taken longer than 
+originally planned. The reason could be that one or more tasks in your schedule have an inflexible constraint 
+(Must Start On, Must Finish On, Start No Later Than, Finish No Later Than) applied.
+<P>
+A task with an inflexible constraint doesn’t move, even if predecessor tasks finish later than planned. A task 
+with a Must Start On constraint, for example, doesn’t get &quot;pushed&quot; to a later start date if tasks that 
+precede it finish later than their original finish dates. Instead, it remains firmly anchored to its specified start 
+date while predecessor tasks move.
+<P>
+<IMG SRC="1105.GIF" ALT="Image File: 1105">
+<P>
+The tasks that follow the inflexible task remain unaffected by the late-starting tasks. Therefore, even though 
+tasks that precede the inflexible task are late, and the project as a whole is late, Microsoft Project may show 
+your schedule incorrectly on the original project finish date. Because of the task with the Must Start On 
+constraint, Microsoft Project can’t recalculate a more realistic project finish date.
+<P>
+What do you do if you want to know the &quot;real&quot; project finish date? You can allow the inflexible 
+task to move without removing its Must Start On constraint. You can choose to make schedule changes 
+override constraints.
+<P>
+By default, Microsoft Project honors constraint dates. The start and finish dates of a linked task with an 
+inflexible constraint, such as Must Start On, stay the same even if the schedule changes. If you want Microsoft 
+Project to automatically recalculate a constrained task’s start and finish dates when the schedule changes, you 
+can choose to have schedule changes override constraint dates. Because tasks with flexible constraints such 
+as As Soon As Possible and As Late As Possible have no fixed dates to honor, they behave the same way 
+regardless of the option you choose.
+<P>
+When you use constraints in your project plan, you can choose to have schedule changes override 
+constraints or have constraints override schedule changes — for all affected tasks. A project plan cannot 
+accommodate both options at the same time.
+<P>
+<B><B><img src="bluetri.gif">	To set constraints so schedule changes can override them</B></B>
+<OL><LI>On the <B>Tools</B> menu, click <B>Options</B>.
+<LI>Click the <B>Schedule </B>tab.
+<LI>Clear the <B>Tasks will always honor their constraint dates </B>check box.
+</OL>
+<P align = Center > <A HREF="http://www.microsoft.com/misc/cpyright.htm"><EM>&#169;1996-1997 Microsoft Corporation. All rights 
+reserved.</EM></A></P>
+</BODY>
+</FONT>
+</HTML>
+

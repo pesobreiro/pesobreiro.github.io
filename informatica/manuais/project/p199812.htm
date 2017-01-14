@@ -1,0 +1,91 @@
+<!doctype html public" -//IETF//DTD 	HTML//EN">
+<HTML>
+
+<HEAD>
+<SCRIPT LANGUAGE="JAVASCRIPT">
+<!-- 
+
+function checkbrowse()
+{
+var bn, bv, ver
+bn = navigator.appName;
+bv = parseInt(navigator.appVersion);
+if (bn=="Microsoft Internet Explorer" && bv<"4") ver = "IE3";
+else ver = "NotIE3";
+if (ver=="IE3") top.cont.parts.location.href="part19.htm";
+if (ver=="NotIE3") top.cont.parts.location.href="nav/part19.htm";
+}
+//-->
+</SCRIPT>
+<TITLE>Select E-mail, an Intranet, or the World Wide Web</TITLE>
+<META NAME="GENERATOR" 	CONTENT="Merch. System HTML Development">
+<META NAME="AUTHOR" 	CONTENT="Merch. System HTML Development">
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" OnLoad="checkbrowse();">
+<Font Face ="Verdana, Arial, Helvetica">
+
+<P align=right><SMALL>
+<A HREF="p199811.htm" Target="TOC"><IMG SRC="prev.gif"ALT="Previous page"BORDER=0></A>
+<A HREF="p19981.htm" Target="TOC"><IMG SRC="toc19.gif"ALT="Contents"BORDER=0></A>
+<A HREF="p199813.htm" Target="TOC"><IMG SRC="Next.gif"ALT="Next 
+page"BORDER=0></A></SMALL></P>
+<H2>Select E-mail, an Intranet, or the World Wide Web</H2>
+
+<P>
+Microsoft Project supplies three types of workgroup messages you can send to your team members, but it 
+doesn’t furnish the communications system over which those messages can be sent. As the workgroup 
+manager, you need to choose e-mail, an intranet, or the World Wide Web to deliver TeamAssign, TeamUpdate, 
+and TeamStatus workgroup messages. 
+<P>
+Once you decide, all team members must set up their computers to use the agreed-upon workgroup 
+communications system. All three systems can be available at the same time.
+<P>
+Before setting up the computers, though, you need to have access to a web server (for web-based 
+communications) or access to a MAPI-compliant, 32-bit e-mail system (for e-mail–based communications). If 
+you’re using a web server for workgroup communications, workgroup members need to be notified of the 
+uniform resource locator (URL) address that points to the web server so they can find the TeamInbox using 
+their web browser. URL is the standard for naming and locating a web site on the Internet. It can be supplied 
+by the individual responsible for the web server.
+<P>
+<B><B><IMG SRC="bluetri.gif">	To select e-mail or a web as the method for workgroup 
+communications</B></B>
+<OL>
+<LI>On the <B>Tools</B> menu, click <B>Options</B>, and then click the <B>Workgroup</B> tab.
+<LI>In the <B>Default workgroup messaging for resources</B> box, click the workgroup message option you 
+want to use for most of your resources (you can change the message option for individual resources).
+<UL>
+<LI>To send workgroup messages through a MAPI-compliant, 32-bit e-mail system, click <B>Email</B>.
+<LI>To send workgroup messages through a web server (making use of an intranet or the World Wide Web), 
+click <B>Web</B>.
+<LI>To send workgroup messages through both a MAPI-compliant, 32-bit e-mail system and a web server 
+(making use of an intranet or the World Wide Web), click <B>Email and Web</B>.
+<LI>To prevent workgroup messages from being sent to resources, click <B>None</B>. (Select this option 
+only if most of your resources don’t have access to an e-mail system, an intranet, or the World Wide Web.)
+</UL>
+<LI>If you chose a web server, enter the Internet address (URL) for the web server that is servicing the 
+workgroup in the <B>Web Server URL (for resource)</B> box.
+<BR>For example, the URL might point to a web server set up on the workgroup manager’s computer. If the 
+network identification for that computer has its name set to be WorkgroupManager and the web server files are 
+in a &amp;quot;project&amp;quot; folder, then the URL for that computer would be as follows:
+<BR>http://workgroupmanager/project/
+<LI>If you chose a web server, enter the path to where the web server software resides on the web server 
+computer in the <B>Web Server root (for manager)</B> box.
+<BR>The Microsoft Project workgroup feature will set up directories and files to manage the activity of the 
+workgroup on this path. For example, if you install Microsoft Personal Web Server on your computer, and you 
+want the folder for Microsoft Project information to be Project, the path statement could be as follows:
+<BR>\\workgroupmanager\webshare\wwwroot\project
+<LI>To apply your workgroup selections to all new projects, click <B>Set as Default</B>.
+<LI>Click the <B>General</B> tab. 
+<LI>In the <B>User name</B> box, type the name by which you want to be identified in the workgroup 
+messages you send.
+<LI>If you selected <B>Web</B> or <B>Email and Web</B> on the <B>Workgroup</B> tab, Microsoft 
+Project will notify you after you close the <B>Options</B> dialog box that it needs to copy files to the web 
+server to set up the workgroup. To allow it to do so, click <B>Yes</B>.
+</OL>
+<P align = Center > <A HREF="http://www.microsoft.com/misc/cpyright.htm"><EM>&#169;1996-1997 Microsoft Corporation. All rights 
+reserved.</EM></A></P>
+</BODY>
+</FONT>
+</HTML>
+

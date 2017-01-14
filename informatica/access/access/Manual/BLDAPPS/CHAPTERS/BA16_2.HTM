@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>Registering an ActiveX Control</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba16_1.htm" OnClick="SyncURL(&quot;chapters/ba16_1.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<a NAME="3RegisteringanActiveXControl"></a>
+<p CLASS="heading3OrgHeading1h1">Registering an ActiveX Control</p>
+<p CLASS="Textttext">Some ActiveX controls are automatically registered with the operating system when the ActiveX control (.ocx) files are installed. If the ActiveX control is not automatically registered, then you need to register it before you can use it on a form.
+<p CLASS="Textttext">To determine whether an ActiveX control must be registered, open a form in Design view and click<span CLASS="ElementNameeln"> ActiveX Control</span> on the <span CLASS="ElementNameeln">Insert</span> menu to open the <span CLASS="ElementNameeln">Insert ActiveX Control</span> dialog box. If the control you want to use is included in the list, you can add it to a form. If it's not listed, you must register it first.</p>
+<p CLASS="heading9ListProcedureHeadinglproch"><span CLASS="ProcedureIconproci"><img SRC="../images/bluetri.jpg" ALIGN="LEFT" WIDTH="9" HEIGHT="17">&nbsp;&nbsp;&nbsp;</span>To register an ActiveX control</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">1</span>&nbsp;&nbsp;&amp;nbspOn the <span CLASS="ElementNameeln">Tools</span> menu, click <span CLASS="ElementNameeln">ActiveX Controls</span>.</p>
+<p CLASS="ListText1lt1">The <span CLASS="ElementNameeln">ActiveX Controls</span> dialog box appears.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">2</span>&nbsp;&nbsp;&amp;nbspIn the <span CLASS="ElementNameeln">Available Controls</span> list, click the ActiveX control you want to register.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">3</span>&nbsp;&nbsp;&amp;nbspClick <span CLASS="ElementNameeln">Register</span>.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">4</span>&nbsp;&nbsp;&amp;nbspIn the <span CLASS="ElementNameeln">Add ActiveX Control</span> dialog box, click the corresponding ActiveX control (.ocx) file, and then click <span CLASS="ElementNameeln">Open</span>.</p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="ba16_3.htm" OnClick="SyncURL(&quot;chapters/ba16_3.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

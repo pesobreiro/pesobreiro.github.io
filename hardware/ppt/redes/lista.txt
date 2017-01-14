@@ -1,0 +1,15 @@
+ Volume in drive D is Dados
+ Volume Serial Number is ACB5-8C7E
+
+ Directory of D:\Documentos\cursos\hardware e redes\pagina\ppt\redes
+
+11-12-2002  19:01       <DIR>          .
+11-12-2002  19:01       <DIR>          ..
+11-12-2002  18:57              171.209 IntranetWorking.pdf
+11-12-2002  18:58              829.974 IntroducaoRedes.pdf
+11-12-2002  18:58              125.682 Intro_Redes.pdf
+11-12-2002  19:01                    0 lista.txt
+11-12-2002  19:00              585.097 tcpip_Intro.pdf
+11-12-2002  18:57               46.839 Tcp_Udp.pdf
+               6 File(s)      1.758.801 bytes
+               2 Dir(s)   1.010.692.096 bytes free

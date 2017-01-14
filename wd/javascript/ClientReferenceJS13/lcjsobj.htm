@@ -1,0 +1,254 @@
+<HTML>
+<HEAD>
+<TITLE>
+</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="lcjsexc.htm">Previous</A>
+ | <A HREF="lcplugin.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT><BR><BR>
+<HR>
+
+<H1><A NAME="JSObject"></A>
+<A NAME="1193143">
+ JSObject
+</A></H1>
+<A NAME="1193144">
+The public final class <CODE>netscape.javascript.JSObject</CODE> extends <CODE>Object</CODE>.</A></P>
+<PRE><A NAME="1193145">java.lang.Object<br>&nbsp;&nbsp;&nbsp;|<br>&nbsp;&nbsp;&nbsp;+----netscape.javascript.JSObject</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193426">
+ Description
+</A></H4>
+
+<A NAME="1195346">
+JavaScript objects are wrapped in an instance of the class <CODE>netscape.javascript.JSObject</CODE> and passed to Java. <CODE>JSObject</CODE> allows Java to manipulate JavaScript objects.</A></P>
+<A NAME="1195303">
+When a JavaScript object is sent to Java, the runtime engine creates a Java wrapper of type <CODE>JSObject</CODE>; when a <CODE>JSObject</CODE> is sent from Java to JavaScript, the runtime engine unwraps it to its original JavaScript object type. The <CODE>JSObject</CODE> class provides a way to invoke JavaScript methods and examine JavaScript properties.</A></P>
+<A NAME="1195291">
+Any JavaScript data brought into Java is converted to Java data types. When the JSObject is passed back to JavaScript, the object is unwrapped and can be used by JavaScript code. See the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A> for more information about data type conversions.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193160">
+ Method Summary
+</A></H4>
+
+<A NAME="1193222">
+The <CODE>netscape.javascript.JSObject</CODE> class has the following methods:</A></P>
+<A NAME="1193778">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1193163">
+<B>Method
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1193165">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193170"><A HREF="lcjsobj.htm#1193239"><CODE>call</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193172">
+Calls a JavaScript method.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1194485"><A HREF="lcjsobj.htm#1194386"><CODE>equals</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1194487">
+Determines if two <CODE>JSObject</CODE> objects refer to the same instance.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193177"><A HREF="lcjsobj.htm#1193245"><CODE>eval</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193179">
+Evaluates a JavaScript expression.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193184"><A HREF="lcjsobj.htm#1193251"><CODE>getMember</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193186">
+Retrieves the value of a property of a JavaScript object.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193191"><A HREF="lcjsobj.htm#1193257"><CODE>getSlot</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193193">
+Retrieves the value of an array element of a JavaScript object.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193198"><A HREF="lcjsobj.htm#1193269"><CODE>removeMember</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193200">
+Removes a property of a JavaScript object.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193205"><A HREF="lcjsobj.htm#1193275"><CODE>setMember</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193207">
+Sets the value of a property of a JavaScript object.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193212"><A HREF="lcjsobj.htm#1193281"><CODE>setSlot</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193214">
+Sets the value of an array element of a JavaScript object.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193219"><A HREF="lcjsobj.htm#1193287"><CODE>toString</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193221">
+Converts a <CODE>JSObject</CODE> to a string.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+<A NAME="1193235">
+The <CODE>netscape.javascript.JSObject</CODE> class has the following static methods:</A></P>
+<A NAME="1193828">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1193225">
+<B>Method
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1193227">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193232"><A HREF="lcjsobj.htm#1193263"><CODE>getWindow</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193234">
+Gets a <CODE>JSObject</CODE> for the window containing the given applet.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+<A NAME="1193236">
+The following sections show the declaration and usage of these methods.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193239">
+call
+</A></H2>
+
+<A NAME="1193240">
+Method. Calls a JavaScript method. Equivalent to "<CODE>this.methodName(args[0], args[1], ...)</CODE>" in JavaScript.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193241">
+ Declaration
+</A></H4>
+
+<PRE><A NAME="1193242">public Object call(String methodName,<br>&nbsp;&nbsp;&nbsp;Object args[])</A></PRE>
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1194386">
+equals
+</A></H2>
+
+<A NAME="1194387">
+Method. Determines if two <CODE>JSObject</CODE> objects refer to the same instance.</A></P>
+<A NAME="1194388">
+Overrides: <CODE>equals</CODE> in class <CODE>java.lang.Object</CODE></A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194330">
+ Declaration
+</A></H4>
+
+<PRE><A NAME="1194293">public boolean equals(Object obj)</A></PRE>
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193245">
+eval
+</A></H2>
+
+<A NAME="1193246">
+Method. Evaluates a JavaScript expression. The expression is a string of JavaScript source code which will be evaluated in the context given by "this".</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193247">
+ Declaration
+</A></H4>
+
+<PRE><A NAME="1193248">public Object eval(String s)</A></PRE>
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193251">
+getMember
+</A></H2>
+
+<A NAME="1193252">
+Method. Retrieves the value of a property of a JavaScript object. Equivalent to "<CODE>this.name</CODE>" in JavaScript.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193253">
+ Declaration
+</A></H4>
+
+<PRE><A NAME="1193254">public Object getMember(String name)</A></PRE>
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193257">
+getSlot
+</A></H2>
+
+<A NAME="1193258">
+Method. Retrieves the value of an array element of a JavaScript object. Equivalent to "<CODE>this[index]</CODE>" in JavaScript.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193259">
+ Declaration
+</A></H4>
+
+<PRE><A NAME="1193260">public Object getSlot(int index)</A></PRE>
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193263">
+getWindow
+</A></H2>
+
+<A NAME="1193264">
+Static method. Returns a <CODE>JSObject</CODE> for the window containing the given applet. This method is useful in client-side JavaScript only.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193265">
+ Declaration
+</A></H4>
+
+<PRE><A NAME="1193266">public static JSObject getWindow(Applet applet)</A></PRE>
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193269">
+removeMember
+</A></H2>
+
+<A NAME="1193270">
+Method. Removes a property of a JavaScript object.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193271">
+ Declaration
+</A></H4>
+
+<PRE><A NAME="1193272">public void removeMember(String name)</A></PRE>
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193275">
+setMember
+</A></H2>
+
+<A NAME="1193276">
+Method. Sets the value of a property of a JavaScript object. Equivalent to "<CODE>this.name&nbsp;=&nbsp;value</CODE>" in JavaScript.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193277">
+ Declaration
+</A></H4>
+
+<PRE><A NAME="1193278">public void setMember(String name,<br>&nbsp;&nbsp;&nbsp;Object value)</A></PRE>
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193281">
+setSlot
+</A></H2>
+
+<A NAME="1193282">
+Method. Sets the value of an array element of a JavaScript object. Equivalent to "<CODE>this[index]&nbsp;=&nbsp;value</CODE>" in JavaScript.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193283">
+ Declaration
+</A></H4>
+
+<PRE><A NAME="1193284">public void setSlot(int index,<br>&nbsp;&nbsp;&nbsp;Object value)</A></PRE>
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193287">
+toString
+</A></H2>
+
+<A NAME="1193288">
+Method. Converts a <CODE>JSObject</CODE> to a <CODE>String</CODE>.</A></P>
+<A NAME="1193289">
+Overrides: <CODE>toString</CODE> in class <CODE>java.lang.Object</CODE></A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193290">
+ Declaration
+</A></H4>
+
+<PRE><A NAME="1193291">public String toString()</A></PRE>
+<HR>
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="lcjsexc.htm">Previous</A>
+ | <A HREF="lcplugin.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT>
+<P ALIGN=right>
+<FONT SIZE=-2><I>Last Updated:  05/28/99  12:01:19</I></FONT>
+<P> <CENTER>Copyright (c) 1999
+<A HREF="http://home.netscape.com/misc/contact_info.html"
+TARGET=_top>Netscape Communications Corporation</A></FONT>
+</CENTER>
+<P>
+</BODY>
+</HTML>
+
+

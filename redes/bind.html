@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+	<title>Bind</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<link rel="stylesheet" title="Default" href="../index.css">
+</head>
+<body>
+<h4>Como Instalar o Bind</h4>
+<h5>Pressupostos:</h5>
+  O nome do Dominio: redes.pt <br>
+  Ip de identificacao da rede: 195.60.168.0<br>
+Mascara: 255.255.255.128 </p> 
+<p> Servidor de dns: 195.60.168.50 (subdominio:ns1)<br>
+  Servidor de www: 195.60.168.50 (subdominio:www) </p>
+<p></p>
+<ol>
+  Passos a seguir para a instala&ccedil;&atilde;o do Bind:<br>
+  <ol>
+    <li> 1&ordm; Definir um ficheiro com o nome named.conf, que contem a informa&ccedil;&atilde;o 
+      para os ficheiros que v&atilde;o ser utilizados pelo servidor de DNS. </li>
+    <li> 2&ordm; Criar o ficheiro da zona(zone file) com o nome de &quot;redes.dns&quot; 
+      que ira conter as definicoes do dominio que estamos a configurar.</li>
+    <li> 3&ordm; Criar o ficheiro para o reverse da zona com o nome de &quot;0.168.60.195.in-addr.arpa.dns&quot; 
+      que contem as definicoes a resolucao IP-&gt;Nome</li>
+    <li> 4&ordm; Indicacao para resolucao por parte dos clientes do servidor de 
+      dns, que e definido no ficheiro &quot;resolv.conf&quot;</li>
+  </ol>
+</ol>
+<h5>Named.Conf</h5>
+<p># informacao relativamente a zona<br>
+  zone &quot;redes.pt&quot; {<br>
+  type master;<br>
+  file &quot;redes.dns&quot;;<br>
+  };</p>
+<p>zone &quot;168.60.195.in-addr.arpa&quot; in {<br>
+  type master;<br>
+  file &quot;168.60.195.in-addr.arpa.dns&quot;;<br>
+  };<br>
+</p>
+<h5>redes.dns</h5>
+<p>@ SOA ns1.redes.pt. root.ns1.redes.pt. (<br>
+  000001 ; serial number<br>
+  36000 ; refresh em 10 horas<br>
+  3600 ; retry em 1 hora<br>
+  3600000 ; expire em 42 dias<br>
+  360000 ; duracao minima de 100 horas<br>
+  )<br>
+  ; Informacao relativamente ao servidor de DNS<br>
+  IN NS ns1.redes.pt.<br>
+  IN NS www.redes.pt.</p>
+<p> IN A 195.60.168.50<br>
+  IN MX 100 mail</p>
+<p>localhost IN A 127.0.0.1</p>
+<p>; subs no redes</p>
+<p>ns1 IN A 195.60.168.50<br>
+  www IN CNAME ns1<br>
+  mail IN A 195.60.168.51<br>
+</p>
+<h5>resolv.conf</h5>
+<p>search redes.pt<br>
+  domain redes.pt<br>
+  # Redes<br>
+  nameserver 195.60.168.50</p>
+<p align="center"><a href="javascript:window.history.back()">Voltar</a></p>
+</body>
+</html>

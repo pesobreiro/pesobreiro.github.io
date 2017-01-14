@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>External Data Access Requirements</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba18_1.htm" OnClick="SyncURL(&quot;chapters/ba18_1.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<a NAME="3ExternalDataAccessRequirements"></a>
+<p CLASS="heading3OrgHeading1h1">External Data Access Requirements</p>
+<p CLASS="Textttext">Before you can connect your application to an external data source, you must make sure that the external data is accessible to your application's users and that your application is properly designed to handle external data source security challenges. You must also make sure that the installable ISAM or ODBC driver is correctly registered for the data source you want to access and that your application interacts correctly with case-sensitive data sources. Finally, you must check that your code doesn't use objects or methods that are specific to data sources that use Microsoft Jet when accessing data sources that don't use Microsoft Jet.</p>
+<a NAME="4AccessingDataOveraSecuredNetwork"></a>
+<p CLASS="heading4OrgHeading2h2">Accessing Data Over a Secured Network</p>
+<p CLASS="Textttext">As with any other resource on a network, your Microsoft Access application must have access to the server and the shared folder where the external data resides. You must determine if your application needs read-only or read/write permissions on the shared folder, and you should assign permissions according to your application's needs.
+<p CLASS="Textttext">In addition, you must make sure that your application has proper access to the data through the data source's security system. You can provide password information to the data source directly through Data Access Objects (DAO) when you make your connection.</p>
+<a NAME="4WindowsRegistrySettingsforInstallableISAMDrivers"></a>
+<p CLASS="heading4OrgHeading2h2">Windows Registry Settings for Installable ISAM Drivers</p>
+<p CLASS="Textttext">Each installable ISAM driver has a corresponding Windows Registry setting that configures the driver upon initialization. During the installation process for the installable ISAM drivers, the Microsoft Access Setup program creates keys in the Windows Registry for the following data sources:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspMicrosoft FoxPro, versions 2.0, 2.5, 2.6, 3.0, and DBC</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspdBASE III, dBASE IV, and dBASE version 5.0</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspParadox, versions 3<span CLASS="NewTermntrm">.x</span>, 4<span CLASS="NewTermntrm">.x</span>, and 5<span CLASS="NewTermntrm">.x</span></p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspMicrosoft Excel version 3.0, 4.0, 5.0, and 8.0 worksheets</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspLotus 1-2-3 WK1, WK3, and WKS spreadsheets</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspDelimited and fixed-width text files in tabular format</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspTabular data in HTML files</p>
+<p CLASS="Textttext">These settings are located in the <span CLASS="ElementNameeln">\HKEY_LOCAL_MACHINE\SOFTWARE \Microsoft\Jet\3.5\Engines</span> key and the <span CLASS="ElementNameeln">\HKEY_LOCAL_MACHINE \SOFTWARE \Microsoft\Jet\3.5\ISAM Formats</span> key of the Windows Registry. 
+<p CLASS="Textttext">Also during the installation process, the Setup program assigns a set of default values to each installable ISAM. Your application can alter these values to change the behavior of certain aspects of each driver. For example, you can select a collating sequence for the FoxPro installable ISAM that changes the case-sensitive behavior of the driver, as discussed in the following section.</p>
+<a NAME="4AccessingDatafromCaseSensitiveDataSources"></a>
+<p CLASS="heading4OrgHeading2h2">Accessing Data from Case-Sensitive Data Sources</p>
+<p CLASS="Textttext">Unlike databases that use Microsoft Jet, some desktop database products and database servers are case-sensitive by default; for example, Microsoft FoxPro, dBASE, and Paradox. You must design your application to support searching, querying, and other data access operations on external, case-sensitive data sources. In addition, you can configure some database servers that are accessible through ODBC as case-sensitive servers.
+<p CLASS="Textttext">If you need to search on a case-sensitive data source, you can design your queries by using OR clauses to capture all possible combinations (all uppercase, all lowercase, or each word capitalized). However, products that are typically case-sensitive are never case-sensitive in three instances:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspIf you're connecting to an Xbase database, such as Microsoft FoxPro or dBASE, check the value of the CollatingSequence setting in the <span CLASS="ElementNameeln">\HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Jet\3.5\Engines\Xbase</span> key of the Windows Registry. If this value is set to Ascii<span CLASS="ElementNameeln">,</span> all operations are case-sensitive; if it's set to International, no operations are case-sensitive.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspIf you're connecting to a Paradox database, check the value of the CollatingSequence setting in the <span CLASS="ElementNameeln">\HKEY_LOCAL_MACHINE\SOFTWARE \Microsoft\Jet\3.5\Engines\Paradox</span> key of the Windows Registry. If this value is set to Ascii, all operations are case-sensitive; if it's set to International, Norwegian-Danish, or Swedish-Finnish, no operations are case-sensitive. The value of the CollatingSequence setting for Paradox must match the collating sequence of the .db file that you want to open. If you have a .db file that was created using the Ascii collating sequence, setting the value of the CollatingSequence setting in the Windows Registry to International won't change the case sensitivity of operations.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspIf you're connecting to a database server through ODBC, the server's configuration determines whether it's case-sensitive. Check with your database server administrator to determine whether or not your server is configured as case-sensitive.</p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>If a query is based on more than one type of data source, the case sensitivity depends on the collating sequence of the database in which the query is stored.</p>
+<a NAME="4UnsupportedObjectsandMethods"></a>
+<p CLASS="heading4OrgHeading2h2">Unsupported Objects and Methods</p>
+<p CLASS="Textttext">DAO objects and methods intended for use only on databases that use Microsoft Jet aren't supported for use with external data sources that don't use Microsoft Jet. Unsupported objects and methods include:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&nbsp;<span CLASS="ElementNameeln">CompactDatabase </span>method</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&nbsp;<span CLASS="ElementNameeln">Container </span>object</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&nbsp;<span CLASS="ElementNameeln">CreateDatabase </span>method</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&nbsp;<span CLASS="ElementNameeln">CreateField</span> method (You can use this method on new tables, but you can't use it to expand tables with existing fields.)</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&nbsp;<span CLASS="ElementNameeln">CreateQueryDef</span> method</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&nbsp;<span CLASS="ElementNameeln">Document </span>object</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&nbsp;<span CLASS="ElementNameeln">QueryDef </span>object</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&nbsp;<span CLASS="ElementNameeln">Relation </span>object</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&nbsp;<span CLASS="ElementNameeln">RepairDatabase </span>method</p>
+<a NAME="4TransactionSupport"></a>
+<p CLASS="heading4OrgHeading2h2">Transaction Support</p>
+<p CLASS="Textttext">Although some methods and objects aren't supported for external data sources that don't use Microsoft Jet, some data sources do support transactions. The following table lists the transaction methods that are available on supported data sources.</p>
+<!--mstheme--></font><table WIDTH="100%" BORDER="0" CELLPADDING="5" CELLSPACING="0" FRAME="VOID" RULES="THEAD"><thead>
+<tr VALIGN="TOP" BGCOLOR="#DDDDDD">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Transaction method</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Description</p></font><!--mstheme--></font></td></tr><tbody>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">BeginTrans</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Begins a transaction on the selected data source.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">CommitTrans</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Completes a transaction on the selected data source by saving changes.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Rollback</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Completes a transaction on the selected data source without saving changes.</p></font><!--mstheme--></font></td></tr>
+</table><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span><span CLASS="EmSpaceems">For more information on transactions and these transaction methods, see <a HREF="../chapters/ba09_1.htm#4MicrosoftJetTransactions" OnClick="SyncURL(&quot;chapters/ba09_1.htm&quot;)">&quot;Microsoft Jet Transactions&quot;</a> in Chapter 9, &quot;Working with Records and Fields&quot; or search the Help index for the name of the method.</span></p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="ba18_3.htm" OnClick="SyncURL(&quot;chapters/ba18_3.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

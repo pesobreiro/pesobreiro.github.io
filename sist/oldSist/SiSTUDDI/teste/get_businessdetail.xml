@@ -1,0 +1,7 @@
+﻿<s:Envelope xmlns:s='http://schemas.xmlsoap.org/soap/envelope/'>
+<s:Body>
+<get_businessDetail generic="2.0" xmlns="urn:uddi-org:api_v2" >
+	<businessKey>068438BA-1116-4603-A4E3-0E16326512A7</businessKey>
+</get_businessDetail>
+</s:Body>
+</s:Envelope>

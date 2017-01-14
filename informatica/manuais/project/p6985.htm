@@ -1,0 +1,79 @@
+<!doctype html public" -//IETF//DTD 	HTML//EN">
+<HTML>
+
+<HEAD>
+<SCRIPT LANGUAGE="JAVASCRIPT">
+<!-- 
+
+function checkbrowse()
+{
+var bn, bv, ver
+bn = navigator.appName;
+bv = parseInt(navigator.appVersion);
+if (bn=="Microsoft Internet Explorer" && bv<"4") ver = "IE3";
+else ver = "NotIE3";
+if (ver=="IE3") top.cont.parts.location.href="part06.htm";
+if (ver=="NotIE3") top.cont.parts.location.href="nav/part06.htm";
+}
+//-->
+</SCRIPT>
+<TITLE>Constrain a Task to Start or Finish On or Near a Specific Date</TITLE>
+<META NAME="GENERATOR" 	CONTENT="Merch. System HTML Development">
+<META NAME="AUTHOR" 	CONTENT="Merch. System HTML Development">
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" OnLoad="checkbrowse();">
+<Font Face ="Verdana, Arial, Helvetica">
+
+<P align=right><SMALL>
+<A HREF="p6984.htm" Target="TOC"><IMG SRC="prev.gif"ALT="Previous page"BORDER=0></A>
+<A HREF="p6981.htm" Target="TOC"><IMG SRC="toc06.gif"ALT="Contents"BORDER=0></A>
+<A HREF="p6986.htm" Target="TOC"><IMG SRC="Next.gif"ALT="Next 
+page"BORDER=0></A></SMALL></P>
+<H2>Constrain a Task to Start or Finish On or Near a Specific Date</H2>
+
+<P>
+If a task must start or finish on or near a specific date, just linking tasks and adding lead or lag time might not 
+do the trick. This may be the time to set a constraint. The type of constraint you set for a task depends on the 
+task’s scheduling requirements. 
+<P>
+<B><B><img src="bluetri.gif">	To set a constraint</B></B>
+<OL><LI>On the <B>View Bar</B>, click <B>Gantt Chart</B> <img src="gant.gif">.
+<LI>In the <B>Task Name</B> field, select the task you want, and then click <B>Task Information</B> <img 
+src="info.gif">.
+<LI>Click the <B>Advanced</B> tab.
+<LI>In the <B>Type</B> box, click a constraint type.
+<LI>If you selected a constraint other than <B>As Late As Possible</B> or <B>As Soon As Possible</B>, 
+click a constraint date in the <B>Date</B> box. (Otherwise, Microsoft Project uses the task’s current start or 
+finish date.)
+<BR>Microsoft Project adds the constraint and recalculates the schedule.
+</OL>
+</BOTTOM>
+<BR>It’s also a good idea to check the necessity of your constraints occasionally.
+<P>
+<B><B><img src="bluetri.gif">	To check a constraint</B></B>
+<OL><LI>On the <B>View Bar</B>, click <B>Gantt Chart</B> <img src="gant.gif">.
+<LI>On the <B>View</B> menu, point to <B>Table</B>, and then click <B>More Tables</B>.
+<LI>In the <B>Tables</B> list, click <B>Constraint Dates</B>.
+<LI>Click <B>Apply</B>.
+</OL>
+</BOTTOM>
+
+<P>Microsoft Project replaces the fields in the Gantt Chart view, listing the task constraints. If necessary, 
+scroll to see the fields.
+<P>
+<P>
+<B><FONT COLOR=0000ff><B>Warning: Dragging in Constraints</B></FONT></B>
+<BR>If you create a task by dragging on the Gantt Chart or Calendar, Microsoft Project imposes a constraint 
+date on the task. A constraint is also applied if you drag a task bar to move a task on the Gantt Chart or 
+Calendar. Microsoft Project assumes that because you’re dragging a certain date, you’re indicating a start or 
+finish date for the task. The constraint imposed is Start No Earlier Than or Finish No Earlier Than, depending 
+on where you start and finish dragging. Microsoft Project imposes the same constraint types when you type a 
+start or finish date for a task.
+<P>
+<P align = Center > <A HREF="http://www.microsoft.com/misc/cpyright.htm"><EM>&#169;1996-1997 Microsoft Corporation. All rights 
+reserved.</EM></A></P>
+</BODY>
+</FONT>
+</HTML>
+

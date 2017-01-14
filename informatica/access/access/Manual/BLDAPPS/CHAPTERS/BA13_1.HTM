@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>CHAPTER 13</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba12_2.htm" OnClick="SyncURL(&quot;chapters/ba12_2.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<p CLASS="heading2ChapterNumberAppendixLetterchn">CHAPTER&nbsp; 13</p>
+<p CLASS="ChapterAppendixTitlecht">Optimizing Your Application</p>
+<p CLASS="ChapterSummaryTextchsum">When your application performs at its best, your users get more work done with less frustration. As you create larger and more sophisticated applications, the amount of memory your applications use and the speed with which they run become more significant. You may decide you need to optimize your application by making it smaller and by speeding up calculations and displays. This chapter presents optimization techniques you can use to make your application smaller and faster.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on improving performance, search the Help index for &quot;optimization.&quot; For information on the performance of client/server applications, see Chapter 19, <a HREF="../chapters/ba19_1.htm" OnClick="SyncURL(&quot;chapters/ba19_1.htm&quot;)">&quot;Developing Client/Server Applications.&quot;</a>
+<a NAME="3OptimizingYourMicrosoftAccessEnvironment"></a>
+<p CLASS="heading3OrgHeading1h1">Optimizing Your Microsoft Access Environment</p>
+<p CLASS="Textttext">The faster Microsoft Access runs, the faster your application runs, too. You can significantly improve your application's performance by making sure that Microsoft Access has the memory it requires and that it uses memory efficiently for the types of operations your application performs. This is true whether your application runs under full Microsoft Access or as a Microsoft Access run-time application.
+<p CLASS="Textttext">This section suggests ways to configure your computer and Microsoft Access for best use of memory. If you don't control the configuration of your application users' computers, you may want to pass some of these suggestions on to them when you deliver your application.</p>
+<a NAME="6IncreaseRAM"></a>
+<p CLASS="heading6OrgHeading4h4">Increase RAM</p>
+<p CLASS="Textttext">Because database operations are faster when Microsoft Access can perform them in random-access memory (RAM), the performance of Microsoft Access depends largely on the amount of RAM available. To run by itself, Microsoft Access requires a minimum of 12 megabytes (MB) of RAM for Windows, or 16 MB of RAM for Windows NT Workstation. The amount of memory Microsoft Access needs to run at top speed depends on a variety of factors, such as how many other applications are running at the same time and what types of operations your application performs. When other applications are competing for memory, you can usually improve performance significantly by running with more than the required amount. Similarly, if your Microsoft Access application uses Automation to work with another application's objects, you can improve the performance of your application by running with more RAM. When running with 32 MB or more of RAM, you may be able to increase performance by adjusting the MaxBufferSize setting in the Windows Registry. Make sure that you aren't using any of your RAM for a RAM drive.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on the MaxBufferSize setting, see <a HREF="../chapters/ba13_2.htm#6MaxBufferSize" OnClick="SyncURL(&quot;chapters/ba13_2.htm&quot;)">&quot;MaxBufferSize&quot;</a> later in this chapter.</p>
+<a NAME="6OptimizeVirtualMemoryUse"></a>
+<p CLASS="heading6OrgHeading4h4">Optimize Virtual Memory Use</p>
+<p CLASS="Textttext">With<span CLASS="NewTermntrm"> virtual memory</span>, an application sees a large, continuous block of primary memory (RAM) that, in reality, is a much smaller block of primary memory supplemented by secondary memory (such as a hard disk). To temporarily free up space in RAM, blocks of data (called <span CLASS="NewTermntrm">pages</span>) are moved between RAM and a <span CLASS="NewTermntrm">swap file</span> located on the hard disk.
+<p CLASS="Textttext">By default, the Windows 95 swap file is dynamic, so it can shrink or grow based on available disk space and the operations performed on the system. Also, the swap file can occupy a fragmented region of the hard disk with no substantial performance penalty. A dynamic swap file is usually the most efficient use of resources. The simplest way to ensure high virtual memory performance is to make sure that the disk containing the swap file has ample free space so that the swap file size can shrink and grow as needed.
+<p CLASS="Textttext">In Windows 3.<span CLASS="NewTermntrm">x</span>, enhancing performance by changing virtual memory settings is quite common. Because the Windows 95 swap file is dynamic, the need to change virtual memory settings is less common. However, in some situations adjusting virtual memory settings can improve performance. If you've already tried deleting unnecessary files, and you still have a performance problem, try changing the Windows 95 default virtual memory settings.
+<p CLASS="Textttext">If you have more than one drive available, you may get better performance if you specify that Windows locate the swap file on a drive other than the default in the following cases:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspIf the default drive doesn't have much free disk space, and another local drive has space available. </p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspIf another local drive is available that is faster than the current drive (unless that disk is already heavily used). </p>
+<p CLASS="Textttext">You also may get better performance if you specify the minimum disk space available for virtual memory to be at least 25 MB minus available RAM. For example, if your computer has 12 MB of RAM, you should specify at least 13 MB of virtual memory. You may want to specify more if you are running several large applications.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For information on changing Windows 95 virtual memory settings, search the Windows 95 Help index for &quot;virtual memory settings.&quot;</p>
+<a NAME="6CompactYourdatabaseanddefragmentyourharddisk"></a>
+<p CLASS="heading6OrgHeading4h4">Compact Your Database and Defragment Your Hard Disk</p>
+<p CLASS="Textttext">Each time you add or update data, your database grows. But when you delete data, the database doesn't automatically get smaller. Microsoft Access makes empty data pages available for reuse after you close a database, so the next time you open the database they are available to be filled with new records. If left unused, empty data pages remain in the database until you compact it. Compacting the database frees unused disk space, makes all data pages contiguous, and, if a primary key is defined for a table, saves its records in primary key order. For databases in which records are frequently added, deleted, and updated, you should compact frequently.</p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>If your database is a replica, you must compact it twice to reclaim all available space. Additionally, if your database is the Design Master in a replica set, you must take certain precautions when compacting it to prevent it from losing its Design Master status. For more information on replication, see Chapter 20, <a HREF="../chapters/ba20_1.htm" OnClick="SyncURL(&quot;chapters/ba20_1.htm&quot;)">&quot;Using Replication in Your Application.&quot;</a></p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on compacting databases, see <a HREF="../chapters/ba15_5.htm#4CompactingaDatabase" OnClick="SyncURL(&quot;chapters/ba15_5.htm&quot;)">&quot;Compacting a Database&quot;</a> in Chapter 15, &quot;Delivering Your Application.&quot;</p>
+<p CLASS="Textttext">In addition, you should occasionally use a utility such as the Windows Disk Defragmenter to defragment the hard disk after you compact it. This increases efficiency by making your database file contiguous on the hard disk.</p>
+<a NAME="6Dontusewallpaperonalowmemorycomputer"></a>
+<p CLASS="heading6OrgHeading4h4">Don't Use Wallpaper on a Low-Memory Computer</p>
+<p CLASS="Textttext">If you have a wallpaper (full-screen background) bitmap on your Windows desktop and don't have memory to spare, replace your wallpaper with a solid color or pattern bitmap, or don't use a bitmap.</p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="ba13_2.htm" OnClick="SyncURL(&quot;chapters/ba13_2.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

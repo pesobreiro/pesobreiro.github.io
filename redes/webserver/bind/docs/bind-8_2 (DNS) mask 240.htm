@@ -1,0 +1,255 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0055)http://www.rim.edu.bt/manual/linux/config/bind-8.2.html -->
+<HTML><HEAD><TITLE>bind-8.2 (DNS)</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252"><LINK 
+href="bind-8_2 (DNS) mask 240_ficheiros/css0.css" type=text/css rel=stylesheet>
+<META content="MSHTML 6.00.2713.1100" name=GENERATOR></HEAD>
+<BODY>
+<H1>bind-8.2 (DNS)</H1><!-******************** HEADER ********************><A 
+name="Example Network">
+<H2>Example Network</H2>
+<TABLE align=center>
+  <CAPTION>Sample Network</CAPTION>
+  <TBODY>
+  <TR>
+    <TH>Domain Name </TH>
+    <TD>rim.edu.bt </TD>
+  <TR>
+    <TH>Network Address </TH>
+    <TD>202.144.157.208 </TD>
+  <TR>
+    <TH>Subnet Mask </TH>
+    <TD>255.255.255.240 </TD></TR></TBODY></TABLE>
+<TABLE align=center>
+  <CAPTION>Hosts</CAPTION>
+  <TBODY>
+  <TR>
+    <TH>Host Name </TH>
+    <TH>IP Address </TH>
+  <TR>
+    <TH>ns1 (Master DNS),<BR>pop3, smtp, news</TH>
+    <TD>202.144.157.209 </TD>
+  <TR>
+    <TH>www (Slave DNS),<BR>ns1, ftp, ntp</TH>
+    <TD>202.144.157.210 </TD>
+  <TR>
+    <TH>www (Multi Home Host)</TH>
+    <TD>192.168.1.1</TD>
+  <TR>
+    <TH colSpan=2>Round Robin</TH>
+  <TR>
+    <TH>proxy</TH>
+    <TD>202.144.157.212 </TD>
+  <TR>
+    <TH>proxy</TH>
+    <TD>202.144.157.213 </TD></TR></TBODY></TABLE><!-******************** HEADER ********************><A 
+name="Location of setting files">
+<H2>Location of setting files</H2>
+<TABLE align=center>
+  <CAPTION>Files</CAPTION>
+  <TBODY>
+  <TR>
+    <TH>Path 
+    <TH>
+  <TR>
+    <TD>/etc/resolv.conf 
+    <TD>Setting files for Client 
+  <TR>
+    <TD>/etc/named.conf 
+    <TD>Setting files for DNS server 
+  <TR>
+    <TD>/var/named/rim.zone 
+    <TD>Zone file 
+  <TR>
+    <TD>/var/named/202.144.157.208.zone 
+    <TD>Reverse zone file </TR></TBODY></TABLE><!-******************** HEADER ********************><A 
+name=Configure>
+<H2>Configure</H2>
+<LI>/etc/named.conf for <B>Master DNS</B><BR>
+<BLOCKQUOTE><PRE>options {
+	directory "/var/named";
+};
+
+zone "0.0.127.in-addr.arpa" {
+	type master;
+	file "named.local";
+};
+
+zone "localhost" {
+	type master;
+	file "localhost";
+};
+
+zone "." {
+	type hint;
+	file "named.ca";
+};
+<B>
+# Master Zone File
+zone "rim.edu.bt" {
+	type master;
+	file "rim.zone";
+};
+
+zone "208.157.144.202.in-addr.arpa" {
+	type master;
+	file "202.144.157.208.zone";
+};</B>
+</PRE></BLOCKQUOTE>
+<LI>/etc/named.conf for <B>Slave DNS</B><BR><BR>
+<BLOCKQUOTE><PRE>options {
+        directory "/var/named";
+};
+
+zone "0.0.127.in-addr.arpa" {
+        type master;
+        file "named.local";
+};
+
+zone "." {
+        type hint;
+        file "named.ca";
+};
+
+
+zone "localhost" {
+        type master;
+        file "localhost";
+};
+<B>
+zone "rim.edu.bt" {
+        type slave;
+        file "rim.zone";
+        masters {202.144.157.209;};
+};
+
+zone "157.144.202.in-addr.arpa" {
+        type slave;
+        file "202.144.157.208.zone";
+        masters {202.144.157.209;};
+};
+</B>
+
+</PRE></BLOCKQUOTE>
+<LI>/var/named/rim.zone 
+<BLOCKQUOTE><PRE>@      SOA     ns1.rim.edu.bt. root.ns1.rim.edu.bt. (
+                        2000091504      ; serial number
+                        36000           ; refresh 10 hours
+                        3600            ; retry   1  hour
+                        3600000         ; expire  42 days
+                        360000          ; minimum 100 hours
+                        )
+; Name Server
+                IN      NS      ns1.rim.edu.bt.
+                IN      NS      www.rim.edu.bt.
+
+                IN      A       202.144.157.209
+                IN      MX      10 ns1.rim.edu.bt.
+                IN      MX      20 www.rim.edu.bt.
+
+localhost       IN      A       127.0.0.1
+loghost         IN      CNAME   localhost
+
+; Multi Home Host
+ns1             IN      A       202.144.157.209
+pop3            IN      CNAME   ns1
+smtp            IN      CNAME   ns1
+news            IN      CNAME   ns1
+;               IN      HINFO   INTEL Linux BOX
+
+; Round Robin
+proxy           IN      A       202.144.157.212
+proxy           IN      A       202.144.157.213
+
+; Multi Home Host
+www             IN      A       192.168.1.1
+www             IN      A       202.144.157.210
+ns2             IN      CNAME   www
+ftp             IN      CNAME   www
+ntp             IN      CNAME   www
+;               IN      HINFO   INTEL Linux BOX
+
+gw-rim          IN      A       202.144.157.222
+;               IN      HINFO   ROUTER CISCO 1600
+
+</PRE></BLOCKQUOTE>
+<LI>/var/named/192.168.1.0.zone (Reverse mapping file) 
+<BLOCKQUOTE><PRE>@               IN      SOA     ns1.rim.edu.bt. root.ns1.rim.edu.bt. (
+                        2000091506 ; serial
+                        36000 ; refresh
+                        3600 ; retry
+                        3600000 ; expire
+                        360000 ; default_ttl
+                        )
+@               IN      PTR     rim.edu.bt.
+@               IN      A       255.255.255.240
+208             IN      PTR     rim-net.rim.edu.bt.
+209             IN      PTR     ns1.rim.edu.bt.
+210             IN      PTR     www.rim.edu.bt.
+212             IN      PTR     proxy.rim.edu.bt.
+213             IN      PTR     proxy.rim.edu.bt.
+222             IN      PTR     gw-rim.rim.edu.bt.
+</PRE></BLOCKQUOTE><!-******************** HEADER ********************><A 
+name="Setting for DNS Client">
+<H2>Setting for DNS Client</H2>
+<LI>/etc/resolv.conf 
+<BLOCKQUOTE><PRE>search rim.edu.bt
+domain rim.edu.bt
+# RIM
+nameserver 202.144.157.209
+nameserver 202.144.157.210
+</PRE></BLOCKQUOTE><!-******************** HEADER ********************><A 
+name="How to start">
+<H2>How to start</H2>
+<BLOCKQUOTE><PRE># /etc/rc.d/init.d/named restart
+</PRE></BLOCKQUOTE><!-******************** HEADER ********************><A 
+name="How to check">
+<H2>How to check</H2>
+<LI>[<B>nslookup</B>] command 
+<BLOCKQUOTE><PRE>nslookup <B>Host Name</B>
+nslookup <B>IP Address</B>
+nslookup -q <B>Domain Name</B>
+nslookup -q=ns <B>Domain Name</B>
+</PRE></BLOCKQUOTE>
+<LI>How to check 
+<BLOCKQUOTE><PRE>[root@ns1 /etc]# <B>nslookup</B>
+Default Server:  ns1.rim.edu.bt
+Address:  202.144.157.209
+
+&gt; <B>ns1</B>
+Server:  ns1.rim.edu.bt
+Address:  202.144.157.209
+
+Name:    ns1.rim.edu.bt
+Address:  202.144.157.209
+
+&gt; <B>www</B>
+Server:  ns1.rim.edu.bt
+Address:  202.144.157.209
+
+Name:    www.rim.edu.bt
+Addresses:  192.168.1.1, 202.144.157.210
+
+&gt; <B>proxy</B>
+Server:  ns1.rim.edu.bt
+Address:  202.144.157.209
+
+Name:    proxy.rim.edu.bt
+Addresses:  202.144.157.212, 202.144.157.213
+
+&gt; <B>set type=mx</B>
+&gt; <B>rim.edu.bt</B>
+Server:  ns1.rim.edu.bt
+Address:  202.144.157.209
+
+rim.edu.bt      preference = 10, mail exchanger = ns1.rim.edu.bt
+rim.edu.bt      preference = 20, mail exchanger = www.rim.edu.bt
+rim.edu.bt      nameserver = ns1.rim.edu.bt
+rim.edu.bt      nameserver = www.rim.edu.bt
+ns1.rim.edu.bt  internet address = 202.144.157.209
+www.rim.edu.bt  internet address = 192.168.1.1
+www.rim.edu.bt  internet address = 202.144.157.210
+</PRE></BLOCKQUOTE>
+<HR>
+<A href="http://www.rim.edu.bt/manual/linux/index.html">Back</A> 
+</LI></BODY></HTML>

@@ -1,0 +1,259 @@
+<HTML>
+<HEAD>
+<TITLE>
+</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="option.htm">Previous</A>
+ | <A HREF="password.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT><BR><BR>
+<HR>
+
+<H1><A NAME="Packages"></A>
+<A NAME="1193137">
+ Packages
+</A></H1>
+<A NAME="1193151">
+A top-level object used to access Java classes from within JavaScript code.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193140">
+<I>Core object</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193142">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193144">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193146">
+JavaScript 1.1, NES 2.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193152">
+ Created by
+</A></H4>
+
+<A NAME="1193153">
+The <CODE>Packages</CODE> object is a top-level, predefined JavaScript object. You can automatically access it without using a constructor or calling a method.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193162">
+ Description
+</A></H4>
+
+<A NAME="1193168">
+The <CODE>Packages</CODE> object lets you access the public methods and fields of an arbitrary Java class from within JavaScript. The <CODE>java</CODE>, <CODE>netscape</CODE>, and <CODE>sun</CODE> properties represent the packages java.*, netscape.*, and sun.* respectively. Use standard Java dot notation to access the classes, methods, and fields in these packages. For example, you can access a constructor of the <CODE>Frame</CODE> class as follows:</A></P>
+<PRE><A NAME="1195024">var theFrame = new Packages.java.awt.Frame();</A></PRE><A NAME="1195010">
+For convenience, JavaScript provides the top-level <CODE>netscape</CODE>, <CODE>sun</CODE>, and <CODE>java</CODE> objects that are synonyms for the <CODE>Packages</CODE> properties with the same names. Consequently, you can access Java classes in these packages without the Packages keyword, as follows:</A></P>
+<PRE><A NAME="1195072">var theFrame = new java.awt.Frame();</A></PRE><A NAME="1195041">
+The <CODE>className</CODE> property represents the fully qualified path name of any other Java class that is available to JavaScript. You must use the <CODE>Packages</CODE> object to access classes outside the <CODE>netscape</CODE>, <CODE>sun</CODE>, and <CODE>java</CODE> packages.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193174">
+ Property Summary
+</A></H4>
+
+<A NAME="1193187">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1193177">
+<B>Property
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1193179">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1194662"><A HREF="packages.htm#1194741"><CODE>className</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1194664">
+The fully qualified name of a Java class in a package other than netscape, java, or sun that is available to JavaScript.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1194642"><A HREF="packages.htm#1194831"><CODE>java</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1194644">
+Any class in the Java package java.*.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1194650"><A HREF="packages.htm#1194854"><CODE>netscape</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1194652">
+Any class in the Java package netscape.*.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193184"><A HREF="packages.htm#1194880"><CODE>sun</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193186">
+Any class in the Java package sun.*.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193209">
+ Examples
+</A></H4>
+
+<PRE><A NAME="1194739">The following JavaScript function creates a Java dialog box:</A></PRE><PRE><A NAME="1195233">function createWindow() {<br>&nbsp;&nbsp;&nbsp;var theOwner = new Packages.java.awt.Frame();<br>&nbsp;&nbsp;&nbsp;var theWindow = new Packages.java.awt.Dialog(theOwner);<br>&nbsp;&nbsp;&nbsp;theWindow.setSize(350,200);<br>&nbsp;&nbsp;&nbsp;theWindow.setTitle("Hello, World");<br>&nbsp;&nbsp;&nbsp;theWindow.setVisible(true);<br>}</A></PRE><A NAME="1195227">
+In the previous example, the function instantiates <CODE>theWindow</CODE> as a new <CODE>Packages</CODE> object. The <CODE>setSize</CODE>, <CODE>setTitle</CODE>, and <CODE>setVisible</CODE> methods are all available to JavaScript as public methods of <CODE>java.awt.Dialog</CODE>.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1194741">
+className
+</A></H2>
+
+<A NAME="1195314">
+The fully qualified name of a Java class in a package other than <CODE>netscape</CODE>, <CODE>java</CODE>, or <CODE>sun</CODE> that is available to JavaScript.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194748">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194753">
+<A HREF="packages.htm#1193137"><CODE>Packages</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194755">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194757">
+JavaScript 1.1, NES 2.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195384">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1195385">Packages.<I>className</I></A></PRE><A NAME="1197207">
+where <I><CODE>classname</CODE></I> is the fully qualified name of a Java class.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195394">
+ Description
+</A></H4>
+
+<A NAME="1195361">
+You must use the <I><CODE>className</CODE></I> property of the <CODE>Packages</CODE> object to access classes outside the <CODE>netscape</CODE>, <CODE>sun</CODE>, and <CODE>java</CODE> packages.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195349">
+ Examples
+</A></H4>
+
+<A NAME="1195367">
+The following code accesses the constructor of the <CODE>CorbaObject</CODE> class in the <CODE>myCompany</CODE> package from JavaScript:</A></P>
+<PRE><A NAME="1195368">var theObject = new Packages.myCompany.CorbaObject()</A></PRE><A NAME="1195468">
+In the previous example, the value of the <I><CODE>className</CODE></I> property is <CODE>myCompany.CorbaObject,</CODE> the fully qualified path name of the <CODE>CorbaObject</CODE> class.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1194831">
+java
+</A></H2>
+
+<A NAME="1194844">
+Any class in the Java package <CODE>java.*</CODE>.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194834">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194839">
+<A HREF="packages.htm#1193137"><CODE>Packages</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194841">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194843">
+JavaScript 1.1, NES 2.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195508">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1195509">Packages.java</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1195510">
+ Description
+</A></H4>
+
+<A NAME="1195511">
+Use the <CODE>java</CODE> property to access any class in the <CODE>java</CODE> package from within JavaScript. Note that the top-level object <CODE>java</CODE> is a synonym for <CODE>Packages.java</CODE>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195512">
+ Examples
+</A></H4>
+
+<PRE><A NAME="1195562">The following code accesses the constructor of the <CODE>java.awt.Frame</CODE> class:</A></PRE><PRE><A NAME="1195563">var theOwner = new Packages.java.awt.Frame();</A></PRE><A NAME="1195595">
+You can simplify this code by using the top-level java object to access the constructor as follows:</A></P>
+<PRE><A NAME="1195604">var theOwner = new java.awt.Frame();</A></PRE>
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1194854">
+netscape
+</A></H2>
+
+<A NAME="1194867">
+Any class in the Java package <CODE>netscape.*</CODE>.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194857">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194862">
+<A HREF="packages.htm#1193137"><CODE>Packages</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194864">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194866">
+JavaScript 1.1, NES 2.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195616">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1195617">Packages.netscape</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1195618">
+ Description
+</A></H4>
+
+<A NAME="1195619">
+Use the <CODE>netscape</CODE> property to access any class in the <CODE>netscape</CODE> package from within JavaScript. Note that the top-level object <CODE>netscape</CODE> is a synonym for <CODE>Packages.netscape</CODE>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195620">
+ Examples
+</A></H4>
+
+<PRE><A NAME="1195621">See the example for <A HREF="packages.htm#1194831">.</A><A HREF="packages.htm#1194831"><CODE>Packages.java</CODE></A></A></PRE>
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1194880">
+sun
+</A></H2>
+
+<A NAME="1194893">
+Any class in the Java package <CODE>sun.*</CODE>.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194883">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194888">
+<A HREF="packages.htm#1193137"><CODE>Packages</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194890">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194892">
+JavaScript 1.1, NES 2.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195658">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1195659">Packages.sun</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1195660">
+ Description
+</A></H4>
+
+<A NAME="1195661">
+Use the <CODE>sun</CODE> property to access any class in the <CODE>sun</CODE> package from within JavaScript. Note that the top-level object <CODE>sun</CODE> is a synonym for <CODE>Packages.sun</CODE>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195662">
+ Examples
+</A></H4>
+
+<PRE><A NAME="1195669">See the example for <A HREF="packages.htm#1194831">.</A><A HREF="packages.htm#1194831"><CODE>Packages.java</CODE></A></A></PRE>
+<HR>
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="option.htm">Previous</A>
+ | <A HREF="password.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT>
+<P ALIGN=right>
+<FONT SIZE=-2><I>Last Updated:  05/28/99  12:00:08</I></FONT>
+<P> <CENTER>Copyright (c) 1999
+<A HREF="http://home.netscape.com/misc/contact_info.html"
+TARGET=_top>Netscape Communications Corporation</A></FONT>
+</CENTER>
+<P>
+</BODY>
+</HTML>
+
+

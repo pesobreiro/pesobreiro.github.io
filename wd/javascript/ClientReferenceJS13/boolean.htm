@@ -1,0 +1,376 @@
+<HTML>
+<HEAD>
+<TITLE>
+</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="array.htm">Previous</A>
+ | <A HREF="button.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT><BR><BR>
+<HR>
+
+<H1><A NAME="Boolean"></A>
+<A NAME="1193137">
+ Boolean
+</A></H1>
+<A NAME="1193151">
+The <CODE>Boolean</CODE> object is an object wrapper for a boolean value.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193140">
+<I>Core object</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193142">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193144">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193146">
+JavaScript 1.1, NES 2.0</A></P><P><A NAME="1193627">
+</A></P><P><A NAME="1193150">
+JavaScript 1.3: added <A HREF="boolean.htm#1193426"><CODE>toSource</CODE></A> method</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193978">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193980">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193152">
+ Created by
+</A></H4>
+
+<A NAME="1193153">
+The <CODE>Boolean</CODE> constructor:</A></P>
+<PRE><A NAME="1193154">new Boolean(<I>value</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193155">
+ Parameters
+</A></H4>
+
+<A NAME="1193161">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193158">value</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193160">
+The initial value of the <CODE>Boolean</CODE> object. The value is converted to a <CODE>boolean</CODE> value, if necessary. If value is omitted or is 0, -0, null, false, <CODE>NaN</CODE>, undefined, or the empty string (<CODE>""</CODE>), the object has an initial value of false. All other values, including any object or the string <CODE>"false"</CODE>, create an object with an initial value of true.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193162">
+ Description
+</A></H4>
+
+<A NAME="1196612">
+Do not confuse the primitive Boolean values true and false with the true and false values of the Boolean object.</A></P>
+<A NAME="1197914">
+Any object whose value is not <CODE>undefined</CODE> or <CODE>null</CODE>, including a Boolean object whose value is false, evaluates to true when passed to a conditional statement. For example, the condition in the following <CODE>if</CODE> statement evaluates to <CODE>true</CODE>:</A></P>
+<PRE><A NAME="1196613">x = new Boolean(false);<br>if(x) //the condition is true</A></PRE><A NAME="1196614">
+This behavior does not apply to Boolean primitives. For example, the condition in the following <CODE>if</CODE> statement evaluates to <CODE>false</CODE>:</A></P>
+<PRE><A NAME="1196615">x = false;<br>if(x) //the condition is false</A></PRE><A NAME="1193163">
+Do not use a <CODE>Boolean</CODE> object to convert a non-boolean value to a boolean value. Instead, use Boolean as a function to perform this task:</A></P>
+<PRE><A NAME="1196744">x = Boolean(expression) //preferred<br>x = new Boolean(expression) //don't use</A></PRE><A NAME="1196721">
+If you specify any object, including a Boolean object whose value is false, as the initial value of a Boolean object, the new Boolean object has a value of true.</A></P>
+<PRE><A NAME="1196240">myFalse=new Boolean(false) &nbsp;&nbsp;// initial value of false<br>g=new Boolean(myFalse) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//initial value of true<br>myString=new String("Hello") // string object<br>s=new Boolean(myString) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//initial value of true</A></PRE><A NAME="1196210">
+In JavaScript 1.3 and later versions, do not use a Boolean object in place of a Boolean primitive.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193171">
+ Backward Compatibility
+</A></H4>
+
+<B><A NAME="HeadRunIn;"></A>
+<A NAME="1193172">
+JavaScript 1.2 and earlier versions. </A></B><A NAME="1193173">
+When a <CODE>Boolean</CODE> object is used as the condition in a conditional test, JavaScript returns the value of the <CODE>Boolean</CODE> object. For example, a <CODE>Boolean</CODE> object whose value is false is treated as the primitive value false, and a <CODE>Boolean</CODE> object whose value is true is treated as the primitive value <CODE>true</CODE> in conditional tests. If the <CODE>Boolean</CODE> object is a <CODE>false</CODE> object, the conditional statement evaluates to <CODE>false</CODE>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193174">
+ Property Summary
+</A></H4>
+
+<A NAME="1193187">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1193177">
+<B>Property
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1193179">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1195491"><A HREF="boolean.htm#1195419"><CODE>constructor</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1195493">
+Specifies the function that creates an object's prototype.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193184"><A HREF="boolean.htm#1193217"><CODE>prototype</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193186">
+Defines a property that is shared by all Boolean objects.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193188">
+ Method Summary
+</A></H4>
+
+<A NAME="1193208">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1193191">
+<B>Method
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1193193">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193198"><A HREF="boolean.htm#1193426"><CODE>toSource</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193200">
+Returns an object literal representing the specified Boolean object; you can use this value to create a new object. Overrides the <A HREF="object.htm#1193320"><CODE>Object.toSource</CODE></A> method.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193205"><A HREF="boolean.htm#1193269"><CODE>toString</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193207">
+Returns a string representing the specified object. Overrides the <A HREF="object.htm#1193350"><CODE>Object.toString</CODE></A> method.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1194814"><A HREF="boolean.htm#1195085"><CODE>valueOf</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1194816">
+Returns the primitive value of a Boolean object. Overrides the <A HREF="object.htm#1193540"><CODE>Object.valueOf</CODE></A> method.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+<A NAME="1195376">
+In addition, this object inherits the <A HREF="object.htm#1193628"><CODE>watch</CODE></A> and <A HREF="object.htm#1193499"><CODE>unwatch</CODE></A> methods from <A HREF="object.htm#1193136"><CODE>Object</CODE></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193209">
+ Examples
+</A></H4>
+
+<A NAME="1193210">
+The following examples create <CODE>Boolean</CODE> objects with an initial value of false:</A></P>
+<PRE><A NAME="1193211">bNoParam = new Boolean()<br>bZero = new Boolean(0)<br>bNull = new Boolean(null)<br>bEmptyString = new Boolean("")<br>bfalse = new Boolean(false)</A></PRE><A NAME="1193212">
+The following examples create <CODE>Boolean</CODE> objects with an initial value of true:</A></P>
+<PRE><A NAME="1193213">btrue = new Boolean(true)<br>btrueString = new Boolean("true")<br>bfalseString = new Boolean("false")<br>bSuLin = new Boolean("Su Lin")</A></PRE>
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1195419">
+constructor
+</A></H2>
+
+<A NAME="1195420">
+Specifies the function that creates an object's prototype. Note that the value of this property is a reference to the function itself, not a string containing the function's name.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195423">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195428">
+<A HREF="boolean.htm#1193137"><CODE>Boolean</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195430">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195432">
+JavaScript 1.1, NES 2.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195434">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195436">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195437">
+ Description
+</A></H4>
+
+<A NAME="1195441">
+See <A HREF="object.htm#1193229"><CODE>Object.constructor</CODE></A>.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193217">
+prototype
+</A></H2>
+
+<A NAME="1193218">
+Represents the prototype for this class. You can use the prototype to add properties or methods to all instances of a class. For information on prototypes, see <A HREF="function.htm#1193426"><CODE>Function.prototype</CODE></A>.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193224">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193229">
+<A HREF="boolean.htm#1193137"><CODE>Boolean</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193231">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193233">
+JavaScript 1.1, NES 2.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194007">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194009">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193426">
+toSource
+</A></H2>
+
+<A NAME="1193428">
+Returns a string representing the source code of the object.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193431">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193436">
+<A HREF="boolean.htm#1193137"><CODE>Boolean</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193438">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193440">
+JavaScript 1.3</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193441">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1193442">toSource()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193443">
+ Parameters
+</A></H4>
+
+<A NAME="1193444">
+None</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193445">
+ Description
+</A></H4>
+
+<A NAME="1196833">
+The <CODE>toSource</CODE> method returns the following values:</A></P>
+<ul><LI><A NAME="1196834">
+For the built-in <CODE>Boolean</CODE> object, <CODE>toSource</CODE> returns the following string indicating that the source code is not available:
+</A></LI><PRE><A NAME="1196835">&nbsp;&nbsp;&nbsp;function Boolean() {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[native code]<br>&nbsp;&nbsp;&nbsp;}</A></PRE><LI><A NAME="1196836">
+For instances of <CODE>Boolean</CODE>, <CODE>toSource</CODE> returns a string representing the source code.
+</A></LI></ul><A NAME="1196837">
+This method is usually called internally by JavaScript and not explicitly in code.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193451">
+ See also
+</A></H4>
+
+<A NAME="1193455">
+<A HREF="object.htm#1193320"><CODE>Object.toSource</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193269">
+toString
+</A></H2>
+
+<A NAME="1193282">
+Returns a string representing the specified Boolean object.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193272">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193277">
+<A HREF="boolean.htm#1193137"><CODE>Boolean</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193279">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193281">
+JavaScript 1.1, NES 2.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194021">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194023">
+ECMA-262</A></P>
+
+</TABLE>
+ </A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193283">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1193284">toString()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193285">
+ Parameters
+</A></H4>
+
+<A NAME="1193286">
+None.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193287">
+ Description
+</A></H4>
+
+<A NAME="1196996">
+The <A HREF="boolean.htm#1193137"><CODE>Boolean</CODE></A> object overrides the <CODE>toString</CODE> method of the <A HREF="object.htm#1193136"><CODE>Object</CODE></A> object; it does not inherit <A HREF="object.htm#1193350"><CODE>Object.toString</CODE></A>. For <A HREF="boolean.htm#1193137"><CODE>Boolean</CODE></A> objects, the <CODE>toString</CODE> method returns a string representation of the object.</A></P>
+<A NAME="1194618">
+JavaScript calls the <CODE>toString</CODE> method automatically when a Boolean is to be represented as a text value or when a Boolean is referred to in a string concatenation.</A></P>
+<A NAME="1193293">
+For <A HREF="boolean.htm#1193137"><CODE>Boolean</CODE></A> objects and values, the built-in <CODE>toString</CODE> method returns the string <CODE>"true"</CODE> or <CODE>"false"</CODE> depending on the value of the boolean object. In the following code, <CODE>flag.toString</CODE> returns <CODE>"true"</CODE>.</A></P>
+<PRE><A NAME="1193294">var flag = new Boolean(true)<br>var myVar=flag.toString()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194731">
+ See also
+</A></H4>
+
+<A NAME="1195082">
+<A HREF="object.htm#1193350"><CODE>Object.toString</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1195085">
+valueOf
+</A></H2>
+
+<A NAME="1195102">
+Returns the primitive value of a Boolean object.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195088">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195093">
+<A HREF="boolean.htm#1193137"><CODE>Boolean</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195095">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195097">
+JavaScript 1.1</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195099">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195101">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194668">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1194669">valueOf()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194670">
+ Parameters
+</A></H4>
+
+<A NAME="1194671">
+None</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194742">
+ Description
+</A></H4>
+
+<A NAME="1194749">
+The <CODE>valueOf</CODE> method of <A HREF="boolean.htm#1193137"><CODE>Boolean</CODE></A> returns the primitive value of a Boolean object or literal Boolean as a Boolean data type.</A></P>
+<A NAME="1194788">
+This method is usually called internally by JavaScript and not explicitly in code.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194796">
+ Examples
+</A></H4>
+
+<PRE><A NAME="1195413">x = new Boolean();<br>myVar=x.valueOf()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//assigns false to myVar</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1195414">
+ See also
+</A></H4>
+
+<A NAME="1194706">
+<A HREF="object.htm#1193540"><CODE>Object.valueOf</CODE></A></A></P>
+
+<HR>
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="array.htm">Previous</A>
+ | <A HREF="button.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT>
+<P ALIGN=right>
+<FONT SIZE=-2><I>Last Updated:  05/28/99  11:59:04</I></FONT>
+<P> <CENTER>Copyright (c) 1999
+<A HREF="http://home.netscape.com/misc/contact_info.html"
+TARGET=_top>Netscape Communications Corporation</A></FONT>
+</CENTER>
+<P>
+</BODY>
+</HTML>
+
+

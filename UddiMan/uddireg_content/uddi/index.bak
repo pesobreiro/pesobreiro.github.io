@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<META name="GENERATOR" content="IBM WebSphere Homepage Builder V5.0.1 for Windows">
+<TITLE>introduction</TITLE>
+</HEAD>
+<BODY>
+<UL>
+  <LI><A name="TOC1" href="../../welcome.htm#copyright">Copyright</A>
+  <LI><A name="TOC2" href="overview.html#SEC2">An overview of the IBM UDDI Registry</A>
+
+  <LI><A name="TOC3" href="install.html#install">Installing the UDDI Registry</A>
+  <LI><A name="TOC4" href="verify.html#verify">Verifying the UDDI Registry installation</A>
+  <LI><A name="TOC5" href="uninstall.html#uninstall">Uninstalling the UDDI Registry</A>
+  <LI><A name="TOC6" href="configure.html#configure">Configuring the UDDI Registry</A>
+  <UL>
+    <LI><A name="TOC7" href="configure.html#global">Configuring global UDDI properties</A>
+    <LI><A name="TOC8" href="configure.html#security">Configuring security properties</A>
+    <LI><A name="TOC9" href="configure.html#guiprops">Configuring user console (GUI) properties</A>
+      <LI><A name="TOC12" href="configure.html#soap">Configuring SOAP interface properties</A>
+	</ul>
+  <LI><A name="TOC10" href="configssl.html#configssl">Configuring WebSphere to use HTTPS and SSL</A>	
+  <LI><A name="TOC15" href="uddigui.html#uddigui">The UDDI user console</A>
+<ul>
+  <LI><A name="TOC11" href="displayuc.html#displayuc">Displaying the user console</A>
+  <LI><A name="TOC16" href="catgvals.html#catgvals">Finding category values for the UDDI user console</A>
+ </ul>
+
+  <LI><A name="TOC20" href="probdet.html#SEC20">Problem determination</A>
+  <UL>
+    <LI><A name="TOC21" href="probdet.html#trace">Turning on UDDI trace</A>
+  </UL>
+
+  <LI><A name="TOC22" href="samples.html#SEC22">Samples</A>
+  <UL>
+    <LI><A name="TOC23" href="samples.html#SEC23">Samples functionality</A>
+     <ul>
+     <li><a href="samples.html#SEC24">Use of AuthTokens</A></li>
+     <li><a href="samples.html#SEC25">Use of keys</A></li>
+     <li><a href="samples.html#SEC26">Samples cleanup</a></li>
+     <li><a href="samples.html#SEC27">Making UDDI API calls</A></li>
+     </ul>
+</ul>
+
+<li><A href="index.htm#TOC14" name="samplrun.html#SEC14">Configuring, compiling, and running the samples</A>
+<ul>
+<li><A href="samplrun.html#SEC32">Configuring the samples</A></li>
+<li><A href="samplrun.html#SEC33">Setting the classpath</A></li>
+<li><A href="samplrun.html#SEC34">Compiling the samples</A></li>
+<li><A href="samplrun.html#SEC35">Running the samples</A></li>
+<li><A href="samplrun.html#SEC36">Output to the console</A></li>
+</ul>
+
+  <LI><A name="TOC17" href="api.html#api">The application programming interface</A>
+  <ul compact>
+<li><a href="api.html#inquire">The Inquiry API</A></li>
+<li><a href="api.html#browse">The browse pattern</A></li>
+<li><a href="api.html#SEC6">The drill-down pattern</A></li>
+<li><a href="api.html#SEC7">The invocation pattern</A></li>
+<li><a href="api.html#SEC8">Inquiry API functions</A></li>
+<li><a href="api.html#SEC10">find_binding</A></li>
+<li><a href="api.html#find_business">find_business</li>
+</ul>
+
+  <LI><A name="TOC18" href="messages.html#messages">Messages</A>
+
+  <LI><A name="TOC37" href="../../welcome.htm#feedback">Feedback</A>
+</UL>
+
+
+
+</BODY>
+</HTML>

@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4//EN">    
+<!-- (C) COPYRIGHT International Business Machines Corp. 2000               --> 
+<!-- All Rights Reserved                                                    --> 
+<!-- Licensed Materials - Property of IBM                                   --> 
+<!--                                                                        --> 
+<!-- US Government Users Restricted Rights - Use, duplication or            --> 
+<!-- disclosure restricted by GSA ADP Schedule Contract with IBM Corp.      --> 
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<LINK href="websphere.css" rel="stylesheet" type="text/css">
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+
+function init()
+{
+ //Microsoft 
+  if (document.all)
+   {
+     document.all.loading.style.visibility="hidden";
+     document.all.search.style.visibility="visible";
+   } 
+  //Netscape
+   else if (navigator.appName=="Netscape")
+    {
+     document.loading.visibility="hide";
+     document.search.visibility="show";
+    }
+   else
+   {
+     document.loading.visibility="hidden";
+     document.search.visibility="visible";
+   }
+ } 
+
+function handleResize() {
+   location.reload()
+   return false
+}
+
+if (navigator.appName=="Netscape") {
+   window.captureEvents(Event.RESIZE)
+   window.onresize = handleResize
+}
+
+// -->
+</SCRIPT>
+<title> WebSphere InfoCenter Search page</title> 
+</head>
+
+<body  onLoad="init()">     
+<center>
+
+<div align="RIGHT"><a href="howtosearch.html"  target="_blank"><h4><b>Search Instructions</b></h4></a></div>
+
+
+ 
+<div id="loading" style="position: absolute; left: 100; top: 120;">
+
+
+<h2>Please wait while the Search applet loads....</h2> 
+ 
+</div>
+  
+
+<script language="JavaScript" type="text/javascript">
+if (navigator.appName=="Netscape") 
+{
+
+document.write('<div id="search" style="visibility:hide;position: absolute;">');
+}
+ else
+{
+ document.write('<div id="search" style="visibility:hidden">'); 
+}
+</script> 
+ 
+ 
+<APPLET code="Search.class" codebase="./" 
+archive="search.jar, jsearch.jar" width="275" height="345">
+
+
+<!-- replace text for VALUE with national language equivalent, four places just below -->
+<PARAM NAME="buttontext" VALUE="Search">
+<PARAM NAME="nothingfound" VALUE=" Nothing found! ">
+<PARAM NAME="searchfor" VALUE="Search for:">  
+<PARAM NAME="results" VALUE="Results:">  
+<!-- end of replacement with national language equivalent -->
+<PARAM NAME="name" VALUE="Main">   
+<PARAM NAME="bkColor" VALUE="ffffff">
+<PARAM NAME="searchdbdir" VALUE="uddireg_search, wasee_search, olt_search, wass_search, wasa_search">
+You do not have java support enabled in your browser. This support must be enabled 
+before you can use the Search applet.
+</APPLET>
+
+<script language="JavaScript" type="text/javascript">
+    document.write=('<' + "/div" +  '>');
+</script>
+
+
+
+</center> 
+
+
+
+</body>
+</html>

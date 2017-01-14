@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+  <Body>
+    <businessDetail generic="2.0" xmlns="urn:uddi-org:api_v2" operator="operator" truncated="false">
+      <businessEntity businessKey="3ED511D4-28CD-4805-8266-119F0AFB3C67" operator="operator" authorizedName="db2admin">
+        <discoveryURLs>
+          <discoveryURL useType="businessEntity">http://localhost:9080/uddisoap/get?businessKey=3ED511D4-28CD-4805-8266-119F0AFB3C67</discoveryURL>
+        </discoveryURLs>
+        <name xml:lang="en">1</name>
+        <description xml:lang="pt">Empresa 1</description>
+        <contacts>
+          <contact useType="1">
+            <personName>1</personName>
+          </contact>
+        </contacts>
+      </businessEntity>
+    </businessDetail>
+  </Body>
+</Envelope>

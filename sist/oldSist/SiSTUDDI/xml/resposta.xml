@@ -1,0 +1,415 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+  <Body>
+    <businessDetail generic="2.0" xmlns="urn:uddi-org:api_v2" operator="operator" truncated="false">
+      <businessEntity businessKey="1507862B-0758-4CB9-83F8-256324230951" operator="operator" authorizedName="db2admin">
+        <discoveryURLs>
+          <discoveryURL useType="businessEntity">http://localhost:9080/uddisoap/get?businessKey=1507862B-0758-4CB9-83F8-256324230951</discoveryURL>
+        </discoveryURLs>
+        <name xml:lang="en">Empresa ABC</name>
+        <businessServices>
+          <businessService serviceKey="030F3363-0402-4B3D-B6E0-247300E22DED" businessKey="1507862B-0758-4CB9-83F8-256324230951">
+            <name xml:lang="en">Servico Teste</name>
+            <bindingTemplates />
+          </businessService>
+          <businessService serviceKey="084A1E46-2A2F-4BCE-B416-36FC2F103835" businessKey="1507862B-0758-4CB9-83F8-256324230951">
+            <name xml:lang="en">Servico XPTO</name>
+            <bindingTemplates>
+              <bindingTemplate bindingKey="03F02B3F-21CB-44DE-9704-3C1D00410E2C" serviceKey="084A1E46-2A2F-4BCE-B416-36FC2F103835">
+                <description xml:lang="en">O endereco para o envio da informacao</description>
+                <accessPoint URLType="mailto">mailto:DCAmail@democredit.bar</accessPoint>
+                <tModelInstanceDetails>
+                  <tModelInstanceInfo tModelKey="UUID:93335D49-3EFB-48A0-ACEA-EA102B60DDC6">
+                    <description xml:lang="en">Utilizacao do protocolo HTTP</description>
+                    <instanceDetails>
+                      <overviewDoc>
+                        <description xml:lang="en">Descricao de como utilizar este servico</description>
+                        <overviewURL>http://localhost/DCAmail/howto</overviewURL>
+                      </overviewDoc>
+                    </instanceDetails>
+                  </tModelInstanceInfo>
+                  <tModelInstanceInfo tModelKey="UUID:25DDF051-C164-11D5-85A6-801EEF208714">
+                    <description xml:lang="en">The namespace in which our credit numbers are used.</description>
+                  </tModelInstanceInfo>
+                </tModelInstanceDetails>
+              </bindingTemplate>
+            </bindingTemplates>
+          </businessService>
+          <businessService serviceKey="086E00A1-258D-48DC-877F-13F62B5A144F" businessKey="1507862B-0758-4CB9-83F8-256324230951">
+            <name xml:lang="en">Servico XPTO</name>
+            <bindingTemplates>
+              <bindingTemplate bindingKey="0BF23CB5-0400-484D-980D-108321E628EE" serviceKey="086E00A1-258D-48DC-877F-13F62B5A144F">
+                <description xml:lang="en">O endereco para o envio da informacao</description>
+                <accessPoint URLType="mailto">mailto:DCAmail@democredit.bar</accessPoint>
+                <tModelInstanceDetails>
+                  <tModelInstanceInfo tModelKey="UUID:93335D49-3EFB-48A0-ACEA-EA102B60DDC6">
+                    <description xml:lang="en">Utilizacao do protocolo HTTP</description>
+                    <instanceDetails>
+                      <overviewDoc>
+                        <description xml:lang="en">Descricao de como utilizar este servico</description>
+                        <overviewURL>http://localhost/DCAmail/howto</overviewURL>
+                      </overviewDoc>
+                    </instanceDetails>
+                  </tModelInstanceInfo>
+                  <tModelInstanceInfo tModelKey="UUID:25DDF051-C164-11D5-85A6-801EEF208714">
+                    <description xml:lang="en">The namespace in which our credit numbers are used</description>
+                  </tModelInstanceInfo>
+                </tModelInstanceDetails>
+              </bindingTemplate>
+            </bindingTemplates>
+          </businessService>
+          <businessService serviceKey="0B0821CA-03ED-4B54-821B-3C403BFC3B0A" businessKey="1507862B-0758-4CB9-83F8-256324230951">
+            <name xml:lang="en">Servico Teste</name>
+            <bindingTemplates>
+              <bindingTemplate bindingKey="0A8938CE-20D2-415C-A05E-3E3B04EA3E26" serviceKey="0B0821CA-03ED-4B54-821B-3C403BFC3B0A">
+                <description xml:lang="en">The address to which you should send the name and address</description>
+                <accessPoint URLType="mailto">mailto:DCAmail@democredit.bar</accessPoint>
+                <tModelInstanceDetails>
+                  <tModelInstanceInfo tModelKey="UUID:93335D49-3EFB-48A0-ACEA-EA102B60DDC6">
+                    <description xml:lang="en">The smtp protocol is used</description>
+                    <instanceDetails>
+                      <overviewDoc>
+                        <description xml:lang="en">Describes how to use this service</description>
+                        <overviewURL>http://www.creditdemo.bar/DCAmail/howto</overviewURL>
+                      </overviewDoc>
+                    </instanceDetails>
+                  </tModelInstanceInfo>
+                  <tModelInstanceInfo tModelKey="UUID:25DDF051-C164-11D5-85A6-801EEF208714">
+                    <description xml:lang="en">The namespace in which our credit numbers are used.</description>
+                  </tModelInstanceInfo>
+                </tModelInstanceDetails>
+              </bindingTemplate>
+            </bindingTemplates>
+          </businessService>
+          <businessService serviceKey="0B3004BD-1AF8-4E8A-822C-39672314293E" businessKey="1507862B-0758-4CB9-83F8-256324230951">
+            <name xml:lang="en">Servico XPTO</name>
+            <bindingTemplates>
+              <bindingTemplate bindingKey="198A3F3A-267D-496C-90E3-100412B209B6" serviceKey="0B3004BD-1AF8-4E8A-822C-39672314293E">
+                <description xml:lang="en">O endereco para o envio da informacao</description>
+                <accessPoint URLType="mailto">mailto:DCAmail@democredit.bar</accessPoint>
+                <tModelInstanceDetails>
+                  <tModelInstanceInfo tModelKey="UUID:93335D49-3EFB-48A0-ACEA-EA102B60DDC6">
+                    <description xml:lang="en">Utilizacao do protocolo HTTP</description>
+                    <instanceDetails>
+                      <overviewDoc>
+                        <description xml:lang="en">Descricao de como utilizar este servico</description>
+                        <overviewURL>http://localhost/DCAmail/howto</overviewURL>
+                      </overviewDoc>
+                    </instanceDetails>
+                  </tModelInstanceInfo>
+                  <tModelInstanceInfo tModelKey="UUID:25DDF051-C164-11D5-85A6-801EEF208714">
+                    <description xml:lang="en">The namespace in which our credit numbers are used</description>
+                  </tModelInstanceInfo>
+                </tModelInstanceDetails>
+              </bindingTemplate>
+            </bindingTemplates>
+          </businessService>
+          <businessService serviceKey="0BAA1BCF-3E03-4BDD-824A-29D700432A69" businessKey="1507862B-0758-4CB9-83F8-256324230951">
+            <name xml:lang="en">Servico Teste</name>
+            <bindingTemplates />
+          </businessService>
+          <businessService serviceKey="0E991491-256C-4324-BAF4-071B0BFC2801" businessKey="1507862B-0758-4CB9-83F8-256324230951">
+            <name xml:lang="en">Servico XPTO</name>
+            <bindingTemplates>
+              <bindingTemplate bindingKey="38DD3042-2E1B-454E-9CC8-2D1F1C2711A2" serviceKey="0E991491-256C-4324-BAF4-071B0BFC2801">
+                <description xml:lang="en">O endereco para o envio da informacao</description>
+                <accessPoint URLType="mailto">mailto:DCAmail@democredit.bar</accessPoint>
+                <tModelInstanceDetails>
+                  <tModelInstanceInfo tModelKey="UUID:93335D49-3EFB-48A0-ACEA-EA102B60DDC6">
+                    <description xml:lang="en">Utilizacao do protocolo HTTP</description>
+                    <instanceDetails>
+                      <overviewDoc>
+                        <description xml:lang="en">Descricao de como utilizar este servico</description>
+                        <overviewURL>http://localhost/DCAmail/howto</overviewURL>
+                      </overviewDoc>
+                    </instanceDetails>
+                  </tModelInstanceInfo>
+                  <tModelInstanceInfo tModelKey="UUID:25DDF051-C164-11D5-85A6-801EEF208714">
+                    <description xml:lang="en">The namespace in which our credit numbers are used</description>
+                  </tModelInstanceInfo>
+                </tModelInstanceDetails>
+              </bindingTemplate>
+            </bindingTemplates>
+          </businessService>
+          <businessService serviceKey="12C7BEC1-0F40-46CF-86DA-29F83FCF3190" businessKey="1507862B-0758-4CB9-83F8-256324230951">
+            <name xml:lang="en">Servico XPTO</name>
+            <bindingTemplates>
+              <bindingTemplate bindingKey="1E652137-2C62-4E73-8865-0923095E1540" serviceKey="12C7BEC1-0F40-46CF-86DA-29F83FCF3190">
+                <description xml:lang="en">O endereco para o envio da informacao</description>
+                <accessPoint URLType="mailto">mailto:DCAmail@democredit.bar</accessPoint>
+                <tModelInstanceDetails>
+                  <tModelInstanceInfo tModelKey="UUID:93335D49-3EFB-48A0-ACEA-EA102B60DDC6">
+                    <description xml:lang="en">Utilizacao do protocolo HTTP</description>
+                    <instanceDetails>
+                      <overviewDoc>
+                        <description xml:lang="en">Descricao de como utilizar este servico</description>
+                        <overviewURL>http://localhost/DCAmail/howto</overviewURL>
+                      </overviewDoc>
+                    </instanceDetails>
+                  </tModelInstanceInfo>
+                  <tModelInstanceInfo tModelKey="UUID:25DDF051-C164-11D5-85A6-801EEF208714">
+                    <description xml:lang="en">The namespace in which our credit numbers are used</description>
+                  </tModelInstanceInfo>
+                </tModelInstanceDetails>
+              </bindingTemplate>
+            </bindingTemplates>
+          </businessService>
+          <businessService serviceKey="1345413A-3707-4058-9E9F-00C82BA4006A" businessKey="1507862B-0758-4CB9-83F8-256324230951">
+            <name xml:lang="en">Servico Teste</name>
+            <bindingTemplates />
+          </businessService>
+          <businessService serviceKey="19093DFA-01E8-4284-8D6C-0EF0186A3AEA" businessKey="1507862B-0758-4CB9-83F8-256324230951">
+            <name xml:lang="en">Servico XPTO</name>
+            <bindingTemplates>
+              <bindingTemplate bindingKey="1BA41807-20E0-49A2-AF36-064216E80E90" serviceKey="19093DFA-01E8-4284-8D6C-0EF0186A3AEA">
+                <description xml:lang="en">O endereco para o envio da informacao</description>
+                <accessPoint URLType="mailto">mailto:DCAmail@democredit.bar</accessPoint>
+                <tModelInstanceDetails>
+                  <tModelInstanceInfo tModelKey="UUID:93335D49-3EFB-48A0-ACEA-EA102B60DDC6">
+                    <description xml:lang="en">Utilizacao do protocolo HTTP</description>
+                    <instanceDetails>
+                      <overviewDoc>
+                        <description xml:lang="en">Descricao de como utilizar este servico</description>
+                        <overviewURL>http://localhost/DCAmail/howto</overviewURL>
+                      </overviewDoc>
+                    </instanceDetails>
+                  </tModelInstanceInfo>
+                  <tModelInstanceInfo tModelKey="UUID:25DDF051-C164-11D5-85A6-801EEF208714">
+                    <description xml:lang="en">The namespace in which our credit numbers are used</description>
+                  </tModelInstanceInfo>
+                </tModelInstanceDetails>
+              </bindingTemplate>
+            </bindingTemplates>
+          </businessService>
+          <businessService serviceKey="1D6B28B8-2DF2-4D84-ADF9-35E402CD1F85" businessKey="1507862B-0758-4CB9-83F8-256324230951">
+            <name xml:lang="en">Servico XPTO</name>
+            <bindingTemplates>
+              <bindingTemplate bindingKey="3C9C3045-2111-4A94-AEBF-30C8081D2334" serviceKey="1D6B28B8-2DF2-4D84-ADF9-35E402CD1F85">
+                <description xml:lang="en">O endereco para o envio da informacao</description>
+                <accessPoint URLType="mailto">mailto:DCAmail@democredit.bar</accessPoint>
+                <tModelInstanceDetails>
+                  <tModelInstanceInfo tModelKey="UUID:93335D49-3EFB-48A0-ACEA-EA102B60DDC6">
+                    <description xml:lang="en">Utilizacao do protocolo HTTP</description>
+                    <instanceDetails>
+                      <overviewDoc>
+                        <description xml:lang="en">Descricao de como utilizar este servico</description>
+                        <overviewURL>http://localhost/DCAmail/howto</overviewURL>
+                      </overviewDoc>
+                    </instanceDetails>
+                  </tModelInstanceInfo>
+                  <tModelInstanceInfo tModelKey="UUID:25DDF051-C164-11D5-85A6-801EEF208714">
+                    <description xml:lang="en">The namespace in which our credit numbers are used.</description>
+                  </tModelInstanceInfo>
+                </tModelInstanceDetails>
+              </bindingTemplate>
+            </bindingTemplates>
+          </businessService>
+          <businessService serviceKey="1F300330-2590-49B7-9199-3FA629D53710" businessKey="1507862B-0758-4CB9-83F8-256324230951">
+            <name xml:lang="en">Servico Teste</name>
+            <bindingTemplates />
+          </businessService>
+          <businessService serviceKey="1F7902D4-2BA5-4A0F-B7AB-26E506A41C2E" businessKey="1507862B-0758-4CB9-83F8-256324230951">
+            <name xml:lang="en">Servico Teste</name>
+            <bindingTemplates />
+          </businessService>
+          <businessService serviceKey="20D11277-3140-4CB4-93C9-1CFD088E1E4E" businessKey="1507862B-0758-4CB9-83F8-256324230951">
+            <name xml:lang="en">Servico XPTO</name>
+            <bindingTemplates>
+              <bindingTemplate bindingKey="012E361C-2C7E-48D5-AFD3-00201CF52686" serviceKey="20D11277-3140-4CB4-93C9-1CFD088E1E4E">
+                <description xml:lang="en">O endereco para o envio da informacao</description>
+                <accessPoint URLType="mailto">mailto:DCAmail@democredit.bar</accessPoint>
+                <tModelInstanceDetails>
+                  <tModelInstanceInfo tModelKey="UUID:93335D49-3EFB-48A0-ACEA-EA102B60DDC6">
+                    <description xml:lang="en">Utilizacao do protocolo HTTP</description>
+                    <instanceDetails>
+                      <overviewDoc>
+                        <description xml:lang="en">Descricao de como utilizar este servico</description>
+                        <overviewURL>http://localhost/DCAmail/howto</overviewURL>
+                      </overviewDoc>
+                    </instanceDetails>
+                  </tModelInstanceInfo>
+                  <tModelInstanceInfo tModelKey="UUID:25DDF051-C164-11D5-85A6-801EEF208714">
+                    <description xml:lang="en">The namespace in which our credit numbers are used.</description>
+                  </tModelInstanceInfo>
+                </tModelInstanceDetails>
+              </bindingTemplate>
+            </bindingTemplates>
+          </businessService>
+          <businessService serviceKey="23CF05BD-1698-4332-98A4-331937622C13" businessKey="1507862B-0758-4CB9-83F8-256324230951">
+            <name xml:lang="en">Servico Teste</name>
+            <bindingTemplates />
+          </businessService>
+          <businessService serviceKey="2C3DCAAD-38E6-4D5A-BCCE-1CBA090530E2" businessKey="1507862B-0758-4CB9-83F8-256324230951">
+            <name xml:lang="en">Servico XPTO</name>
+            <bindingTemplates>
+              <bindingTemplate bindingKey="29BA2558-10B8-4D7B-83B1-3493169631D0" serviceKey="2C3DCAAD-38E6-4D5A-BCCE-1CBA090530E2">
+                <description xml:lang="en">O endereco para o envio da informacao</description>
+                <accessPoint URLType="mailto">mailto:DCAmail@democredit.bar</accessPoint>
+                <tModelInstanceDetails>
+                  <tModelInstanceInfo tModelKey="UUID:93335D49-3EFB-48A0-ACEA-EA102B60DDC6">
+                    <description xml:lang="en">Utilizacao do protocolo HTTP</description>
+                    <instanceDetails>
+                      <overviewDoc>
+                        <description xml:lang="en">Descricao de como utilizar este servico</description>
+                        <overviewURL>http://localhost/DCAmail/howto</overviewURL>
+                      </overviewDoc>
+                    </instanceDetails>
+                  </tModelInstanceInfo>
+                  <tModelInstanceInfo tModelKey="UUID:25DDF051-C164-11D5-85A6-801EEF208714">
+                    <description xml:lang="en">The namespace in which our credit numbers are used</description>
+                  </tModelInstanceInfo>
+                </tModelInstanceDetails>
+              </bindingTemplate>
+            </bindingTemplates>
+          </businessService>
+          <businessService serviceKey="2EBC022D-0CF4-49CD-BEA8-0CAC3F11186D" businessKey="1507862B-0758-4CB9-83F8-256324230951">
+            <name xml:lang="en">Servico binding</name>
+            <bindingTemplates>
+              <bindingTemplate bindingKey="04A50716-3380-4542-86D5-0DA119511FBC" serviceKey="2EBC022D-0CF4-49CD-BEA8-0CAC3F11186D">
+                <description xml:lang="en">The address to which you should send the name and address</description>
+                <accessPoint URLType="mailto">mailto:DCAmail@democredit.bar</accessPoint>
+                <tModelInstanceDetails>
+                  <tModelInstanceInfo tModelKey="UUID:93335D49-3EFB-48A0-ACEA-EA102B60DDC6">
+                    <description xml:lang="en">The smtp protocol is used</description>
+                    <instanceDetails>
+                      <overviewDoc>
+                        <description xml:lang="en">Describes how to use this service</description>
+                        <overviewURL>http://www.creditdemo.bar/DCAmail/howto</overviewURL>
+                      </overviewDoc>
+                    </instanceDetails>
+                  </tModelInstanceInfo>
+                  <tModelInstanceInfo tModelKey="UUID:25DDF051-C164-11D5-85A6-801EEF208714">
+                    <description xml:lang="en">The namespace in which our credit numbers are used.</description>
+                  </tModelInstanceInfo>
+                </tModelInstanceDetails>
+              </bindingTemplate>
+            </bindingTemplates>
+          </businessService>
+          <businessService serviceKey="31AE1901-3A84-441F-9D96-111424ED178E" businessKey="1507862B-0758-4CB9-83F8-256324230951">
+            <name xml:lang="en">Servico XPTO</name>
+            <bindingTemplates>
+              <bindingTemplate bindingKey="39B025CA-1CD8-47DA-A53F-25161F0D3F51" serviceKey="31AE1901-3A84-441F-9D96-111424ED178E">
+                <description xml:lang="en">O endereco para o envio da informacao</description>
+                <accessPoint URLType="mailto">mailto:DCAmail@democredit.bar</accessPoint>
+                <tModelInstanceDetails>
+                  <tModelInstanceInfo tModelKey="UUID:93335D49-3EFB-48A0-ACEA-EA102B60DDC6">
+                    <description xml:lang="en">Utilizacao do protocolo HTTP</description>
+                    <instanceDetails>
+                      <overviewDoc>
+                        <description xml:lang="en">Descricao de como utilizar este servico</description>
+                        <overviewURL>http://localhost/DCAmail/howto</overviewURL>
+                      </overviewDoc>
+                    </instanceDetails>
+                  </tModelInstanceInfo>
+                  <tModelInstanceInfo tModelKey="UUID:25DDF051-C164-11D5-85A6-801EEF208714">
+                    <description xml:lang="en">The namespace in which our credit numbers are used.</description>
+                  </tModelInstanceInfo>
+                </tModelInstanceDetails>
+              </bindingTemplate>
+            </bindingTemplates>
+          </businessService>
+          <businessService serviceKey="38FC1D65-02C1-4F27-8409-22EF128C1F48" businessKey="1507862B-0758-4CB9-83F8-256324230951">
+            <name xml:lang="en">Servico Teste</name>
+            <bindingTemplates />
+          </businessService>
+          <businessService serviceKey="39EB2B3D-3A69-4317-887D-2F0A36182BA8" businessKey="1507862B-0758-4CB9-83F8-256324230951">
+            <name xml:lang="en">Servico binding</name>
+            <bindingTemplates>
+              <bindingTemplate bindingKey="2BC11C8E-1C08-4B94-9FF8-36CD28D906B5" serviceKey="39EB2B3D-3A69-4317-887D-2F0A36182BA8">
+                <description xml:lang="en">The address to which you should send the name and address</description>
+                <accessPoint URLType="mailto">mailto:DCAmail@democredit.bar</accessPoint>
+                <tModelInstanceDetails>
+                  <tModelInstanceInfo tModelKey="UUID:93335D49-3EFB-48A0-ACEA-EA102B60DDC6">
+                    <description xml:lang="en">The smtp protocol is used</description>
+                    <instanceDetails>
+                      <overviewDoc>
+                        <description xml:lang="en">Describes how to use this service</description>
+                        <overviewURL>http://www.creditdemo.bar/DCAmail/howto</overviewURL>
+                      </overviewDoc>
+                    </instanceDetails>
+                  </tModelInstanceInfo>
+                  <tModelInstanceInfo tModelKey="UUID:25DDF051-C164-11D5-85A6-801EEF208714">
+                    <description xml:lang="en">The namespace in which our credit numbers are used.</description>
+                  </tModelInstanceInfo>
+                </tModelInstanceDetails>
+              </bindingTemplate>
+            </bindingTemplates>
+          </businessService>
+          <businessService serviceKey="39FB2033-1C7B-49AE-A805-1A7D05B00C96" businessKey="1507862B-0758-4CB9-83F8-256324230951">
+            <name xml:lang="en">Servico Teste</name>
+            <bindingTemplates />
+          </businessService>
+          <businessService serviceKey="3A635036-0B6F-426A-8151-2FAB3B440A78" businessKey="1507862B-0758-4CB9-83F8-256324230951">
+            <name xml:lang="en">Servico binding</name>
+            <bindingTemplates>
+              <bindingTemplate bindingKey="02DD265A-3753-451F-957F-2AB735A90AA5" serviceKey="3A635036-0B6F-426A-8151-2FAB3B440A78">
+                <description xml:lang="en">O endereco para o envio da informacao</description>
+                <accessPoint URLType="mailto">mailto:DCAmail@democredit.bar</accessPoint>
+                <tModelInstanceDetails>
+                  <tModelInstanceInfo tModelKey="UUID:93335D49-3EFB-48A0-ACEA-EA102B60DDC6">
+                    <description xml:lang="en">Utilizacao do protocolo HTTP</description>
+                    <instanceDetails>
+                      <overviewDoc>
+                        <description xml:lang="pt">Descricao de como utilizar este servico</description>
+                        <overviewURL>http://localhost/DCAmail/howto</overviewURL>
+                      </overviewDoc>
+                    </instanceDetails>
+                  </tModelInstanceInfo>
+                  <tModelInstanceInfo tModelKey="UUID:25DDF051-C164-11D5-85A6-801EEF208714">
+                    <description xml:lang="pt">The namespace in which our credit numbers are used.</description>
+                  </tModelInstanceInfo>
+                </tModelInstanceDetails>
+              </bindingTemplate>
+            </bindingTemplates>
+          </businessService>
+          <businessService serviceKey="3BD019CB-3D1E-4678-A05E-1B5D2FAB0B7F" businessKey="1507862B-0758-4CB9-83F8-256324230951">
+            <name xml:lang="en">Servico XPTO</name>
+            <bindingTemplates>
+              <bindingTemplate bindingKey="1C5C040D-360E-48D6-B3D6-11A620AD3012" serviceKey="3BD019CB-3D1E-4678-A05E-1B5D2FAB0B7F">
+                <description xml:lang="en">O endereco para o envio da informacao</description>
+                <accessPoint URLType="mailto">mailto:DCAmail@democredit.bar</accessPoint>
+                <tModelInstanceDetails>
+                  <tModelInstanceInfo tModelKey="UUID:93335D49-3EFB-48A0-ACEA-EA102B60DDC6">
+                    <description xml:lang="en">Utilizacao do protocolo HTTP</description>
+                    <instanceDetails>
+                      <overviewDoc>
+                        <description xml:lang="en">Descricao de como utilizar este servico</description>
+                        <overviewURL>http://localhost/DCAmail/howto</overviewURL>
+                      </overviewDoc>
+                    </instanceDetails>
+                  </tModelInstanceInfo>
+                  <tModelInstanceInfo tModelKey="UUID:25DDF051-C164-11D5-85A6-801EEF208714">
+                    <description xml:lang="en">The namespace in which our credit numbers are used.</description>
+                  </tModelInstanceInfo>
+                </tModelInstanceDetails>
+              </bindingTemplate>
+            </bindingTemplates>
+          </businessService>
+          <businessService serviceKey="3F5B23F7-0622-43BF-975D-17603C140441" businessKey="1507862B-0758-4CB9-83F8-256324230951">
+            <name xml:lang="en">Servico binding</name>
+            <bindingTemplates>
+              <bindingTemplate bindingKey="0E2F0EDC-035E-4C99-B29E-20AE398C03A9" serviceKey="3F5B23F7-0622-43BF-975D-17603C140441">
+                <description xml:lang="en">O endereco para o envio da informacao</description>
+                <accessPoint URLType="mailto">mailto:DCAmail@democredit.bar</accessPoint>
+                <tModelInstanceDetails>
+                  <tModelInstanceInfo tModelKey="UUID:93335D49-3EFB-48A0-ACEA-EA102B60DDC6">
+                    <description xml:lang="en">Utilizacao do protocolo HTTP</description>
+                    <instanceDetails>
+                      <overviewDoc>
+                        <description xml:lang="pt">Descricao de como utilizar este servico</description>
+                        <overviewURL>http://localhost/DCAmail/howto</overviewURL>
+                      </overviewDoc>
+                    </instanceDetails>
+                  </tModelInstanceInfo>
+                  <tModelInstanceInfo tModelKey="UUID:25DDF051-C164-11D5-85A6-801EEF208714">
+                    <description xml:lang="pt">The namespace in which our credit numbers are used.</description>
+                  </tModelInstanceInfo>
+                </tModelInstanceDetails>
+              </bindingTemplate>
+            </bindingTemplates>
+          </businessService>
+        </businessServices>
+      </businessEntity>
+    </businessDetail>
+  </Body>
+</Envelope>

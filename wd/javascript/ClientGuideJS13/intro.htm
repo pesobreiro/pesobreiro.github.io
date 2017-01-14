@@ -1,0 +1,294 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Overview
+</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="preface.htm">Previous</A>
+ | <A HREF="partcore.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT><BR><BR>
+<HR>
+<A NAME="1009363">
+<P></A><CENTER><H2>Chapter 1<BR>
+<A NAME="1009367">
+JavaScript Overview</A></H2></CENTER>
+<A NAME="1009368">
+This chapter introduces JavaScript and discusses some of its fundamental concepts.</A></P>
+<A NAME="1014485">
+This chapter contains the following sections:</A></P>
+<ul><LI><A NAME="1014490">
+<A HREF="intro.htm#1009369">What Is JavaScript?</A>
+</A></LI><LI><A NAME="1022257">
+<A HREF="intro.htm#1022274">Core, Client-Side, and Server-Side JavaScript</A>
+</A></LI><LI><A NAME="1016916">
+<A HREF="intro.htm#1012569">JavaScript and Java</A>
+</A></LI><LI><A NAME="1016878">
+<A HREF="intro.htm#1009909">Debugging JavaScript</A>
+</A></LI><LI><A NAME="1016879">
+<A HREF="intro.htm#1013886">Visual JavaScript</A>
+</A></LI><LI><A NAME="1016880">
+<A HREF="intro.htm#1013654">JavaScript and the ECMA Specification</A>
+</A></LI></ul>
+<HR><H2><A NAME="What Is JavaScript?"></A>
+<A NAME="1009369">
+ What Is JavaScript?
+</A></H2><A NAME="1022262">
+JavaScript is Netscape's cross-platform, object-oriented scripting language. Core JavaScript contains a core set of objects, such as <CODE>Array</CODE>, <CODE>Date</CODE>, and <CODE>Math</CODE>, and a core set of language elements such as operators, control structures, and statements. Core JavaScript can be extended for a variety of purposes by supplementing it with additional objects; for example:</A></P>
+<ul><P><LI><A NAME="1016040">
+<I>Client-side JavaScript</I> extends the core language by supplying objects to control a browser (Navigator or another web browser) and its Document Object Model (DOM). For example, client-side extensions allow an application to place elements on an HTML form and respond to user events such as mouse clicks, form input, and page navigation.</A></LI>
+<P><LI><A NAME="1016010">
+<I>Server-side JavaScript</I> extends the core language by supplying objects relevant to running JavaScript on a server. For example, server-side extensions allow an application to communicate with a relational database, provide continuity of information from one invocation to another of the application, or perform file manipulations on a server.</A></LI>
+</ul><A NAME="1022267">
+JavaScript lets you create applications that run over the Internet. Client applications run in a browser, such as Netscape Navigator, and server applications run on a server, such as Netscape Enterprise Server. Using JavaScript, you can create dynamic HTML pages that process user input and maintain persistent data using special objects, files, and relational databases.</A></P>
+<A NAME="1016777">
+Through JavaScript's LiveConnect functionality, you can let Java and JavaScript code communicate with each other. From JavaScript, you can instantiate Java objects and access their public methods and fields. From Java, you can access JavaScript objects, properties, and methods.</A></P>
+<A NAME="1021034">
+Netscape invented JavaScript, and JavaScript was first used in Netscape browsers.</A></P>
+
+<HR><H2><A NAME="Core, Client-Side, and Server-Side JavaScript"></A>
+<A NAME="1022274">
+ Core, Client-Side, and Server-Side JavaScript
+</A></H2><A NAME="1022275">
+The components of JavaScript are illustrated in the following figure.</A></P>
+<P><A NAME="1022280">
+<B>Figure 1.1&nbsp;&nbsp;&nbsp;The JavaScript language <P>
+<IMG SRC="graphics/lang.gif">
+
+</B></A></P>
+
+
+<A NAME="1022281">
+The following sections introduce the workings of JavaScript on the client and on the server.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1022283">
+ Core JavaScript
+</A></H3>
+
+<A NAME="1022284">
+Client-side and server-side JavaScript have the following elements in common:</A></P>
+<ul><P><LI><A NAME="1022285">
+Keywords</A></LI>
+<P><LI><A NAME="1022286">
+Statement syntax and grammar</A></LI>
+<P><LI><A NAME="1022287">
+Rules for expressions, variables, and literals</A></LI>
+<P><LI><A NAME="1022288">
+Underlying object model (although client-side and server-side JavaScript have different sets of predefined objects)</A></LI>
+<P><LI><A NAME="1022289">
+Predefined objects and functions, such as such as <CODE>Array</CODE>, <CODE>Date</CODE>, and <CODE>Math</CODE></A></LI>
+</ul>
+<H3><A NAME="Head2;"></A>
+<A NAME="1022293">
+ Client-Side JavaScript
+</A></H3>
+
+<A NAME="1022294">
+Web browsers such as Navigator (2.0 and later versions) can interpret client-side JavaScript statements embedded in an HTML page. When the browser (or <I>client</I>) requests such a page, the server sends the full content of the document, including HTML and JavaScript statements, over the network to the client. The browser reads the page from top to bottom, displaying the results of the HTML and executing JavaScript statements as they are encountered. This process, illustrated in the following figure, produces the results that the user sees.</A></P>
+<P><A NAME="1022300">
+<B>Figure 1.2&nbsp;&nbsp;&nbsp;Client-side JavaScript <P>
+<IMG SRC="graphics/csrt.gif">
+
+</B></A></P>
+
+
+<A NAME="1022301">
+Client-side JavaScript statements embedded in an HTML page can respond to user events such as mouse clicks, form input, and page navigation. For example, you can write a JavaScript function to verify that users enter valid information into a form requesting a telephone number or zip code. Without any network transmission, the embedded JavaScript on the HTML page can check the entered data and display a dialog box if the user enters invalid data.</A></P>
+<A NAME="1016118">
+Different versions of JavaScript work with specific versions of Navigator. For example, JavaScript&nbsp;1.2 is for Navigator 4.0. Some features available in JavaScript&nbsp;1.2 are not available in JavaScript&nbsp;1.1 and hence are not available in Navigator&nbsp;3.0. For information on JavaScript and Navigator versions, see <A HREF="preface.htm#1009601">"JavaScript Versions" on page&nbsp;16</A>.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1022316">
+ Server-Side JavaScript
+</A></H3>
+
+<A NAME="1022317">
+On the server, you also embed JavaScript in HTML pages. The server-side statements can connect to relational databases from different vendors, share information across users of an application, access the file system on the server, or communicate with other applications through LiveConnect and Java. HTML pages with server-side JavaScript can also include client-side JavaScript.</A></P>
+<A NAME="1022318">
+In contrast to pure client-side JavaScript pages, HTML pages that use server-side JavaScript are compiled into bytecode executable files. These application executables are run by a web server that contains the JavaScript runtime engine. For this reason, creating JavaScript applications is a two-stage process.</A></P>
+<A NAME="1022324">
+In the first stage, shown in <A HREF="intro.htm#1022330">Figure 1.3</A>, you create HTML pages (which can contain both client-side and server-side JavaScript statements) and JavaScript files. You then compile all of those files into a single executable.</A></P>
+<P><A NAME="1022330">
+<B>Figure 1.3&nbsp;&nbsp;&nbsp;Server-side JavaScript during development <P>
+<IMG SRC="graphics/ssdev.gif">
+
+</B></A></P>
+
+
+<A NAME="1022334">
+In the second stage, shown in <A HREF="intro.htm#1022340">Figure 1.4</A>, a page in the application is requested by a client browser. The runtime engine uses the application executable to look up the source page and dynamically generate the HTML page to return. It runs any server-side JavaScript statements found on the page. The result of those statements might add new HTML or client-side JavaScript statements to the HTML page. The run-time engine then sends the resulting page over the network to the Navigator client, which runs any client-side JavaScript and displays the results.</A></P>
+<P><A NAME="1022340">
+<B>Figure 1.4&nbsp;&nbsp;&nbsp;Server-side JavaScript during runtime <P>
+<IMG SRC="graphics/ssrt.gif">
+
+</B></A></P>
+
+
+<A NAME="1022341">
+In contrast to standard Common Gateway Interface (CGI) programs, all JavaScript source is integrated directly into HTML pages, facilitating rapid development and easy maintenance. Server-side JavaScript's Session Management Service contains objects you can use to maintain data that persists across client requests, multiple clients, and multiple applications. Server-side JavaScript's LiveWire Database Service provides objects for database access that serve as an interface to Structured Query Language (SQL) database servers.</A></P>
+
+<HR><H2><A NAME="JavaScript and Java"></A>
+<A NAME="1012569">
+ JavaScript and Java
+</A></H2><A NAME="1019782">
+JavaScript and Java are similar in some ways but fundamentally different in others. The JavaScript language resembles Java but does not have Java's static typing and strong type checking. JavaScript supports most Java expression syntax and basic control-flow constructs.</A></P>
+<A NAME="1020614">
+In contrast to Java's compile-time system of classes built by declarations, JavaScript supports a runtime system based on a small number of data types representing numeric, Boolean, and string values. JavaScript has a prototype-based object model instead of the more common class-based object model. The prototype-based model provides dynamic inheritance; that is, what is inherited can vary for individual objects. JavaScript also supports functions without any special declarative requirements. Functions can be properties of objects, executing as loosely typed methods.</A></P>
+<A NAME="1020620">
+JavaScript is a very free-form language compared to Java. You do not have to declare all variables, classes, and methods. You do not have to be concerned with whether methods are public, private, or protected, and you do not have to implement interfaces. Variables, parameters, and function return types are not explicitly typed.</A></P>
+<A NAME="1009453">
+Java is a class-based programming language designed for fast execution and type safety. Type safety means, for instance, that you can't cast a Java integer into an object reference or access private memory by corrupting Java bytecodes. Java's class-based model means that programs consist exclusively of classes and their methods. Java's class inheritance and strong typing generally require tightly coupled object hierarchies. These requirements make Java programming more complex than JavaScript authoring.</A></P>
+<A NAME="1009454">
+In contrast, JavaScript descends in spirit from a line of smaller, dynamically typed languages such as HyperTalk and dBASE. These scripting languages offer programming tools to a much wider audience because of their easier syntax, specialized built-in functionality, and minimal requirements for object creation.</A></P>
+<A NAME="1014431">
+<P><B><A NAME="1009457">
+Table 1.1&nbsp; JavaScript compared to Java</A></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1009461">
+<B>JavaScript
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1009463">
+<B>Java
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1009465">
+Interpreted (not compiled) by client.</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1009467">
+Compiled bytecodes downloaded from server, executed on client.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1009469">
+Object-oriented. No distinction between types of objects. Inheritance is through the prototype mechanism, and properties and methods can be added to any object dynamically.</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1009471">
+Class-based. Objects are divided into classes and instances with all inheritance through the class hierarchy. Classes and instances cannot have properties or methods added dynamically.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1009473">
+Code integrated with, and embedded in, HTML.</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1009475">
+Applets distinct from HTML (accessed from HTML pages).</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1009477">
+Variable data types not declared (dynamic typing).</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1009479">
+Variable data types must be declared (static typing).</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1009485">
+Cannot automatically write to hard disk.</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1009487">
+Cannot automatically write to hard disk.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+<A NAME="1020545">
+For more information on the differences between JavaScript and Java, see <A HREF="obj2.htm#1013803">Chapter 8, "Details of the Object Model."</A></A></P>
+
+<HR><H2><A NAME="Debugging JavaScript"></A>
+<A NAME="1009909">
+ Debugging JavaScript
+</A></H2><A NAME="1024630">
+JavaScript allows you to write complex computer programs. As with all languages, you may make mistakes while writing your scripts. The Netscape JavaScript Debugger allows you to debug your scripts. For information on using the Debugger, see the following documents:</A></P>
+<ul><P><LI><A NAME="1024636">
+<A HREF="http://developer.netscape.com/software/jsdebug.html" TARGET="_top"><EM>Netscape JavaScript Debugger 1.1</A></EM> introduces the Debugger.</A></LI>
+<P><A NAME="1024637">
+You can download the Debugger from this URL. The file you download is a 
+SmartUpdate .jar file. To install the Debugger, load the .jar file in Navigator: 
+either use the download procedure described at the preceding URL, or type 
+the URL to the .jar file in the location field.
+</P></A>
+
+<P><LI><A NAME="1023870">
+<A HREF="http://developer.netscape.com/docs/manuals/jsdebug/index.htm" TARGET="_top"><EM>Getting Started with Netscape JavaScript Debugger</A></EM> explains how to use the Debugger.</A></LI>
+</ul>
+<HR><H2><A NAME="Visual JavaScript"></A>
+<A NAME="1013886">
+ Visual JavaScript
+</A></H2><A NAME="1015526">
+Netscape Visual JavaScript is a component-based visual development tool for the Netscape Open Network Environment (ONE) platform. It is primarily intended for use by application developers who want to build cross-platform, standards-based, web applications from ready-to-use components with minimal programming effort. The applications are based on HTML, JavaScript, and Java.</A></P>
+<A NAME="1015907">
+For information on Visual JavaScript, see the <A HREF="http://developer.netscape.com/docs/manuals/visualjs/index.htm" TARGET="_top"><EM>Visual JavaScript Developer's Guide</A></EM>.</A></P>
+
+<HR><H2><A NAME="JavaScript and the ECMA Specification"></A>
+<A NAME="1013654">
+ JavaScript and the ECMA Specification
+</A></H2><A NAME="1020727">
+Netscape invented JavaScript, and JavaScript was first used in Netscape browsers. However, Netscape is working with <A HREF="http://www.ecma.ch" TARGET="_top">ECMA</A> (European Computer Manufacturers Association) to deliver a standardized, international programming language based on core JavaScript. ECMA is an international standards association for information and communication systems. This standardized version of JavaScript, called ECMAScript, behaves the same way in all applications that support the standard. Companies can use the open standard language to develop their implementation of JavaScript. The first version of the ECMA standard is documented in the ECMA-262 specification.</A></P>
+<A NAME="1013667">
+The ECMA-262 standard is also approved by the <A HREF="http://www.iso.ch" TARGET="_top">ISO</A> (International Organization for Standards) as ISO-16262. You can find a <A HREF="http://developer.netscape.com/docs/javascript/e262-pdf.pdf" TARGET="_top">PDF version of ECMA-262</A> at Netscape DevEdge Online. You can also find the <A HREF="http://www.ecma.ch/stand/ecma-262.htm" TARGET="_top">specification</A> on the ECMA web site. The ECMA specification does not describe the Document Object Model (DOM), which is being standardized by the <A HREF="http://www.w3.org" TARGET="_top">World Wide Web Consortium (W3C)</A>. The DOM defines the way in which HTML document objects are exposed to your script.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1013678">
+ Relationship Between JavaScript and ECMA Versions
+</A></H3>
+
+<A NAME="1014160">
+Netscape works closely with ECMA to produce the ECMA specification. The following table describes the relationship between JavaScript and ECMA versions.</A></P>
+<A NAME="1014445">
+<P><B><A NAME="1014163">
+Table 1.2&nbsp;JavaScript and ECMA versions</A></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1014167">
+<B>JavaScript version
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1014169">
+<B>Relationship to ECMA version
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1014171">
+JavaScript&nbsp;1.1</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1014173">
+ECMA-262 is based on JavaScript&nbsp;1.1.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1014175">
+JavaScript&nbsp;1.2</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1014177">
+ECMA-262 was not complete when JavaScript&nbsp;1.2 was released. JavaScript&nbsp;1.2 is not fully compatible with ECMA-262 for the following reasons:</A></P><ul></P><LI><A NAME="1014178">
+Netscape developed additional features in JavaScript&nbsp;1.2 that were not considered for ECMA-262.</A></P><LI><A NAME="1014179">
+ECMA-262 adds two new features: internationalization using Unicode, and uniform behavior across all platforms. Several features of JavaScript&nbsp;1.2, such as the <CODE>Date</CODE> object, were platform-dependent and used platform-specific behavior.</A></ul>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1014181">
+JavaScript&nbsp;1.3</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1014183">
+JavaScript&nbsp;1.3 is fully compatible with ECMA-262.</A></P><P><A NAME="1014184">
+</A></P><P><A NAME="1014185">
+JavaScript&nbsp;1.3 resolved the inconsistencies that JavaScript&nbsp;1.2 had with ECMA-262, while keeping all the additional features of JavaScript&nbsp;1.2 except == and !=, which were changed to conform with ECMA-262. These additional features, including some new features of JavaScript&nbsp;1.3 that are not part of ECMA, are under consideration for the second version of the ECMA specification.</A></P><P><A NAME="1020816">
+</A></P><P><A NAME="1020817">
+For example, JavaScript&nbsp;1.2 and 1.3 support regular expressions, which are not included in ECMA-262. The second version of the ECMA specification had not been finalized when JavaScript&nbsp;1.3 was released.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+<A NAME="1020924">
+The <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsref/index.htm" TARGET="_top"><I>Client-Side JavaScript Reference</I></A> indicates which features of the language are ECMA-compliant.</A></P>
+<A NAME="1020935">
+JavaScript will always include features that are not part of the ECMA specification; JavaScript is compatible with ECMA, while providing additional features.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1013717">
+ JavaScript Documentation vs. the ECMA Specification
+</A></H3>
+
+<A NAME="1013719">
+The ECMA specification is a set of requirements for implementing ECMAScript; it is useful if you want to determine whether a JavaScript feature is supported under ECMA. If you plan to write JavaScript code that uses only features supported by ECMA, then you may need to review the ECMA specification.</A></P>
+<A NAME="1013720">
+The ECMA document is not intended to help script programmers; use the JavaScript documentation for information on writing scripts.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1013722">
+ JavaScript and ECMA Terminology
+</A></H3>
+
+<A NAME="1013723">
+The ECMA specification uses terminology and syntax that may be unfamiliar to a JavaScript programmer. Although the description of the language may differ in ECMA, the language itself remains the same. JavaScript supports all functionality outlined in the ECMA specification.</A></P>
+<A NAME="1013724">
+The JavaScript documentation describes aspects of the language that are appropriate for a JavaScript programmer. For example:</A></P>
+<ul><P><LI><A NAME="1013726">
+The global object is not discussed in the JavaScript documentation because you do not use it directly. The methods and properties of the global object, which you do use, are discussed in the JavaScript documentation but are called top-level functions and properties.</A></LI>
+<P><LI><A NAME="1013727">
+The no parameter (zero-argument) constructor with the <CODE>Number</CODE> and <CODE>String</CODE> objects is not discussed in the JavaScript documentation, because what is generated is of little use. A <CODE>Number</CODE> constructor without an argument returns +0, and a <CODE>String</CODE> constructor without an argument returns "" (an empty string).</A></LI>
+</ul>
+<HR>
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="preface.htm">Previous</A>
+ | <A HREF="partcore.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT>
+<P ALIGN=right>
+<FONT SIZE=-2><I>Last Updated:  05/27/99  21:21:18</I></FONT>
+<P> <CENTER>Copyright (c) 1999
+<A HREF="http://home.netscape.com/misc/contact_info.html"
+TARGET=_top>Netscape Communications Corporation</A></FONT>
+</CENTER>
+<P>
+</BODY>
+</HTML>
+
+

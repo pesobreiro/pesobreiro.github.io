@@ -1,0 +1,150 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<META name="GENERATOR" content="IBM WebSphere Homepage Builder V5.0.1 for Windows">
+<title>Verifying the UDDI Registry installation</title>
+</head>
+
+<body>
+<H3><A href="index.htm#TOC4" name="verify">Installation Verification Program (IVP)</A></H3>
+<p>This topic describes how to run the installation
+verification programs (IVPs) to verify that
+the IBM UDDI Registry has been installed
+correctly. It assumes the samples are installed
+on the same system as the Registry code.</p>
+<p>
+<b>Prerequisites:</b>
+
+<UL>
+  <li>Before starting the IVPs, you must have installed
+  the IBM UDDI Registry as described in
+<a href="install.html#install">Installing the IBM UDDI Registry</A>.
+  </li>
+</UL>
+<p>
+There are two IVP SOAP samples called SOAPSampleIVPa
+and SOAPSampleIVPb. They are intended to
+verify the successful installation of the
+product, and should be used in conjunction
+with the UDDI Users Console (GUI).
+SOAPSampleIVPa saves some data to the registry
+which you can then find using the GUI. Finally
+you can delete the data by running SOAPSampleIVPb.
+</p>
+<p>
+The IVP samples are installed into the same
+target directory as the other SOAP samples
+and they use the same XML files as the basic
+Java SOAP samples.
+</p>
+<p>
+SOAPSampleIVPa saves three businesses, six
+services (2 per business) and three tModels.
+The data structures are very basic and consist
+only of a name. The keys returned by the
+save_* UDDI API calls are then written to
+a file, <tt>SOAPSampleIVPa.out</tt>.
+
+SOAPSampleIVPb then reads in these keys
+from the file in order to delete the saved
+data from the UDDI registry.
+</p>
+<p>
+<b>Note:</b>
+Each time you run SOAPSampleIVPa, it
+overwrites the output file 
+<tt>SOAPSampleIVPa.out</tt> so, if you wish to use SOAPSampleIVPb to
+delete the data, you must run this before
+you next run SOAPSampleIVPa.
+</p>
+
+<p>
+To run the IVPs, complete the following steps
+on the same system as the UDDI Registry:</P>
+<OL>
+  <LI>Ensure that DB2 and the WebSphere Admin Server
+  are started.</li>
+  <LI>Start the WebSphere Administrator's Console
+  and ensure the default server is started
+  and the UDDI Registry Application is started.</li>
+  <LI>For SOAP samples to work, you need to ensure
+  that the Client JDK is either the one shipped
+  with IBM WebSphere Application Server or
+  a later IBM JDK.:
+  <UL>
+    <LI>For Windows - ensure that C:\WebSphere\AppServer\java\bin
+    is present in the PATH statement before and
+    other JDK's
+    <LI>For Linux - ensure that /opt/WebSphere/AppServer/java/bin
+    is present in the PATH statement before and
+    other JDK's
+  </UL>
+  <P><B>NOTE:</B> You <B>must</B> use the IBM WebSphere supplied JDK or a
+  later level of the IBM JDK.</P>
+  <P>For Windows, the default system path can
+  be set via <B>Control Panel ...-&gt; Settings ...-&gt;
+  System ...-&gt; Advanced Properties ...-&gt;
+  Environment Variables</B><BR>
+  Alternatively, this can be accomplished
+  just
+  for the shell where you plan to run the
+  samples
+  by modifying the path within the shell:</P>
+  <UL>
+    <LI>For Windows - set path=c:\WebSphere\AppServer\java\bin;%path%
+    <LI>For Linux - export PATH=/opt/WebSphere\AppServer/java/bin:$PATH
+  </UL>
+  <LI>Copy the samples from &lt;UDDI-install-dir&gt;\samples\soap
+  and *.xml to a directory, and compile and
+  run them there (see next bullets)</li>
+  <LI>Compile both SOAPSampleIVPa and SOAPSampleIVPb
+  by typing 'javac SOAPSampleIVPa.java' and
+  'javac SOAPSampleIVPb'.</li>
+  <LI>Run SOAPSampleIVPa by typing 'java SOAPSampleIVPa'.
+  This should publish a number of businesses
+  and services and service types into the registry.</li>
+  <LI>Start your Web browser on the same system
+  as the UDDI Registry.</li>
+  <li>To display the UDDI GUI home page, type one of the following URLs:
+  <ul>
+  <li>If you have WebSphere security disabled: <tt>http://localhost:9080/uddigui</tt> 
+   </li>
+  <li>
+  If you have WebSphere security enabled:
+  <tt>https://localhost:9433/uddigui</tt>
+  </li>
+  </ul>
+</li>
+<li>
+On the find page, complete the following steps:
+<ol>
+<li>Select the business radio button</li>
+<li>In the data entry field, type <tt>%</tt> (percent is the wild card symbol)</li>
+<li>Click <b>Find</b></li>
+</ol>
+<p>You should get a results page returned with
+  three businesses (mybusiness1, mybusiness2,
+  and mybusiness3). This demonstrates that
+  the API and the UDDI Console are working
+  correctly.</p></li>
+  <LI>To see the services that are available
+  for a business, click the &quot;Show Services&quot;
+  option next to the business.
+  </li>
+  <LI>To delete all of the IVP data, run SOAPSampleIVPb
+  (from the command prompt as before - by typing
+  'java SOAPSampleIVPb')</li>
+  <LI>
+On the find page, complete the following steps:
+<ol>
+<li>Select the business radio button</li>
+<li>In the data entry field, type <tt>%</tt> (percent is the wild card symbol)</li>
+<li>Click <b>Find</b></li>
+</ol>
+<p>You should get an empty results page returned.
+</li>
+</OL>
+
+</body>
+</html>

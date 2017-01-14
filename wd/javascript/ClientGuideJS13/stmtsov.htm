@@ -1,0 +1,251 @@
+<HTML>
+<HEAD>
+<TITLE>Statements
+</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="regexp.htm">Previous</A>
+ | <A HREF="fcns.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT><BR><BR>
+<HR>
+<A NAME="1008298">
+<P></A><CENTER><H2>Chapter 5<BR>
+<A NAME="1008303">
+Statements</A></H2></CENTER>
+<A NAME="1008305">
+JavaScript supports a compact set of statements that you can use to incorporate a great deal of interactivity in Web pages. This chapter provides an overview of these statements.</A></P>
+<A NAME="1009733">
+This chapter contains the following sections, which provide a brief overview of each statement:</A></P>
+<ul><P><LI><A NAME="1009737">
+<A HREF="stmtsov.htm#1008319">Conditional Statements</A>: <CODE>if...else</CODE> and <CODE>switch</CODE></A></LI>
+<P><LI><A NAME="1009798">
+<A HREF="stmtsov.htm#1008340">Loop Statements</A>: <CODE>for</CODE>, <CODE>while</CODE>,<CODE> do while</CODE>,<CODE> label</CODE>, <CODE>break</CODE>, and<CODE> continue</CODE> (<CODE>label</CODE> is not itself a looping statement, but is frequently used with these statements)</A></LI>
+<P><LI><A NAME="1009832">
+<A HREF="stmtsov.htm#1008417">Object Manipulation Statements</A>: <CODE>for...in </CODE>and <CODE>with</CODE></A></LI>
+<P><LI><A NAME="1009837">
+<A HREF="stmtsov.htm#1008468">Comments</A></A></LI>
+</ul><A NAME="1014479">
+Any expression is also a statement. See <A HREF="expr.htm#1008302">Chapter 3, "Expressions and Operators,"</A> for complete information about statements.</A></P>
+<A NAME="1014489">
+Use the semicolon (;) character to separate statements in JavaScript code.</A></P>
+<A NAME="1009782">
+See the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsref/index.htm" TARGET="_top"><I>Client-Side JavaScript Reference</I></A> for details about the statements in this chapter.</A></P>
+
+<HR><H2><A NAME="Conditional Statements"></A>
+<A NAME="1008319">
+ Conditional Statements
+</A></H2><A NAME="1008320">
+A conditional statement is a set of commands that executes if a specified condition is true. JavaScript supports two conditional statements: <CODE>if...else</CODE> and <CODE>switch</CODE>.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1008323">
+ if...else Statement
+</A></H3>
+
+<A NAME="1008324">
+Use the <CODE>if</CODE> statement to perform certain statements if a logical condition is true; use the optional <CODE>else</CODE> clause to perform other statements if the condition is false. An <CODE>if</CODE> statement looks as follows:</A></P>
+<PRE><A NAME="1008325">if (<I>condition</I>) {<br>&nbsp;&nbsp;&nbsp;<I>statements1</I> <br>}<br>[else {<br>&nbsp;&nbsp;&nbsp;<I>statements2</I> <br>} ]</A></PRE><A NAME="1008326">
+The condition can be any JavaScript expression that evaluates to true or false. The statements to be executed can be any JavaScript statements, including further nested <CODE>if</CODE> statements. If you want to use more than one statement after an <CODE>if</CODE> or <CODE>else</CODE> statement, you must enclose the statements in curly braces, {}.</A></P>
+<A NAME="1014519">
+Do not confuse the primitive Boolean values true and false with the true and false values of the Boolean object. Any object whose value is not undefined or null, including a Boolean object whose value is false, evaluates to true when passed to a conditional statement. For example:</A></P>
+<PRE><A NAME="1014538">var b = new Boolean(false);<br>if (b) // this condition evaluates to true</A></PRE><A NAME="1008327">
+<B>Example.</B> In the following example, the function <CODE>checkData</CODE> returns true if the number of characters in a <CODE>Text</CODE> object is three; otherwise, it displays an alert and returns false.</A></P>
+<PRE><A NAME="1008328">function checkData () {<br>&nbsp;&nbsp;&nbsp;if (document.form1.threeChar.value.length == 3) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return true<br>&nbsp;&nbsp;&nbsp;} else {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert("Enter exactly three characters. " + &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.form1.threeChar.value + " is not valid.")<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return false<br>&nbsp;&nbsp;&nbsp;}<br>}</A></PRE>
+<H3><A NAME="Head2;"></A>
+<A NAME="1008329">
+ switch Statement
+</A></H3>
+
+<A NAME="1008330">
+A <CODE>switch</CODE> statement allows a program to evaluate an expression and attempt to match the expression's value to a case label. If a match is found, the program executes the associated statement. A <CODE>switch</CODE> statement looks as follows:</A></P>
+<PRE><A NAME="1008331">switch (<I>expression</I>){<br>&nbsp;&nbsp;&nbsp;case <I>label</I> : <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<I>statement</I>;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>&nbsp;&nbsp;&nbsp;case <I>label</I> : <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<I>statement</I>;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>&nbsp;&nbsp;&nbsp;...<br>&nbsp;&nbsp;&nbsp;default : <I>statement</I>;<br>}</A></PRE><A NAME="1008332">
+The program first looks for a label matching the value of expression and then executes the associated statement. If no matching label is found, the program looks for the optional default statement, and if found, executes the associated statement. If no default statement is found, the program continues execution at the statement following the end of <CODE>switch</CODE>.</A></P>
+<A NAME="1008333">
+The optional <CODE>break</CODE> statement associated with each case label ensures that the program breaks out of <CODE>switch</CODE> once the matched statement is executed and continues execution at the statement following switch. If <CODE>break</CODE> is omitted, the program continues execution at the next statement in the <CODE>switch</CODE> statement.</A></P>
+<A NAME="1008334">
+<B>Example.</B> In the following example, if <CODE>expr</CODE> evaluates to "Bananas", the program matches the value with case "Bananas" and executes the associated statement. When <CODE>break</CODE> is encountered, the program terminates <CODE>switch</CODE> and executes the statement following <CODE>switch</CODE>. If <CODE>break</CODE> were omitted, the statement for case "Cherries" would also be executed.</A></P>
+<PRE><A NAME="1010429">switch (expr) {<br>&nbsp;&nbsp;&nbsp;case "Oranges" : <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.write("Oranges are $0.59 a pound.&lt;BR&gt;"); <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break; <br>&nbsp;&nbsp;&nbsp;case "Apples" :<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.write("Apples are $0.32 a pound.&lt;BR&gt;");<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>&nbsp;&nbsp;&nbsp;case "Bananas" : <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.write("Bananas are $0.48 a pound.&lt;BR&gt;"); <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break; <br>&nbsp;&nbsp;&nbsp;case "Cherries" :<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.write("Cherries are $3.00 a pound.&lt;BR&gt;");<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break; <br>&nbsp;&nbsp;&nbsp;default :<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.write("Sorry, we are out of " + i + ".&lt;BR&gt;"); <br>}</A></PRE><PRE><A NAME="1008337">document.write("Is there anything else you'd like?&lt;BR&gt;");</A></PRE>
+<HR><H2><A NAME="Loop Statements"></A>
+<A NAME="1008340">
+ Loop Statements
+</A></H2><A NAME="1008341">
+A loop is a set of commands that executes repeatedly until a specified condition is met. JavaScript supports the <CODE>for</CODE>, <CODE>do while</CODE>, <CODE>while</CODE>, and <CODE>label</CODE> loop statements (<CODE>label</CODE> is not itself a looping statement, but is frequently used with these statements). In addition, you can use the <CODE>break</CODE> and <CODE>continue</CODE> statements within loop statements.</A></P>
+<A NAME="1008342">
+Another statement, <CODE>for...in</CODE>, executes statements repeatedly but is used for object manipulation. See <A HREF="stmtsov.htm#1008417">"Object Manipulation Statements" on page&nbsp;88</A>.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1008347">
+ for Statement
+</A></H3>
+
+<A NAME="1008349">
+A <CODE>for</CODE> loop repeats until a specified condition evaluates to false. The JavaScript <CODE>for</CODE> loop is similar to the Java and C <CODE>for</CODE> loop. A <CODE>for</CODE> statement looks as follows:</A></P>
+<PRE><A NAME="1008350">for ([<I>initialExpression</I>]; [<I>condition</I>]; [<I>incrementExpression</I>]) {<br>&nbsp;&nbsp;&nbsp;<I>statements<br></I>}</A></PRE><A NAME="1008351">
+When a <CODE>for</CODE> loop executes, the following occurs:</A></P>
+<OL>
+<P><LI><A NAME="1008352">
+The initializing expression <CODE>initial-expression</CODE>, if any, is executed. This expression usually initializes one or more loop counters, but the syntax allows an expression of any degree of complexity.</A></LI>
+<P><LI><A NAME="1008353">
+The <CODE>condition</CODE> expression is evaluated. If the value of <CODE>condition</CODE> is true, the loop statements execute. If the value of <CODE>condition</CODE> is false, the <CODE>for</CODE> loop terminates.</A></LI>
+<P><LI><A NAME="1014494">
+The <CODE>statements</CODE> execute.</A></LI>
+<P><LI><A NAME="1008354">
+The update expression <CODE>incrementExpression</CODE> executes, and control returns to <A HREF="stmtsov.htm#1008353">Step 2</A>.</A></LI>
+</OL>
+<A NAME="1008356">
+<B>Example.</B> The following function contains a <CODE>for</CODE> statement that counts the number of selected options in a scrolling list (a <CODE>Select</CODE> object that allows multiple selections). The <CODE>for</CODE> statement declares the variable <CODE>i</CODE> and initializes it to zero. It checks that <CODE>i</CODE> is less than the number of options in the <CODE>Select</CODE> object, performs the succeeding <CODE>if</CODE> statement, and increments <CODE>i</CODE> by one after each pass through the loop.</A></P>
+<PRE><A NAME="1016194">&lt;SCRIPT&gt;<br>function howMany(selectObject) {<br>&nbsp;&nbsp;&nbsp;var numberSelected=0<br>&nbsp;&nbsp;&nbsp;for (var i=0; i &lt; selectObject.options.length; i++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (selectObject.options[i].selected==true)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;numberSelected++<br>&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;return numberSelected<br>}<br>&lt;/SCRIPT&gt;</A></PRE><PRE><A NAME="1016196">&lt;FORM NAME="selectForm"&gt;<br>&lt;P&gt;&lt;B&gt;Choose some music types, then click the button below:&lt;/B&gt;<br>&lt;BR&gt;&lt;SELECT NAME="musicTypes" MULTIPLE&gt;<br>&lt;OPTION SELECTED&gt; R&amp;B<br>&lt;OPTION&gt; Jazz<br>&lt;OPTION&gt; Blues<br>&lt;OPTION&gt; New Age<br>&lt;OPTION&gt; Classical<br>&lt;OPTION&gt; Opera<br>&lt;/SELECT&gt;<br>&lt;P&gt;&lt;INPUT TYPE="button" VALUE="How many are selected?"<br>onClick="alert ('Number of options selected: ' + howMany(document.selectForm.musicTypes))"&gt;<br>&lt;/FORM&gt;</A></PRE>
+<H3><A NAME="Head2;"></A>
+<A NAME="1008359">
+ do...while Statement
+</A></H3>
+
+<A NAME="1008360">
+The <CODE>do...while</CODE> statement repeats until a specified condition evaluates to false. A <CODE>do...while</CODE> statement looks as follows:</A></P>
+<PRE><A NAME="1008361">do<CODE> {<br></CODE>&nbsp;&nbsp;&nbsp;<I>statement<br></I>}<CODE> </CODE>while<CODE> (</CODE><I>condition</I><CODE>)</CODE></A></PRE><A NAME="1008362">
+<CODE>statement</CODE> executes once before the condition is checked. If <CODE>condition</CODE> returns <CODE>true</CODE>, the statement executes again. At the end of every execution, the condition is checked. When the condition returns <CODE>false</CODE>, execution stops and control passes to the statement following <CODE>do...while</CODE>.</A></P>
+<A NAME="1008363">
+<B>Example.</B> In the following example, the <CODE>do</CODE> loop iterates at least once and reiterates until i is no longer less than 5.</A></P>
+<PRE><A NAME="1008364">do {<br>&nbsp;&nbsp;&nbsp;i+=1;<br>&nbsp;&nbsp;&nbsp;document.write(i);<br>} while (i&lt;5);</A></PRE>
+<H3><A NAME="Head2;"></A>
+<A NAME="1008366">
+ while Statement
+</A></H3>
+
+<A NAME="1008367">
+A <CODE>while</CODE> statement executes its statements as long as a specified condition evaluates to true. A <CODE>while</CODE> statement looks as follows:</A></P>
+<PRE><A NAME="1008368">while (<I>condition</I>) {<br>&nbsp;&nbsp;&nbsp;<I>statements<br></I>}</A></PRE><A NAME="1008369">
+If the condition becomes false, the statements within the loop stop executing and control passes to the statement following the loop.</A></P>
+<A NAME="1008370">
+The condition test occurs before the statements in the loop are executed. If the condition returns true, the statements are executed and the condition is tested again. If the condition returns false, execution stops and control is passed to the statement following <CODE>while</CODE>.</A></P>
+<A NAME="1008371">
+<B>Example 1.</B> The following <CODE>while</CODE> loop iterates as long as <CODE>n</CODE> is less than three:</A></P>
+<PRE><A NAME="1008372">n = 0<br>x = 0<br>while( n &lt; 3 ) {<br>&nbsp;&nbsp;&nbsp;n ++<br>&nbsp;&nbsp;&nbsp;x += n<br>}</A></PRE><A NAME="1008373">
+With each iteration, the loop increments <CODE>n</CODE> and adds that value to <CODE>x</CODE>. Therefore, <CODE>x</CODE> and <CODE>n</CODE> take on the following values:</A></P>
+<ul><LI><A NAME="1008374">
+After the first pass: <CODE>n</CODE> = 1 and <CODE>x</CODE> = 1
+</A></LI><LI><A NAME="1008375">
+After the second pass: <CODE>n</CODE> = 2 and <CODE>x</CODE> = 3
+</A></LI><LI><A NAME="1008376">
+After the third pass: <CODE>n</CODE> = 3 and <CODE>x</CODE> = 6
+</A></LI></ul><A NAME="1008377">
+After completing the third pass, the condition <CODE>n &lt; 3</CODE> is no longer true, so the loop terminates.</A></P>
+<A NAME="1008378">
+<B>Example 2: infinite loop.</B> Make sure the condition in a loop eventually becomes false; otherwise, the loop will never terminate. The statements in the following <CODE>while</CODE> loop execute forever because the condition never becomes false:</A></P>
+<PRE><A NAME="1010472">while (true) {<br>&nbsp;&nbsp;&nbsp;alert("Hello, world") }</A></PRE>
+<H3><A NAME="Head2;"></A>
+<A NAME="1010474">
+ label Statement
+</A></H3>
+
+<A NAME="1008383">
+A label provides a statement with an identifier that lets you refer to it elsewhere in your program. For example, you can use a label to identify a loop, and then use the <CODE>break</CODE> or <CODE>continue</CODE> statements to indicate whether a program should interrupt the loop or continue its execution.</A></P>
+<A NAME="1014644">
+The syntax of the label statement looks like the following:</A></P>
+<PRE><A NAME="1008384"><I>label</I> : <br>&nbsp;&nbsp;&nbsp;<I>statement</I></A></PRE><A NAME="1008385">
+The value of <I><CODE>label </CODE></I>may be any JavaScript identifier that is not a reserved word. The <I><CODE>statement</CODE></I> that you identify with a label may be any type.</A></P>
+<A NAME="1014768">
+<B>Example.</B> In this example, the label <CODE>markLoop</CODE> identifies a <CODE>while</CODE> loop.</A></P>
+<PRE><A NAME="1014713">markLoop:<br>while (theMark == true)<br>&nbsp;&nbsp;&nbsp;doSomething();<br>}</A></PRE>
+<H3><A NAME="Head2;"></A>
+<A NAME="1008389">
+ break Statement
+</A></H3>
+
+<A NAME="1008390">
+Use the break statement to terminate a loop, <CODE>switch</CODE>, or label statement.</A></P>
+<ul><P><LI><A NAME="1008391">
+When you use <CODE>break</CODE> with a <CODE>while</CODE>, <CODE>do-while</CODE>, <CODE>for</CODE>, or <CODE>switch </CODE>statement, <CODE>break</CODE> terminates the innermost enclosing loop or <CODE>switch</CODE> immediately and transfers control to the following statement.</A></LI>
+<P><LI><A NAME="1008392">
+When you use <CODE>break</CODE> within an enclosing label statement, it terminates the statement and transfers control to the following statement. If you specify a label when you issue the <CODE>break</CODE>, the <CODE>break</CODE> statement terminates the specified statement.</A></LI>
+</ul><A NAME="1014917">
+The syntax of the <CODE>break</CODE> statement looks like the following:</A></P>
+<PRE><A NAME="1008396">1. break<br>2. break [<I>label</I>]</A></PRE><A NAME="1014993">
+The first form of the syntax terminates the innermost enclosing loop, <CODE>switch</CODE>, or label; the second form of the syntax terminates the specified enclosing label statement.</A></P>
+<A NAME="1014994">
+<B>Example.</B> The following example iterates through the elements in an array until it finds the index of an element whose value is <CODE>theValue</CODE>:</A></P>
+<PRE><A NAME="1015015">for (i = 0; i &lt; a.length; i++) {<br>&nbsp;&nbsp;&nbsp;if (a[i] = theValue);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>}</A></PRE>
+<H3><A NAME="Head2;"></A>
+<A NAME="1008402">
+ continue Statement
+</A></H3>
+
+<A NAME="1015074">
+The <CODE>continue</CODE> statement can be used to restart a <CODE>while</CODE>, <CODE>do-while</CODE>, <CODE>for</CODE>, or <CODE>label</CODE> statement.</A></P>
+<ul><P><LI><A NAME="1008404">
+In a <CODE>while</CODE> or <CODE>for</CODE> statement, <CODE>continue</CODE> terminates the current loop and continues execution of the loop with the next iteration. In contrast to the <CODE>break</CODE> statement, <CODE>continue</CODE> does not terminate the execution of the loop entirely. In a <CODE>while</CODE> loop, it jumps back to the <CODE>condition</CODE>. In a <CODE>for</CODE> loop, it jumps to the <CODE>increment-expression</CODE>.</A></LI>
+<P><LI><A NAME="1008405">
+In a <CODE>label</CODE> statement, <CODE>continue </CODE>is followed by a label that identifies a <CODE>label</CODE> statement. This type of <CODE>continue</CODE> restarts a label statement or continues execution of a labelled loop with the next iteration. <CODE>continue</CODE> must be in a looping statement identified by the label used by <CODE>continue</CODE>.</A></LI>
+</ul><A NAME="1015133">
+The syntax of the <CODE>continue</CODE> statement looks like the following:</A></P>
+<PRE><A NAME="1015134">1. continue<br>2. continue [<I>label</I>]</A></PRE><A NAME="1008410">
+<B>Example 1.</B> The following example shows a <CODE>while</CODE> loop with a <CODE>continue</CODE> statement that executes when the value of <CODE>i</CODE> is three. Thus, <CODE>n</CODE> takes on the values one, three, seven, and twelve.</A></P>
+<PRE><A NAME="1008411">i = 0<br>n = 0<br>while (i &lt; 5) {<br>&nbsp;&nbsp;&nbsp;i++<br>&nbsp;&nbsp;&nbsp;if (i == 3)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;continue<br>&nbsp;&nbsp;&nbsp;n += i<br>}</A></PRE><A NAME="1008413">
+<B>Example 2.</B> A statement labeled <CODE>checkiandj</CODE> contains a statement labeled <CODE>checkj</CODE>. If <CODE>continue</CODE> is encountered, the program terminates the current iteration of <CODE>checkj</CODE> and begins the next iteration. Each time <CODE>continue</CODE> is encountered, <CODE>checkj</CODE> reiterates until its condition returns <CODE>false</CODE>. When <CODE>false</CODE> is returned, the remainder of the <CODE>checkiandj</CODE> statement is completed, and <CODE>checkiandj</CODE> reiterates until its condition returns <CODE>false</CODE>. When <CODE>false</CODE> is returned, the program continues at the statement following <CODE>checkiandj</CODE>.</A></P>
+<A NAME="1008414">
+If <CODE>continue</CODE> had a label of <CODE>checkiandj</CODE>, the program would continue at the top of the <CODE>checkiandj</CODE> statement.</A></P>
+<PRE><A NAME="1008415">checkiandj : <br>&nbsp;&nbsp;&nbsp;while (i&lt;4) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.write(i + "&lt;BR&gt;"); <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i+=1; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;checkj : <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while (j&gt;4) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.write(j + "&lt;BR&gt;"); <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;j-=1; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ((j%2)==0);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;continue checkj;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.write(j + " is odd.&lt;BR&gt;");<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.write("i = " + i + "&lt;br&gt;");<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.write("j = " + j + "&lt;br&gt;");  <br>&nbsp;&nbsp;&nbsp;}</A></PRE>
+<HR><H2><A NAME="Object Manipulation Statements"></A>
+<A NAME="1008417">
+ Object Manipulation Statements
+</A></H2><A NAME="1008419">
+JavaScript uses the <CODE>for...in</CODE> and <CODE>with</CODE> statements to manipulate objects.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1008452">
+ for...in Statement
+</A></H3>
+
+<A NAME="1008453">
+The <CODE>for...in</CODE> statement iterates a specified variable over all the properties of an object. For each distinct property, JavaScript executes the specified statements. A <CODE>for...in</CODE> statement looks as follows:</A></P>
+<PRE><A NAME="1008454">for (<I>variable</I> in <I>object</I>) {<br>&nbsp;&nbsp;&nbsp;<I>statements</I> }</A></PRE><A NAME="1008455">
+<B>Example.</B> The following function takes as its argument an object and the object's name. It then iterates over all the object's properties and returns a string that lists the property names and their values.</A></P>
+<PRE><A NAME="1008456">function dump_props(obj, obj_name) {<br>&nbsp;&nbsp;&nbsp;var result = ""<br>&nbsp;&nbsp;&nbsp;for (var i in obj) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result += obj_name + "." + i + " = " + obj[i] + "&lt;BR&gt;"<br>&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;result += "&lt;HR&gt;"<br>&nbsp;&nbsp;&nbsp;return result<br>}</A></PRE><A NAME="1008457">
+For an object <CODE>car</CODE> with properties <CODE>make</CODE> and <CODE>model</CODE>, <CODE>result</CODE> would be:</A></P>
+<A NAME="1008458">
+car.make = Ford<br>car.model = Mustang</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1008460">
+ with Statement
+</A></H3>
+
+<A NAME="1008461">
+The <CODE>with</CODE> statement establishes the default object for a set of statements. JavaScript looks up any unqualified names within the set of statements to determine if the names are properties of the default object. If an unqualified name matches a property, then the property is used in the statement; otherwise, a local or global variable is used.</A></P>
+<A NAME="1015235">
+A <CODE>with</CODE> statement looks as follows:</A></P>
+<PRE><A NAME="1008462">with (<I>object</I>){<br>&nbsp;&nbsp;&nbsp;<I>statements<br></I>}</A></PRE><A NAME="1008463">
+<B>Example.</B> The following <CODE>with</CODE> statement specifies that the <CODE>Math</CODE> object is the default object. The statements following the <CODE>with</CODE> statement refer to the <CODE>PI</CODE> property and the <CODE>cos</CODE> and <CODE>sin</CODE> methods, without specifying an object. JavaScript assumes the <CODE>Math</CODE> object for these references.</A></P>
+<PRE><A NAME="1008464">var a, x, y<br>var r=10<br>with (Math) {<br>&nbsp;&nbsp;&nbsp;a = PI * r * r<br>&nbsp;&nbsp;&nbsp;x = r * cos(PI)<br>&nbsp;&nbsp;&nbsp;y = r * sin(PI/2)<br>}</A></PRE>
+<HR><H2><A NAME="Comments"></A>
+<A NAME="1008468">
+ Comments
+</A></H2><A NAME="1008469">
+Comments are author notations that explain what a script does. Comments are ignored by the interpreter. JavaScript supports Java-style comments:</A></P>
+<ul><P><LI><A NAME="1008471">
+Comments on a single line are preceded by a double-slash (//).</A></LI>
+<P><LI><A NAME="1008474">
+Comments that span multiple lines are preceded by /* and followed by */:</A></LI>
+</ul><A NAME="1008475">
+<B>Example.</B> The following example shows two comments:</A></P>
+<PRE><A NAME="1008476">// This is a single-line comment.</A></PRE><PRE><A NAME="1008477">/* This is a multiple-line comment. It can be of any length, and<br>you can put whatever you want here. */</A></PRE>
+<HR>
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="regexp.htm">Previous</A>
+ | <A HREF="fcns.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT>
+<P ALIGN=right>
+<FONT SIZE=-2><I>Last Updated:  05/27/99  21:21:26</I></FONT>
+<P> <CENTER>Copyright (c) 1999
+<A HREF="http://home.netscape.com/misc/contact_info.html"
+TARGET=_top>Netscape Communications Corporation</A></FONT>
+</CENTER>
+<P>
+</BODY>
+</HTML>
+
+

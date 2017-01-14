@@ -1,0 +1,68 @@
+<!doctype html public" -//IETF//DTD 	HTML//EN">
+<HTML>
+
+<HEAD>
+<SCRIPT LANGUAGE="JAVASCRIPT">
+<!-- 
+
+function checkbrowse()
+{
+var bn, bv, ver
+bn = navigator.appName;
+bv = parseInt(navigator.appVersion);
+if (bn=="Microsoft Internet Explorer" && bv<"4") ver = "IE3";
+else ver = "NotIE3";
+if (ver=="IE3") top.cont.parts.location.href="part06.htm";
+if (ver=="NotIE3") top.cont.parts.location.href="nav/part06.htm";
+}
+//-->
+</SCRIPT>
+<TITLE>Linked Tasks Can Be Flexible or Inflexible</TITLE>
+<META NAME="GENERATOR" 	CONTENT="Merch. System HTML Development">
+<META NAME="AUTHOR" 	CONTENT="Merch. System HTML Development">
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" OnLoad="checkbrowse();">
+<Font Face ="Verdana, Arial, Helvetica">
+
+<P align=right><SMALL>
+<A HREF="p6982.htm" Target="TOC"><IMG SRC="prev.gif"ALT="Previous page"BORDER=0></A>
+<A HREF="p6981.htm" Target="TOC"><IMG SRC="toc06.gif"ALT="Contents"BORDER=0></A>
+<A HREF="p6984.htm" Target="TOC"><IMG SRC="Next.gif"ALT="Next 
+page"BORDER=0></A></SMALL></P>
+<H1>Linked Tasks Can Be Flexible or Inflexible</H1>
+
+<P>
+Constraints applied to linked tasks can be <I>flexible</I> or <I>inflexible</I>. A flexible constraint allows a 
+task’s start and finish dates to be automatically recalculated when the dates of other tasks in the same linked 
+sequence change. Examples of flexible constraints are the As Soon As Possible constraint and the Start No 
+Earlier Than constraint (which allows a task to start later only if you schedule your project from the project 
+start date and not the project finish date).
+<P>
+Inflexible constraints tie a task to a specific date. Typically, the dates for a task with an inflexible constraint 
+don’t change when the dates of other tasks in the same linked sequence change. These dates remain fixed. 
+Examples of inflexible constraints are the Must Start On and Must Finish On constraints.
+<P>
+Constrain a task if:
+<UL>
+<LI>The constraint reflects an actual time restriction in the real world.
+<LI>The project will be penalized for not starting or finishing by a specific date.
+</UL>
+<P>
+If a task doesn’t absolutely need to start or finish on or near a specific date, don’t apply an inflexible 
+constraint. When you apply inflexible constraints to tasks, you bypass the advantage of allowing Microsoft 
+Project to calculate task start and finish dates for you automatically as the schedule changes. If a constraint is 
+unnecessary, change it.
+<P>
+Keep in mind that constraints may become undesirable when you reschedule tasks. For example, if you specify 
+that a task must start on a specific date, but its predecessors actually take longer than planned, there might not 
+be enough time for the predecessors to finish before the constrained task is scheduled to start. If a predecessor 
+task ends up overlapping the constrained task, a resource assigned to both tasks might be overloaded with 
+work on the overlapping days. On the other hand, if the predecessor tasks happen to start a week earlier than 
+planned, you might end up with a week of dead time in your schedule.
+<P align = Center > <A HREF="http://www.microsoft.com/misc/cpyright.htm"><EM>&#169;1996-1997 Microsoft Corporation. All rights 
+reserved.</EM></A></P>
+</BODY>
+</FONT>
+</HTML>
+

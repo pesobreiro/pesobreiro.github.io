@@ -1,0 +1,2179 @@
+<HTML>
+<HEAD>
+<TITLE>Event Handlers
+</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="toplev.htm">Previous</A>
+ | <A HREF="partlang.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT><BR><BR>
+<HR>
+<A NAME="1003024">
+<P></A><CENTER><H2>Chapter 3<BR>
+<A NAME="1130823">
+Event Handlers</A></H2></CENTER>
+<A NAME="1130825">
+This chapter contains the event handlers that are used with client-side objects in JavaScript to evoke particular actions.</A></P>
+<A NAME="1131267">
+For general information on event handlers, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+<A NAME="1152973">
+The following table summarizes the event handlers. The name of an event handler is the name of the event, preceded by "on." For example, the event handler for the <CODE>focus</CODE> event is <CODE>onFocus</CODE>.</A></P>
+<A NAME="1137803">
+<P><B><A NAME="1137775">
+Table 3.1&nbsp;Event handlers</A></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1153085">
+<B>Event
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1137779">
+<B>Event handler
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1137781">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1153090">Abort</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1137786"><A HREF="handlers.htm#1119616"><CODE>onAbort</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1137788">
+Executes JavaScript code when the user aborts the loading of an image.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1153095">Blur</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1137793"><A HREF="handlers.htm#1119670"><CODE>onBlur</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1137795">
+Executes JavaScript code when a form element loses focus or when a window or frame loses focus.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1153100">Change</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1137800"><A HREF="handlers.htm#1119802"><CODE>onChange</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1137802">
+Executes JavaScript code when a <CODE>Select</CODE>, <CODE>Text</CODE>, or <CODE>Textarea</CODE> field loses focus and its value has been modified</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1153105">Click</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1137875"><A HREF="handlers.htm#1119876"><CODE>onClick</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1137877">
+Executes JavaScript code when an object on a form is clicked.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1153110">DblClick</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1137868"><A HREF="handlers.htm#1119971"><CODE>onDblClick</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1137870">
+Executes JavaScript code when the user double-clicks a form element or a link.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1153115">DragDrop</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1137861"><A HREF="handlers.htm#1120032"><CODE>onDragDrop</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1137863">
+Executes JavaScript code when the user drops an object onto the browser window, such as dropping a file.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1153120">Error</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1138225"><A HREF="handlers.htm#1120097"><CODE>onError</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1138227">
+Executes JavaScript code when the loading of a document or image causes an error.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1153125">Focus</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1138218"><A HREF="handlers.htm#1120186"><CODE>onFocus</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1138220">
+Executes JavaScript code when a window, frame, or frameset receives focus or when a form element receives input focus.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1153130">KeyDown</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1138211"><A HREF="handlers.htm#1120313"><CODE>onKeyDown</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1138213">
+Executes JavaScript code when the user depresses a key.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1153135">KeyPress</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1138204"><A HREF="handlers.htm#1120393"><CODE>onKeyPress</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1138206">
+Executes JavaScript code when the user presses or holds down a key.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1153140">KeyUp</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1138197"><A HREF="handlers.htm#1120473"><CODE>onKeyUp</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1138199">
+Executes JavaScript code when the user releases a key.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1153145">Load</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1138190"><A HREF="handlers.htm#1120545"><CODE>onLoad</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1138192">
+Executes JavaScript code when the browser finishes loading a window or all frames within a <CODE>FRAMESET</CODE> tag.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1153150">MouseDown</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1138295"><A HREF="handlers.htm#1120635"><CODE>onMouseDown</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1138297">
+Executes JavaScript code when the user depresses a mouse button.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1153155">MouseMove</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1138288"><A HREF="handlers.htm#1120700"><CODE>onMouseMove</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1138290">
+Executes JavaScript code when the user moves the cursor.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1153160">MouseOut</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1138281"><A HREF="handlers.htm#1120757"><CODE>onMouseOut</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1138283">
+Executes JavaScript code each time the mouse pointer leaves an area (client-side image map) or link from inside that area or link.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1153165">MouseOver</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1138274"><A HREF="handlers.htm#1120822"><CODE>onMouseOver</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1138276">
+Executes JavaScript code once each time the mouse pointer moves over an object or area from outside that object or area.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1153170">MouseUp</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1138267"><A HREF="handlers.htm#1120892"><CODE>onMouseUp</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1138269">
+Executes JavaScript code when the user releases a mouse button.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1153175">Move</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1138260"><A HREF="handlers.htm#1120958"><CODE>onMove</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1138262">
+Executes JavaScript code when the user or script moves a window or frame.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1153180">Reset</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1138373"><A HREF="handlers.htm#1121007"><CODE>onReset</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1138375">
+Executes JavaScript code when a user resets a form (clicks a Reset button).</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1153185">Resize</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1138366"><A HREF="handlers.htm#1121061"><CODE>onResize</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1138368">
+Executes JavaScript code when a user or script resizes a window or frame.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1153190">Select</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1138359"><A HREF="handlers.htm#1121112"><CODE>onSelect</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1138361">
+Executes JavaScript code when a user selects some of the text within a text or textarea field.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1153195">Submit</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1138352"><A HREF="handlers.htm#1121163"><CODE>onSubmit</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1138354">
+Executes JavaScript code when a user submits a form.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1153200">Unload</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1138345"><A HREF="handlers.htm#1121231"><CODE>onUnload</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1138347">
+Executes JavaScript code when the user exits a document.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<HR><H2><A NAME="onAbort"></A>
+<A NAME="1119616">
+ onAbort
+</A></H2><A NAME="1119617">
+Executes JavaScript code when an abort event occurs; that is, when the user aborts the loading of an image (for example by clicking a link or clicking the Stop button). <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1119620">
+<I>Event handler for </I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1119625">
+<A HREF="image.htm#1193137"><CODE>Image</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1119627">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1119629">
+JavaScript 1.1</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1119630">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1119631">onAbort="<I>handlerText</I>"</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1119632">
+ Parameters
+</A></H4>
+
+<A NAME="1119638">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1119635"><CODE>handlerText</CODE></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1119637">
+JavaScript code or a call to a JavaScript function.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1145575">
+ Event properties used
+</A></H4>
+
+<A NAME="1145589">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1145578">
+<B>Property
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1145580">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1145582">type</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1145584">
+Indicates the type of event. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1145586">target</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1145588">
+Indicates the object to which the event was originally sent. </A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1145590">
+ Examples
+</A></H4>
+
+<A NAME="1119651">
+In the following example, an <CODE>onAbort</CODE> handler in an <CODE>Image</CODE> object displays a message when the user aborts the image load:</A></P>
+<PRE><A NAME="1119652">&lt;IMG NAME="aircraft" SRC="f15e.gif"<br>&nbsp;&nbsp;&nbsp;onAbort="alert('You didn\'t get to see the image!')"&gt;</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1119653">
+ See also
+</A></H4>
+
+<A NAME="1119660">
+<A HREF="event.htm#1193137"><CODE>event</CODE></A>, <A HREF="handlers.htm#1120097"><CODE>onError</CODE></A>, <A HREF="handlers.htm#1120545"><CODE>onLoad</CODE></A></A></P>
+
+<HR><H2><A NAME="onBlur"></A>
+<A NAME="1119670">
+ onBlur
+</A></H2><A NAME="1119671">
+Executes JavaScript code when a blur event occurs; that is, when a form element loses focus or when a window or frame loses focus. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1119674">
+<I>Event handler for </I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1119694">
+<A HREF="button.htm#1193137"><CODE>Button</CODE></A>, <A HREF="checkbox.htm#1193137"><CODE>Checkbox</CODE></A>, <A HREF="fileup.htm#1193137"><CODE>FileUpload</CODE></A>, <A HREF="layer.htm#1193137"><CODE>Layer</CODE></A>, <A HREF="password.htm#1193137"><CODE>Password</CODE></A>, <A HREF="radio.htm#1193137"><CODE>Radio</CODE></A>, <A HREF="reset.htm#1193137"><CODE>Reset</CODE></A>, <A HREF="select.htm#1193137"><CODE>Select</CODE></A>, <A HREF="submit.htm#1193137"><CODE>Submit</CODE></A>, <A HREF="text.htm#1193137"><CODE>Text</CODE></A>, <A HREF="textarea.htm#1193137"><CODE>Textarea</CODE></A>, <A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1119714">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1119716">
+JavaScript 1.0</A></P><P><A NAME="1128436">
+</A></P><P><A NAME="1128437">
+JavaScript 1.1: event handler of <A HREF="button.htm#1193137"><CODE>Button</CODE></A>, <A HREF="checkbox.htm#1193137"><CODE>Checkbox</CODE></A>, <A HREF="fileup.htm#1193137"><CODE>FileUpload</CODE></A>, <A HREF="frame.htm#1193137"><CODE>Frame</CODE></A>, <A HREF="password.htm#1193137"><CODE>Password</CODE></A>, <A HREF="radio.htm#1193137"><CODE>Radio</CODE></A>, <A HREF="reset.htm#1193137"><CODE>Reset</CODE></A>, <A HREF="submit.htm#1193137"><CODE>Submit</CODE></A>, and <A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1119744">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1119745">onBlur="<I>handlerText</I>"</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1119746">
+ Parameters
+</A></H4>
+
+<A NAME="1119752">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1119749"><CODE>handlerText</CODE></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1119751">
+JavaScript code or a call to a JavaScript function.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1119753">
+ Description
+</A></H4>
+
+<A NAME="1119757">
+The <CODE>blur</CODE> event can result from a call to the <A HREF="window.htm#1201622"><CODE>window.blur</CODE></A> method or from the user clicking the mouse on another object or window or tabbing with the keyboard.</A></P>
+<A NAME="1119758">
+For windows, frames, and framesets, <CODE>onBlur</CODE> specifies JavaScript code to execute when a window loses focus.</A></P>
+<A NAME="1119759">
+A frame's <CODE>onBlur</CODE> event handler overrides an <CODE>onBlur</CODE> event handler in the <CODE>BODY</CODE> tag of the document loaded into frame.</A></P>
+<BLOCKQUOTE><B>NOTE: </B><A NAME="1119761">
+In JavaScript 1.1, on some platforms placing an <CODE>onBlur</CODE> event handler in a 
+<CODE>FRAMESET</CODE> tag has no effect.
+</A>
+</BLOCKQUOTE>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1119762">
+ Event properties used
+</A></H4>
+
+<A NAME="1143394">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1143383">
+<B>Property
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1143385">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1143619">type</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1143621">
+Indicates the type of event.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1143623">target</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1143625">
+Indicates the object to which the event was originally sent.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1119773">
+ Examples
+</A></H4>
+
+<A NAME="1119774">
+<B>Example 1: Validate form input.</B> In the following example, <CODE>userName</CODE> is a required text field. When a user attempts to leave the field, the <CODE>onBlur</CODE> event handler calls the <CODE>required</CODE> function to confirm that <CODE>userName</CODE> has a legal value.</A></P>
+<PRE><A NAME="1119775">&lt;INPUT TYPE="text" VALUE="" NAME="userName"<br>&nbsp;&nbsp;&nbsp;onBlur="required(this.value)"&gt;</A></PRE><A NAME="1119776">
+<B>Example 2: Change the background color of a window.</B> In the following example, a window's <CODE>onBlur</CODE> and <CODE>onFocus</CODE> event handlers change the window's background color depending on whether the window has focus.</A></P>
+<PRE><A NAME="1119777">&lt;BODY BGCOLOR="lightgrey"<br>&nbsp;&nbsp;&nbsp;onBlur="document.bgColor='lightgrey'"<br>&nbsp;&nbsp;&nbsp;onFocus="document.bgColor='antiquewhite'"&gt;</A></PRE><A NAME="1119778">
+<B>Example 3: Change the background color of a frame.</B> The following example creates four frames. The source for each frame, <CODE>onblur2.html</CODE> has the <CODE>BODY</CODE> tag with the onBlur and <CODE>onFocus</CODE> event handlers shown in Example 1. When the document loads, all frames are light grey. When the user clicks a frame, the <CODE>onFocus</CODE> event handler changes the frame's background color to antique white. The frame that loses focus is changed to light grey. Note that the <CODE>onBlur</CODE> and <CODE>onFocus</CODE> event handlers are within the <CODE>BODY</CODE> tag, not the <CODE>FRAME</CODE> tag.</A></P>
+<PRE><A NAME="1119779">&lt;FRAMESET ROWS="50%,50%" COLS="40%,60%"&gt;<br>&lt;FRAME SRC=onblur2.html NAME="frame1"&gt;<br>&lt;FRAME SRC=onblur2.html NAME="frame2"&gt;<br>&lt;FRAME SRC=onblur2.html NAME="frame3"&gt;<br>&lt;FRAME SRC=onblur2.html NAME="frame4"&gt;<br>&lt;/FRAMESET&gt;</A></PRE><A NAME="1119780">
+The following code has the same effect as the previous code, but is implemented differently. The <CODE>onFocus</CODE> and <CODE>onBlur</CODE> event handlers are associated with the frame, not the document. The <CODE>onBlur</CODE> and <CODE>onFocus</CODE> event handlers for the frame are specified by setting the <CODE>onblur</CODE> and <CODE>onfocus</CODE> properties.</A></P>
+<PRE><A NAME="1119781">&lt;SCRIPT&gt;<br>function setUpHandlers() {<br>&nbsp;&nbsp;&nbsp;for (var i = 0; i &lt; frames.length; i++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;frames[i].onfocus=new Function("document.bgColor='antiquewhite'")<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;frames[i].onblur=new Function("document.bgColor='lightgrey'")<br>&nbsp;&nbsp;&nbsp;}<br>}<br>&lt;/SCRIPT&gt;</A></PRE><PRE><A NAME="1119782">&lt;FRAMESET ROWS="50%,50%" COLS="40%,60%" onLoad=setUpHandlers()&gt;<br>&lt;FRAME SRC=onblur2.html NAME="frame1"&gt;<br>&lt;FRAME SRC=onblur2.html NAME="frame2"&gt;<br>&lt;FRAME SRC=onblur2.html NAME="frame3"&gt;<br>&lt;FRAME SRC=onblur2.html NAME="frame4"&gt;<br>&lt;/FRAMESET&gt;</A></PRE><A NAME="1119783">
+<B>Example 4: Close a window.</B> In the following example, a window's <CODE>onBlur</CODE> event handler closes the window when the window loses focus.</A></P>
+<PRE><A NAME="1119784">&lt;BODY onBlur="window.close()"&gt;<br>This is some text<br>&lt;/BODY&gt;</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1119785">
+ See also
+</A></H4>
+
+<A NAME="1119792">
+<A HREF="event.htm#1193137"><CODE>event</CODE></A>, <A HREF="handlers.htm#1119802"><CODE>onChange</CODE></A>, <A HREF="handlers.htm#1120186"><CODE>onFocus</CODE></A></A></P>
+
+<HR><H2><A NAME="onChange"></A>
+<A NAME="1119802">
+ onChange
+</A></H2><A NAME="1119803">
+Executes JavaScript code when a change event occurs; that is, when a <CODE>Select</CODE>, <CODE>Text</CODE>, or <CODE>Textarea</CODE> field loses focus and its value has been modified. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1119806">
+<I>Event handler for </I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1119820">
+<A HREF="fileup.htm#1193137"><CODE>FileUpload</CODE></A>, <A HREF="select.htm#1193137"><CODE>Select</CODE></A>, <A HREF="text.htm#1193137"><CODE>Text</CODE></A>, <A HREF="textarea.htm#1193137"><CODE>Textarea</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1119822">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1119833">
+JavaScript 1.0 event handler for <A HREF="select.htm#1193137"><CODE>Select</CODE></A>, <A HREF="text.htm#1193137"><CODE>Text</CODE></A>, and <A HREF="textarea.htm#1193137"><CODE>Textarea</CODE></A></A></P><P><A NAME="1128443">
+</A></P><P><A NAME="1128444">
+JavaScript 1.1: added as event handler of <CODE>FileUpload</CODE></A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1119834">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1119835">onChange="<I>handlerText</I>"</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1119836">
+ Parameters
+</A></H4>
+
+<A NAME="1119842">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1119839"><CODE>handlerText</CODE></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1119841">
+JavaScript code or a call to a JavaScript function.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1119843">
+ Description
+</A></H4>
+
+<A NAME="1119844">
+Use <CODE>onChange</CODE> to validate data after it is modified by a user.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1143730">
+ Event properties used
+</A></H4>
+
+<A NAME="1143881">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1143870">
+<B>Property
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1143872">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1143893">type</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1143895">
+Indicates the type of event. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1143897">target</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1143899">
+Indicates the object to which the event was originally sent. </A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1143811">
+ Examples
+</A></H4>
+
+<A NAME="1119857">
+In the following example, <CODE>userName</CODE> is a text field. When a user changes the text and leaves the field, the onChange event handler calls the <CODE>checkValue</CODE> function to confirm that <CODE>userName</CODE> has a legal value.</A></P>
+<PRE><A NAME="1119858">&lt;INPUT TYPE="text" VALUE="" NAME="userName" <br>&nbsp;&nbsp;&nbsp;onChange="checkValue(this.value)"&gt;</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1119859">
+ See also
+</A></H4>
+
+<A NAME="1119866">
+<A HREF="event.htm#1193137"><CODE>event</CODE></A>, <A HREF="handlers.htm#1119670"><CODE>onBlur</CODE></A>, <A HREF="handlers.htm#1120186"><CODE>onFocus</CODE></A></A></P>
+
+<HR><H2><A NAME="onClick"></A>
+<A NAME="1119876">
+ onClick
+</A></H2><A NAME="1119877">
+Executes JavaScript code when a click event occurs; that is, when an object on a form is clicked. (A click event is a combination of the MouseDown and MouseUp events).<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1119880">
+<I>Event handler for </I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1119903">
+<A HREF="button.htm#1193137"><CODE>Button</CODE></A>, <A HREF="document.htm#1193137"><CODE>document</CODE></A>, <A HREF="checkbox.htm#1193137"><CODE>Checkbox</CODE></A>, <A HREF="link.htm#1193137"><CODE>Link</CODE></A>, <A HREF="radio.htm#1193137"><CODE>Radio</CODE></A>, <A HREF="reset.htm#1193137"><CODE>Reset</CODE></A>, <A HREF="submit.htm#1193137"><CODE>Submit</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1119905">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1119907">
+JavaScript 1.0</A></P><P><A NAME="1128454">
+</A></P><P><A NAME="1128455">
+JavaScript 1.1: added the ability to return false to cancel the action associated with a click event</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1119908">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1119909">onClick="<I>handlerText</I>"</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1119910">
+ Parameters
+</A></H4>
+
+<A NAME="1119916">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1119913"><CODE>handlerText</CODE></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1119915">
+JavaScript code or a call to a JavaScript function.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1143962">
+ Event properties used
+</A></H4>
+
+<A NAME="1144062">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1144051">
+<B>Property
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1144053">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1145971">type</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1145973">
+Indicates the type of event. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1145975">target</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1145977">
+Indicates the object to which the event was originally sent. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1145979">
+When a link is clicked,<br><CODE>layerX</CODE>, <CODE>layerY</CODE>,<br><CODE>pageX</CODE>, <CODE>pageY</CODE>,<br><CODE>screenX</CODE>,<CODE> screenY</CODE></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1145981">
+Represent the cursor location at the time the event occurred. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1145983">which</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1145985">
+Represents 1 for a left-mouse click and 3 for a right-mouse click. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1145987">modifiers</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1145989">
+Contains the list of modifier keys held down when the event occurred. </A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1143985">
+ Description
+</A></H4>
+
+<A NAME="1119942">
+For checkboxes, links, radio buttons, reset buttons, and submit buttons, <CODE>onClick</CODE> can return false to cancel the action normally associated with a <CODE>click</CODE> event.</A></P>
+<A NAME="1119943">
+For example, the following code creates a link that, when clicked, displays a confirm dialog box. If the user clicks the link and then chooses cancel, the page specified by the link is not loaded.</A></P>
+<PRE><A NAME="1119944">&lt;A HREF = "http://home.netscape.com/"<br>&nbsp;&nbsp;&nbsp;onClick="return confirm('Load Netscape home page?')"&gt;<br>Netscape&lt;/A&gt;</A></PRE><A NAME="1119945">
+If the event handler returns false, the default action of the object is canceled as follows:</A></P>
+<ul><P><LI><A NAME="1119946">
+Buttons--no default action; nothing is canceled</A></LI>
+<P><LI><A NAME="1119947">
+Radio buttons and checkboxes--nothing is set</A></LI>
+<P><LI><A NAME="1119948">
+Submit buttons--form is not submitted</A></LI>
+<P><LI><A NAME="1119949">
+Reset buttons--form is not reset</A></LI>
+</ul><BLOCKQUOTE><B>NOTE: </B><A NAME="1119951">
+In JavaScript 1.1, on some platforms, returning false in an <CODE>onClick</CODE> event 
+handler for a reset button has no effect.
+</A>
+</BLOCKQUOTE>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1119952">
+ Examples
+</A></H4>
+
+<A NAME="1119953">
+<B>Example 1: Call a function when a user clicks a button.</B> Suppose you have created a JavaScript function called <CODE>compute</CODE>. You can execute the <CODE>compute</CODE> function when the user clicks a button by calling the function in the onClick event handler, as follows:</A></P>
+<PRE><A NAME="1119954">&lt;INPUT TYPE="button" VALUE="Calculate" onClick="compute(this.form)"&gt;</A></PRE><A NAME="1119955">
+In the preceding example, the keyword <CODE>this</CODE> refers to the current object; in this case, the Calculate button. The construct <CODE>this.form</CODE> refers to the form containing the button.</A></P>
+<A NAME="1119956">
+For another example, suppose you have created a JavaScript function called <CODE>pickRandomURL</CODE> that lets you select a URL at random. You can use <CODE>onClick</CODE> to specify a value for the <CODE>HREF</CODE> attribute of the <CODE>A</CODE> tag dynamically, as shown in the following example:</A></P>
+<PRE><A NAME="1119957">&lt;A HREF=""<br>&nbsp;&nbsp;&nbsp;onClick="this.href=pickRandomURL()"<br>&nbsp;&nbsp;&nbsp;onMouseOver="window.status='Pick a random URL'; return true"&gt;<br>Go!&lt;/A&gt;</A></PRE><A NAME="1119958">
+In the above example, <CODE>onMouseOver</CODE> specifies a custom message for the browser's status bar when the user places the mouse pointer over the Go! anchor. As this example shows, you must return true to set the <CODE>window.status</CODE> property in the <CODE>onMouseOver</CODE> event handler.</A></P>
+<A NAME="1119959">
+<B>Example 2: Cancel the checking of a checkbox.</B> The following example creates a checkbox with <CODE>onClick</CODE>. The event handler displays a confirm that warns the user that checking the checkbox purges all files. If the user chooses Cancel, <CODE>onClick</CODE> returns false and the checkbox is not checked.</A></P>
+<PRE><A NAME="1119960">&lt;INPUT TYPE="checkbox" NAME="check1" VALUE="check1"<br>&nbsp;&nbsp;&nbsp;onClick="return confirm('This purges all your files. Are you sure?')"&gt; Remove files</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1119961">
+ See also
+</A></H4>
+
+<A NAME="1119969">
+<A HREF="event.htm#1193137"><CODE>event</CODE></A></A></P>
+
+<HR><H2><A NAME="onDblClick"></A>
+<A NAME="1119971">
+ onDblClick
+</A></H2><A NAME="1119972">
+Executes JavaScript code when a DblClick event occurs; that is, when the user double-clicks a form element or a link. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1119975">
+<I>Event handler for </I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1119983">
+ <A HREF="document.htm#1193137"><CODE>document</CODE></A>, <A HREF="link.htm#1193137"><CODE>Link</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1119985">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1119987">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1119988">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1119989">onDblClick="<I>handlerText</I>"</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1119990">
+ Parameters
+</A></H4>
+
+<A NAME="1119996">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1119993"><CODE>handlerText</CODE></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1119995">
+JavaScript code or a call to a JavaScript function.</A></P>
+
+</TABLE>
+</A></P>
+<BLOCKQUOTE><B>NOTE: </B><A NAME="1119998">
+<CODE>DblClick</CODE> is not implemented on the Macintosh.
+</A>
+</BLOCKQUOTE>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1119999">
+ Event properties used
+</A></H4>
+
+<A NAME="1144102">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1144091">
+<B>Property
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1144093">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1146496">type</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1146498">
+Indicates the type of event. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1146500">target</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1146502">
+Indicates the object to which the event was originally sent. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1146504">layerX, layerY,<br>pageX, pageY,<br>screenX, screenY</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1146506">
+Represent the cursor location at the time the event occurred.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1146508">which</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1146510">
+Represents 1 for a left-mouse double-click and 3 for a right-mouse double-click. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1146512">modifiers</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1146514">
+Contains the list of modifier keys held down when the event occurred. </A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1120022">
+ Examples
+</A></H4>
+
+<A NAME="1155038">
+The following example opens an alert dialog box when a user double-clicks a button:</A></P>
+<PRE><A NAME="1155237">&lt;form&gt;<br>&lt;INPUT Type="button" Value="Double Click Me!" <br>          onDblClick="alert('You just double clicked me!')"&gt; <br>&lt;/form&gt;</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1155003">
+ See also
+</A></H4>
+
+<A NAME="1120030">
+<A HREF="event.htm#1193137"><CODE>event</CODE></A></A></P>
+
+<HR><H2><A NAME="onDragDrop"></A>
+<A NAME="1120032">
+ onDragDrop
+</A></H2><A NAME="1120033">
+Executes JavaScript code when a DragDrop event occurs; that is, when the user drops an object onto the browser window, such as dropping a file. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1120036">
+<I>Event handler for </I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1120041">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1120043">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1120045">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1120046">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1120047">onDragDrop="<I>handlerText</I>"</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1120048">
+ Parameters
+</A></H4>
+
+<A NAME="1120054">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1120051"><CODE>handlerText</CODE></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1120053">
+JavaScript code or a call to a JavaScript function.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1120055">
+ Event properties used
+</A></H4>
+
+<A NAME="1144352">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1144341">
+<B>Property
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1144343">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1147032">type</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1147034">
+Indicates the type of event. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1147036">target</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1147038">
+Indicates the object to which the event was originally sent. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1147040">data</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1147042">
+Returns an Array of Strings containing the URLs of the dropped objects. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1147044">modifiers</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1147046">
+Contains the list of modifier keys held down when the event occurred.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1147048">screenX,<br>screenY</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1147050">
+Represent the cursor location at the time the event occurred.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1120078">
+ Security
+</A></H4>
+
+<A NAME="1120080">
+Getting the <CODE>data</CODE> property of the DragDrop event requires the <CODE>UniversalBrowserRead</CODE> privilege. For information on security, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1120085">
+ Description
+</A></H4>
+
+<A NAME="1120086">
+The <CODE>DragDrop</CODE> event is fired whenever a system item (file, shortcut, and so on) is dropped onto the browser window using the native system's drag and drop mechanism. The normal response for the browser is to attempt to load the item into the browser window. If the event handler for the <CODE>DragDrop</CODE> event returns true, the browser loads the item normally. If the event handler returns false, the drag and drop is canceled.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1120087">
+ See also
+</A></H4>
+
+<A NAME="1120095">
+<A HREF="event.htm#1193137"><CODE>event</CODE></A></A></P>
+
+<HR><H2><A NAME="onError"></A>
+<A NAME="1120097">
+ onError
+</A></H2><A NAME="1120098">
+Executes JavaScript code when an error event occurs; that is, when the loading of a document or image causes an error. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1120101">
+<I>Event handler for </I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1120109">
+<A HREF="image.htm#1193137"><CODE>Image</CODE></A>, <A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1120111">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1120113">
+JavaScript 1.1</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1120114">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1120115">onError="<I>handlerText</I>"</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1120116">
+ Parameters
+</A></H4>
+
+<A NAME="1120122">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1120119"><CODE>handlerText</CODE></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1120121">
+JavaScript code or a call to a JavaScript function.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1120123">
+ Description
+</A></H4>
+
+<A NAME="1120124">
+An error event occurs only when a JavaScript syntax or runtime error occurs, not when a browser error occurs. For example, if you try set <CODE>window.location.href='notThere.html'</CODE> and <CODE>notThere.html</CODE> does not exist, the resulting error message is a browser error message; therefore, <CODE>onError</CODE> would not intercept that message. However, an error event <I>is</I> triggered by a bad URL within an <CODE>IMG</CODE> tag or by corrupted image data.</A></P>
+<A NAME="1120125">
+<CODE>window.onerror</CODE> applies only to errors that occur in the window containing <CODE>window.onerror</CODE>, not in other windows.</A></P>
+<A NAME="1120126">
+<CODE>onError</CODE> can be any of the following:</A></P>
+<ul><P><LI><A NAME="1120127">
+null to suppress all JavaScript error dialogs. Setting <CODE>window.onerror</CODE> to null means your users won't see JavaScript errors caused by your own code.</A></LI>
+<P><LI><A NAME="1120128">
+The name of a function that handles errors (arguments are message text, URL, and line number of the offending line). To suppress the standard JavaScript error dialog, the function must return true. See Example 3 below.</A></LI>
+<P><LI><A NAME="1120129">
+A variable or property that contains null or a valid function reference.</A></LI>
+</ul><A NAME="1120130">
+If you write an error-handling function, you have three options for reporting errors:</A></P>
+<ul><P><LI><A NAME="1120131">
+Trace errors but let the standard JavaScript dialog report them (use an error handling function that returns false or does not return a value)</A></LI>
+<P><LI><A NAME="1120132">
+Report errors yourself and disable the standard error dialog (use an error handling function that returns true)</A></LI>
+<P><LI><A NAME="1120133">
+Turn off all error reporting (set the onError event handler to null)</A></LI>
+</ul>
+<H4><A NAME="Head3;"></A>
+<A NAME="1120134">
+ Event properties used
+</A></H4>
+
+<A NAME="1144381">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1144370">
+<B>Property
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1144372">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1147125">type</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1147127">
+Indicates the type of event. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1147129">target</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1147131">
+Indicates the object to which the event was originally sent. </A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1120145">
+ Examples
+</A></H4>
+
+<A NAME="1120146">
+<B>Example 1: Null event handler.</B> In the following <CODE>IMG</CODE> tag, the code <CODE>onError="null"</CODE> suppresses error messages if errors occur when the image loads.</A></P>
+<PRE><A NAME="1120147">&lt;IMG NAME="imageBad1" SRC="corrupt.gif" ALIGN="left" BORDER="2"<br>&nbsp;&nbsp;&nbsp;onError="null"&gt;</A></PRE><A NAME="1120148">
+<B>Example 2: Null event handler for a window.</B> The <CODE>onError</CODE> event handler for windows cannot be expressed in HTML. Therefore, you must spell it all lowercase and set it in a <CODE>SCRIPT</CODE> tag. The following code assigns null to the <CODE>onError</CODE> handler for the entire window, not just the <CODE>Image</CODE> object. This suppresses all JavaScript error messages, including those for the <CODE>Image</CODE> object.</A></P>
+<PRE><A NAME="1120149">&lt;SCRIPT&gt;<br>window.onerror=null<br>&lt;/SCRIPT&gt;<br>&lt;IMG NAME="imageBad1" SRC="corrupt.gif" ALIGN="left" BORDER="2"&gt;</A></PRE><A NAME="1120150">
+However, if the <CODE>Image</CODE> object has a custom <CODE>onError</CODE> event handler, the handler would execute if the image had an error. This is because <CODE>window.onerror=null</CODE> suppresses JavaScript error messages, not <CODE>onError</CODE> event handlers.</A></P>
+<PRE><A NAME="1120151">&lt;SCRIPT&gt;<br>window.onerror=null<br>function myErrorFunc() {<br>&nbsp;&nbsp;&nbsp;alert("The image had a nasty error.")<br>}<br>&lt;/SCRIPT&gt;<br>&lt;IMG NAME="imageBad1" SRC="corrupt.gif" ALIGN="left" BORDER="2"<br>&nbsp;&nbsp;&nbsp;onError="myErrorFunc()"&gt;</A></PRE><A NAME="1120152">
+In the following example, <CODE>window.onerror=null</CODE> suppresses all error reporting. Without <CODE>onerror=null</CODE>, the code would cause a stack overflow error because of infinite recursion.</A></P>
+<PRE><A NAME="1120153">&lt;SCRIPT&gt;<br>window.onerror = null;<br>function testErrorFunction() {<br>&nbsp;&nbsp;&nbsp;testErrorFunction();<br>}<br>&lt;/SCRIPT&gt;<br>&lt;BODY onload="testErrorFunction()"&gt;<br>test message<br>&lt;/BODY&gt;</A></PRE><A NAME="1120154">
+<B>Example 3: Error handling function.</B> The following example defines a function, <CODE>myOnError</CODE>, that intercepts JavaScript errors. The function uses three arrays to store the message, URL, and line number for each error. When the user clicks the Display Error Report button, the <CODE>displayErrors</CODE> function opens a window and creates an error report in that window. Note that the function returns true to suppress the standard JavaScript error dialog.</A></P>
+<PRE><A NAME="1120155">&lt;SCRIPT&gt;<br>window.onerror = myOnError</A></PRE><PRE><A NAME="1120156">msgArray = new Array()<br>urlArray = new Array()<br>lnoArray = new Array()</A></PRE><PRE><A NAME="1120157">function myOnError(msg, url, lno) {<br>&nbsp;&nbsp;&nbsp;msgArray[msgArray.length] = msg<br>&nbsp;&nbsp;&nbsp;urlArray[urlArray.length] = url<br>&nbsp;&nbsp;&nbsp;lnoArray[lnoArray.length] = lno<br>&nbsp;&nbsp;&nbsp;return true<br>}</A></PRE><PRE><A NAME="1120158">function displayErrors() {<br>&nbsp;&nbsp;&nbsp;win2=window.open('','window2','scrollbars=yes')<br>&nbsp;&nbsp;&nbsp;win2.document.writeln('&lt;B&gt;Error Report&lt;/B&gt;&lt;P&gt;')</A></PRE><PRE><A NAME="1120159">&nbsp;&nbsp;&nbsp;for (var i=0; i &lt; msgArray.length; i++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;win2.document.writeln('&lt;B&gt;Error in file:&lt;/B&gt; ' + urlArray[i] + '&lt;BR&gt;')<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;win2.document.writeln('&lt;B&gt;Line number:&lt;/B&gt; ' + lnoArray[i] + '&lt;BR&gt;')<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;win2.document.writeln('&lt;B&gt;Message:&lt;/B&gt; ' + msgArray[i] + '&lt;P&gt;')<br>&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;win2.document.close()<br>}<br>&lt;/SCRIPT&gt;</A></PRE><PRE><A NAME="1120160">&lt;BODY onload="noSuchFunction()"&gt;<br>&lt;FORM&gt;<br>&lt;BR&gt;&lt;INPUT TYPE="button" VALUE="This button has a syntax error"<br>&nbsp;&nbsp;&nbsp;onClick="alert('unterminated string)"&gt;</A></PRE><PRE><A NAME="1120161">&lt;P&gt;&lt;INPUT TYPE="button" VALUE="Display Error Report"<br>&nbsp;&nbsp;&nbsp;onClick="displayErrors()"&gt;<br>&lt;/FORM&gt;</A></PRE><A NAME="1120162">
+This example produces the following output:</A></P>
+<PRE><A NAME="1120163"><B>Error Report</B></A></PRE><PRE><A NAME="1120164"><B>Error in file:</B> file:///c%7C/temp/onerror.html<br><B>Line number:</B> 34<br><B>Message:</B> unterminated string literal</A></PRE><PRE><A NAME="1120165"><B>Error in file:</B> file:///c%7C/temp/onerror.html<br><B>Line number:</B> 34<br><B>Message:</B> missing ) after argument list</A></PRE><PRE><A NAME="1120166"><B>Error in file:</B> file:///c%7C/temp/onerror.html<br><B>Line number:</B> 30<br><B>Message:</B> noSuchFunction is not defined</A></PRE><A NAME="1120167">
+<B>Example 4: Event handler calls a function.</B> In the following <CODE>IMG</CODE> tag, <CODE>onError</CODE> calls the function <CODE>badImage</CODE> if errors occur when the image loads.</A></P>
+<PRE><A NAME="1120168">&lt;SCRIPT&gt;<br>function badImage(theImage) {<br>&nbsp;&nbsp;&nbsp;alert('Error: ' + theImage.name + ' did not load properly.')<br>}<br>&lt;/SCRIPT&gt;<br>&lt;FORM&gt;<br>&lt;IMG NAME="imageBad2" SRC="orca.gif" ALIGN="left" BORDER="2"<br>&nbsp;&nbsp;&nbsp;onError="badImage(this)"&gt;<br>&lt;/FORM&gt;</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1120169">
+ See also
+</A></H4>
+
+<A NAME="1120176">
+<A HREF="event.htm#1193137"><CODE>event</CODE></A>, <A HREF="handlers.htm#1119616"><CODE>onAbort</CODE></A>, <A HREF="handlers.htm#1120545"><CODE>onLoad</CODE></A></A></P>
+
+<HR><H2><A NAME="onFocus"></A>
+<A NAME="1120186">
+ onFocus
+</A></H2><A NAME="1120187">
+Executes JavaScript code when a focus event occurs; that is, when a window, frame, or frameset receives focus or when a form element receives input focus. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1120190">
+<I>Event handler for </I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1120210">
+<A HREF="button.htm#1193137"><CODE>Button</CODE></A>, <A HREF="checkbox.htm#1193137"><CODE>Checkbox</CODE></A>, <A HREF="fileup.htm#1193137"><CODE>FileUpload</CODE></A>, <A HREF="layer.htm#1193137"><CODE>Layer</CODE></A>, <A HREF="password.htm#1193137"><CODE>Password</CODE></A>, <A HREF="radio.htm#1193137"><CODE>Radio</CODE></A>, <A HREF="reset.htm#1193137"><CODE>Reset</CODE></A>, <A HREF="select.htm#1193137"><CODE>Select</CODE></A>, <A HREF="submit.htm#1193137"><CODE>Submit</CODE></A>, <A HREF="text.htm#1193137"><CODE>Text</CODE></A>, <A HREF="textarea.htm#1193137"><CODE>Textarea</CODE></A>, <A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1120230">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1120232">
+JavaScript 1.0</A></P><P><A NAME="1128460">
+</A></P><P><A NAME="1128461">
+JavaScript 1.1: event handler of <A HREF="button.htm#1193137"><CODE>Button</CODE></A><CODE>, </CODE><A HREF="checkbox.htm#1193137"><CODE>Checkbox</CODE></A><CODE>, </CODE><A HREF="fileup.htm#1193137"><CODE>FileUpload</CODE></A><CODE>, <A HREF="frame.htm#1193137">Frame</A>, </CODE><A HREF="password.htm#1193137"><CODE>Password</CODE></A><CODE>, </CODE><A HREF="radio.htm#1193137"><CODE>Radio</CODE></A><CODE>, </CODE><A HREF="reset.htm#1193137"><CODE>Reset</CODE></A><CODE>, </CODE><A HREF="submit.htm#1193137"><CODE>Submit</CODE></A><CODE>,</CODE> and <A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P><P><A NAME="1128462">
+</A></P><P><A NAME="1128463">
+JavaScript 1.2: event handler of <A HREF="layer.htm#1193137"><CODE>Layer</CODE></A></A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1120263">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1120264">onFocus="<I>handlerText</I>"</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1120265">
+ Parameters
+</A></H4>
+
+<A NAME="1120271">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1120268"><CODE>handlerText</CODE></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1120270">
+JavaScript code or a call to a JavaScript function.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1120272">
+ Description
+</A></H4>
+
+<A NAME="1120273">
+The focus event can result from a <CODE>focus</CODE> method or from the user clicking the mouse on an object or window or tabbing with the keyboard. Selecting within a field results in a select event, not a focus event. <CODE>onFocus</CODE> executes JavaScript code when a focus event occurs.</A></P>
+<A NAME="1120274">
+A frame's <CODE>onFocus</CODE> event handler overrides an <CODE>onFocus</CODE> event handler in the <CODE>BODY</CODE> tag of the document loaded into frame.</A></P>
+<A NAME="1120275">
+Note that placing an alert in an <CODE>onFocus</CODE> event handler results in recurrent alerts: when you press OK to dismiss the alert, the underlying window gains focus again and produces another focus event.</A></P>
+<BLOCKQUOTE><B>NOTE: </B><A NAME="1120277">
+In JavaScript 1.1, on some platforms, placing an <CODE>onFocus</CODE> event handler in a 
+<CODE>FRAMESET</CODE> tag has no effect.
+</A>
+</BLOCKQUOTE>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1120278">
+ Event properties used
+</A></H4>
+
+<A NAME="1144584">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1144573">
+<B>Property
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1144575">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1147668">type</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1147670">
+Indicates the type of event. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1147672">target</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1147674">
+Indicates the object to which the event was originally sent. </A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1120289">
+ Examples
+</A></H4>
+
+<A NAME="1120290">
+The following example uses an <CODE>onFocus</CODE> handler in the <CODE>valueField</CODE> <CODE>Textarea</CODE> object to call the <CODE>valueCheck</CODE> function.</A></P>
+<PRE><A NAME="1136595">&lt;INPUT TYPE="textarea" VALUE="" NAME="valueField"<br>&nbsp;&nbsp;&nbsp;onFocus="valueCheck()"&gt;</A></PRE><A NAME="1136599">
+See also the examples for <A HREF="handlers.htm#1119670"><CODE>onBlur</CODE></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1136600">
+ See also
+</A></H4>
+
+<A NAME="1120303">
+<A HREF="event.htm#1193137"><CODE>event</CODE></A>, <A HREF="handlers.htm#1119670"><CODE>onBlur</CODE></A>, <A HREF="handlers.htm#1119802"><CODE>onChange</CODE></A></A></P>
+
+<HR><H2><A NAME="onKeyDown"></A>
+<A NAME="1120313">
+ onKeyDown
+</A></H2><A NAME="1120314">
+Executes JavaScript code when a KeyDown event occurs; that is, when the user depresses a key. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1120317">
+<I>Event handler for </I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1120331">
+<A HREF="document.htm#1193137"><CODE>document</CODE></A>, <A HREF="image.htm#1193137"><CODE>Image</CODE></A>, <A HREF="link.htm#1193137"><CODE>Link</CODE></A>, <A HREF="textarea.htm#1193137"><CODE>Textarea</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1120333">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1120335">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1120336">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1120337">onKeyDown="<I>handlerText</I>"</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1120338">
+ Parameters
+</A></H4>
+
+<A NAME="1120344">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1120341"><CODE>handlerText</CODE></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1120343">
+JavaScript code or a call to a JavaScript function.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1120345">
+ Event properties used
+</A></H4>
+
+<A NAME="1144607">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1144596">
+<B>Property
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1144598">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1148243">type</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1148245">
+Indicates the type of event. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1148247">target</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1148249">
+Indicates the object to which the event was originally sent. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1148251">layerX, layerY,<br>pageX, pageY,<br>screenX, screenY</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1148253">
+For an event over a window, these represent the cursor location at the time the event occurred. For an event over a form, they represent the position of the form element.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1148255">which</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1148257">
+Represents the ASCII value of the key pressed. To get the actual letter, number, or symbol of the pressed key, use the <A HREF="string.htm#1225094"><CODE>String.fromCharCode</CODE></A> method. To set this property when the ASCII value is unknown, use the <A HREF="string.htm#1196647"><CODE>String.charCodeAt</CODE></A> method. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1148265">modifiers</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1148267">
+Contains the list of modifier keys held down when the event occurred.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1120374">
+ Description
+</A></H4>
+
+<A NAME="1120375">
+A <CODE>KeyDown</CODE> event always occurs before a <CODE>KeyPress</CODE> event. If <CODE>onKeyDown</CODE> returns false, no <CODE>KeyPress</CODE> events occur. This prevents <CODE>KeyPress</CODE> events occurring due to the user holding down a key.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1153283">
+ Examples
+</A></H4>
+
+<A NAME="1154397">
+The following example uses the <CODE>blockA</CODE> function to evaluate characters entered from the keyboard in the <CODE>textentry</CODE> text box. If a user enters either "a" or "A", the function returns false and the text box does not display the value.</A></P>
+<PRE><A NAME="1154056">&lt;form name="main"&gt;<br>&nbsp;&nbsp;&nbsp;&lt;input name="textentry" type=text size=10 maxlength=10&gt;<br>&lt;/form&gt;<br><br>&lt;script&gt;<br>function blockA(e) {<br>        var keyChar = String.fromCharCode(e.which);<br>        if (keyChar == 'A' || keyChar == 'a')<br>                return false;<br>}<br><br>document.main.textentry.onkeydown = blockA;<br>&lt;/script&gt;</A></PRE><A NAME="1153944">
+In the function, the <CODE>which</CODE> property of the event assigns the ASCII value of the key the user presses to the <CODE>keyChar</CODE> variable. The <CODE>if</CODE> statement evaluates <CODE>keyChar</CODE> and returns false for the specified characters.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1153496">
+ See also
+</A></H4>
+
+<A NAME="1120383">
+<A HREF="event.htm#1193137"><CODE>event</CODE></A>, <A HREF="handlers.htm#1120393"><CODE>onKeyPress</CODE></A>, <A HREF="handlers.htm#1120473"><CODE>onKeyUp</CODE></A></A></P>
+
+<HR><H2><A NAME="onKeyPress"></A>
+<A NAME="1120393">
+ onKeyPress
+</A></H2><A NAME="1120394">
+Executes JavaScript code when a KeyPress event occurs; that is, when the user presses or holds down a key. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1120397">
+<I>Event handler for </I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1120411">
+<A HREF="document.htm#1193137"><CODE>document</CODE></A>, <A HREF="image.htm#1193137"><CODE>Image</CODE></A>, <A HREF="link.htm#1193137"><CODE>Link</CODE></A>, <A HREF="textarea.htm#1193137"><CODE>Textarea</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1120413">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1120415">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1120416">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1120417">onKeyPress="<I>handlerText</I>"</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1120418">
+ Parameters
+</A></H4>
+
+<A NAME="1120424">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1120421"><CODE>handlerText</CODE></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1120423">
+JavaScript code or a call to a JavaScript function.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1120425">
+ Event properties used
+</A></H4>
+
+<A NAME="1144694">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1144683">
+<B>Property
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1144685">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1148983">type</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1148985">
+Indicates the type of event. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1148987">target</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1148989">
+Indicates the object to which the event was originally sent. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1148991">layerX, layerY,<br>pageX, pageY,<br>screenX, screenY</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1148993">
+For an event over a window, these represent the cursor location at the time the event occurred. For an event over a form, they represent the position of the form element.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1148995">which</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1148997">
+Represents the ASCII value of the key pressed. To get the actual letter, number, or symbol of the pressed key, use the <A HREF="string.htm#1225094"><CODE>String.fromCharCode</CODE></A> method. To set this property when the ASCII value is unknown, use the <A HREF="string.htm#1196647"><CODE>String.charCodeAt</CODE></A> method. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1149005">modifiers</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1149007">
+Contains the list of modifier keys held down when the event occurred.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1120454">
+ Description
+</A></H4>
+
+<A NAME="1120455">
+A <CODE>KeyPress</CODE> event occurs immediately after a <CODE>KeyDown</CODE> event only if <CODE>onKeyDown </CODE>returns something other than false. A <CODE>KeyPress</CODE> event repeatedly occurs until the user releases the key. You can cancel individual <CODE>KeyPress</CODE> events.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1120456">
+ Examples
+</A></H4>
+
+<A NAME="1156402">
+In this example, the <CODE>captureEvents</CODE> method catches keyboard input and the <CODE>onKeyPress</CODE> handler calls the <CODE>blockA</CODE> function to examine the keystrokes. If the keystrokes are "a" or "z", the function scrolls the Navigator window.</A></P>
+<PRE><A NAME="1156089">function blockA(e) {<br>        var keyChar = String.fromCharCode(e.which);<br>        if (keyChar == 'A' || keyChar == 'a')<br>                self.scrollBy(10,10);<br><br>        else if(keyChar == 'Z' || keyChar == 'z')<br>                self.scrollBy(-10,-10);<br><br>        else    return false;<br>}<br>document.captureEvents(Event.KEYPRESS);<br>document.onkeypress = blockA;</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1155394">
+ See also
+</A></H4>
+
+<A NAME="1120463">
+<A HREF="event.htm#1193137"><CODE>event</CODE></A>, <A HREF="handlers.htm#1120313"><CODE>onKeyDown</CODE></A>, <A HREF="handlers.htm#1120473"><CODE>onKeyUp</CODE></A></A></P>
+
+<HR><H2><A NAME="onKeyUp"></A>
+<A NAME="1120473">
+ onKeyUp
+</A></H2><A NAME="1120474">
+Executes JavaScript code when a KeyUp event occurs; that is, when the user releases a key. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1120477">
+<I>Event handler for </I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1120491">
+<A HREF="document.htm#1193137"><CODE>document</CODE></A>, <A HREF="image.htm#1193137"><CODE>Image</CODE></A>, <A HREF="link.htm#1193137"><CODE>Link</CODE></A>, <A HREF="textarea.htm#1193137"><CODE>Textarea</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1120493">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1120495">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1120496">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1120497">onKeyUp="<I>handlerText</I>"</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1120498">
+ Parameters
+</A></H4>
+
+<A NAME="1120504">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1120501"><CODE>handlerText</CODE></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1120503">
+JavaScript code or a call to a JavaScript function.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1120505">
+ Event properties used
+</A></H4>
+
+<A NAME="1144847">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1144836">
+<B>Property
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1144838">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1149779">type</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1149781">
+Indicates the type of event. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1149783">target</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1149785">
+Indicates the object to which the event was originally sent. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1149787">layerX, layerY,<br>pageX, pageY,<br>screenX, screenY</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1149789">
+For an event over a window, these represent the cursor location at the time the event occurred. For an event over a form, they represent the position of the form element.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1149791">which</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1149793">
+Represents the ASCII value of the key pressed. To get the actual letter, number, or symbol of the pressed key, use the <A HREF="string.htm#1225094"><CODE>String.fromCharCode</CODE></A> method. To set this property when the ASCII value is unknown, use the <A HREF="string.htm#1196647"><CODE>String.charCodeAt</CODE></A> method. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1149801">modifiers</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1149803">
+Contains the list of modifier keys held down when the event occurred.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1120534">
+ Examples
+</A></H4>
+
+<A NAME="1156731">
+In this example, the <CODE>captureEvents</CODE> method catches keyboard input and the <CODE>onKeyUp</CODE> handler calls the <CODE>Key_Up</CODE> function. An alert method within the function opens a dialog box to display the value of the keystroke.</A></P>
+<PRE><A NAME="1156536">function Key_Up(e) {<br>        var keyChar = String.fromCharCode(e.which);<br>        alert("Hold '" + keyChar +"' again for me, okay?");<br>}<br>document.onkeyup=Key_Up;<br>document.captureEvents(Event.KEYUP);</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1156497">
+ See also
+</A></H4>
+
+<A NAME="1120542">
+<A HREF="event.htm#1193137"><CODE>event</CODE></A></A></P>
+
+<HR><H2><A NAME="onLoad"></A>
+<A NAME="1120545">
+ onLoad
+</A></H2><A NAME="1120546">
+Executes JavaScript code when a load event occurs; that is, when the browser finishes loading a window or all frames within a <CODE>FRAMESET</CODE> tag. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1120549">
+<I>Event handler for </I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1120560">
+<A HREF="image.htm#1193137"><CODE>Image</CODE></A>, <A HREF="layer.htm#1193137"><CODE>Layer</CODE></A>, <A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1120562">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1120564">
+JavaScript 1.0</A></P><P><A NAME="1128468">
+</A></P><P><A NAME="1128469">
+JavaScript 1.1: event handler of <CODE>Image</CODE></A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1120565">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1120566">onLoad="<I>handlerText</I>"</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1120567">
+ Parameters
+</A></H4>
+
+<A NAME="1120573">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1120570"><CODE>handlerText</CODE></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1120572">
+JavaScript code or a call to a JavaScript function.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1120574">
+ Description
+</A></H4>
+
+<A NAME="1120575">
+Use the <CODE>onLoad</CODE> event handler within either the <CODE>BODY</CODE> or the <CODE>FRAMESET</CODE> tag, for example, &lt;<CODE>BODY onLoad="..."&gt;</CODE>.</A></P>
+<A NAME="1120576">
+In a <CODE>FRAMESET</CODE> and <CODE>FRAME</CODE> relationship, an <CODE>onLoad</CODE> event within a frame (placed in the <CODE>BODY</CODE> tag) occurs before an <CODE>onLoad</CODE> event within the <CODE>FRAMESET</CODE> (placed in the <CODE>FRAMESET</CODE> tag).</A></P>
+<A NAME="1120577">
+For images, the <CODE>onLoad</CODE> event handler indicates the script to execute when an image is displayed. Do not confuse displaying an image with loading an image. You can load several images, then display them one by one in the same <CODE>Image</CODE> object by setting the object's <CODE>src</CODE> property. If you change the image displayed in this way, <CODE>onLoad</CODE> executes every time an image is displayed, not just when the image is loaded into memory.</A></P>
+<A NAME="1120578">
+If you specify an <CODE>onLoad</CODE> event handler for an <CODE>Image</CODE> object that displays a looping GIF animation (multi-image GIF), each loop of the animation triggers the <CODE>onLoad</CODE> event, and the event handler executes once for each loop.</A></P>
+<A NAME="1136585">
+You can use the <CODE>onLoad</CODE> event handler to create a JavaScript animation by repeatedly setting the <CODE>src</CODE> property of an <CODE>Image</CODE> object. See <A HREF="image.htm#1193137"><CODE>Image</CODE></A> for information.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1120583">
+ Event properties used
+</A></H4>
+
+<A NAME="1144896">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1144885">
+<B>Property
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1144887">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1150554">type</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1150556">
+Indicates the type of event. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1150558">target</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1150560">
+Indicates the object to which the event was originally sent. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1150562">width, height</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1150564">
+For an event over a window, but not over a layer, these represent the width and height of the window. </A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1120598">
+ Examples
+</A></H4>
+
+<A NAME="1120599">
+<B>Example 1: Display message when page loads.</B> In the following example, the onLoad event handler displays a greeting message after a Web page is loaded.</A></P>
+<PRE><A NAME="1120600">&lt;BODY onLoad="window.alert("Welcome to the Brave New World home page!")&gt;</A></PRE><A NAME="1120601">
+<B>Example 2: Display alert when image loads.</B> The following example creates two <CODE>Image</CODE> objects, one with the <CODE>Image</CODE> constructor and one with the <CODE>IMG</CODE> tag. Each <CODE>Image</CODE> object has an <CODE>onLoad</CODE> event handler that calls the <CODE>displayAlert</CODE> function, which displays an alert. For the image created with the <CODE>IMG</CODE> tag, the alert displays the image name. For the image created with the <CODE>Image</CODE> constructor, the alert displays a message without the image name. This is because the onLoad handler for an object created with the <CODE>Image</CODE> constructor must be the name of a function, and it cannot specify parameters for the <CODE>displayAlert</CODE> function.</A></P>
+<PRE><A NAME="1120602">&lt;SCRIPT&gt;<br>imageA = new Image(50,50)<br>imageA.onload=displayAlert<br>imageA.src="cyanball.gif"</A></PRE><PRE><A NAME="1120603">function displayAlert(theImage) {<br>&nbsp;&nbsp;&nbsp;if (theImage==null) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert('An image loaded')<br>&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;else alert(theImage.name + ' has been loaded.')<br>}<br>&lt;/SCRIPT&gt;</A></PRE><PRE><A NAME="1120604">&lt;IMG NAME="imageB" SRC="greenball.gif" ALIGN="top"<br>&nbsp;&nbsp;&nbsp;onLoad=displayAlert(this)&gt;&lt;BR&gt;</A></PRE><A NAME="1120605">
+<B>Example 3: Looping GIF animation.</B> The following example displays an image, <CODE>birdie.gif</CODE>, that is a looping GIF animation. The onLoad event handler for the image increments the variable <CODE>cycles</CODE>, which keeps track of the number of times the animation has looped. To see the value of <CODE>cycles</CODE>, the user clicks the button labeled Count Loops.</A></P>
+<PRE><A NAME="1120606">&lt;SCRIPT&gt;<br>var cycles=0<br>&lt;/SCRIPT&gt;<br>&lt;IMG ALIGN="top" SRC="birdie.gif" BORDER=0<br>&nbsp;&nbsp;&nbsp;onLoad="++cycles"&gt;<br>&lt;INPUT TYPE="button" VALUE="Count Loops"<br>&nbsp;&nbsp;&nbsp;onClick="alert('The animation has looped ' + cycles + ' times.')"&gt;</A></PRE><A NAME="1120607">
+<B>Example 4: Change GIF animation displayed.</B> The following example uses an onLoad event handler to rotate the display of six GIF animations. Each animation is displayed in sequence in one <CODE>Image</CODE> object. When the document loads, <CODE>!anim0.html</CODE> is displayed. When that animation completes, the onLoad event handler causes the next file, <CODE>!anim1.html</CODE>, to load in place of the first file. After the last animation, <CODE>!anim5.html</CODE>, completes, the first file is again displayed. Notice that the <CODE>changeAnimation</CODE> function does not call itself after changing the <CODE>src</CODE> property of the <CODE>Image</CODE> object. This is because when the <CODE>src</CODE> property changes, the image's <CODE>onLoad</CODE> event handler is triggered and the <CODE>changeAnimation</CODE> function is called.</A></P>
+<PRE><A NAME="1120608">&lt;SCRIPT&gt;<br>var whichImage=0<br>var maxImages=5</A></PRE><PRE><A NAME="1120609">function changeAnimation(theImage) {<br>&nbsp;&nbsp;&nbsp;++whichImage<br>&nbsp;&nbsp;&nbsp;if (whichImage &lt;= maxImages) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var imageName="!anim" + whichImage + ".gif"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;theImage.src=imageName<br>&nbsp;&nbsp;&nbsp;} else {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;whichImage=-1<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return<br>&nbsp;&nbsp;&nbsp;}<br>}<br>&lt;/SCRIPT&gt;</A></PRE><PRE><A NAME="1120610">&lt;IMG NAME="changingAnimation" SRC="!anim0.gif" BORDER=0 ALIGN="top"<br>&nbsp;&nbsp;&nbsp;onLoad="changeAnimation(this)"&gt;</A></PRE><A NAME="1120614">
+See also the examples for <A HREF="image.htm#1193137"><CODE>Image</CODE></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1120615">
+ See also
+</A></H4>
+
+<A NAME="1120625">
+<A HREF="event.htm#1193137"><CODE>event</CODE></A>, <A HREF="handlers.htm#1119616"><CODE>onAbort</CODE></A>, <A HREF="handlers.htm#1120097"><CODE>onError</CODE></A>, <A HREF="handlers.htm#1121231"><CODE>onUnload</CODE></A></A></P>
+
+<HR><H2><A NAME="onMouseDown"></A>
+<A NAME="1120635">
+ onMouseDown
+</A></H2><A NAME="1120636">
+Executes JavaScript code when a MouseDown event occurs; that is, when the user depresses a mouse button. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1120639">
+<I>Event handler for </I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1120650">
+<A HREF="button.htm#1193137"><CODE>Button</CODE></A>, <A HREF="document.htm#1193137"><CODE>document</CODE></A>, <A HREF="link.htm#1193137"><CODE>Link</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1120652">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1120654">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1120655">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1120656">onMouseDown="<I>handlerText</I>"</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1120657">
+ Parameters
+</A></H4>
+
+<A NAME="1120663">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1120660"><CODE>handlerText</CODE></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1120662">
+JavaScript code or a call to a JavaScript function.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1120664">
+ Event properties used
+</A></H4>
+
+<A NAME="1144992">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1144981">
+<B>Property
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1144983">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1150790">type</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1150792">
+Indicates the type of event. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1150794">target</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1150796">
+Indicates the object to which the event was originally sent. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1150798">layerX, layerY,<br>pageX, pageY,<br>screenX, screenY</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1150800">
+Represent the cursor location at the time the <CODE>MouseDown</CODE> event occurred.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1150802">which</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1150804">
+Represents 1 for a left-mouse-button down and 3 for a right-mouse-button down.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1150806">modifiers</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1150808">
+Contains the list of modifier keys held down when the <CODE>MouseDown</CODE> event occurred.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1120687">
+ Description
+</A></H4>
+
+<A NAME="1120688">
+If <CODE>onMouseDown</CODE> returns false, the default action (entering drag mode, entering selection mode, or arming a link) is canceled.</A></P>
+<A NAME="1120689">
+Arming is caused by a <CODE>MouseDown</CODE> over a link. When a link is armed it changes color to represent its new state.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1120690">
+ Examples
+</A></H4>
+
+<A NAME="1162694">
+This example lets users move an image on an HTML page by dragging it with the mouse. Your HTML code defines the image and positions it in a layer called <CODE>container1</CODE>. In your JavaScript code, event handlers set the position properties of <CODE>container1</CODE> as users drag the image, creating the animation.</A></P>
+<A NAME="1163081">
+Using style sheets, the image is initially defined and positioned as follows:</A></P>
+<PRE><A NAME="1158667">&lt;HEAD&gt;<br>&lt;STYLE type="text/css"&gt;<br>   #container1 { position:absolute; left:200; top:200}<br>&lt;/STYLE&gt;<br>&lt;/HEAD&gt;<br><br>&lt;BODY&gt;<br>&lt;P ID="container1"&gt;<br>&lt;img src="backgrnd.gif" name="myImage" width=96 height=96&gt;<br>&lt;/P&gt;<br>&lt;/BODY&gt;</A></PRE><A NAME="1159115">
+In the previous HTML code, the <CODE>ID</CODE> attribute for the <CODE>P</CODE> element which contains the image is set to <CODE>container1</CODE>, making <CODE>container1</CODE> a unique identifier for the paragraph and the image. The <CODE>STYLE</CODE> tag creates a layer for <CODE>container1</CODE> and positions it.</A></P>
+<A NAME="1163453">
+The following JavaScript code defines <CODE>onMouseDown</CODE>, <CODE>onMouseUp</CODE>, and <CODE>onMouseMove</CODE> event handlers:</A></P>
+<PRE><A NAME="1161015">&lt;SCRIPT&gt;<br>container1.captureEvents(Event.MOUSEUP|Event.MOUSEDOWN);<br>container1.onmousedown=DRAG_begindrag;<br>container1.onmouseup=DRAG_enddrag;<br>var DRAG_lastX, DRAG_lastY, DRAG_dragging;<br>function DRAG_begindrag(e) {<br>        if (e.which == 1) {<br>                window.captureEvents(Event.MOUSEMOVE);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    window.onmousemove=DRAG_drag;<br>                DRAG_lastX=e.pageX;<br>                DRAG_lastY=e.pageY;<br>                DRAG_dragging=true;<br>                return false;<br>        }<br>        else {<br>                /*Do any right mouse button processing here*/<br>                return true;<br>        }<br>}<br>function DRAG_enddrag(e) {<br>        if (e.which == 1) {<br>                window.releaseEvents(Event.MOUSEMOVE);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    window.onmousemove=null<br>                DRAG_dragging=false;<br>                return false;<br>        }<br>        else {<br>                /*Do any right mouse button processing here*/<br>                return true;<br>        }<br>}<br>function DRAG_drag(e) {<br>        if (DRAG_dragging) {<br>                /*This function called only if MOUSEMOVEs are captured*/<br>                moveBy(e.pageX-DRAG_lastX, e.pageY-DRAG_lastY);<br>                DRAG_lastX = e.pageX;<br>                DRAG_lastY = e.pageY;<br>                return false;<br>        }<br>        else {<br>                return true;<br>        }<br>}<br>&lt;/SCRIPT&gt;</A></PRE><A NAME="1160445">
+In the previous code, the <CODE>captureEvents</CODE> method captures <CODE>MouseUp</CODE> and <CODE>MouseDown</CODE> events. The <CODE>DRAG_begindrag</CODE> and <CODE>DRAG_enddrag</CODE> functions are respectively called to handle these events.</A></P>
+<A NAME="1165032">
+When a user presses the left mouse button, the <CODE>DRAG_begindrag </CODE>function starts capturing <CODE>MouseMove</CODE> events and tells the <CODE>DRAG_drag</CODE> function to handle them. It then assigns the value of the <CODE>MouseDown</CODE> event's <CODE>pageX</CODE> property to <CODE>DRAG_lastX</CODE>, the value of the <CODE>pageY</CODE> property to <CODE>DRAG_lastY</CODE>, and <CODE>true</CODE> to <CODE>DRAG_dragging</CODE>.</A></P>
+<A NAME="1164805">
+The <CODE>DRAG_drag </CODE>function evaluates <CODE>DRAG_dragging</CODE> to make sure the <CODE>MouseMove</CODE> event was captured by <CODE>DRAG_begindrag</CODE>, then it uses the <CODE>moveBy</CODE> method to position the object, and reassigns values to <CODE>DRAG_lastX</CODE> and <CODE>DRAG_lastY</CODE>.</A></P>
+<A NAME="1165557">
+When the user releases the left mouse button, the <CODE>DRAG_enddrag</CODE> function stops capturing <CODE>MouseMove</CODE> events. <CODE>DRAG_enddrag</CODE> then makes sure no other functions are called by setting <CODE>onmousemove</CODE> to <CODE>Null</CODE> and <CODE>DRAG_dragging</CODE> to <CODE>false</CODE>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1158443">
+ See also
+</A></H4>
+
+<A NAME="1120698">
+<A HREF="event.htm#1193137"><CODE>event</CODE></A></A></P>
+
+<HR><H2><A NAME="onMouseMove"></A>
+<A NAME="1120700">
+ onMouseMove
+</A></H2><A NAME="1120701">
+Executes JavaScript code when a MouseMove event occurs; that is, when the user moves the cursor. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1120704">
+<I>Event handler for </I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1120706">
+None</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1120708">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1120710">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1120711">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1120712">onMouseMove="<I>handlerText</I>"</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1120713">
+ Parameters
+</A></H4>
+
+<A NAME="1120719">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1120716"><CODE>handlerText</CODE></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1120718">
+JavaScript code or a call to a JavaScript function.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1120720">
+ Event of
+</A></H4>
+
+<A NAME="1120721">
+Because mouse movement happens so frequently, by default, <CODE>onMouseMove</CODE> is not an event of any object. You must explicitly set it to be associated with a particular object.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1120722">
+ Event properties used
+</A></H4>
+
+<A NAME="1145067">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1145056">
+<B>Property
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1145058">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1151202">type</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1151204">
+Indicates the type of event. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1151206">target</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1151208">
+Indicates the object to which the event was originally sent. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1151210">layerX, layerY,<br>pageX, pageY,<br>screenX, screenY</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1151212">
+Represent the cursor location at the time the <CODE>MouseMove</CODE> event occurred. </A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1120737">
+ Description
+</A></H4>
+
+<A NAME="1120738">
+The <CODE>MouseMove</CODE> event is sent only when a capture of the event is requested by an object. For information on events, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1158511">
+ Examples
+</A></H4>
+
+<A NAME="1158515">
+See the examples for <A HREF="handlers.htm#1120635"><CODE>onMouseDown</CODE></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1120742">
+ See also
+</A></H4>
+
+<A NAME="1120746">
+<A HREF="event.htm#1193137"><CODE>event</CODE></A>, <A HREF="document.htm#1195550"><CODE>document.captureEvents</CODE></A></A></P>
+
+<HR><H2><A NAME="onMouseOut"></A>
+<A NAME="1120757">
+ onMouseOut
+</A></H2><A NAME="1120758">
+Executes JavaScript code when a MouseOut event occurs; that is, each time the mouse pointer leaves an area (client-side image map) or link from inside that area or link. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1120761">
+<I>Event handler for </I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1120769">
+<A HREF="layer.htm#1193137"><CODE>Layer</CODE></A>, <A HREF="link.htm#1193137"><CODE>Link</CODE></A> </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1120771">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1120773">
+JavaScript 1.1</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1120774">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1120775">onMouseOut="<I>handlerText</I>"</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1120776">
+ Parameters
+</A></H4>
+
+<A NAME="1120782">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1120779"><CODE>handlerText</CODE></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1120781">
+JavaScript code or a call to a JavaScript function.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1120783">
+ Description
+</A></H4>
+
+<A NAME="1120784">
+If the mouse moves from one area into another in a client-side image map, you'll get <CODE>onMouseOut</CODE> for the first area, then <CODE>onMouseOver</CODE> for the second.</A></P>
+<A NAME="1120785">
+<CODE>Area</CODE> tags that use <CODE>onMouseOut</CODE> must include the <CODE>HREF</CODE> attribute within the <CODE>AREA</CODE> tag.</A></P>
+<A NAME="1120786">
+You must return true within the event handler if you want to set the <CODE>status</CODE> or <CODE>defaultStatus</CODE> properties with <CODE>onMouseOver</CODE>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1120787">
+ Event properties used
+</A></H4>
+
+<A NAME="1145117">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1145106">
+<B>Property
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1145108">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1151560">type</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1151562">
+Indicates the type of event. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1151564">target</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1151566">
+Indicates the object to which the event was originally sent. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1151568">layerX, layerY,<br>pageX, pageY,<br>screenX, screenY</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1151570">
+Represent the cursor location at the time the <CODE>MouseOut</CODE> event occurred. </A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1120802">
+ Examples
+</A></H4>
+
+<A NAME="1120806">
+See the examples for <A HREF="link.htm#1193137"><CODE>Link</CODE></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1120807">
+ See also
+</A></H4>
+
+<A NAME="1120811">
+<A HREF="event.htm#1193137"><CODE>event</CODE></A>, <A HREF="handlers.htm#1120822"><CODE>onMouseOver</CODE></A></A></P>
+
+<HR><H2><A NAME="onMouseOver"></A>
+<A NAME="1120822">
+ onMouseOver
+</A></H2><A NAME="1120823">
+Executes JavaScript code when a MouseOver event occurs; that is, once each time the mouse pointer moves over an object or area from outside that object or area. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1120826">
+<I>Event handler for </I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1120834">
+<A HREF="layer.htm#1193137"><CODE>Layer</CODE></A>, <A HREF="link.htm#1193137"><CODE>Link</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1120836">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1120838">
+JavaScript 1.0</A></P><P><A NAME="1128474">
+</A></P><P><A NAME="1128475">
+JavaScript 1.1: event handler of <CODE>Area</CODE></A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1120839">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1120840">onMouseOver="<I>handlerText</I>"</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1120841">
+ Parameters
+</A></H4>
+
+<A NAME="1120847">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1120844"><CODE>handlerText</CODE></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1120846">
+JavaScript code or a call to a JavaScript function.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1120848">
+ Description
+</A></H4>
+
+<A NAME="1120849">
+If the mouse moves from one area into another in a client-side image map, you'll get <CODE>onMouseOut</CODE> for the first area, then <CODE>onMouseOver</CODE> for the second.</A></P>
+<A NAME="1120850">
+<CODE>Area</CODE> tags that use <CODE>onMouseOver</CODE> must include the <CODE>HREF</CODE> attribute within the <CODE>AREA</CODE> tag.</A></P>
+<A NAME="1120851">
+You must return true within the event handler if you want to set the <CODE>status</CODE> or <CODE>defaultStatus</CODE> properties with <CODE>onMouseOver</CODE>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1120852">
+ Event properties used
+</A></H4>
+
+<A NAME="1145246">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1145235">
+<B>Property
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1145237">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1151895">type</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1151897">
+Indicates the type of event. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1151899">target</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1151901">
+Indicates the object to which the event was originally sent. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1151903">layerX, layerY,<br>pageX, pageY,<br>screenX, screenY</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1151905">
+Represent the cursor location at the time the <CODE>MouseOver</CODE> event occurred. </A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1120867">
+ Examples
+</A></H4>
+
+<A NAME="1120868">
+By default, the <CODE>HREF</CODE> value of an anchor displays in the status bar at the bottom of the browser when a user places the mouse pointer over the anchor. In the following example, <CODE>onMouseOver</CODE> provides the custom message "Click this if you dare."</A></P>
+<PRE><A NAME="1120869">&lt;A HREF="http://home.netscape.com/"<br>&nbsp;&nbsp;&nbsp;onMouseOver="window.status='Click this if you dare!'; return true"&gt;<br>Click me&lt;/A&gt;</A></PRE><A NAME="1120873">
+See <A HREF="handlers.htm#1119876"><CODE>onClick</CODE></A> for an example of using <CODE>onMouseOver</CODE> when the <CODE>A </CODE>tag's <CODE>HREF</CODE> attribute is set dynamically.</A></P>
+<A NAME="1120877">
+See also the examples for <A HREF="link.htm#1193137"><CODE>Link</CODE></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1120878">
+ See also
+</A></H4>
+
+<A NAME="1120882">
+<A HREF="event.htm#1193137"><CODE>event</CODE></A>, <A HREF="handlers.htm#1120757"><CODE>onMouseOut</CODE></A></A></P>
+
+<HR><H2><A NAME="onMouseUp"></A>
+<A NAME="1120892">
+ onMouseUp
+</A></H2><A NAME="1120893">
+Executes JavaScript code when a MouseUp event occurs; that is, when the user releases a mouse button. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1120896">
+<I>Event handler for </I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1120907">
+<A HREF="button.htm#1193137"><CODE>Button</CODE></A>, <A HREF="document.htm#1193137"><CODE>document</CODE></A>, <A HREF="link.htm#1193137"><CODE>Link</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1120909">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1120911">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1120912">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1120913">onMouseUp="<I>handlerText</I>"</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1120914">
+ Parameters
+</A></H4>
+
+<A NAME="1120920">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1120917"><CODE>handlerText</CODE></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1120919">
+JavaScript code or a call to a JavaScript function.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1120921">
+ Event properties used
+</A></H4>
+
+<A NAME="1145304">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1145293">
+<B>Property
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1145295">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1152188">type </A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1152190">
+Indicates the type of event. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1152192">target </A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1152194">
+Indicates the object to which the event was originally sent. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1152196">layerX, layerY,<br>pageX, pageY,<br>screenX, screenY </A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1152198">
+Represent the cursor location at the time the <CODE>MouseUp</CODE> event occurred. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1152200">which </A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1152202">
+Represents 1 for a left-mouse-button up and 3 for a right-mouse-button up. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1152204">modifiers </A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1152206">
+Contains the list of modifier keys held down when the <CODE>MouseUp</CODE> event occurred. </A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1120944">
+ Description
+</A></H4>
+
+<A NAME="1120945">
+If <CODE>onMouseUp</CODE> returns false, the default action is canceled. For example, if <CODE>onMouseUp</CODE> returns false over an armed link, the link is not triggered. Also, if <CODE>MouseUp</CODE> occurs over an unarmed link (possibly due to <CODE>onMouseDown</CODE> returning false), the link is not triggered.</A></P>
+<BLOCKQUOTE><B>NOTE: </B><A NAME="1120947">
+Arming is caused by a <CODE>MouseDown</CODE> over a link. When a link is armed it changes 
+color to represent its new state.
+</A>
+</BLOCKQUOTE>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1120948">
+ Examples
+</A></H4>
+
+<A NAME="1158504">
+See the examples for <A HREF="handlers.htm#1120635"><CODE>onMouseDown</CODE></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1158495">
+ See also
+</A></H4>
+
+<A NAME="1120956">
+<A HREF="event.htm#1193137"><CODE>event</CODE></A></A></P>
+
+<HR><H2><A NAME="onMove"></A>
+<A NAME="1120958">
+ onMove
+</A></H2><A NAME="1120959">
+Executes JavaScript code when a move event occurs; that is, when the user or script moves a window or frame. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1120962">
+<I>Event handler for </I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1120967">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1120969">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1120971">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1120972">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1120973">onMove="<I>handlerText</I>"</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1120974">
+ Parameters
+</A></H4>
+
+<A NAME="1120980">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1120977"><CODE>handlerText</CODE></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1120979">
+JavaScript code or a call to a JavaScript function.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1120981">
+ Event properties used
+</A></H4>
+
+<A NAME="1145354">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1145343">
+<B>Property
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1145345">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1152365">type </A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1152367">
+Indicates the type of event. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1152369">target </A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1152371">
+Indicates the object to which the event was originally sent. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1152373">screenX, <br>screenY </A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1152375">
+Represent the position of the top-left corner of the window or frame.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1120996">
+ Examples
+</A></H4>
+
+<A NAME="1156987">
+In this example, the <CODE>open_now</CODE> function creates the <CODE>myWin</CODE> window and captures <CODE>Move</CODE> events. The <CODE>onMove</CODE> handler calls another function which displays a message when a user moves <CODE>myWin</CODE>.</A></P>
+<PRE><A NAME="1157185">function open_now(){ <br>    var myWin; <br>    myWin=window.open("","displayWindow","width=400,height=400,menubar=no,<br>                        location=no,alwaysRaised=yes"); <br>    var text="&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;&lt;/head&gt;" <br>        +"&lt;body bgcolor=white&gt;&lt;h1&gt;Please move this window&lt;/h1&gt;&lt;/body&gt;" <br>        +"&lt;/html&gt;"; <br>    myWin.document.write(text); <br>    myWin.captureEvents(Event.MOVE); <br>    myWin.onmove=fun2; <br>} </A></PRE><PRE><A NAME="1156988"></A></PRE><PRE><A NAME="1157707">function fun2(){ <br>    alert("Hey you moved me!"); <br>    this.focus(); //'this' points to the current object <br>}</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1156989">
+ See also
+</A></H4>
+
+<A NAME="1121004">
+<A HREF="event.htm#1193137"><CODE>event</CODE></A></A></P>
+
+<HR><H2><A NAME="onReset"></A>
+<A NAME="1121007">
+ onReset
+</A></H2><A NAME="1121008">
+Executes JavaScript code when a reset event occurs; that is, when a user resets a form (clicks a Reset button). <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1121011">
+<I>Event handler for </I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1121016">
+<A HREF="form.htm#1197470"><CODE>Form</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1121018">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1121020">
+JavaScript 1.1</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1121021">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1121022">onReset="<I>handlerText</I>"</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1121023">
+ Parameters
+</A></H4>
+
+<A NAME="1121029">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1121026"><CODE>handlerText</CODE></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1121028">
+JavaScript code or a call to a JavaScript function.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1121030">
+ Examples
+</A></H4>
+
+<A NAME="1121031">
+The following example displays a <CODE>Text</CODE> object with the default value "CA" and a reset button. If the user types a state abbreviation in the <CODE>Text</CODE> object and then clicks the reset button, the original value of "CA" is restored. The form's onReset event handler displays a message indicating that defaults have been restored.</A></P>
+<PRE><A NAME="1121032">&lt;FORM NAME="form1" onReset="alert('Defaults have been restored.')"&gt;<br>State:<br>&lt;INPUT TYPE="text" NAME="state" VALUE="CA" SIZE="2"&gt;&lt;P&gt;<br>&lt;INPUT TYPE="reset" VALUE="Clear Form" NAME="reset1"&gt;<br>&lt;/FORM&gt;</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1121033">
+ Event properties used
+</A></H4>
+
+<A NAME="1145392">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1145381">
+<B>Property
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1145383">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1152506">type</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1152508">
+Indicates the type of event. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1152510">target</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1152512">
+Indicates the object to which the event was originally sent. </A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1121044">
+ See also
+</A></H4>
+
+<A NAME="1121051">
+<A HREF="event.htm#1193137"><CODE>event</CODE></A>, <A HREF="form.htm#1194089"><CODE>Form.reset</CODE></A>, <A HREF="reset.htm#1193137"><CODE>Reset</CODE></A></A></P>
+
+<HR><H2><A NAME="onResize"></A>
+<A NAME="1121061">
+ onResize
+</A></H2><A NAME="1121062">
+Executes JavaScript code when a resize event occurs; that is, when a user or script resizes a window or frame. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1121065">
+<I>Event handler for </I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1121070">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1121072">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1121074">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1121075">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1121076">onResize="<I>handlerText</I>"</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1121077">
+ Parameters
+</A></H4>
+
+<A NAME="1121083">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1121080"><CODE>handlerText</CODE></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1121082">
+JavaScript code or a call to a JavaScript function.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1121084">
+ Event properties used
+</A></H4>
+
+<A NAME="1145430">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1145419">
+<B>Property
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1145421">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1152686">type</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1152688">
+Indicates the type of event. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1152690">target</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1152692">
+Indicates the object to which the event was originally sent. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1152694">width, height</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1152696">
+Represent the width and height of the window or frame. </A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1121099">
+ Description
+</A></H4>
+
+<A NAME="1121100">
+This event is sent after HTML layout completes within the new window inner dimensions. This allows positioned elements and named anchors to have their final sizes and locations queried, image <CODE>SRC</CODE> properties can be restored dynamically, and so on.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1121101">
+ Examples
+</A></H4>
+
+<A NAME="1158393">
+In this example, the <CODE>open_now</CODE> function creates the <CODE>myWin</CODE> window and captures <CODE>Resize</CODE> events. The <CODE>onResize</CODE> handler calls the <CODE>alert_me</CODE> function which displays a message when a user resizes <CODE>myWin</CODE>.</A></P>
+<PRE><A NAME="1158030">function open_now(){ <br>    var myWin; <br>    myWin=window.open("","displayWin","width=400,height=300,resizable=yes, <br>                                    menubar=no,location=no,alwaysRaised=yes"); <br>    var text="&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;&lt;/head&gt;" <br>           +"&lt;body bgcolor=white&gt;&lt;h1&gt;Please resize me&lt;/h1&gt;&lt;/body&gt;" <br>           +"&lt;/html&gt;"; <br>    myWin.document.write(text); <br>    myWin.captureEvents(Event.RESIZE); <br>    myWin.onresize=alert_me; <br>}</A></PRE><PRE><A NAME="1158268"></A></PRE><PRE><A NAME="1158287">function alert_me(){ <br>    alert("You resized me! \nNow my outer width: " + this.outerWidth +<br>        "\n and my outer height: " +this.outerHeight); <br>    this.focus(); <br>}</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1157929">
+ See also
+</A></H4>
+
+<A NAME="1121109">
+<A HREF="event.htm#1193137"><CODE>event</CODE></A></A></P>
+
+<HR><H2><A NAME="onSelect"></A>
+<A NAME="1121112">
+ onSelect
+</A></H2><A NAME="1121113">
+Executes JavaScript code when a select event occurs; that is, when a user selects some of the text within a text or textarea field. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1121116">
+<I>Event handler for </I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1121124">
+<A HREF="text.htm#1193137"><CODE>Text</CODE></A>, <A HREF="textarea.htm#1193137"><CODE>Textarea</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1121126">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1121128">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1121129">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1121130">onSelect="<I>handlerText</I>"</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1121131">
+ Parameters
+</A></H4>
+
+<A NAME="1121137">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1121134"><CODE>handlerText</CODE></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1121136">
+JavaScript code or a call to a JavaScript function.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1121138">
+ Event properties used
+</A></H4>
+
+<A NAME="1145465">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1145454">
+<B>Property
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1145456">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1152788">type</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1152790">
+Indicates the type of event. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1152792">target</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1152794">
+Indicates the object to which the event was originally sent. </A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1121149">
+ Examples
+</A></H4>
+
+<A NAME="1121150">
+The following example uses <CODE>onSelect</CODE> in the <CODE>valueField</CODE> <CODE>Text</CODE> object to call the <CODE>selectState</CODE> function.</A></P>
+<PRE><A NAME="1121151">&lt;INPUT TYPE="text" VALUE="" NAME="valueField" onSelect="selectState()"&gt;</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1121152">
+ See also
+</A></H4>
+
+<A NAME="1121160">
+<A HREF="event.htm#1193137"><CODE>event</CODE></A></A></P>
+
+<HR><H2><A NAME="onSubmit"></A>
+<A NAME="1121163">
+ onSubmit
+</A></H2><A NAME="1121164">
+Executes JavaScript code when a submit event occurs; that is, when a user submits a form. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1121167">
+<I>Event handler for </I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1121172">
+<A HREF="form.htm#1197470"><CODE>Form</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1121174">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1121176">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1121177">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1121178">onSubmit="<I>handlerText</I>"</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1121179">
+ Parameters
+</A></H4>
+
+<A NAME="1121185">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1121182"><CODE>handlerText</CODE></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1121184">
+JavaScript code or a call to a JavaScript function.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1121186">
+ Security
+</A></H4>
+
+<A NAME="1121188">
+Submitting a form to a <CODE>mailto:</CODE> or <CODE>news:</CODE> URL requires the <CODE>UniversalSendMail</CODE> privilege. For information on security, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1121193">
+ Description
+</A></H4>
+
+<A NAME="1121194">
+You can use <CODE>onSubmit</CODE> to prevent a form from being submitted; to do so, put a <CODE>return</CODE> statement that returns false in the event handler. Any other returned value lets the form submit. If you omit the <CODE>return</CODE> statement, the form is submitted.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1121195">
+ Event properties used
+</A></H4>
+
+<A NAME="1145495">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1145484">
+<B>Property
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1145486">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1152840">type</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1152842">
+Indicates the type of event. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1152844">target</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1152846">
+Indicates the object to which the event was originally sent. </A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1121206">
+ Examples
+</A></H4>
+
+<A NAME="1121207">
+In the following example, <CODE>onSubmit</CODE> calls the <CODE>validate</CODE> function to evaluate the data being submitted. If the data is valid, the form is submitted; otherwise, the form is not submitted.</A></P>
+<PRE><A NAME="1121208">&lt;FORM onSubmit="return validate(this)"&gt;<br>...<br>&lt;/FORM&gt;</A></PRE><A NAME="1121212">
+See also the examples for <A HREF="form.htm#1197470"><CODE>Form</CODE></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1121213">
+ See also
+</A></H4>
+
+<A NAME="1121220">
+<A HREF="event.htm#1193137"><CODE>event</CODE></A>, <A HREF="submit.htm#1193137"><CODE>Submit</CODE></A>, <A HREF="form.htm#1194123"><CODE>Form.submit</CODE></A></A></P>
+
+<HR><H2><A NAME="onUnload"></A>
+<A NAME="1121231">
+ onUnload
+</A></H2><A NAME="1121232">
+Executes JavaScript code when an unload event occurs; that is, when the user exits a document. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1121235">
+<I>Event handler for </I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1121240">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1121242">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1121244">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1121245">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1121246">onUnload="<I>handlerText</I>"</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1121247">
+ Parameters
+</A></H4>
+
+<A NAME="1121253">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1121250"><CODE>handlerText</CODE></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1121252">
+JavaScript code or a call to a JavaScript function.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1121254">
+ Description
+</A></H4>
+
+<A NAME="1121255">
+Use <CODE>onUnload</CODE> within either the <CODE>BODY</CODE> or the <CODE>FRAMESET</CODE> tag, for example, <CODE>&lt;BODY onUnload="..."&gt;</CODE>.</A></P>
+<A NAME="1121256">
+In a frameset and frame relationship, an <CODE>onUnload</CODE> event within a frame (placed in the <CODE>BODY</CODE> tag) occurs before an <CODE>onUnload</CODE> event within the frameset (placed in the <CODE>FRAMESET</CODE> tag).</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1121257">
+ Event properties used
+</A></H4>
+
+<A NAME="1145525">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1145514">
+<B>Property
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1145516">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1152891">type</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1152893">
+Indicates the type of event. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1152895">target</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1152897">
+Indicates the object to which the event was originally sent. </A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1121268">
+ Examples
+</A></H4>
+
+<A NAME="1121269">
+In the following example, <CODE>onUnload</CODE> calls the <CODE>cleanUp</CODE> function to perform some shutdown processing when the user exits a Web page:</A></P>
+<PRE><A NAME="1121270">&lt;BODY onUnload="cleanUp()"&gt;</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1121271">
+ See also
+</A></H4>
+
+<A NAME="1121275">
+<A HREF="handlers.htm#1120545"><CODE>onLoad</CODE></A></A></P>
+<A NAME="1131212">
+For general information on event handlers, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+<A NAME="1121283">
+For information about the <CODE>event</CODE> object, see <A HREF="event.htm#1193137"><CODE>event</CODE></A>.</A></P>
+
+<HR>
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="toplev.htm">Previous</A>
+ | <A HREF="partlang.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT>
+<P ALIGN=right>
+<FONT SIZE=-2><I>Last Updated:  05/28/99  12:01:01</I></FONT>
+<P> <CENTER>Copyright (c) 1999
+<A HREF="http://home.netscape.com/misc/contact_info.html"
+TARGET=_top>Netscape Communications Corporation</A></FONT>
+</CENTER>
+<P>
+</BODY>
+</HTML>
+
+

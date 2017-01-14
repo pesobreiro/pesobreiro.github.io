@@ -1,0 +1,609 @@
+<HTML>
+<HEAD>
+<TITLE>
+</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="plugin.htm">Previous</A>
+ | <A HREF="regexp.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT><BR><BR>
+<HR>
+
+<H1><A NAME="Radio"></A>
+<A NAME="1193137">
+ Radio
+</A></H1>
+<A NAME="1193138">
+An individual radio button in a set of radio buttons on an HTML form. The user can use a set of radio buttons to choose one item from a list.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193141">
+<I>Client-side object</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193143">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193145">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193147">
+JavaScript 1.0</A></P><P><A NAME="1194553">
+</A></P><P><A NAME="1194554">
+JavaScript 1.1: added <CODE>type</CODE> property; added <CODE>blur</CODE> and <CODE>focus</CODE> methods.</A></P><P><A NAME="1194573">
+</A></P><P><A NAME="1194574">
+JavaScript 1.2: added <CODE>handleEvent</CODE> method.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193148">
+ Created by
+</A></H4>
+
+<A NAME="1193151">
+The HTML <CODE><A HREF="http://developer.netscape.com/docs/manuals/htmlguid/index.htm?content=tags10.htm#tags:INPUT" TARGET="_top">INPUT</A></CODE> tag, with <CODE>"radio"</CODE> as the value of the <CODE>TYPE</CODE> attribute. All the radio buttons in a single group must have the same value for the <CODE>NAME</CODE> attribute. This allows them to be accessed as a single group. </A></P>
+<A NAME="1193152">
+For a given form, the JavaScript runtime engine creates an individual <CODE>Radio</CODE> object for each radio button in that form. It puts in a single array all the <CODE>Radio</CODE> objects that have the same value for the <CODE>NAME</CODE> attribute. It puts that array in the <A HREF="form.htm#1193375"><CODE>elements</CODE></A> array of the corresponding <A HREF="form.htm#1197470"><CODE>Form</CODE></A> object. If a single form has multiple sets of radio buttons, the <A HREF="form.htm#1193375"><CODE>elements</CODE></A> array has multiple <CODE>Radio</CODE> objects.</A></P>
+<A NAME="1193165">
+You access a set of buttons by accessing the <A HREF="form.htm#1193375"><CODE>Form.elements</CODE></A> array (either by number or by using the value of the <CODE>NAME</CODE> attribute). To access the individual radio buttons in that set, you use the returned object array. For example, if your document has a form called <CODE>emp</CODE> with a set of radio buttons whose <CODE>NAME</CODE> attribute is <CODE>"dept"</CODE>, you would access the individual buttons as <CODE>document.emp.dept[0]</CODE>, <CODE>document.emp.dept[1]</CODE>, and so on.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193166">
+ Event handlers
+</A></H4>
+
+<ul><LI><A NAME="1193170">
+<A HREF="handlers.htm#1119670"><CODE>onBlur</CODE></A>
+</A></LI><LI><A NAME="1193174">
+<A HREF="handlers.htm#1119876"><CODE>onClick</CODE></A>
+</A></LI><LI><A NAME="1193178">
+<A HREF="handlers.htm#1120186"><CODE>onFocus</CODE></A>
+</A></LI></ul>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193179">
+ Description
+</A></H4>
+
+<A NAME="1193183">
+A <CODE>Radio</CODE> object on a form looks as follows:<P>
+<IMG SRC="graphics/radio.gif">
+</A></P>
+<A NAME="1193186">
+A <CODE>Radio</CODE> object is a form element and must be defined within a <CODE><A HREF="http://developer.netscape.com/docs/manuals/htmlguid/index.htm?content=tags10.htm#tags:FORM" TARGET="_top">FORM</A></CODE> tag.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193187">
+ Property Summary
+</A></H4>
+
+<A NAME="1193235">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1193190">
+<B>Property
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1193192">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193197"><A HREF="radio.htm#1193294"><CODE>checked</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193199">
+Lets you programmatically select a radio button (property of the individual button).</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193204"><A HREF="radio.htm#1193326"><CODE>defaultChecked</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193206">
+Reflects the <CODE>CHECKED</CODE> attribute (property of the individual button).</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193211"><A HREF="radio.htm#1193360"><CODE>form</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193213">
+Specifies the form containing the <CODE>Radio</CODE> object (property of the array of buttons).</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193218"><A HREF="radio.htm#1193382"><CODE>name</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193220">
+Reflects the <CODE>NAME</CODE> attribute (property of the array of buttons).</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193225"><A HREF="radio.htm#1193410"><CODE>type</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193227">
+Reflects the <CODE>TYPE</CODE> attribute (property of the array of buttons).</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193232"><A HREF="radio.htm#1193433"><CODE>value</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193234">
+Reflects the <CODE>VALUE</CODE> attribute (property of the array of buttons).</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193236">
+ Method Summary
+</A></H4>
+
+<A NAME="1193270">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1193239">
+<B>Method
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1193241">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193246"><A HREF="radio.htm#1193837"><CODE>blur</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193248">
+Removes focus from the radio button.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193253"><A HREF="radio.htm#1193975"><CODE>click</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193255">
+Simulates a mouse-click on the radio button.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193260"><A HREF="radio.htm#1194118"><CODE>focus</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193262">
+Gives focus to the radio button.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193267"><A HREF="radio.htm#1194257"><CODE>handleEvent</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193269">
+Invokes the handler for the specified event.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+<A NAME="1196517">
+In addition, this object inherits the <A HREF="object.htm#1193628"><CODE>watch</CODE></A> and <A HREF="object.htm#1193499"><CODE>unwatch</CODE></A> methods from <A HREF="object.htm#1193136"><CODE>Object</CODE></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193271">
+ Examples
+</A></H4>
+
+<A NAME="1193272">
+<B>Example 1.</B> The following example defines a radio button group to choose among three music catalogs. Each radio button is given the same name, <CODE>NAME="musicChoice"</CODE>, forming a group of buttons for which only one choice can be selected. The example also defines a text field that defaults to what was chosen via the radio buttons but that allows the user to type a nonstandard catalog name as well. The <CODE>onClick</CODE> event handler sets the catalog name input field when the user clicks a radio button.</A></P>
+<PRE><A NAME="1193273">&lt;INPUT TYPE="text" NAME="catalog" SIZE="20"&gt;<br>&lt;INPUT TYPE="radio" NAME="musicChoice" VALUE="soul-and-r&amp;b"<br>&nbsp;&nbsp;&nbsp;onClick="musicForm.catalog.value = 'soul-and-r&amp;b'"&gt; Soul and R&amp;B<br>&lt;INPUT TYPE="radio" NAME="musicChoice" VALUE="jazz"<br>&nbsp;&nbsp;&nbsp;onClick="musicForm.catalog.value = 'jazz'"&gt; Jazz<br>&lt;INPUT TYPE="radio" NAME="musicChoice" VALUE="classical"<br>&nbsp;&nbsp;&nbsp;onClick="musicForm.catalog.value = 'classical'"&gt; Classical</A></PRE><A NAME="1193274">
+<B>Example 2.</B> The following example contains a form with three text boxes and three radio buttons. The radio buttons let the user choose whether the text fields are converted to uppercase or lowercase, or not converted at all. Each text field has an <CODE>onChange</CODE> event handler that converts the field value depending on which radio button is checked. The radio buttons for uppercase and lowercase have <CODE>onClick</CODE> event handlers that convert all fields when the user clicks the radio button.</A></P>
+<PRE><A NAME="1193275">&lt;HTML&gt;<br>&lt;HEAD&gt;<br>&lt;TITLE&gt;Radio object example&lt;/TITLE&gt;<br>&lt;/HEAD&gt;<br>&lt;SCRIPT&gt;<br>function convertField(field) {<br>&nbsp;&nbsp;&nbsp;if (document.form1.conversion[0].checked) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field.value = field.value.toUpperCase()}<br>&nbsp;&nbsp;&nbsp;else {<br>&nbsp;&nbsp;&nbsp;if (document.form1.conversion[1].checked) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field.value = field.value.toLowerCase()}<br>&nbsp;&nbsp;&nbsp;}<br>}<br>function convertAllFields(caseChange) {<br>&nbsp;&nbsp;&nbsp;if (caseChange=="upper") {<br>&nbsp;&nbsp;&nbsp;document.form1.lastName.value = document.form1.lastName.value.toUpperCase()<br>&nbsp;&nbsp;&nbsp;document.form1.firstName.value = document.form1.firstName.value.toUpperCase()<br>&nbsp;&nbsp;&nbsp;document.form1.cityName.value = document.form1.cityName.value.toUpperCase()}<br>&nbsp;&nbsp;&nbsp;else {<br>&nbsp;&nbsp;&nbsp;document.form1.lastName.value = document.form1.lastName.value.toLowerCase()<br>&nbsp;&nbsp;&nbsp;document.form1.firstName.value = document.form1.firstName.value.toLowerCase()<br>&nbsp;&nbsp;&nbsp;document.form1.cityName.value = document.form1.cityName.value.toLowerCase()<br>&nbsp;&nbsp;&nbsp;}<br>}<br>&lt;/SCRIPT&gt;<br>&lt;BODY&gt;<br>&lt;FORM NAME="form1"&gt;<br>&lt;B&gt;Last name:&lt;/B&gt;<br>&lt;INPUT TYPE="text" NAME="lastName" SIZE=20 onChange="convertField(this)"&gt;<br>&lt;BR&gt;&lt;B&gt;First name:&lt;/B&gt;<br>&lt;INPUT TYPE="text" NAME="firstName" SIZE=20 onChange="convertField(this)"&gt;<br>&lt;BR&gt;&lt;B&gt;City:&lt;/B&gt;<br>&lt;INPUT TYPE="text" NAME="cityName" SIZE=20 onChange="convertField(this)"&gt;<br>&lt;P&gt;&lt;B&gt;Convert values to:&lt;/B&gt;<br>&lt;BR&gt;&lt;INPUT TYPE="radio" NAME="conversion" VALUE="upper"<br>&nbsp;&nbsp;&nbsp;onClick="if (this.checked) {convertAllFields('upper')}"&gt; Upper case<br>&lt;BR&gt;&lt;INPUT TYPE="radio" NAME="conversion" VALUE="lower"<br>&nbsp;&nbsp;&nbsp;onClick="if (this.checked) {convertAllFields('lower')}"&gt; Lower case<br>&lt;BR&gt;&lt;INPUT TYPE="radio" NAME="conversion" VALUE="noChange"&gt; No conversion<br>&lt;/FORM&gt;<br>&lt;/BODY&gt;<br>&lt;/HTML&gt;</A></PRE><A NAME="1193279">
+See also the example for <A HREF="link.htm#1193137"><CODE>Link</CODE></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193280">
+ See also
+</A></H4>
+
+<A NAME="1193290">
+<A HREF="checkbox.htm#1193137"><CODE>Checkbox</CODE></A>, <A HREF="form.htm#1197470"><CODE>Form</CODE></A>, <A HREF="select.htm#1193137"><CODE>Select</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193837">
+blur
+</A></H2>
+
+<A NAME="1193851">
+Removes focus from the radio button.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193841">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193846">
+<A HREF="radio.htm#1193137"><CODE>Radio</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193848">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193850">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193852">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1193853">blur()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193854">
+ Parameters
+</A></H4>
+
+<A NAME="1193855">
+None</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193856">
+ See also
+</A></H4>
+
+<A NAME="1193860">
+<A HREF="radio.htm#1194118"><CODE>Radio.focus</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193294">
+checked
+</A></H2>
+
+<A NAME="1193307">
+A Boolean value specifying the selection state of a radio button.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193297">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193302">
+<A HREF="radio.htm#1193137"><CODE>Radio</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193304">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193306">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193308">
+ Security
+</A></H4>
+
+<B><A NAME="HeadRunIn;"></A>
+<A NAME="1200227">
+JavaScript 1.1. </A></B><A NAME="1193309">
+This property is tainted by default. For information on data tainting, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193313">
+ Description
+</A></H4>
+
+<A NAME="1193314">
+If a radio button is selected, the value of its <CODE>checked</CODE> property is true; otherwise, it is false. You can set the <CODE>checked</CODE> property at any time. The display of the radio button updates immediately when you set the <CODE>checked</CODE> property.</A></P>
+<A NAME="1193315">
+At any given time, only one button in a set of radio buttons can be checked. When you set the <CODE>checked</CODE> property for one radio button in a group to true, that property for all other buttons in the group becomes false.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193316">
+ Examples
+</A></H4>
+
+<A NAME="1193317">
+The following example examines an array of radio buttons called <CODE>musicType</CODE> on the <CODE>musicForm</CODE> form to determine which button is selected. The <CODE>VALUE</CODE> attribute of the selected button is assigned to the <CODE>checkedButton</CODE> variable.</A></P>
+<PRE><A NAME="1193318">function stateChecker() {<br>&nbsp;&nbsp;&nbsp;var checkedButton = ""<br>&nbsp;&nbsp;&nbsp;for (var i in document.musicForm.musicType) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (document.musicForm.musicType[i].checked=="1") {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;checkedButton=document.musicForm.musicType[i].value<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;}<br>}</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193319">
+ See also
+</A></H4>
+
+<A NAME="1193323">
+<A HREF="radio.htm#1193326"><CODE>Radio.defaultChecked</CODE></A> </A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193975">
+click
+</A></H2>
+
+<A NAME="1193977">
+Simulates a mouse-click on the radio button, but does <I>not</I> trigger the button's <CODE>onClick</CODE> event handler.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193980">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193985">
+<A HREF="radio.htm#1193137"><CODE>Radio</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193987">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193989">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193990">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1193991">click()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193992">
+ Parameters
+</A></H4>
+
+<A NAME="1193993">
+None</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193994">
+ Examples
+</A></H4>
+
+<A NAME="1193995">
+The following example toggles the selection status of the first radio button in the <CODE>musicType</CODE> <CODE>Radio</CODE> object on the <CODE>musicForm</CODE> form:</A></P>
+<PRE><A NAME="1193996">document.musicForm.musicType[0].click()</A></PRE><A NAME="1193997">
+The following example toggles the selection status of the <CODE>newAge</CODE> checkbox on the <CODE>musicForm</CODE> form:</A></P>
+<PRE><A NAME="1193998">document.musicForm.newAge.click()</A></PRE>
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193326">
+defaultChecked
+</A></H2>
+
+<A NAME="1193340">
+A Boolean value indicating the default selection state of a radio button.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193330">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193335">
+<A HREF="radio.htm#1193137"><CODE>Radio</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193337">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193339">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193341">
+ Security
+</A></H4>
+
+<B><A NAME="HeadRunIn;"></A>
+<A NAME="1200195">
+JavaScript 1.1. </A></B><A NAME="1193342">
+This property is tainted by default. For information on data tainting, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193346">
+ Description
+</A></H4>
+
+<A NAME="1193347">
+If a radio button is selected by default, the value of the <CODE>defaultChecked</CODE> property is true; otherwise, it is false. <CODE>defaultChecked</CODE> initially reflects whether the <CODE>CHECKED</CODE> attribute is used within an <CODE>INPUT</CODE> tag; however, setting <CODE>defaultChecked</CODE> overrides the <CODE>CHECKED</CODE> attribute.</A></P>
+<A NAME="1193348">
+Unlike for the <CODE>checked</CODE> property, changing the value of <CODE>defaultChecked</CODE> for one button in a radio group does not change its value for the other buttons in the group.</A></P>
+<A NAME="1193349">
+You can set the <CODE>defaultChecked</CODE> property at any time. The display of the radio button does not update when you set the <CODE>defaultChecked</CODE> property, only when you set the <CODE>checked</CODE> property.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193350">
+ Examples
+</A></H4>
+
+<A NAME="1193351">
+The following example resets an array of radio buttons called <CODE>musicType</CODE> on the <CODE>musicForm</CODE> form to the default selection state:</A></P>
+<PRE><A NAME="1193352">function radioResetter() {<br>&nbsp;&nbsp;&nbsp;var i=""<br>&nbsp;&nbsp;&nbsp;for (i in document.musicForm.musicType) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (document.musicForm.musicType[i].defaultChecked==true) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.musicForm.musicType[i].checked=true<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;}<br>}</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193353">
+ See also
+</A></H4>
+
+<A NAME="1193357">
+<A HREF="radio.htm#1193294"><CODE>Radio.checked</CODE></A> </A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1194118">
+focus
+</A></H2>
+
+<A NAME="1194131">
+Gives focus to the radio button.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194121">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194126">
+<A HREF="radio.htm#1193137"><CODE>Radio</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194128">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194130">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194132">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1194133">focus()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194134">
+ Parameters
+</A></H4>
+
+<A NAME="1194135">
+None</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194136">
+ Description
+</A></H4>
+
+<A NAME="1194137">
+Use the <CODE>focus</CODE> method to navigate to the radio button and give it focus. The user can then easily toggle that button. </A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194138">
+ See also
+</A></H4>
+
+<A NAME="1194142">
+<A HREF="radio.htm#1193837"><CODE>Radio.blur</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193360">
+form
+</A></H2>
+
+<A NAME="1193377">
+An object reference specifying the form containing the radio button.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193363">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193368">
+<A HREF="radio.htm#1193137"><CODE>Radio</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193370">
+<I>Read-only</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193372">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193374">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193376">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193378">
+ Description
+</A></H4>
+
+<A NAME="1193379">
+Each form element has a <CODE>form</CODE> property that is a reference to the element's parent form. This property is especially useful in event handlers, where you might need to refer to another element on the current form.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1194257">
+handleEvent
+</A></H2>
+
+<A NAME="1194270">
+Invokes the handler for the specified event. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194260">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194265">
+<A HREF="radio.htm#1193137"><CODE>Radio</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194267">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194269">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194271">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1194272">handleEvent(<I>event</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194273">
+ Parameters
+</A></H4>
+
+<A NAME="1194279">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1194276">event</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1194278">
+The name of an event for which the specified object has an event handler.</A></P>
+
+</TABLE>
+</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193382">
+name
+</A></H2>
+
+<A NAME="1193383">
+A string specifying the name of the set of radio buttons with which this button is associated.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193386">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193391">
+<A HREF="radio.htm#1193137"><CODE>Radio</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193393">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193395">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193396">
+ Security
+</A></H4>
+
+<B><A NAME="HeadRunIn;"></A>
+<A NAME="1200207">
+JavaScript 1.1. </A></B><A NAME="1193397">
+This property is tainted by default. For information on data tainting, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193401">
+ Description
+</A></H4>
+
+<A NAME="1193402">
+The <CODE>name</CODE> property initially reflects the value of the <CODE>NAME</CODE> attribute. Changing the <CODE>name</CODE> property overrides this setting.</A></P>
+<A NAME="1193403">
+All radio buttons that have the same value for their <CODE>name</CODE> property are in the same group and are treated together. If you change the <CODE>name</CODE> of a single radio button, you change which group of buttons it belongs to.</A></P>
+<A NAME="1193404">
+Do not confuse the name property with the label displayed on a Button. The <CODE>value</CODE> property specifies the label for the button. The <CODE>name</CODE> property is not displayed onscreen; it is used to refer programmatically to the button.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193405">
+ Examples
+</A></H4>
+
+<A NAME="1193406">
+In the following example, the <CODE>valueGetter</CODE> function uses a <CODE>for</CODE> loop to iterate over the array of elements on the <CODE>valueTest</CODE> form. The <CODE>msgWindow</CODE> window displays the names of all the elements on the form:</A></P>
+<PRE><A NAME="1193407">newWindow=window.open("http://home.netscape.com")</A></PRE><PRE><A NAME="1193408">function valueGetter() {<br>&nbsp;&nbsp;&nbsp;var msgWindow=window.open("")<br>&nbsp;&nbsp;&nbsp;for (var i = 0; i &lt; newWindow.document.valueTest.elements.length; i++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msgWindow.document.write(newWindow.document.valueTest.elements[i].name + "&lt;BR&gt;")<br>&nbsp;&nbsp;&nbsp;}<br>}</A></PRE>
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193410">
+type
+</A></H2>
+
+<A NAME="1193411">
+For all <CODE>Radio</CODE> objects, the value of the <CODE>type</CODE> property is <CODE>"radio"</CODE>. This property specifies the form element's type. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193414">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193419">
+<A HREF="radio.htm#1193137"><CODE>Radio</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193421">
+<I>Read-only</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193423">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193425">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193427">
+JavaScript 1.1</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193428">
+ Examples
+</A></H4>
+
+<A NAME="1193429">
+The following example writes the value of the <CODE>type</CODE> property for every element on a form.</A></P>
+<PRE><A NAME="1193430">for (var i = 0; i &lt; document.form1.elements.length; i++) {<br>&nbsp;&nbsp;&nbsp;document.writeln("&lt;BR&gt;type is " + document.form1.elements[i].type)<br>}</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193431">
+ 
+</A></H4>
+
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193433">
+value
+</A></H2>
+
+<A NAME="1193450">
+A string that reflects the <CODE>VALUE</CODE> attribute of the radio button.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193436">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193441">
+<A HREF="radio.htm#1193137"><CODE>Radio</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193443">
+<I>Read-only</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193445">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193447">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193449">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193451">
+ Security
+</A></H4>
+
+<B><A NAME="HeadRunIn;"></A>
+<A NAME="1200219">
+JavaScript 1.1. </A></B><A NAME="1193452">
+This property is tainted by default. For information on data tainting, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193456">
+ Description
+</A></H4>
+
+<A NAME="1193457">
+When a <CODE>VALUE</CODE> attribute is specified in HTML, the <CODE>value</CODE> property is a string that reflects it. When a <CODE>VALUE</CODE> attribute is not specified in HTML, the <CODE>value</CODE> property is a string that evaluates to <CODE>"on"</CODE>. The <CODE>value</CODE> property is not displayed on the screen but is returned to the server if the radio button or checkbox is selected.</A></P>
+<A NAME="1193458">
+Do not confuse the property with the selection state of the radio button or the text that is displayed next to the button. The <CODE>checked</CODE> property determines the selection state of the object, and the <CODE>defaultChecked</CODE> property determines the default selection state. The text that is displayed is specified following the <CODE>INPUT</CODE> tag.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193459">
+ Examples
+</A></H4>
+
+<A NAME="1193460">
+The following function evaluates the <CODE>value</CODE> property of a group of radio buttons and displays it in the <CODE>msgWindow</CODE> window:</A></P>
+<PRE><A NAME="1193461">function valueGetter() {<br>&nbsp;&nbsp;&nbsp;var msgWindow=window.open("")<br>&nbsp;&nbsp;&nbsp;for (var i = 0; i &lt; document.valueTest.radioObj.length; i++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; msgWindow.document.write<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ("The value of radioObj[" + i + "] is " +<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; document.valueTest.radioObj[i].value +"&lt;BR&gt;")<br>&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;msgWindow.document.close()<br>}</A></PRE><A NAME="1193462">
+This example displays the following values:</A></P>
+<PRE><A NAME="1193463">on<br>on<br>on<br>on</A></PRE><A NAME="1193464">
+The previous example assumes the buttons have been defined as follows:</A></P>
+<PRE><A NAME="1193465">&lt;BR&gt;&lt;INPUT TYPE="radio" NAME="radioObj"&gt;R&amp;B<br>&lt;BR&gt;&lt;INPUT TYPE="radio" NAME="radioObj" CHECKED&gt;Soul<br>&lt;BR&gt;&lt;INPUT TYPE="radio" NAME="radioObj"&gt;Rock and Roll<br>&lt;BR&gt;&lt;INPUT TYPE="radio" NAME="radioObj"&gt;Blues</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193466">
+ See also
+</A></H4>
+
+<A NAME="1193473">
+<A HREF="radio.htm#1193294"><CODE>Radio.checked</CODE></A>, <A HREF="radio.htm#1193326"><CODE>Radio.defaultChecked</CODE></A></A></P>
+
+<HR>
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="plugin.htm">Previous</A>
+ | <A HREF="regexp.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT>
+<P ALIGN=right>
+<FONT SIZE=-2><I>Last Updated:  05/28/99  12:00:13</I></FONT>
+<P> <CENTER>Copyright (c) 1999
+<A HREF="http://home.netscape.com/misc/contact_info.html"
+TARGET=_top>Netscape Communications Corporation</A></FONT>
+</CENTER>
+<P>
+</BODY>
+</HTML>
+
+

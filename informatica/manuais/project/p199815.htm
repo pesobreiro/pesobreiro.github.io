@@ -1,0 +1,67 @@
+<!doctype html public" -//IETF//DTD 	HTML//EN">
+<HTML>
+
+<HEAD>
+<SCRIPT LANGUAGE="JAVASCRIPT">
+<!-- 
+
+function checkbrowse()
+{
+var bn, bv, ver
+bn = navigator.appName;
+bv = parseInt(navigator.appVersion);
+if (bn=="Microsoft Internet Explorer" && bv<"4") ver = "IE3";
+else ver = "NotIE3";
+if (ver=="IE3") top.cont.parts.location.href="part19.htm";
+if (ver=="NotIE3") top.cont.parts.location.href="nav/part19.htm";
+}
+//-->
+</SCRIPT>
+<TITLE>Add a Resource’s Workgroup Identifier to Your Project</TITLE>
+<META NAME="GENERATOR" 	CONTENT="Merch. System HTML Development">
+<META NAME="AUTHOR" 	CONTENT="Merch. System HTML Development">
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" OnLoad="checkbrowse();">
+<Font Face ="Verdana, Arial, Helvetica">
+
+<P align=right><SMALL>
+<A HREF="p199814.htm" Target="TOC"><IMG SRC="prev.gif"ALT="Previous page"BORDER=0></A>
+<A HREF="p19981.htm" Target="TOC"><IMG SRC="toc19.gif"ALT="Contents"BORDER=0></A>
+<A HREF="p199816.htm" Target="TOC"><IMG SRC="Next.gif"ALT="Next 
+page"BORDER=0></A></SMALL></P>
+<H3>Add a Resource’s Workgroup Identifier to Your Project</H3>
+
+<P>
+To ensure that each workgroup message is received by the correct team member, you need to assign each team 
+member a unique <I>workgroup identifier</I>. Workgroup identifiers distinguish one workgroup member from 
+another.
+<P>
+By default, Microsoft Project uses a resource’s e-mail name as the workgroup identifier. If an e-mail name isn’t 
+available, Microsoft Project uses the names on your resource list (for example, on the Resource Sheet view) as 
+the workgroup identifiers to direct messages to the appropriate TeamInboxes. To enable Microsoft Project to 
+direct a workgroup message to the correct resource, make sure you give each resource a unique name.
+<P>
+You can add each resource’s e-mail address to the project. This procedure is necessary only if the resource’s 
+e-mail address is not exactly the same as the resource’s name in Microsoft Project. For instance, if a resource’s 
+name and e-mail address are both Chris, then you don’t need to perform this procedure. However, if the e-mail 
+address is ChrisLu instead of just Chris, then you need to add that resource’s e-mail address.
+<P>
+<B><B><IMG SRC="bluetri.gif">	To add a resource’s e-mail address to your project</B></B>
+<OL>
+<LI>On the <B>View Bar</B>, click <B>Resource Sheet</B> <IMG SRC="RESS.gif">.
+<LI>On the <B>View</B> menu, point to <B>Table</B>, and then click <B>Entry</B>.
+<LI>In the <B>Resource Name</B> field, select a resource whose e-mail address you want to add.
+<LI>Click <B>Resource Information</B> <IMG SRC="RESI.gif">, and then click the <B>General</B> tab.
+<LI>In the <B>Email</B> box, type the e-mail address for that resource, and then click <B>OK</B>.
+<BR>If the resource is located outside your organization, be sure to include the entire address. For example, if 
+the resource’s e-mail name is Chris and that resource can be reached through an Internet service provider 
+called Provider (whose web server is registered as provider.com), the following address would be correct: 
+<BR>Chris@provider.com
+<LI>Repeat steps 3 through 5 for all the other resources.
+<P align = Center > <A HREF="http://www.microsoft.com/misc/cpyright.htm"><EM>&#169;1996-1997 Microsoft Corporation. All rights 
+reserved.</EM></A></P>
+</BODY>
+</FONT>
+</HTML>
+

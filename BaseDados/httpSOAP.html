@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>Pedidos HTTP SOAP</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" title="Default" href="../index.css">
+</head>
+<body>
+<h1>Pedidos SOAP via HTTP</h1>
+<p>Para o servidor SQL expor um interface SOAP no servidor web &eacute; necess&aacute;rio 
+  implementar os seguintes passos:</po> 
+<ol>
+  <li>Criar na consola MMC do SQLXML , um nome virtual do tipo SOAP.</li>
+  <li>Configurar o nome virtual do tipo SOAP, que vai gerar o ficheiro WSDL(Web 
+    Services Description Language) que descreve o servi&ccedil;o e as opera&ccedil;&otilde;es 
+    que s&atilde;o suportadas, nomeadamente sprocs, user defined functions e templates 
+    que o cliente pode pedir. </li>
+</ol>
+<p>Notas </p>
+<ol>
+  <li>A cl&aacute;usula FOR XML n&atilde;o pode estar definida na sproc, porque 
+    a formata&ccedil;&atilde;o XML &eacute; aplicada no lado no cliente.</li>
+  <li>O processo de configura&ccedil;&atilde;o tamb&eacute;m cria um ficheiro 
+    com a extens&atilde;o ssc na pasta que est&aacute; associada com o nome virtual 
+    do tipo SOAP</li>
+</ol>
+<p><a href="javascript:window.history.back()">Voltar</a></p>
+</body>
+</html>

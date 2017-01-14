@@ -1,0 +1,699 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0047)http://w3.fmh.utl.pt/doc/HOWTO/DNS-HOWTO-4.html -->
+<HTML><HEAD><TITLE>DNS HOWTO: A simple domain.</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2713.1100" name=GENERATOR><LINK 
+href="DNS-HOWTO-5.html" rel=next><LINK href="DNS-HOWTO-3.html" 
+rel=previous><LINK href="DNS-HOWTO.html#toc4" rel=contents></HEAD>
+<BODY><A href="http://w3.fmh.utl.pt/doc/HOWTO/DNS-HOWTO-5.html"><IMG alt=Next 
+src="DNS HOWTO A simple domain_ficheiros/next.gif"></A> <A 
+href="http://w3.fmh.utl.pt/doc/HOWTO/DNS-HOWTO-3.html"><IMG alt=Previous 
+src="DNS HOWTO A simple domain_ficheiros/prev.gif"></A> <A 
+href="http://w3.fmh.utl.pt/doc/HOWTO/DNS-HOWTO.html#toc4"><IMG alt=Contents 
+src="DNS HOWTO A simple domain_ficheiros/toc.gif"></A> 
+<HR>
+
+<H2><A name=simple></A><A name=s4>4. A <EM>simple</EM> domain.</A></H2>
+<P><B>How to set up your own domain.</B> 
+<P>
+<H2><A name=ss4.1>4.1 But first some dry theory</A> </H2>
+<P>Before we <EM>really</EM> start this section I'm going to serve you some 
+theory on how DNS works. And you're going to read it because it's good for you. 
+If you don't `wanna' you should at least skim it very quickly. Stop skimming 
+when you get to what should go in your <CODE>named.conf</CODE> file. 
+<P>
+<P>DNS is a hierarchical system. The top is written `<CODE>.</CODE>' and 
+pronounced `root'. Under . there are a number of Top Level Domains (TLDs), the 
+best known ones are ORG, COM, EDU and NET, but there are many more. 
+<P>
+<P>When looking for a machine the query proceeds recursively into the hierarchy 
+starting at the top. If you want to find out the address of 
+<CODE>prep.ai.mit.edu</CODE> your name server has to find a name server that 
+serves edu. It asks a <CODE>.</CODE> server (it already knows the <CODE>.</CODE> 
+servers, that's what the <CODE>root.hints</CODE> file is for), the 
+<CODE>.</CODE> server gives a list of edu servers: 
+<P>
+<BLOCKQUOTE><CODE><PRE>$ nslookup
+Default Server:  localhost
+Address:  127.0.0.1
+</PRE></CODE></BLOCKQUOTE>
+<P>Start asking a root server: 
+<P>
+<BLOCKQUOTE><CODE><PRE>&gt; server c.root-servers.net.
+Default Server:  c.root-servers.net
+Address:  192.33.4.12
+</PRE></CODE></BLOCKQUOTE>
+<P>Set the Query type to NS (name server records): 
+<P>
+<BLOCKQUOTE><CODE><PRE>&gt; set q=ns
+</PRE></CODE></BLOCKQUOTE>
+<P>Ask about edu: 
+<P>
+<BLOCKQUOTE><CODE><PRE>&gt; edu.
+</PRE></CODE></BLOCKQUOTE>
+<P>The trailing . here is significant, it tells the server we're asking that edu 
+is right under . (this narrows the search somewhat). 
+<P>
+<BLOCKQUOTE><CODE><PRE>edu     nameserver = A.ROOT-SERVERS.NET
+edu     nameserver = H.ROOT-SERVERS.NET
+edu     nameserver = B.ROOT-SERVERS.NET
+edu     nameserver = C.ROOT-SERVERS.NET
+edu     nameserver = D.ROOT-SERVERS.NET
+edu     nameserver = E.ROOT-SERVERS.NET
+edu     nameserver = I.ROOT-SERVERS.NET
+edu     nameserver = F.ROOT-SERVERS.NET
+edu     nameserver = G.ROOT-SERVERS.NET
+A.ROOT-SERVERS.NET      internet address = 198.41.0.4
+H.ROOT-SERVERS.NET      internet address = 128.63.2.53
+B.ROOT-SERVERS.NET      internet address = 128.9.0.107
+C.ROOT-SERVERS.NET      internet address = 192.33.4.12
+D.ROOT-SERVERS.NET      internet address = 128.8.10.90
+E.ROOT-SERVERS.NET      internet address = 192.203.230.10
+I.ROOT-SERVERS.NET      internet address = 192.36.148.17
+F.ROOT-SERVERS.NET      internet address = 192.5.5.241
+G.ROOT-SERVERS.NET      internet address = 192.112.36.4
+</PRE></CODE></BLOCKQUOTE>
+<P>
+<P>This tells us that <CODE>*.root-servers.net</CODE> serves <CODE>edu.</CODE>, 
+so we can go on asking <CODE>c</CODE>. Now we want to know who serves the next 
+level of the domain name: <CODE>mit.edu.</CODE>: 
+<P>
+<BLOCKQUOTE><CODE><PRE>&gt; mit.edu.
+Server:  c.root-servers.net
+Address:  192.33.4.12
+
+Non-authoritative answer:
+mit.edu nameserver = W20NS.mit.edu
+mit.edu nameserver = BITSY.mit.edu
+mit.edu nameserver = STRAWB.mit.edu
+
+Authoritative answers can be found from:
+W20NS.mit.edu   internet address = 18.70.0.160
+BITSY.mit.edu   internet address = 18.72.0.3
+STRAWB.mit.edu  internet address = 18.71.0.151
+</PRE></CODE></BLOCKQUOTE>
+<P><CODE>steawb</CODE>, <CODE>w20ns</CODE> and <CODE>bitsy</CODE> serves 
+<CODE>mit</CODE>, select one and inquire about <CODE>ai.mit.edu</CODE>: 
+<P>
+<BLOCKQUOTE><CODE><PRE>&gt; server W20NS.mit.edu.
+</PRE></CODE></BLOCKQUOTE>
+<P>Host names are not case sensitive, but I use my mouse to cut and paste so it 
+gets copied as-is from the screen. 
+<P>
+<BLOCKQUOTE><CODE><PRE>Server:  W20NS.mit.edu
+Address:  18.70.0.160
+
+&gt; ai.mit.edu.
+Server:  W20NS.mit.edu
+Address:  18.70.0.160
+
+Non-authoritative answer:
+ai.mit.edu      nameserver = ALPHA-BITS.AI.MIT.EDU
+ai.mit.edu      nameserver = GRAPE-NUTS.AI.MIT.EDU
+ai.mit.edu      nameserver = TRIX.AI.MIT.EDU
+ai.mit.edu      nameserver = MUESLI.AI.MIT.EDU
+ai.mit.edu      nameserver = LIFE.AI.MIT.EDU
+ai.mit.edu      nameserver = BEET-CHEX.AI.MIT.EDU
+ai.mit.edu      nameserver = MINI-WHEATS.AI.MIT.EDU
+ai.mit.edu      nameserver = COUNT-CHOCULA.AI.MIT.EDU
+ai.mit.edu      nameserver = MINTAKA.LCS.MIT.EDU
+
+Authoritative answers can be found from:
+AI.MIT.EDU      nameserver = ALPHA-BITS.AI.MIT.EDU
+AI.MIT.EDU      nameserver = GRAPE-NUTS.AI.MIT.EDU
+AI.MIT.EDU      nameserver = TRIX.AI.MIT.EDU
+AI.MIT.EDU      nameserver = MUESLI.AI.MIT.EDU
+AI.MIT.EDU      nameserver = LIFE.AI.MIT.EDU
+AI.MIT.EDU      nameserver = BEET-CHEX.AI.MIT.EDU
+AI.MIT.EDU      nameserver = MINI-WHEATS.AI.MIT.EDU
+AI.MIT.EDU      nameserver = COUNT-CHOCULA.AI.MIT.EDU
+AI.MIT.EDU      nameserver = MINTAKA.LCS.MIT.EDU
+ALPHA-BITS.AI.MIT.EDU   internet address = 128.52.32.5
+GRAPE-NUTS.AI.MIT.EDU   internet address = 128.52.36.4
+TRIX.AI.MIT.EDU internet address = 128.52.37.6
+MUESLI.AI.MIT.EDU       internet address = 128.52.39.7
+LIFE.AI.MIT.EDU internet address = 128.52.32.80
+BEET-CHEX.AI.MIT.EDU    internet address = 128.52.32.22
+MINI-WHEATS.AI.MIT.EDU  internet address = 128.52.54.11
+COUNT-CHOCULA.AI.MIT.EDU        internet address = 128.52.38.22
+MINTAKA.LCS.MIT.EDU     internet address = 18.26.0.36
+</PRE></CODE></BLOCKQUOTE>
+<P>
+<P>So <CODE>museli.ai.mit.edu</CODE> is a nameserver for 
+<CODE>ai.mit.edu</CODE>: 
+<P>
+<BLOCKQUOTE><CODE><PRE>&gt; server MUESLI.AI.MIT.EDU
+Default Server:  MUESLI.AI.MIT.EDU
+Address:  128.52.39.7
+</PRE></CODE></BLOCKQUOTE>
+<P>
+<P>Now I change query type, we've found the name server so now we're going to 
+ask about everything wheaties knows about <CODE>prep.ai.mit.edu</CODE>. 
+<P>
+<BLOCKQUOTE><CODE><PRE>&gt; set q=any
+&gt; prep.ai.mit.edu.
+Server:  MUESLI.AI.MIT.EDU
+Address:  128.52.39.7
+
+prep.ai.mit.edu CPU = dec/decstation-5000.25    OS = unix
+prep.ai.mit.edu
+        inet address = 18.159.0.42, protocol = tcp
+          ftp  telnet  smtp  finger
+prep.ai.mit.edu preference = 1, mail exchanger = gnu-life.ai.mit.edu
+prep.ai.mit.edu internet address = 18.159.0.42
+ai.mit.edu      nameserver = beet-chex.ai.mit.edu
+ai.mit.edu      nameserver = alpha-bits.ai.mit.edu
+ai.mit.edu      nameserver = mini-wheats.ai.mit.edu
+ai.mit.edu      nameserver = trix.ai.mit.edu
+ai.mit.edu      nameserver = muesli.ai.mit.edu
+ai.mit.edu      nameserver = count-chocula.ai.mit.edu
+ai.mit.edu      nameserver = mintaka.lcs.mit.edu
+ai.mit.edu      nameserver = life.ai.mit.edu
+gnu-life.ai.mit.edu     internet address = 128.52.32.60
+beet-chex.ai.mit.edu    internet address = 128.52.32.22
+alpha-bits.ai.mit.edu   internet address = 128.52.32.5
+mini-wheats.ai.mit.edu  internet address = 128.52.54.11
+trix.ai.mit.edu internet address = 128.52.37.6
+muesli.ai.mit.edu       internet address = 128.52.39.7
+count-chocula.ai.mit.edu        internet address = 128.52.38.22
+mintaka.lcs.mit.edu     internet address = 18.26.0.36
+life.ai.mit.edu internet address = 128.52.32.80
+</PRE></CODE></BLOCKQUOTE>
+<P>
+<P>So starting at <CODE>.</CODE> we found the successive name servers for the 
+next level in the domain name. If you had used your own DNS server instead of 
+using all those other servers, your named would of-course cache all the 
+information it found while digging this out for you, and it would not have to 
+ask again for a while. 
+<P>
+<P>A much less talked about, but just as important domain is 
+<CODE>in-addr.arpa</CODE>. It too is nested like the `normal' domains. 
+<CODE>in-addr.arpa</CODE> allows us to get the hosts name when we have it's 
+address. A important thing here is to note that ip#s are written in reverse 
+order in the in-addr.arpa domain. If you have the address of a machine: 
+192.128.52.43 named proceeds just like for the <CODE>prep.ai.mit.edu</CODE> 
+example: find <CODE>arpa.</CODE> servers. Find <CODE>in-addr.arpa.</CODE> 
+servers, find <CODE>192.in-addr.arpa.</CODE> servers, find 
+<CODE>128.192.in-addr.arpa.</CODE> servers, <CODE>find 
+52.128.192.in-addr.arpa.</CODE> servers. Find needed records for 
+<CODE>43.52.128.192.in-addr.arpa.</CODE> Clever huh? (Say `yes'.) The reversion 
+of the numbers can be confusing the first 2 years though. 
+<P>
+<P>I have just told a lie. DNS does not work literally the way I just told you. 
+But it's close enough. 
+<P>
+<H2><A name=ss4.2>4.2 Our own domain</A> </H2>
+<P>Now to define our own domain. We're going to make the domain 
+<EM>linux.bogus</EM> and define machines in it. I use a totally bogus domain 
+name to make sure we disturb no-one Out There. 
+<P>
+<P>One more thing before we start: Not all characters are allowed in host-names. 
+We're restricted to the characters of the English alphabet: a-z, and numbers: 
+0-9 and the character '-' (dash). Keep to those characters. Upper and lower-case 
+characters are the same for DNS, so <CODE>pat.uio.no</CODE> is identical to 
+<CODE>Pat.UiO.No</CODE>. 
+<P>
+<P>We've already started this part with this line in <CODE>named.conf</CODE>: 
+<P>
+<HR>
+<PRE>zone "0.0.127.in-addr.arpa" {
+        type master;
+        file "pz/127.0.0";
+};
+</PRE>
+<HR>
+
+<P>
+<P>Please note the lack of `<CODE>.</CODE>' at the end of the domain names in 
+this file. This says that now we will define the zone 
+<CODE>0.0.127.in-addr.arpa</CODE>, that we're the master server for it and that 
+it is stored in a file called <CODE>pz/127.0.0</CODE>. We've already set up this 
+file, it reads: 
+<P>
+<HR>
+<PRE>@               IN      SOA     ns.linux.bogus. hostmaster.linux.bogus. (
+                                1       ; Serial
+                                8H      ; Refresh
+                                2H      ; Retry
+                                1W      ; Expire
+                                1D)     ; Minimum TTL
+                        NS      ns.linux.bogus.
+1                       PTR     localhost.
+</PRE>
+<HR>
+
+<P>
+<P>Please note the `<CODE>.</CODE>' at the end of all the full domain names in 
+this file, in contrast to the <CODE>named.conf</CODE> file above. Some people 
+like to start each zone file with a <CODE>$ORIGIN</CODE> directive, but this is 
+superfluous. The origin (where in the DNS hierarchy it belongs) of a zone file 
+is specified on the zone line in the <CODE>named.conf</CODE> file, in this case 
+it's <CODE>0.0.127.in-addr.arpa</CODE>. 
+<P>
+<P>This `zone file' contains 3 `resource records' (RRs): A SOA RR. A NS RR and a 
+PTR RR. SOA is short for Start Of Authority. The `@' is a special notation 
+meaning the origin, and since the `domain' column for this file says 
+0.0.127.in-addr.arpa the first line really means 
+<P>
+<BLOCKQUOTE><CODE><PRE>0.0.127.in-addr.arpa.   IN      SOA ...
+</PRE></CODE></BLOCKQUOTE>
+<P>
+<P>NS is the Name Server RR. There is no '@' at the start of this line, it is 
+<EM>implicit</EM> since the last line started with a '@'. Saves some typing 
+that. So the NS line really reads 
+<P>
+<BLOCKQUOTE><CODE><PRE>0.0.127.in-addr.arpa.   IN      NS      ns.linux.bogus
+</PRE></CODE></BLOCKQUOTE>
+<P>
+<P>It tells DNS what machine is the name server of the domain 
+<CODE>0.0.127.in-addr.arpa</CODE>, it is <CODE>ns.linux.bogus</CODE>. 'ns' is a 
+customary name for name-servers, but as with web servers who are customarily 
+named <CODE>www.</CODE><EM>something</EM> the name may be anything. 
+<P>And finally the PTR record says that the host at address 1 in the subnet 
+<CODE>0.0.127.in-addr.arpa</CODE>, i.e., 127.0.0,1 is named 
+<CODE>localhost</CODE>. 
+<P>
+<P>The SOA record is the preamble to <EM>all</EM> zone files, and there should 
+be exactly one in each zone file, the very first record. It describes the zone, 
+where it comes from (a machine called <CODE>ns.linux.bogus</CODE>), who is 
+responsible for its contents (<CODE>hostmaster@linux.bogus</CODE>), what version 
+of the zone file this is (serial: 1), and other things having to do with caching 
+and secondary DNS servers. For the rest of the fields, refresh, retry, expire 
+and minimum use the numbers used in this HOWTO and you should be safe. 
+<P>
+<P>Now restart your named (the command is <CODE>ndc restart</CODE>) and use 
+nslookup to examine what you've done: 
+<P>
+<BLOCKQUOTE><CODE><PRE>$ nslookup
+
+Default Server:  localhost
+Address:  127.0.0.1
+
+&gt; 127.0.0.1
+Server:  localhost
+Address:  127.0.0.1
+
+Name:    localhost
+Address:  127.0.0.1
+</PRE></CODE></BLOCKQUOTE>
+<P>so it manages to get <CODE>localhost</CODE> from 127.0.0.1, good. Now for our 
+main task, the <CODE>linux.bogus</CODE> domain, insert a new 'zone' section in 
+<CODE>named.conf</CODE>: 
+<P>
+<HR>
+<PRE>zone "linux.bogus" {
+        notify no;
+        type master;
+        file "pz/linux.bogus";
+};
+</PRE>
+<HR>
+
+<P>
+<P>Note the continued lack of ending `<CODE>.</CODE>' on the domain name in the 
+<CODE>named.conf</CODE> file. 
+<P>
+<P>In the linux.bogus zone file we'll put some totally bogus data: 
+<HR>
+<PRE>;
+; Zone file for linux.bogus
+;
+; The full zone file
+;
+@       IN      SOA     ns.linux.bogus. hostmaster.linux.bogus. (
+                        199802151       ; serial, todays date + todays serial #
+                        8H              ; refresh, seconds
+                        2H              ; retry, seconds
+                        1W              ; expire, seconds
+                        1D )            ; minimum, seconds
+;
+                NS      ns              ; Inet Address of name server
+                MX      10 mail.linux.bogus     ; Primary Mail Exchanger
+                MX      20 mail.friend.bogus.   ; Secondary Mail Exchanger
+;
+localhost       A       127.0.0.1
+ns              A       192.168.196.2
+mail            A       192.168.196.4
+</PRE>
+<HR>
+
+<P>
+<P>Two things must be noted about the SOA record. ns.linux.bogus <EM>must</EM> 
+be a actual machine with a A record. It is not legal to have a CNAME record for 
+he machine mentioned in the SOA record. It's name need not be `ns', it could be 
+any legal host name. Next, hostmaster.linux.bogus should be read as 
+hostmaster@linux.bogus, this should be a mail alias, or a mailbox, where the 
+person(s) maintaining DNS should read mail frequently. Any mail regarding the 
+domain will be sent to the address listed here. The name need not be 
+`hostmaster', it can be any legal e-mail address, but the e-mail address 
+`hostmaster' <EM>is</EM> expected to work as well. 
+<P>
+<P>There is one new RR type in this file, the MX, or Mail eXchanger RR. It tells 
+mail systems where to send mail that is addressed to 
+<CODE>someone@linux.bogus</CODE>, namely too <CODE>mail.linux.bogus</CODE> or 
+<CODE>mail.friend.bogus</CODE>. The number before each machine name is that MX 
+RRs priority. The RR with the lowest number (10) is the one mail should be sent 
+to primarily. If that fails it can be sent to one with a higher number, a 
+secondary mail handler, i.e., <CODE>mail.friend.bogus</CODE> which has priority 
+20 here. 
+<P>
+<P>Restart named by running <CODE>ndc restart</CODE>. Examine the results with 
+nslookup: 
+<P>
+<BLOCKQUOTE><CODE><PRE>$ nslookup
+&gt; set q=any
+&gt; linux.bogus
+Server:  localhost
+Address:  127.0.0.1
+
+linux.bogus
+        origin = ns.linux.bogus
+        mail addr = hostmaster.linux.bogus
+        serial = 199802151
+        refresh = 28800 (8 hours)
+        retry   = 7200 (2 hours)
+        expire  = 604800 (7 days)
+        minimum ttl = 86400 (1 day)
+linux.bogus     nameserver = ns.linux.bogus
+linux.bogus     preference = 10, mail exchanger = mail.linux.bogus.linux.bogus
+linux.bogus     preference = 20, mail exchanger = mail.friend.bogus
+linux.bogus     nameserver = ns.linux.bogus
+ns.linux.bogus  internet address = 192.168.196.2
+mail.linux.bogus        internet address = 192.168.196.4
+</PRE></CODE></BLOCKQUOTE>
+<P>
+<P>Upon careful examination you will discover a bug. The line 
+<P>
+<BLOCKQUOTE><CODE><PRE>linux.bogus     preference = 10, mail exchanger = mail.linux.bogus.linux.bogus
+</PRE></CODE></BLOCKQUOTE>
+<P>is all wrong. It should be 
+<P>
+<BLOCKQUOTE><CODE><PRE>linux.bogus     preference = 10, mail exchanger = mail.linux.bogus
+</PRE></CODE></BLOCKQUOTE>
+<P>
+<P>I deliberately made a mistake so you could learn from it :-) Looking in the 
+zone file we find that the line 
+<P>
+<BLOCKQUOTE><CODE><PRE>                MX      10 mail.linux.bogus     ; Primary Mail Exchanger
+</PRE></CODE></BLOCKQUOTE>
+<P>is missing a period. Or has a 'linux.bogus' too many. If a machine name does 
+not end in a period in a zone file the origin is added to its end causing the 
+double <CODE>linux.bogus.linux.bogus</CODE>. So either 
+<P>
+<HR>
+<PRE>                MX      10 mail.linux.bogus.    ; Primary Mail Exchanger
+</PRE>
+<HR>
+
+<P>or 
+<P>
+<HR>
+<PRE>                MX      10 mail                 ; Primary Mail Exchanger
+</PRE>
+<HR>
+
+<P>is correct. I prefer the latter form, it's less to type. There are some, 
+knowledgable, bind users that disagree, and some that agree with this. In a zone 
+file the domain should either be written out and ended with a `<CODE>.</CODE>' 
+or it should not be included at all, in which case it defaults to the origin. 
+<P>
+<P>I must stress that in the named.conf file there should <EM>not</EM> be 
+`<CODE>.</CODE>'s after the domain names. You have no idea how many times a 
+`<CODE>.</CODE>' too many or few have fouled up things and confused the h*ll out 
+of people. 
+<P>
+<P>So having made my point here is the new zone file, with some extra 
+information in it as well: 
+<P>
+<HR>
+<PRE>;
+; Zone file for linux.bogus
+;
+; The full zone file
+;
+@       IN      SOA     ns.linux.bogus. hostmaster.linux.bogus. (
+                        199802151       ; serial, todays date + todays serial #
+                        8H              ; refresh, seconds
+                        2H              ; retry, seconds
+                        1W              ; expire, seconds
+                        1D )            ; minimum, seconds
+;
+                TXT     "Linux.Bogus, your DNS consultants"
+                NS      ns              ; Inet Address of name server
+                NS      ns.friend.bogus.
+                MX      10 mail         ; Primary Mail Exchanger
+                MX      20 mail.friend.bogus. ; Secondary Mail Exchanger
+
+localhost       A       127.0.0.1
+
+gw              A       192.168.196.1
+                HINFO   "Cisco" "IOS"
+                TXT     "The router"
+
+ns              A       192.168.196.2
+                MX      10 mail
+                MX      20 mail.friend.bogus.
+                HINFO   "Pentium" "Linux 2.0"
+www             CNAME   ns
+
+donald          A       192.168.196.3
+                MX      10 mail
+                MX      20 mail.friend.bogus.
+                HINFO   "i486"  "Linux 2.0"
+                TXT     "DEK"
+
+mail            A       192.168.196.4
+                MX      10 mail
+                MX      20 mail.friend.bogus.
+                HINFO   "386sx" "Linux 1.2"
+
+ftp             A       192.168.196.5
+                MX      10 mail
+                MX      20 mail.friend.bogus.
+                HINFO   "P6" "Linux 2.1.86"
+</PRE>
+<HR>
+
+<P>
+<P>There are a number of new RRs here: HINFO (Host INFOrmation) has two parts, 
+it's a good habit to quote each. The first part is the hardware or CPU on the 
+machine, and the second part the software or OS on the machine. The machine 
+called 'ns' has a Pentium CPU and runs Linux 2.0. CNAME (Canonical NAME) is a 
+way to give each machine several names. So www is an alias for ns. 
+<P>
+<P>CNAME record usage is a bit controversial. But it's safe to follow the rule 
+that a MX, CNAME or SOA record should <EM>never</EM> refer to a CNAME record, 
+they should only refer to something with a A record, so it would wrong to have 
+<P>
+<HR>
+<PRE>foobar          CNAME   www                     ; NO!
+</PRE>
+<HR>
+
+<P>but correct to have 
+<P>
+<HR>
+<PRE>foobar          CNAME   ns                      ; Yes!
+</PRE>
+<HR>
+
+<P>
+<P>It's also safe to assume that a CNAME is not a legal host name for a e-mail 
+address: <CODE>webmaster@www.linux.bogus</CODE> is an ilegal e-mail address 
+given the setup above. You can expect quite a few mail admins Out There to 
+enforce this rule even if it works for you. The way to avoid this is to use A 
+records (and perhaps some others too, like a MX record) instead: 
+<P>
+<HR>
+<PRE>www             A       192.168.196.2
+</PRE>
+<HR>
+
+<P>
+<P>A number of the arch-bind-wizards, recommends <EM>not</EM> using CNAME. So 
+consider not using it <EM>very</EM> seriously. 
+<P>
+<P>But as you see, this HOWTO and many sites does not follow this rule. 
+<P>
+<P>Load the new database by running <CODE>ndc reload</CODE>, this causes named 
+to read its files again. 
+<P>
+<BLOCKQUOTE><CODE><PRE>$ nslookup
+Default Server:  localhost
+Address:  127.0.0.1
+
+&gt; ls -d linux.bogus
+</PRE></CODE></BLOCKQUOTE>
+<P>
+<P>This means that all records should be listed. It results in this: 
+<P>
+<BLOCKQUOTE><CODE><PRE>[localhost]
+$ORIGIN linux.bogus.
+@                       1D IN SOA       ns hostmaster (
+                                        199802151       ; serial
+                                        8H              ; refresh
+                                        2H              ; retry
+                                        1W              ; expiry
+                                        1D )            ; minimum
+
+                        1D IN NS        ns
+                        1D IN NS        ns.friend.bogus.
+                        1D IN TXT       "Linux.Bogus, your DNS consultants"
+                        1D IN MX        10 mail
+                        1D IN MX        20 mail.friend.bogus.
+gw                      1D IN A         192.168.196.1
+                        1D IN HINFO     "Cisco" "IOS"
+                        1D IN TXT       "The router"
+mail                    1D IN A         192.168.196.4
+                        1D IN MX        10 mail
+                        1D IN MX        20 mail.friend.bogus.
+                        1D IN HINFO     "386sx" "Linux 1.0.9"
+localhost               1D IN A         127.0.0.1
+www                     1D IN CNAME     ns
+donald                  1D IN A         192.168.196.3
+                        1D IN MX        10 mail
+                        1D IN MX        20 mail.friend.bogus.
+                        1D IN HINFO     "i486" "Linux 1.2"
+                        1D IN TXT       "DEK"
+ftp                     1D IN A         192.168.196.5
+                        1D IN MX        10 mail
+                        1D IN MX        20 mail.friend.bogus.
+                        1D IN HINFO     "P6" "Linux 1.3.59"
+ns                      1D IN A         192.168.196.2
+                        1D IN MX        10 mail
+                        1D IN MX        20 mail.friend.bogus.
+                        1D IN HINFO     "Pentium" "Linux 1.2"
+@                       1D IN SOA       ns hostmaster (
+                                        199802151       ; serial
+                                        8H              ; refresh
+                                        2H              ; retry
+                                        1W              ; expiry
+                                        1D )            ; minimum
+</PRE></CODE></BLOCKQUOTE>
+<P>
+<P>That's good. As you see it looks a lot like the zone file itself. Let's check 
+what it says for www alone: 
+<P>
+<BLOCKQUOTE><CODE><PRE>&gt; set q=any
+&gt; www.linux.bogus.
+Server:  localhost
+Address:  127.0.0.1
+
+www.linux.bogus canonical name = ns.linux.bogus
+linux.bogus     nameserver = ns.linux.bogus
+linux.bogus     nameserver = ns.friend.bogus
+ns.linux.bogus  internet address = 192.168.196.2
+</PRE></CODE></BLOCKQUOTE>
+<P>
+<P>In other words, the real name of <CODE>www.linux.bogus</CODE> is 
+<CODE>ns.linux.bogus</CODE>, and it gives you some of the information it has 
+about ns as well, enough to connect to it if you were a program. 
+<P>
+<P>Now we're halfway. 
+<P>
+<H2><A name=ss4.3>4.3 The reverse zone</A> </H2>
+<P>Now programs can convert the names in linux.bogus to addresses which they can 
+connect to. But also required is a reverse zone, one making DNS able to convert 
+from an address to a name. This name is used buy a lot of servers of different 
+kinds (FTP, IRC, WWW and others) to decide if they want to talk to you or not, 
+and if so, maybe even how much priority you should be given. For full access to 
+all services on the Internet a reverse zone is required. 
+<P>
+<P>Put this in <CODE>named.conf</CODE>: 
+<P>
+<HR>
+<PRE>zone "196.168.192.in-addr.arpa" {
+        notify no;
+        type master;
+        file "pz/192.168.196";
+};
+</PRE>
+<HR>
+
+<P>
+<P>This is exactly as with the <CODE>0.0.127.in-addr.arpa</CODE>, and the 
+contents are similar: 
+<P>
+<HR>
+<PRE>@       IN      SOA     ns.linux.bogus. hostmaster.linux.bogus. (
+                        199802151 ; Serial, todays date + todays serial
+                        8H      ; Refresh
+                        2H      ; Retry
+                        1W      ; Expire
+                        1D)     ; Minimum TTL
+                NS      ns.linux.bogus.
+
+1               PTR     gw.linux.bogus.
+2               PTR     ns.linux.bogus.
+3               PTR     donald.linux.bogus.
+4               PTR     mail.linux.bogus.
+5               PTR     ftp.linux.bogus.
+</PRE>
+<HR>
+
+<P>
+<P>Now you restart your named (<CODE>ndc restart</CODE>) and examine your work 
+with nslookup again: 
+<P>
+<HR>
+<PRE>&gt; 192.168.196.4
+Server:  localhost
+Address:  127.0.0.1
+
+Name:    mail.linux.bogus
+Address:  192.168.196.4
+</PRE>
+<HR>
+
+<P>
+<P>so, it looks OK, dump the whole thing to examine that too: 
+<P>
+<HR>
+<PRE>&gt; ls -d 196.168.192.in-addr.arpa
+[localhost]
+$ORIGIN 196.168.192.in-addr.arpa.
+@                       1D IN SOA       ns.linux.bogus. hostmaster.linux.bogus. (
+                                        199802151       ; serial
+                                        8H              ; refresh
+                                        2H              ; retry
+                                        1W              ; expiry
+                                        1D )            ; minimum
+
+                        1D IN NS        ns.linux.bogus.
+1                       1D IN PTR       gw.linux.bogus.
+2                       1D IN PTR       ns.linux.bogus.
+3                       1D IN PTR       donald.linux.bogus.
+4                       1D IN PTR       mail.linux.bogus.
+5                       1D IN PTR       ftp.linux.bogus.
+@                       1D IN SOA       ns.linux.bogus. hostmaster.linux.bogus. (
+                                        199802151       ; serial
+                                        8H              ; refresh
+                                        2H              ; retry
+                                        1W              ; expiry
+                                        1D )            ; minimum
+</PRE>
+<HR>
+
+<P>
+<P>Looks good! 
+<P>
+<P>There are some things I should add here. The IP numbers used in the examples 
+above are taken from one of the blocks of 'private nets', i.e., they are not 
+allowed to be used publicly on the internet. So they are safe to use in an 
+example in a HOWTO. The second thing is the <CODE>notify no;</CODE> line. It 
+tells named not to notify its secondary (slave) servers when it has gotten a 
+update to one of its zone files. In bind-8 the named can notify the other 
+servers listed in NS records in the zone file when a zone is updated. This is 
+handy for ordinary use, but for private experiments with zones this feature 
+should be off, we don't want the experiment to pollute the internet do we? 
+<P>
+<P>And, of course, this domain is highly bogus, and so are all the addresses in 
+it. For a real example of a real-life domain see the next section. 
+<P>
+<HR>
+<A href="http://w3.fmh.utl.pt/doc/HOWTO/DNS-HOWTO-5.html"><IMG alt=Next 
+src="DNS HOWTO A simple domain_ficheiros/next.gif"></A> <A 
+href="http://w3.fmh.utl.pt/doc/HOWTO/DNS-HOWTO-3.html"><IMG alt=Previous 
+src="DNS HOWTO A simple domain_ficheiros/prev.gif"></A> <A 
+href="http://w3.fmh.utl.pt/doc/HOWTO/DNS-HOWTO.html#toc4"><IMG alt=Contents 
+src="DNS HOWTO A simple domain_ficheiros/toc.gif"></A> </BODY></HTML>

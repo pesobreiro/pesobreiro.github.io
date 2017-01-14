@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+<META name="GENERATOR" content="IBM WebSphere Homepage Builder V5.0.1 for Windows">
+<title>Problem determination</title>
+<link rel="stylesheet" type="text/css" href="../../wasstyle.css">
+</head>
+
+<body>
+<H2><A href="#TOC20" name="SEC20">Problem determination</A></H2>
+<p>
+When the IBM WebSphere UDDI Registry is running,
+it might issue messages to report events
+or errors.
+You can use these messages, described in <a href="messages.html#messages">Messages</a>
+as your first aid to problem determination.
+If you need more details about the causes of a problem, you can turn on tracing for
+UDDI, as described in <a href="#trace">Turning on UDDI trace</a>.
+
+<H3><A href="#TOC21" name="trace">Turning on UDDI trace</A></H3>
+<!-- <P>If errors occur, you may need to turn on
+tracing for UDDI, in order to collect additional
+diagnostic information. The simplest way
+to enable trace for the whole of the IBM
+WebSphere UDDI Registry is as follows:
+<OL>
+  <LI>From the WebSphere Administrative Console's
+  action bar, select <B>Console... -&gt; Trace... -&gt; Trace Settings</B> and fill in a trace string of <I>com.ibm.uddi.*</I>.
+  <LI>Click &quot;Apply&quot;
+  <LI>Select <B>Console... -&gt; Trace... -&gt; Enabled</B> and ensure that enabled is checked.
+  <P>This will cause UDDI trace records to be
+  written to the WebSphere trace file (if no
+  trace file has been defined, output will
+  be to the Default_Server_stdout.log).</P>
+</OL> --> 
+<P>On the WebSphere Application Server AE:<BR></P>
+<OL>
+  <LI>On the Administrative Console, in the tree
+  on the left hand side, go to <B>Nodes... -&gt; machine name... -&gt; Application
+  Servers... -&gt; Default Server</B> (or whichever server you wish to enable
+  trace on).
+  <LI>Go to the &quot;Services&quot; tab, select
+  &quot;Trace Service&quot; and press &quot;Edit
+  Properties&quot;.
+  <LI>Press the elipsis &quot;...&quot; button
+  next to &quot;Trace specification&quot;.
+  This gives you a tree of components and
+  groups
+  from which you can select the ones you
+  wish
+  to trace.
+  <P>For example, select <B>Components -&gt; com -&gt; ibm -&gt; UDDI
+  </B>and you should see the following components
+  to choose from</P>
+  <UL>
+    <LI>api **
+    <LI>config **
+    <LI>dom **
+    <LI>ejb
+    <LI>gui **
+    <LI>persistence **
+    <LI>ras
+    <LI>soap **
+    <LI>uuid **
+    <P>** <B>Important note</B> - Please note that if you have just started
+    the Default Server and UDDI Registry
+    application,
+    but have not run any GUI or API activities,
+    you will only see the ejb and ras components.
+    The other components are visible only
+    once
+    some API activity or GUI activity occurs.
+    As such, if you wish to selectively trace
+    any of these activities, you must run
+    some
+    API or GUI activity.</P>
+    <P>You will also see, under the Trace Groups,
+    a UDDI trace group, and within that the various
+    UDDI components (as with the components view,
+    only ras and ejb are visible after a restart
+    of the system).</P>
+  </UL>
+  <LI>Right-click on the component/group you want
+  to trace and choose the trace level. Press
+  &quot;<B>OK</B>&quot;.
+  <P>Note that if you want to trace all components
+  in the UDDI, right click on uddi and choose
+  the trace level you want.</P>
+  <LI>You can optionally specify the file you want
+  the trace to be written to. Select the specify
+  radio button and the path and trace file
+  name that the output will be written to.
+  This file must already exist.
+  <LI>Press &quot;<B>OK</B>&quot;.
+  <LI>Press &quot;<B>Apply</B>&quot; - it is imperitive you do this step.
+  <LI>Go to the <B>Console... -&gt; Trace</B> menu and click &quot;Enable Trace&quot;.
+  <LI>Stop and restart the default server (or whichever
+  server you require).
+</OL>
+<P>Once you have traced the activities you want,
+you can turn trace off again as follows:</P>
+<OL>
+  <LI>Go to the <B>Console -&gt; Trace</B> menu and click &quot;Enable Trace&quot;
+  again which will disable trace and uncheck
+  the entry.
+  <LI>Turn off the trace options you had previously
+  selected by (for example) going to
+  <UL>
+    <LI><B>Select Components -&gt; com -&gt; ibm -&gt;
+    UDDI</B>
+    <LI>right click on uddi, and select 'none'. This
+    will turn off all tracing for UDDI components.
+  </UL>
+  <LI>Press '<B>OK</B>'
+  <LI>Press '<B>Apply</B>' - it is imperitive you do this step
+</OL>
+<P>The tracing is now stopped.</P>
+</body>
+</html>

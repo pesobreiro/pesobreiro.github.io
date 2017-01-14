@@ -1,0 +1,283 @@
+<HTML>
+<HEAD>
+<TITLE>
+</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="reset.htm">Previous</A>
+ | <A HREF="select.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT><BR><BR>
+<HR>
+
+<H1><A NAME="screen"></A>
+<A NAME="1193136">
+ screen
+</A></H1>
+<A NAME="1193146">
+Contains properties describing the display screen and colors.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193139">
+<I>Client-side object</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193141">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193143">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193145">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193147">
+ Created by
+</A></H4>
+
+<A NAME="1193148">
+The JavaScript runtime engine creates the <CODE>screen</CODE> object for you. You can access its properties automatically.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193149">
+ Description
+</A></H4>
+
+<A NAME="1193150">
+This object contains read-only properties that allow you to get information about the user's display.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193151">
+ Property Summary
+</A></H4>
+
+<A NAME="1193199">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1193154">
+<B>Method
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1193156">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193161"><A HREF="screen.htm#1193206"><CODE>availHeight</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193163">
+Specifies the height of the screen, in pixels, minus permanent or semipermanent user interface features displayed by the operating system, such as the Taskbar on Windows.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1195366"><A HREF="screen.htm#1195078"><CODE>availLeft</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1195368">
+Specifies the x-coordinate of the first pixel that is not allocated to permanent or semipermanent user interface features.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1195362"><A HREF="screen.htm#1195107"><CODE>availTop</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1195364">
+Specifies the y-coordinate of the first pixel that is not allocated to permanent or semipermanent user interface features.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193168"><A HREF="screen.htm#1193221"><CODE>availWidth</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193170">
+Specifies the width of the screen, in pixels, minus permanent or semipermanent user interface features displayed by the operating system, such as the Taskbar on Windows.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193175"><A HREF="screen.htm#1193236"><CODE>colorDepth</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193177">
+The bit depth of the color palette, if one is in use; otherwise, the value is derived from <CODE>screen.pixelDepth</CODE>.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193182"><A HREF="screen.htm#1193251"><CODE>height</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193184">
+Display screen height.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193189"><A HREF="screen.htm#1193266"><CODE>pixelDepth</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193191">
+Display screen color resolution (bits per pixel). </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193196"><A HREF="screen.htm#1193281"><CODE>width</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193198">
+Display screen width.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193912">
+ Method Summary
+</A></H4>
+
+<A NAME="1194035">
+This object inherits the <A HREF="object.htm#1193628"><CODE>watch</CODE></A> and <A HREF="object.htm#1193499"><CODE>unwatch</CODE></A> methods from <A HREF="object.htm#1193136"><CODE>Object</CODE></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193200">
+ Examples
+</A></H4>
+
+<A NAME="1193201">
+The following function creates a string containing the current display properties:</A></P>
+<PRE><A NAME="1193202">function screen_properties() {<br>&nbsp;&nbsp;&nbsp;document.examples.results.value = "("+screen.width+" x<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+screen.height+") pixels, "+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;screen.pixelDepth +" bit depth, "+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;screen.colorDepth +" bit color palette depth.";<br>} // end function screen_properties</A></PRE>
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193206">
+availHeight
+</A></H2>
+
+<A NAME="1193207">
+Specifies the height of the screen, in pixels, minus permanent or semipermanent user interface features displayed by the operating system, such as the Taskbar on Windows.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193210">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193215">
+<A HREF="screen.htm#1193136"><CODE>screen</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193217">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193219">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195264">
+ See also
+</A></H4>
+
+<A NAME="1195274">
+<A HREF="screen.htm#1195107"><CODE>screen.availTop</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1195078">
+availLeft
+</A></H2>
+
+<A NAME="1195079">
+Specifies the x-coordinate of the first pixel that is not allocated to permanent or semipermanent user interface features.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195082">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195087">
+<A HREF="screen.htm#1193136"><CODE>screen</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195089">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195091">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195303">
+ See also
+</A></H4>
+
+<A NAME="1195307">
+<A HREF="screen.htm#1193221"><CODE>screen.availWidth</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1195107">
+availTop
+</A></H2>
+
+<A NAME="1195108">
+Specifies the y-coordinate of the first pixel that is not allocated to permanent or semipermanent user interface features.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195111">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195116">
+<A HREF="screen.htm#1193136"><CODE>screen</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195118">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195120">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195321">
+ See also
+</A></H4>
+
+<A NAME="1195325">
+<A HREF="screen.htm#1193206"><CODE>screen.availHeight</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193221">
+availWidth
+</A></H2>
+
+<A NAME="1193222">
+Specifies the width of the screen, in pixels, minus permanent or semipermanent user interface features displayed by the operating system, such as the Taskbar on Windows.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193225">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193230">
+<A HREF="screen.htm#1193136"><CODE>screen</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193232">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193234">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195343">
+ See also
+</A></H4>
+
+<A NAME="1195347">
+<A HREF="screen.htm#1195078"><CODE>screen.availLeft</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193236">
+colorDepth
+</A></H2>
+
+<A NAME="1193237">
+The bit depth of the color palette in bits per pixel, if a color palette is in use. Otherwise, this property is derived from <CODE>screen.pixelDepth</CODE>. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193240">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193245">
+<A HREF="screen.htm#1193136"><CODE>screen</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193247">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193249">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193251">
+height
+</A></H2>
+
+<A NAME="1193264">
+Display screen height, in pixels. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193254">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193259">
+<A HREF="screen.htm#1193136"><CODE>screen</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193261">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193263">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193266">
+pixelDepth
+</A></H2>
+
+<A NAME="1193279">
+Display screen color resolution, in bits per pixel. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193269">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193274">
+<A HREF="screen.htm#1193136"><CODE>screen</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193276">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193278">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193281">
+width
+</A></H2>
+
+<A NAME="1193294">
+Display screen width, in pixels.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193284">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193289">
+<A HREF="screen.htm#1193136"><CODE>screen</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193291">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193293">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<HR>
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="reset.htm">Previous</A>
+ | <A HREF="select.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT>
+<P ALIGN=right>
+<FONT SIZE=-2><I>Last Updated:  05/28/99  12:00:21</I></FONT>
+<P> <CENTER>Copyright (c) 1999
+<A HREF="http://home.netscape.com/misc/contact_info.html"
+TARGET=_top>Netscape Communications Corporation</A></FONT>
+</CENTER>
+<P>
+</BODY>
+</HTML>
+
+

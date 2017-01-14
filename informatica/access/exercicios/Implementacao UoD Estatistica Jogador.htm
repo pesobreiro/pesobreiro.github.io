@@ -1,0 +1,239 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List
+href="./Implementacao%20UoD%20Estatistica%20Jogador_ficheiros/filelist.xml">
+<title>Definição da uma Base de Dados</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>xico</o:Author>
+  <o:LastAuthor>xico</o:LastAuthor>
+  <o:Revision>2</o:Revision>
+  <o:TotalTime>81</o:TotalTime>
+  <o:LastPrinted>2001-11-20T13:17:00Z</o:LastPrinted>
+  <o:Created>2001-11-20T13:17:00Z</o:Created>
+  <o:LastSaved>2001-11-20T13:17:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>103</o:Words>
+  <o:Characters>589</o:Characters>
+  <o:Company>esdrm</o:Company>
+  <o:Lines>4</o:Lines>
+  <o:Paragraphs>1</o:Paragraphs>
+  <o:CharactersWithSpaces>723</o:CharactersWithSpaces>
+  <o:Version>9.2812</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:HyphenationZone>21</w:HyphenationZone>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	line-height:150%;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	line-height:150%;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:16.0pt;
+	font-family:Arial;
+	mso-font-kerning:16.0pt;}
+h2
+	{mso-style-next:Normal;
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	line-height:150%;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	font-style:italic;}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	line-height:150%;
+	mso-pagination:widow-orphan;
+	tab-stops:center 207.65pt right 415.3pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	line-height:150%;
+	mso-pagination:widow-orphan;
+	tab-stops:center 207.65pt right 415.3pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoTitle, li.MsoTitle, div.MsoTitle
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:center;
+	line-height:150%;
+	mso-pagination:widow-orphan;
+	font-size:14.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	line-height:150%;
+	mso-pagination:widow-orphan;
+	font-size:14.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+@page Section1
+	{size:595.3pt 841.9pt;
+	margin:70.85pt 3.0cm 70.85pt 3.0cm;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-header:url("./Implementacao%20UoD%20Estatistica%20Jogador_ficheiros/header.htm") h1;
+	mso-footer:url("./Implementacao%20UoD%20Estatistica%20Jogador_ficheiros/header.htm") f1;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:1114323888;
+	mso-list-type:simple;
+	mso-list-template-ids:260193392;}
+@list l0:level1
+	{mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	mso-level-legacy:yes;
+	mso-level-legacy-indent:14.15pt;
+	mso-level-legacy-space:0cm;
+	margin-left:14.15pt;
+	text-indent:-14.15pt;}
+@list l1
+	{mso-list-id:1626932625;
+	mso-list-type:hybrid;
+	mso-list-template-ids:286163558 890391506 135659523 135659525 135659521 135659523 135659525 135659521 135659523 135659525;}
+@list l1:level1
+	{mso-level-start-at:0;
+	mso-level-number-format:bullet;
+	mso-level-text:-;
+	mso-level-tab-stop:21.0pt;
+	mso-level-number-position:left;
+	margin-left:21.0pt;
+	text-indent:-18.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+@list l0:level1 lfo2
+	{mso-level-numbering:continue;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	mso-level-legacy:yes;
+	mso-level-legacy-indent:14.15pt;
+	mso-level-legacy-space:0cm;
+	margin-left:14.15pt;
+	text-indent:-14.15pt;}
+ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+</head>
+
+<body lang=PT style='tab-interval:35.4pt'>
+
+<div class=Section1>
+
+<p class=MsoTitle><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoTitle><span style='font-family:Arial'>Definição da uma Base de
+Dados<o:p></o:p></span></p>
+
+<p class=MsoTitle><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoTitle><span style='font-family:Arial'>Tarefas<o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
+margin-left:0cm'><span style='font-family:Arial'>A partir do Modelo Entidade
+Relação (ER) definido no exercício anterior, crie uma base de dados realizando
+o mapeamento das entidades, atributos e relações do modelo ER para tabelas,
+campos e relações da Base de Dados, considerando os seguintes aspectos:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
+margin-left:0cm'><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
+margin-left:21.0pt;text-indent:-18.0pt;mso-list:l1 level1 lfo3;tab-stops:list 21.0pt'><![if !supportLists]>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]><span style='font-family:Arial'>A Base de Dados deverá ter
+definida os tipos de dados para cada campo, bem como as tabelas e relações. Na
+estruturação das tabelas e necessário considerar os campos/tabelas que são
+necessários para a implementação das relações.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
+margin-left:21.0pt;text-indent:-18.0pt;mso-list:l1 level1 lfo3;tab-stops:list 21.0pt'><![if !supportLists]>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]><span style='font-family:Arial'>As relações deverão considerar
+a implementação da integridade referencial como um mecanismo de validação e
+manutenção da coerência dos dados inseridos.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:6.0pt;margin-right:0cm;margin-bottom:6.0pt;
+margin-left:21.0pt;text-indent:-18.0pt;mso-list:l1 level1 lfo3;tab-stops:list 21.0pt'><![if !supportLists]>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]><span style='font-family:Arial'>A base de dados deverá ter o
+nome de estatística atleta e às tabelas/campos serão atribuídas as mesmas
+designações que foram definidas no modelo ER.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial'>Por último deverá ser feita
+a introdução de alguns dados de forma a verificar o funcionamento do modelo
+implementado.</span></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span></p>
+
+</div>
+
+</body>
+
+</html>

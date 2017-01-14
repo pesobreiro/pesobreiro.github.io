@@ -1,0 +1,186 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0 Strict Level 2//EN"><HTML>
+<HEAD>
+<!-- This HTML file has been created by texi2html 1.36
+     from html-spec.texi on 18 October 1995 -->
+
+<TITLE>Hypertext Markup Language - 2.0  - HTML as an Internet Media Type</TITLE>
+</HEAD>
+<BODY>
+Go to the <A HREF="html-spec_1.html" REL=FIRST>first</A>, <A HREF="html-spec_3.html" REL=PREVIOUS>previous</A>, <A HREF="html-spec_5.html" REL=NEXT>next</A>, <A HREF="html-spec_14.html" REL=LAST>last</A> section, <A HREF="html-spec_toc.html" REL=TOC>table of contents</A>.
+<HR>
+
+
+<H1><A NAME="SEC4" HREF="html-spec_toc.html#SEC4" REL=TOC>HTML as an Internet Media Type</A></H1>
+<P>
+An HTML <A HREF="html-spec_2.html#GLOSS36" REL=GLOSSARY>user agent</A> allows users to interact with resources which have
+HTML representations.  At a minimum, it <A HREF="html-spec_2.html#GLOSS25" REL=GLOSSARY>must</A> allow users to examine and
+navigate the content of HTML level 1 documents.  HTML user agents
+<A HREF="html-spec_2.html#GLOSS29" REL=GLOSSARY>should</A> be able to preserve all formatting distinctions represented in
+an <A HREF="html-spec_2.html#GLOSS18" REL=GLOSSARY>HTML document</A>, and be able to simultaneously present resources
+referred to by IMG elements (they <A HREF="html-spec_2.html#GLOSS21" REL=GLOSSARY>may</A> ignore some formatting
+distinctions or IMG resources at the request of the user).  Level 2
+HTML user agents <A HREF="html-spec_2.html#GLOSS29" REL=GLOSSARY>should</A> support form entry and submission.
+
+</P>
+
+
+
+<H2><A NAME="SEC4.1" HREF="html-spec_toc.html#SEC4.1" REL=TOC>text/html media type</A></H2>
+
+<P>
+This specification defines the Internet <A HREF="html-spec_2.html#GLOSS22" REL=GLOSSARY>Media Type</A><A HREF="html-spec_11.html#BIB8" REL=BIBLIOGRAPHY>[IMEDIA]</A> (formerly
+referred to as the Content Type<A HREF="html-spec_11.html#BIB4" REL=BIBLIOGRAPHY>[MIME]</A>) called <SAMP>`text/html'</SAMP>.  The
+following is to be registered with <A HREF="html-spec_11.html#BIB9" REL=BIBLIOGRAPHY>[IANA]</A>.
+
+</P>
+<DL COMPACT>
+
+<DT><EM><A HREF="html-spec_2.html#GLOSS22" REL=GLOSSARY>Media Type</A> name</EM>
+<DD>
+text
+
+<DT><EM>Media subtype name</EM>
+<DD>
+html
+
+<DT><EM>Required parameters</EM>
+<DD>
+none
+
+<DT><EM>Optional parameters</EM>
+<DD>
+level, charset
+
+<DT><EM>Encoding considerations</EM>
+<DD>
+any encoding is allowed
+
+<DT><EM>Security considerations</EM>
+<DD>
+see section <A HREF="html-spec_10.html#SEC10" REL=XREF>Security Considerations</A>
+
+</DL>
+
+<P>
+The optional parameters are defined as follows:
+
+</P>
+<DL COMPACT>
+
+<DT><EM>Level</EM>
+<DD>
+The level parameter specifies the feature set used in the
+document.  The level is an integer number, implying that any features
+of same or lower level <A HREF="html-spec_2.html#GLOSS21" REL=GLOSSARY>may</A> be present in the document.  Level 1 is all
+features defined in this specification except those that require the
+<EM>FORM</EM> <A HREF="html-spec_2.html#GLOSS13" REL=GLOSSARY>element</A>.  Level 2 includes form processing.  Level 2 is the
+default.
+
+<DT><EM>Charset</EM>
+<DD>
+The charset parameter (as defined in section 7.1.1 of
+RFC 1521<A HREF="html-spec_11.html#BIB4" REL=BIBLIOGRAPHY>[MIME]</A>) <A HREF="html-spec_2.html#GLOSS21" REL=GLOSSARY>may</A> be given to specify the <A HREF="html-spec_2.html#GLOSS4" REL=GLOSSARY>character</A> encoding scheme
+used to represent the <A HREF="html-spec_2.html#GLOSS18" REL=GLOSSARY>HTML document</A> as a sequence of octets.  The
+default value is outside the scope of this specification;  but for
+example, the default is <SAMP>`US-ASCII'</SAMP> in the context of MIME mail,
+and <SAMP>`ISO-8859-1'</SAMP> in the context of HTTP <A HREF="html-spec_11.html#BIB3" REL=BIBLIOGRAPHY>[HTTP]</A>.
+
+</DL>
+
+
+
+<H2><A NAME="SEC4.2" HREF="html-spec_toc.html#SEC4.2" REL=TOC>HTML Document Representation</A></H2>
+<P>
+A <A HREF="html-spec_2.html#GLOSS23" REL=GLOSSARY>message entity</A> with a content type of <SAMP>`text/html'</SAMP> represents
+an <A HREF="html-spec_2.html#GLOSS18" REL=GLOSSARY>HTML document</A>, consisting of a single <A HREF="html-spec_2.html#GLOSS33" REL=GLOSSARY>text entity</A>.  The
+<SAMP>`charset'</SAMP> parameter (whether implicit or explicit) identifies a
+<A HREF="html-spec_2.html#GLOSS4" REL=GLOSSARY>character</A> encoding scheme.  The <A HREF="html-spec_2.html#GLOSS33" REL=GLOSSARY>text entity</A> consists of the characters
+determined by this <A HREF="html-spec_2.html#GLOSS4" REL=GLOSSARY>character</A> encoding scheme and the octets of the body of
+the <A HREF="html-spec_2.html#GLOSS23" REL=GLOSSARY>message entity</A>.
+
+</P>
+
+
+
+<H3><A NAME="SEC4.2.1" HREF="html-spec_toc.html#SEC4.2.1" REL=TOC>Undeclared Markup Error Handling</A></H3>
+<P>
+To facilitate experimentation and interoperability between
+implementations of various versions of HTML, the installed base of
+HTML user agents supports a superset of the HTML 2.0 language by
+reducing it to HTML 2.0:  <A HREF="html-spec_2.html#GLOSS20" REL=GLOSSARY>markup</A> in the form of a <A HREF="html-spec_2.html#GLOSS30" REL=GLOSSARY>start-tag</A> or <A HREF="html-spec_2.html#GLOSS14" REL=GLOSSARY>end-tag</A>,
+whose generic identifier is not declared is mapped to nothing during
+tokenization.  Undeclared attributes are treated similarly.  The entire
+attribute specification of an unknown attribute (i.e., the unknown
+attribute and its value, if any) <A HREF="html-spec_2.html#GLOSS29" REL=GLOSSARY>should</A> be ignored.  On the other
+hand, references to undeclared entities <A HREF="html-spec_2.html#GLOSS29" REL=GLOSSARY>should</A> be treated as data
+characters.
+
+</P>
+<P>
+For example:
+
+</P>
+
+<PRE>
+&#60;div class=chapter&#62;&#60;h1&#62;foo&#60;/h1&#62;&#60;p&#62;...&#60;/div&#62;
+  =&#62; &#60;H1&#62;,"foo",&#60;/H1&#62;,&#60;P&#62;,"..."
+xxx &#60;P ID=z23&#62; yyy
+  =&#62; "xxx ",&#60;P&#62;," yyy
+Let &#38;alpha; &#38;amp; &#38;beta; be finite sets.
+  =&#62; "Let &#38;alpha; &#38; &#38;beta; be finite sets."
+</PRE>
+
+<P>
+Support for notifying the user of such errors is encouraged.
+
+</P>
+<P>
+Information providers are warned that this convention is not binding:
+unspecified behavior <A HREF="html-spec_2.html#GLOSS21" REL=GLOSSARY>may</A> result, as such <A HREF="html-spec_2.html#GLOSS20" REL=GLOSSARY>markup</A> does not conform to
+this specification.
+
+</P>
+
+
+
+<H3><A NAME="SEC4.2.2" HREF="html-spec_toc.html#SEC4.2.2" REL=TOC>Conventional Representation of Newlines</A></H3>
+<P>
+SGML specifies that a <A HREF="html-spec_2.html#GLOSS33" REL=GLOSSARY>text entity</A> is a sequence of records, each
+beginning with a record start <A HREF="html-spec_2.html#GLOSS4" REL=GLOSSARY>character</A> and ending with a record end
+<A HREF="html-spec_2.html#GLOSS4" REL=GLOSSARY>character</A> (code positions 10 and 13 respectively) (section
+7.6.1, "Record Boundaries" in <A HREF="html-spec_11.html#BIB14" REL=BIBLIOGRAPHY>[SGML]</A>).
+
+</P>
+<P>
+<A HREF="html-spec_11.html#BIB4" REL=BIBLIOGRAPHY>[MIME]</A> specifies that a body of type <SAMP>`text/*'</SAMP> is a sequence of
+lines, each terminated by CRLF, that is, octets 13, 10.
+
+</P>
+<P>
+In practice, HTML documents are frequently represented and
+transmitted using an end of line convention that depends on the
+conventions of the source of the document;  frequently, that
+representation consists of CR only, LF only, or a CR LF
+sequence.  Hence the decoding of the octets will often result in
+a <A HREF="html-spec_2.html#GLOSS33" REL=GLOSSARY>text entity</A> with some missing record start and record end
+characters.
+
+</P>
+<P>
+Since there is no ambiguity, HTML user agents are encouraged to
+infer the missing record start and end characters.
+
+</P>
+<P>
+An HTML <A HREF="html-spec_2.html#GLOSS36" REL=GLOSSARY>user agent</A> <A HREF="html-spec_2.html#GLOSS29" REL=GLOSSARY>should</A> treat end of line in any of its
+variations as a word space in all contexts except
+preformatted text.  Within preformatted text, an HTML <A HREF="html-spec_2.html#GLOSS36" REL=GLOSSARY>user agent</A>
+<A HREF="html-spec_2.html#GLOSS29" REL=GLOSSARY>should</A> treat any of the three common representations of
+end-of-line as starting a new line.
+
+</P>
+
+<HR>
+Go to the <A HREF="html-spec_1.html" REL=FIRST>first</A>, <A HREF="html-spec_3.html" REL=PREVIOUS>previous</A>, <A HREF="html-spec_5.html" REL=NEXT>next</A>, <A HREF="html-spec_14.html" REL=LAST>last</A> section, <A HREF="html-spec_toc.html" REL=TOC>table of contents</A>.
+</BODY>
+</HTML>

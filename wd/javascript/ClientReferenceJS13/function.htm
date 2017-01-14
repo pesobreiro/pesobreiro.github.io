@@ -1,0 +1,946 @@
+<HTML>
+<HEAD>
+<TITLE>
+</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="frame.htm">Previous</A>
+ | <A HREF="hidden.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT><BR><BR>
+<HR>
+
+<H1><A NAME="Function"></A>
+<A NAME="1193137">
+ Function
+</A></H1>
+<A NAME="1193161">
+Specifies a string of JavaScript code to be compiled as a function.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left COLSPAN=2 ROWSPAN=1><P><A NAME="1193141">
+<I>Core object</I></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193145">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193147">
+JavaScript 1.1, NES 2.0</A></P><P><A NAME="1194816">
+</A></P><P><A NAME="1194817">
+JavaScript 1.2: added <A HREF="function.htm#1231596"><CODE>arity</CODE></A>, <A HREF="function.htm#1196419"><CODE>arguments.callee</CODE></A> properties; added ability to nest functions</A></P><P><A NAME="1193160">
+</A></P><P><A NAME="1194822">
+JavaScript 1.3: added <A HREF="function.htm#1194017"><CODE>apply</CODE></A>, <A HREF="function.htm#1194243"><CODE>call</CODE></A>, and <A HREF="function.htm#1193583"><CODE>toSource</CODE></A> methods; deprecated <A HREF="function.htm#1196447"><CODE>arguments.caller</CODE></A> property</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1196892">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1196894">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1213952">
+ Created by
+</A></H4>
+
+<A NAME="1213953">
+The <CODE>Function</CODE> constructor:</A></P>
+<PRE><A NAME="1213954">new Function ([<I>arg1</I>[, <I>arg2</I>[, ... <I>argN</I>]],] <I>functionBody</I>)</A></PRE><A NAME="1214901">
+The <CODE>function</CODE> statement (see <A HREF="stmt.htm#1004825">"function" on page&nbsp;622</A> for details):</A></P>
+<PRE><A NAME="1214924">function <I>name</I>([<I>param</I>[, <I>param</I>[, ... <I>param</I>]]]) {<br>&nbsp;&nbsp;&nbsp;<I>statements<br></I>}</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1213955">
+ Parameters
+</A></H4>
+
+<A NAME="1193175">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193168">arg1, arg2, ... arg<I>N</I></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193170">
+Names to be used by the function as formal argument names. Each must be a string that corresponds to a valid JavaScript identifier; for example <CODE>"x"</CODE> or <CODE>"theValue"</CODE>.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193172">functionBody</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193174">
+A string containing the JavaScript statements comprising the function definition.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1224441">name</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1224443">
+The function name.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1224437">param</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1224439">
+The name of an argument to be passed to the function. A function can have up to 255 arguments.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1231929">statements</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1231931">
+The statements comprising the body of the function.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193176">
+ Description
+</A></H4>
+
+<A NAME="1218580">
+<CODE>Function</CODE> objects created with the <CODE>Function</CODE> constructor are evaluated each time they are used. This is less efficient than declaring a function and calling it within your code, because declared functions are compiled.</A></P>
+<A NAME="1218451">
+To return a value, the function must have a <A HREF="stmt.htm#1004871"><CODE>return</CODE></A> statement that specifies the value to return.</A></P>
+<A NAME="1218452">
+All parameters are passed to functions <I>by value</I>; the value is passed to the function, but if the function changes the value of the parameter, this change is not reflected globally or in the calling function. However, if you pass an object as a parameter to a function and the function changes the object's properties, that change is visible outside the function, as shown in the following example:</A></P>
+<PRE><A NAME="1228173">function myFunc(theObject) {<br>&nbsp;&nbsp;&nbsp;theObject.make="Toyota"<br>}<br><br>mycar = {make:"Honda", model:"Accord", year:1998}<br>x=mycar.make &nbsp;&nbsp;&nbsp;&nbsp;// returns Honda<br>myFunc(mycar) &nbsp;&nbsp;&nbsp;// pass object mycar to the function<br>y=mycar.make &nbsp;&nbsp;&nbsp;&nbsp;// returns Toyota (prop was changed by the function)</A></PRE><A NAME="1224640">
+The <CODE>this</CODE> keyword does not refer to the currently executing function, so you must refer to <CODE>Function</CODE> objects by name, even within the function body.</A></P>
+<B><A NAME="HeadRunIn;"></A>
+<A NAME="1231645">
+Accessing a function's arguments with the arguments array. </A></B><A NAME="1231646">
+You can refer to a function's arguments within the function by using the <CODE>arguments</CODE> array. See <A HREF="function.htm#1193312"><CODE>arguments</CODE></A>.</A></P>
+<B><A NAME="HeadRunIn;"></A>
+<A NAME="1205610">
+Specifying arguments with the Function constructor. </A></B><A NAME="1205611">
+The following code creates a <CODE>Function</CODE> object that takes two arguments.</A></P>
+<PRE><A NAME="1205612">var multiply = new Function("x", "y", "return x * y")</A></PRE><A NAME="1207137">
+The arguments <CODE>"x"</CODE> and <CODE>"y"</CODE> are formal argument names that are used in the function body, <CODE>"return x * y"</CODE>.</A></P>
+<A NAME="1207331">
+The preceding code assigns a function to the variable <CODE>multiply</CODE>. To call the <CODE>Function</CODE> object, you can specify the variable name as if it were a function, as shown in the following examples.</A></P>
+<PRE><A NAME="1207574">var theAnswer = multiply(7,6)</A></PRE><PRE><A NAME="1207332">var myAge = 50<br>if (myAge &gt;=39) {myAge=multiply (myAge,.5)}</A></PRE><B><A NAME="HeadRunIn;"></A>
+<A NAME="1224456">
+Assigning a function to a variable with the Function constructor. </A></B><A NAME="1224457">
+Suppose you create the variable <CODE>multiply</CODE> using the <CODE>Function</CODE> constructor, as shown in the preceding section:</A></P>
+<PRE><A NAME="1217471">var multiply = new Function("x", "y", "return x * y")</A></PRE><A NAME="1217469">
+This is similar to declaring the following function:</A></P>
+<PRE><A NAME="1206153">function multiply(x,y) {<br>&nbsp;&nbsp;&nbsp;return x*y<br>}</A></PRE><A NAME="1193268">
+Assigning a function to a variable using the <CODE>Function</CODE> constructor is similar to declaring a function with the <CODE>function</CODE> statement, but they have differences:</A></P>
+<ul><P><LI><A NAME="1193269">
+When you assign a function to a variable using <CODE>var multiply = new Function("...")</CODE>, <CODE>multiply</CODE> is a variable for which the current value is a reference to the function created with <CODE>new Function()</CODE>.</A></LI>
+<P><LI><A NAME="1193270">
+When you create a function using <CODE>function multiply() {...}</CODE>, <CODE>multiply</CODE> is not a variable, it is the name of a function.</A></LI>
+</ul><B><A NAME="HeadRunIn;"></A>
+<A NAME="1225385">
+Nesting functions. </A></B><A NAME="1225386">
+You can nest a function within a function. The nested (inner) function is private to its containing (outer) function:</A></P>
+<ul><P><LI><A NAME="1226496">
+The inner function can be accessed only from statements in the outer function.</A></LI>
+<P><LI><A NAME="1225764">
+The inner function can use the arguments and variables of the outer function. The outer function cannot use the arguments and variables of the inner function.</A></LI>
+</ul><A NAME="1226522">
+The following example shows nested functions:</A></P>
+<PRE><A NAME="1227746">function addSquares (a,b) {<br>&nbsp;&nbsp;&nbsp;function square(x) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return x*x<br>&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;return square(a) + square(b)<br>}<br>a=addSquares(2,3) // returns 13<br>b=addSquares(3,4) // returns 25<br>c=addSquares(4,5) // returns 41</A></PRE><A NAME="1226900">
+When a function contains a nested function, you can call the outer function and specify arguments for both the outer and inner function:</A></P>
+<PRE><A NAME="1226901">function outside(x) {<br>&nbsp;&nbsp;&nbsp;function inside(y) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return x+y<br>&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;return inside<br>}<br>result=outside(3)(5) // returns 8</A></PRE><B><A NAME="HeadRunIn;"></A>
+<A NAME="1234244">
+Specifying an event handler with a Function object. </A></B><A NAME="1234245">
+The following code assigns a function to a window's <A HREF="handlers.htm#1120186"><CODE>onFocus</CODE></A> event handler (the event handler must be spelled in all lowercase):</A></P>
+<PRE><A NAME="1234249">window.onfocus = new Function("document.bgColor='antiquewhite'")</A></PRE><A NAME="1234250">
+If a function is assigned to a variable, you can assign the variable to an event handler. The following code assigns a function to the variable <CODE>setBGColor</CODE>.</A></P>
+<PRE><A NAME="1234251">var setBGColor = new Function("document.bgColor='antiquewhite'")</A></PRE><A NAME="1234252">
+You can use this variable to assign a function to an event handler in either of the following ways:</A></P>
+<PRE><A NAME="1234253">document.form1.colorButton.onclick=setBGColor</A></PRE><PRE><A NAME="1234254">&lt;INPUT NAME="colorButton" TYPE="button"<br>&nbsp;&nbsp;&nbsp;VALUE="Change background color"<br>&nbsp;&nbsp;&nbsp;onClick="setBGColor()"&gt;</A></PRE><A NAME="1234255">
+Once you have a reference to a <CODE>Function</CODE> object, you can use it like a function and it will convert from an object to a function:</A></P>
+<PRE><A NAME="1234256">window.onfocus()</A></PRE><A NAME="1234257">
+Event handlers do not take arguments, so you cannot declare any arguments in a <CODE>Function</CODE> constructor for an event handler. For example, you cannot call the function <CODE>multiply</CODE> by setting a button's <CODE>onclick</CODE> property as follows:</A></P>
+<PRE><A NAME="1234258">document.form1.button1.onclick=multFun(5,10)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1216173">
+ Backward Compatibility
+</A></H4>
+
+<B><A NAME="HeadRunIn;"></A>
+<A NAME="1225182">
+JavaScript 1.1 and earlier versions. </A></B><A NAME="1225160">
+You cannot nest a function statement in another statement or in itself.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203656">
+ Property Summary
+</A></H4>
+
+<A NAME="1203704">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1203659">
+<B>Property
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1203661">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1203666"><A HREF="function.htm#1193312"><CODE>arguments</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1203668">
+An array corresponding to the arguments passed to a function.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1203673"><A HREF="function.htm#1196419"><CODE>arguments.callee</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1203675">
+Specifies the function body of the currently executing function.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1203680"><A HREF="function.htm#1196447"><CODE>arguments.caller</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1203682">
+Specifies the name of the function that invoked the currently executing function.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1203687"><A HREF="function.htm#1196484"><CODE>arguments.length</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1203689">
+Specifies the number of arguments passed to the function.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1203694"><A HREF="function.htm#1231596"><CODE>arity</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1203696">
+Specifies the number of arguments expected by the function.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1204673"><A HREF="function.htm#1204601"><CODE>constructor</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1204675">
+Specifies the function that creates an object's prototype.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1217139"><A HREF="function.htm#1216661"><CODE>length</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1217141">
+Specifies the number of arguments expected by the function.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1203701"><A HREF="function.htm#1193426"><CODE>prototype</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1203703">
+Allows the addition of properties to a <CODE>Function</CODE> object.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203709">
+ Method Summary
+</A></H4>
+
+<A NAME="1203759">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1203712">
+<B>Method
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1203714">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1203719"><A HREF="function.htm#1194017"><CODE>apply</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1203721">
+Allows you to apply a method of another object in the context of a different object (the calling object).</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1203726"><A HREF="function.htm#1194243"><CODE>call</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1203728">
+Allows you to call (execute) a method of another object in the context of a different object (the calling object).</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1203733"><A HREF="function.htm#1193583"><CODE>toSource</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1203735">
+Returns a string representing the source code of the function. Overrides the <A HREF="object.htm#1193320"><CODE>Object.toSource</CODE></A> method.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1203743"><A HREF="function.htm#1193615"><CODE>toString</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1203745">
+Returns a string representing the source code of the function. Overrides the <A HREF="object.htm#1193350"><CODE>Object.toString</CODE></A> method.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1203753"><A HREF="function.htm#1199980"><CODE>valueOf</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1203755">
+Returns a string representing the source code of the function. Overrides the <A HREF="object.htm#1193540"><CODE>Object.valueOf</CODE></A> method.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1220053">
+ Examples
+</A></H4>
+
+<A NAME="1220635">
+<B>Example 1.</B> The following function returns a string containing the formatted representation of a number padded with leading zeros.</A></P>
+<PRE><A NAME="1227379">// This function returns a string padded with leading zeros<br>function padZeros(num, totalLen) {<br>&nbsp;&nbsp;&nbsp;var numStr = num.toString()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Initialize return value<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// as string<br>&nbsp;&nbsp;&nbsp;var numZeros = totalLen - numStr.length // Calculate no. of zeros<br>&nbsp;&nbsp;&nbsp;if (numZeros &gt; 0) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for (var i = 1; i &lt;= numZeros; i++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;numStr = "0" + numStr<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;return numStr<br>}</A></PRE><A NAME="1220892">
+The following statements call the <CODE>padZeros</CODE> function.</A></P>
+<PRE><A NAME="1220942">result=padZeros(42,4) // returns "0042"<br>result=padZeros(42,2) // returns "42"<br>result=padZeros(5,4)&nbsp; // returns "0005"</A></PRE><A NAME="1234263">
+<B>Example 2.</B> You can determine whether a function exists by comparing the function name to null. In the following example, <CODE>func1</CODE> is called if the function <CODE>noFunc</CODE> does not exist; otherwise <CODE>func2</CODE> is called. Notice that the window name is needed when referring to the function name <CODE>noFunc</CODE>.</A></P>
+<PRE><A NAME="1234264">if (window.noFunc == null)<br>&nbsp;&nbsp;&nbsp;func1()<br>else func2()</A></PRE><A NAME="1234271">
+<B>Example 3.</B> The following example creates <A HREF="handlers.htm#1120186"><CODE>onFocus</CODE></A> and <A HREF="handlers.htm#1119670"><CODE>onBlur</CODE></A> event handlers for a frame. This code exists in the same file that contains the <CODE>FRAMESET</CODE> tag. Note that this is the only way to create <A HREF="handlers.htm#1120186"><CODE>onFocus</CODE></A> and <A HREF="handlers.htm#1119670"><CODE>onBlur</CODE></A> event handlers for a frame, because you cannot specify the event handlers in the <CODE>FRAME</CODE> tag.</A></P>
+<PRE><A NAME="1234278">frames[0].onfocus = new Function("document.bgColor='antiquewhite'")<br>frames[0].onblur = new Function("document.bgColor='lightgrey'")</A></PRE>
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1194017">
+apply
+</A></H2>
+
+<A NAME="1194019">
+Allows you to apply a method of another object in the context of a different object (the calling object).<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1196931">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1196936">
+<A HREF="function.htm#1193137"><CODE>Function</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1196938">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1196940">
+JavaScript 1.3</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194032">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1194033">apply(<I>thisArg</I>[, <I>argArray</I>])</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194034">
+ Parameters
+</A></H4>
+
+<A NAME="1194044">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1194037">thisArg</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1194039">
+Parameter for the calling object</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1194041">argArray</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1194043">
+An argument array for the object</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194045">
+ Description
+</A></H4>
+
+<A NAME="1194046">
+You can assign a different <CODE>this</CODE> object when calling an existing function. <CODE>this</CODE> refers to the current object, the calling object. With <CODE>apply</CODE>, you can write a method once and then inherit it in another object, without having to rewrite the method for the new object.</A></P>
+<A NAME="1194047">
+<CODE>apply</CODE> is very similar to <CODE>call</CODE>, except for the type of arguments it supports. You can use an arguments array instead of a named set of parameters. With <CODE>apply</CODE>, you can use an array literal, for example, <CODE>apply(this, [name, value])</CODE>, or an <CODE>Array</CODE> object, for example, <CODE>apply(this, new Array(name, value))</CODE>.</A></P>
+<A NAME="1209502">
+You can also use <A HREF="function.htm#1193312"><CODE>arguments</CODE></A> for the <CODE>argArray</CODE> parameter. <CODE>arguments</CODE> is a local variable of a function. It can be used for all unspecified arguments of the called object. Thus, you do not have to know the arguments of the called object when you use the <CODE>apply</CODE> method. You can use <CODE>arguments</CODE> to pass all the arguments to the called object. The called object is then responsible for handling the arguments.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194049">
+ Examples
+</A></H4>
+
+<A NAME="1194050">
+You can use <CODE>apply</CODE> to chain constructors for an object, similar to Java. In the following example, the constructor for the <CODE>product</CODE> object is defined with two parameters, <CODE>name</CODE> and <CODE>value</CODE>. Another object, <CODE>prod_dept</CODE>, initializes its unique variable (<CODE>dept</CODE>) and calls the constructor for <CODE>product</CODE> in its constructor to initialize the other variables. In this example, the parameter <CODE>arguments</CODE> is used for all arguments of the <CODE>product</CODE> object's constructor.</A></P>
+<PRE><A NAME="1194051">function product(name, value){<br>&nbsp;&nbsp;&nbsp;this.name = name;<br>&nbsp;&nbsp;&nbsp;if(value &gt; 1000)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.value = 999;<br>&nbsp;&nbsp;&nbsp;else<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.value = value;<br>}</A></PRE><PRE><A NAME="1194052">function prod_dept(name, value, dept){<br>&nbsp;&nbsp;&nbsp;this.dept = dept;<br>&nbsp;&nbsp;&nbsp;product.apply(product, arguments);<br>}</A></PRE><PRE><A NAME="1194053">prod_dept.prototype = new product();</A></PRE><PRE><A NAME="1194054">// since 5 is less than 100 value is set<br>cheese = new prod_dept("feta", 5, "food");</A></PRE><PRE><A NAME="1194055">// since 5000 is above 1000, value will be 999<br>car = new prod_dept("honda", 5000, "auto");</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194056">
+ See also
+</A></H4>
+
+<A NAME="1194060">
+<A HREF="function.htm#1194243"><CODE>Function.call</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193312">
+arguments
+</A></H2>
+
+<A NAME="1193325">
+An array corresponding to the arguments passed to a function.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1228902">
+<I>Local variable of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1228907">
+All function objects</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193315">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193320">
+<A HREF="function.htm#1193137"><CODE>Function</CODE></A> (deprecated)</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193322">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193324">
+JavaScript 1.1, NES 2.0</A></P><P><A NAME="1194829">
+</A></P><P><A NAME="1194830">
+JavaScript 1.2: added <A HREF="function.htm#1196419"><CODE>arguments.callee</CODE></A> property</A></P><P><A NAME="1210050">
+</A></P><P><A NAME="1212031">
+JavaScript 1.3: deprecated <A HREF="function.htm#1196447"><CODE>arguments.caller</CODE></A> property; removed support for argument names and local variable names as properties of the <CODE>arguments</CODE> array</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1196948">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1196950">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1211023">
+ Description
+</A></H4>
+
+<A NAME="1229024">
+You can refer to a function's arguments within the function by using the <CODE>arguments</CODE> array. This array contains an entry for each argument passed to the function. For example, if a function is passed three arguments, you can refer to the arguments as follows:</A></P>
+<PRE><A NAME="1229025">arguments[0]<br>arguments[1]<br>arguments[2]</A></PRE><A NAME="1234696">
+The <CODE>arguments</CODE> array can also be preceded by the function name:</A></P>
+<PRE><A NAME="1234697">myFunc.arguments[0]<br>myFunc.arguments[1]<br>myFunc.arguments[2]</A></PRE><A NAME="1234704">
+The <CODE>arguments</CODE> array is available only within a function body. Attempting to access the <CODE>arguments</CODE> array outside a function declaration results in an error.</A></P>
+<A NAME="1229290">
+You can use the <CODE>arguments</CODE> array if you call a function with more arguments than it is formally declared to accept. This technique is useful for functions that can be passed a variable number of arguments. You can use <CODE>arguments.length</CODE> to determine the number of arguments passed to the function, and then process each argument by using the <CODE>arguments</CODE> array. (To determine the number of arguments declared when a function was defined, use the <A HREF="function.htm#1216661"><CODE>Function.length</CODE></A> property.)</A></P>
+<A NAME="1193330">
+The <CODE>arguments</CODE> array has the following properties:</A></P>
+<A NAME="1211223">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1211170">
+<B>Property
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1211172">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1211177">
+<A HREF="function.htm#1196419"><CODE>arguments.callee</CODE></A></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1211179">
+Specifies the function body of the currently executing function.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1211184">
+<A HREF="function.htm#1196447"><CODE>arguments.caller</CODE></A></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1211186">
+Specifies the name of the function that invoked the currently executing function. (Deprecated)</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1211191">
+<A HREF="function.htm#1196484"><CODE>arguments.length</CODE></A></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1211193">
+Specifies the number of arguments passed to the function.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1211676">
+ Backward Compatibility
+</A></H4>
+
+<B><A NAME="HeadRunIn;"></A>
+<A NAME="1211677">
+JavaScript 1.1 and 1.2. </A></B><A NAME="1212477">
+The following features that were available in JavaScript&nbsp;1.1 and JavaScript&nbsp;1.2 have been removed:</A></P>
+<ul><P><LI><A NAME="1214329">
+Each local variable of a function is a property of the <CODE>arguments</CODE> array. For example, if a function <CODE>myFunc</CODE> has a local variable named <CODE>myLocalVar</CODE>, you can refer to the variable as <CODE>arguments.myLocalVar</CODE>.</A></LI>
+<P><LI><A NAME="1211678">
+Each formal argument of a function is a property of the <CODE>arguments</CODE> array. For example, if a function <CODE>myFunc</CODE> has two arguments named <CODE>arg1</CODE> and <CODE>arg2</CODE>, you can refer to the arguments as <CODE>arguments.arg1</CODE> and <CODE>arguments.arg2</CODE>. (You can also refer to them as <CODE>arguments[0]</CODE> and <CODE>arguments[1]</CODE>.)</A></LI>
+</ul>
+<H4><A NAME="Head3;"></A>
+<A NAME="1211592">
+ Examples
+</A></H4>
+
+<A NAME="1229844">
+<B>Example 1.</B> This example defines a function that concatenates several strings. The only formal argument for the function is a string that specifies the characters that separate the items to concatenate. The function is defined as follows:</A></P>
+<PRE><A NAME="1229845">function myConcat(separator) {<br>&nbsp;&nbsp;&nbsp;result="" // initialize list<br>&nbsp;&nbsp;&nbsp;// iterate through arguments<br>&nbsp;&nbsp;&nbsp;for (var i=1; i&lt;arguments.length; i++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result += arguments[i] + separator<br>&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;return result<br>}</A></PRE><A NAME="1229846">
+You can pass any number of arguments to this function, and it creates a list using each argument as an item in the list.</A></P>
+<PRE><A NAME="1229847">// returns "red, orange, blue, "<br>myConcat(", ","red","orange","blue")</A></PRE><PRE><A NAME="1229848">// returns "elephant; giraffe; lion; cheetah;"<br>myConcat("; ","elephant","giraffe","lion", "cheetah")</A></PRE><PRE><A NAME="1229849">// returns "sage. basil. oregano. pepper. parsley. "<br>myConcat(". ","sage","basil","oregano", "pepper", "parsley")</A></PRE><A NAME="1234288">
+<B>Example 2.</B> This example defines a function that creates HTML lists. The only formal argument for the function is a string that is <CODE>"U"</CODE> if the list is to be unordered (bulleted), or <CODE>"O"</CODE> if the list is to be ordered (numbered). The function is defined as follows:</A></P>
+<PRE><A NAME="1234289">function list(type) {<br>&nbsp;&nbsp;&nbsp;document.write("&lt;" + type + "L&gt;") // begin list<br>&nbsp;&nbsp;&nbsp;// iterate through arguments<br>&nbsp;&nbsp;&nbsp;for (var i=1; i&lt;arguments.length; i++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.write("&lt;LI&gt;" + arguments[i])<br>&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;document.write("&lt;/" + type + "L&gt;") // end list<br>}</A></PRE><A NAME="1234290">
+You can pass any number of arguments to this function, and it displays each argument as an item in the type of list indicated. For example, the following call to the function</A></P>
+<PRE><A NAME="1234291">list("U", "One", "Two", "Three")</A></PRE><A NAME="1234292">
+results in this output:</A></P>
+<PRE><A NAME="1234293">&lt;UL&gt;<br>&lt;LI&gt;One<br>&lt;LI&gt;Two<br>&lt;LI&gt;Three<br>&lt;/UL&gt;</A></PRE>
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1196419">
+arguments.callee
+</A></H2>
+
+<A NAME="1196433">
+Specifies the function body of the currently executing function.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1230356">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1230361">
+<A HREF="function.htm#1193312"><CODE>arguments</CODE></A> local variable; <A HREF="function.htm#1193137"><CODE>Function</CODE></A> (deprecated)</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1196429">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1196431">
+JavaScript 1.2</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1196953">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1196955">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1196434">
+ Description
+</A></H4>
+
+<A NAME="1196435">
+The <CODE>callee</CODE> property is available only within the body of a function.</A></P>
+<A NAME="1196436">
+The <CODE>this</CODE> keyword does not refer to the currently executing function. Use the <CODE>callee</CODE> property to refer to a function within the function body.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1196437">
+ Examples
+</A></H4>
+
+<A NAME="1196438">
+The following function returns the value of the function's <CODE>callee</CODE> property.</A></P>
+<PRE><A NAME="1227944">function myFunc() {<br>&nbsp;&nbsp;&nbsp;return arguments.callee<br>}</A></PRE><A NAME="1218821">
+The following value is returned:</A></P>
+<PRE><A NAME="1218822">function myFunc() { return arguments.callee; }</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1196440">
+ See also
+</A></H4>
+
+<A NAME="1196444">
+<A HREF="function.htm#1193312"><CODE>Function.arguments</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1196447">
+arguments.caller
+</A></H2>
+
+<A NAME="1196462">
+Specifies the name of the function that invoked the currently executing function.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1196450">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1196455">
+<A HREF="function.htm#1193137"><CODE>Function</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1196457">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1196459">
+JavaScript 1.1, NES 2.0</A></P><P><A NAME="1196460">
+</A></P><P><A NAME="1196461">
+Deprecated in JavaScript 1.3</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1196463">
+ Description
+</A></H4>
+
+<A NAME="1196467">
+<CODE>caller</CODE> is no longer used.</A></P>
+<A NAME="1196468">
+The <CODE>caller</CODE> property is available only within the body of a function.</A></P>
+<A NAME="1196469">
+If the currently executing function was invoked by the top level of a JavaScript program, the value of <CODE>caller</CODE> is null.</A></P>
+<A NAME="1196470">
+The <CODE>this</CODE> keyword does not refer to the currently executing function, so you must refer to functions and <CODE>Function</CODE> objects by name, even within the function body.</A></P>
+<A NAME="1196471">
+The <CODE>caller</CODE> property is a reference to the calling function, so</A></P>
+<ul><P><LI><A NAME="1196472">
+If you use it in a string context, you get the result of calling <CODE>functionName.toString</CODE>. That is, the decompiled canonical source form of the function.</A></LI>
+<P><LI><A NAME="1196473">
+You can also call the calling function, if you know what arguments it might want. Thus, a called function can call its caller without knowing the name of the particular caller, provided it knows that all of its callers have the same form and fit, and that they will not call the called function again unconditionally (which would result in infinite recursion).</A></LI>
+</ul>
+<H4><A NAME="Head3;"></A>
+<A NAME="1196474">
+ Examples
+</A></H4>
+
+<A NAME="1196475">
+The following code checks the value of a function's <CODE>caller</CODE> property.</A></P>
+<PRE><A NAME="1196476">function myFunc() {<br>&nbsp;&nbsp;&nbsp;if (arguments.caller == null) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return ("The function was called from the top!")<br>&nbsp;&nbsp;&nbsp;} else return ("This function's caller was " + arguments.caller)<br>}</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1196477">
+ See also
+</A></H4>
+
+<A NAME="1196481">
+<A HREF="function.htm#1193312"><CODE>Function.arguments</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1196484">
+arguments.length
+</A></H2>
+
+<A NAME="1196497">
+Specifies the number of arguments passed to the function.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1196487">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1196492">
+<A HREF="function.htm#1193312"><CODE>arguments</CODE></A> local variable; <A HREF="function.htm#1193137"><CODE>Function</CODE></A> (deprecated)</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1196494">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1216487">
+JavaScript 1.1</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1196993">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1196995">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1196498">
+ Description
+</A></H4>
+
+<A NAME="1224928">
+<CODE>arguments.length</CODE> provides the number of arguments actually passed to a function. By contrast, the <A HREF="function.htm#1216661"><CODE>Function.length</CODE></A> property indicates how many arguments a function expects.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1196500">
+ Example
+</A></H4>
+
+<A NAME="1217398">
+The following example demonstrates the use of <CODE>Function.length</CODE> and <CODE>arguments.length</CODE>.</A></P>
+<PRE><A NAME="1222915">function addNumbers(x,y){<br>&nbsp;&nbsp;&nbsp;if (arguments.length == addNumbers.length) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return (x+y)<br>&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;else return 0<br>}</A></PRE><A NAME="1223278">
+If you pass more than two arguments to this function, the function returns 0:</A></P>
+<PRE><A NAME="1223239">result=addNumbers(3,4,5)&nbsp;&nbsp;&nbsp;// returns 0<br>result=addNumbers(3,4)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// returns 7<br>result=addNumbers(103,104) // returns 207</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1231586">
+ See also
+</A></H4>
+
+<A NAME="1231593">
+<A HREF="function.htm#1193312"><CODE>Function.arguments</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1231596">
+arity
+</A></H2>
+
+<A NAME="1193363">
+Specifies the number of arguments expected by the function. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193366">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193371">
+<A HREF="function.htm#1193137"><CODE>Function</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193373">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193375">
+JavaScript 1.2, NES 3.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193376">
+ Description
+</A></H4>
+
+<A NAME="1193377">
+<CODE>arity</CODE> is external to the function, and indicates how many arguments a function expects. By contrast, <A HREF="function.htm#1196484"><CODE>arguments.length</CODE></A> provides the number of arguments actually passed to a function.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193381">
+ Example
+</A></H4>
+
+<A NAME="1193382">
+The following example demonstrates the use of <CODE>arity</CODE> and <A HREF="function.htm#1196484"><CODE>arguments.length</CODE></A>.</A></P>
+<PRE><A NAME="1223785">function addNumbers(x,y){<br>&nbsp;&nbsp;&nbsp;if (arguments.length == addNumbers.length) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return (x+y)<br>&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;else return 0<br>}</A></PRE><A NAME="1223786">
+If you pass more than two arguments to this function, the function returns 0:</A></P>
+<PRE><A NAME="1223787">result=addNumbers(3,4,5)&nbsp;&nbsp;&nbsp;// returns 0<br>result=addNumbers(3,4)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// returns 7<br>result=addNumbers(103,104) // returns 207</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1196820">
+ See also
+</A></H4>
+
+<A NAME="1196827">
+<A HREF="function.htm#1196484"><CODE>arguments.length</CODE></A>, <A HREF="function.htm#1216661"><CODE>Function.length</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1194243">
+call
+</A></H2>
+
+<A NAME="1194245">
+Allows you to call (execute) a method of another object in the context of a different object (the calling object).<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194248">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194253">
+<A HREF="function.htm#1193137"><CODE>Function</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194255">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194257">
+JavaScript 1.3</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194258">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1194259">call(<I>thisArg</I>[, <I>arg1</I>[, <I>arg2</I>[, ...]]])</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194260">
+ Parameters
+</A></H4>
+
+<A NAME="1194270">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1194263">thisArg</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1194265">
+Parameter for the calling object</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1194267">arg1, arg2, ...</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1194269">
+Arguments for the object</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194271">
+ Description
+</A></H4>
+
+<A NAME="1194272">
+You can assign a different <CODE>this</CODE> object when calling an existing function. <CODE>this</CODE> refers to the current object, the calling object.</A></P>
+<A NAME="1194273">
+With <CODE>call</CODE>, you can write a method once and then inherit it in another object, without having to rewrite the method for the new object.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194274">
+ Examples
+</A></H4>
+
+<A NAME="1194275">
+You can use <CODE>call</CODE> to chain constructors for an object, similar to Java. In the following example, the constructor for the <CODE>product</CODE> object is defined with two parameters, <CODE>name</CODE> and <CODE>value</CODE>. Another object, <CODE>prod_dept</CODE>, initializes its unique variable (<CODE>dept</CODE>) and calls the constructor for <CODE>product</CODE> in its constructor to initialize the other variables.</A></P>
+<PRE><A NAME="1194276">function product(name, value){<br>&nbsp;&nbsp;&nbsp;this.name = name;<br>&nbsp;&nbsp;&nbsp;if(value &gt; 1000)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.value = 999;<br>&nbsp;&nbsp;&nbsp;else<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.value = value;<br>}</A></PRE><PRE><A NAME="1194277">function prod_dept(name, value, dept){<br>&nbsp;&nbsp;&nbsp;this.dept = dept;<br>&nbsp;&nbsp;&nbsp;product.call(this, name, value);<br>}</A></PRE><PRE><A NAME="1194278">prod_dept.prototype = new product();</A></PRE><PRE><A NAME="1194279">// since 5 is less than 100 value is set<br>cheese = new prod_dept("feta", 5, "food");</A></PRE><PRE><A NAME="1194280">// since 5000 is above 1000, value will be 999<br>car = new prod_dept("honda", 5000, "auto");</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194281">
+ See also
+</A></H4>
+
+<A NAME="1194285">
+<A HREF="function.htm#1194017"><CODE>Function.apply</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1204601">
+constructor
+</A></H2>
+
+<A NAME="1204602">
+Specifies the function that creates an object's prototype. Note that the value of this property is a reference to the function itself, not a string containing the function's name.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1204605">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1204610">
+<A HREF="function.htm#1193137"><CODE>Function</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1204612">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1204614">
+JavaScript 1.1, NES 2.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1204616">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1204618">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1204619">
+ Description
+</A></H4>
+
+<A NAME="1204623">
+See <A HREF="object.htm#1193229"><CODE>Object.constructor</CODE></A>.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1216661">
+length
+</A></H2>
+
+<A NAME="1216677">
+Specifies the number of arguments expected by the function. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1216665">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1216670">
+<A HREF="function.htm#1193137"><CODE>Function</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1216672">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1216676">
+JavaScript 1.1</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1216885">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1216887">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1216678">
+ Description
+</A></H4>
+
+<A NAME="1216935">
+<CODE>length</CODE> is external to a function, and indicates how many arguments the function expects. By contrast, <CODE>arguments.length</CODE> is local to a function and provides the number of arguments actually passed to the function.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1216688">
+ Example
+</A></H4>
+
+<A NAME="1216689">
+See the example for <A HREF="function.htm#1196484"><CODE>arguments.length</CODE></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1216696">
+ See also
+</A></H4>
+
+<A NAME="1216700">
+<A HREF="function.htm#1196484"><CODE>arguments.length</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193426">
+prototype
+</A></H2>
+
+<A NAME="1193427">
+A value from which instances of a particular class are created. Every object that can be created by calling a constructor function has an associated <CODE>prototype</CODE> property.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193430">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193435">
+<A HREF="function.htm#1193137"><CODE>Function</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193437">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193439">
+JavaScript 1.1, NES 2.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1197004">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1197006">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193440">
+ Description
+</A></H4>
+
+<A NAME="1193441">
+You can add new properties or methods to an existing class by adding them to the prototype associated with the constructor function for that class. The syntax for adding a new property or method is:</A></P>
+<PRE><A NAME="1193442"><I>fun</I>.prototype.<I>name</I> = <I>value</I></A></PRE><A NAME="1193456">
+where<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193445">fun</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193447">
+The name of the constructor function object you want to change.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193449">name</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193451">
+The name of the property or method to be created.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193453">value</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193455">
+The value initially assigned to the new property or method.</A></P>
+
+</TABLE>
+</A></P>
+<A NAME="1193457">
+If you add a property to the prototype for an object, then all objects created with that object's constructor function will have that new property, even if the objects existed before you created the new property. For example, assume you have the following statements:</A></P>
+<PRE><A NAME="1193458">var array1 = new Array();<br>var array2 = new Array(3);<br>Array.prototype.description=null;<br>array1.description="Contains some stuff"<br>array2.description="Contains other stuff"</A></PRE><A NAME="1193459">
+After you set a property for the prototype, all subsequent objects created with <CODE>Array</CODE> will have the property:</A></P>
+<PRE><A NAME="1193460">anotherArray=new Array()<br>anotherArray.description="Currently empty"</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193461">
+ Example
+</A></H4>
+
+<A NAME="1193462">
+The following example creates a method, <CODE>str_rep</CODE>, and uses the statement <CODE>String.prototype.rep = str_rep</CODE> to add the method to all <A HREF="string.htm#1193137"><CODE>String</CODE></A> objects. All objects created with <CODE>new String()</CODE> then have that method, even objects already created. The example then creates an alternate method and adds that to one of the <A HREF="string.htm#1193137"><CODE>String</CODE></A> objects using the statement <CODE>s1.rep = fake_rep</CODE>. The <CODE>str_rep</CODE> method of the remaining <A HREF="string.htm#1193137"><CODE>String</CODE></A> objects is not altered.</A></P>
+<PRE><A NAME="1223859">var s1 = new String("a")<br>var s2 = new String("b")<br>var s3 = new String("c")</A></PRE><PRE><A NAME="1223928">// Create a repeat-string-N-times method for all String objects<br>function str_rep(n) {<br>&nbsp;&nbsp;&nbsp;var s = "", t = this.toString()<br>&nbsp;&nbsp;&nbsp;while (--n &gt;= 0) s += t<br>&nbsp;&nbsp;&nbsp;return s<br>}</A></PRE><PRE><A NAME="1223869">String.prototype.rep = str_rep</A></PRE><PRE><A NAME="1224082">s1a=s1.rep(3) // returns "aaa"<br>s2a=s2.rep(5) // returns "bbbbb"<br>s3a=s3.rep(2) // returns "cc"</A></PRE><PRE><A NAME="1224239">// Create an alternate method and assign it to only one String variable<br>function fake_rep(n) {<br>&nbsp;&nbsp;&nbsp;return "repeat " + this + " " + n + " times."<br>}</A></PRE><PRE><A NAME="1223881">s1.rep = fake_rep<br>s1b=s1.rep(1) // returns "repeat a 1 times."<br>s2b=s2.rep(4) // returns "bbbb"<br>s3b=s3.rep(6) // returns "cccccc"</A></PRE><A NAME="1193484">
+The function in this example also works on <A HREF="string.htm#1193137"><CODE>String</CODE></A> objects not created with the <A HREF="string.htm#1193137"><CODE>String</CODE></A> constructor. The following code returns <CODE>"zzz"</CODE>.</A></P>
+<PRE><A NAME="1193488">"z".rep(3)</A></PRE>
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193583">
+toSource
+</A></H2>
+
+<A NAME="1193585">
+Returns a string representing the source code of the function.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193588">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193593">
+<A HREF="function.htm#1193137"><CODE>Function</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193595">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193597">
+JavaScript 1.3</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193598">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1193599">toSource()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193600">
+ Parameters
+</A></H4>
+
+<A NAME="1193601">
+None</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1200271">
+ Description
+</A></H4>
+
+<A NAME="1231792">
+The <CODE>toSource</CODE> method returns the following values:</A></P>
+<ul><LI><A NAME="1231793">
+For the built-in <CODE>Function</CODE> object, <CODE>toSource</CODE> returns the following string indicating that the source code is not available:
+</A></LI><PRE><A NAME="1231794">&nbsp;&nbsp;&nbsp;function Function() {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[native code]<br>&nbsp;&nbsp;&nbsp;}</A></PRE><LI><A NAME="1231796">
+For custom functions, <CODE>toSource</CODE> returns the JavaScript source that defines the object as a string.
+</A></LI></ul><A NAME="1231797">
+This method is usually called internally by JavaScript and not explicitly in code. You can call toSource while debugging to examine the contents of an object.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1200289">
+ See also
+</A></H4>
+
+<A NAME="1200296">
+<A HREF="function.htm#1193615"><CODE>Function.toString</CODE></A>, <A HREF="object.htm#1193540"><CODE>Object.valueOf</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193615">
+toString
+</A></H2>
+
+<A NAME="1193628">
+Returns a string representing the source code of the function.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193618">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193623">
+<A HREF="function.htm#1193137"><CODE>Function</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193625">
+<I>Implemented in </I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193627">
+JavaScript 1.1, NES 2.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1197019">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1197021">
+ECMA-262</A></P>
+
+</TABLE>
+ </A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193629">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1193630">toString()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193631">
+ Parameters
+</A></H4>
+
+<A NAME="1193632">
+None.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193633">
+ Description
+</A></H4>
+
+<A NAME="1199945">
+The <A HREF="function.htm#1193137"><CODE>Function</CODE></A> object overrides the <CODE>toString</CODE> method of the <A HREF="object.htm#1193136"><CODE>Object</CODE></A> object; it does not inherit <A HREF="object.htm#1193350"><CODE>Object.toString</CODE></A>. For <A HREF="function.htm#1193137"><CODE>Function</CODE></A> objects, the <CODE>toString</CODE> method returns a string representation of the object.</A></P>
+<A NAME="1199952">
+JavaScript calls the <CODE>toString</CODE> method automatically when a <A HREF="function.htm#1193137"><CODE>Function</CODE></A> is to be represented as a text value or when a <A HREF="function.htm#1193137"><CODE>Function</CODE></A> is referred to in a string concatenation.</A></P>
+<A NAME="1193639">
+For <A HREF="function.htm#1193137"><CODE>Function</CODE></A> objects, the built-in <CODE>toString</CODE> method decompiles the function back into the JavaScript source that defines the function. This string includes the <CODE>function</CODE> keyword, the argument list, curly braces, and function body.</A></P>
+<A NAME="1193640">
+For example, assume you have the following code that defines the <CODE>Dog</CODE> object type and creates <CODE>theDog,</CODE> an object of type <CODE>Dog</CODE>:</A></P>
+<PRE><A NAME="1193641">function Dog(name,breed,color,sex) {<br>&nbsp;&nbsp;&nbsp;this.name=name<br>&nbsp;&nbsp;&nbsp;this.breed=breed<br>&nbsp;&nbsp;&nbsp;this.color=color<br>&nbsp;&nbsp;&nbsp;this.sex=sex<br>}</A></PRE><PRE><A NAME="1193642">theDog = new Dog("Gabby","Lab","chocolate","girl")</A></PRE><A NAME="1193643">
+Any time <CODE>Dog</CODE> is used in a string context, JavaScript automatically calls the <CODE>toString</CODE> function, which returns the following string:</A></P>
+<PRE><A NAME="1193644">function Dog(name, breed, color, sex) { this.name = name; this.breed = breed; this.color = color; this.sex = sex; }</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1199973">
+ See also
+</A></H4>
+
+<A NAME="1199977">
+<A HREF="object.htm#1193350"><CODE>Object.toString</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1199980">
+valueOf
+</A></H2>
+
+<A NAME="1199997">
+Returns a string representing the source code of the function.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1199983">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1199988">
+<A HREF="function.htm#1193137"><CODE>Function</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1199990">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1199992">
+JavaScript 1.1</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1199994">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1199996">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1199998">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1199999">valueOf()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1200000">
+ Parameters
+</A></H4>
+
+<A NAME="1200001">
+None</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1200002">
+ Description
+</A></H4>
+
+<A NAME="1231841">
+The <CODE>valueOf</CODE> method returns the following values:</A></P>
+<ul><LI><A NAME="1231842">
+For the built-in <CODE>Function</CODE> object, <CODE>valueOf</CODE> returns the following string indicating that the source code is not available:
+</A></LI><PRE><A NAME="1231843">&nbsp;&nbsp;&nbsp;function Function() {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[native code]<br>&nbsp;&nbsp;&nbsp;}</A></PRE><LI><A NAME="1231888">
+For custom functions, <CODE>toSource</CODE> returns the JavaScript source that defines the object as a string. The method is equivalent to the <CODE>toString</CODE> method of the function.
+</A></LI></ul><A NAME="1231889">
+This method is usually called internally by JavaScript and not explicitly in code.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1231890">
+ See also
+</A></H4>
+
+<A NAME="1200023">
+<A HREF="function.htm#1193615"><CODE>Function.toString</CODE></A>, <A HREF="object.htm#1193540"><CODE>Object.valueOf</CODE></A></A></P>
+
+<HR>
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="frame.htm">Previous</A>
+ | <A HREF="hidden.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT>
+<P ALIGN=right>
+<FONT SIZE=-2><I>Last Updated:  05/28/99  11:59:30</I></FONT>
+<P> <CENTER>Copyright (c) 1999
+<A HREF="http://home.netscape.com/misc/contact_info.html"
+TARGET=_top>Netscape Communications Corporation</A></FONT>
+</CENTER>
+<P>
+</BODY>
+</HTML>
+
+

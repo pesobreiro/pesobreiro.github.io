@@ -1,0 +1,170 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>Using Field Objects</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba09_1.htm" OnClick="SyncURL(&quot;chapters/ba09_1.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<a NAME="3UsingFieldObjects"></a>
+<p CLASS="heading3OrgHeading1h1">Using Field Objects</p>
+<p CLASS="Textttext">The default collection of a <span CLASS="ElementNameeln">Recordset </span>object is its <span CLASS="ElementNameeln">Fields</span> collection. This collection includes a single <span CLASS="ElementNameeln">Field</span> object that corresponds to each field (or column) in the <span CLASS="ElementNameeln">Recordset</span>. Each <span CLASS="ElementNameeln">Field</span> object has a set of properties that uniquely identifies the field name, data type, and so on, as well as the value of the field in the current record. You use the <span CLASS="ElementNameeln">Field</span> objects in a <span CLASS="ElementNameeln">Recordset</span> object to read and set values for the fields in the current record of the <span CLASS="ElementNameeln">Recordset</span> object.
+<p CLASS="Textttext">You manipulate a field by using a <span CLASS="ElementNameeln">Field</span> object and its methods and properties. For example, you can:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspUse the <span CLASS="ElementNameeln">OrdinalPosition</span> property to get or set the position of a <span CLASS="ElementNameeln">Field</span> object relative to other fields in a <span CLASS="ElementNameeln">Fields</span> collection.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspUse the <span CLASS="ElementNameeln">FieldSize</span> property, the <span CLASS="ElementNameeln">GetChunk</span> method, or the <span CLASS="ElementNameeln">AppendChunk</span> method to get or set a value in an OLE Object or Memo field of a <span CLASS="ElementNameeln">Recordset</span> object.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspRead or set the DAO <span CLASS="ElementNameeln">Value</span> property of a <span CLASS="ElementNameeln">Recordset</span> object.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspRead or set the DAO <span CLASS="ElementNameeln">AllowZeroLength</span>,<span CLASS="ElementNameeln"> Required</span>,<span CLASS="ElementNameeln"> ValidationRule</span>, <span CLASS="ElementNameeln">ValidationText</span>, or <span CLASS="ElementNameeln">ValidateOnSet</span> property setting to find or specify validation conditions.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspRead the <span CLASS="ElementNameeln">SourceField</span> and <span CLASS="ElementNameeln">SourceTable</span> property settings to determine the original source of the data.</p>
+<a NAME="4ReferringtoFieldObjects"></a>
+<p CLASS="heading4OrgHeading2h2">Referring to Field Objects</p>
+<p CLASS="Textttext">You can identify a <span CLASS="ElementNameeln">Field</span> object by its DAO <span CLASS="ElementNameeln">Name</span> property, which corresponds to the column name in the table from which the data in the field was retrieved. The <span CLASS="ElementNameeln">Fields</span> collection is the default collection of a <span CLASS="ElementNameeln">Recordset</span> object. Therefore, you can refer to the LastName field in the rstEmployees <span CLASS="ElementNameeln">Recordset</span> in any of the following ways:</p>
+<p CLASS="CodeTextct">rstEmployees.Fields(&quot;LastName&quot;)<br>rstEmployees!LastName<br>rstEmployees![LastName]</p>
+<p CLASS="Textttext">When using the<span CLASS="ElementNameeln"> !</span> operator, you must include brackets around a field name when it contains spaces. For example, the statement:</p>
+<p CLASS="CodeTextct">strEmp = rstEmployees!Last Name</p>
+<p CLASS="Textttext">will not compile, but the statement:</p>
+<p CLASS="CodeTextct">strEmp = rstEmployees![Last Name]</p>
+<p CLASS="Textttext">will compile with no problems.
+<p CLASS="Textttext">Within the <span CLASS="ElementNameeln">Fields</span> collection, each <span CLASS="ElementNameeln">Field</span> object can also be identified by its index:</p>
+<p CLASS="CodeTextct">rstEmployees.Fields(0)</p>
+<p CLASS="Textttext">The index enables you to walk through the collection in a loop, replacing the index with a variable that is incremented with each pass through the loop. Objects in a collection are numbered starting with zero, so the first <span CLASS="ElementNameeln">Field</span> object in the <span CLASS="ElementNameeln">Fields</span> collection is number 0, the second is 1, and so on. The field order is determined by the underlying table. Fields are usually numbered in the order retrieved when the <span CLASS="ElementNameeln">Recordset</span> object is opened. One drawback to this approach is that you can't be certain which field will be referred to, because the underlying table structure may change, fields may be added or deleted, and so on.
+<p CLASS="Textttext">To help you determine the order of fields in a <span CLASS="ElementNameeln">Fields</span> collection, the <span CLASS="ElementNameeln">Field</span> object supports the <span CLASS="ElementNameeln">OrdinalPosition</span> property, which you can use to get or set a field's position relative to other fields in the collection. You can set the <span CLASS="ElementNameeln">OrdinalPosition</span> property to any positive integer to change the field order when data is displayed in a form, copied to an array or a Microsoft Excel worksheet, and so on.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on the <span CLASS="ElementNameeln">OrdinalPosition</span> property, search the Help index for &quot;OrdinalPosition property.&quot;</p>
+<p CLASS="Textttext">When writing code that refers to fields within a loop, it's more efficient to refer to <span CLASS="ElementNameeln">Field</span> objects rather than to refer to fields by their names. The following example shows a more efficient way of writing the ChangeTitle procedure discussed earlier in this chapter. Instead of referring to the Title field as <span CLASS="CodeTextEmbeddedcte">rstEmp!Title</span>, it refers to the field by its object variable, which doesn't require that the field be looked up in the <span CLASS="ElementNameeln">Fields</span> collection every time it's referred to.</p>
+<p CLASS="CodeTextct">Sub ChangeTitle()<br>&nbsp;&nbsp;&amp;nbspDim dbsSales As Database<br>&nbsp;&nbsp;&amp;nbspDim rstEmp As Recordset, fldTitle As Field<br>&nbsp;&nbsp;&amp;nbspDim wrkCurrent As Workspace<br>&nbsp;&nbsp;&amp;nbspSet wrkCurrent = DBEngine.Workspaces(0)<br>&nbsp;&nbsp;&amp;nbspSet dbsSales = OpenDatabase(&quot;Northwind.mdb&quot;)<br>&nbsp;&nbsp;&amp;nbspSet rstEmp = dbsSales.OpenRecordset(&quot;Employees&quot;, dbOpenTable)<br>&nbsp;&nbsp;&amp;nbspSet fldTitle = rstEmp.Fields(&quot;Title&quot;)<br>&nbsp;&nbsp;&amp;nbspwrkCurrent.BeginTrans<br>&nbsp;&nbsp;&amp;nbspDo Until rstEmp.EOF<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbspIf fldTitle = &quot;Sales Representative&quot; Then<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbsprstEmp.Edit<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbspfldTitle = &quot;Sales Associate&quot;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbsprstEmp.Update<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbspEnd If<br> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbsprstEmp.MoveNext<br>&nbsp;&nbsp;&amp;nbspLoop<br>&nbsp;&nbsp;&amp;nbspIf MsgBox(&quot;Save all changes?&quot;, vbQuestion + vbYesNo) = vbYes Then<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbspwrkCurrent.CommitTrans<br>&nbsp;&nbsp;&amp;nbspElse<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbspwrkCurrent.Rollback<br>&nbsp;&nbsp;&amp;nbspEnd If<br>&nbsp;&nbsp;&amp;nbsprstEmp.Close<br>&nbsp;&nbsp;&amp;nbspdbsSales.Close<br>End Sub</p>
+<a NAME="4FieldDataTypes"></a>
+<p CLASS="heading4OrgHeading2h2">Field Data Types</p>
+<p CLASS="Textttext">A <span CLASS="ElementNameeln">Field</span> object has a <span CLASS="ElementNameeln">Type</span> property that can be set to one of the following 12 DAO data types.</p>
+<!--mstheme--></font><table WIDTH="100%" BORDER="0" CELLPADDING="5" CELLSPACING="0" FRAME="VOID" RULES="THEAD"><thead>
+<tr VALIGN="TOP" BGCOLOR="#DDDDDD">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Type property setting</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Data type</p></font><!--mstheme--></font></td></tr><tbody>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">dbBoolean</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Boolean</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">dbByte</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Byte</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">dbInteger</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Integer</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">dbLong</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Long</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">dbCurrency</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Currency</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">dbSingle</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Single</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">dbDouble</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Double</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">dbDate</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Date/Time</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">dbText</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Text</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">dbLongBinary</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">OLE Object</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">dbMemo</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Memo</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">dbGUID</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">GUID</p></font><!--mstheme--></font></td></tr>
+</table><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="Textttext">For a <span CLASS="ElementNameeln">Field</span> object on a <span CLASS="ElementNameeln">Recordset</span>, the <span CLASS="ElementNameeln">Type</span> property is read-only. However, you must be aware of the field type when copying data to or from a field in code or a &quot;Type mismatch&quot; error may occur. For example, you cannot copy Text data to an Integer field.
+<p CLASS="Textttext">The <span CLASS="ElementNameeln">Type</span> property of a <span CLASS="ElementNameeln">Field</span> object on a <span CLASS="ElementNameeln">Recordset</span> is determined by the underlying table from which the record was retrieved. If you create the table and its fields by using DAO data-definition language (DDL) statements, you can easily determine the data type of the table's fields.
+<p CLASS="Textttext">If you're accessing external data through an installable ISAM driver, the data types within external tables may be different from those defined within Microsoft Jet. The installable ISAM driver for the external data source converts external data types into their closest equivalent DAO data type.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on data type conversion in external data sources, see Chapter 18, <a HREF="../chapters/ba18_1.htm" OnClick="SyncURL(&quot;chapters/ba18_1.htm&quot;)">&quot;Accessing External Data.&quot;</a></p>
+<a NAME="5TheGUIDDataType"></a>
+<p CLASS="heading5OrgHeading3h3">The GUID Data Type</p>
+<p CLASS="Textttext">The GUID data type is used to store a globally unique identifier, a unique string of digits that identifies OLE objects, Microsoft SQL Server remote procedure calls, and other entities that need a unique reference identification.</p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>The GUID data type is also used in the <span CLASS="ElementNameeln">Database</span> object's <span CLASS="ElementNameeln">ReplicaID</span> property to identify a replica. For information on replicas, see Chapter 20, <a HREF="../chapters/ba20_1.htm" OnClick="SyncURL(&quot;chapters/ba20_1.htm&quot;)">&quot;Using Replication in Your Application.&quot;</a></p>
+<a NAME="5TheTextDataType"></a>
+<p CLASS="heading5OrgHeading3h3">The Text Data Type</p>
+<p CLASS="Textttext">For <span CLASS="ElementNameeln">Field</span> objects declared as type Text, you must set the <span CLASS="ElementNameeln">Size</span> property, which indicates the length of the longest string that can be stored in the field. All other types of <span CLASS="ElementNameeln">Field</span> objects have their <span CLASS="ElementNameeln">Size</span> property set automatically.</p>
+<a NAME="5TheCurrencyDataType"></a>
+<p CLASS="heading5OrgHeading3h3">The Currency Data Type</p>
+<p CLASS="Textttext">If you need to store monetary values, use fields of type Currency. Don't use any of the number data types (such as Single) for currency values, because numbers to the right of the decimal may be rounded during calculations. The Currency data type always maintains a fixed number of digits to the right of the decimal.</p>
+<a NAME="5TheLongDataType"></a>
+<p CLASS="heading5OrgHeading3h3">The Long Data Type</p>
+<p CLASS="Textttext">In some tables, you'll want to store a series of sequential numbers to uniquely identify records. For example, you may want to start customer order records at order number 1 and begin counting upward.
+<p CLASS="Textttext">Microsoft Access can automatically insert unique numbers in a field, saving your application the effort of generating unique identifiers to be used within a primary key field. To take advantage of this capability, define a field with the Long data type and set the <span CLASS="ElementNameeln">dbAutoIncrField</span> constant in the <span CLASS="ElementNameeln">Field</span> object's <span CLASS="ElementNameeln">Attributes </span>property. Auto-incrementing fields start at 1 and increment sequentially. Fields of this type are also referred to as <span CLASS="NewTermntrm">AutoNumber</span> <span CLASS="NewTermntrm">fields</span>.
+<p CLASS="Textttext">If you want to establish a primary key/foreign key relationship between two tables by using an AutoNumber field, make sure that the foreign key field is also defined as Long.
+<p CLASS="Textttext">You can also set the DAO <span CLASS="ElementNameeln">DefaultValue</span> property of a <span CLASS="ElementNameeln">Field</span> object on a <span CLASS="ElementNameeln">TableDef</span> object to a special value called GenUniqueId( ). This causes a random number to be assigned to this field whenever a new record is added or created. The field's <span CLASS="ElementNameeln">Type</span> property must be Long.</p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>A <span CLASS="ElementNameeln">Field</span> object's data type is read/write before the field is appended to a table's <span CLASS="ElementNameeln">Fields</span> collection, and read-only after it's appended.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on the DAO <span CLASS="ElementNameeln">Attributes</span> and <span CLASS="ElementNameeln">DefaultValue</span> properties, search the Help index for the name of the property.</p>
+<a NAME="5TheOLEObjectandMemoDataTypes"></a>
+<p CLASS="heading5OrgHeading3h3">The OLE Object and Memo Data Types</p>
+<p CLASS="Textttext">OLE Object and Memo fields are collectively referred to as <span CLASS="NewTermntrm">large value fields</span> because they are typically much larger than fields of other data types. OLE<span CLASS="ElementNameeln"> </span>Object fields consist of binary data up to 1.2 gigabytes in size. This type is used to store pictures, files, or other raw binary data. Memo fields are used to store lengthy text and numbers, such as comments or explanations. The size of a Memo field is limited by the maximum size of the database.
+<p CLASS="Textttext">Records within a <span CLASS="ElementNameeln">Recordset </span>object must fit on the 2K data pages supported by the Microsoft Jet database engine. Each <span CLASS="ElementNameeln">Field</span> object you include in the table definition counts toward this 2K total, including OLE Object and Memo fields. However, the amount stored for OLE Object and Memo fields is only 14 bytes per non-null field, and only 1 byte for null<span CLASS="ElementNameeln"> </span>fields. The 14 bytes is used to store a pointer to the actual data for these fields, which is located on additional 2K pages. The amount of data committed to each text field isn't set until you actually store data in the field. You can overcommit a data page by defining more text fields than there would be room for, but no more than about 2K of actual data can be stored in a record. For example, you can define fifteen 250-byte text fields in a record, but the total number of characters stored must be less than 2K.
+<p CLASS="Textttext">When you query tables containing large value fields, don't include those fields in the field list unless you need them, because returning large value fields takes time. Also, be aware that you can't index large value fields.
+<p CLASS="Textttext">A snapshot- or forward-only-type <span CLASS="ElementNameeln">Recordset </span>object opened against large value fields in an .mdb file doesn't actually contain that data. Instead, the snapshot maintains references to the data in the original tables, the same way a dynaset refers to all data.</p>
+<a NAME="6HandlingLargeValueData"></a>
+<p CLASS="heading6OrgHeading4h4">Handling Large Value Data</p>
+<p CLASS="Textttext">Sometimes you'll need to read or copy data from a large value field where you don't have sufficient memory to copy the entire field in a single statement. Instead, you have to break up the data into smaller units, or chunks, that will fit available memory. The <span CLASS="ElementNameeln">FieldSize</span> property tells you how large the field is, measured in bytes. Then you can use the <span CLASS="ElementNameeln">GetChunk</span> method to copy a specific number of bytes to a buffer, and use the <span CLASS="ElementNameeln">AppendChunk</span> method to copy the buffer to the final location. You then continue using <span CLASS="ElementNameeln">GetChunk</span> and <span CLASS="ElementNameeln">AppendChunk</span> until the entire field is copied.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on DAO field data types, search the Help index for &quot;data types, Microsoft Jet.&quot;</p>
+<a NAME="4ReadingandWritingData"></a>
+<p CLASS="heading4OrgHeading2h2">Reading and Writing Data</p>
+<p CLASS="Textttext">When you read or write data to a field, you're actually reading or setting the DAO <span CLASS="ElementNameeln">Value</span> property of a <span CLASS="ElementNameeln">Field</span> object. The DAO <span CLASS="ElementNameeln">Value</span> property is the default property of a <span CLASS="ElementNameeln">Field</span> object. Therefore, you can set the DAO <span CLASS="ElementNameeln">Value</span> property of the LastName field in the rstEmployees <span CLASS="ElementNameeln">Recordset</span> in any of the following ways:</p>
+<p CLASS="CodeTextct">rstEmployees!LastName.Value = strName<br>rstEmployees!LastName = strName<br>rstEmployees![LastName] = strName</p>
+<a NAME="5WritePermission"></a>
+<p CLASS="heading5OrgHeading3h3">Write Permission</p>
+<p CLASS="Textttext">The tables underlying a <span CLASS="ElementNameeln">Recordset</span> object may not permit you to modify data, even though the <span CLASS="ElementNameeln">Recordset</span> is of type dynaset or table, which are usually updatable. Check the <span CLASS="ElementNameeln">Updatable</span> property of the <span CLASS="ElementNameeln">Recordset</span> to determine whether its data can be changed. If the property is <span CLASS="ElementNameeln">True</span>, the <span CLASS="ElementNameeln">Recordset </span>object can be updated.
+<p CLASS="Textttext">Individual fields within an updatable <span CLASS="ElementNameeln">Recordset</span> object may not be updatable, and trying to write to these fields generates a run-time error. To determine whether a given field is updatable, check the <span CLASS="ElementNameeln">DataUpdatable</span> property of the corresponding <span CLASS="ElementNameeln">Field </span>object in the<span CLASS="ElementNameeln"> Fields</span> collection of the <span CLASS="ElementNameeln">Recordset</span>. The following example returns <span CLASS="ElementNameeln">True</span> if all fields in the dynaset created by strQuery are updatable and returns <span CLASS="ElementNameeln">False</span> otherwise.</p>
+<p CLASS="CodeTextct">Function blnUpdatable(strQuery As String) As Boolean<br>&nbsp;&nbsp;&amp;nbspDim dbs As Database, rstDynaset As Recordset, intI As Integer<br>&nbsp;&nbsp;&amp;nbspOn Error GoTo ErrorHandler<br>&nbsp;&nbsp;&nbsp;' Initialize the function's return value to True.<br>&nbsp;&nbsp;&amp;nbspblnUpdatable = True<br>&nbsp;&nbsp;&amp;nbspSet dbs = CurrentDb<br>&nbsp;&nbsp;&amp;nbspSet rstDynaset = dbs.OpenRecordset(strQuery, dbOpenDynaset)<br>&nbsp;&nbsp;&nbsp;' If the entire dynaset isn't updatable, return False.<br>&nbsp;&nbsp;&amp;nbspIf rstDynaset.Updatable = False Then<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbspblnUpdatable = False<br>&nbsp;&nbsp;&amp;nbspElse<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' If the dynaset is updatable, check if all fields in the dynaset are updatable.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' If one of the fields isn't updatable, return False.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbspFor intI = 0 To rstDynaset.Fields.Count - 1<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbspIf rstDynaset.Fields(intI).DataUpdatable = False Then<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbspblnUpdatable = False<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbspExit For<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbspEnd If<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbspNext intI<br>&nbsp;&nbsp;&amp;nbspEnd If<br>ErrorHandler:<br>&nbsp;&nbsp;&amp;nbspSelect Case Err<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbspCase 0<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbspExit Function<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbspCase Else<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbspMsgBox &quot;Error &quot; &amp; Err &amp; &quot;: &quot; &amp; Error, vbOKOnly, &quot;ERROR&quot;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbspExit Function<br>&nbsp;&nbsp;&amp;nbspEnd Select<br>End Function</p>
+<a NAME="5Criteria"></a>
+<p CLASS="heading5OrgHeading3h3">Criteria</p>
+<p CLASS="Textttext">Any single field can impose a number of criteria on data in that field when records are added or updated. These criteria are defined by a handful of properties. The DAO <span CLASS="ElementNameeln">AllowZeroLength</span> property on a Text or Memo field indicates whether or not the field will accept a zero-length string (&quot;&quot;). The DAO <span CLASS="ElementNameeln">Required</span> property indicates whether or not some value must be entered in the field, or if it instead can accept a <span CLASS="ElementNameeln">Null </span>value. For a <span CLASS="ElementNameeln">Field</span> object on a <span CLASS="ElementNameeln">Recordset</span>, these properties are read-only; their state is determined by the underlying table.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on the DAO <span CLASS="ElementNameeln">AllowZeroLength</span> and <span CLASS="ElementNameeln">Required </span>properties, search the Help index for the name of the property.</p>
+<a NAME="6FieldLevelDataValidation"></a>
+<p CLASS="heading6OrgHeading4h4">Field-Level Data Validation</p>
+<p CLASS="Textttext"><span CLASS="NewTermntrm">Validation</span> is the process of determining whether data entered into a field's DAO <span CLASS="ElementNameeln">Value</span> property is within an acceptable range. A <span CLASS="ElementNameeln">Field</span> object on a <span CLASS="ElementNameeln">Recordset</span> may have the DAO <span CLASS="ElementNameeln">ValidationRule</span> and <span CLASS="ElementNameeln">ValidationText</span> properties set. The DAO <span CLASS="ElementNameeln">ValidationRule</span> property is simply a criteria expression, similar to the criteria of an SQL WHERE clause, without the WHERE keyword. The DAO <span CLASS="ElementNameeln">ValidationText</span> property is a string that Microsoft Access displays in an error message if you try to enter data in the field that's outside the limits of the DAO <span CLASS="ElementNameeln">ValidationRule</span> property. If you're using DAO in your code, then you can use the DAO <span CLASS="ElementNameeln">ValidationText</span> for a message that you want to display to the user.</p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>The DAO <span CLASS="ElementNameeln">ValidationRule</span> and <span CLASS="ElementNameeln">ValidationText</span> properties also exist at the <span CLASS="ElementNameeln">Recordset </span>level. These are read-only properties, reflecting the table-level validation scheme established on the table from which the current record is retrieved.</p>
+<p CLASS="Textttext">A <span CLASS="ElementNameeln">Field </span>object on a <span CLASS="ElementNameeln">Recordset</span> also features the <span CLASS="ElementNameeln">ValidateOnSet</span> property. When the <span CLASS="ElementNameeln">ValidateOnSet</span> property is set to <span CLASS="ElementNameeln">True</span>, Microsoft Access checks validation as soon as the field's DAO <span CLASS="ElementNameeln">Value</span> property is set. When it's set to <span CLASS="ElementNameeln">False </span>(the default), Microsoft Access checks validation only when the completed record is updated. For example, if you're adding data to a record that contains a large Memo or OLE Object field and that has the DAO <span CLASS="ElementNameeln">ValidationRule</span> property set, you should determine whether the new data violates the validation rule before trying to write the data<img SRC="../images/Emdash.gif" BORDER="0" VSPACE="0" HSPACE="0" WIDTH="16" HEIGHT="5">you should write the data when the field value is set. To do so, set the <span CLASS="ElementNameeln">ValidateOnSet</span> property to <span CLASS="ElementNameeln">True</span>. If you wait to check validation until the entire record is written to disk, you may waste time trying to write an invalid record to disk.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on the DAO <span CLASS="ElementNameeln">ValidationRule</span>, <span CLASS="ElementNameeln">ValidationText</span>, and <span CLASS="ElementNameeln">ValidateOnSet</span> properties, search the Help index for the name of the property.</p>
+<a NAME="4TracingtheOriginofDynasetFields"></a>
+<p CLASS="heading4OrgHeading2h2">Tracing the Origin of Dynaset Fields</p>
+<p CLASS="Textttext">A dynaset-type <span CLASS="ElementNameeln">Recordset</span> object can include records from more than one source table. Also, within a single record, fields from different tables can be joined into new records. Sometimes it's useful to know the table from which a field originated. The <span CLASS="ElementNameeln">SourceTable</span> property of a <span CLASS="ElementNameeln">Field</span> object returns the name of the table from which the field's current data was retrieved.
+<p CLASS="Textttext">Within a query, a field can be renamed for display purposes. For example, in an SQL SELECT query, the AS operator in the select field list can create an alias for one of the returned fields. In a <span CLASS="ElementNameeln">Recordset </span>based on an SQL query, a field that has been aliased is represented by a <span CLASS="ElementNameeln">Field</span> object whose DAO <span CLASS="ElementNameeln">Name</span> property reflects the alias, not the original field name. To find out the original field name, check the <span CLASS="ElementNameeln">Field</span> object's <span CLASS="ElementNameeln">SourceField</span> property.</p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="ba10_1.htm" OnClick="SyncURL(&quot;chapters/ba10_1.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

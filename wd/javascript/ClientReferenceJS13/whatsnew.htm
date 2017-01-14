@@ -1,0 +1,120 @@
+<HTML>
+<HEAD>
+<TITLE>New Features in this Release
+</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="contents.htm">Previous</A>
+ | <A HREF="preface.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT><BR><BR>
+<HR>
+<CENTER><H2><A NAME="1001665">
+ New Features in this Release</H2>
+</A></CENTER>
+<A NAME="1004098">
+JavaScript version 1.3 provides the following new features and enhancements:</A></P>
+<ul><P><LI><A NAME="1004110">
+<B>ECMA compliance.</B> JavaScript&nbsp;1.3 is fully compatible with ECMA-262. See the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A> for details.</A></LI>
+<P><LI><A NAME="1004405">
+<B>Unicode support.</B> The Unicode character set can be used for all known encoding, and you can use the Unicode escape sequence in string literals. See <A HREF="toplev.htm#1063743"><CODE>escape</CODE></A> and <A HREF="toplev.htm#1064583"><CODE>unescape</CODE></A>. See the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A> for details.</A></LI>
+<P><LI><A NAME="1004126">
+<B>Changes to the Array object.</B></A></LI>
+<ul>
+</P><LI><A NAME="1004152">
+When you specify a single numeric parameter with the <A HREF="array.htm#1193137"><CODE>Array</CODE></A> constructor, you specify the initial length of the array.</A></LI>
+</P><LI><A NAME="1004156">
+The <A HREF="array.htm#1196550"><CODE>push</CODE></A> method returns the new length of the array rather than the last element added to the array.</A></LI>
+</P><LI><A NAME="1004160">
+The <A HREF="array.htm#1193766"><CODE>splice</CODE></A> method always returns an array containing the removed elements, even if only one element is removed.</A></LI>
+</P><LI><A NAME="1004164">
+The <A HREF="array.htm#1193921"><CODE>toString</CODE></A> method joins an array and returns a string containing each array element separated by commas, rather than returning a string representing the source code of the array.</A></LI>
+</P><LI><A NAME="1004168">
+The <A HREF="array.htm#1193439"><CODE>length</CODE></A> property contains an unsigned, 32-bit integer with a value less than 2<SUP>32</SUP>.</A></LI>
+</ul>
+<P><LI><A NAME="1004169">
+<B>Changes to the Date object.</B></A></LI>
+<ul>
+</P><LI><A NAME="1004170">
+Removed platform dependencies to provide a uniform behavior across platforms.</A></LI>
+</P><LI><A NAME="1004171">
+Changed the range for dates to -100,000,000 days to 100,000,000 days relative to 01 January, 1970 UTC.</A></LI>
+</P><LI><A NAME="1004175">
+Added a milliseconds parameter to the <A HREF="date.htm#1193137"><CODE>Date</CODE></A> constructor.</A></LI>
+</P><LI><A NAME="1004185">
+Added the <CODE><A HREF="date.htm#1193607">getFullYear</A></CODE>, <CODE><A HREF="date.htm#1194264">setFullYear</A></CODE>, <CODE><A HREF="date.htm#1193677">getMilliseconds</A></CODE>, and <CODE><A HREF="date.htm#1194367">setMilliseconds</A></CODE> methods.</A></LI>
+</P><LI><A NAME="1004198">
+Added the <CODE><A HREF="date.htm#1219395">getUTCDate</A></CODE>, <CODE><A HREF="date.htm#1193904">getUTCDay</A></CODE>, <CODE><A HREF="date.htm#1193940">getUTCFullYear</A></CODE>, <CODE><A HREF="date.htm#1193973">getUTCHours</A></CODE>, <CODE><A HREF="date.htm#1194006">getUTCMilliseconds</A></CODE>, <CODE><A HREF="date.htm#1194039">getUTCMinutes</A></CODE>, <CODE><A HREF="date.htm#1194072">getUTCMonth</A></CODE>, <CODE><A HREF="date.htm#1194105">getUTCSeconds</A></CODE>, <CODE><A HREF="date.htm#1194580">setUTCDate</A></CODE>, <CODE><A HREF="date.htm#1194617">setUTCFullYear</A></CODE>, <CODE><A HREF="date.htm#1194663">setUTCHours</A></CODE>, <CODE><A HREF="date.htm#1194713">setUTCMilliseconds</A></CODE>, <CODE><A HREF="date.htm#1194750">setUTCMinutes</A></CODE>, <CODE><A HREF="date.htm#1194796">setUTCMonth</A></CODE>, <CODE><A HREF="date.htm#1194838">setUTCSeconds</A></CODE>, and <CODE><A HREF="date.htm#1195045">toUTCString</A></CODE> methods.</A></LI>
+</P><LI><A NAME="1004241">
+Added a day parameter to the <CODE><A HREF="date.htm#1194453">setMonth</A></CODE> method.</A></LI>
+</P><LI><A NAME="1004245">
+Added minutes, seconds, and milliseconds parameters to the <CODE><A HREF="date.htm#1194314">setHours</A></CODE> method.</A></LI>
+</P><LI><A NAME="1004249">
+Added seconds and milliseconds parameters to the <CODE><A HREF="date.htm#1193778">setMinutes</A></CODE> method.</A></LI>
+</P><LI><A NAME="1004253">
+Added a milliseconds parameter to the <CODE><A HREF="date.htm#1194498">setSeconds</A></CODE> method.</A></LI>
+</P><LI><A NAME="1004257">
+Added a milliseconds parameter to the <CODE><A HREF="date.htm#1195078">UTC</A></CODE> method.</A></LI>
+</P><LI><A NAME="1004267">
+Deprecated the <CODE><A HREF="date.htm#1194138">getYear</A></CODE>, <CODE><A HREF="date.htm#1194880">setYear</A></CODE>, and <CODE><A HREF="date.htm#1194931">toGMTString</A></CODE> methods.</A></LI>
+</ul>
+<P><LI><A NAME="1004268">
+<B>Changes to the Function object.</B></A></LI>
+<ul>
+</P><LI><A NAME="1004272">
+Added the <A HREF="function.htm#1194017"><CODE>apply</CODE></A> method, which allows you to apply a method of another object in the context of a different object (the calling object).</A></LI>
+</P><LI><A NAME="1004276">
+Added the <A HREF="function.htm#1194243"><CODE>call</CODE></A> method, which allows you to call (execute) a method of another object in the context of a different object (the calling object).</A></LI>
+</P><LI><A NAME="1004280">
+Deprecated the <A HREF="function.htm#1196447"><CODE>arguments.caller</CODE></A> property.</A></LI>
+</ul>
+<P><LI><A NAME="1004281">
+<B>Changes to the String object.</B></A></LI>
+<ul>
+</P><LI><A NAME="1004288">
+The <A HREF="string.htm#1196647"><CODE>charCodeAt</CODE></A> and <A HREF="string.htm#1225094"><CODE>fromCharCode</CODE></A> methods use Unicode values rather than ISO-Latin-1 values.</A></LI>
+</P><LI><A NAME="1004292">
+The <A HREF="string.htm#1194258"><CODE>replace</CODE></A> method supports the nesting of a function in place of the second argument.</A></LI>
+</ul>
+<P><LI><A NAME="1004293">
+<B>New method toSource.</B> The <CODE>toSource</CODE> method returns a string representing the source code of the object. See <A HREF="array.htm#1193889"><CODE>Array.toSource</CODE></A>, <A HREF="boolean.htm#1193426"><CODE>Boolean.toSource</CODE></A>, <A HREF="date.htm#1195016"><CODE>Date.toSource</CODE></A>, <A HREF="function.htm#1193583"><CODE>Function.toSource</CODE></A>, <A HREF="number.htm#1193434"><CODE>Number.toSource</CODE></A>, <A HREF="object.htm#1193320"><CODE>Object.toSource</CODE></A>, <A HREF="regexp.htm#1194174"><CODE>RegExp.toSource</CODE></A>, and <A HREF="string.htm#1194796"><CODE>String.toSource</CODE></A>.</A></LI>
+<P><LI><A NAME="1004321">
+<B>New top-level properties Infinity, NaN, and undefined.</B> <A HREF="toplev.htm#1063963"><CODE>Infinity</CODE></A> is a numeric value representing infinity. <A HREF="toplev.htm#1064064"><CODE>NaN</CODE></A> is a value representing Not-A-Number. <A HREF="toplev.htm#1094680"><CODE>undefined</CODE></A> is the value undefined.</A></LI>
+<P><LI><A NAME="1004331">
+<B>New top-level function isFinite.</B> <A HREF="toplev.htm#1063988"><CODE>isFinite</CODE></A> evaluates an argument to determine whether it is a finite number.</A></LI>
+<P><LI><A NAME="1004332">
+<B>Changes to the top-level eval function.</B> You should not indirectly use the <A HREF="toplev.htm#1063795"><CODE>eval</CODE></A> function by invoking it via a name other than <CODE>eval</CODE>.</A></LI>
+<P><LI><A NAME="1004336">
+<B>New strict equality operators === and !==.</B> The <CODE>===</CODE> (strict equal) operator returns true if the operands are equal and of the same type. The <CODE>!==</CODE> (strict not equal) operator returns true if the operands are not equal and/or not of the same type. See <A HREF="ops.htm#1060974">"Comparison Operators" on page&nbsp;635</A> and <A HREF="ops.htm#1050908">"Using the Equality Operators" on page&nbsp;637</A>.</A></LI>
+<P><LI><A NAME="1004343">
+<B>Changes to the equality operators == and !=.</B> The use of the <CODE>==</CODE> (equal) and <CODE>!=</CODE> (not equal) operators reverts to the JavaScript&nbsp;1.1 implementation. If the two operands are not of the same type, JavaScript attempts to convert the operands to an appropriate type for the comparison. See <A HREF="ops.htm#1050908">"Using the Equality Operators" on page&nbsp;637</A>.</A></LI>
+<P><LI><A NAME="1004347">
+<B>Changes to the behavior of conditional tests.</B></A></LI>
+<ul>
+</P><LI><A NAME="1004348">
+You should not use simple assignments in a conditional statement; for example, do not specify the condition <CODE>if(x = y)</CODE>. Previous JavaScript versions converted <CODE>if(x = y)</CODE> to <CODE>if(x == y)</CODE>, but 1.3 generates a runtime error. See <A HREF="stmt.htm#1004833">"if...else" on page&nbsp;623</A>.</A></LI>
+</P><LI><A NAME="1004030">
+Any object whose value is not <CODE>undefined</CODE> or <CODE>null</CODE>, including a Boolean object whose value is false, evaluates to true when passed to a conditional statement. See <A HREF="boolean.htm#1193137">"Boolean" on page&nbsp;51</A>.</A></LI>
+</ul>
+<P><LI><A NAME="1004383">
+<B>The JavaScript console.</B> <VAR>The JavaScript console</VAR> is a window that can display all JavaScript error messages. Then, when a JavaScript error occurs, the error message is directed to the JavaScript console and no dialog box appears. See the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A> for details.</A></LI>
+</ul>
+<HR>
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="contents.htm">Previous</A>
+ | <A HREF="preface.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT>
+<P ALIGN=right>
+<FONT SIZE=-2><I>Last Updated:  05/28/99  11:58:55</I></FONT>
+<P> <CENTER>Copyright (c) 1999
+<A HREF="http://home.netscape.com/misc/contact_info.html"
+TARGET=_top>Netscape Communications Corporation</A></FONT>
+</CENTER>
+<P>
+</BODY>
+</HTML>
+
+

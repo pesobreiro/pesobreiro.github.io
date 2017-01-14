@@ -1,0 +1,48 @@
+.Titulo1 {
+	font-size: large;
+	font : bold Verdana Geneva Arial Helvetica sans-serif;
+	color : Navy;
+	text-align : center;
+}
+
+.Titulo2 {
+	font-size: medium;
+	font : bold Verdana Geneva Arial Helvetica sans-serif;
+	color : Navy;
+	text-align : center;
+}
+
+.link {
+	font-size: medium;
+	font : bold Verdana Geneva Arial Helvetica sans-serif;
+	color : white;
+	text-align : center;
+}
+
+.contactos {
+	font-size: x-small;
+	font : bold Verdana Geneva Arial Helvetica sans-serif;
+	color : Navy;
+	text-align : center;
+}
+
+A {
+	font-size: x-small;
+	font : bold Verdana Geneva Arial Helvetica sans-serif;
+	color : Navy;
+	text-align : center;
+}
+
+A:ACTIVE {
+	font-size: x-small;
+	font : bold Verdana Geneva Arial Helvetica sans-serif;
+	color : #FF8C00;
+	text-align : center;
+}
+A:HOVER {
+		font-size: x-small;
+	font : bold Verdana Geneva Arial Helvetica sans-serif;
+	color : #FF8C00;
+	text-align : center;
+}
+

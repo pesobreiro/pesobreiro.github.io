@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>Assigning Values to Controls and Properties at Run Time</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba03_1.htm" OnClick="SyncURL(&quot;chapters/ba03_1.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<a NAME="3AssigningValuestoControlsandPropertiesatRunTime"></a>
+<p CLASS="heading3OrgHeading1h1">Assigning Values to Controls and Properties at Run Time</p>
+<p CLASS="Textttext">By assigning values to controls and properties on a form or report while your application is running, you can make your forms and reports more responsive to your users' needs.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>To find out whether you can set a particular property at run time, search the Help index for the name of the property.</p>
+<p CLASS="Textttext">For example, after a user selects a customer for an order, you may want to fill in the controls that contain the shipping address with the customer's address. You do this by assigning values to the shipping controls. Or you may want to disable some controls on the form in response to values the user enters in other controls. You do this by setting the <span CLASS="ElementNameeln">Enabled</span> property of each control to <span CLASS="ElementNameeln">False</span> when the user enters the values.
+<p CLASS="Textttext">In a macro, use the SetValue action, as shown in the following illustrations.</p>
+<p CLASS="Arta"><img SRC="..\images\ABAC0303.jpg"></p>
+<p CLASS="Textttext">If the control to which you assign a value is located on a form or report other than the one that runs the macro, you must enter its full identifier as the Item argument.</p>
+<p CLASS="Arta"><img SRC="..\images\ABAC0304.jpg"></p>
+<p CLASS="Textttext">If you want to use Visual Basic to assign a value to a control or property, use a simple assignment statement. To refer to a control that is located on the form or report from which you're running the event procedure, you don't need to use its full identifier.</p>
+<p CLASS="CodeTextct">ShipCity = City <br>Details.Enabled = False</p>
+<p CLASS="Textttext">To refer to a control on a different form or report, use its full identifier.</p>
+<p CLASS="CodeTextct">Forms!ShipForm!ShipCity = City</p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>Although properties with more than one word appear in the property sheet with spaces between words, you must concatenate them when you refer to them in Visual Basic. For example, to refer to the <span CLASS="ElementNameeln">RecordSource</span> property, which appears in the property sheet as Record Source, you would use the following line of code:</p>
+<p CLASS="NoteCodeTextnct">Forms!Orders.RecordSource = &quot;OrdersQuery&quot;
+<p CLASS="heading6OrgHeading4h4"><img SRC="../images/example.gif" WIDTH="73" HEIGHT="21"><!--example space-->&nbsp;&nbsp;<a NAME="XDisablingaCommandButtonatRunTime"></a>Disabling a Command Button at Run Time</p>
+<p CLASS="Textttext">As described previously in this chapter, the Orders form in the Orders sample application includes a command button named Details that opens the ProductsPopup form. This pop-up form shows details about the current product in the Orders subform. The Details button works fine as long as the ProductID field in the current record of the subform contains a value. But if the user clicks in the new record of the Orders subform or starts a new order, then the <span CLASS="NewTermntrm">wherecondition</span> argument in the button's <span CLASS="ElementNameeln">DoCmd.OpenForm</span> statement returns no record, and the ProductsPopup form opens with no record in it. To avoid having the ProductsPopup form show no information, you can disable the Details button when there's no value in the ProductID field for the current record of the subform, and enable it when there is a value in the ProductID field.
+<p CLASS="Textttext">For example, the Current event of the Orders subform occurs when the Orders form first opens, every time the focus moves from one record to another on the subform, and every time you requery the subform. You can write an event procedure for the Current event that disables the Details button when there's no value in the ProductID field for the current record of the subform, and enables it when there is one.</p>
+<p CLASS="CodeTextct">Private Sub Form_Current()<br>&nbsp;&nbsp;&amp;nbspIf IsNull(ProductID) Then<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbspMe.Parent!Details.Enabled = False<br>&nbsp;&nbsp;&amp;nbspElse<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbspMe.Parent!Details.Enabled = True<br>&nbsp;&nbsp;&amp;nbspEnd If<br>End Sub</p>
+<p CLASS="Textttext">The statements in this event procedure use the <span CLASS="ElementNameeln">Parent</span> property of the Orders subform to refer to the Orders form. If there's no value in the ProductID field in the subform, the first statement sets the <span CLASS="ElementNameeln">Enabled</span> property of the Details button on the Orders form to <span CLASS="ElementNameeln">False</span> (the same as No in the property sheet). If there is a value in the field, the second statement sets the <span CLASS="ElementNameeln">Enabled</span> property to <span CLASS="ElementNameeln">True</span> (the same as Yes in the property sheet).
+<p CLASS="Textttext">When you use the <span CLASS="ElementNameeln">Parent</span> property to refer to the main form from an event procedure attached to a subform, the code runs only when the main form is open. If you open the subform by itself as a separate form, the code that refers to the main form doesn't work.</p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>As described previously in this chapter, the Form_Current event procedure for the Orders subform also contains code that updates the record values in the ProductsPopup form to match the current record in the subform.</p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="ba03_3.htm" OnClick="SyncURL(&quot;chapters/ba03_3.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

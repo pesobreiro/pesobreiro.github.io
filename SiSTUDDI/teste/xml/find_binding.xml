@@ -1,0 +1,9 @@
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+  <s:Body>  
+    <find_binding generic="2.0" serviceKey="MyServiceKey" xmlns="urn:uddi-org:api_v2">    
+      <tModelBag>
+        <tModelKey>MyTModelKey</tModelKey>
+      </tModelBag>
+    </find_binding>
+  </s:Body>
+</s:Envelope>

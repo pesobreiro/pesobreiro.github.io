@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Finding category values for the UDDI user console</title>
+<link rel="stylesheet" type="text/css" href="../../wasstyle.css">
+</head>
+
+<body>
+<H3><A href="#TOC16" name="catgvals">Finding category values for the UDDI user console</A></H3>
+<P>
+In the UDDI User Console, there are a number
+of places where you can specify category
+values (this is in the &quot;locators&quot;
+section on several of the forms).
+To find a value corresponding to the possible categories
+in the various categorization schemes, you
+should do the following:</P>
+<OL>
+  <LI>Start the DB2 Control Center (by <B>Start -&gt;Programs-&gt;IBM DB2-&gt;Control
+  Center</B>)
+  <LI>Expand the tree on the left-hand pane to
+  get to the Systems-&gt;<I>machine name</I>-&gt;instances-&gt;DB2-&gt;Databases-&gt;UDDI20
+  <LI>Expand UDDI20 and select &quot;Tables&quot;
+  <LI>You will see a list of tables, one of which
+  is called CATEGORY
+  <LI>Right click on this and either select &quot;Export&quot;
+  to export the data to an output file, or
+  select &quot;Sample Contents&quot;
+  <LI>If you view the data using &quot;Sample Contents&quot;,
+  then you will need to click on &quot;Next&quot;
+  to view further rows, or use the filter
+  to
+  select the items of interest
+  <LI>The data consists of rows of four fields
+  per row: NAME, CODE, DESCRIPTION and PARENTCODE
+  <LI>The NAME is the name of the categorization
+  scheme, which can be udditype, naics, unspcs,
+  geo or unspsc7. These provide categorizations
+  by geography, type of business, etc.
+  <LI>The CODE is the value you should specify
+  on the UDDI User Console, corresponding
+  to
+  the DESCRIPTION which describes the category
+  you want to search for (on Find requests)
+  or specify (on Publish requests)
+  <LI>Having found the category value (CODE) you
+  want to use, you should then enter it into
+  the form and select the categorization scheme
+  (NAME) to which it belongs from the pull-down
+  menu
+</OL>
+
+
+
+</body>
+</html>

@@ -1,0 +1,239 @@
+<HTML>
+<HEAD>
+<TITLE>Embedding JavaScript in HTML
+</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="partcli.htm">Previous</A>
+ | <A HREF="evnt.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT><BR><BR>
+<HR>
+<A NAME="1009362">
+<P></A><CENTER><H2>Chapter 9<BR>
+<A NAME="1009710">
+Embedding JavaScript in HTML</A></H2></CENTER>
+<A NAME="1013080">
+You can embed JavaScript in an HTML document as statements and functions within a &lt;SCRIPT&gt; tag, by specifying a file as the JavaScript source, by specifying a JavaScript expression as the value of an HTML attribute, or as event handlers within certain other HTML tags (primarily form elements).</A></P>
+<A NAME="1012854">
+This chapter contains the following sections:</A></P>
+<ul><LI><A NAME="1012855">
+<A HREF="embed.htm#1013179">Using the SCRIPT Tag</A>
+</A></LI><LI><A NAME="1013395">
+<A HREF="embed.htm#1013277">Specifying a File of JavaScript Code</A>
+</A></LI><LI><A NAME="1013469">
+<A HREF="embed.htm#1013293">Using JavaScript Expressions as HTML Attribute Values</A>
+</A></LI><LI><A NAME="1013471">
+<A HREF="embed.htm#1013313">Using Quotation Marks</A>
+</A></LI><LI><A NAME="1013472">
+<A HREF="embed.htm#1013319">Specifying Alternate Content with the NOSCRIPT Tag</A>
+</A></LI></ul><A NAME="1013396">
+For information on scripting with event handlers, see <A HREF="evnt.htm#1009710">Chapter 10, "Handling Events."</A></A></P>
+<BLOCKQUOTE><B>NOTE: </B><A NAME="1013539">
+Unlike HTML, JavaScript is case sensitive.
+</A>
+</BLOCKQUOTE>
+
+<HR><H2><A NAME="Using the SCRIPT Tag"></A>
+<A NAME="1013179">
+ Using the SCRIPT Tag
+</A></H2><A NAME="1013180">
+The <CODE>&lt;SCRIPT&gt;</CODE> tag is an extension to HTML that can enclose any number of JavaScript statements as shown here:</A></P>
+<PRE><A NAME="1013181">&lt;SCRIPT&gt;<br>&nbsp;&nbsp;&nbsp;<I>JavaScript statements..</I>.<br>&lt;/SCRIPT&gt;</A></PRE><A NAME="1013182">
+A document can have multiple <CODE>&lt;SCRIPT&gt;</CODE> tags, and each can enclose any number of JavaScript statements.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1013185">
+ Specifying the JavaScript Version
+</A></H3>
+
+<A NAME="1013187">
+Each version of Navigator supports a different version of JavaScript. To ensure that users of various versions of Navigator avoid problems when viewing pages that use JavaScript, use the <CODE>LANGUAGE</CODE> attribute of the <CODE>&lt;SCRIPT&gt;</CODE> tag to specify the version of JavaScript with which a script complies. For example, to use JavaScript&nbsp;1.2 syntax, you specify the following:</A></P>
+<PRE><A NAME="1013188">&lt;SCRIPT LANGUAGE="JavaScript1.2"&gt;</A></PRE><A NAME="1013189">
+Using the <CODE>LANGUAGE</CODE> tag attribute, you can write scripts compliant with earlier versions of Navigator. You can write different scripts for the different versions of the browser. If the specific browser does not support the specified JavaScript version, the code is ignored. If you do not specify a LANGUAGE attribute, the default behavior depends on the Navigator version.</A></P>
+<A NAME="1013191">
+The following table lists the <CODE>&lt;SCRIPT&gt;</CODE> tags supported by different Netscape versions.</A></P>
+<A NAME="1013235">
+<P><B><A NAME="1013194">
+Table 9.1&nbsp;JavaScript and Navigator versions</A></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1013200">
+<B>Navigator version
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1013202">
+<B>Default JavaScript version
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1013204">
+<B>&lt;SCRIPT&gt; tags supported
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1013206">
+Navigator earlier than 2.0</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1013208">
+JavaScript not supported</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1013210">
+None</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1013212">
+Navigator 2.0</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1013214">
+JavaScript 1.0</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1013216">
+<CODE>&lt;SCRIPT LANGUAGE="JavaScript"&gt;</CODE></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1013218">
+Navigator 3.0</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1013220">
+JavaScript 1.1</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1013222">
+<CODE>&lt;SCRIPT LANGUAGE="JavaScript1.1"&gt;</CODE> and all earlier versions</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1013224">
+Navigator 4.0-4.05</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1013226">
+JavaScript 1.2</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1013228">
+<CODE>&lt;SCRIPT LANGUAGE="JavaScript1.2"&gt;</CODE> and all earlier versions</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1013230">
+Navigator 4.06-4.5</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1013232">
+JavaScript 1.3</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1013234">
+<CODE>&lt;SCRIPT LANGUAGE="JavaScript1.3"&gt;</CODE> and all earlier versions</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+<A NAME="1013590">
+Navigator ignores code within <CODE>&lt;SCRIPT&gt;</CODE> tags that specify an unsupported version. For example, Navigator&nbsp;3.0 does not support JavaScript&nbsp;1.2, so if a user runs a JavaScript&nbsp;1.2 script in Navigator&nbsp;3.0, the script is ignored.</A></P>
+<A NAME="1013237">
+<B>Example 1.</B> This example shows how to define functions three times, once for JavaScript&nbsp;1.0, once using JavaScript&nbsp;1.1 features, and a third time using JavaScript&nbsp;1.2 features.</A></P>
+<PRE><A NAME="1013238">&lt;SCRIPT LANGUAGE="JavaScript"&gt;<br>// Define 1.0-compatible functions such as doClick() here<br>&lt;/SCRIPT&gt;</A></PRE><PRE><A NAME="1013239">&lt;SCRIPT LANGUAGE="JavaScript1.1"&gt;<br>// Redefine those functions using 1.1 features<br>// Also define 1.1-only functions<br>&lt;/SCRIPT&gt;</A></PRE><PRE><A NAME="1013240">&lt;SCRIPT LANGUAGE="JavaScript1.2"&gt;<br>// Redefine those functions using 1.2 features<br>// Also define 1.2-only functions<br>&lt;/SCRIPT&gt;</A></PRE><PRE><A NAME="1013241">&lt;FORM ...&gt;<br>&lt;INPUT TYPE="button" onClick="doClick(this)" ...&gt;<br>...<br>&lt;/FORM&gt;</A></PRE><A NAME="1013242">
+<B>Example 2.</B> This example shows how to use two separate versions of a JavaScript document, one for JavaScript&nbsp;1.1 and one for JavaScript&nbsp;1.2. The default document that loads is for JavaScript&nbsp;1.1. If the user is running Navigator 4.0, the <CODE>replace</CODE> method replaces the page.</A></P>
+<PRE><A NAME="1013243">&lt;SCRIPT LANGUAGE="JavaScript1.2"&gt;<br>// Replace this page in session history with the 1.2 version<br>location.replace("js1.2/mypage.html");<br>&lt;/SCRIPT&gt;<br><I>[1.1-compatible page continues here...]</I></A></PRE><A NAME="1013244">
+<B>Example 3.</B> This example shows how to test the <CODE>navigator.userAgent</CODE> property to determine which version of Navigator&nbsp;4.0 is running. The code then conditionally executes 1.1 and 1.2 features.</A></P>
+<PRE><A NAME="1013245">&lt;SCRIPT LANGUAGE="JavaScript"&gt;<br>if (navigator.userAgent.indexOf("4.0") != -1)<br>&nbsp;&nbsp;&nbsp;jsVersion = "1.2";<br>else if (navigator.userAgent.indexOf("3.0") != -1)<br>&nbsp;&nbsp;&nbsp;jsVersion = "1.1";<br>else<br>&nbsp;&nbsp;&nbsp;jsVersion = "1.0";<br>&lt;/SCRIPT&gt;<br><I>[hereafter, test jsVersion before use of any 1.1 or 1.2 extensions]</I></A></PRE>
+<H3><A NAME="Head2;"></A>
+<A NAME="1013248">
+ Hiding Scripts Within Comment Tags
+</A></H3>
+
+<A NAME="1013249">
+Only Navigator versions 2.0 and later recognize JavaScript. To ensure that other browsers ignore JavaScript code, place the entire script within HTML comment tags, and precede the ending comment tag with a double-slash (//) that indicates a JavaScript single-line comment:</A></P>
+<PRE><A NAME="1013251">&lt;SCRIPT&gt;<br>&lt;!-- Begin to hide script contents from old browsers.<br><I>JavaScript statements...<br></I>// End the hiding here. --&gt;<br>&lt;/SCRIPT&gt;</A></PRE><A NAME="1013252">
+Since browsers typically ignore unknown tags, non-JavaScript-capable browsers will ignore the beginning and ending <CODE>SCRIPT</CODE> tags. All the script statements in between are enclosed in an HTML comment, so they are ignored too. Navigator properly interprets the <CODE>SCRIPT</CODE> tags and ignores the line in the script beginning with the double-slash (//).</A></P>
+<A NAME="1013253">
+Although you are not required to use this technique, it is considered good etiquette so that your pages do not generate unformatted script statements for those not using Navigator 2.0 or later.</A></P>
+<BLOCKQUOTE><B>NOTE: </B><A NAME="1013255">
+For simplicity, some of the examples in this book do not hide scripts.
+</A>
+</BLOCKQUOTE>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1013258">
+ Example: a First Script
+</A></H3>
+
+<A NAME="1013262">
+<A HREF="embed.htm#1013269">Figure 9.1</A> shows a simple script that displays the following in Navigator:</A></P>
+<P><A NAME="1013263">
+Hello, net!<br>
+That's all, folks.
+</P></A>
+
+<A NAME="1013264">
+Notice that there is no difference in appearance between the first line, generated with JavaScript, and the second line, generated with plain HTML.</A></P>
+<P><A NAME="1013269">
+<B>Figure 9.1&nbsp;&nbsp;&nbsp;A simple script<P>
+<IMG SRC="graphics/getstart.gif">
+
+</B></A></P>
+
+
+<A NAME="1013271">
+You may sometimes see a semicolon at the end of each line of JavaScript. In general, semicolons are optional and are required only if you want to put more than one statement on a single line. This is most useful in defining event handlers, which are discussed in <A HREF="evnt.htm#1009710">Chapter 10, "Handling Events."</A></A></P>
+
+<HR><H2><A NAME="Specifying a File of JavaScript Code"></A>
+<A NAME="1013277">
+ Specifying a File of JavaScript Code
+</A></H2><A NAME="1013278">
+The <CODE>SRC</CODE> attribute of the <CODE>&lt;SCRIPT&gt;</CODE> tag lets you specify a file as the JavaScript source (rather than embedding the JavaScript in the HTML). For example:</A></P>
+<PRE><A NAME="1013279">&lt;SCRIPT SRC="common.js"&gt;<br>&lt;/SCRIPT&gt;</A></PRE><A NAME="1013280">
+This attribute is especially useful for sharing functions among many different pages.</A></P>
+<A NAME="1014486">
+The closing <CODE>&lt;/SCRIPT&gt;</CODE> tag is required.</A></P>
+<A NAME="1014458">
+JavaScript statements within a <CODE>&lt;SCRIPT&gt;</CODE> tag with a <CODE>SRC</CODE> attribute are ignored except by browsers that do not support the <CODE>SRC</CODE> attribute, such as Navigator&nbsp;2.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1014307">
+ URLs the SRC Attribute Can Specify
+</A></H3>
+
+<A NAME="1013284">
+The <CODE>SRC</CODE> attribute can specify any URL, relative or absolute. For example:</A></P>
+<PRE><A NAME="1013285">&lt;SCRIPT SRC="http://home.netscape.com/functions/jsfuncs.js"&gt;</A></PRE><A NAME="1014260">
+If you load a document with any URL other than a <CODE>file:</CODE> URL, and that document itself contains a <CODE>&lt;SCRIPT SRC="..."&gt;</CODE> tag, the internal <CODE>SRC</CODE> attribute cannot refer to another <CODE>file:</CODE> URL.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1014321">
+ Requirements for Files Specified by the SRC Attribute
+</A></H3>
+
+<A NAME="1013286">
+External JavaScript files cannot contain any HTML tags: they must contain only JavaScript statements and function definitions.</A></P>
+<A NAME="1013287">
+External JavaScript files should have the file name suffix <CODE>.js</CODE>, and the server must map the <CODE>.js</CODE> suffix to the MIME type <CODE>application/x-javascript</CODE>, which the server sends back in the HTTP header. To map the suffix to the MIME type, add the following line to the <CODE>mime.types</CODE> file in the server's config directory, and then restart the server.</A></P>
+<PRE><A NAME="1013288">type=application/x-javascript&nbsp;&nbsp;&nbsp;exts=js</A></PRE><A NAME="1013289">
+If the server does not map the <CODE>.js</CODE> suffix to the <CODE>application/x-javascript</CODE> MIME type, Navigator improperly loads the JavaScript file specified by the <CODE>SRC</CODE> attribute.</A></P>
+<BLOCKQUOTE><B>NOTE: </B><A NAME="1013291">
+This requirement does not apply if you use local files.
+</A>
+</BLOCKQUOTE>
+
+<HR><H2><A NAME="Using JavaScript Expressions as HTML Attribute Values"></A>
+<A NAME="1013293">
+ Using JavaScript Expressions as HTML Attribute Values
+</A></H2><A NAME="1013295">
+Using <I>JavaScript entities</I>, you can specify a JavaScript expression as the value of an HTML attribute. Entity values are evaluated dynamically. This allows you to create more flexible HTML constructs, because the attributes of one HTML element can depend on information about elements placed previously on the page.</A></P>
+<A NAME="1013296">
+You may already be familiar with HTML character entities by which you can define characters with special numerical codes or names by preceding the name with an ampersand (<CODE>&amp;</CODE>) and terminating it with a semicolon (<CODE>;</CODE>). For example, you can include a greater-than symbol (<CODE>&gt;</CODE>) with the character entity <CODE>&amp;GT;</CODE> and a less-than symbol (<CODE>&lt;</CODE>) with <CODE>&amp;LT;</CODE>.</A></P>
+<A NAME="1013297">
+JavaScript entities also start with an ampersand (<CODE>&amp;</CODE>) and end with a semicolon (<CODE>;</CODE>). Instead of a name or number, you use a JavaScript expression enclosed in curly braces <CODE>{}</CODE>. You can use JavaScript entities only where an HTML attribute value would normally go. For example, suppose you define a variable <CODE>barWidth</CODE>. You could create a horizontal rule with the specified percentage width as follows:</A></P>
+<PRE><A NAME="1013298">&lt;HR WIDTH="&amp;{barWidth};%" ALIGN="LEFT"&gt;</A></PRE><A NAME="1013299">
+So, for example, if <CODE>barWidth</CODE> were 50, this statement would create the display shown in the following figure.</A></P>
+<P><A NAME="1013304">
+<B>Figure 9.2&nbsp;&nbsp;&nbsp;Display created using JavaScript entity<P>
+<IMG SRC="graphics/entity.gif">
+
+</B></A></P>
+
+
+<A NAME="1013306">
+As with other HTML, after layout has occurred, the display of a page can change only if you reload the page.</A></P>
+<A NAME="1013307">
+Unlike regular entities which can appear anywhere in the HTML text flow, JavaScript entities are interpreted only on the right-hand side of HTML attribute name/value pairs. For example, if you have this statement:</A></P>
+<PRE><A NAME="1013308">&lt;H4&gt;&amp;{myTitle};&lt;/H4&gt;</A></PRE><A NAME="1013309">
+It displays the string <CODE>myTitle</CODE> rather than the value of the variable <CODE>myTitle</CODE>.</A></P>
+
+<HR><H2><A NAME="Using Quotation Marks"></A>
+<A NAME="1013313">
+ Using Quotation Marks
+</A></H2><A NAME="1013314">
+Whenever you want to indicate a quoted string inside a string literal, use single quotation marks (') to delimit the string literal. This allows the script to distinguish the literal inside the string. In the following example, the function <CODE>bar</CODE> contains the literal "left" within a double-quoted attribute value:</A></P>
+<PRE><A NAME="1013315">function bar(widthPct) {<br>&nbsp;&nbsp;&nbsp;document.write("&lt;HR ALIGN='left' WIDTH=" + widthPct + "%&gt;")<br>}</A></PRE><A NAME="1013316">
+Here's another example:</A></P>
+<PRE><A NAME="1013317">&lt;INPUT TYPE="button" VALUE="Press Me" onClick="myfunc('astring')"&gt;</A></PRE>
+<HR><H2><A NAME="Specifying Alternate Content with the NOSCRIPT Tag"></A>
+<A NAME="1013319">
+ Specifying Alternate Content with the NOSCRIPT Tag
+</A></H2><A NAME="1013321">
+Use the <CODE>&lt;NOSCRIPT&gt;</CODE> tag to specify alternate content for browsers that do not support JavaScript. HTML enclosed within a <CODE>&lt;NOSCRIPT&gt;</CODE> tag is displayed by browsers that do not support JavaScript; code within the tag is ignored by Navigator. Note however, that if the user has disabled JavaScript from the Advanced tab of the Preferences dialog, Navigator displays the code within the <CODE>&lt;NOSCRIPT&gt;</CODE> tag.</A></P>
+<A NAME="1013323">
+The following example shows a <CODE>&lt;NOSCRIPT&gt;</CODE> tag.</A></P>
+<PRE><A NAME="1013324">&lt;NOSCRIPT&gt;<br>&lt;B&gt;This page uses JavaScript, so you need to get Netscape Navigator 2.0<br>or later!<br>&lt;BR&gt;<br>&lt;A HREF="http://home.netscape.com/comprod/mirror/index.html"&gt;<br>&lt;IMG SRC="NSNow.gif"&gt;&lt;/A&gt;<br>If you are using Navigator 2.0 or later, and you see this message,<br>you should enable JavaScript by on the Advanced page of the <br>Preferences dialog box.<br>&lt;/NOSCRIPT&gt;<br>...</A></PRE>
+<HR>
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="partcli.htm">Previous</A>
+ | <A HREF="evnt.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT>
+<P ALIGN=right>
+<FONT SIZE=-2><I>Last Updated:  05/27/99  21:21:33</I></FONT>
+<P> <CENTER>Copyright (c) 1999
+<A HREF="http://home.netscape.com/misc/contact_info.html"
+TARGET=_top>Netscape Communications Corporation</A></FONT>
+</CENTER>
+<P>
+</BODY>
+</HTML>
+
+

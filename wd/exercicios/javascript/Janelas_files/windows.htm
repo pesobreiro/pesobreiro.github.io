@@ -1,0 +1,157 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0051)http://www.terravista.pt/meiapraia/1004/windows.htm -->
+<HTML><HEAD><TITLE>Abrir e Fechar janelas</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 6.00.2716.2200" name=GENERATOR></HEAD>
+<BODY bgColor=#808080>
+<DIV align=center>
+<CENTER>
+<TABLE cellSpacing=0 cellPadding=0 width="80%" bgColor=#ffffff border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <DIV align=center>
+      <CENTER>
+      <TABLE cellSpacing=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD bgColor=#f1f0e4><FONT face=Verdana color=#0080ff 
+            size=5><STRONG>Abrir e fechar janelas</STRONG></FONT></TD>
+          <TD vAlign=bottom bgColor=#f1f0e4>
+            <P align=right><A 
+            href="http://www.terravista.pt/meiapraia/1004/frmain.htm"><IMG 
+            height=52 alt="p á g i n a p r i n c i p a l" 
+            src="windows_files/java.gif" width=58 
+      border=0></A></P></TD></TR></TBODY></TABLE></CENTER></DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV align=center>
+      <CENTER>
+      <TABLE cellSpacing=8 cellPadding=2 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=Verdana size=2>Uma janela é automaticamente criada 
+            quando inicia a sua sessão no <EM>browser</EM>. Pode-se abrir outra 
+            janela através do menu <EM>File</EM> opção <EM>New Window</EM>. Para 
+            fechar a janela usa-se a opção <EM>Close</EM> ou 
+            <EM>Exit.</EM></FONT>
+            <P><FONT face=Verdana size=2>Estas operações também podem ser 
+            implementadas usando o <EM>JavaScript</EM>.</FONT></P>
+            <H2><FONT face=Verdana color=#0080ff size=4>Abrir uma 
+            janela</FONT></H2>
+            <P><FONT face=Verdana size=2>Para abrir uma janela usa-se o método 
+            <STRONG>open</STRONG>. A expressão seguinte cria uma janela chamada 
+            <EM>msgWindow</EM> e que apresenta a página HTML: 
+            <EM>news.html</EM>:</FONT></P>
+            <P align=center><FONT face=System size=2>msgWindow = 
+            window.open("news.html");</FONT></P>
+            <P><FONT face=Verdana size=2>Correctamente seria:</FONT></P>
+            <DIV align=center>
+            <CENTER>
+            <TABLE border=0>
+              <TBODY>
+              <TR>
+                <TD><FONT face=System size=2>&lt;script 
+                  language="JavaScript"&gt;<BR>&lt;!--<BR>msgWindow = 
+                  window.open("news.html");<BR>//--&gt;<BR>&lt;/script&gt;</FONT></TD></TR></TBODY></TABLE></CENTER></DIV>
+            <P><FONT face=Verdana size=2>Para abrir a página principal do 
+            TerràVista:</FONT></P>
+            <P align=center><FONT face=System size=2>outraJanela = 
+            window.open(</FONT><A href="http://www.terravista.pt/"><FONT 
+            face=System size=2>"http://www.terravista.pt"</FONT></A><FONT 
+            face=System size=2>);</FONT> </P>
+            <P><FONT face=Verdana size=2>As janelas podem ter dois nomes. A 
+            expressão seguinte cria uma janela com dois nomes. O primeiro, 
+            <EM>msgWindow</EM>, usa-se no acesso a métodos e propriedades do 
+            objecto <EM>window</EM>; o segundo, <EM>displayWindow</EM>, usa-se 
+            nas directivas HTML, como <EM>forms</EM>, <EM>target</EM> ou com um 
+            <EM>link</EM>.</FONT></P>
+            <P align=center><FONT face=System size=2>msgWindow = 
+            window.open("news.html", "displayWindow");</FONT></P>
+            <P><FONT face=Verdana size=2>Quando se abre a janela pode-se 
+            especificar alguns altributos como dimensão, <EM>toolbar</EM>, 
+            <EM>scrollbars</EM>. Para uma janela sem <EM>toolbar</EM> e com 
+            <EM>scrollbars</EM>:</FONT></P>
+            <DIV align=center>
+            <CENTER>
+            <TABLE border=0>
+              <TBODY>
+              <TR>
+                <TD><PRE><FONT face=System size=2>msgWindow=window.open(
+       "news.html","displayWindow","toolbar=no,scrollbars=yes");</FONT></PRE></TD></TR></TBODY></TABLE></CENTER></DIV>
+            <P><FONT face=Verdana size=2>Brevemente estará aqui disponível toda 
+            a informação sobre os atributos.</FONT></P>
+            <H2><FONT face=Verdana color=#0080ff size=4>Fechar uma 
+            janela</FONT></H2>
+            <P><FONT face=Verdana size=2>Para fechar uma janela usa-se o método 
+            <STRONG>close</STRONG> do objecto <EM>window</EM>. As expressões 
+            seguintes fecham a janela activa:</FONT></P>
+            <P align=center><FONT face=System size=2>window.close();</FONT></P>
+            <P align=center><FONT face=System size=2>self.close();</FONT></P>
+            <P align=left><FONT face=Verdana size=2>Para fechar a janela 
+            msgWindow, criada anteriormente usa-se:</FONT></P>
+            <P align=center><FONT face=System 
+            size=2>msgWindow.close();</FONT></P>
+            <P align=left><FONT face=Verdana size=2>Notar que deve-se evitar a 
+            expressão: close() principalmente em troços de código com funções de 
+            <EM>event handlers</EM>. A aplicação seguinte demonstra a utilização 
+            dos métodos <STRONG>open</STRONG><EM> </EM>e <STRONG>close</STRONG>, 
+            com vários atributos.</FONT></P>
+            <FORM name=f method=post>
+            <DIV align=center>
+            <CENTER>
+            <TABLE bgColor=#c0c0c0 border=0>
+              <TBODY>
+              <TR>
+                <TD><FONT face="MS Serif" size=2><INPUT type=checkbox value=ON 
+                  name=C1> toolbar <BR><INPUT type=checkbox name=C2> scrollbars 
+                  <BR><INPUT type=checkbox CHECKED value=ON name=C3> status 
+                  <BR><INPUT type=checkbox name=C4> menubar <BR><INPUT 
+                  type=checkbox CHECKED value=ON name=C5> resizable <BR>width: 
+                  <INPUT size=4 value=200 name=T1> height: <INPUT size=4 
+                  value=400 name=T2> </FONT>
+                  <P align=center><FONT face="MS Serif" size=1><INPUT language=JavaScript onclick=winopen(); type=button value="Abrir janela" name=B1> 
+<INPUT onclick=winclose(); type=button onerror=null value="Fechar janela" name=B2> 
+                  </FONT></P></TD></TR></TBODY></TABLE></CENTER></DIV></FORM>
+            <P>
+            <SCRIPT language=JavaScript><!--
+var mywin=null;
+
+function winopen()
+{
+
+var s=
+                  "toolbar="    + (document.f.C1.checked ? 1 : 0) +
+           ",scrollbars="    + (document.f.C2.checked ? 1 : 0) +
+	     ",status="    + (document.f.C3.checked ? 1 : 0) +	     
+	    ",menubar=" + (document.f.C4.checked ? 1 : 0) +
+	  ",resizable="  + (document.f.C5.checked ? 1 : 0) +
+	      ",width="     + (document.f.T1.value) +
+	     ",height="    + (document.f.T2.value);
+mywin=window.open("registo.htm","awinname",s);
+}
+
+function winclose()
+{
+  if (mywin!=null) {mywin.close();mywin=null;}
+}
+// --></SCRIPT>
+            </P>
+            <HR align=left width="90%" color=#c0c0c0 noShade>
+          </TD></TR></TBODY></TABLE></CENTER></DIV>
+      <P align=right><FONT face=Arial size=1>(c) 1997, MicroSis.edu<BR>Enviar 
+      comentários para </FONT><A href="mailto:rui.laginha@mail.telepac.pt"><FONT 
+      face=Arial 
+size=1>WebMaster</FONT></A></P></TD></TR></TBODY></TABLE></CENTER></DIV>
+<P>&nbsp;</P></NOSCRIPT>
+<SCRIPT language=JavaScript>
+if (navigator.appName.indexOf("Netscape")!=-1)
+{
+window.open("http://furacao.terravista.pt/pub/popup.html","Pub","width=480,height=60,resizable=no,scrollbars=no,menubar=no,toolbar=no,directories=no,location=no,status=no");	
+}
+else
+{
+window.open("http://furacao.terravista.pt/pub/popup.html","Pub","width=470,height=60,resizable=no,scrollbars=no,menubar=no,toolbar=no,directories=no,location=no,status=no");
+}
+</SCRIPT>
+</BODY></HTML>

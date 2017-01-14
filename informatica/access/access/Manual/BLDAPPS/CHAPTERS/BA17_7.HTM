@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>Getting Ready for Distribution</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba17_6.htm" OnClick="SyncURL(&quot;chapters/ba17_6.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<a NAME="3GettingReadyforDistribution"></a>
+<p CLASS="heading3OrgHeading1h1">Getting Ready for Distribution</p>
+<p CLASS="Textttext">Now that your add-in is tested and debugged, a final development phase is needed. In this phase you clean up your add-in and add extra functionality by using Help files.</p>
+<a NAME="4CleaningUpYourAddin"></a>
+<p CLASS="heading4OrgHeading2h2">Cleaning Up Your Add-in</p>
+<p CLASS="Textttext">There are several things you can do to clean up your add-in:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspDelete any temporary or unnecessary objects in your add-in. Then, perform one more test pass on your add-in to make sure you didn't delete a necessary object.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspRepair and compact the database.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspChange the file name extension of your add-in. By convention, add-ins have a .mda file name extension, not the standard Microsoft Access .mdb file name extension. This enables you to easily differentiate add-ins from regular databases. It also keeps the database name out of dialog boxes the user normally sees in Microsoft Access, such as the <span CLASS="ElementNameeln">Open</span> dialog box. Changing the file name extension of the database file has no effect on the operation and behavior of the database; it's simply a technique to aid in file management at the MS-DOS file level.</p>
+<p CLASS="ImportantTextit"><span CLASS="ImportantHeadingih">Important&nbsp;&nbsp;&nbsp;</span>Make sure to compile and save all Visual Basic modules in your add-in, including form and report modules, before distributing your application. Users may encounter unexpected errors in add-in modules that haven't been compiled and saved.</p>
+<a NAME="4CreatingaHelpFile"></a>
+<p CLASS="heading4OrgHeading2h2">Creating a Help File</p>
+<p CLASS="Textttext">Help is a feature that can make your add-in easier to use and can reduce the amount of printed documentation you supply for your add-in. You can create Help files by using the Microsoft Help Compiler, which you can obtain from the following sources:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspMicrosoft Office 97, Developer Edition</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspMicrosoft Visual C++</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspMicrosoft Visual Basic</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspMicrosoft Developer's Network</p>
+<p CLASS="Textttext">Help topics are called from your add-in's forms in the same way they are called from any Microsoft Access application's forms.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on creating Help files, search the Help index for &quot;Help, creating custom&quot; and &quot;HelpFile property.&quot;</p>
+<!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<!--DocFooterEnd-->
+<a HREF="ba18_1.htm" OnClick="SyncURL(&quot;chapters/ba18_1.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

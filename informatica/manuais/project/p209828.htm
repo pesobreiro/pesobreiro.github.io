@@ -1,0 +1,83 @@
+<!doctype html public" -//IETF//DTD 	HTML//EN">
+<HTML>
+
+<HEAD>
+<SCRIPT LANGUAGE="JAVASCRIPT">
+<!-- 
+
+function checkbrowse()
+{
+var bn, bv, ver
+bn = navigator.appName;
+bv = parseInt(navigator.appVersion);
+if (bn=="Microsoft Internet Explorer" && bv<"4") ver = "IE3";
+else ver = "NotIE3";
+if (ver=="IE3") top.cont.parts.location.href="part20.htm";
+if (ver=="NotIE3") top.cont.parts.location.href="nav/part20.htm";
+}
+//-->
+</SCRIPT>
+<TITLE>Create an Import/Export Map</TITLE>
+<META NAME="GENERATOR" 	CONTENT="Merch. System HTML Development">
+<META NAME="AUTHOR" 	CONTENT="Merch. System HTML Development">
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" OnLoad="checkbrowse();">
+<Font Face ="Verdana, Arial, Helvetica">
+
+<P align=right><SMALL>
+<A HREF="p209827.htm" Target="TOC"><IMG SRC="prev.gif"ALT="Previous page"BORDER=0></A>
+<A HREF="p20981.htm" Target="TOC"><IMG SRC="toc20.gif"ALT="Contents"BORDER=0></A>
+<A HREF="p209829.htm" Target="TOC"><IMG SRC="Next.gif"ALT="Next 
+page"BORDER=0></A></SMALL></P>
+<H3>Create an Import/Export Map</H3>
+
+<P>
+A number of predefined import/export maps enable you to transfer common sets of information between 
+Microsoft Project and other programs. However, when you want to transfer the data contained in a unique 
+combination of fields, you can create a custom import/export map.
+<P>
+<B><B><IMG SRC="bluetri.gif">	To create a custom import/export map for importing data</B></B>
+<OL>
+<LI>Click <B>Open</B> <IMG SRC="OPEN.gif">.
+<LI>In the <B>Files of type</B> box, click the type of file you want to import.
+<LI>In the <B>Look in</B> box, click the file you want to import.
+<LI>Click <B>Open</B>, click <B>Selective data</B>, and then click <B>New Map</B>.
+<LI>Under <B>Data to import/export</B>, select the check boxes for the types of data you want to import, and 
+then select any options you want (if options are available).
+<LI>Click the tab for the type of data you want to import.
+<BR>For example, if you selected the <B>Tasks</B> check box, click the <B>Task Mapping</B> tab.
+<LI>In the <B>Source worksheet/database table name</B> box, click the worksheet or table name from which 
+you want to import.
+<BR>If you select a table, Microsoft Project fills the <B>From</B> column with all the fields from the table. 
+Any table field that matches a Microsoft Project field name will be matched to the Microsoft Project field 
+automatically.
+<LI>For any unmapped field in the <B>To: Microsoft Project Field</B> column, select or enter the Microsoft 
+Project field that you want to map to the corresponding table field from the other program.
+<LI>In the Method for incorporating imported data box, click an option.
+<LI>To save the map, click <B>OK</B>.
+</OL>
+<P>
+<B><B><IMG SRC="bluetri.gif">	To create a custom import/export map for exporting data</B></B>
+<OL>
+<LI>On the <B>File</B> menu, click <B>Save As</B>.
+<LI>In the <B>Save as type</B> box, click the type of file to which you want to export.
+<LI>In the folder list, click the name of the file for which you want to create a map.
+<LI>Click <B>Save</B>, click <B>Selective data</B>, and then click <B>New Map</B>.
+<LI>Under <B>Data to import/export</B>, select the check boxes for the types of data you want to export.
+<LI>Click the tab for the type of data you want to export.
+<BR>For example, if you selected the <B>Task</B> check box, click the <B>Task Mapping</B> tab.
+<LI>In the <B>From: Microsoft Project Field</B> column, enter the name of a Microsoft Project field.
+<BR>Microsoft Project automatically fills in the corresponding fields in the <B>To</B> column with default 
+names for those fields.
+<LI>To change a default field name in the <B>To</B> column, type the name you want.
+<LI>Repeat steps 7 and 8 for each field you want to export.
+<LI>To export only certain tasks, click a filter in the <B>Export filter</B> box.
+<LI>To save the map, click <B>OK</B>.
+</OL>
+<P align = Center > <A HREF="http://www.microsoft.com/misc/cpyright.htm"><EM>&#169;1996-1997 Microsoft Corporation. All rights 
+reserved.</EM></A></P>
+</BODY>
+</FONT>
+</HTML>
+

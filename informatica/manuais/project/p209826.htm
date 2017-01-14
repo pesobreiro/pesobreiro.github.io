@@ -1,0 +1,110 @@
+<!doctype html public" -//IETF//DTD 	HTML//EN">
+<HTML>
+
+<HEAD>
+<SCRIPT LANGUAGE="JAVASCRIPT">
+<!-- 
+
+function checkbrowse()
+{
+var bn, bv, ver
+bn = navigator.appName;
+bv = parseInt(navigator.appVersion);
+if (bn=="Microsoft Internet Explorer" && bv<"4") ver = "IE3";
+else ver = "NotIE3";
+if (ver=="IE3") top.cont.parts.location.href="part20.htm";
+if (ver=="NotIE3") top.cont.parts.location.href="nav/part20.htm";
+}
+//-->
+</SCRIPT>
+<TITLE>File Formats Supported by Microsoft Project</TITLE>
+<META NAME="GENERATOR" 	CONTENT="Merch. System HTML Development">
+<META NAME="AUTHOR" 	CONTENT="Merch. System HTML Development">
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" OnLoad="checkbrowse();">
+<Font Face ="Verdana, Arial, Helvetica">
+
+<P align=right><SMALL>
+<A HREF="p209825.htm" Target="TOC"><IMG SRC="prev.gif"ALT="Previous page"BORDER=0></A>
+<A HREF="p20981.htm" Target="TOC"><IMG SRC="toc20.gif"ALT="Contents"BORDER=0></A>
+<A HREF="p209827.htm" Target="TOC"><IMG SRC="Next.gif"ALT="Next 
+page"BORDER=0></A></SMALL></P>
+<H1>File Formats Supported by Microsoft Project</H1>
+
+<P>
+With Microsoft Project you can open and save project files in several different formats, such as those used by 
+other project management programs or programs that use different types of information, such as spreadsheet, 
+word-processing, or database programs. Some formats allow you to save all the information in your project, 
+and some formats allow you to save only the data contained in Microsoft Project fields.
+<P>
+You can also export a Microsoft Project schedule as a graphics file for enhancement in a graphics program and 
+for printing on a plotter.
+<P>
+Non-Microsoft Project file formats use import/export maps to transfer information between programs. You may 
+need to create or edit an import/export map to ensure that the information is imported into the proper fields.
+<P><TABLE CELLPADDING=5 CELLSPACING=0>
+<TR>
+<TH ALIGN=left><B>File format</B></TH>  <TH ALIGN=left><B>Definition</B></TH>  
+<TR>
+<TD VALIGN=top><Font Face ="Verdana, Arial, Helvetica">Microsoft Project file</FONT></TD>  <TD 
+VALIGN=top><Font Face ="Verdana, Arial, Helvetica">The standard file format for a project, which uses the 
+.mpp extension.</FONT></TD>  
+<TR>
+<TD VALIGN=top><Font Face ="Verdana, Arial, Helvetica">Microsoft Project template file</FONT></TD>  
+<TD VALIGN=top><Font Face ="Verdana, Arial, Helvetica">A template file in which you can save boilerplate 
+information and that uses the .mpt extension. The global template (Global.mpt) is a master template file that 
+contains formatting information for all projects, but can’t store tasks, resources, and 
+assignments.</FONT></TD>  
+<TR>
+<TD VALIGN=top><Font Face ="Verdana, Arial, Helvetica">Microsoft Project database</FONT></TD>  <TD 
+VALIGN=top><Font Face ="Verdana, Arial, Helvetica">A database format used with Microsoft Project for 
+storing entire projects and that uses the .mpd extension.</FONT></TD>  
+<TR>
+<TD VALIGN=top><Font Face ="Verdana, Arial, Helvetica">MPX (Microsoft Project 
+exchange)</FONT></TD>  <TD VALIGN=top><Font Face ="Verdana, Arial, Helvetica">An ASCII format used 
+with project management and various other programs that support MPX 4.0 and that uses the .mpx extension. 
+Microsoft Project 4.0, Microsoft Project 4.1, and Microsoft Project 98 use the MPX 4.0 file format. You can 
+export field data to this format, but not an entire project. Some information specific to Microsoft Project 98 will 
+not be saved.</FONT></TD>  
+<TR>
+<TD VALIGN=top><Font Face ="Verdana, Arial, Helvetica">Microsoft Access</FONT></TD>  <TD 
+VALIGN=top><Font Face ="Verdana, Arial, Helvetica">A format used by the Microsoft Access 97 database 
+program. You save all or part of a project to the Microsoft Access format, which uses the .mdb 
+extension.</FONT></TD>  
+<TR>
+<TD VALIGN=top><Font Face ="Verdana, Arial, Helvetica">Microsoft Excel</FONT></TD>  <TD 
+VALIGN=top><Font Face ="Verdana, Arial, Helvetica">A format used by the Microsoft Excel spreadsheet 
+programs and that uses the .xls extension. You export field data to this format, but not an entire project. 
+Microsoft Project can read information from a Microsoft Excel 97 file, but it can’t write to a Microsoft Excel 97 
+file.</FONT></TD>  
+<TR>
+<TD VALIGN=top><Font Face ="Verdana, Arial, Helvetica">Microsoft Excel PivotTable®</FONT></TD>  
+<TD VALIGN=top><Font Face ="Verdana, Arial, Helvetica">A format used by the Microsoft Excel 5.0 and 7.0 
+spreadsheet programs for a PivotTable. You export field data to this format, but not an entire project. You can 
+only export to a Microsoft Excel PivotTable; you can’t import data from a Microsoft Excel PivotTable into 
+Microsoft Project.</FONT></TD>  
+<TR>
+<TD VALIGN=top><Font Face ="Verdana, Arial, Helvetica">HTML</FONT></TD>  <TD VALIGN=top><Font 
+Face ="Verdana, Arial, Helvetica">HTML (Hypertext Markup Language) format is used by browser programs 
+on the World Wide Web and intranets. You can export field data to this format, but not an entire project. 
+HTML format files use the extension .htm. You can only export to HTML format; you can’t import data from 
+HTML format into Microsoft Project.</FONT></TD>  
+<TR>
+<TD VALIGN=top><Font Face ="Verdana, Arial, Helvetica">Text-only or ASCII</FONT></TD>  <TD 
+VALIGN=top><Font Face ="Verdana, Arial, Helvetica">A generic text format that is used by word-processing 
+and other programs, uses the .txt extension, and is tab-delimited. You can export field data from a single 
+Microsoft Project table to this format, but not an entire project.</FONT></TD>  
+<TR>
+<TD VALIGN=top><Font Face ="Verdana, Arial, Helvetica">CSV (system list separator)</FONT></TD>  <TD 
+VALIGN=top><Font Face ="Verdana, Arial, Helvetica">A generic text ASCII format that is used with word-
+processing and other programs and that uses the .csv extension, where values are separated by the system list 
+separator. You can export field data from a single Microsoft Project table to this format, but not an entire 
+project.</FONT></TD>  
+</TABLE>
+<P align = Center > <A HREF="http://www.microsoft.com/misc/cpyright.htm"><EM>&#169;1996-1997 Microsoft Corporation. All rights 
+reserved.</EM></A></P>
+</BODY>
+</FONT>
+</HTML>
+

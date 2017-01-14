@@ -1,0 +1,624 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<META name="GENERATOR" content="IBM WebSphere Homepage Builder V5.0.1 for Windows">
+<TITLE>The EJB Interface</title>
+<link rel="stylesheet" type="text/css" href="../../wasstyle.css">
+</HEAD>
+<BODY>
+<H2><A name="ejb">The EJB Interface</A></H2>
+<P>This section describes how to use the EJB
+application programming interface (API) of
+the IBM WebSphere UDDI Registry to publish,
+find and delete UDDI entries.</P>
+<P>The necessary client classes are contained
+in the <I>uddiejbclient.jar</I> <I> </I>file in the ejb subdirectory of the directory
+into which the IBM WebSphere UDDI Registry
+is installed.</P>
+<P>The javadoc for the EJB API is contained
+in the javadoc directory tree under the ejb
+subdirectory.</P>
+<P>The EJB API is contained in two stateless
+session beans, one for the Inquiry API (com.ibm.uddi.ejb.InquiryBean)
+and one for the Publish API (com.ibm.uddi.ejb.PublishBean),
+whose public methods form an EJB interface
+for the UDDI Registry. All the public methods
+on the InquiryBean correspond to UDDI Inquiry
+API functions, and all the public methods
+on the PublishBean correspond to UDDI Publish
+API functions. (Not all UDDI API functions
+are implemented, e.g. get_authToken, discard_authToken,
+get_businessDetailExt, etc.) For version
+1 of the UDDI registry, the EJB component
+supports only UDDI v2.0.</P>
+<P>The two EJBs use container-managed transactions.
+The transaction attribute for the methods
+of the InquiryBean is NotSupported, and for
+the methods of the PublishBean it is Required.
+You should not change the transaction attributes
+as this could result in undesirable behaviour.</P>
+<P>To use the API you must first lookup in JNDI
+the appropriate home and then create an instance
+of the appropriate session bean. The following
+figure shows some example code that obtains
+an instance of the Inquiry bean.</P>
+<P><CODE>com.ibm.uddi.ejb.Inquiry inquiry = null;<BR>
+java.util.Hashtable environment = new java.util.Hashtable();<BR>
+environment.put(javax.naming.Context.INITIAL_CONTEXT_FACTORY,
+&quot;com.ibm.ejs.ns.jndi.CNInitialContextFactory&quot;);<BR>
+environment.put(javax.naming.Context.PROVIDER_URL,
+&quot;iiop://localhost:900/&quot;);<BR>
+<BR>
+try<BR>
+{<BR>
+javax.naming.InitialContext ic = new javax.naming.InitialContext(environment);<BR>
+Object o = ic.lookup(&quot;domain/legacyRoot/com/ibm/uddi/ejb/InquiryHome&quot;);<BR>
+com.ibm.uddi.ejb.InquiryHome home = (com.ibm.uddi.ejb.InquiryHome)(javax.rmi.PortableRemoteObject.narrow(o,
+com.ibm.uddi.ejb.InquiryHome.class));<BR>
+inquiry = home.create();<BR>
+}<BR>
+catch (javax.naming.NamingException ne) {ne.printStackTrace();}<BR>
+catch (java.rmi.RemoteException re) {re.printStackTrace();}<BR>
+catch (javax.ejb.CreateException ce) {ce.printStackTrace();}<BR>
+</CODE></P>
+<P>Within each interface there are groups of
+overloaded methods that correspond to the
+operations in the UDDI 2.0 specification.
+There is a separate method for each major
+variation in function. For example, the single
+UDDI 2.0 operation find_business is represented
+by 10 variations of findBusiness methods,
+with different variations for finding by
+name, finding by categoryBag etc.</P>
+<P>The arguments for the EJB interface methods
+are java objects in the package com.ibm.uddi.datatypes.
+Roughly speaking, there is a one-one correspondence
+between classes in this package and elements
+of the UDDI v2.0 XML schema. Exceptions to
+this are, for example, where UDDI XML elements
+can be represented by a single String. (See
+Package com.ibm.uddi.datatypes below for
+more information.)</P>
+<H3><A name="ejbdata">The datatypes package</A></H3>
+<P>Below is a table listing the classes in the
+com.ibm.uddi.datatypes package, the elements
+in the UDDI v2.0 XML schema, and the correspondence
+between the two.</P>
+<TABLE border="1">
+  <TBODY>
+    <TR>
+      <TD><B>com.ibm.uddi.datatypes<BR>
+      Class</B></TD>
+      <TD><B>Corresponding UDDIv2.0 XML Schema Element</B></TD>
+      <TD><B>Notes on DatatypeClass</B></TD>
+    </TR>
+    <TR>
+      <TD>AccessPoint</TD>
+      <TD>accessPoint</TD>
+      <TD></TD>
+    </TR>
+    <TR>
+      <TD>Address</TD>
+      <TD>address</TD>
+      <TD></TD>
+    </TR>
+    <TR>
+      <TD align="right">String</TD>
+      <TD>addressLine</TD>
+      <TD></TD>
+    </TR>
+    <TR>
+      <TD>AdressLineList</TD>
+      <TD></TD>
+      <TD>Contains a Vector of addressLine Strings</TD>
+    </TR>
+    <TR>
+      <TD>AddressList</TD>
+      <TD></TD>
+      <TD>Contains a Vector of Address objects</TD>
+    </TR>
+    <TR>
+      <TD>AssertionStatusItem</TD>
+      <TD>assertionStatusItem</TD>
+      <TD></TD>
+    </TR>
+    <TR>
+      <TD>AssertionStatusItemList</TD>
+      <TD></TD>
+      <TD>Contains a Vector of AssertionStatusItem
+      objects</TD>
+    </TR>
+    <TR>
+      <TD>AssertionStatusReport</TD>
+      <TD>assertionStatusReport (response message)</TD>
+      <TD></TD>
+    </TR>
+    <TR>
+      <TD align="right">String</TD>
+      <TD>authInfo</TD>
+      <TD></TD>
+    </TR>
+    <TR>
+      <TD>AuthToken</TD>
+      <TD></TD>
+      <TD>Object containing authInfo String and operator
+      name</TD>
+    </TR>
+    <TR>
+      <TD align="right">String</TD>
+      <TD>bindingKey</TD>
+      <TD></TD>
+    </TR>
+    <TR>
+      <TD>BindingDetail</TD>
+      <TD>bindingDetail (response message)</TD>
+      <TD></TD>
+    </TR>
+    <TR>
+      <TD>BindingTemplate</TD>
+      <TD>bindingTemplate</TD>
+      <TD></TD>
+    </TR>
+    <TR>
+      <TD>BindingTemplateList</TD>
+      <TD>bindingTemplates</TD>
+      <TD>Contains a Vector of Bindingtemplate objects</TD>
+    </TR>
+    <TR>
+      <TD>BusinessDetail</TD>
+      <TD>businessDetail (reponse message)</TD>
+      <TD></TD>
+    </TR>
+    <TR>
+      <TD>BusinessDetailExt</TD>
+      <TD>businessDetailExt (Response message)</TD>
+      <TD>**</TD>
+    </TR>
+    <TR>
+      <TD>BusinessEntity</TD>
+      <TD>businessEntity</TD>
+      <TD></TD>
+    </TR>
+    <TR>
+      <TD>BusinessEntityExt</TD>
+      <TD>businessEntityExt</TD>
+      <TD>**</TD>
+    </TR>
+    <TR>
+      <TD>BusinessEntityExtList</TD>
+      <TD></TD>
+      <TD>Contains a Vector of BusinessEntityExt objects
+      **</TD>
+    </TR>
+    <TR>
+      <TD>BusinessEntityList</TD>
+      <TD></TD>
+      <TD>Contains a Vector of BusinessEntity objects</TD>
+    </TR>
+    <TR>
+      <TD>BusinessInfo</TD>
+      <TD>businessInfo</TD>
+      <TD></TD>
+    </TR>
+    <TR>
+      <TD>BusinessInfoList</TD>
+      <TD>businessInfo</TD>
+      <TD>Contains a Vector of businessInfo objects</TD>
+    </TR>
+    <TR>
+      <TD align="right">String</TD>
+      <TD>businessKey</TD>
+      <TD></TD>
+    </TR>
+    <TR>
+      <TD>BusinessList</TD>
+      <TD>businessList (reponse message)</TD>
+      <TD></TD>
+    </TR>
+    <TR>
+      <TD>BusinessService</TD>
+      <TD>businessService</TD>
+      <TD></TD>
+    </TR>
+    <TR>
+      <TD>BusinessServiceList</TD>
+      <TD>businessServices</TD>
+      <TD>Contains a Vector of BusinessService objects</TD>
+    </TR>
+    <TR>
+      <TD>CategoryBag</TD>
+      <TD>categoryBag</TD>
+      <TD></TD>
+    </TR>
+    <TR>
+      <TD align="right">String</TD>
+      <TD>completionStatus</TD>
+      <TD></TD>
+    </TR>
+    <TR>
+      <TD>Config</TD>
+      <TD></TD>
+      <TD>Used to set default language</TD>
+    </TR>
+    <TR>
+      <TD>Contact</TD>
+      <TD>contact</TD>
+      <TD></TD>
+    </TR>
+    <TR>
+      <TD>ContactList</TD>
+      <TD>contacts</TD>
+      <TD>Contains a Vector of Contact objects</TD>
+    </TR>
+    <TR>
+      <TD>Description</TD>
+      <TD>description</TD>
+      <TD></TD>
+    </TR>
+    <TR>
+      <TD>DescriptionList</TD>
+      <TD></TD>
+      <TD>Contains a Vector of Description objects</TD>
+    </TR>
+    <TR>
+      <TD>DiscoveryUrl</TD>
+      <TD>discoveryURL</TD>
+      <TD></TD>
+    </TR>
+    <TR>
+      <TD>DiscoveryUrlList</TD>
+      <TD>discoveryURLs</TD>
+      <TD>Contains a Vector of DiscoveryURL objects</TD>
+    </TR>
+    <TR>
+      <TD>DispositionReport</TD>
+      <TD>dispositionReport</TD>
+      <TD></TD>
+    </TR>
+    <TR>
+      <TD>DispositionreportException</TD>
+      <TD></TD>
+      <TD>Exception thrown by EJB interface functions
+      when an error occurs</TD>
+    </TR>
+    <TR>
+      <TD>Email</TD>
+      <TD>email</TD>
+      <TD></TD>
+    </TR>
+    <TR>
+      <TD>EmailList</TD>
+      <TD></TD>
+      <TD>Contains a Vector of Email objects</TD>
+    </TR>
+    <TR>
+      <TD>EndPoint</TD>
+      <TD></TD>
+      <TD>Used as baseclass for AccessPoint and HostingRedirector
+      providing mutual exclusivity</TD>
+    </TR>
+    <TR>
+      <TD>ErrInfo</TD>
+      <TD>errInfo</TD>
+      <TD></TD>
+    </TR>
+    <TR>
+      <TD></TD>
+      <TD>findQualifier</TD>
+      <TD></TD>
+    </TR>
+    <TR>
+      <TD>FindQualifier</TD>
+      <TD>findQualifiers</TD>
+      <TD></TD>
+    </TR>
+    <TR>
+      <TD align="right">String</TD>
+      <TD>fromKey</TD>
+      <TD></TD>
+    </TR>
+    <TR>
+      <TD>HostingRedirector</TD>
+      <TD>hostingRedirector</TD>
+      <TD></TD>
+    </TR>
+    <TR>
+      <TD>IdentifierBag</TD>
+      <TD>identifierbag</TD>
+      <TD></TD>
+    </TR>
+    <TR>
+      <TD>InquiryOptions</TD>
+      <TD></TD>
+      <TD>Contains a FindQualifiers object and a maxrows
+      field. Used in find_* API calls to specify
+      search options</TD>
+    </TR>
+    <TR>
+      <TD>InstanceDetails</TD>
+      <TD>instanceDetails</TD>
+      <TD></TD>
+    </TR>
+    <TR>
+      <TD align="right">String</TD>
+      <TD>instanceParms</TD>
+      <TD></TD>
+    </TR>
+    <TR>
+      <TD align="right">String</TD>
+      <TD>keyValue</TD>
+      <TD></TD>
+    </TR>
+    <TR>
+      <TD>KeyedReference</TD>
+      <TD>keyedReference</TD>
+      <TD></TD>
+    </TR>
+    <TR>
+      <TD>keysOwned</TD>
+      <TD>keysOwned</TD>
+      <TD></TD>
+    </TR>
+    <TR>
+      <TD>LanguageString</TD>
+      <TD></TD>
+      <TD>Abstract class, extended by some of the datatypes,
+      which represents a string that can optionally
+      be tagged with xml:lang.</TD>
+    </TR>
+    <TR>
+      <TD>Name</TD>
+      <TD>name</TD>
+      <TD></TD>
+    </TR>
+    <TR>
+      <TD>NameList</TD>
+      <TD></TD>
+      <TD>Contains a Vector of Name objects</TD>
+    </TR>
+    <TR>
+      <TD>OverviewDoc</TD>
+      <TD>overviewDoc</TD>
+      <TD></TD>
+    </TR>
+    <TR>
+      <TD align="right">String</TD>
+      <TD>overviewURL</TD>
+      <TD></TD>
+    </TR>
+    <TR>
+      <TD align="right">String</TD>
+      <TD>personName</TD>
+      <TD></TD>
+    </TR>
+    <TR>
+      <TD>Phone</TD>
+      <TD>phone</TD>
+      <TD></TD>
+    </TR>
+    <TR>
+      <TD>PhoneList</TD>
+      <TD></TD>
+      <TD>Contains a Vector of Phone objects</TD>
+    </TR>
+    <TR>
+      <TD>PublisherAssertion</TD>
+      <TD>publisherAssertion</TD>
+      <TD></TD>
+    </TR>
+    <TR>
+      <TD>PublisherAssertionList</TD>
+      <TD></TD>
+      <TD>Contains a Vector of Publisher Assertion
+      objects</TD>
+    </TR>
+    <TR>
+      <TD>PublisherAssertions</TD>
+      <TD>publisherAssertions (response message)</TD>
+      <TD></TD>
+    </TR>
+    <TR>
+      <TD>RegisteredInfo</TD>
+      <TD>registeredInfo (response message)</TD>
+      <TD></TD>
+    </TR>
+    <TR>
+      <TD></TD>
+      <TD>relatedBusinessInfo</TD>
+      <TD>not used</TD>
+    </TR>
+    <TR>
+      <TD></TD>
+      <TD>relatedBusinessInfos</TD>
+      <TD>not used</TD>
+    </TR>
+    <TR>
+      <TD>RelatesBusinessesList</TD>
+      <TD>relatedBusinessesList</TD>
+      <TD></TD>
+    </TR>
+    <TR>
+      <TD>RelatedBusinessInfo</TD>
+      <TD>relatedBVusinessInfo</TD>
+      <TD></TD>
+    </TR>
+    <TR>
+      <TD>RelatedBusinessInfos</TD>
+      <TD>relatedBusinessInfos</TD>
+      <TD></TD>
+    </TR>
+    <TR>
+      <TD>Result</TD>
+      <TD>result</TD>
+      <TD></TD>
+    </TR>
+    <TR>
+      <TD>ResultList</TD>
+      <TD></TD>
+      <TD>Contains a Vector of Result objects</TD>
+    </TR>
+    <TR>
+      <TD>ServiceDetail</TD>
+      <TD>serviceDetail (response message)</TD>
+      <TD></TD>
+    </TR>
+    <TR>
+      <TD>ServiceInfo</TD>
+      <TD>serviceInfo</TD>
+      <TD></TD>
+    </TR>
+    <TR>
+      <TD>ServiceInfoList</TD>
+      <TD>serviceInfos</TD>
+      <TD>Contains a Vector of serviceInfo objects</TD>
+    </TR>
+    <TR>
+      <TD align="right">String</TD>
+      <TD>serviceKey</TD>
+      <TD></TD>
+    </TR>
+    <TR>
+      <TD>ServiceList</TD>
+      <TD>serviceList (reponse message_</TD>
+      <TD></TD>
+    </TR>
+    <TR>
+      <TD></TD>
+      <TD>sharedRelationships</TD>
+      <TD>not used</TD>
+    </TR>
+    <TR>
+      <TD>SharedRelationships</TD>
+      <TD>sharedRelationships</TD>
+      <TD></TD>
+    </TR>
+    <TR>
+      <TD>Tmodel</TD>
+      <TD>tModel</TD>
+      <TD></TD>
+    </TR>
+    <TR>
+      <TD>TModelBag</TD>
+      <TD>tModelBag</TD>
+      <TD></TD>
+    </TR>
+    <TR>
+      <TD>TModelDetail</TD>
+      <TD>tModelDetail (response message)</TD>
+      <TD></TD>
+    </TR>
+    <TR>
+      <TD>TModelInfo</TD>
+      <TD>tModelInfo</TD>
+      <TD></TD>
+    </TR>
+    <TR>
+      <TD>TModelInfoList</TD>
+      <TD>tModelInfos</TD>
+      <TD>Contains a Vector of TModelInfo objects</TD>
+    </TR>
+    <TR>
+      <TD>TModelInstanceInfo</TD>
+      <TD>tModelInstanceInfo</TD>
+      <TD></TD>
+    </TR>
+    <TR>
+      <TD>TModelInstanceInfoList</TD>
+      <TD>tModelInstanceDetails</TD>
+      <TD>Contains a Vector of TModelInstanceInfo objects</TD>
+    </TR>
+    <TR>
+      <TD align="right">String</TD>
+      <TD>tModelKey</TD>
+      <TD></TD>
+    </TR>
+    <TR>
+      <TD>TModelList</TD>
+      <TD>tModelList (response message)</TD>
+      <TD></TD>
+    </TR>
+    <TR>
+      <TD>TModels</TD>
+      <TD></TD>
+      <TD>Contains a Vector of TModel objects</TD>
+    </TR>
+    <TR>
+      <TD align="right">String</TD>
+      <TD>toKey</TD>
+      <TD></TD>
+    </TR>
+    <TR>
+      <TD align="right">String</TD>
+      <TD>uploadRegister</TD>
+      <TD></TD>
+    </TR>
+    <TR>
+      <TD>UploadRegisterList</TD>
+      <TD></TD>
+      <TD>Contains a Vector of uploadRegister strings</TD>
+    </TR>
+    <TR>
+      <TD>ValidatingDatatype</TD>
+      <TD></TD>
+      <TD>Abstract class which some datatypes extend.
+      Used in validation</TD>
+    </TR>
+    <TR>
+      <TD>ValidationResult</TD>
+      <TD></TD>
+      <TD>Used in validation of ValidatingDatatype
+      objects</TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<P>** Used in UDDI API functions relating to
+BusinessDetailExtension. These UDDI API functions
+are not implemented in Version 1 of the IBM
+WebSphere UDDI Registry.</P>
+<P>In general, a datatype called DatatypeList
+contains a vector of <I>Datatype</I> objects. Often these correspond to XML schema
+elements with plural names. (For example
+the datatype <I>Contact</I> corresponds to XML element <I>contact</I>, and <I>ContactList </I>corresponds to <I>contacts</I>.) Where there is no “plural” XML schema
+element for a particular <I>Datatype</I>, often there is still a <I>DatatypeList </I>where it is useful to have one, e.g. <I>AddressList</I>.</P>
+<P>The exceptions to this naming convention
+occur when there is an existing XML schema
+element ending in “List”. The exceptions
+are: TModelList, ServiceList, BusinessList.
+In these cases, the corresponding datatypes
+are given the same names as the XML schema
+elements, and the datatypes that would have
+had these names are called: TModels, BusinessServiceList,
+BusinessEntityList.</P>
+<H3><A name="ejbmeth">Methods in the EJB Interface</A></H3>
+<H4>Inquiry</H4>
+<P>findBinding<BR>
+findBusiness<BR>
+findRelatedBusinesses<BR>
+findService<BR>
+findTModel<BR>
+getBindingDetail<BR>
+getBusinessDetail<BR>
+getServiceDetail<BR>
+getTModelDetail</P>
+<H4>Publish</H4>
+<P>deleteBinding<BR>
+deleteBusiness<BR>
+deletePublisherAssertions<BR>
+deleteService<BR>
+deleteTModel<BR>
+getAssertionStatusReport<BR>
+getRegisteredInfo<BR>
+getPublisherASsertions<BR>
+saveBinding<BR>
+saveBusiness<BR>
+saveService<BR>
+saveTModel<BR>
+setPublisherAssertions</P>
+<P>Each method is overloaded and can take various
+combinations of arguments. The Javadoc contains
+detailed information about each method.</P>
+<P>Nothe that get_authToken and discard_authtoken
+are not implemented, as WebSphere security
+is used instead.</P>
+</BODY>
+</HTML>

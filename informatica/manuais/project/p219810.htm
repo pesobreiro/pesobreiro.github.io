@@ -1,0 +1,62 @@
+<!doctype html public" -//IETF//DTD 	HTML//EN">
+<HTML>
+
+<HEAD>
+<SCRIPT LANGUAGE="JAVASCRIPT">
+<!-- 
+
+function checkbrowse()
+{
+var bn, bv, ver
+bn = navigator.appName;
+bv = parseInt(navigator.appVersion);
+if (bn=="Microsoft Internet Explorer" && bv<"4") ver = "IE3";
+else ver = "NotIE3";
+if (ver=="IE3") top.cont.parts.location.href="part21.htm";
+if (ver=="NotIE3") top.cont.parts.location.href="nav/part21.htm";
+}
+//-->
+</SCRIPT>
+<TITLE>Create a Separate Resource Pool</TITLE>
+<META NAME="GENERATOR" 	CONTENT="Merch. System HTML Development">
+<META NAME="AUTHOR" 	CONTENT="Merch. System HTML Development">
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" OnLoad="checkbrowse();">
+<Font Face ="Verdana, Arial, Helvetica">
+
+<P align=right><SMALL>
+<A HREF="p21989.htm" Target="TOC"><IMG SRC="prev.gif"ALT="Previous page"BORDER=0></A>
+<A HREF="p21981.htm" Target="TOC"><IMG SRC="toc21.gif"ALT="Contents"BORDER=0></A>
+<A HREF="p219811.htm" Target="TOC"><IMG SRC="Next.gif"ALT="Next 
+page"BORDER=0></A></SMALL></P>
+<H2>Create a Separate Resource Pool</H2>
+
+<P>
+Before you create several projects that will use the same resources, you can save time by creating a project file 
+that contains resource information only. When you create a separate resource pool, you enter resource 
+information once for the entire group of projects that will share those resources. Then, you link each project to 
+the resource pool file. 
+<P>
+<B><B><IMG SRC="bluetri.gif">	To create a separate resource pool</B></B>
+<OL>
+<LI>Open a new project file.
+<BR>This file will contain the resource pool.
+<LI>Enter information for each resource that is assigned to the projects that will share the resource pool.
+<LI>Click <B>Save</B> <IMG SRC="SAVE.gif">.
+<LI>In the <B>File name</B> box, type a name for the resource pool file.
+<LI>Create the projects that will share the resource pool.
+<LI>Open the projects that will share the resource pool.
+<LI>Switch to one of the open project files.
+<LI>On the <B>Tools</B> menu, point to <B>Resources</B>, and then click <B>Share Resources</B>.
+<LI>Click <B>Use resources</B>, and then click the resource pool file in the <B>From</B> box.
+<LI>To overwrite pool information with resource information from the selected project file (for resources that 
+they have in common), click <B>Sharer takes precedence</B>.
+<LI>Repeat steps 7 through 10 for each project that will share the resource pool.
+</OL>
+<P align = Center > <A HREF="http://www.microsoft.com/misc/cpyright.htm"><EM>&#169;1996-1997 Microsoft Corporation. All rights 
+reserved.</EM></A></P>
+</BODY>
+</FONT>
+</HTML>
+

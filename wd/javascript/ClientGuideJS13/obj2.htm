@@ -1,0 +1,474 @@
+<HTML>
+<HEAD>
+<TITLE>Details of the Object Model
+</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="obj.htm">Previous</A>
+ | <A HREF="partcli.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT><BR><BR>
+<HR>
+<A NAME="1008297">
+<P></A><CENTER><H2>Chapter 8<BR>
+<A NAME="1013803">
+Details of the Object Model</A></H2></CENTER>
+<A NAME="1013805">
+JavaScript is an object-based language based on prototypes, rather than being class-based. Because of this different basis, it can be less apparent how JavaScript allows you to create hierarchies of objects and to have inheritance of properties and their values. This chapter attempts to clarify the situation.</A></P>
+<A NAME="1008313">
+This chapter assumes that you are already somewhat familiar with JavaScript and that you have used JavaScript functions to create simple objects.</A></P>
+<A NAME="1010311">
+This chapter contains the following sections:</A></P>
+<ul><LI><A NAME="1010312">
+<A HREF="obj2.htm#1008342">Class-Based vs. Prototype-Based Languages</A>
+</A></LI><LI><A NAME="1008329">
+<A HREF="obj2.htm#1008388">The Employee Example</A>
+</A></LI><LI><A NAME="1011320">
+<A HREF="obj2.htm#1008404">Creating the Hierarchy</A>
+</A></LI><LI><A NAME="1008333">
+<A HREF="obj2.htm#1008465">Object Properties</A>
+</A></LI><LI><A NAME="1008337">
+<A HREF="obj2.htm#1008499">More Flexible Constructors</A>
+</A></LI><LI><A NAME="1008341">
+<A HREF="obj2.htm#1008567">Property Inheritance Revisited</A>
+</A></LI></ul>
+<HR><H2><A NAME="Class-Based vs. Prototype-Based Languages"></A>
+<A NAME="1008342">
+ Class-Based vs. Prototype-Based Languages
+</A></H2><A NAME="1011288">
+Class-based object-oriented languages, such as Java and C++, are founded on the concept of two distinct entities: classes and instances.</A></P>
+<ul><P><LI><A NAME="1010952">
+A <I>class</I> defines all of the properties (considering methods and fields in Java, or members in C++, to be properties) that characterize a certain set of objects. A class is an abstract thing, rather than any particular member of the set of objects it describes. For example, the <CODE>Employee</CODE> class could represent the set of all employees.</A></LI>
+<P><LI><A NAME="1010959">
+An <I>instance</I>, on the other hand, is the instantiation of a class; that is, one of its members. For example, <CODE>Victoria</CODE> could be an instance of the <CODE>Employee</CODE> class, representing a particular individual as an employee. An instance has exactly the properties of its parent class (no more, no less).</A></LI>
+</ul><A NAME="1010590">
+A prototype-based language, such as JavaScript, does not make this distinction: it simply has objects. A prototype-based language has the notion of a <I>prototypical object</I>, an object used as a template from which to get the initial properties for a new object. Any object can specify its own properties, either when you create it or at run time. In addition, any object can be associated as the <I>prototype</I> for another object, allowing the second object to share the first object's properties.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1011360">
+ Defining a Class
+</A></H3>
+
+<A NAME="1010591">
+In class-based languages, you define a class in a separate <I>class definition</I>. In that definition you can specify special methods, called <I>constructors</I>, to create instances of the class. A constructor method can specify initial values for the instance's properties and perform other processing appropriate at creation time. You use the <CODE>new</CODE> operator in association with the constructor method to create class instances.</A></P>
+<A NAME="1008345">
+JavaScript follows a similar model, but does not have a class definition separate from the constructor. Instead, you define a constructor function to create objects with a particular initial set of properties and values. Any JavaScript function can be used as a constructor. You use the <CODE>new</CODE> operator with a constructor function to create a new object.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1011368">
+ Subclasses and Inheritance
+</A></H3>
+
+<A NAME="1008346">
+In a class-based language, you create a hierarchy of classes through the class definitions. In a class definition, you can specify that the new class is a <I>subclass</I> of an already existing class. The subclass inherits all the properties of the superclass and additionally can add new properties or modify the inherited ones. For example, assume the <CODE>Employee</CODE> class includes only the <CODE>name</CODE> and <CODE>dept</CODE> properties, and <CODE>Manager</CODE> is a subclass of <CODE>Employee</CODE> that adds the <CODE>reports</CODE> property. In this case, an instance of the <CODE>Manager</CODE> class would have all three properties: <CODE>name</CODE>, <CODE>dept</CODE>, and <CODE>reports</CODE>.</A></P>
+<A NAME="1008347">
+JavaScript implements inheritance by allowing you to associate a prototypical object with any constructor function. So, you can create exactly the <CODE>Employee</CODE>-<CODE>Manager</CODE> example, but you use slightly different terminology. First you define the <CODE>Employee</CODE> constructor function, specifying the <CODE>name</CODE> and <CODE>dept</CODE> properties. Next, you define the <CODE>Manager</CODE> constructor function, specifying the <CODE>reports</CODE> property. Finally, you assign a new <CODE>Employee</CODE> object as the <CODE>prototype</CODE> for the <CODE>Manager</CODE> constructor function. Then, when you create a new <CODE>Manager</CODE>, it inherits the <CODE>name</CODE> and <CODE>dept</CODE> properties from the <CODE>Employee</CODE> object.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1011428">
+ Adding and Removing Properties
+</A></H3>
+
+<A NAME="1008348">
+In class-based languages, you typically create a class at compile time and then you instantiate instances of the class either at compile time or at run time. You cannot change the number or the type of properties of a class after you define the class. In JavaScript, however, at run time you can add or remove properties from any object. If you add a property to an object that is used as the prototype for a set of objects, the objects for which it is the prototype also get the new property.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1011444">
+ Summary of Differences
+</A></H3>
+
+<A NAME="1008352">
+The following table gives a short summary of some of these differences. The rest of this chapter describes the details of using JavaScript constructors and prototypes to create an object hierarchy and compares this to how you would do it in Java.</A></P>
+<A NAME="1010209">
+<P><B><A NAME="1008356">
+Table 8.1&nbsp;Comparison of class-based (Java) and prototype-based (JavaScript) object systems</A></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1008360">
+<B>Class-based (Java)
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1008362">
+<B>Prototype-based (JavaScript)
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1008364">
+Class and instance are distinct entities.</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1008366">
+All objects are instances.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1008368">
+Define a class with a class definition; instantiate a class with constructor methods.</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1008370">
+Define and create a set of objects with constructor functions.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1008372">
+Create a single object with the <CODE>new</CODE> operator.</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1008374">
+Same.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1008376">
+Construct an object hierarchy by using class definitions to define subclasses of existing classes.</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1008378">
+Construct an object hierarchy by assigning an object as the prototype associated with a constructor function.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1008380">
+Inherit properties by following the class chain.</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1008382">
+Inherit properties by following the prototype chain.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1008384">
+Class definition specifies <I>all</I> properties of all instances of a class. Cannot add properties dynamically at run time.</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1008386">
+Constructor function or prototype specifies an <I>initial set</I> of properties. Can add or remove properties dynamically to individual objects or to the entire set of objects.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<HR><H2><A NAME="The Employee Example"></A>
+<A NAME="1008388">
+ The Employee Example
+</A></H2><A NAME="1008389">
+The remainder of this chapter uses the employee hierarchy shown in the following figure.</A></P>
+<P><A NAME="1008397">
+<B>Figure 8.1&nbsp;&nbsp;&nbsp;A simple object hierarchy<P>
+<IMG SRC="graphics/hier01.gif">
+
+</B></A></P>
+
+
+<A NAME="1011451">
+This example uses the following objects:</A></P>
+<ul><P><LI><A NAME="1008398">
+<CODE>Employee</CODE> has the properties <CODE>name</CODE> (whose value defaults to the empty string) and <CODE>dept</CODE> (whose value defaults to "general").</A></LI>
+<P><LI><A NAME="1008399">
+<CODE>Manager</CODE> is based on <CODE>Employee</CODE>. It adds the <CODE>reports</CODE> property (whose value defaults to an empty array, intended to have an array of <CODE>Employee</CODE> objects as its value).</A></LI>
+<P><LI><A NAME="1008400">
+<CODE>WorkerBee</CODE> is also based on <CODE>Employee</CODE>. It adds the <CODE>projects</CODE> property (whose value defaults to an empty array, intended to have an array of strings as its value).</A></LI>
+<P><LI><A NAME="1008401">
+<CODE>SalesPerson</CODE> is based on <CODE>WorkerBee</CODE>. It adds the <CODE>quota</CODE> property (whose value defaults to 100). It also overrides the <CODE>dept</CODE> property with the value "sales", indicating that all salespersons are in the same department.</A></LI>
+<P><LI><A NAME="1008402">
+<CODE>Engineer</CODE> is based on <CODE>WorkerBee</CODE>. It adds the <CODE>machine</CODE> property (whose value defaults to the empty string) and also overrides the <CODE>dept</CODE> property with the value "engineering".</A></LI>
+</ul>
+<HR><H2><A NAME="Creating the Hierarchy"></A>
+<A NAME="1008404">
+ Creating the Hierarchy
+</A></H2><A NAME="1011527">
+There are several ways to define appropriate constructor functions to implement the Employee hierarchy. How you choose to define them depends largely on what you want to be able to do in your application.</A></P>
+<A NAME="1011528">
+This section shows how to use very simple (and comparatively inflexible) definitions to demonstrate how to get the inheritance to work. In these definitions, you cannot specify any property values when you create an object. The newly-created object simply gets the default values, which you can change at a later time. <A HREF="obj2.htm#1008418">Figure 8.2</A> illustrates the hierarchy with these simple definitions.</A></P>
+<A NAME="1008410">
+In a real application, you would probably define constructors that allow you to provide property values at object creation time (see <A HREF="obj2.htm#1008499">"More Flexible Constructors" on page&nbsp;133</A> for information). For now, these simple definitions demonstrate how the inheritance occurs.</A></P>
+<P><A NAME="1008418">
+<B>Figure 8.2&nbsp;&nbsp;&nbsp;The Employee object definitions<P>
+<IMG SRC="graphics/hier02.gif">
+
+</B></A></P>
+
+
+<A NAME="1008419">
+The following Java and JavaScript <CODE>Employee</CODE> definitions are similar. The only differences are that you need to specify the type for each property in Java but not in JavaScript, and you need to create an explicit constructor method for the Java class.</A></P>
+<A NAME="1010246">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1008422">
+<B>JavaScript
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1008424">
+<B>Java
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008426">function Employee () {<br>    this.name = "";<br>    this.dept = "general";<br>}</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008428">public class Employee {<br>&nbsp;&nbsp;&nbsp;public String name;<br>&nbsp;&nbsp;&nbsp;public String dept;<br>&nbsp;&nbsp;&nbsp;public Employee () {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.name = "";<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.dept = "general";<br>&nbsp;&nbsp;&nbsp;}<br>}</A></PRE>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+<A NAME="1008429">
+The <CODE>Manager</CODE> and WorkerBee definitions show the difference in how to specify the next object higher in the inheritance chain. In JavaScript, you add a prototypical instance as the value of the <CODE>prototype</CODE> property of the constructor function. You can do so at any time after you define the constructor. In Java, you specify the superclass within the class definition. You cannot change the superclass outside the class definition.</A></P>
+<A NAME="1010266">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1008432">
+<B>JavaScript
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1008434">
+<B>Java
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008436">function Manager () {<br>    this.reports = [];<br>}<br>Manager.prototype = new Employee;</A></PRE><PRE><A NAME="1008437">function WorkerBee () {<br>    this.projects = [];<br>}<br>WorkerBee.prototype = new Employee;</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008439">public class Manager extends Employee {<br>&nbsp;&nbsp;&nbsp;public Employee[] reports;<br>&nbsp;&nbsp;&nbsp;public Manager () {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.reports = new Employee[0];<br>&nbsp;&nbsp;&nbsp;}<br>}</A></PRE><PRE><A NAME="1008440">public class WorkerBee extends Employee {<br>&nbsp;&nbsp;&nbsp;public String[] projects;<br>&nbsp;&nbsp;&nbsp;public WorkerBee () {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.projects = new String[0];<br>&nbsp;&nbsp;&nbsp;}<br>}</A></PRE>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+<A NAME="1008441">
+The <CODE>Engineer</CODE> and <CODE>SalesPerson</CODE> definitions create objects that descend from <CODE>WorkerBee</CODE> and hence from <CODE>Employee</CODE>. An object of these types has properties of all the objects above it in the chain. In addition, these definitions override the inherited value of the <CODE>dept</CODE> property with new values specific to these objects.</A></P>
+<A NAME="1010284">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1008444">
+<B>JavaScript
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1008446">
+<B>Java
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008448">function SalesPerson () {<br>&nbsp;&nbsp;&nbsp;this.dept = "sales";<br>&nbsp;&nbsp;&nbsp;this.quota = 100;<br>}<br>SalesPerson.prototype = new WorkerBee;</A></PRE><PRE><A NAME="1008449">function Engineer () {<br>&nbsp;&nbsp;&nbsp;this.dept = "engineering";<br>&nbsp;&nbsp;&nbsp;this.machine = "";<br>}<br>Engineer.prototype = new WorkerBee;</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008451">public class SalesPerson extends WorkerBee {<br>&nbsp;&nbsp;&nbsp;public double quota;<br>&nbsp;&nbsp;&nbsp;public SalesPerson () {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.dept = "sales";<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.quota = 100.0;<br>&nbsp;&nbsp;&nbsp;}<br>}</A></PRE><PRE><A NAME="1008452">public class Engineer extends WorkerBee {<br>&nbsp;&nbsp;&nbsp;public String machine;<br>&nbsp;&nbsp;&nbsp;public Engineer () {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.dept = "engineering";<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.machine = "";<br>&nbsp;&nbsp;&nbsp;}<br>}</A></PRE>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+<A NAME="1008453">
+Using these definitions, you can create instances of these objects that get the default values for their properties. <A HREF="obj2.htm#1008463">Figure 8.3</A> illustrates using these JavaScript definitions to create new objects and shows the property values for the new objects.</A></P>
+<BLOCKQUOTE><B>NOTE: </B><A NAME="1010709">
+The term <I>instance</I> has a specific technical meaning in class-based languages. In 
+these languages, an instance is an individual member of a class and is 
+fundamentally different from a class. In JavaScript, "instance" does not have this 
+technical meaning because JavaScript does not have this difference between 
+classes and instances. However, in talking about JavaScript, "instance" can be 
+used informally to mean an object created using a particular constructor 
+function. So, in this example, you could informally say that <CODE>jane</CODE> is an instance 
+of <CODE>Engineer</CODE>. Similarly, although the terms <I>parent</I>, <I>child</I>, <I>ancestor</I>, and 
+<I>descendant</I> do not have formal meanings in JavaScript; you can use them 
+informally to refer to objects higher or lower in the prototype chain.
+</A>
+</BLOCKQUOTE>
+<P><A NAME="1008463">
+<B>Figure 8.3&nbsp;&nbsp;&nbsp;Creating objects with simple definitions<P>
+<IMG SRC="graphics/hier03.gif">
+
+</B></A></P>
+
+
+
+<HR><H2><A NAME="Object Properties"></A>
+<A NAME="1008465">
+ Object Properties
+</A></H2><A NAME="1012333">
+This section discusses how objects inherit properties from other objects in the prototype chain and what happens when you add a property at run time.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1008468">
+ Inheriting Properties
+</A></H3>
+
+<A NAME="1008472">
+Suppose you create the <CODE>mark</CODE> object as a <CODE>WorkerBee</CODE> as shown in <A HREF="obj2.htm#1008463">Figure 8.3</A> with the following statement:</A></P>
+<PRE><A NAME="1008473">mark = new WorkerBee;</A></PRE><A NAME="1008474">
+When JavaScript sees the <CODE>new</CODE> operator, it creates a new generic object and passes this new object as the value of the <CODE>this</CODE> keyword to the <CODE>WorkerBee</CODE> constructor function. The constructor function explicitly sets the value of the <CODE>projects</CODE> property. It also sets the value of the internal <CODE>__proto__</CODE> property to the value of <CODE>WorkerBee.prototype</CODE>. (That property name has two underscore characters at the front and two at the end.) The <CODE>__proto__</CODE> property determines the prototype chain used to return property values. Once these properties are set, JavaScript returns the new object and the assignment statement sets the variable <CODE>mark</CODE> to that object.</A></P>
+<A NAME="1008475">
+This process does not explicitly put values in the <CODE>mark</CODE> object (<I>local</I> values) for the properties <CODE>mark</CODE> inherits from the prototype chain. When you ask for the value of a property, JavaScript first checks to see if the value exists in that object. If it does, that value is returned. If the value is not there locally, JavaScript checks the prototype chain (using the <CODE>__proto__</CODE> property). If an object in the prototype chain has a value for the property, that value is returned. If no such property is found, JavaScript says the object does not have the property. In this way, the <CODE>mark</CODE> object has the following properties and values:</A></P>
+<PRE><A NAME="1008476">mark.name = "";<br>mark.dept = "general";<br>mark.projects = [];</A></PRE><A NAME="1008477">
+The <CODE>mark</CODE> object inherits values for the <CODE>name</CODE> and <CODE>dept</CODE> properties from the prototypical object in <CODE>mark.__proto__</CODE>. It is assigned a local value for the <CODE>projects</CODE> property by the <CODE>WorkerBee</CODE> constructor. This gives you inheritance of properties and their values in JavaScript. Some subtleties of this process are discussed in <A HREF="obj2.htm#1008567">"Property Inheritance Revisited" on page&nbsp;138</A>.</A></P>
+<A NAME="1008481">
+Because these constructors do not let you supply instance-specific values, this information is generic. The property values are the default ones shared by all new objects created from <CODE>WorkerBee</CODE>. You can, of course, change the values of any of these properties. So, you could give specific information for <CODE>mark</CODE> as follows:</A></P>
+<PRE><A NAME="1008482">mark.name = "Doe, Mark";<br>mark.dept = "admin";<br>mark.projects = ["navigator"];</A></PRE>
+<H3><A NAME="Head2;"></A>
+<A NAME="1008483">
+ Adding Properties
+</A></H3>
+
+<A NAME="1012393">
+In JavaScript, you can add properties to any object at run time. You are not constrained to use only the properties provided by the constructor function. To add a property that is specific to a single object, you assign a value to the object, as follows:</A></P>
+<PRE><A NAME="1008485">mark.bonus = 3000;</A></PRE><A NAME="1008486">
+Now, the <CODE>mark</CODE> object has a <CODE>bonus</CODE> property, but no other <CODE>WorkerBee</CODE> has this property.</A></P>
+<A NAME="1008487">
+If you add a new property to an object that is being used as the prototype for a constructor function, you add that property to all objects that inherit properties from the prototype. For example, you can add a <CODE>specialty</CODE> property to all employees with the following statement:</A></P>
+<PRE><A NAME="1008488">Employee.prototype.specialty = "none";</A></PRE><A NAME="1008489">
+As soon as JavaScript executes this statement, the <CODE>mark</CODE> object also has the <CODE>specialty</CODE> property with the value of <CODE>"none"</CODE>. The following figure shows the effect of adding this property to the <CODE>Employee</CODE> prototype and then overriding it for the <CODE>Engineer</CODE> prototype.</A></P>
+<P><A NAME="1008497">
+<B>Figure 8.4&nbsp;&nbsp;&nbsp;Adding properties<P>
+<IMG SRC="graphics/hier04.gif">
+
+</B></A></P>
+
+
+
+<HR><H2><A NAME="More Flexible Constructors"></A>
+<A NAME="1008499">
+ More Flexible Constructors
+</A></H2><A NAME="1008500">
+The constructor functions shown so far do not let you specify property values when you create an instance. As with Java, you can provide arguments to constructors to initialize property values for instances. The following figure shows one way to do this.</A></P>
+<P><A NAME="1008508">
+<B>Figure 8.5&nbsp;&nbsp;&nbsp;Specifying properties in a constructor, take 1<P>
+<IMG SRC="graphics/hier05.gif">
+
+</B></A></P>
+
+
+<A NAME="1008526">
+The following table shows the Java and JavaScript definitions for these objects.</A></P>
+<A NAME="1010297">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1008511">
+<B>JavaScript
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1008513">
+<B>Java 
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008515">function Employee (name, dept) {<br>    this.name = name || "";<br>    this.dept = dept || "general";<br>}</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008517">public class Employee {<br>&nbsp;&nbsp;&nbsp;public String name;<br>&nbsp;&nbsp;&nbsp;public String dept;<br>&nbsp;&nbsp;&nbsp;public Employee () {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this("", "general");<br>&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;public Employee (name) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this(name, "general");<br>&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;public Employee (name, dept) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.name = name;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.dept = dept;<br>&nbsp;&nbsp;&nbsp;}<br>}</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008519">function WorkerBee (projs) {<br>    this.projects = projs || [];<br>}<br>WorkerBee.prototype = new Employee;</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008521">public class WorkerBee extends Employee {<br>&nbsp;&nbsp;&nbsp;public String[] projects;<br>&nbsp;&nbsp;&nbsp;public WorkerBee () {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this(new String[0]);<br>&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;public WorkerBee (String[] projs) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.projects = projs;<br>&nbsp;&nbsp;&nbsp;}<br>}</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008523">function Engineer (mach) {<br>&nbsp;&nbsp;&nbsp;this.dept = "engineering";<br>&nbsp;&nbsp;&nbsp;this.machine = mach || "";<br>}<br>Engineer.prototype = new WorkerBee;</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008525">public class Engineer extends WorkerBee {<br>&nbsp;&nbsp;&nbsp;public String machine;<br>&nbsp;&nbsp;&nbsp;public WorkerBee () {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.dept = "engineering";<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.machine = "";<br>&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;public WorkerBee (mach) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.dept = "engineering";<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.machine = mach;<br>&nbsp;&nbsp;&nbsp;}<br>}</A></PRE>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+<A NAME="1008527">
+These JavaScript definitions use a special idiom for setting default values:</A></P>
+<PRE><A NAME="1008528">this.name = name || "";</A></PRE><A NAME="1008529">
+The JavaScript logical OR operator (<CODE>||</CODE>) evaluates its first argument. If that argument converts to true, the operator returns it. Otherwise, the operator returns the value of the second argument. Therefore, this line of code tests to see if <CODE>name</CODE> has a useful value for the <CODE>name</CODE> property. If it does, it sets <CODE>this.name</CODE> to that value. Otherwise, it sets <CODE>this.name</CODE> to the empty string. This chapter uses this idiom for brevity; however, it can be puzzling at first glance.</A></P>
+<A NAME="1008530">
+With these definitions, when you create an instance of an object, you can specify values for the locally defined properties. As shown in <A HREF="obj2.htm#1008508">Figure 8.5</A>, you can use the following statement to create a new <CODE>Engineer</CODE>:</A></P>
+<PRE><A NAME="1008534">jane = new Engineer("belau");</A></PRE><A NAME="1008535">
+Jane's properties are now:</A></P>
+<PRE><A NAME="1008536">jane.name == "";<br>jane.dept == "general";<br>jane.projects == [];<br>jane.machine == "belau"</A></PRE><A NAME="1008537">
+Notice that with these definitions, you cannot specify an initial value for an inherited property such as <CODE>name</CODE>. If you want to specify an initial value for inherited properties in JavaScript, you need to add more code to the constructor function.</A></P>
+<A NAME="1008538">
+So far, the constructor function has created a generic object and then specified local properties and values for the new object. You can have the constructor add more properties by directly calling the constructor function for an object higher in the prototype chain. The following figure shows these new definitions.</A></P>
+<P><A NAME="1008546">
+<B>Figure 8.6&nbsp;&nbsp;&nbsp;Specifying properties in a constructor, take 2 <P>
+<IMG SRC="graphics/hier06.gif">
+
+</B></A></P>
+
+
+<A NAME="1008547">
+Let's look at one of these definitions in detail. Here's the new definition for the <CODE>Engineer</CODE> constructor:</A></P>
+<PRE><A NAME="1008548">function Engineer (name, projs, mach) {<br>    this.base = WorkerBee;<br>    this.base(name, "engineering", projs);<br>    this.machine = mach || "";<br>}</A></PRE><A NAME="1008549">
+Suppose you create a new <CODE>Engineer</CODE> object as follows:</A></P>
+<PRE><A NAME="1008550">jane = new Engineer("Doe, Jane", ["navigator", "javascript"], "belau");</A></PRE><A NAME="1008551">
+JavaScript follows these steps:</A></P>
+<OL>
+<P><LI><A NAME="1008552">
+The <CODE>new</CODE> operator creates a generic object and sets its <CODE>__proto__</CODE> property to <CODE>Engineer.prototype</CODE>.</A></LI>
+<P><LI><A NAME="1008553">
+The <CODE>new</CODE> operator passes the new object to the <CODE>Engineer</CODE> constructor as the value of the <CODE>this</CODE> keyword.</A></LI>
+<P><LI><A NAME="1008554">
+The constructor creates a new property called <CODE>base</CODE> for that object and assigns the value of the <CODE>WorkerBee</CODE> constructor to the <CODE>base</CODE> property. This makes the <CODE>WorkerBee</CODE> constructor a method of the <CODE>Engineer</CODE> object.</A></LI>
+<P><A NAME="1008556">
+The name of the <CODE>base</CODE> property is not special. You can use any legal 
+property name; <CODE>base</CODE> is simply evocative of its purpose.
+</P></A>
+
+<P><LI><A NAME="1008557">
+The constructor calls the <CODE>base</CODE> method, passing as its arguments two of the arguments passed to the constructor (<CODE>"Doe, Jane"</CODE> and <CODE>["navigator", "javascript"]</CODE>) and also the string "engineering". Explicitly using "engineering" in the constructor indicates that all <CODE>Engineer</CODE> objects have the same value for the inherited <CODE>dept</CODE> property, and this value overrides the value inherited from <CODE>Employee</CODE>.</A></LI>
+<P><LI><A NAME="1008558">
+Because <CODE>base</CODE> is a method of <CODE>Engineer</CODE>, within the call to <CODE>base</CODE>, JavaScript binds the <CODE>this</CODE> keyword to the object created in <A HREF="obj2.htm#1008552">Step 1</A>. Thus, the <CODE>WorkerBee</CODE> function in turn passes the <CODE>"Doe, Jane"</CODE> and <CODE>["navigator", "javascript"]</CODE> arguments to the <CODE>Employee</CODE> constructor function. Upon return from the <CODE>Employee</CODE> constructor function, the <CODE>WorkerBee</CODE> function uses the remaining argument to set the <CODE>projects</CODE> property.</A></LI>
+<P><LI><A NAME="1008559">
+Upon return from the <CODE>base</CODE> method, the <CODE>Engineer</CODE> constructor initializes the object's <CODE>machine</CODE> property to <CODE>"belau"</CODE>.</A></LI>
+<P><LI><A NAME="1008560">
+Upon return from the constructor, JavaScript assigns the new object to the <CODE>jane</CODE> variable.</A></LI>
+</OL>
+<A NAME="1008561">
+You might think that, having called the <CODE>WorkerBee</CODE> constructor from inside the <CODE>Engineer</CODE> constructor, you have set up inheritance appropriately for <CODE>Engineer</CODE> objects. This is not the case. Calling the <CODE>WorkerBee</CODE> constructor ensures that an <CODE>Engineer</CODE> object starts out with the properties specified in all constructor functions that are called. However, if you later add properties to the <CODE>Employee</CODE> or <CODE>WorkerBee</CODE> prototypes, those properties are not inherited by the <CODE>Engineer</CODE> object. For example, assume you have the following statements:</A></P>
+<PRE><A NAME="1008562">function Engineer (name, projs, mach) {<br>    this.base = WorkerBee;<br>    this.base(name, "engineering", projs);<br>    this.machine = mach || "";<br>}<br>jane = new Engineer("Doe, Jane", ["navigator", "javascript"], "belau");<br>Employee.prototype.specialty = "none";</A></PRE><A NAME="1008563">
+The <CODE>jane</CODE> object does not inherit the <CODE>specialty</CODE> property. You still need to explicitly set up the prototype to ensure dynamic inheritance. Assume instead you have these statements:</A></P>
+<PRE><A NAME="1008564">function Engineer (name, projs, mach) {<br>    this.base = WorkerBee;<br>    this.base(name, "engineering", projs);<br>    this.machine = mach || "";<br>}<br>Engineer.prototype = new WorkerBee;<br>jane = new Engineer("Doe, Jane", ["navigator", "javascript"], "belau");<br>Employee.prototype.specialty = "none";</A></PRE><A NAME="1008565">
+Now the value of the <CODE>jane</CODE> object's <CODE>specialty</CODE> property is "none".</A></P>
+
+<HR><H2><A NAME="Property Inheritance Revisited"></A>
+<A NAME="1008567">
+ Property Inheritance Revisited
+</A></H2><A NAME="1008568">
+The preceding sections described how JavaScript constructors and prototypes provide hierarchies and inheritance. This section discusses some subtleties that were not necessarily apparent in the earlier discussions.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1008570">
+ Local versus Inherited Values
+</A></H3>
+
+<A NAME="1008571">
+When you access an object property, JavaScript performs these steps, as described earlier in this chapter:</A></P>
+<OL>
+<P><LI><A NAME="1008572">
+Check to see if the value exists locally. If it does, return that value.</A></LI>
+<P><LI><A NAME="1008573">
+If there is not a local value, check the prototype chain (using the <CODE>__proto__</CODE> property).</A></LI>
+<P><LI><A NAME="1008574">
+If an object in the prototype chain has a value for the specified property, return that value.</A></LI>
+<P><LI><A NAME="1008575">
+If no such property is found, the object does not have the property.</A></LI>
+</OL>
+<A NAME="1008576">
+The outcome of these steps depends on how you define things along the way. The original example had these definitions:</A></P>
+<PRE><A NAME="1008577">function Employee () {<br>    this.name = "";<br>    this.dept = "general";<br>}</A></PRE><PRE><A NAME="1008578">function WorkerBee () {<br>    this.projects = [];<br>}<br>WorkerBee.prototype = new Employee;</A></PRE><A NAME="1008579">
+With these definitions, suppose you create <CODE>amy</CODE> as an instance of <CODE>WorkerBee</CODE> with the following statement:</A></P>
+<PRE><A NAME="1008580">amy = new WorkerBee;</A></PRE><A NAME="1008581">
+The <CODE>amy</CODE> object has one local property, <CODE>projects</CODE>. The values for the <CODE>name</CODE> and <CODE>dept</CODE> properties are not local to <CODE>amy</CODE> and so are gotten from the <CODE>amy</CODE> object's <CODE>__proto__</CODE> property. Thus, <CODE>amy</CODE> has these property values:</A></P>
+<PRE><A NAME="1008582">amy.name == "";<br>amy.dept = "general";<br>amy.projects == [];</A></PRE><A NAME="1008583">
+Now suppose you change the value of the <CODE>name</CODE> property in the prototype associated with <CODE>Employee</CODE>:</A></P>
+<PRE><A NAME="1008584">Employee.prototype.name = "Unknown"</A></PRE><A NAME="1008585">
+At first glance, you might expect that new value to propagate down to all the instances of <CODE>Employee</CODE>. However, it does not.</A></P>
+<A NAME="1008586">
+When you create <I>any</I> instance of the <CODE>Employee</CODE> object, that instance gets a local value for the <CODE>name</CODE> property (the empty string). This means that when you set the <CODE>WorkerBee</CODE> prototype by creating a new <CODE>Employee</CODE> object, <CODE>WorkerBee.prototype</CODE> has a local value for the <CODE>name</CODE> property. Therefore, when JavaScript looks up the <CODE>name</CODE> property of the <CODE>amy</CODE> object (an instance of <CODE>WorkerBee</CODE>), JavaScript finds the local value for that property in <CODE>WorkerBee.prototype</CODE>. It therefore does not look farther up the chain to <CODE>Employee.prototype</CODE>.</A></P>
+<A NAME="1008587">
+If you want to change the value of an object property at run time and have the new value be inherited by all descendants of the object, you cannot define the property in the object's constructor function. Instead, you add it to the constructor's associated prototype. For example, assume you change the preceding code to the following:</A></P>
+<PRE><A NAME="1008588">function Employee () {<br>&nbsp;&nbsp;&nbsp;this.dept = "general";<br>}<br>Employee.prototype.name = "";</A></PRE><PRE><A NAME="1008589">function WorkerBee () {<br>    this.projects = [];<br>}<br>WorkerBee.prototype = new Employee;</A></PRE><PRE><A NAME="1008590">amy = new WorkerBee;</A></PRE><PRE><A NAME="1008591">Employee.prototype.name = "Unknown";</A></PRE><A NAME="1008592">
+In this case, the <CODE>name</CODE> property of <CODE>amy</CODE> becomes "Unknown".</A></P>
+<A NAME="1008593">
+As these examples show, if you want to have default values for object properties and you want to be able to change the default values at run time, you should set the properties in the constructor's prototype, not in the constructor function itself.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1008594">
+ Determining Instance Relationships
+</A></H3>
+
+<A NAME="1008595">
+You may want to know what objects are in the prototype chain for an object, so that you can tell from what objects this object inherits properties. In a class-based language, you might have an <CODE>instanceof</CODE> operator for this purpose. JavaScript does not provide <CODE>instanceof</CODE>, but you can write such a function yourself.</A></P>
+<A NAME="1008599">
+As discussed in <A HREF="obj2.htm#1008468">"Inheriting Properties" on page&nbsp;129</A>, when you use the <CODE>new</CODE> operator with a constructor function to create a new object, JavaScript sets the <CODE>__proto__</CODE> property of the new object to the value of the <CODE>prototype</CODE> property of the constructor function. You can use this to test the prototype chain.</A></P>
+<A NAME="1008600">
+For example, suppose you have the same set of definitions already shown, with the prototypes set appropriately. Create a <CODE>__proto__</CODE> object as follows:</A></P>
+<PRE><A NAME="1008601">chris = new Engineer("Pigman, Chris", ["jsd"], "fiji");</A></PRE><A NAME="1008602">
+With this object, the following statements are all true:</A></P>
+<PRE><A NAME="1008603">chris.__proto__ == Engineer.prototype;<br>chris.__proto__.__proto__ == WorkerBee.prototype;<br>chris.__proto__.__proto__.__proto__ == Employee.prototype;<br>chris.__proto__.__proto__.__proto__.__proto__ == Object.prototype;<br>chris.__proto__.__proto__.__proto__.__proto__.__proto__ == null;</A></PRE><A NAME="1008604">
+Given this, you could write an <CODE>instanceOf</CODE> function as follows:</A></P>
+<PRE><A NAME="1008605">function instanceOf(object, constructor) { <br>&nbsp;&nbsp;&nbsp;while (object != null) { <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (object == constructor.prototype) <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return true; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;object = object.__proto__; <br>&nbsp;&nbsp;&nbsp;} <br>&nbsp;&nbsp;&nbsp;return false; <br>}</A></PRE><A NAME="1008606">
+With this definition, the following expressions are all true:</A></P>
+<PRE><A NAME="1008607">instanceOf (chris, Engineer)<br>instanceOf (chris, WorkerBee)<br>instanceOf (chris, Employee)<br>instanceOf (chris, Object)</A></PRE><A NAME="1008608">
+But the following expression is false:</A></P>
+<PRE><A NAME="1008609">instanceOf (chris, SalesPerson)</A></PRE>
+<H3><A NAME="Head2;"></A>
+<A NAME="1008610">
+ Global Information in Constructors
+</A></H3>
+
+<A NAME="1008611">
+When you create constructors, you need to be careful if you set global information in the constructor. For example, assume that you want a unique ID to be automatically assigned to each new employee. You could use the following definition for <CODE>Employee</CODE>:</A></P>
+<PRE><A NAME="1008612">var idCounter = 1;</A></PRE><PRE><A NAME="1008613">function Employee (name, dept) {<br>&nbsp;&nbsp;&nbsp;this.name = name || "";<br>&nbsp;&nbsp;&nbsp;this.dept = dept || "general";<br>&nbsp;&nbsp;&nbsp;this.id = idCounter++;<br>}</A></PRE><A NAME="1008614">
+With this definition, when you create a new <CODE>Employee</CODE>, the constructor assigns it the next ID in sequence and then increments the global ID counter. So, if your next statement is the following, <CODE>victoria.id</CODE> is 1 and <CODE>harry.id</CODE> is 2:</A></P>
+<PRE><A NAME="1008615">victoria = new Employee("Pigbert, Victoria", "pubs")<br>harry = new Employee("Tschopik, Harry", "sales")</A></PRE><A NAME="1008616">
+At first glance that seems fine. However, <CODE>idCounter</CODE> gets incremented every time an <CODE>Employee</CODE> object is created, for whatever purpose. If you create the entire <CODE>Employee</CODE> hierarchy shown in this chapter, the <CODE>Employee</CODE> constructor is called every time you set up a prototype. Suppose you have the following code:</A></P>
+<PRE><A NAME="1008617">var idCounter = 1;</A></PRE><PRE><A NAME="1008618">function Employee (name, dept) {<br>&nbsp;&nbsp;&nbsp;this.name = name || "";<br>&nbsp;&nbsp;&nbsp;this.dept = dept || "general";<br>&nbsp;&nbsp;&nbsp;this.id = idCounter++;<br>}</A></PRE><PRE><A NAME="1008619">function Manager (name, dept, reports) {...}<br>Manager.prototype = new Employee;</A></PRE><PRE><A NAME="1008620">function WorkerBee (name, dept, projs) {...}<br>WorkerBee.prototype = new Employee;</A></PRE><PRE><A NAME="1008621">function Engineer (name, projs, mach) {...}<br>Engineer.prototype = new WorkerBee;</A></PRE><PRE><A NAME="1008622">function SalesPerson (name, projs, quota) {...}<br>SalesPerson.prototype = new WorkerBee;</A></PRE><PRE><A NAME="1008623">mac = new Engineer("Wood, Mac");</A></PRE><A NAME="1008624">
+Further assume that the definitions omitted here have the <CODE>base</CODE> property and call the constructor above them in the prototype chain. In this case, by the time the <CODE>mac</CODE> object is created, <CODE>mac.id</CODE> is 5.</A></P>
+<A NAME="1008625">
+Depending on the application, it may or may not matter that the counter has been incremented these extra times. If you care about the exact value of this counter, one possible solution involves instead using the following constructor:</A></P>
+<PRE><A NAME="1008626">function Employee (name, dept) {<br>&nbsp;&nbsp;&nbsp;this.name = name || "";<br>&nbsp;&nbsp;&nbsp;this.dept = dept || "general";<br>&nbsp;&nbsp;&nbsp;if (name)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.id = idCounter++;<br>}</A></PRE><A NAME="1008627">
+When you create an instance of <CODE>Employee</CODE> to use as a prototype, you do not supply arguments to the constructor. Using this definition of the constructor, when you do not supply arguments, the constructor does not assign a value to the id and does not update the counter. Therefore, for an <CODE>Employee</CODE> to get an assigned id, you must specify a name for the employee. In this example, <CODE>mac.id</CODE> would be 1.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1008628">
+ No Multiple Inheritance
+</A></H3>
+
+<A NAME="1008629">
+Some object-oriented languages allow multiple inheritance. That is, an object can inherit the properties and values from unrelated parent objects. JavaScript does not support multiple inheritance.</A></P>
+<A NAME="1008630">
+Inheritance of property values occurs at run time by JavaScript searching the prototype chain of an object to find a value. Because an object has a single associated prototype, JavaScript cannot dynamically inherit from more than one prototype chain.</A></P>
+<A NAME="1008631">
+In JavaScript, you can have a constructor function call more than one other constructor function within it. This gives the illusion of multiple inheritance. For example, consider the following statements:</A></P>
+<PRE><A NAME="1008632">function Hobbyist (hobby) {<br>&nbsp;&nbsp;&nbsp;this.hobby = hobby || "scuba";<br>}</A></PRE><PRE><A NAME="1008633">function Engineer (name, projs, mach, hobby) {<br>&nbsp;&nbsp;&nbsp;this.base1 = WorkerBee;<br>&nbsp;&nbsp;&nbsp;this.base1(name, "engineering", projs);<br>&nbsp;&nbsp;&nbsp;this.base2 = Hobbyist;<br>&nbsp;&nbsp;&nbsp;this.base2(hobby);<br>&nbsp;&nbsp;&nbsp;this.machine = mach || "";<br>}<br>Engineer.prototype = new WorkerBee;</A></PRE><PRE><A NAME="1008634">dennis = new Engineer("Doe, Dennis", ["collabra"], "hugo")</A></PRE><A NAME="1008635">
+Further assume that the definition of <CODE>WorkerBee</CODE> is as used earlier in this chapter. In this case, the dennis object has these properties:</A></P>
+<PRE><A NAME="1008636">dennis.name == "Doe, Dennis"<br>dennis.dept == "engineering"<br>dennis.projects == ["collabra"]<br>dennis.machine == "hugo"<br>dennis.hobby == "scuba"</A></PRE><A NAME="1008637">
+So <CODE>dennis</CODE> does get the <CODE>hobby</CODE> property from the <CODE>Hobbyist</CODE> constructor. However, assume you then add a property to the <CODE>Hobbyist</CODE> constructor's prototype:</A></P>
+<PRE><A NAME="1008638">Hobbyist.prototype.equipment = ["mask", "fins", "regulator", "bcd"]</A></PRE><A NAME="1008639">
+The <CODE>dennis</CODE> object does not inherit this new property.</A></P>
+
+<HR>
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="obj.htm">Previous</A>
+ | <A HREF="partcli.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT>
+<P ALIGN=right>
+<FONT SIZE=-2><I>Last Updated:  05/27/99  21:21:30</I></FONT>
+<P> <CENTER>Copyright (c) 1999
+<A HREF="http://home.netscape.com/misc/contact_info.html"
+TARGET=_top>Netscape Communications Corporation</A></FONT>
+</CENTER>
+<P>
+</BODY>
+</HTML>
+
+

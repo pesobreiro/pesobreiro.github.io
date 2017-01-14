@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>Setting Startup Options</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba01_6.htm" OnClick="SyncURL(&quot;chapters/ba01_6.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<a NAME="3SettingStartupOptions"></a>
+<p CLASS="heading3OrgHeading1h1">Setting Startup Options</p>
+<p CLASS="Textttext">After you've created a startup form for your application, and menu bars and toolbars to help users navigate, you're ready to tell Microsoft Access to use them when the application starts.
+<p CLASS="Textttext">To control how your application looks and behaves when users start it, use the <span CLASS="ElementNameeln">Startup</span> command on the <span CLASS="ElementNameeln">Tools</span> menu. For example, you can use the options in the <span CLASS="ElementNameeln">Startup</span> dialog box to open the application's startup form, hide the Database window, and display a custom menu bar each time the application starts. You can also prevent changes to menus and toolbars, and prevent the use of special keystrokes used to show the Database window or the Debug window, or to pause execution (F11 or ALT+F1, CTRL+G, and CTRL+F11).</p>
+<p CLASS="heading9ListProcedureHeadinglproch"><span CLASS="ProcedureIconproci"><img SRC="../images/bluetri.jpg" ALIGN="LEFT" WIDTH="9" HEIGHT="17">&nbsp;&nbsp;&nbsp;</span>To set startup options for an application</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">1</span>&nbsp;&nbsp;&amp;nbspOn the <span CLASS="ElementNameeln">Tools</span> menu, click <span CLASS="ElementNameeln">Startup</span>.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">2</span>&nbsp;&nbsp;&amp;nbspIn the <span CLASS="ElementNameeln">Display Form</span> box, click the form you want Microsoft Access to open each time you open the database.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">3</span>&nbsp;&nbsp;&amp;nbspSet other startup options, and then click <span CLASS="ElementNameeln">OK</span>.</p>
+<p CLASS="ListText1lt1">The next time you open the database, Microsoft Access uses your startup settings.</p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>You can also change startup settings while your application is running by setting properties of the current database. For information, search the Help index for &quot;startup options.&quot;</p>
+<p CLASS="Textttext">To prevent users from bypassing the settings in the <span CLASS="ElementNameeln">Startup</span> dialog box by holding down the SHIFT key as your application opens, set the <span CLASS="ElementNameeln">AllowBypassKey</span> property to <span CLASS="ElementNameeln">False</span> in Visual Basic. Alternatively, you can establish user-level security and then make sure only members of the Admins group have Administer permission for a database.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on these security options, search the Help index for &quot;AllowBypassKey property&quot; or &quot;user-level security.&quot;
+<p CLASS="heading6OrgHeading4h4"><img SRC="../images/example.gif" WIDTH="73" HEIGHT="21"><!--example space-->&nbsp;&nbsp;<a NAME="XSettingHowanApplicationStarts"></a>Setting How an Application Starts</p>
+<p CLASS="Textttext">When Northwind sales representatives start the day, the first thing they do is enter new orders in the database. You start the Orders application with the Orders form open for data entry. In addition, you hide the Database window because you don't want the sales representatives to see the tables, queries, macros, and modules that make up your application.
+<p CLASS="Textttext">On the <span CLASS="ElementNameeln">Tools</span> menu, click <span CLASS="ElementNameeln">Startup</span>, and then set options as shown in the following illustration.</p>
+<p CLASS="Arta"><img SRC="..\images\ABAC0117.jpg"></p>
+<a NAME="4CreatingaShortcuttoStartYourApplication"></a>
+<p CLASS="heading4OrgHeading2h2">Creating a Shortcut to Start Your Application</p>
+<p CLASS="Textttext">To make your application easier to start, you can create a Windows shortcut icon that opens Microsoft Access and starts your application at the same time. This way, users of your application don't have to start Microsoft Access first.
+<p CLASS="Textttext">When you create a shortcut, you can also specify additional startup options for Microsoft Access and your application. You do this by adding command-line options to the Windows shortcut you create. For example, you can use the <span CLASS="ElementNameeln">/Excl</span> option to specify that your application's database should be opened for exclusive access.</p>
+<p CLASS="heading9ListProcedureHeadinglproch"><span CLASS="ProcedureIconproci"><img SRC="../images/bluetri.jpg" ALIGN="LEFT" WIDTH="9" HEIGHT="17">&nbsp;&nbsp;&nbsp;</span>To create a shortcut to start your application</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">1</span>&nbsp;&nbsp;&amp;nbspOpen the folder where Microsoft Access is installed.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">2</span>&nbsp;&nbsp;&amp;nbspRight-click the MSAccess program icon, and then click <span CLASS="ElementNameeln">Create Shortcut</span>.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">3</span>&nbsp;&nbsp;&amp;nbspRight-click the shortcut icon you just created, click <span CLASS="ElementNameeln">Properties</span>, and then click the <span CLASS="ElementNameeln">Shortcut</span> tab.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">4</span>&nbsp;&nbsp;&amp;nbspIn the <span CLASS="ElementNameeln">Target</span> box, click to the right of the Microsoft Access startup command and then type the full path to your application and any other command-line options you want.</p>
+<p CLASS="ListText1lt1">For example, the following command line starts Microsoft Access and opens the Orders database for exclusive access:</p>
+<p CLASS="ListText1lt1"><span CLASS="ElementNameeln"><span CLASS="nowrap">&quot;C:\Program Files\Microsoft Office\Office\MSAccess.exe&quot; &quot;C:\Program Files <br><img SRC="..\images\continue.gif" BORDER="0" HSPACE="0" VSPACE="0">\Microsoft Office\Office\Samples\Orders.mdb&quot; /Excl</span></span>
+<p CLASS="ListText1lt1"></p>
+<p CLASS="Textttext">After you create a shortcut, you can rename it, put it on your desktop or in a folder, or add it to the <span CLASS="ElementNameeln">Start</span> menu.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For information on other command-line options, search the Help index for &quot;command line.&quot; For more information on shortcuts, search the Windows 95 Help index for &quot;shortcuts.&quot;
+<p CLASS="TipIcontpi"></p>
+<p CLASS="TipTexttpt"><span CLASS="TipHeadingtph">Tip&nbsp;&nbsp;&nbsp;</span>When you use a shortcut to open Microsoft Access and your application at the same time, you can also provide a bitmap to display in place of the standard Microsoft Access splash screen. To provide a custom splash screen, create a bitmap (.bmp) file with the same name as your application and place it in the same folder as your application's database. For example, if you want the shortcut above to display a custom splash screen, place a bitmap file called Orders in the same folder as the Orders database.</p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="ba01_8.htm" OnClick="SyncURL(&quot;chapters/ba01_8.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

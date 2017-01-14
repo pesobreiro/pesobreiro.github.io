@@ -1,0 +1,18 @@
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+  <s:Body>  
+	<save_tModel generic="2.0" xmlns="urn:uddi-org:api_v2" >
+      		<authInfo>MyAuthInformation</authInfo>
+            <tModel tModelKey="uuid:C1ACF26D-9672-4404-9D70-39B756E62AB4">
+				<name>geo:test</name>
+				<overviewDoc>
+					<description xml:lang="en">Geographic Test Taxonomy</description>
+					<overviewURL>http://www.my.org/WebServices/geo.asmx?wsdl</overviewURL>
+				</overviewDoc>
+				<categoryBag>
+					<keyedReference tModelKey="uuid:C1ACF26D-9672-4404-9D70-39B756E62AB4" keyName="uddi-org:types" keyValue="categorization"/>
+					<keyedReference tModelKey="uuid:C1ACF26D-9672-4404-9D70-39B756E62AB4" keyName="uddi-org:types" keyValue="unchecked"/>
+				</categoryBag>
+			</tModel>
+	</save_tModel>
+  </s:Body>
+</s:Envelope>

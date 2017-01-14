@@ -1,0 +1,929 @@
+<HTML>
+<HEAD>
+<TITLE>Statements
+</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="partlang.htm">Previous</A>
+ | <A HREF="ops.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT><BR><BR>
+<HR>
+<A NAME="1005814">
+<P></A><CENTER><H2>Chapter 4<BR>
+<A NAME="1003191">
+Statements</A></H2></CENTER>
+<A NAME="1007251">
+This chapter describes all JavaScript statements. JavaScript statements consist of keywords used with the appropriate syntax. A single statement may span multiple lines. Multiple statements may occur on a single line if each statement is separated by a semicolon.</A></P>
+<A NAME="1004756">
+Syntax conventions: All keywords in syntax statements are in bold. Words in italics represent user-defined names or statements. Any portions enclosed in square brackets, [ ], are optional. {statements} indicates a block of statements, which can consist of a single statement or multiple statements delimited by a curly braces { }.</A></P>
+<A NAME="1042702">
+The following table lists statements available in JavaScript.</A></P>
+<A NAME="1049199">
+<P><B><A NAME="1042580">
+Table 4.1&nbsp;JavaScript statements. &nbsp;</A></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1042587"><A HREF="stmt.htm#1050033"><CODE>break</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1042589">
+Terminates the current while or for loop and transfers program control to the statement following the terminated loop.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1042594"><A HREF="stmt.htm#1014739"><CODE>comment</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1042596">
+Notations by the author to explain what a script does. Comments are ignored by the interpreter.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1042601"><A HREF="stmt.htm#1005879"><CODE>continue</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1042603">
+Terminates execution of the block of statements in a while or for loop, and continues execution of the loop with the next iteration.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1042615"><A HREF="stmt.htm#1037353"><CODE>do...while</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1042617">
+Executes the specified statements until the test condition evaluates to false. Statements execute at least once.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1042622"><A HREF="stmt.htm#1016648"><CODE>export</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1042624">
+Allows a signed script to provide properties, functions, and objects to other signed or unsigned scripts.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1042629"><A HREF="stmt.htm#1004804"><CODE>for</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1042631">
+Creates a loop that consists of three optional expressions, enclosed in parentheses and separated by semicolons, followed by a block of statements executed in the loop.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1042636"><A HREF="stmt.htm#1004815"><CODE>for...in</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1042638">
+Iterates a specified variable over all the properties of an object. For each distinct property, JavaScript executes the specified statements.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1042643"><A HREF="stmt.htm#1004825"><CODE>function</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1042645">
+Declares a function with the specified parameters. Acceptable parameters include strings, numbers, and objects.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1042650"><A HREF="stmt.htm#1004833"><CODE>if...else</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1042652">
+Executes a set of statements if a specified condition is true. If the condition is false, another set of statements can be executed.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1042657"><A HREF="stmt.htm#1017231"><CODE>import</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1042659">
+Allows a script to import properties, functions, and objects from a signed script that has exported the information.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1042664"><A HREF="stmt.htm#1018088"><CODE>label</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1042666">
+Provides an identifier that can be used with break or continue to indicate where the program should continue execution.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1042671"><A HREF="stmt.htm#1004871"><CODE>return</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1042673">
+Specifies the value to be returned by a function.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1042678"><A HREF="stmt.htm#1018610"><CODE>switch</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1042680">
+Allows a program to evaluate an expression and attempt to match the expression's value to a case label.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1042685"><A HREF="stmt.htm#1066604"><CODE>var</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1042687">
+Declares a variable, optionally initializing it to a value.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1042692"><A HREF="stmt.htm#1004896"><CODE>while</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1042694">
+Creates a loop that evaluates an expression, and if it is true, executes a block of statements. The loop then repeats, as long as the specified condition is true.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1042699"><A HREF="stmt.htm#1004910"><CODE>with</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1042701">
+Establishes the default object for a set of statements.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<HR><H2><A NAME="break"></A>
+<A NAME="1050033">
+ break
+</A></H2><A NAME="1073687">
+Use the break statement to terminate a loop, <CODE>switch</CODE>, or label statement.</A></P>
+<A NAME="1050041">
+Terminates the current loop, <CODE>switch</CODE>, or label statement and transfers program control to the statement following the terminated loop. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1050044">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1050046">
+JavaScript 1.0, NES 2.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1050093">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1050095">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1073781">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1073782">break [<I>label</I>]</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1014318">
+ Parameter
+</A></H4>
+
+<A NAME="1014324">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1014321">label</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1014323">
+Identifier associated with the label of the statement. </A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1010036">
+ Description
+</A></H4>
+
+<A NAME="1031807">
+The <CODE>break</CODE> statement includes an optional label that allows the program to break out of a labeled statement. The statements in a labeled statement can be of any type.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1031799">
+ Examples
+</A></H4>
+
+<A NAME="1010037">
+<B>Example 1.</B> The following function has a <CODE>break</CODE> statement that terminates the <A HREF="stmt.htm#1004896"><CODE>while</CODE></A> loop when <CODE>e</CODE> is 3, and then returns the value 3 * <CODE>x</CODE>.</A></P>
+<PRE><A NAME="1004786">function testBreak(x) {<br>&nbsp;&nbsp;&nbsp;var i = 0<br>&nbsp;&nbsp;&nbsp;while (i &lt; 6) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (i == 3)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i++<br>&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;return i*x<br>}</A></PRE><A NAME="1014467">
+<B>Example 2.</B> In the following example, a statement labeled <CODE>checkiandj</CODE> contains a statement labeled <CODE>checkj</CODE>. If <CODE>break</CODE> is encountered, the program breaks out of the <CODE>checkj</CODE> statement and continues with the remainder of the <CODE>checkiandj</CODE> statement. If <CODE>break</CODE> had a label of <CODE>checkiandj</CODE>, the program would break out of the <CODE>checkiandj</CODE> statement and continue at the statement following <CODE>checkiandj</CODE>.</A></P>
+<PRE><A NAME="1030400">checkiandj : <br>&nbsp;&nbsp;&nbsp;if (4==i) { <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.write("You've entered " + i + ".&lt;BR&gt;");<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;checkj : <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (2==j) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.write("You've entered " + j + ".&lt;BR&gt;"); <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break checkj; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.write("The sum is " + (i+j) + ".&lt;BR&gt;"); <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.write(i + "-" + j + "=" + (i-j) + ".&lt;BR&gt;"); <br>&nbsp;&nbsp;&nbsp;}</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1014796">
+ See also
+</A></H4>
+
+<A NAME="1014820">
+<A HREF="stmt.htm#1005879"><CODE>continue</CODE></A>, <A HREF="stmt.htm#1018088"><CODE>label</CODE></A>, <A HREF="stmt.htm#1018610"><CODE>switch</CODE></A></A></P>
+
+<HR><H2><A NAME="comment"></A>
+<A NAME="1014739">
+ comment
+</A></H2><A NAME="1004788">
+Notations by the author to explain what a script does. Comments are ignored by the interpreter. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1031613">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1041718">
+JavaScript 1.0, NES 2.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1050111">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1050113">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1004791">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1004792">// comment text<br>/* multiple line comment text */</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1032062">
+ Description
+</A></H4>
+
+<A NAME="1032110">
+JavaScript supports Java-style comments:</A></P>
+<ul><P><LI><A NAME="1032111">
+Comments on a single line are preceded by a double-slash (//).</A></LI>
+<P><LI><A NAME="1032112">
+Comments that span multiple lines are preceded by a /* and followed by a */.</A></LI>
+</ul>
+<H4><A NAME="Head3;"></A>
+<A NAME="1004793">
+ Examples
+</A></H4>
+
+<PRE><A NAME="1004794">// This is a single-line comment.<br>/* This is a multiple-line comment. It can be of any length, and <br>you can put whatever you want here. */</A></PRE>
+<HR><H2><A NAME="continue"></A>
+<A NAME="1005879">
+ continue
+</A></H2><A NAME="1073873">
+Restarts a <CODE>while</CODE>, <CODE>do-while</CODE>, <CODE>for</CODE>, or <CODE>label</CODE> statement.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1032602">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1041739">
+JavaScript 1.0, NES 2.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1050120">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1050122">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1032605">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1032606">continue [<I>label</I>]</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1015179">
+ Parameter
+</A></H4>
+
+<A NAME="1015226">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1015306">label</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1015325">
+Identifier associated with the label of the statement.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1004801">
+ Description
+</A></H4>
+
+<A NAME="1032853">
+In contrast to the <A HREF="stmt.htm#1050033"><CODE>break</CODE></A> statement, <CODE>continue</CODE> does not terminate the execution of the loop entirely: instead,</A></P>
+<ul><P><LI><A NAME="1032854">
+In a <A HREF="stmt.htm#1004896"><CODE>while</CODE></A> loop, it jumps back to the <CODE>condition</CODE>.</A></LI>
+<P><LI><A NAME="1032855">
+In a <A HREF="stmt.htm#1004804"><CODE>for</CODE></A> loop, it jumps to the <CODE>update</CODE> expression.</A></LI>
+</ul><A NAME="1032856">
+The <CODE>continue</CODE> statement can now include an optional label that allows the program to terminate execution of a labeled statement and continue to the specified labeled statement. This type of continue must be in a looping statement identified by the label used by <CODE>continue</CODE>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1032840">
+ Examples
+</A></H4>
+
+<A NAME="1004802">
+<B>Example 1.</B> The following example shows a <CODE>while</CODE> loop that has a <A HREF="stmt.htm#1005879"><CODE>continue</CODE></A> statement that executes when the value of <CODE>i</CODE> is 3. Thus, <CODE>n</CODE> takes on the values 1, 3, 7, and 12.</A></P>
+<PRE><A NAME="1004803">i = 0<br>n = 0<br>while (i &lt; 5) {<br>&nbsp;&nbsp;&nbsp;i++<br>&nbsp;&nbsp;&nbsp;if (i == 3)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;continue<br>&nbsp;&nbsp;&nbsp;n += i<br>}</A></PRE><A NAME="1015392">
+<B>Example 2.</B> In the following example, a statement labeled <CODE>checkiandj</CODE> contains a statement labeled <CODE>checkj</CODE>. If <CODE>continue</CODE> is encountered, the program continues at the top of the <CODE>checkj</CODE> statement. Each time <CODE>continue</CODE> is encountered, <CODE>checkj</CODE> reiterates until its condition returns false. When false is returned, the remainder of the <CODE>checkiandj</CODE> statement is completed. <CODE>checkiandj</CODE> reiterates until its condition returns false. When false is returned, the program continues at the statement following checkiandj.</A></P>
+<A NAME="1015846">
+If <CODE>continue</CODE> had a label of <CODE>checkiandj</CODE>, the program would continue at the top of the checkiandj statement.</A></P>
+<PRE><A NAME="1026373">checkiandj : <br>while (i&lt;4) {<br>&nbsp;&nbsp;&nbsp;document.write(i + "&lt;BR&gt;"); <br>&nbsp;&nbsp;&nbsp;i+=1;</A></PRE><PRE><A NAME="1027440">&nbsp;&nbsp;&nbsp;checkj : <br>&nbsp;&nbsp;&nbsp;while (j&gt;4) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.write(j + "&lt;BR&gt;"); <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;j-=1; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ((j%2)==0)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;continue checkj; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.write(j + " is odd.&lt;BR&gt;");<br>&nbsp;&nbsp;&nbsp;} <br>&nbsp;&nbsp;&nbsp;document.write("i = " + i + "&lt;br&gt;");<br>&nbsp;&nbsp;&nbsp;document.write("j = " + j + "&lt;br&gt;"); <br>}</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1015924">
+ See also
+</A></H4>
+
+<A NAME="1015950">
+<CODE><A HREF="stmt.htm#1050033">break</A>, <A HREF="stmt.htm#1018088">label</A></CODE></A></P>
+
+<HR><H2><A NAME="do...while"></A>
+<A NAME="1037353">
+ do...while
+</A></H2><A NAME="1057761">
+Executes the specified statements until the test condition evaluates to false. Statements execute at least once. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1057764">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1057766">
+JavaScript 1.2, NES 3.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1016010">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1016011">do <br>&nbsp;&nbsp;&nbsp;<I>statements<br></I>while (<I>condition</I>);</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1016014">
+ Parameters
+</A></H4>
+
+<A NAME="1016015">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1016274">statements</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1016322">
+Block of statements that is executed at least once and is re-executed each time the condition evaluates to true. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1016278">condition</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1016379">
+Evaluated after each pass through the loop. If <CODE>condition</CODE> evaluates to true, the statements in the preceding block are re-executed. When <CODE>condition</CODE> evaluates to false, control passes to the statement following <CODE>do while</CODE>. </A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1058838">
+ Examples
+</A></H4>
+
+<A NAME="1016021">
+In the following example, the <CODE>do</CODE> loop iterates at least once and reiterates until i is no longer less than 5.</A></P>
+<PRE><A NAME="1016023">do {<br>&nbsp;&nbsp;&nbsp;i+=1<br>&nbsp;&nbsp;&nbsp;document.write(i);<br>while (i&lt;5);</A></PRE>
+<HR><H2><A NAME="export"></A>
+<A NAME="1016648">
+ export
+</A></H2><A NAME="1016649">
+Allows a signed script to provide properties, functions, and objects to other signed or unsigned scripts. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1035840">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1035842">
+JavaScript 1.2, NES 3.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1016651">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1016652">export name1, name2, ..., nameN<br>export *</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1016655">
+ Parameters
+</A></H4>
+
+<A NAME="1016656">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1016852">nameN</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1016991">
+List of properties, functions, and objects to be exported.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1033601">*</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1033733">
+Exports all properties, functions, and objects from the script.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1016658">
+ Description
+</A></H4>
+
+<A NAME="1016659">
+Typically, information in a signed script is available only to scripts signed by the same principals. By exporting properties, functions, or objects, a signed script makes this information available to any script (signed or unsigned). The receiving script uses the companion import statement to access the information.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1016663">
+ See also
+</A></H4>
+
+<A NAME="1016630">
+<A HREF="stmt.htm#1017231"><CODE>import</CODE></A></A></P>
+
+<HR><H2><A NAME="for"></A>
+<A NAME="1004804">
+ for
+</A></H2><A NAME="1004805">
+Creates a loop that consists of three optional expressions, enclosed in parentheses and separated by semicolons, followed by a block of statements executed in the loop.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1035896">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1041845">
+JavaScript 1.0, NES 2.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1050127">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1050129">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1004806">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1004807">for ([initial-expression]; [condition]; [increment-expression]) {<br>&nbsp;&nbsp;&nbsp;statements<br>}</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1005639">
+ Parameters
+</A></H4>
+
+<A NAME="1004808">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1012272">initial-expression</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1012381">
+Statement or variable declaration. Typically used to initialize a counter variable. This expression may optionally declare new variables with the <CODE>var</CODE> keyword. These variables are local to the function, not to the loop.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1012276">condition</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1012418">
+Evaluated on each pass through the loop. If this condition evaluates to true, the statements in <CODE>statements</CODE> are performed. This conditional test is optional. If omitted, the condition always evaluates to true.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1012280">increment-expression</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1012459">
+Generally used to update or increment the counter variable.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1012284">statements</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1012492">
+Block of statements that are executed as long as condition evaluates to true. This can be a single statement or multiple statements. Although not required, it is good practice to indent these statements from the beginning of the <CODE>for</CODE> statement.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1004812">
+ Examples
+</A></H4>
+
+<A NAME="1004813">
+The following <CODE>for</CODE> statement starts by declaring the variable <CODE>i</CODE> and initializing it to 0. It checks that <CODE>i</CODE> is less than nine, performs the two succeeding statements, and increments <CODE>i</CODE> by 1 after each pass through the loop.</A></P>
+<PRE><A NAME="1004814">for (var i = 0; i &lt; 9; i++) {<br>&nbsp;&nbsp;&nbsp;n += i<br>&nbsp;&nbsp;&nbsp;myfunc(n)<br>}</A></PRE>
+<HR><H2><A NAME="for...in"></A>
+<A NAME="1004815">
+ for...in
+</A></H2><A NAME="1004816">
+Iterates a specified variable over all the properties of an object. For each distinct property, JavaScript executes the specified statements.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1035903">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1041898">
+JavaScript 1.0, NES 2.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1050148">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1050150">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1004817">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1004818">for (<I>variable</I> in <I>object</I>) {<br>&nbsp;&nbsp;&nbsp;<I>statements<br></I>}</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1005653">
+ Parameters
+</A></H4>
+
+<A NAME="1004819">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1012697">variable</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1012751">
+Variable to iterate over every property, declared with the <CODE>var</CODE> keyword. This variable is local to the function, not to the loop.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1012701">object</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1012768">
+Object for which the properties are iterated.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1012705">statements</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1012792">
+Specifies the statements to execute for each property.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1004822">
+ Examples
+</A></H4>
+
+<A NAME="1004823">
+The following function takes as its argument an object and the object's name. It then iterates over all the object's properties and returns a string that lists the property names and their values.</A></P>
+<PRE><A NAME="1004824">function show_props(obj, objName) {<br>&nbsp;&nbsp;&nbsp;var result = ""<br>&nbsp;&nbsp;&nbsp;for (var i in obj) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result += objName + "." + i + " = " + obj[i] + "\n"<br>&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;return result<br>}</A></PRE>
+<HR><H2><A NAME="function"></A>
+<A NAME="1004825">
+ function
+</A></H2><A NAME="1004826">
+Declares a function with the specified parameters. Acceptable parameters include strings, numbers, and objects.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1035950">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1041939">
+JavaScript 1.0, NES 2.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1050161">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1050163">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1004829">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1004830">function <I>name</I>([<I>param</I>] [, <I>param</I>] [..., <I>param</I>]) {<br>&nbsp;&nbsp;&nbsp;<I>statements<br></I>}</A></PRE><A NAME="1065583">
+You can also define functions using the <A HREF="function.htm#1193137"><CODE>Function</CODE></A> constructor; see <A HREF="function.htm#1193137">"Function" on page&nbsp;169</A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1007886">
+ Parameters
+</A></H4>
+
+<A NAME="1007887">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1012941">name</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1012965">
+The function name.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1012979">param</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1013010">
+The name of an argument to be passed to the function. A function can have up to 255 arguments.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1074665">statements</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1074667">
+The statements which comprise the body of the function.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1008195">
+ Description
+</A></H4>
+
+<A NAME="1065101">
+To return a value, the function must have a <A HREF="stmt.htm#1004871"><CODE>return</CODE></A> statement that specifies the value to return.</A></P>
+<A NAME="1071423">
+A function created with the <CODE>function</CODE> statement is a <CODE>Function</CODE> object and has all the properties, methods, and behavior of <CODE>Function</CODE> objects. See <A HREF="function.htm#1193137">"Function" on page&nbsp;169</A> for detailed information on functions.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1004831">
+ Examples
+</A></H4>
+
+<A NAME="1004832">
+The following code declares a function that returns the total dollar amount of sales, when given the number of units sold of products a, b, and c.</A></P>
+<PRE><A NAME="1061155">function calc_sales(units_a, units_b, units_c) {<br>&nbsp;&nbsp;&nbsp;return units_a*79 + units_b*129 + units_c*699<br>}</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1065517">
+ See also
+</A></H4>
+
+<A NAME="1065521">
+<A HREF="function.htm#1193137">"Function" on page&nbsp;169</A></A></P>
+
+<HR><H2><A NAME="if...else"></A>
+<A NAME="1004833">
+ if...else
+</A></H2><A NAME="1004834">
+Executes a set of statements if a specified condition is true. If the condition is false, another set of statements can be executed.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1035961">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1042000">
+JavaScript 1.0, NES 2.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1050188">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1050190">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1004835">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1004836">if (<I>condition</I>) {<br>&nbsp;&nbsp;&nbsp;<I>statements1<br></I>}<br>[else {<br>&nbsp;&nbsp;&nbsp;<I>statements2<br></I>}]</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1005661">
+ Parameters
+</A></H4>
+
+<A NAME="1004837">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1013106">condition</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1013171">
+Can be any JavaScript expression that evaluates to true or false. Parentheses are required around the condition. If condition evaluates to true, the statements in <CODE>statements1</CODE> are executed.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1013110">statements1,<br>statements2</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1013215">
+Can be any JavaScript statements, including further nested <CODE>if</CODE> statements. Multiple statements must be enclosed in braces.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1045292">
+ Description
+</A></H4>
+
+<A NAME="1045282">
+You should not use simple assignments in a conditional statement. For example, do not use the following code:</A></P>
+<PRE><A NAME="1045283">if(x = y)<br>{<br>&nbsp;&nbsp;&nbsp;/* do the right thing */<br>}</A></PRE><A NAME="1045284">
+If you need to use an assignment in a conditional statement, put additional parentheses around the assignment. For example, use <CODE>if( (x = y) )</CODE>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1045301">
+ Backward Compatibility
+</A></H4>
+
+<B><A NAME="HeadRunIn;"></A>
+<A NAME="1045303">
+JavaScript 1.2 and earlier versions. </A></B><A NAME="1045624">
+You can use simple assignments in a conditional statement. An assignment operator in a conditional statement is converted to an equality operator. For example, <CODE>if(x = y)</CODE> is converted to <CODE>if(x == y)</CODE>. In Navigator, this expression also displays a dialog box with the message "Test for equality (==) mistyped as assignment (=)? Assuming equality test."</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1004839">
+ Examples
+</A></H4>
+
+<PRE><A NAME="1004840">if (cipher_char == from_char) {<br>&nbsp;&nbsp;&nbsp;result = result + to_char<br>&nbsp;&nbsp;&nbsp;x++}<br>else<br>&nbsp;&nbsp;&nbsp;result = result + clear_char</A></PRE>
+<HR><H2><A NAME="import"></A>
+<A NAME="1017231">
+ import
+</A></H2><A NAME="1017232">
+Allows a script to import properties, functions, and objects from a signed script that has exported the information.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1035981">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1035983">
+JavaScript 1.2, NES 3.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1025746">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1025747">import <I>objectName</I>.<I>name1</I>, <I>objectName</I>.<I>name2</I>, ..., <I>objectName</I>.<I>nameN<br></I>import <I>objectName</I>.*</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1025749">
+ Parameters
+</A></H4>
+
+<A NAME="1017239">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1074720">objectName</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1074722">
+Name of the object that will receive the imported names.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1017550">name1,<br>name2,<br>nameN</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1017594">
+List of properties, functions, and objects to import from the export file.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1023774">*</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1023871">
+Imports all properties, functions, and objects from the export script.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1017785">
+ Description
+</A></H4>
+
+<A NAME="1024031">
+The <CODE>objectName</CODE> parameter is the name of the object that will receive the imported names. For example, if <CODE>f</CODE> and <CODE>p</CODE> have been exported, and if <CODE>obj</CODE> is an object from the importing script, the following code makes <CODE>f</CODE> and <CODE>p</CODE> accessible in the importing script as properties of <CODE>obj</CODE>.</A></P>
+<PRE><A NAME="1024117">import obj.f, obj.p</A></PRE><A NAME="1024008">
+Typically, information in a signed script is available only to scripts signed by the same principals. By exporting (using the <A HREF="stmt.htm#1016648"><CODE>export</CODE></A> statement) properties, functions, or objects, a signed script makes this information available to any script (signed or unsigned). The receiving script uses the <CODE>import</CODE> statement to access the information.</A></P>
+<A NAME="1065402">
+The script must load the export script into a window, frame, or layer before it can import and use any exported properties, functions, and objects.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1065403">
+ See also
+</A></H4>
+
+<A NAME="1065407">
+<A HREF="stmt.htm#1016648"><CODE>export</CODE></A></A></P>
+
+<HR><H2><A NAME="label"></A>
+<A NAME="1018088">
+ label
+</A></H2><A NAME="1073587">
+Provides a statement with an identifier that lets you refer to it elsewhere in your program.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1073590">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1073592">
+JavaScript 1.2, NES 3.0</A></P>
+
+</TABLE>
+</A></P>
+<A NAME="1073599">
+For example, you can use a label to identify a loop, and then use the <CODE>break</CODE> or <CODE>continue</CODE> statements to indicate whether a program should interrupt the loop or continue its execution.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1073606">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1073607"><I>label</I> :<br>&nbsp;&nbsp;&nbsp;<I>statements</I></A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1018096">
+ Parameter
+</A></H4>
+
+<A NAME="1018097">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1073119">label</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1073121">
+Any JavaScript identifier that is not a reserved word.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1018388">statements</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1018473">
+Block of statements. <CODE>break</CODE> can be used with any labeled statement, and continue can be used with looping labeled statements. </A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1058871">
+ Examples
+</A></H4>
+
+<A NAME="1018100">
+For an example of a label statement using <A HREF="stmt.htm#1050033"><CODE>break</CODE></A>, see <A HREF="stmt.htm#1050033"><CODE>break</CODE></A>. For an example of a label statement using <A HREF="stmt.htm#1005879"><CODE>continue</CODE></A>, see <A HREF="stmt.htm#1005879"><CODE>continue</CODE></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1018102">
+ See also
+</A></H4>
+
+<A NAME="1018103">
+<A HREF="stmt.htm#1050033"><CODE>break</CODE></A>, <A HREF="stmt.htm#1005879"><CODE>continue</CODE></A></A></P>
+
+<HR><H2><A NAME="return"></A>
+<A NAME="1004871">
+ return
+</A></H2><A NAME="1004872">
+Specifies the value to be returned by a function.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1036059">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1042059">
+JavaScript 1.0, NES 2.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1050215">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1050217">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1005200">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1041656">return <I>expression</I></A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1041657">
+ Parameters
+</A></H4>
+
+<A NAME="1041663">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1041660">expression</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1041662">
+The expression to return.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1041616">
+ Examples
+</A></H4>
+
+<A NAME="1005203">
+The following function returns the square of its argument, <CODE>x</CODE>, where <CODE>x</CODE> is a number.</A></P>
+<PRE><A NAME="1004877">function square(x) {<br>&nbsp;&nbsp;&nbsp;return x * x<br>}</A></PRE>
+<HR><H2><A NAME="switch"></A>
+<A NAME="1018610">
+ switch
+</A></H2><A NAME="1045263">
+Allows a program to evaluate an expression and attempt to match the expression's value to a case label. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1045266">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1045268">
+JavaScript 1.2, NES 3.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1045269">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1018623">switch (<I>expression</I>){<br>&nbsp;&nbsp;&nbsp;case <I>label</I> : <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<I>statements</I>;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>&nbsp;&nbsp;&nbsp;case <I>label</I> : <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<I>statements</I>;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>&nbsp;&nbsp;&nbsp;...<br>&nbsp;&nbsp;&nbsp;default : <I>statements</I>;<br>}</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1018633">
+ Parameters
+</A></H4>
+
+<A NAME="1018634">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1018958">expression</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1019047">
+Value matched against label.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1018962">label</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1019068">
+Identifier used to match against expression.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1019070">statements</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1019089">
+Block of statements that is executed once if <CODE>expression</CODE> matches <CODE>label</CODE>.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1018637">
+ Description
+</A></H4>
+
+<A NAME="1034614">
+If a match is found, the program executes the associated statement. If multiple cases match the provided value, the first case that matches is selected, even if the cases are not equal to each other.</A></P>
+<A NAME="1034615">
+The program first looks for a label matching the value of expression and then executes the associated statement. If no matching label is found, the program looks for the optional default statement, and if found, executes the associated statement. If no default statement is found, the program continues execution at the statement following the end of <CODE>switch</CODE>.</A></P>
+<A NAME="1034616">
+The optional <A HREF="stmt.htm#1050033"><CODE>break</CODE></A> statement associated with each case label ensures that the program breaks out of switch once the matched statement is executed and continues execution at the statement following switch. If <A HREF="stmt.htm#1050033"><CODE>break</CODE></A> is omitted, the program continues execution at the next statement in the <CODE>switch</CODE> statement.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1070590">
+ Examples
+</A></H4>
+
+<A NAME="1070591">
+In the following example, if <CODE>expression</CODE> evaluates to "Bananas", the program matches the value with case "Bananas" and executes the associated statement. When <A HREF="stmt.htm#1050033"><CODE>break</CODE></A> is encountered, the program breaks out of <CODE>switch</CODE> and executes the statement following <CODE>switch</CODE>. If <A HREF="stmt.htm#1050033"><CODE>break</CODE></A> were omitted, the statement for case "Cherries" would also be executed.</A></P>
+<PRE><A NAME="1018642">switch (i) {<br>&nbsp;&nbsp;&nbsp;case "Oranges" : <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.write("Oranges are $0.59 a pound.&lt;BR&gt;"); <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break; <br>&nbsp;&nbsp;&nbsp;case "Apples" : <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.write("Apples are $0.32 a pound.&lt;BR&gt;"); <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break; <br>&nbsp;&nbsp;&nbsp;case "Bananas" : <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.write("Bananas are $0.48 a pound.&lt;BR&gt;"); <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break; <br>&nbsp;&nbsp;&nbsp;case "Cherries" : <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.write("Cherries are $3.00 a pound.&lt;BR&gt;"); <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break; <br>&nbsp;&nbsp;&nbsp;default : <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.write("Sorry, we are out of " + i + ".&lt;BR&gt;"); <br>} <br>document.write("Is there anything else you'd like?&lt;BR&gt;");</A></PRE>
+<HR><H2><A NAME="var"></A>
+<A NAME="1066604">
+ var
+</A></H2><A NAME="1004888">
+Declares a variable, optionally initializing it to a value. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1036104">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1042237">
+JavaScript 1.0, NES 2.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1050221">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1050223">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1004890">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1004891">var <I>varname</I> [= <I>value</I>] [..., <I>varname</I> [= <I>value</I>] ]</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1005669">
+ Parameters
+</A></H4>
+
+<A NAME="1004892">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1013488">varname</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1013533">
+Variable name. It can be any legal identifier.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1013492">value</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1013571">
+Initial value of the variable and can be any legal expression.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1008317">
+ Description
+</A></H4>
+
+<A NAME="1035580">
+The scope of a variable is the current function or, for variables declared outside a function, the current application.</A></P>
+<A NAME="1035539">
+Using <CODE>var</CODE> outside a function is optional; you can declare a variable by simply assigning it a value. However, it is good style to use <CODE>var</CODE>, and it is necessary in functions in the following situations:</A></P>
+<ul><LI><A NAME="1073223">
+If a global variable of the same name exists.
+</A></LI><LI><A NAME="1073227">
+If recursive or multiple functions use variables with the same name.
+</A></LI></ul>
+<H4><A NAME="Head3;"></A>
+<A NAME="1004894">
+ Examples
+</A></H4>
+
+<PRE><A NAME="1004895">var num_hits = 0, cust_no = 0</A></PRE>
+<HR><H2><A NAME="while"></A>
+<A NAME="1004896">
+ while
+</A></H2><A NAME="1004897">
+Creates a loop that evaluates an expression, and if it is true, executes a block of statements. The loop then repeats, as long as the specified condition is true.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1036115">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1042272">
+JavaScript 1.0, NES 2.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1050231">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1050233">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1004898">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1004899">while (<I>condition</I>) {<br>&nbsp;&nbsp;&nbsp;<I>statements<br></I>}</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1005673">
+ Parameters
+</A></H4>
+
+<A NAME="1011211">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1013633">condition</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1013672">
+Evaluated before each pass through the loop. If this condition evaluates to true, the statements in the succeeding block are performed. When <CODE>condition</CODE> evaluates to false, execution continues with the statement following <CODE>statements</CODE>.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1013637">statements</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1013701">
+Block of statements that are executed as long as the condition evaluates to true. Although not required, it is good practice to indent these statements from the beginning of the statement.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1004902">
+ Examples
+</A></H4>
+
+<A NAME="1004903">
+The following <CODE>while</CODE> loop iterates as long as <CODE>n</CODE> is less than three.</A></P>
+<PRE><A NAME="1004904">n = 0<br>x = 0<br>while(n &lt; 3) {<br>&nbsp;&nbsp;&nbsp;n ++<br>&nbsp;&nbsp;&nbsp;x += n<br>}</A></PRE><A NAME="1004905">
+Each iteration, the loop increments <CODE>n</CODE> and adds it to <CODE>x</CODE>. Therefore, <CODE>x</CODE> and <CODE>n</CODE> take on the following values:</A></P>
+<ul><P><LI><A NAME="1004906">
+After the first pass: n = 1 and x = 1</A></LI>
+<P><LI><A NAME="1004907">
+After the second pass: n = 2 and x = 3</A></LI>
+<P><LI><A NAME="1004908">
+After the third pass: n = 3 and x = 6</A></LI>
+</ul><A NAME="1004909">
+After completing the third pass, the condition <CODE>n &lt; 3</CODE> is no longer true, so the loop terminates.</A></P>
+
+<HR><H2><A NAME="with"></A>
+<A NAME="1004910">
+ with
+</A></H2><A NAME="1004911">
+Establishes the default object for a set of statements.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1036122">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1042277">
+JavaScript 1.0, NES 2.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1050240">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1050242">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1004912">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1004913">with (<I>object</I>){<br>&nbsp;&nbsp;&nbsp;<I>statements<br></I>}</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1005677">
+ Parameters
+</A></H4>
+
+<A NAME="1004914">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1013842">object</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1013969">
+Specifies the default object to use for the statements. The parentheses around object are required.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1013846">statements</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1013960">
+Any block of statements.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1004916">
+ Description
+</A></H4>
+
+<A NAME="1073246">
+JavaScript looks up any unqualified names within the set of statements to determine if the names are properties of the default object. If an unqualified name matches a property, then the property is used in the statement; otherwise, a local or global variable is used.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1073245">
+ Examples
+</A></H4>
+
+<A NAME="1004917">
+The following <CODE>with</CODE> statement specifies that the <A HREF="math.htm#1193138"><CODE>Math</CODE></A> object is the default object. The statements following the <CODE>with</CODE> statement refer to the <A HREF="math.htm#1193490"><CODE>PI</CODE></A> property and the <A HREF="math.htm#1195695"><CODE>cos</CODE></A> and <A HREF="math.htm#1197769"><CODE>sin</CODE></A> methods, without specifying an object. JavaScript assumes the <A HREF="math.htm#1193138"><CODE>Math</CODE></A> object for these references.</A></P>
+<PRE><A NAME="1004918">var a, x, y<br>var r=10<br>with (Math) {<br>&nbsp;&nbsp;&nbsp;a = PI * r * r<br>&nbsp;&nbsp;&nbsp;x = r * cos(PI)<br>&nbsp;&nbsp;&nbsp;y = r * sin(PI/2)<br>}</A></PRE>
+<HR>
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="partlang.htm">Previous</A>
+ | <A HREF="ops.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT>
+<P ALIGN=right>
+<FONT SIZE=-2><I>Last Updated:  05/28/99  12:01:10</I></FONT>
+<P> <CENTER>Copyright (c) 1999
+<A HREF="http://home.netscape.com/misc/contact_info.html"
+TARGET=_top>Netscape Communications Corporation</A></FONT>
+</CENTER>
+<P>
+</BODY>
+</HTML>
+
+

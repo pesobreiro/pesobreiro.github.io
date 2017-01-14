@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>Mapping Data Types</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba19_4.htm" OnClick="SyncURL(&quot;chapters/ba19_4.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<a NAME="3MappingDataTypes"></a>
+<p CLASS="heading3OrgHeading1h1">Mapping Data Types</p>
+<p CLASS="Textttext">Most database servers support a rich set of data types, including a number of floating-point data types of varying scale and precision. A <span CLASS="NewTermntrm">floating-point data type</span> refers to any numeric data that does not have a fixed number of digits after the decimal point. The set of data types supported by Microsoft Access may not exactly match some of the data types on a specific database server. To allow transparent data access, Microsoft Jet must select an equivalent data type for each field in a remote table. This is true whether remote data is being converted into a Microsoft Access data type, or whether data is being sent from Microsoft Access to a remote data source.
+<p CLASS="Textttext">When remote floating-point data is converted into a Microsoft Access data type or vice versa, minor numeric data accuracy losses may occur. Although these accuracy losses usually occur in very large or very small floating-point numbers and have no appreciable effect on common mathematical operations, they can cause a problem when used for exact comparisons.</p>
+<p CLASS="ImportantTextit"><span CLASS="ImportantHeadingih">Important</span>&nbsp;&nbsp;&amp;nbspAny variation between data on local and remote data sources can cause problems when you use fields that contain floating-point values as part of a unique index. Microsoft Jet may mark a record in the remote data source that contains a discrepancy as deleted. If there is another unique index that Microsoft Jet can use, rename that index so that it appears alphabetically before the original index, and reestablish the link to the remote table.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For a list and a description of the data types recognized by ODBC, your ODBC documentation.</p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="ba19_6.htm" OnClick="SyncURL(&quot;chapters/ba19_6.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

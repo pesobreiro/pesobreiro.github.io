@@ -1,0 +1,103 @@
+<HTML>
+<HEAD>
+<TITLE>
+</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="anchor.htm">Previous</A>
+ | <A HREF="area.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT><BR><BR>
+<HR>
+
+<H1><A NAME="Applet"></A>
+<A NAME="1193137">
+ Applet
+</A></H1>
+<A NAME="1193148">
+Includes a Java applet in a web page.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193141">
+<I>Client-side object</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193143">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193145">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193147">
+JavaScript 1.1</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193149">
+ Created by
+</A></H4>
+
+<A NAME="1193152">
+The HTML <CODE><A HREF="http://developer.netscape.com/docs/manuals/htmlguid/index.htm?content=tags14.htm#tags:APPLET" TARGET="_top">APPLET</A></CODE> tag. The JavaScript runtime engine creates an <CODE>Applet</CODE> object corresponding to each applet in your document. It puts these objects in an array in the <A HREF="document.htm#1193507"><CODE>document.applets</CODE></A> property. You access an <CODE>Applet</CODE> object by indexing this array.</A></P>
+<A NAME="1193156">
+To define an applet, use standard HTML syntax. If you specify the <CODE>NAME</CODE> attribute, you can use the value of that attribute to index into the <CODE>applets</CODE> array. To refer to an applet in JavaScript, you must supply the <CODE>MAYSCRIPT</CODE> attribute in its definition.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193157">
+ Description
+</A></H4>
+
+<A NAME="1193159">
+The author of an HTML page must permit an applet to access JavaScript by specifying the <CODE>MAYSCRIPT</CODE> attribute of the <CODE>APPLET</CODE> tag. This prevents an applet from accessing JavaScript on a page without the knowledge of the page author. For example, to allow the <CODE>musicPicker.class</CODE> applet access to JavaScript on your page, specify the following:</A></P>
+<PRE><A NAME="1193160">&lt;APPLET CODE="musicPicker.class" WIDTH=200 HEIGHT=35<br>&nbsp;&nbsp;&nbsp;NAME="musicApp" MAYSCRIPT&gt;</A></PRE><A NAME="1194283">
+Accessing JavaScript when the <CODE>MAYSCRIPT</CODE> attribute is not specified results in an exception.</A></P>
+<A NAME="1194284">
+For more information on using applets, see the LiveConnect information in the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194043">
+ Property Summary
+</A></H4>
+
+<A NAME="1194091">
+The <CODE>Applet</CODE> object inherits all public properties of the Java applet.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193170">
+ Method Summary
+</A></H4>
+
+<A NAME="1193905">
+The <CODE>Applet</CODE> object inherits all public methods of the Java applet.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193172">
+ Examples
+</A></H4>
+
+<A NAME="1193173">
+The following code launches an applet called <CODE>musicApp</CODE>:</A></P>
+<PRE><A NAME="1193298">&lt;APPLET CODE="musicSelect.class" WIDTH=200 HEIGHT=35<br>&nbsp;&nbsp;&nbsp;NAME="musicApp" MAYSCRIPT&gt;<br>&lt;/APPLET&gt;</A></PRE><A NAME="1193299">
+For more examples, see the LiveConnect information in the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193300">
+ See also
+</A></H4>
+
+<A NAME="1193188">
+<A HREF="mimetype.htm#1193137"><CODE>MimeType</CODE></A>, <A HREF="plugin.htm#1193137"><CODE>Plugin</CODE></A></A></P>
+
+<HR>
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="anchor.htm">Previous</A>
+ | <A HREF="area.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT>
+<P ALIGN=right>
+<FONT SIZE=-2><I>Last Updated:  05/28/99  11:58:59</I></FONT>
+<P> <CENTER>Copyright (c) 1999
+<A HREF="http://home.netscape.com/misc/contact_info.html"
+TARGET=_top>Netscape Communications Corporation</A></FONT>
+</CENTER>
+<P>
+</BODY>
+</HTML>
+
+

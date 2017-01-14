@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>Compiling and Saving Your Code Ahead of Time</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba13_8.htm" OnClick="SyncURL(&quot;chapters/ba13_8.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<a NAME="3CompilingandSavingYourCodeAheadofTime"></a>
+<p CLASS="heading3OrgHeading1h1">Compiling and Saving Your Code Ahead of Time</p>
+<p CLASS="Textttext">The code in all modules is saved as <span CLASS="NewTermntrm">source</span> code and <span CLASS="NewTermntrm">compiled</span> code. Source code consists of the Visual Basic code you write in text form including declarations, procedure names, variable names, comments, blank lines, and spaces. Microsoft Access converts the source code you write through a process called <span CLASS="NewTermntrm">compiling</span> into a form that it uses to run your application. If you don't explicitly compile your code by using the <span CLASS="ElementNameeln">Compile And Save All Modules</span> command (<span CLASS="ElementNameeln">Debug</span> menu), Microsoft Access must compile your code and load it into memory once for every user of your database. To avoid this, you should compile and save your code when you are ready to distribute your application to users, and before you do any performance testing with your application.</p>
+<p CLASS="heading9ListProcedureHeadinglproch"><span CLASS="ProcedureIconproci"><img SRC="../images/bluetri.jpg" ALIGN="LEFT" WIDTH="9" HEIGHT="17">&nbsp;&nbsp;&nbsp;</span>To compile and save the code in all modules in your application</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">1</span>&nbsp;&nbsp;&amp;nbspOpen any module or the Debug window.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">2</span>&nbsp;&nbsp;&amp;nbspOn the <span CLASS="ElementNameeln">Debug</span> menu, click <span CLASS="ElementNameeln">Compile And Save All Modules</span>.</p>
+<p CLASS="TipTexttpt"><span CLASS="TipHeadingtph">Tip&nbsp;&nbsp;&nbsp;</span>Only use the <span CLASS="ElementNameeln">Compile And Save All Modules</span> command when you are ready to distribute your application or check its performance. While you are developing your application, it will become <span CLASS="NewTermntrm">decompiled</span> (lose its fully compiled state) frequently. As a result, using the <span CLASS="ElementNameeln">Compile And Save All Modules</span> command during development wastes time. To quickly compile and check the syntax of code in changed modules without taking the time to compile modules that have not changed, use the <span CLASS="ElementNameeln">Compile Loaded Modules</span> command (<span CLASS="ElementNameeln">Debug</span> menu).</p>
+<a NAME="4AvoidingDecompiledCode"></a>
+<p CLASS="heading4OrgHeading2h2">Avoiding Decompiled Code</p>
+<p CLASS="Textttext">If you or the users of your application make certain changes to it, some of your application's code may become <span CLASS="NewTermntrm">decompiled</span>, which means that Microsoft Access must recompile those portions before running them.</p>
+<a NAME="5ChangesMadetoObjectsThatMayDecompileCode"></a>
+<p CLASS="heading5OrgHeading3h3">Changes Made to Objects That May Decompile Code</p>
+<p CLASS="Textttext">Any of the following actions made to objects within a compiled database can decompile some of the code in your database:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspAdding a new form, report, control, or module</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspModifying the code in a form, report, control, or module</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspDeleting or renaming a form, report, control, or module</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspAdding or removing a reference to an object library or database by using the <span CLASS="ElementNameeln">References</span> command (<span CLASS="ElementNameeln">Tools</span> menu)</p>
+<p CLASS="Textttext">If the users of your application don't need to perform these actions, you can ensure that your application runs as efficiently as possible by compiling your application with the <span CLASS="ElementNameeln">Compile And Save All Modules</span> command before you deliver it and after you make any subsequent changes to it. To prevent users from making changes that decompile the code in your application after you deliver it, you can save it as an MDE file, or establish user-level security.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on MDE files and user-level security, see Chapter 14, <a HREF="../chapters/ba14_1.htm" OnClick="SyncURL(&quot;chapters/ba14_1.htm&quot;)">&quot;Securing Your Application&quot;</a></p>
+<a NAME="5SeparatingDecompiledCodefromStandardModules"></a>
+<p CLASS="heading5OrgHeading3h3">Separating Decompiled Code from Standard Modules</p>
+<p CLASS="Textttext">If your users are likely to decompile your application's code, and if a significant portion of your code resides in standard modules, you can improve your application's performance by moving your standard modules to a library database. Then, establish a reference from your application to the new library database. Now when users open a form containing decompiled code, your application only needs to compile that code and can quickly open the library database containing the fully compiled code from your standard modules. Also, users can add new forms and reports without decompiling the code in the library database. Establishing a reference to a library database creates some additional memory overhead, so this method is most effective for applications with a significant amount of standard module code.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on library databases, see Chapter 12, <a HREF="../chapters/ba12_1.htm" OnClick="SyncURL(&quot;chapters/ba12_1.htm&quot;)">&quot;Using Library Databases and Dynamic-Link Libraries.&quot;</a></p>
+<a NAME="5ChangesMadetoDatabasesThatDecompileCode"></a>
+<p CLASS="heading5OrgHeading3h3">Changes Made to Databases That Decompile Code</p>
+<p CLASS="Textttext">In Microsoft Access 95, the following actions decompile the code in a database:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspRenaming the database</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspCompacting or repairing the database to a different name</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspCopying the database to a new name (in this case, the copy is decompiled, not the original)</p>
+<p CLASS="Textttext">This occurs because in Microsoft Access 95, the name of the database is used as the Visual Basic for Applications <span CLASS="NewTermntrm">project name</span>. The project name is used to identify all the compiled code in a database. In Microsoft Access 95, performing any action that changes the name of a database containing compiled code effectively changes the name of the project and decompiles the code.
+<p CLASS="Textttext">These same changes do not decompile code in a Microsoft Access 97 database, because you can explicitly give your application a project name. To give your application a project name, click <span CLASS="ElementNameeln">Options</span> on the <span CLASS="ElementNameeln">Tools</span> menu, click the <span CLASS="ElementNameeln">Advanced</span> tab, and then type the name in the <span CLASS="ElementNameeln">Project Name</span> box. By default, when you create a new database, Microsoft Access 97 uses the name of the database for the project name. Whether you specify a custom project name or accept the default project name, if you perform any action that changes the name of the database, the project name doesn't change and cause code to be decompiled. However, if you compile your application, and then change the project name by using the <span CLASS="ElementNameeln">Project Name</span> box in the <span CLASS="ElementNameeln">Options</span> dialog box, your code is decompiled.</p>
+<!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<!--DocFooterEnd-->
+<a HREF="ba14_1.htm" OnClick="SyncURL(&quot;chapters/ba14_1.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

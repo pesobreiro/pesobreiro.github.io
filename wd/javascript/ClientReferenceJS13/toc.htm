@@ -1,0 +1,465 @@
+<!-- 
+    -------------------------------------------------------------------------
+                OUTLINE STYLE TABLE OF CONTENTS in JAVASCRIPT
+                                Version 2.0
+                    by Danny Goodman (dannyg@dannyg.com)
+                    Analyzed and described at length in
+                             "JavaScript Bible"
+                              by Danny Goodman
+                      (IDG Books ISBN 0-7645-3022-4)
+    
+    This program is Copyright 1996 by Danny Goodman.  You may adapt
+    this outliner for your Web pages, provided these opening credit
+    lines (down to the lower dividing line) are in your outliner HTML document.
+    You may not reprint or redistribute this code without permission from 
+    the author.
+    -------------------------------------------------------------------------
+     21 February 1997  Added intelligence so that clicking on a fully nested
+                       widget icon does not cause the outline to reload. 
+                       
+     24 October 1997   Script speedup for Navigator 4, reduces access to cookie
+
+To find information specific to DevEdge, search for DevEdge.
+-->
+<HTML>
+<HEAD>
+<TITLE>Navigation</TITLE>
+</HEAD>
+
+<SCRIPT LANGUAGE="JavaScript1.1">
+<!-- begin hiding
+// ** BEGIN OUTLINE AUTHOR-ADUSTABLE SPECIFICATIONS **//
+
+// size of horizontal indent per level
+var indentPixels = 20
+
+// art files and sizes for three widget styles
+// (all three widgets must have same height/width)
+var collapsedWidget = "plus.gif"
+var expandedWidget = "minus.gif"
+var endpointWidget = "filler.gif" //was end.gif
+var widgetWidth = 11
+var widgetHeight = 11
+
+// Target for documents loaded when user clicks on a link.
+// Specify your target frame name here.
+var displayTarget = "content"
+
+// Create array object containing outline content and attributes.
+// To adapt outline for your use, modify this table.
+// Start the array with [1], and continue without gaps to your last item.
+// The order of the five parameters:
+//    1. Boolean (true or false) whether _next_ item is indented.
+//    2. String to display in outline entry (including <FONT> or style tags).
+//    3. URL of link for outline entry; Use empty string ("") for no link
+//    4. Integer of indentation level (0 is leftmost margin level)
+//    5. String for status line during onMouseOver (apostrophes require \')
+
+// THIS DEVEDGE DOCUMENT STARTS HERE
+var documentName = "Client-Side JavaScript Reference v1.3";
+var inputArray = new Array(); 
+var arrayIndex = 1; 
+
+inputArray[arrayIndex++] = '1::<FONT SIZE=-1>Table of Contents</FONT>::"contents.htm"';
+inputArray[arrayIndex++] = '1::<FONT SIZE=-1>New Features in this Release</FONT>::"whatsnew.htm"';
+inputArray[arrayIndex++] = '1::<FONT SIZE=-1>About this Book</FONT>::"preface.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>New Features in this Release</FONT>::"preface.htm#1003176"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>What You Should Already Know</FONT>::"preface.htm#1003235"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>JavaScript Versions</FONT>::"preface.htm#1003267"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Where to Find JavaScript Information</FONT>::"preface.htm#1003241"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Document Conventions</FONT>::"preface.htm#1001745"';
+inputArray[arrayIndex++] = '2::<FONT SIZE=-1></FONT>::""';
+inputArray[arrayIndex++] = '2::<FONT SIZE=-1>PART I. Object Reference</FONT>::""';
+inputArray[arrayIndex++] = '2::<FONT SIZE=-1>1. Objects, Methods, and Properties</FONT>::"objintro.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Anchor</FONT>::"anchor.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Applet</FONT>::"applet.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Area</FONT>::"area.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Array</FONT>::"array.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Boolean</FONT>::"boolean.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Button</FONT>::"button.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Checkbox</FONT>::"checkbox.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Date</FONT>::"date.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>document</FONT>::"document.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>event</FONT>::"event.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>FileUpload</FONT>::"fileup.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Form</FONT>::"form.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Frame</FONT>::"frame.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Function</FONT>::"function.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Hidden</FONT>::"hidden.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>History</FONT>::"history.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Image</FONT>::"image.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>java</FONT>::"java.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>JavaArray</FONT>::"javarray.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>JavaClass</FONT>::"javclass.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>JavaObject</FONT>::"javobj.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>JavaPackage</FONT>::"javpkg.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Layer</FONT>::"layer.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Link</FONT>::"link.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Location</FONT>::"location.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Math</FONT>::"math.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>MimeType</FONT>::"mimetype.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>navigator</FONT>::"nav.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>netscape</FONT>::"netscape.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Number</FONT>::"number.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Object</FONT>::"object.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Option</FONT>::"option.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Packages</FONT>::"packages.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Password</FONT>::"password.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Plugin</FONT>::"plugin.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Radio</FONT>::"radio.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>RegExp</FONT>::"regexp.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Reset</FONT>::"reset.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>screen</FONT>::"screen.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Select</FONT>::"select.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>String</FONT>::"string.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Style</FONT>::"style.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Submit</FONT>::"submit.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>sun</FONT>::"sun.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Text</FONT>::"text.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Textarea</FONT>::"textarea.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>window</FONT>::"window.htm"';
+inputArray[arrayIndex++] = '2::<FONT SIZE=-1>2. Top-Level Properties and Functions</FONT>::"toplev.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>escape</FONT>::"toplev.htm#1063743"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>eval</FONT>::"toplev.htm#1063795"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Infinity</FONT>::"toplev.htm#1063963"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>isFinite</FONT>::"toplev.htm#1063988"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>isNaN</FONT>::"toplev.htm#1064024"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>NaN</FONT>::"toplev.htm#1064064"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Number</FONT>::"toplev.htm#1064092"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>parseFloat</FONT>::"toplev.htm#1064132"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>parseInt</FONT>::"toplev.htm#1064173"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>String</FONT>::"toplev.htm#1064506"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>taint</FONT>::"toplev.htm#1105929"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>undefined</FONT>::"toplev.htm#1094680"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>unescape</FONT>::"toplev.htm#1064583"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>untaint</FONT>::"toplev.htm#1105987"';
+inputArray[arrayIndex++] = '2::<FONT SIZE=-1>3. Event Handlers</FONT>::"handlers.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>onAbort</FONT>::"handlers.htm#1119616"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>onBlur</FONT>::"handlers.htm#1119670"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>onChange</FONT>::"handlers.htm#1119802"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>onClick</FONT>::"handlers.htm#1119876"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>onDblClick</FONT>::"handlers.htm#1119971"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>onDragDrop</FONT>::"handlers.htm#1120032"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>onError</FONT>::"handlers.htm#1120097"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>onFocus</FONT>::"handlers.htm#1120186"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>onKeyDown</FONT>::"handlers.htm#1120313"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>onKeyPress</FONT>::"handlers.htm#1120393"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>onKeyUp</FONT>::"handlers.htm#1120473"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>onLoad</FONT>::"handlers.htm#1120545"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>onMouseDown</FONT>::"handlers.htm#1120635"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>onMouseMove</FONT>::"handlers.htm#1120700"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>onMouseOut</FONT>::"handlers.htm#1120757"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>onMouseOver</FONT>::"handlers.htm#1120822"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>onMouseUp</FONT>::"handlers.htm#1120892"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>onMove</FONT>::"handlers.htm#1120958"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>onReset</FONT>::"handlers.htm#1121007"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>onResize</FONT>::"handlers.htm#1121061"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>onSelect</FONT>::"handlers.htm#1121112"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>onSubmit</FONT>::"handlers.htm#1121163"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>onUnload</FONT>::"handlers.htm#1121231"';
+inputArray[arrayIndex++] = '2::<FONT SIZE=-1></FONT>::""';
+inputArray[arrayIndex++] = '2::<FONT SIZE=-1>PART II. Language Elements</FONT>::""';
+inputArray[arrayIndex++] = '2::<FONT SIZE=-1>4. Statements</FONT>::"stmt.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>break</FONT>::"stmt.htm#1050033"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>comment</FONT>::"stmt.htm#1014739"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>continue</FONT>::"stmt.htm#1005879"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>do...while</FONT>::"stmt.htm#1037353"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>export</FONT>::"stmt.htm#1016648"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>for</FONT>::"stmt.htm#1004804"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>for...in</FONT>::"stmt.htm#1004815"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>function</FONT>::"stmt.htm#1004825"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>if...else</FONT>::"stmt.htm#1004833"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>import</FONT>::"stmt.htm#1017231"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>label</FONT>::"stmt.htm#1018088"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>return</FONT>::"stmt.htm#1004871"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>switch</FONT>::"stmt.htm#1018610"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>var</FONT>::"stmt.htm#1066604"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>while</FONT>::"stmt.htm#1004896"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>with</FONT>::"stmt.htm#1004910"';
+inputArray[arrayIndex++] = '2::<FONT SIZE=-1>5. Operators</FONT>::"ops.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Assignment Operators</FONT>::"ops.htm#1042274"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Comparison Operators</FONT>::"ops.htm#1060974"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Using the Equality Operators</FONT>::"ops.htm#1050908"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Arithmetic Operators</FONT>::"ops.htm#1042400"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>% (Modulus)</FONT>::"ops.htm#1042403"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>++ (Increment)</FONT>::"ops.htm#1042412"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>-- (Decrement)</FONT>::"ops.htm#1042421"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>- (Unary Negation)</FONT>::"ops.htm#1042430"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Bitwise Operators</FONT>::"ops.htm#1042437"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Bitwise Logical Operators</FONT>::"ops.htm#1042500"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Bitwise Shift Operators</FONT>::"ops.htm#1042512"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Logical Operators</FONT>::"ops.htm#1044813"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>String Operators</FONT>::"ops.htm#1042582"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Special Operators</FONT>::"ops.htm#1042588"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>?: (Conditional operator)</FONT>::"ops.htm#1045406"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>, (Comma operator)</FONT>::"ops.htm#1045439"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>delete</FONT>::"ops.htm#1045837"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>new</FONT>::"ops.htm#1055898"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>this</FONT>::"ops.htm#1043482"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>typeof</FONT>::"ops.htm#1042603"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>void</FONT>::"ops.htm#1042625"';
+inputArray[arrayIndex++] = '2::<FONT SIZE=-1></FONT>::""';
+inputArray[arrayIndex++] = '2::<FONT SIZE=-1>PART III. LiveConnect Class Reference</FONT>::""';
+inputArray[arrayIndex++] = '2::<FONT SIZE=-1>6. Java Classes, Constructors, and Methods</FONT>::"classint.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>JSException</FONT>::"lcjsexc.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>JSObject</FONT>::"lcjsobj.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Plugin</FONT>::"lcplugin.htm"';
+inputArray[arrayIndex++] = '2::<FONT SIZE=-1></FONT>::""';
+inputArray[arrayIndex++] = '2::<FONT SIZE=-1>PART IV. Appendixes</FONT>::""';
+inputArray[arrayIndex++] = '2::<FONT SIZE=-1>A. Reserved Words</FONT>::"keywords.htm"';
+inputArray[arrayIndex++] = '2::<FONT SIZE=-1>B. Color Values</FONT>::"colors.htm"';
+inputArray[arrayIndex++] = '2::<FONT SIZE=-1>C. Netscape Cookies</FONT>::"cookies.htm"';
+inputArray[arrayIndex++] = '2::<FONT SIZE=-1> Index</FONT>::"bklast.htm"';
+
+inputArray[arrayIndex++] = 'x';
+
+// THIS DEVEDGE DOCUMENT ENDS HERE
+// ** END AUTHOR-ADJUSTABLE SPECIFICATIONS **//
+
+var db = new Array();
+
+// inputArray[0] is an empty string. The data starts at inputArray[1].
+// Expecting a string with lines of this form:
+// TYPE::TITLE::"URL"
+// where type is 0 (part), 1 (preface, index)), 2 (chapter-level), 
+//               3 (h1), 4 (h2)
+// how to identify document types:
+//   book with parts: if a book has parts, assume it has everything else.
+//   book without parts: as soon as you see a type=2, it's got chapters; 
+//        still look for a part, though
+//   single file document: if you get to the end and never see a type=2, 
+//        then it's a single-file document
+
+// Check to see if the book has parts or chapters. 
+// The answer determines the depth argument.
+
+var hasParts = false;
+var hasChapters = false;
+var thisRecord;
+var inPrefaceyThing = false;
+var i;
+
+// Find out if there are parts in this book. 
+for (i=1; i < inputArray.length-1; i++) {
+  thisRecord = inputArray[i];
+
+  hasParts = (thisRecord[0] == "0");
+  if (hasParts) break;
+
+  hasChapters = hasChapters || (thisRecord.charAt(0) == "2");
+}
+
+var PART, CHAPP, H1, H2;
+// Assign level numbers, based on whether there are any parts.
+if      (hasParts)     {PART = 0; CHAPP = 1; H1 = 2; H2 = 3;}
+else if (hasChapters)  {CHAPP = 0; H1 = 1; H2 = 2;}
+else                   {CHAPP = 0; H1 = 0; H2 = 1;}
+
+//Loop again, fixing entries.
+
+// TYPE::TITLE::"URL"
+// becomes db[i] = new dbRecord(HASCHILD, "TITLE", "URL", DEPTH, "")
+
+var thisType, nextType;
+var thisRecord, nextRecord;
+for (i=1; i < inputArray.length-2; i++) {
+
+  thisRecord = inputArray[i];
+  nextRecord = inputArray[i+1];
+
+  thisType = thisRecord.charAt(0);
+  nextType = nextRecord.charAt(0);
+  if (nextType == "x") {
+    hasChild = false;
+  } else {
+    hasChild = (thisType < nextType);
+  }
+
+  if      (thisType == "0") {depth = PART;  inPrefaceyThing = false;}
+  else if (thisType == "1") {depth = 0;     inPrefaceyThing = true;}
+  else if (thisType == "2") {depth = CHAPP; inPrefaceyThing = false;}
+  else if (thisType == "3") {inPrefaceyThing ? depth = 1 : depth = H1}
+  else                      {inPrefaceyThing ? depth = 2 : depth = H2}
+
+  title = thisRecord.substring(3, thisRecord.lastIndexOf('::'));
+  url   = thisRecord.substring(thisRecord.lastIndexOf('::\"')+ 3, thisRecord.length-1);
+
+  db[i] = new dbRecord(hasChild, title, url, depth, "");
+}
+
+if (nextType != "x") {
+  title = nextRecord.substring(3, nextRecord.lastIndexOf('::'));
+  url   = nextRecord.substring(nextRecord.lastIndexOf('::\"')+ 3, nextRecord.length-1);
+  if      (nextType == "0") depth = PART;
+  else if (nextType == "1") depth = 0;
+  else if (nextType == "2") depth = CHAPP;
+  else if (nextType == "3") {inPrefaceyThing ? depth = 1 : depth = H1}
+  else                      {inPrefaceyThing ? depth = 2 : depth = H2}
+  db[i]   = new dbRecord(false, title, url, depth, "");
+  db[i+1] = new dbRecord(false, "<FONT SIZE=-1>Copyright</FONT>", "copyrt.htm", 0, "");
+} else {
+  db[i] = new dbRecord(false, "<FONT SIZE=-1>Copyright</FONT>", "copyrt.htm", 0,
+ "");
+}
+
+// object constructor for each outline entry
+function dbRecord(mother,display,URL,indent,statusMsg){
+	this.mother = mother   // is this item a parent?
+	this.display = display // text to display
+	this.URL = URL         // link tied to text; if empty string, item appears as straight text
+	this.indent = indent   // how many levels nested?
+	this.statusMsg = statusMsg  // descriptive text for status bar 
+	return this
+}
+
+// pre-load all images into cache
+var fillerImg = new Image(1,1)
+fillerImg.src = "filler.gif"
+var collapsedImg = new Image(widgetWidth,widgetHeight)
+collapsedImg.src = collapsedWidget
+var expandedImg = new Image(widgetWidth,widgetHeight)
+expandedImg.src = expandedWidget
+var endpointImg = new Image(widgetWidth,widgetHeight)
+endpointImg.src = endpointWidget
+
+// ** functions that get and set persistent cookie data **
+// set cookie data
+var mycookie = document.cookie
+function setCurrState(setting) {
+   mycookie = document.cookie = "currState=" + escape(setting)
+}
+// retrieve cookie data
+function getCurrState() {
+   var label = "currState="
+   var labelLen = label.length
+   var cLen = mycookie.length
+   var i = 0
+   while (i < cLen) {
+      var j = i + labelLen
+      if (mycookie.substring(i,j) == label) {
+         var cEnd = mycookie.indexOf(";",j)
+         if (cEnd ==     -1) {
+            cEnd = mycookie.length
+         }
+         return unescape(mycookie.substring(j,cEnd))
+      }
+      i++
+   }
+   return ""
+}
+
+// **function that updates persistent storage of state**
+// toggles an outline mother entry, storing new value in the cookie
+function toggle(n) {
+	if (n != 0) {
+		var newString = ""
+		var currState = getCurrState() // of whole outline
+		var expanded = currState.charAt(n-1) // of clicked item
+		newString += currState.substring(0,n-1)
+		newString += expanded ^ 1 // Bitwise XOR clicked item
+		newString += currState.substring(n,currState.length)
+		setCurrState(newString) // write new state back to cookie
+	}
+}
+
+// **functions used in assembling updated outline**
+// returns the proper GIF file name for each entry's control
+function getGIF(n) {
+	var mom = db[n].mother  // is entry a parent?
+	var expanded = getCurrState().charAt(n-1) // of clicked item
+	if (!mom) {
+		return endpointWidget
+	} else {
+		if (expanded == 1) {
+			return expandedWidget
+		}
+	}
+	return collapsedWidget
+}
+
+// returns the proper status line text based on the icon style
+function getGIFStatus(n) {
+	var mom = db[n].mother  // is entry a parent
+	var expanded = getCurrState().charAt(n-1) // of rolled item
+	if (!mom) {
+		return "No further items"
+	} else {
+		if (expanded == 1) {
+			return "Click to collapse nested items"
+		}
+	}
+	return "Click to expand nested items"
+}
+
+// initialize 'current state' storage field
+if (getCurrState() == "" || getCurrState().length != (db.length-1)) {
+	initState = ""
+	for (i = 1; i < db.length; i++) {
+		initState += "0"
+	}
+	setCurrState(initState)
+}
+
+// end -->
+</SCRIPT>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<SCRIPT LANGUAGE="JavaScript1.1">
+<!-- start
+// build new outline based on the values of the cookie
+// and data points in the outline data array.
+// This fires each time the user clicks on a control,
+// because the HREF for each one reloads the current document.
+var newOutline = ""
+var prevIndentDisplayed = 0
+var showMyDaughter = 0
+// DOCUMENT NAME IS HERE (DEVEDGE INFO WAS PREVIOUSLY HERE ALSO BUT WAS MOVED TO LATER IN FILE)
+document.write("<NOBR><FONT SIZE=-1><B>" + documentName + "</FONT></B></NOBR><BR>")
+// DOCUMENT NAME ENDS HERE
+// cycle through each entry in the outline array
+for (var i = 1; i < db.length; i++) {
+	var theGIF = getGIF(i)				// get the image
+	var theGIFStatus = getGIFStatus(i)  // get the status message
+	var currIndent = db[i].indent		// get the indent level
+	var expanded = getCurrState().charAt(i-1) // current state
+	// display entry only if it meets one of three criteria
+	if (currIndent == 0 || currIndent <= prevIndentDisplayed || (showMyDaughter == 1 && (currIndent - prevIndentDisplayed == 1))) {
+		newOutline += "<NOBR><IMG SRC=\"filler.gif\" HEIGHT = 1 WIDTH =" + (indentPixels * currIndent) + ">"
+		newOutline += "<A HREF=\"javascript:history.go(0)\" onMouseOver=\"window.status=\'" + theGIFStatus + "\';return true;\" onClick=\"toggle(" + i + ");return " + (theGIF != endpointWidget) + "\">"
+		newOutline += "<IMG SRC=\"" + theGIF + "\" HEIGHT=" + widgetHeight + " WIDTH=" + widgetWidth + " BORDER=0></A>"		
+		if (db[i].URL == "" || db[i].URL == null) {
+			newOutline += " " + db[i].display + "</NOBR><BR>"	// no link, just a listed item	
+		} else {
+			newOutline += " <A HREF=\"" + db[i].URL + "\" TARGET=\"" + displayTarget + "\" onMouseOver=\"window.status=\'" + db[i].statusMsg + "\';return true;\">" + db[i].display + "</A></NOBR><BR>"
+		}
+		prevIndentDisplayed = currIndent
+		showMyDaughter = expanded
+		if (db.length > 25) {
+			document.write(newOutline)
+			newOutline = ""
+		}
+	}
+}
+document.write(newOutline)
+document.write("<HR>")
+// DEVEDGE INFORMATION STARTS HERE
+document.write("<FONT SIZE=-1'>");
+document.write("<NOBR><A HREF='http://developer.netscape.com/index.html' TARGET='_top'>DevEdge Home</A></NOBR><BR>")
+document.write("</FONT>")
+document.write("<FONT SIZE=-1>");
+document.write("<NOBR><A HREF='http://developer.netscape.com/library/documentation/index.html'>Documentation</A></NOBR><BR>")
+document.write("</FONT>")
+document.write("<HR>")
+// DEVEDGE INFORMATION ENDS HERE
+document.write("<NOBR><FONT SIZE=-2>If cookies are disabled,</FONT></NOBR><BR>")
+document.write("<NOBR><FONT SIZE=-2>this outline cannot expand.</FONT></NOBR><BR>")
+document.write("<NOBR><FONT SIZE=-2>This frame is resizable.</FONT></NOBR><P>")
+document.write("<NOBR><FONT SIZE=-2>Copyright (c) 1999</NOBR><BR>")
+document.write("<NOBR><A HREF='http://home.netscape.com/misc/contact_info.html'")
+document.write("TARGET=_top>Netscape Communications Corporation</A></FONT></NOBR>")
+
+// end -->
+</SCRIPT> 
+</BODY>
+</HTML>

@@ -1,0 +1,262 @@
+<HTML>
+<HEAD>
+<TITLE>Using Windows and Frames
+</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="navobj.htm">Previous</A>
+ | <A HREF="advtopic.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT><BR><BR>
+<HR>
+<A NAME="1001595">
+<P></A><CENTER><H2>Chapter 12<BR>
+<A NAME="996824">
+Using Windows and Frames</A></H2></CENTER>
+<A NAME="1011668">
+JavaScript lets you create and manipulate windows and frames for presenting HTML content. The window object is the top-level object in the JavaScript client hierarchy; Frame objects are similar to window objects, but correspond to "sub-windows" created with the FRAME tag in a FRAMESET document.</A></P>
+<A NAME="1011686">
+This chapter contains the following sections:</A></P>
+<ul><LI><A NAME="1011687">
+<A HREF="windows.htm#1012749">Opening and Closing Windows</A><A HREF="windows.htm#1012749"></A>
+</A></LI><LI><A NAME="1011688">
+<A HREF="windows.htm#1004240">Using Frames</A>
+</A></LI><LI><A NAME="1011941">
+<A HREF="windows.htm#1004300">Referring to Windows and Frames</A>
+</A></LI><LI><A NAME="1011950">
+<A HREF="windows.htm#1004326">Navigating Among Windows and Frames</A>
+</A></LI></ul><BLOCKQUOTE><B>NOTE: </B><A NAME="1011468">
+This manual does not include information about layers, which were introduced 
+in JavaScript&nbsp;1.2. For information on layers, see <A HREF="http://developer.netscape.com/docs/manuals/communicator/dynhtml/index.htm" TARGET="_top"><EM>Dynamic HTML in Netscape 
+Communicator</EM>.</A>
+</A>
+</BLOCKQUOTE>
+
+<HR><H2><A NAME="Opening and Closing Windows"></A>
+<A NAME="1012749">
+ Opening and Closing Windows
+</A></H2><A NAME="1012750">
+A window is created automatically when you launch Navigator; you can open another window by choosing New then Navigator Window from the File menu. You can close a window by choosing either Close or Exit from the File menu. You can also open and close windows programmatically with JavaScript.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1004224">
+ Opening a Window
+</A></H3>
+
+<A NAME="1004225">
+You can create a window with the <CODE>open</CODE> method. The following statement creates a window called <CODE>msgWindow</CODE> that displays the contents of the file <CODE>sesame.html</CODE>:</A></P>
+<PRE><A NAME="1004226">msgWindow=window.open("sesame.html")</A></PRE><A NAME="1004227">
+The following statement creates a window called <CODE>homeWindow</CODE> that displays the Netscape home page:</A></P>
+<PRE><A NAME="1004228">homeWindow=window.open("http://home.netscape.com")</A></PRE><A NAME="1006632">
+Windows can have two names. The following statement creates a window with two names. The first name, <CODE>msgWindow</CODE>, is a variable that refers to the <CODE>window</CODE> object. This object has information on the window's properties, methods, and containership. When you create the window, you can also supply a second name, in this case <CODE>displayWindow</CODE>, to refer to that window as the target of a form submit or hypertext link.</A></P>
+<PRE><A NAME="1004230">msgWindow=window.open("sesame.html","displayWindow")</A></PRE><A NAME="1004231">
+A window name is not required when you create a window. But the window must have a name if you want to refer to it from another window. </A></P>
+<A NAME="1005000">
+When you open a window, you can specify attributes such as the window's height and width and whether the window contains a toolbar, location field, or scrollbars. The following statement creates a window without a toolbar but with scrollbars:</A></P>
+<PRE><A NAME="1004232">msgWindow=window.open<br>&nbsp;&nbsp;&nbsp;("sesame.html","displayWindow","toolbar=no,scrollbars=yes")</A></PRE><A NAME="1009329">
+For more information on window names, see <A HREF="windows.htm#1004300">"Referring to Windows and Frames" on page&nbsp;197</A>. For details on these window attributes, see the <CODE>open</CODE> method of the <CODE>window</CODE> object in the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsref/index.htm" TARGET="_top"><I>Client-Side JavaScript Reference</I></A>.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1004234">
+ Closing a Window
+</A></H3>
+
+<A NAME="1005823">
+You can close a window with the <CODE>close</CODE> method. You cannot close a frame without closing the entire parent window.</A></P>
+<A NAME="1005824">
+Each of the following statements closes the current window:</A></P>
+<PRE><A NAME="1005825">window.close()<br>self.close()<br>close()</A></PRE><A NAME="1009436">
+Do not use the third form, <CODE>close()</CODE>, in an event handler. Because of how JavaScript figures out what object a method call refers to, inside an event handler it will get the wrong object.</A></P>
+<A NAME="1009437">
+The following statement closes a window called <CODE>msgWindow</CODE>:</A></P>
+<PRE><A NAME="1009438">msgWindow.close()</A></PRE>
+<HR><H2><A NAME="Using Frames"></A>
+<A NAME="1004240">
+ Using Frames
+</A></H2><A NAME="1007978">
+A <B>frameset</B> is a special type of window that can display multiple, independently scrollable <B>frames</B> on a single screen, each with its own distinct URL. The frames in a frameset can point to different URLs and be targeted by other URLs, all within the same window. The series of frames in a <I>frameset </I>make up an HTML page.</A></P>
+<A NAME="1007980">
+The following figure depicts a window containing three frames. The frame on the left is named <CODE>listFrame</CODE>; the frame on the right is named <CODE>contentFrame</CODE>; the frame on the bottom is named <CODE>navigateFrame</CODE>.</A></P>
+<P><A NAME="1009685">
+<B>Figure 12.1&nbsp;&nbsp;&nbsp;A page with frames<P>
+<IMG SRC="graphics/frame.gif">
+
+</B></A></P>
+
+
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1004244">
+ Creating a Frame
+</A></H3>
+
+<A NAME="1004245">
+You create a frame by using the <CODE>FRAMESET</CODE> tag in an HTML document; this tag's sole purpose is to define the frames in a page.</A></P>
+<A NAME="1004246">
+<B>Example 1.</B> The following statement creates the frameset shown previously:</A></P>
+<PRE><A NAME="1004247">&lt;FRAMESET ROWS="90%,10%"&gt;<br>&nbsp;&nbsp;&nbsp;&lt;FRAMESET COLS="30%,70%"&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;FRAME SRC=category.html NAME="listFrame"&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;FRAME SRC=titles.html NAME="contentFrame"&gt;<br>&nbsp;&nbsp;&nbsp;&lt;/FRAMESET&gt;<br>&nbsp;&nbsp;&nbsp;&lt;FRAME SRC=navigate.html NAME="navigateFrame"&gt;<br>&lt;/FRAMESET&gt;</A></PRE><A NAME="1004248">
+The following figure shows the hierarchy of the frames. All three frames have the same parent, even though two of the frames are defined within a separate frameset. This is because a frame's parent is its parent window, and a frame, not a frameset, defines a window.</A></P>
+<P><A NAME="1009849">
+<B>Figure 12.2&nbsp;&nbsp;&nbsp;An example frame hierarchy <P>
+<IMG SRC="graphics/hier_01.gif">
+
+</B></A></P>
+
+
+<A NAME="1004250">
+You can refer to the previous frames using the <CODE>frames</CODE> array as follows. (For information on the <CODE>frames</CODE> array, see the <CODE>window</CODE> object in the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsref/index.htm" TARGET="_top"><I>Client-Side JavaScript Reference</I></A>.)</A></P>
+<ul><LI><A NAME="1004251">
+<CODE>listFrame</CODE> is <CODE>top.frames[0]</CODE>
+</A></LI><LI><A NAME="1004252">
+<CODE>contentFrame</CODE> is <CODE>top.frames[1]</CODE>
+</A></LI><LI><A NAME="1004253">
+<CODE>navigateFrame</CODE> is <CODE>top.frames[2]</CODE>
+</A></LI></ul><A NAME="1004254">
+<B>Example 2.</B> Alternatively, you could create a window like the previous one but in which the top two frames have a parent separate from <CODE>navigateFrame</CODE>. The top-level frameset would be defined as follows:</A></P>
+<PRE><A NAME="1004255">&lt;FRAMESET ROWS="90%,10%"&gt;<br>&nbsp;&nbsp;&nbsp;&lt;FRAME SRC=muskel3.html NAME="upperFrame"&gt;<br>&nbsp;&nbsp;&nbsp;&lt;FRAME SRC=navigate.html NAME="navigateFrame"&gt;<br>&lt;/FRAMESET&gt;</A></PRE><A NAME="1004256">
+The file <CODE>muskel3.html</CODE> contains the skeleton for the upper frames and defines the following frameset:</A></P>
+<PRE><A NAME="1004257">&lt;FRAMESET COLS="30%,70%"&gt;<br>&nbsp;&nbsp;&nbsp;&lt;FRAME SRC=category.html NAME="listFrame"&gt;<br>&nbsp;&nbsp;&nbsp;&lt;FRAME SRC=titles.html NAME="contentFrame"&gt;<br>&lt;/FRAMESET&gt;</A></PRE><A NAME="1004258">
+The following figure shows the hierarchy of the frames. <CODE>upperFrame</CODE> and <CODE>navigateFrame</CODE> share a parent: the <CODE>top</CODE> window. <CODE>listFrame</CODE> and <CODE>contentFrame</CODE> share a parent: <CODE>upperFrame</CODE>.</A></P>
+<P><A NAME="1009900">
+<B>Figure 12.3&nbsp;&nbsp;&nbsp;Another example frame hierarchy <P>
+<IMG SRC="graphics/hier_02.gif">
+
+</B></A></P>
+
+
+<A NAME="1005340">
+You can refer to the previous frames using the <CODE>frames</CODE> array as follows. (For information on the <CODE>frames</CODE> array, see the <CODE>window</CODE> object in the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsref/index.htm" TARGET="_top"><I>Client-Side JavaScript Reference</I></A>.)</A></P>
+<ul><LI><A NAME="1004261">
+<CODE>upperFrame</CODE> is <CODE>top.frames[0]</CODE>
+</A></LI><LI><A NAME="1004262">
+<CODE>navigateFrame</CODE> is <CODE>top.frames[1]</CODE>
+</A></LI><LI><A NAME="1004263">
+<CODE>listFrame</CODE> is <CODE>upperFrame.frames[0]</CODE> or <CODE>top.frames[0].frames[0]</CODE>
+</A></LI><LI><A NAME="1004264">
+<CODE>contentFrame</CODE> is <CODE>upperFrame.frames[1]</CODE> or <CODE>top.frames[0].frames[1]</CODE>
+</A></LI></ul><A NAME="1006778">
+For an example of creating frames, see <A HREF="windows.htm#1004274">"Creating and Updating Frames: an Example" on page&nbsp;195</A>.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1004265">
+ Updating a Frame
+</A></H3>
+
+<A NAME="1004266">
+You can update the contents of a frame by using the <CODE>location</CODE> property to set the URL, as long as you specify the frame hierarchy.</A></P>
+<A NAME="1004267">
+For example, suppose you are using the frameset described in Example 2 in the previous section. If you want users to be able to close the frame containing the alphabetical or categorical list of artists (in the frame <CODE>listFrame</CODE>) and view only the music titles sorted by musician (currently in the frame <CODE>contentFrame</CODE>), you could add the following button to <CODE>navigateFrame</CODE>:</A></P>
+<PRE><A NAME="1004270">&lt;INPUT TYPE="button" VALUE="Titles Only"<br>&nbsp;&nbsp;&nbsp;onClick="top.frames[0].location='artists.html'"&gt;</A></PRE><A NAME="1004271">
+When a user clicks this button, the file <CODE>artists.html</CODE> is loaded into the frame <CODE>upperFrame</CODE>; the frames <CODE>listFrame</CODE> and <CODE>contentFrame</CODE> close and no longer exist.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1004272">
+ Referring To and Navigating Among Frames
+</A></H3>
+
+<A NAME="1004273">
+Because frames are a type of window, you refer to frames and navigate among them as you do windows. See <A HREF="windows.htm#1004300">"Referring to Windows and Frames" on page&nbsp;197</A> and <A HREF="windows.htm#1004326">"Navigating Among Windows and Frames" on page&nbsp;200</A>.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1004274">
+ Creating and Updating Frames: an Example
+</A></H3>
+
+<A NAME="1004275">
+If you designed the frameset in the previous section to present the available titles for a music club, the frames and their HTML files could have the following content:</A></P>
+<ul><P><LI><A NAME="1004276">
+<CODE>category.html</CODE>, in the frame <CODE>listFrame</CODE>, contains a list of musicians sorted by category.</A></LI>
+<P><LI><A NAME="1004277">
+<CODE>titles.html</CODE>, in the frame <CODE>contentFrame</CODE>, contains an alphabetical list of musicians and the titles available for each.</A></LI>
+<P><LI><A NAME="1004278">
+<CODE>navigate.html</CODE>, in the frame <CODE>navigateFrame</CODE>, contains hypertext links the user can click to choose how the musicians are displayed in <CODE>listFrame</CODE>: alphabetically or by category. This file also defines a hypertext link users can click to display a description of each musician.</A></LI>
+<P><LI><A NAME="1004279">
+An additional file, <CODE>alphabet.html</CODE>, contains a list of musicians sorted alphabetically. This file is displayed in <CODE>listFrame</CODE> when the user clicks the link for an alphabetical list.</A></LI>
+</ul><A NAME="1004282">
+The file <CODE>category.html</CODE> (the categorical list) contains code similar to the following:</A></P>
+<PRE><A NAME="1004283">&lt;B&gt;Music Club Artists&lt;/B&gt;<br>&lt;P&gt;&lt;B&gt;Jazz&lt;/B&gt;<br>&lt;LI&gt;&lt;A HREF=titles.html#0001 TARGET="contentFrame"&gt;Toshiko Akiyoshi&lt;/A&gt;<br>&lt;LI&gt;&lt;A HREF=titles.html#0006 TARGET="contentFrame"&gt;John Coltrane&lt;/A&gt;<br>&lt;LI&gt;&lt;A HREF=titles.html#0007 TARGET="contentFrame"&gt;Miles Davis&lt;/A&gt;<br>&lt;LI&gt;&lt;A HREF=titles.html#0010 TARGET="contentFrame"&gt;Dexter Gordon&lt;/A&gt;</A></PRE><PRE><A NAME="1009087">&lt;P&gt;&lt;B&gt;Soul&lt;/B&gt;<br>&lt;LI&gt;&lt;A HREF=titles.html#0003 TARGET="contentFrame"&gt;Betty Carter&lt;/A&gt;<br>&lt;LI&gt;&lt;A HREF=titles.html#0004 TARGET="contentFrame"&gt;Ray Charles&lt;/A&gt;<br>...</A></PRE><A NAME="1004284">
+The file <CODE>alphabet.html</CODE> (the alphabetical list) contains code similar to the following:</A></P>
+<PRE><A NAME="1004285">&lt;B&gt;Music Club Artists&lt;/B&gt;<br>&lt;LI&gt;&lt;A HREF=titles.html#0001 TARGET="contentFrame"&gt;Toshiko Akiyoshi&lt;/A&gt;<br>&lt;LI&gt;&lt;A HREF=titles.html#0002 TARGET="contentFrame"&gt;The Beatles&lt;/A&gt;<br>&lt;LI&gt;&lt;A HREF=titles.html#0003 TARGET="contentFrame"&gt;Betty Carter&lt;/A&gt;<br>&lt;LI&gt;&lt;A HREF=titles.html#0004 TARGET="contentFrame"&gt;Ray Charles&lt;/A&gt;<br>...</A></PRE><A NAME="1004286">
+The file <CODE>navigate.html</CODE> (the navigational links at the bottom of the screen) contains code similar to the following. Notice that the target for <CODE>artists.html</CODE> is "_parent." When the user clicks this link, the entire window is overwritten, because the <CODE>top</CODE> window is the parent of <CODE>navigateFrame</CODE>.</A></P>
+<PRE><A NAME="1004287">&lt;A HREF=alphabet.html TARGET="listFrame"&gt;&lt;B&gt;Alphabetical&lt;/B&gt;&lt;/A&gt;<br>&amp;nbsp&amp;nbsp&amp;nbsp<br>&lt;A HREF=category.html TARGET="listFrame"&gt;&lt;B&gt;By category&lt;/B&gt;&lt;/A&gt;<br>&amp;nbsp&amp;nbsp&amp;nbsp<br>&lt;A HREF="artists.html" TARGET="_parent"&gt;<br>&nbsp;&nbsp;&nbsp;&lt;B&gt;Musician Descriptions&lt;/B&gt;&lt;/A&gt;</A></PRE><A NAME="1004288">
+The file <CODE>titles.html</CODE> (the main file, displayed in the frame on the right) contains code similar to the following:</A></P>
+<PRE><A NAME="1005992">&lt;A NAME="0001"&gt;&lt;H3&gt;Toshiko Akiyoshi&lt;/H3&gt;&lt;/A&gt;<br>&lt;P&gt;Interlude</A></PRE><PRE><A NAME="1009115">&lt;A NAME="0002"&gt;&lt;H3&gt;The Beatles&lt;/H3&gt;&lt;/A&gt;<br>&lt;P&gt;Please Please Me</A></PRE><PRE><A NAME="1009118">&lt;A NAME="0003"&gt;&lt;H3&gt;Betty Carter&lt;/H3&gt;&lt;/A&gt;<br>&lt;P&gt;Ray Charles and Betty Carter<br>...</A></PRE>
+<HR><H2><A NAME="Referring to Windows and Frames"></A>
+<A NAME="1004300">
+ Referring to Windows and Frames
+</A></H2><A NAME="1004301">
+<VAR>The name you use to refer to a window depends on whether you are referring to a window's properties, methods, and event handlers or to the window as the target of a form submit or a hypertext link.</VAR></A></P>
+<A NAME="1005205">
+Because the <CODE>window</CODE> object is the top-level object in the JavaScript client hierarchy, the window is essential for specifying the containership of objects in any window.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1004302">
+ Referring to Properties, Methods, and Event Handlers
+</A></H3>
+
+<A NAME="1004303">
+<VAR>You can refer to the properties, methods, and event handlers of the current window or another window (if the other window is named) using any of the following techniques:</VAR></A></P>
+<ul><P><LI><A NAME="1004304">
+<CODE>self</CODE> or <CODE>window</CODE>: <CODE>self</CODE><VAR> and </VAR><CODE>window</CODE><VAR> are synonyms for the current window, and you can use them optionally to refer to the current window. For example, you can close the current window by calling either </VAR><CODE>window.close()</CODE><VAR> or </VAR><CODE>self.close()</CODE><VAR>.</VAR></A></LI>
+<P><LI><A NAME="1004305">
+<CODE>top</CODE> or <CODE>parent</CODE>: <CODE>top</CODE> and <CODE>parent</CODE> are also synonyms that you can use in place of the window name. <CODE>top</CODE> can be used for any window; it refers to the topmost Navigator window. <CODE>parent</CODE> can be used for a frame; it refers to the frameset window that contains that frame. For example, for the frame <CODE>frame1</CODE>, the statement <CODE>parent.frame2.document.bgColor="teal"</CODE> changes the background color of the frame named <CODE>frame2</CODE> to teal, where <CODE>frame2</CODE> is a sibling frame in the current frameset.</A></LI>
+<P><LI><A NAME="1004306">
+The name of a window variable: The window variable is the variable specified when a window is opened. For example, <CODE>msgWindow.close()</CODE> closes a window called <CODE>msgWindow</CODE>.</A></LI>
+<P><LI><A NAME="1005750">
+Omit the window name: Because the existence of the current window is assumed, you do not have to refer to the name of the window when you call its methods and assign its properties. For example, <CODE>close()</CODE> closes the current window. However, when you open or close a window within an event handler, you must specify <CODE>window.open()</CODE> or <CODE>window.close()</CODE> instead of simply using <CODE>open()</CODE> or <CODE>close()</CODE>. Because of the scoping of static objects in JavaScript, a call to <CODE>close()</CODE> without specifying an object name is equivalent to <CODE>document.close()</CODE>.</A></LI>
+</ul><A NAME="1004308">
+For more information on these techniques for referring to windows, see the <CODE>window</CODE> object in the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsref/index.htm" TARGET="_top"><I>Client-Side JavaScript Reference</I></A>.</A></P>
+<A NAME="1004310">
+<B>Example 1: refer to the current window.</B> The following statement refers to a form named <CODE>musicForm</CODE> in the current window. The statement displays an alert if a checkbox is checked.</A></P>
+<PRE><A NAME="1004311">if (document.musicForm.checkbox1.checked) {<br>&nbsp;&nbsp;&nbsp;alert('The checkbox on the musicForm is checked!')}</A></PRE><A NAME="1004312">
+<B>Example 2: refer to another window.</B> The following statements refer to a form named <CODE>musicForm</CODE> in a window named <CODE>checkboxWin</CODE>. The statements determine if a checkbox is checked, check the checkbox, determine if the second option of a <CODE>Select</CODE> object is selected, and select the second option of the <CODE>Select</CODE> object. Even though object values are changed in another window (<CODE>checkboxWin</CODE>), the current window remains active: checking the checkbox and selecting the selection option do not give focus to the window.</A></P>
+<PRE><A NAME="1005918">// Determine if a checkbox is checked<br>if (checkboxWin.document.musicForm.checkbox2.checked) {<br>&nbsp;&nbsp;&nbsp;alert('The checkbox on the musicForm in checkboxWin is checked!')}</A></PRE><PRE><A NAME="1008967">// Check the checkbox<br>checkboxWin.document.musicForm.checkbox2.checked=true</A></PRE><PRE><A NAME="1008968">// Determine if an option in a Select object is selected<br>if (checkboxWin.document.musicForm.musicTypes.options[1].selected)<br>&nbsp;&nbsp;&nbsp;{alert('Option 1 is selected!')}</A></PRE><PRE><A NAME="1008969">// Select an option in a Select object<br>checkboxWin.document.musicForm.musicTypes.selectedIndex=1</A></PRE><A NAME="1005919">
+<B>Example 3: refer to a frame in another window.</B> The following statement refers to a frame named <CODE>frame2</CODE> that is in a window named <CODE>window2</CODE>. The statement changes the background color of <CODE>frame2</CODE> to violet. The frame name, <CODE>frame2</CODE>, must be specified in the <CODE>FRAMESET</CODE> tag that creates the frameset.</A></P>
+<PRE><A NAME="1004315">window2.frame2.document.bgColor="violet"</A></PRE>
+<H3><A NAME="Head2;"></A>
+<A NAME="1004316">
+ Referring to a Window in a Form Submit or Hypertext Link
+</A></H3>
+
+<A NAME="1004317">
+You use a window's name (not the window variable) when referring to a window as the target of a form submit or hypertext link (the <CODE>TARGET</CODE> attribute of a <CODE>FORM</CODE> or <CODE>A</CODE> tag). The window you specify is the window into which the link is loaded or, for a form, the window in which server responses are displayed.</A></P>
+<A NAME="1004318">
+The following example creates a hypertext link to a second window. The example has a button that opens an empty window named <CODE>window2</CODE>, then a link that loads the file <CODE>doc2.html</CODE> into the newly opened window, and then a button that closes the window. </A></P>
+<PRE><A NAME="1004319">&lt;FORM&gt;<br>&lt;INPUT TYPE="button" VALUE="Open Second Window"<br>&nbsp;&nbsp;&nbsp;onClick="msgWindow=window.open('','window2',<br>&nbsp;&nbsp;&nbsp;'resizable=no,width=200,height=200')"&gt;<br>&lt;P&gt;<br>&lt;A HREF="doc2.html" TARGET="window2"&gt; Load a file into window2&lt;/A&gt;<br>&lt;P&gt;<br>&lt;INPUT TYPE="button" VALUE="Close Second Window"<br>&nbsp;&nbsp;&nbsp;onClick="msgWindow.close()"&gt;<br>&lt;/FORM&gt;</A></PRE><A NAME="1009566">
+If the user selects the Open Second Window button first and then the link, Communicator opens the small window specified in the button and then loads <CODE>doc2.html</CODE> into it.</A></P>
+<A NAME="1009591">
+On the other hand, if the user selects the link before creating <CODE>window2</CODE> with the button, then Communicator creates <CODE>window2</CODE> with the default parameters and loads <CODE>doc2.html</CODE> into that window. If the user later clicks the Open Second Window button, Communicator changes the parameters of the already open window to match those specified in the event handler.</A></P>
+
+<HR><H2><A NAME="Navigating Among Windows and Frames"></A>
+<A NAME="1004326">
+ Navigating Among Windows and Frames
+</A></H2><A NAME="1006791">
+Many Navigator windows can be open at the same time. The user can move among these windows by clicking them to make them active, or give them focus. When a window has focus, it moves to the front and changes visually in some way. For example, the color of the window's title bar might change. The visual cue varies depending on which platform you are using.</A></P>
+<A NAME="1005952">
+You can give focus to a window programmatically by giving focus to an object in the window or by specifying the window as the target of a hypertext link. Although you can change an object's values in a second window, that does not make the second window active: the current window remains active.</A></P>
+<A NAME="1009555">
+You navigate among frames the same way as you navigate among windows.</A></P>
+<A NAME="1004329">
+<B>Example 1: give focus to an object in another window.</B> The following statement gives focus to a <CODE>Text</CODE> object named <CODE>city</CODE> in a window named <CODE>checkboxWin</CODE>. Because the <CODE>Text</CODE> object is gaining focus, the window also gains focus and becomes active. The example also shows the statement that creates <CODE>checkboxWin</CODE>.</A></P>
+<PRE><A NAME="1004330">checkboxWin=window.open("doc2.html")<br>...<br>checkboxWin.document.musicForm.city.focus()</A></PRE><A NAME="1004331">
+<B>Example 2: give focus to another window using a hypertext link.</B> The following statement specifies <CODE>window2</CODE> as the target of a hypertext link. When the user clicks the link, focus switches to <CODE>window2</CODE>. If <CODE>window2</CODE> does not exist, it is created.</A></P>
+<PRE><A NAME="1004332">&lt;A HREF="doc2.html" TARGET="window2"&gt; Load a file into window2&lt;/A&gt;</A></PRE>
+<HR>
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="navobj.htm">Previous</A>
+ | <A HREF="advtopic.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT>
+<P ALIGN=right>
+<FONT SIZE=-2><I>Last Updated:  05/27/99  21:21:38</I></FONT>
+<P> <CENTER>Copyright (c) 1999
+<A HREF="http://home.netscape.com/misc/contact_info.html"
+TARGET=_top>Netscape Communications Corporation</A></FONT>
+</CENTER>
+<P>
+</BODY>
+</HTML>
+
+

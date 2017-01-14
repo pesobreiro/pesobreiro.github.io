@@ -1,0 +1,3024 @@
+<HTML>
+<HEAD>
+<TITLE>
+</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="checkbox.htm">Previous</A>
+ | <A HREF="document.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT><BR><BR>
+<HR>
+
+<H1><A NAME="Date"></A>
+<A NAME="1193137">
+ Date
+</A></H1>
+<A NAME="1193174">
+Lets you work with dates and times.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left COLSPAN=2 ROWSPAN=1><P><A NAME="1193141">
+<I>Core object</I></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193145">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193147">
+JavaScript 1.0, NES 2.0</A></P><P><A NAME="1199402">
+</A></P><P><A NAME="1199452">
+JavaScript 1.1: added <CODE>prototype</CODE> property</A></P><P><A NAME="1193149">
+</A></P><P><A NAME="1199455">
+JavaScript 1.3: removed platform dependencies to provide a uniform behavior across platforms; added <CODE>ms_num</CODE> parameter to <CODE>Date</CODE> constructor; added <CODE><A HREF="date.htm#1193607">getFullYear</A></CODE>, <CODE><A HREF="date.htm#1194264">setFullYear</A></CODE>, <CODE><A HREF="date.htm#1193677">getMilliseconds</A></CODE>, <CODE><A HREF="date.htm#1194367">setMilliseconds</A></CODE>, <CODE><A HREF="date.htm#1195016">toSource</A></CODE>, and UTC methods (such as <CODE><A HREF="date.htm#1219395">getUTCDate</A></CODE> and <CODE><A HREF="date.htm#1194580">setUTCDate</A></CODE>).</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202749">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202751">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193175">
+ Created by
+</A></H4>
+
+<A NAME="1193176">
+The <CODE>Date</CODE> constructor:</A></P>
+<PRE><A NAME="1193177">new Date()<br>new Date(<I>milliseconds</I>)<br>new Date(<I>dateString</I>)<br>new Date(<I>yr_num</I>, <I>mo_num</I>, <I>day_num<br></I>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[, <I>hr_num</I>, <I>min_num</I>, <I>sec_num</I>, <I>ms_num</I>])</A></PRE><A NAME="1213308">
+<I>Versions prior to JavaScript 1.3:</I></A></P>
+<PRE><A NAME="1212298">new Date()<br>new Date(<I>milliseconds</I>)<br>new Date(<I>dateString</I>)<br>new Date(<I>yr_num</I>, <I>mo_num</I>, <I>day_num</I>[, <I>hr_num</I>, <I>min_num</I>, <I>sec_num</I>])</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193178">
+ Parameters
+</A></H4>
+
+<A NAME="1193192">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1212730">milliseconds</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1212732">
+Integer value representing the number of milliseconds since 1 January 1970 00:00:00.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193181">dateString</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193183">
+String value representing a date. The string should be in a format recognized by the <A HREF="date.htm#1194184"><CODE>Date.parse</CODE></A> method.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193185">yr_num, mo_num,<br>day_num</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193187">
+Integer values representing part of a date. As an integer value, the month is represented by 0 to 11 with 0=January and 11=December.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193189">hr_num, min_num,<br>sec_num, ms_num</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193191">
+Integer values representing part of a date.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193193">
+ Description
+</A></H4>
+
+<A NAME="1193194">
+If you supply no arguments, the constructor creates a <CODE>Date</CODE> object for today's date and time according to local time. If you supply some arguments but not others, the missing arguments are set to 0. If you supply any arguments, you must supply at least the year, month, and day. You can omit the hours, minutes, seconds, and milliseconds.</A></P>
+<A NAME="1213241">
+The date is measured in milliseconds since midnight 01 January, 1970 UTC. A day holds 86,400,000 milliseconds. The <CODE>Date</CODE> object range is -100,000,000 days to 100,000,000 days relative to 01 January, 1970 UTC.</A></P>
+<A NAME="1213242">
+The <CODE>Date</CODE> object provides uniform behavior across platforms.</A></P>
+<A NAME="1193198">
+The <CODE>Date</CODE> object supports a number of UTC (universal) methods, as well as local time methods. UTC, also known as Greenwich Mean Time (GMT), refers to the time as set by the World Time Standard. The local time is the time known to the computer where JavaScript is executed.</A></P>
+<A NAME="1213264">
+For compatibility with millennium calculations (in other words, to take into account the year 2000), you should always specify the year in full; for example, use 1998, not 98. To assist you in specifying the complete year, JavaScript includes the methods <CODE>getFullYear</CODE>, <CODE>setFullYear</CODE>, <CODE>getFullUTCYear</CODE>, and <CODE>setFullUTCYear</CODE>.</A></P>
+<A NAME="1193200">
+The following example returns the time elapsed between <CODE>timeA</CODE> and <CODE>timeB</CODE> in milliseconds.</A></P>
+<PRE><A NAME="1209196">timeA = new Date();<br>// Statements here to take some action.<br>timeB = new Date();<br>timeDifference = timeB - timeA;</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1211485">
+ Backward Compatibility
+</A></H4>
+
+<B><A NAME="HeadRunIn;"></A>
+<A NAME="1211486">
+JavaScript 1.2 and earlier. </A></B><A NAME="1211487">
+The <CODE>Date</CODE> object behaves as follows:</A></P>
+<ul><P><LI><A NAME="1211488">
+Dates prior to 1970 are not allowed.</A></LI>
+<P><LI><A NAME="1211489">
+JavaScript depends on platform-specific date facilities and behavior; the behavior of the <CODE>Date</CODE> object varies from platform to platform.</A></LI>
+</ul>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193203">
+ Property Summary
+</A></H4>
+
+<A NAME="1193216">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1193206">
+<B>Property
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1193208">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1209910"><A HREF="date.htm#1209532"><CODE>constructor</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1209912">
+Specifies the function that creates an object's prototype.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193213"><A HREF="date.htm#1197095"><CODE>prototype</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193215">
+Allows the addition of properties to a <CODE>Date</CODE> object.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193217">
+ Method Summary
+</A></H4>
+
+<A NAME="1193510">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1193220">
+<B>Method
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1193222">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193227"><A HREF="date.htm#1193537"><CODE>getDate</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193229">
+Returns the day of the month for the specified date according to local time.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193234"><A HREF="date.htm#1193573"><CODE>getDay</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193236">
+Returns the day of the week for the specified date according to local time.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193241">
+<A HREF="date.htm#1193607"><CODE>getFullYear</CODE></A></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193243">
+Returns the year of the specified date according to local time.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193248"><A HREF="date.htm#1193644"><CODE>getHours</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193250">
+Returns the hour in the specified date according to local time.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193255">
+<A HREF="date.htm#1193677"><CODE>getMilliseconds</CODE></A></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193257">
+Returns the milliseconds in the specified date according to local time.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193262"><A HREF="date.htm#1193710"><CODE>getMinutes</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193264">
+Returns the minutes in the specified date according to local time.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193269"><A HREF="date.htm#1193744"><CODE>getMonth</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193271">
+Returns the month in the specified date according to local time.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193276"><A HREF="date.htm#1193778"><CODE>getSeconds</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193278">
+Returns the seconds in the specified date according to local time.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193283"><A HREF="date.htm#1193811"><CODE>getTime</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193285">
+Returns the numeric value corresponding to the time for the specified date according to local time.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193290"><A HREF="date.htm#1193844"><CODE>getTimezoneOffset</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193292">
+Returns the time-zone offset in minutes for the current locale.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193297">
+<A HREF="date.htm#1219395"><CODE>getUTCDate</CODE></A></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193299">
+Returns the day (date) of the month in the specified date according to universal time.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193304">
+<A HREF="date.htm#1193904"><CODE>getUTCDay</CODE></A></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193306">
+Returns the day of the week in the specified date according to universal time.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193311">
+<A HREF="date.htm#1193940"><CODE>getUTCFullYear</CODE></A></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193313">
+Returns the year in the specified date according to universal time.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193318">
+<A HREF="date.htm#1193973"><CODE>getUTCHours</CODE></A></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193320">
+Returns the hours in the specified date according to universal time.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193325">
+<A HREF="date.htm#1194006"><CODE>getUTCMilliseconds</CODE></A></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193327">
+Returns the milliseconds in the specified date according to universal time.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193332">
+<A HREF="date.htm#1194039"><CODE>getUTCMinutes</CODE></A></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193334">
+Returns the minutes in the specified date according to universal time.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193339">
+<A HREF="date.htm#1194072"><CODE>getUTCMonth</CODE></A></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193341">
+Returns the month according in the specified date according to universal time.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193346">
+<A HREF="date.htm#1194105"><CODE>getUTCSeconds</CODE></A></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193348">
+Returns the seconds in the specified date according to universal time.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193353"><A HREF="date.htm#1194138"><CODE>getYear</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193355">
+Returns the year in the specified date according to local time.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193360"><A HREF="date.htm#1194184"><CODE>parse</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193362">
+Returns the number of milliseconds in a date string since January 1, 1970, 00:00:00, local time.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193367"><A HREF="date.htm#1194228"><CODE>setDate</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193369">
+Sets the day of the month for a specified date according to local time.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193374">
+<A HREF="date.htm#1194264"><CODE>setFullYear</CODE></A></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193376">
+Sets the full year for a specified date according to local time.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193381"><A HREF="date.htm#1194314"><CODE>setHours</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193383">
+Sets the hours for a specified date according to local time.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193388">
+<A HREF="date.htm#1194367"><CODE>setMilliseconds</CODE></A></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193390">
+Sets the milliseconds for a specified date according to local time.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193395"><A HREF="date.htm#1193778"><CODE>setMinutes</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193397">
+Sets the minutes for a specified date according to local time.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193402"><A HREF="date.htm#1194453"><CODE>setMonth</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193404">
+Sets the month for a specified date according to local time.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193409">
+<A HREF="date.htm#1194498"><CODE>setSeconds</CODE></A></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193411">
+Sets the seconds for a specified date according to local time.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193416">
+<A HREF="date.htm#1194543"><CODE>setTime</CODE></A></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193418">
+Sets the value of a Date object according to local time.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193423">
+<A HREF="date.htm#1194580"><CODE>setUTCDate</CODE></A></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193425">
+Sets the day of the month for a specified date according to universal time.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193430">
+<A HREF="date.htm#1194617"><CODE>setUTCFullYear</CODE></A></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193432">
+Sets the full year for a specified date according to universal time.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193437">
+<A HREF="date.htm#1194663"><CODE>setUTCHours</CODE></A></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193439">
+Sets the hour for a specified date according to universal time.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193444">
+<A HREF="date.htm#1194713"><CODE>setUTCMilliseconds</CODE></A></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193446">
+Sets the milliseconds for a specified date according to universal time.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193451">
+<A HREF="date.htm#1194750"><CODE>setUTCMinutes</CODE></A></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193453">
+Sets the minutes for a specified date according to universal time.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193458">
+<A HREF="date.htm#1194796"><CODE>setUTCMonth</CODE></A></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193460">
+Sets the month for a specified date according to universal time.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193465">
+<A HREF="date.htm#1194838"><CODE>setUTCSeconds</CODE></A></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193467">
+Sets the seconds for a specified date according to universal time.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193472"><A HREF="date.htm#1194880"><CODE>setYear</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193474">
+Sets the year for a specified date according to local time.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193479"><A HREF="date.htm#1194931"><CODE>toGMTString</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193481">
+Converts a date to a string, using the Internet GMT conventions.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193486"><A HREF="date.htm#1194970"><CODE>toLocaleString</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193488">
+Converts a date to a string, using the current locale's conventions.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193493"><A HREF="date.htm#1195016"><CODE>toSource</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193495">
+Returns an object literal representing the specified Date object; you can use this value to create a new object. Overrides the <A HREF="object.htm#1193320"><CODE>Object.toSource</CODE></A> method.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1206982"><A HREF="date.htm#1206669"><CODE>toString</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1206984">
+Returns a string representing the specified Date object. Overrides the <A HREF="object.htm#1193350"><CODE>Object.toString</CODE></A> method.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193500">
+<A HREF="date.htm#1195045"><CODE>toUTCString</CODE></A></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193502">
+Converts a date to a string, using the universal time convention.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193507"><A HREF="date.htm#1195078"><CODE>UTC</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193509">
+Returns the number of milliseconds in a <CODE>Date</CODE> object since January 1, 1970, 00:00:00, universal time.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1207445"><A HREF="date.htm#1206897"><CODE>valueOf</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1207447">
+Returns the primitive value of a Date object. Overrides the <A HREF="object.htm#1193540"><CODE>Object.valueOf</CODE></A> method.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+<A NAME="1209135">
+In addition, this object inherits the <A HREF="object.htm#1193628"><CODE>watch</CODE></A> and <A HREF="object.htm#1193499"><CODE>unwatch</CODE></A> methods from <A HREF="object.htm#1193136"><CODE>Object</CODE></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193511">
+ Examples
+</A></H4>
+
+<A NAME="1193512">
+The following examples show several ways to assign dates:</A></P>
+<PRE><A NAME="1193513">today = new Date()<br>birthday = new Date("December 17, 1995 03:24:00")<br>birthday = new Date(95,11,17)<br>birthday = new Date(95,11,17,3,24,0)</A></PRE>
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1209532">
+constructor
+</A></H2>
+
+<A NAME="1209533">
+Specifies the function that creates an object's prototype. Note that the value of this property is a reference to the function itself, not a string containing the function's name.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1209536">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1209541">
+<A HREF="date.htm#1193137"><CODE>Date</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1209543">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1209545">
+JavaScript 1.1, NES 2.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1209547">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1209549">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1209550">
+ Description
+</A></H4>
+
+<A NAME="1209554">
+See <A HREF="object.htm#1193229"><CODE>Object.constructor</CODE></A>.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193537">
+getDate
+</A></H2>
+
+<A NAME="1193550">
+Returns the day of the month for the specified date according to local time.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193540">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193545">
+<A HREF="date.htm#1193137"><CODE>Date</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193547">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193549">
+JavaScript 1.0, NES 2.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202758">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202760">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193551">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1193552">getDate()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193553">
+ Parameters
+</A></H4>
+
+<A NAME="1193554">
+None</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193555">
+ Description
+</A></H4>
+
+<A NAME="1193556">
+The value returned by <CODE>getDate</CODE> is an integer between 1 and 31.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193557">
+ Examples
+</A></H4>
+
+<A NAME="1193558">
+The second statement below assigns the value 25 to the variable <CODE>day</CODE>, based on the value of the <CODE>Date</CODE> object <CODE>Xmas95</CODE>.</A></P>
+<PRE><A NAME="1193559">Xmas95 = new Date("December 25, 1995 23:15:00")<br>day = Xmas95.getDate()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193560">
+ See also
+</A></H4>
+
+<A NAME="1193570">
+<A HREF="date.htm#1219395"><CODE>Date.getUTCDate</CODE></A>, <A HREF="date.htm#1193904"><CODE>Date.getUTCDay</CODE></A>, <A HREF="date.htm#1194228"><CODE>Date.setDate</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193573">
+getDay
+</A></H2>
+
+<A NAME="1193587">
+Returns the day of the week for the specified date according to local time.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193577">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193582">
+<A HREF="date.htm#1193137"><CODE>Date</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193584">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193586">
+JavaScript 1.0, NES 2.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202806">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202808">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193588">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1193589">getDay()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193590">
+ Parameters
+</A></H4>
+
+<A NAME="1193591">
+None</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193592">
+ Description
+</A></H4>
+
+<A NAME="1193593">
+The value returned by <CODE>getDay</CODE> is an integer corresponding to the day of the week: 0 for Sunday, 1 for Monday, 2 for Tuesday, and so on.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193594">
+ Examples
+</A></H4>
+
+<A NAME="1193595">
+The second statement below assigns the value 1 to <CODE>weekday</CODE>, based on the value of the <CODE>Date</CODE> object <CODE>Xmas95</CODE>. December 25, 1995, is a Monday.</A></P>
+<PRE><A NAME="1193596">Xmas95 = new Date("December 25, 1995 23:15:00")<br>weekday = Xmas95.getDay()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193597">
+ See also
+</A></H4>
+
+<A NAME="1193604">
+<A HREF="date.htm#1193904"><CODE>Date.getUTCDay</CODE></A>, <A HREF="date.htm#1194228"><CODE>Date.setDate</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193607">
+getFullYear
+</A></H2>
+
+<A NAME="1193620">
+Returns the year of the specified date according to local time.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193610">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193615">
+<A HREF="date.htm#1193137"><CODE>Date</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193617">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193619">
+JavaScript 1.3</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202851">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202853">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193621">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1193622">getFullYear()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193623">
+ Parameters
+</A></H4>
+
+<A NAME="1193624">
+None</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193625">
+ Description
+</A></H4>
+
+<A NAME="1193626">
+The value returned by <CODE>getFullYear</CODE> is an absolute number. For dates between the years 1000 and 9999, <CODE>getFullYear</CODE> returns a four-digit number, for example, 1995. Use this function to make sure a year is compliant with years after 2000.</A></P>
+<A NAME="1193627">
+Use this method instead of the <CODE>getYear</CODE> method.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193628">
+ Examples
+</A></H4>
+
+<A NAME="1193629">
+The following example assigns the four-digit value of the current year to the variable <CODE>yr</CODE>.</A></P>
+<PRE><A NAME="1193630">var yr;<br>Today = new Date();<br>yr = Today.getFullYear();</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193631">
+ See also
+</A></H4>
+
+<A NAME="1193641">
+<A HREF="date.htm#1194138"><CODE>Date.getYear</CODE></A>, <A HREF="date.htm#1193940"><CODE>Date.getUTCFullYear</CODE></A><CODE>, </CODE><A HREF="date.htm#1194264"><CODE>Date.setFullYear</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193644">
+getHours
+</A></H2>
+
+<A NAME="1193657">
+Returns the hour for the specified date according to local time.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193647">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193652">
+<A HREF="date.htm#1193137"><CODE>Date</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193654">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193656">
+JavaScript 1.0, NES 2.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202860">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202862">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193658">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1193659">getHours()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193660">
+ Parameters
+</A></H4>
+
+<A NAME="1193661">
+None</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193662">
+ Description
+</A></H4>
+
+<A NAME="1193663">
+The value returned by <CODE>getHours</CODE> is an integer between 0 and 23.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193664">
+ Examples
+</A></H4>
+
+<A NAME="1193665">
+The second statement below assigns the value 23 to the variable <CODE>hours</CODE>, based on the value of the <CODE>Date</CODE> object <CODE>Xmas95</CODE>.</A></P>
+<PRE><A NAME="1193666">Xmas95 = new Date("December 25, 1995 23:15:00")<br>hours = Xmas95.getHours()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193667">
+ See also
+</A></H4>
+
+<A NAME="1193674">
+<A HREF="date.htm#1193973"><CODE>Date.getUTCHours</CODE></A>, <A HREF="date.htm#1194314"><CODE>Date.setHours</CODE></A> </A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193677">
+getMilliseconds
+</A></H2>
+
+<A NAME="1193690">
+Returns the milliseconds in the specified date according to local time.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193680">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193685">
+<A HREF="date.htm#1193137"><CODE>Date</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193687">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193689">
+JavaScript 1.3</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203092">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203094">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193691">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1193692">getMilliseconds()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193693">
+ Parameters
+</A></H4>
+
+<A NAME="1193694">
+None</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193695">
+ Description
+</A></H4>
+
+<A NAME="1193696">
+The value returned by <CODE>getMilliseconds</CODE> is a number between 0 and 999.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193697">
+ Examples
+</A></H4>
+
+<A NAME="1193698">
+The following example assigns the milliseconds portion of the current time to the variable <CODE>ms</CODE>.</A></P>
+<PRE><A NAME="1193699">var ms;<br>Today = new Date();<br>ms = Today.getMilliseconds();</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193700">
+ See also
+</A></H4>
+
+<A NAME="1193707">
+<A HREF="date.htm#1194006"><CODE>Date.getUTCMilliseconds</CODE></A><CODE>, </CODE><A HREF="date.htm#1194367"><CODE>Date.setMilliseconds</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193710">
+getMinutes
+</A></H2>
+
+<A NAME="1193724">
+Returns the minutes in the specified date according to local time.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193714">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193719">
+<A HREF="date.htm#1193137"><CODE>Date</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193721">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193723">
+JavaScript 1.0, NES 2.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203117">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203119">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193725">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1193726">getMinutes()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193727">
+ Parameters
+</A></H4>
+
+<A NAME="1193728">
+None</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193729">
+ Description
+</A></H4>
+
+<A NAME="1193730">
+The value returned by <CODE>getMinutes</CODE> is an integer between 0 and 59.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193731">
+ Examples
+</A></H4>
+
+<A NAME="1193732">
+The second statement below assigns the value 15 to the variable <CODE>minutes</CODE>, based on the value of the <CODE>Date</CODE> object <CODE>Xmas95</CODE>.</A></P>
+<PRE><A NAME="1193733">Xmas95 = new Date("December 25, 1995 23:15:00")<br>minutes = Xmas95.getMinutes()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193734">
+ See also
+</A></H4>
+
+<A NAME="1193741">
+<A HREF="date.htm#1194039"><CODE>Date.getUTCMinutes</CODE></A>, <A HREF="date.htm#1193778"><CODE>Date.setMinutes</CODE></A> </A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193744">
+getMonth
+</A></H2>
+
+<A NAME="1193758">
+Returns the month in the specified date according to local time.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193748">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193753">
+<A HREF="date.htm#1193137"><CODE>Date</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193755">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193757">
+JavaScript 1.0, NES 2.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203134">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203136">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193759">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1193760">getMonth()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193761">
+ Parameters
+</A></H4>
+
+<A NAME="1193762">
+None</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193763">
+ Description
+</A></H4>
+
+<A NAME="1193764">
+The value returned by <CODE>getMonth</CODE> is an integer between 0 and 11. 0 corresponds to January, 1 to February, and so on.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193765">
+ Examples
+</A></H4>
+
+<A NAME="1193766">
+The second statement below assigns the value 11 to the variable <CODE>month</CODE>, based on the value of the <CODE>Date</CODE> object <CODE>Xmas95</CODE>.</A></P>
+<PRE><A NAME="1193767">Xmas95 = new Date("December 25, 1995 23:15:00")<br>month = Xmas95.getMonth()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193768">
+ See also
+</A></H4>
+
+<A NAME="1193775">
+<A HREF="date.htm#1194072"><CODE>Date.getUTCMonth</CODE></A>, <A HREF="date.htm#1194453"><CODE>Date.setMonth</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193778">
+getSeconds
+</A></H2>
+
+<A NAME="1193791">
+Returns the seconds in the current time according to local time.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193781">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193786">
+<A HREF="date.htm#1193137"><CODE>Date</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193788">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193790">
+JavaScript 1.0, NES 2.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203151">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203153">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193792">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1193793">getSeconds()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193794">
+ Parameters
+</A></H4>
+
+<A NAME="1193795">
+None</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193796">
+ Description
+</A></H4>
+
+<A NAME="1193797">
+The value returned by <CODE>getSeconds</CODE> is an integer between 0 and 59.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193798">
+ Examples
+</A></H4>
+
+<A NAME="1193799">
+The second statement below assigns the value 30 to the variable <CODE>secs</CODE>, based on the value of the <CODE>Date</CODE> object <CODE>Xmas95</CODE>.</A></P>
+<PRE><A NAME="1193800">Xmas95 = new Date("December 25, 1995 23:15:30")<br>secs = Xmas95.getSeconds()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193801">
+ See also
+</A></H4>
+
+<A NAME="1193808">
+<A HREF="date.htm#1194105"><CODE>Date.getUTCSeconds</CODE></A>, <A HREF="date.htm#1194498"><CODE>Date.setSeconds</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193811">
+getTime
+</A></H2>
+
+<A NAME="1193812">
+Returns the numeric value corresponding to the time for the specified date according to local time.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193815">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193820">
+<A HREF="date.htm#1193137"><CODE>Date</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193822">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193824">
+JavaScript 1.0, NES 2.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203164">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203166">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193825">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1193826">getTime()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193827">
+ Parameters
+</A></H4>
+
+<A NAME="1193828">
+None</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193829">
+ Description
+</A></H4>
+
+<A NAME="1193830">
+The value returned by the <CODE>getTime</CODE> method is the number of milliseconds since 1 January 1970 00:00:00. You can use this method to help assign a date and time to another <CODE>Date</CODE> object.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193831">
+ Examples
+</A></H4>
+
+<A NAME="1193832">
+The following example assigns the date value of <CODE>theBigDay</CODE> to <CODE>sameAsBigDay</CODE>:</A></P>
+<PRE><A NAME="1193833">theBigDay = new Date("July 1, 1999")<br>sameAsBigDay = new Date()<br>sameAsBigDay.setTime(theBigDay.getTime())</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193834">
+ See also
+</A></H4>
+
+<A NAME="1193841">
+<A HREF="date.htm#1193973"><CODE>Date.getUTCHours</CODE></A>, <A HREF="date.htm#1194543"><CODE>Date.setTime</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193844">
+getTimezoneOffset
+</A></H2>
+
+<A NAME="1193857">
+Returns the time-zone offset in minutes for the current locale.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193847">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193852">
+<A HREF="date.htm#1193137"><CODE>Date</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193854">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193856">
+JavaScript 1.0, NES 2.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203462">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203464">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193858">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1193859">getTimezoneOffset()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193860">
+ Parameters
+</A></H4>
+
+<A NAME="1193861">
+None</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193862">
+ Description
+</A></H4>
+
+<A NAME="1193863">
+The time-zone offset is the difference between local time and Greenwich Mean Time (GMT). Daylight savings time prevents this value from being a constant.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193864">
+ Examples
+</A></H4>
+
+<PRE><A NAME="1193865">x = new Date()<br>currentTimeZoneOffsetInHours = x.getTimezoneOffset()/60</A></PRE>
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1219395">
+getUTCDate
+</A></H2>
+
+<A NAME="1219396">
+Returns the day (date) of the month in the specified date according to universal time.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1219399">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1219404">
+<A HREF="date.htm#1193137"><CODE>Date</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1219406">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1219408">
+JavaScript 1.3</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1219410">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1219412">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1219413">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1193883">getUTCDate()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193884">
+ Parameters
+</A></H4>
+
+<A NAME="1193885">
+None</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193886">
+ Description
+</A></H4>
+
+<A NAME="1193887">
+The value returned by <CODE>getUTCDate</CODE> is an integer between 1 and 31.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193888">
+ Examples
+</A></H4>
+
+<A NAME="1193889">
+The following example assigns the day portion of the current date to the variable <CODE>d</CODE>.</A></P>
+<PRE><A NAME="1193890">var d;<br>Today = new Date();<br>d = Today.getUTCDate();</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193891">
+ See also
+</A></H4>
+
+<A NAME="1193901">
+<A HREF="date.htm#1193537"><CODE>Date.getDate</CODE></A><CODE>, </CODE><A HREF="date.htm#1193904"><CODE>Date.getUTCDay</CODE></A><CODE>, </CODE><A HREF="date.htm#1194580"><CODE>Date.setUTCDate</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193904">
+getUTCDay
+</A></H2>
+
+<A NAME="1193905">
+Returns the day of the week in the specified date according to universal time.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193908">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193913">
+<A HREF="date.htm#1193137"><CODE>Date</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193915">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193917">
+JavaScript 1.3</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203533">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203535">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193918">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1193919">getUTCDay()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193920">
+ Parameters
+</A></H4>
+
+<A NAME="1193921">
+None</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193922">
+ Description
+</A></H4>
+
+<A NAME="1193923">
+The value returned by <CODE>getUTCDay</CODE> is an integer corresponding to the day of the week: 0 for Sunday, 1 for Monday, 2 for Tuesday, and so on.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193924">
+ Examples
+</A></H4>
+
+<A NAME="1193925">
+The following example assigns the weekday portion of the current date to the variable <CODE>ms</CODE>.</A></P>
+<PRE><A NAME="1193926">var weekday;<br>Today = new Date()<br>weekday = Today.getUTCDay()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193927">
+ See also
+</A></H4>
+
+<A NAME="1193937">
+<A HREF="date.htm#1193573"><CODE>Date.getDay</CODE></A><CODE>, </CODE><A HREF="date.htm#1219395"><CODE>Date.getUTCDate</CODE></A><CODE>, </CODE><A HREF="date.htm#1194580"><CODE>Date.setUTCDate</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193940">
+getUTCFullYear
+</A></H2>
+
+<A NAME="1193953">
+Returns the year in the specified date according to universal time.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193943">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193948">
+<A HREF="date.htm#1193137"><CODE>Date</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193950">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193952">
+JavaScript 1.3</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203562">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203564">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193954">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1193955">getUTCFullYear()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193956">
+ Parameters
+</A></H4>
+
+<A NAME="1193957">
+None</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193958">
+ Description
+</A></H4>
+
+<A NAME="1193959">
+The value returned by <CODE>getUTCFullYear</CODE> is an absolute number that is compliant with year-2000, for example, 1995.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193960">
+ Examples
+</A></H4>
+
+<A NAME="1193961">
+The following example assigns the four-digit value of the current year to the variable <CODE>yr</CODE>.</A></P>
+<PRE><A NAME="1193962">var yr;<br>Today = new Date();<br>yr = Today.getUTCFullYear();</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193963">
+ See also
+</A></H4>
+
+<A NAME="1193970">
+<A HREF="date.htm#1193607"><CODE>Date.getFullYear</CODE></A><CODE>, </CODE><A HREF="date.htm#1194264"><CODE>Date.setFullYear</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193973">
+getUTCHours
+</A></H2>
+
+<A NAME="1193974">
+Returns the hours in the specified date according to universal time.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193977">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193982">
+<A HREF="date.htm#1193137"><CODE>Date</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193984">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193986">
+JavaScript 1.3</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203591">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203593">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193987">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1193988">getUTCHours()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193989">
+ Parameters
+</A></H4>
+
+<A NAME="1193990">
+None</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193991">
+ Description
+</A></H4>
+
+<A NAME="1193992">
+The value returned by <CODE>getUTCHours</CODE> is an integer between 0 and 23.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193993">
+ Examples
+</A></H4>
+
+<A NAME="1193994">
+The following example assigns the hours portion of the current time to the variable <CODE>hrs</CODE>.</A></P>
+<PRE><A NAME="1193995">var hrs;<br>Today = new Date();<br>hrs = Today.getUTCHours();</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193996">
+ See also
+</A></H4>
+
+<A NAME="1194003">
+<A HREF="date.htm#1193644"><CODE>Date.getHours</CODE></A><CODE>, </CODE><A HREF="date.htm#1194663"><CODE>Date.setUTCHours</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1194006">
+getUTCMilliseconds
+</A></H2>
+
+<A NAME="1194007">
+Returns the milliseconds in the specified date according to universal time.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194010">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194015">
+<A HREF="date.htm#1193137"><CODE>Date</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194017">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194019">
+JavaScript 1.3</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203616">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203618">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194020">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1194021">getUTCMilliSeconds()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194022">
+ Parameters
+</A></H4>
+
+<A NAME="1194023">
+None</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194024">
+ Description
+</A></H4>
+
+<A NAME="1194025">
+The value returned by <CODE>getUTCMilliseconds</CODE> is an integer between 0 and 999.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194026">
+ Examples
+</A></H4>
+
+<A NAME="1194027">
+The following example assigns the milliseconds portion of the current time to the variable <CODE>ms</CODE>.</A></P>
+<PRE><A NAME="1194028">var ms;<br>Today = new Date();<br>ms = Today.getUTCMilliseconds();</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194029">
+ See also
+</A></H4>
+
+<A NAME="1194036">
+<A HREF="date.htm#1193677"><CODE>Date.getMilliseconds</CODE></A><CODE>, </CODE><A HREF="date.htm#1194713"><CODE>Date.setUTCMilliseconds</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1194039">
+getUTCMinutes
+</A></H2>
+
+<A NAME="1194040">
+Returns the minutes in the specified date according to universal time.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194043">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194048">
+<A HREF="date.htm#1193137"><CODE>Date</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194050">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194052">
+JavaScript 1.3</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203645">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203647">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194053">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1194054">getUTCMinutes()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194055">
+ Parameters
+</A></H4>
+
+<A NAME="1194056">
+None</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194057">
+ Description
+</A></H4>
+
+<A NAME="1194058">
+The value returned by <CODE>getUTCMinutes</CODE> is an integer between 0 and 59.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194059">
+ Examples
+</A></H4>
+
+<A NAME="1194060">
+The following example assigns the minutes portion of the current time to the variable <CODE>min</CODE>.</A></P>
+<PRE><A NAME="1194061">var min;<br>Today = new Date();<br>min = Today.getUTCMinutes();</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194062">
+ See also
+</A></H4>
+
+<A NAME="1194069">
+<A HREF="date.htm#1193710"><CODE>Date.getMinutes</CODE></A><CODE>, </CODE><A HREF="date.htm#1194750"><CODE>Date.setUTCMinutes</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1194072">
+getUTCMonth
+</A></H2>
+
+<A NAME="1194073">
+Returns the month according in the specified date according to universal time.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194076">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194081">
+<A HREF="date.htm#1193137"><CODE>Date</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194083">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194085">
+JavaScript 1.3</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1204375">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1204377">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194086">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1194087">getUTCMonth()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194088">
+ Parameters
+</A></H4>
+
+<A NAME="1194089">
+None</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194090">
+ Description
+</A></H4>
+
+<A NAME="1194091">
+The value returned by <CODE>getUTCMonth</CODE> is an integer between 0 and 11 corresponding to the month. 0 for January, 1 for February, 2 for March, and so on.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194092">
+ Examples
+</A></H4>
+
+<A NAME="1194093">
+The following example assigns the month portion of the current date to the variable <CODE>mon</CODE>.</A></P>
+<PRE><A NAME="1194094">var mon;<br>Today = new Date();<br>mon = Today.getUTCMonth();</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194095">
+ See also
+</A></H4>
+
+<A NAME="1194102">
+<A HREF="date.htm#1193744"><CODE>Date.getMonth</CODE></A><CODE>, </CODE><A HREF="date.htm#1194796"><CODE>Date.setUTCMonth</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1194105">
+getUTCSeconds
+</A></H2>
+
+<A NAME="1194106">
+Returns the seconds in the specified date according to universal time.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194109">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194114">
+<A HREF="date.htm#1193137"><CODE>Date</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194116">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194118">
+JavaScript 1.3</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1204513">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1204515">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194119">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1194120">getUTCSeconds()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194121">
+ Parameters
+</A></H4>
+
+<A NAME="1194122">
+None</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194123">
+ Description
+</A></H4>
+
+<A NAME="1194124">
+The value returned by <CODE>getUTCSeconds</CODE> is an integer between 0 and 59.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194125">
+ Examples
+</A></H4>
+
+<A NAME="1194126">
+The following example assigns the seconds portion of the current time to the variable <CODE>sec</CODE>.</A></P>
+<PRE><A NAME="1194127">var sec;<br>Today = new Date();<br>sec = Today.getUTCSeconds();</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194128">
+ See also
+</A></H4>
+
+<A NAME="1194135">
+<A HREF="date.htm#1193778"><CODE>Date.getSeconds</CODE></A><CODE>, </CODE><A HREF="date.htm#1194838"><CODE>Date.setUTCSeconds</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1194138">
+getYear
+</A></H2>
+
+<A NAME="1194151">
+Returns the year in the specified date according to local time.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194141">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194146">
+<A HREF="date.htm#1193137"><CODE>Date</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194148">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194150">
+JavaScript 1.0, NES 2.0</A></P><P><A NAME="1199475">
+</A></P><P><A NAME="1197470">
+JavaScript 1.3: deprecated; also, <CODE>getYear</CODE> returns the year minus 1900 regardless of the year specified</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203654">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203656">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194152">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1194153">getYear()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194154">
+ Parameters
+</A></H4>
+
+<A NAME="1194155">
+None</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194156">
+ Description
+</A></H4>
+
+<A NAME="1197719">
+<CODE>getYear</CODE> is no longer used and has been replaced by the <A HREF="date.htm#1193607"><CODE>getFullYear</CODE></A> method.</A></P>
+<A NAME="1194157">
+The <CODE>getYear</CODE> method returns the year minus 1900; thus:</A></P>
+<ul><P><LI><A NAME="1218998">
+For years above 2000, the value returned by <CODE>getYear</CODE> is 100 or greater. For example, if the year is 2026, <CODE>getYear</CODE> returns 126.</A></LI>
+<P><LI><A NAME="1194158">
+For years between and including 1900 and 1999, the value returned by <CODE>getYear</CODE> is between 0 and 99. For example, if the year is 1976, <CODE>getYear</CODE> returns 76.</A></LI>
+<P><LI><A NAME="1219077">
+For years less than 1900 or greater than 1999, the value returned by <CODE>getYear</CODE> is less than 0. For example, if the year is 1800, <CODE>getYear</CODE> returns -100.</A></LI>
+</ul><A NAME="1219078">
+To take into account years before and after 2000, you should use <A HREF="date.htm#1193607"><CODE>Date.getFullYear</CODE></A> instead of <CODE>getYear</CODE> so that the year is specified in full.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1218150">
+ Backward Compatibility
+</A></H4>
+
+<B><A NAME="HeadRunIn;"></A>
+<A NAME="1218151">
+JavaScript 1.2 and earlier versions. </A></B><A NAME="1218744">
+The <CODE>getYear</CODE> method returns either a 2-digit or 4-digit year:</A></P>
+<ul><P><LI><A NAME="1218745">
+For years between and including 1900 and 1999, the value returned by <CODE>getYear</CODE> is the year minus 1900. For example, if the year is 1976, the value returned is 76.</A></LI>
+<P><LI><A NAME="1218746">
+For years less than 1900 or greater than 1999, the value returned by <CODE>getYear</CODE> is the four-digit year. For example, if the year is 1856, the value returned is 1856. If the year is 2026, the value returned is 2026.</A></LI>
+</ul>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194164">
+ Examples
+</A></H4>
+
+<A NAME="1194165">
+<B>Example 1.</B> The second statement assigns the value 95 to the variable <CODE>year</CODE>.</A></P>
+<PRE><A NAME="1194166">Xmas = new Date("December 25, 1995 23:15:00")<br>year = Xmas.getYear() // returns 95</A></PRE><A NAME="1194167">
+<B>Example 2.</B> The second statement assigns the value 100 to the variable <CODE>year</CODE>.</A></P>
+<PRE><A NAME="1194168">Xmas = new Date("December 25, 2000 23:15:00")<br>year = Xmas.getYear() // returns 100</A></PRE><A NAME="1218064">
+<B>Example 3.</B> The second statement assigns the value -100 to the variable <CODE>year</CODE>.</A></P>
+<PRE><A NAME="1218065">Xmas = new Date("December 25, 1800 23:15:00")<br>year = Xmas.getYear() // returns -100</A></PRE><A NAME="1194169">
+<B>Example 4.</B> The second statement assigns the value 95 to the variable <CODE>year</CODE>, representing the year 1995.</A></P>
+<PRE><A NAME="1194170">Xmas.setYear(95)<br>year = Xmas.getYear() // returns 95</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194171">
+ See also
+</A></H4>
+
+<A NAME="1194181">
+<A HREF="date.htm#1193607"><CODE>Date.getFullYear</CODE></A>, <A HREF="date.htm#1193940"><CODE>Date.getUTCFullYear</CODE></A>, <A HREF="date.htm#1194880"><CODE>Date.setYear</CODE></A> </A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1194184">
+parse
+</A></H2>
+
+<A NAME="1194185">
+Returns the number of milliseconds in a date string since January 1, 1970, 00:00:00, local time.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194188">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194193">
+<A HREF="date.htm#1193137"><CODE>Date</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left COLSPAN=2 ROWSPAN=1><P><A NAME="1194195">
+<I>Static</I></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194199">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194201">
+JavaScript 1.0, NES 2.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203659">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203661">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194202">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1194203">Date.parse(<I>dateString</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194204">
+ Parameters
+</A></H4>
+
+<A NAME="1194210">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1194207">dateString</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1194209">
+A string representing a date.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194211">
+ Description
+</A></H4>
+
+<A NAME="1194212">
+The <CODE>parse</CODE> method takes a date string (such as <CODE>"Dec 25, 1995"</CODE>) and returns the number of milliseconds since January 1, 1970, 00:00:00 (local time). This function is useful for setting date values based on string values, for example in conjunction with the <A HREF="date.htm#1194543"><CODE>setTime</CODE></A> method and the <CODE>Date</CODE> object.</A></P>
+<A NAME="1194216">
+Given a string representing a time, <CODE>parse</CODE> returns the time value. It accepts the IETF standard date syntax: <CODE>"Mon, 25 Dec 1995 13:30:00 GMT"</CODE>. It understands the continental US time-zone abbreviations, but for general use, use a time-zone offset, for example, <CODE>"Mon, 25 Dec 1995 13:30:00 GMT+0430"</CODE> (4 hours, 30 minutes west of the Greenwich meridian). If you do not specify a time zone, the local time zone is assumed. GMT and UTC are considered equivalent. </A></P>
+<A NAME="1194217">
+Because <CODE>parse</CODE> is a static method of <CODE>Date</CODE>, you always use it as <CODE>Date.parse()</CODE>, rather than as a method of a <CODE>Date</CODE> object you created.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194218">
+ Examples
+</A></H4>
+
+<A NAME="1194219">
+If <CODE>IPOdate</CODE> is an existing <CODE>Date</CODE> object, then you can set it to August 9, 1995 as follows:</A></P>
+<PRE><A NAME="1194220">IPOdate.setTime(Date.parse("Aug 9, 1995"))</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194221">
+ See also
+</A></H4>
+
+<A NAME="1194225">
+<A HREF="date.htm#1195078"><CODE>Date.UTC</CODE></A> </A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1197095">
+prototype
+</A></H2>
+
+<A NAME="1197096">
+Represents the prototype for this class. You can use the prototype to add properties or methods to all instances of a class. For information on prototypes, see <A HREF="function.htm#1193426"><CODE>Function.prototype</CODE></A>.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1197102">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1197107">
+<A HREF="date.htm#1193137"><CODE>Date</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1197109">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1197111">
+JavaScript 1.1, NES 2.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203697">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203699">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1194228">
+setDate
+</A></H2>
+
+<A NAME="1194241">
+Sets the day of the month for a specified date according to local time.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194231">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194236">
+<A HREF="date.htm#1193137"><CODE>Date</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194238">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194240">
+JavaScript 1.0, NES 2.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203730">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203732">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194242">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1194243">setDate(<I>dayValue</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194244">
+ Parameters
+</A></H4>
+
+<A NAME="1194250">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1194247">dayValue</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1194249">
+An integer from 1 to 31, representing the day of the month.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194251">
+ Examples
+</A></H4>
+
+<A NAME="1194252">
+The second statement below changes the day for <CODE>theBigDay</CODE> to July 24 from its original value.</A></P>
+<PRE><A NAME="1194253">theBigDay = new Date("July 27, 1962 23:30:00")<br>theBigDay.setDate(24)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194254">
+ See also
+</A></H4>
+
+<A NAME="1194261">
+<A HREF="date.htm#1193537"><CODE>Date.getDate</CODE></A>, <A HREF="date.htm#1194580"><CODE>Date.setUTCDate</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1194264">
+setFullYear
+</A></H2>
+
+<A NAME="1194277">
+Sets the full year for a specified date according to local time.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194267">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194272">
+<A HREF="date.htm#1193137"><CODE>Date</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194274">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194276">
+JavaScript 1.3</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203759">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203761">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194278">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1194279">setFullYear(<I>yearValue</I>[, <I>monthValue</I>, <I>dayValue</I>])</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194280">
+ Parameters
+</A></H4>
+
+<A NAME="1194294">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1194283">yearValue</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1194285">
+An integer specifying the numeric value of the year, for example, 1995.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1194287">monthValue</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1194289">
+An integer between 0 and 11 representing the months January through December.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1194291">dayValue</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1194293">
+An integer between 1 and 31 representing the day of the month. If you specify the <CODE>dayValue</CODE> parameter, you must also specify the <CODE>monthValue</CODE>.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194295">
+ Description
+</A></H4>
+
+<A NAME="1194296">
+If you do not specify the <CODE>monthValue</CODE> and <CODE>dayValue</CODE> parameters, the values returned from the <CODE>getMonth</CODE> and <CODE>getDate</CODE> methods are used.</A></P>
+<A NAME="1194297">
+If a parameter you specify is outside of the expected range, <CODE>setFullYear</CODE> attempts to update the other parameters and the date information in the <CODE>Date</CODE> object accordingly. For example, if you specify 15 for <CODE>monthValue</CODE>, the year is incremented by 1 (year + 1), and 3 is used for the month.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194299">
+ Examples
+</A></H4>
+
+<PRE><A NAME="1194300">theBigDay = new Date();<br>theBigDay.setFullYear(1997);</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194301">
+ See also
+</A></H4>
+
+<A NAME="1194311">
+<A HREF="date.htm#1193940"><CODE>Date.getUTCFullYear</CODE></A><CODE>,</CODE><A HREF="date.htm#1194617"><CODE>Date.setUTCFullYear</CODE></A>, <A HREF="date.htm#1194880"><CODE>Date.setYear</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1194314">
+setHours
+</A></H2>
+
+<A NAME="1194328">
+Sets the hours for a specified date according to local time.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194317">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194322">
+<A HREF="date.htm#1193137"><CODE>Date</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194324">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194326">
+JavaScript 1.0, NES 2.0</A></P><P><A NAME="1199481">
+</A></P><P><A NAME="1194327">
+JavaScript 1.3: Added <CODE>minutesValue</CODE>, <CODE>secondsValue</CODE>, and <CODE>msValue</CODE> parameters</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203788">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203790">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194329">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1194330">setHours(<I>hoursValue</I>[, <I>minutesValue</I>, <I>secondsValue</I>, <I>msValue</I>])</A></PRE><A NAME="1194331">
+<I>Versions prior to JavaScript 1.3:</I></A></P>
+<PRE><A NAME="1194332">setHours(<I>hoursValue</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194333">
+ Parameters
+</A></H4>
+
+<A NAME="1194351">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1194336">hoursValue</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1194338">
+An integer between 0 and 23, representing the hour.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1194340">minutesValue</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1194342">
+An integer between 0 and 59, representing the minutes.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1194344">secondsValue</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1194346">
+An integer between 0 and 59, representing the seconds. If you specify the <CODE>secondsValue</CODE> parameter, you must also specify the <CODE>minutesValue</CODE>.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1194348">msValue</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1194350">
+A number between 0 and 999, representing the milliseconds. If you specify the <CODE>msValue</CODE> parameter, you must also specify the <CODE>minutesValue</CODE> and <CODE>secondsValue</CODE>.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194352">
+ Description
+</A></H4>
+
+<A NAME="1194353">
+If you do not specify the <CODE>minutesValue</CODE>, <CODE>secondsValue</CODE>, and <CODE>msValue</CODE> parameters, the values returned from the <CODE>getUTCMinutes</CODE>, <CODE>getUTCSeconds</CODE>, and <CODE>getMilliseconds</CODE> methods are used.</A></P>
+<A NAME="1194354">
+If a parameter you specify is outside of the expected range, <CODE>setHours</CODE> attempts to update the date information in the <CODE>Date</CODE> object accordingly. For example, if you use 100 for <CODE>secondsValue</CODE>, the minutes will be incremented by 1 (min + 1), and 40 will be used for seconds.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194355">
+ Examples
+</A></H4>
+
+<PRE><A NAME="1194356">theBigDay.setHours(7)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194357">
+ See also
+</A></H4>
+
+<A NAME="1194364">
+<A HREF="date.htm#1193644"><CODE>Date.getHours</CODE></A>, <A HREF="date.htm#1194663"><CODE>Date.setUTCHours</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1194367">
+setMilliseconds
+</A></H2>
+
+<A NAME="1194380">
+Sets the milliseconds for a specified date according to local time.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194370">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194375">
+<A HREF="date.htm#1193137"><CODE>Date</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194377">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194379">
+JavaScript 1.3</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203813">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203815">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194381">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1194382">setMilliseconds(<I>millisecondsValue</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194383">
+ Parameters
+</A></H4>
+
+<A NAME="1194389">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1194386">millisecondsValue</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1194388">
+A number between 0 and 999, representing the milliseconds.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194390">
+ Description
+</A></H4>
+
+<A NAME="1194391">
+If you specify a number outside the expected range, the date information in the <CODE>Date</CODE> object is updated accordingly. For example, if you specify 1005, the number of seconds is incremented by 1, and 5 is used for the milliseconds.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194392">
+ Examples
+</A></H4>
+
+<PRE><A NAME="1194393">theBigDay = new Date();<br>theBigDay.setMilliseconds(100);</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194394">
+ See also
+</A></H4>
+
+<A NAME="1194401">
+<A HREF="date.htm#1193677"><CODE>Date.getMilliseconds</CODE></A><CODE>, </CODE><A HREF="date.htm#1194713"><CODE>Date.setUTCMilliseconds</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1194404">
+setMinutes
+</A></H2>
+
+<A NAME="1194418">
+Sets the minutes for a specified date according to local time.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194407">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194412">
+<A HREF="date.htm#1193137"><CODE>Date</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194414">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194416">
+JavaScript 1.0, NES 2.0</A></P><P><A NAME="1199500">
+</A></P><P><A NAME="1194417">
+JavaScript 1.3: Added <CODE>secondsValue</CODE> and <CODE>msValue</CODE> parameters</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203830">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203832">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194419">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1194420">setMinutes(<I>minutesValue</I>[, <I>secondsValue</I>, <I>msValue</I>])</A></PRE><A NAME="1194421">
+<I>Versions prior to JavaScript 1.3:</I></A></P>
+<PRE><A NAME="1194422">setMinutes(minutesValue)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194423">
+ Parameters
+</A></H4>
+
+<A NAME="1194437">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1194426">minutesValue</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1194428">
+An integer between 0 and 59, representing the minutes.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1194430">secondsValue</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1194432">
+An integer between 0 and 59, representing the seconds. If you specify the <CODE>secondsValue</CODE> parameter, you must also specify the <CODE>minutesValue</CODE>.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1194434">msValue</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1194436">
+A number between 0 and 999, representing the milliseconds. If you specify the <CODE>msValue</CODE> parameter, you must also specify the <CODE>minutesValue</CODE> and <CODE>secondsValue</CODE>.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194438">
+ Examples
+</A></H4>
+
+<PRE><A NAME="1194439">theBigDay.setMinutes(45)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194440">
+ Description
+</A></H4>
+
+<A NAME="1194441">
+If you do not specify the <CODE>secondsValue</CODE> and <CODE>msValue</CODE> parameters, the values returned from <CODE>getSeconds</CODE> and <CODE>getMilliseconds</CODE> methods are used.</A></P>
+<A NAME="1194442">
+If a parameter you specify is outside of the expected range, <CODE>setMinutes</CODE> attempts to update the date information in the <CODE>Date</CODE> object accordingly. For example, if you use 100 for <CODE>secondsValue</CODE>, the minutes (<CODE>minutesValue</CODE>) will be incremented by 1 (<CODE>minutesValue</CODE> + 1), and 40 will be used for seconds.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194443">
+ See also
+</A></H4>
+
+<A NAME="1194450">
+<A HREF="date.htm#1193710"><CODE>Date.getMinutes</CODE></A>, <A HREF="date.htm#1194713"><CODE>Date.setUTCMilliseconds</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1194453">
+setMonth
+</A></H2>
+
+<A NAME="1194467">
+Sets the month for a specified date according to local time.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194456">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194461">
+<A HREF="date.htm#1193137"><CODE>Date</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194463">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194465">
+JavaScript 1.0, NES 2.0</A></P><P><A NAME="1199528">
+</A></P><P><A NAME="1194466">
+JavaScript 1.3: Added <CODE>dayValue</CODE> parameter</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203843">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203845">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194468">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1194469">setMonth(<I>monthValue</I>[, <I>dayValue</I>])</A></PRE><A NAME="1194470">
+<I>Versions prior to JavaScript 1.3:</I></A></P>
+<PRE><A NAME="1194471">setMonth(<I>monthValue</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194472">
+ Parameters
+</A></H4>
+
+<A NAME="1194482">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1194475">monthValue</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1194477">
+An integer between 0 and 11 (representing the months January through December).</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1194479">dayValue</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1194481">
+An integer from 1 to 31, representing the day of the month.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194483">
+ Description
+</A></H4>
+
+<A NAME="1194484">
+If you do not specify the <CODE>dayValue</CODE> parameter, the value returned from the <CODE>getDate</CODE> method is used.</A></P>
+<A NAME="1194485">
+If a parameter you specify is outside of the expected range, <CODE>setMonth</CODE> attempts to update the date information in the <CODE>Date</CODE> object accordingly. For example, if you use 15 for <CODE>monthValue</CODE>, the year will be incremented by 1 (year + 1), and 3 will be used for month.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194486">
+ Examples
+</A></H4>
+
+<PRE><A NAME="1194487">theBigDay.setMonth(6)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194488">
+ See also
+</A></H4>
+
+<A NAME="1194495">
+<A HREF="date.htm#1193744"><CODE>Date.getMonth</CODE></A>, <A HREF="date.htm#1194796"><CODE>Date.setUTCMonth</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1194498">
+setSeconds
+</A></H2>
+
+<A NAME="1194512">
+Sets the seconds for a specified date according to local time.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194501">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194506">
+<A HREF="date.htm#1193137"><CODE>Date</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194508">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194510">
+JavaScript 1.0, NES 2.0</A></P><P><A NAME="1199555">
+</A></P><P><A NAME="1194511">
+JavaScript 1.3: Added <CODE>msValue</CODE> parameter</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203881">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203883">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194513">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1194514">setSeconds(<I>secondsValue</I>[, <I>msValue</I>])</A></PRE><A NAME="1194515">
+<I>Versions prior to JavaScript 1.3:</I></A></P>
+<PRE><A NAME="1194516">setSeconds(<I>secondsValue</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194517">
+ Parameters
+</A></H4>
+
+<A NAME="1194527">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1194520">secondsValue</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1194522">
+An integer between 0 and 59.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1194524">msValue</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1194526">
+A number between 0 and 999, representing the milliseconds.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194528">
+ Description
+</A></H4>
+
+<A NAME="1194529">
+If you do not specify the <CODE>msValue</CODE> parameter, the value returned from the <CODE>getMilliseconds</CODE> methods is used.</A></P>
+<A NAME="1194530">
+If a parameter you specify is outside of the expected range, <CODE>setSeconds</CODE> attempts to update the date information in the <CODE>Date</CODE> object accordingly. For example, if you use 100 for <CODE>secondsValue</CODE>, the minutes stored in the <CODE>Date</CODE> object will be incremented by 1, and 40 will be used for seconds.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194531">
+ Examples
+</A></H4>
+
+<PRE><A NAME="1194532">theBigDay.setSeconds(30)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194533">
+ See also
+</A></H4>
+
+<A NAME="1194540">
+<A HREF="date.htm#1193778"><CODE>Date.getSeconds</CODE></A>, <A HREF="date.htm#1194838"><CODE>Date.setUTCSeconds</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1194543">
+setTime
+</A></H2>
+
+<A NAME="1194556">
+Sets the value of a <CODE>Date</CODE> object according to local time.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194546">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194551">
+<A HREF="date.htm#1193137"><CODE>Date</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194553">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194555">
+JavaScript 1.0, NES 2.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203910">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203912">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194557">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1194558">setTime(<I>timevalue</I>) </A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194559">
+ Parameters
+</A></H4>
+
+<A NAME="1194565">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1194562">timevalue</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1194564">
+An integer representing the number of milliseconds since 1 January 1970 00:00:00.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194566">
+ Description
+</A></H4>
+
+<A NAME="1194567">
+Use the <CODE>setTime</CODE> method to help assign a date and time to another <CODE>Date</CODE> object.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194568">
+ Examples
+</A></H4>
+
+<PRE><A NAME="1194569">theBigDay = new Date("July 1, 1999")<br>sameAsBigDay = new Date()<br>sameAsBigDay.setTime(theBigDay.getTime())</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194570">
+ See also
+</A></H4>
+
+<A NAME="1194577">
+<A HREF="date.htm#1193811"><CODE>Date.getTime</CODE></A>, <A HREF="date.htm#1194663"><CODE>Date.setUTCHours</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1194580">
+setUTCDate
+</A></H2>
+
+<A NAME="1194581">
+Sets the day of the month for a specified date according to universal time.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194584">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194589">
+<A HREF="date.htm#1193137"><CODE>Date</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194591">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194593">
+JavaScript 1.3</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203974">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203976">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194594">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1194595">setUTCDate(<I>dayValue</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194596">
+ Parameters
+</A></H4>
+
+<A NAME="1194602">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1194599">dayValue</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1194601">
+An integer from 1 to 31, representing the day of the month.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194603">
+ Description
+</A></H4>
+
+<A NAME="1194604">
+If a parameter you specify is outside of the expected range, <CODE>setUTCDate</CODE> attempts to update the date information in the <CODE>Date</CODE> object accordingly. For example, if you use 40 for <CODE>dayValue</CODE>, and the month stored in the <CODE>Date</CODE> object is June, the day will be changed to 10 and the month will be incremented to July.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194605">
+ Examples
+</A></H4>
+
+<PRE><A NAME="1194606">theBigDay = new Date();<br>theBigDay.setUTCDate(20);</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194607">
+ See also
+</A></H4>
+
+<A NAME="1194614">
+<A HREF="date.htm#1219395"><CODE>Date.getUTCDate</CODE></A><CODE>, </CODE><A HREF="date.htm#1194228"><CODE>Date.setDate</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1194617">
+setUTCFullYear
+</A></H2>
+
+<A NAME="1194630">
+Sets the full year for a specified date according to universal time.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194620">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194625">
+<A HREF="date.htm#1193137"><CODE>Date</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194627">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194629">
+JavaScript 1.3</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1204031">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1204033">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194631">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1194632">setUTCFullYear(<I>yearValue</I>[, <I>monthValue</I>, <I>dayValue</I>])</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194633">
+ Parameters
+</A></H4>
+
+<A NAME="1194647">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1194636">yearValue</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1194638">
+An integer specifying the numeric value of the year, for example, 1995.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1194640">monthValue</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1194642">
+An integer between 0 and 11 representing the months January through December.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1194644">dayValue</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1194646">
+An integer between 1 and 31 representing the day of the month. If you specify the <CODE>dayValue</CODE> parameter, you must also specify the <CODE>monthValue</CODE>.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194648">
+ Description
+</A></H4>
+
+<A NAME="1194649">
+If you do not specify the <CODE>monthValue</CODE> and <CODE>dayValue</CODE> parameters, the values returned from the <CODE>getMonth</CODE> and <CODE>getDate</CODE> methods are used.</A></P>
+<A NAME="1194650">
+If a parameter you specify is outside of the expected range, <CODE>setUTCFullYear</CODE> attempts to update the other parameters and the date information in the <CODE>Date</CODE> object accordingly. For example, if you specify 15 for <CODE>monthValue</CODE>, the year is incremented by 1 (year + 1), and 3 is used for the month.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194651">
+ Examples
+</A></H4>
+
+<PRE><A NAME="1194652">theBigDay = new Date();<br>theBigDay.setUTCFullYear(1997);</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194653">
+ See also
+</A></H4>
+
+<A NAME="1194660">
+<A HREF="date.htm#1193940"><CODE>Date.getUTCFullYear</CODE></A><CODE>, </CODE><A HREF="date.htm#1194264"><CODE>Date.setFullYear</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1194663">
+setUTCHours
+</A></H2>
+
+<A NAME="1194676">
+Sets the hour for a specified date according to universal time.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194666">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194671">
+<A HREF="date.htm#1193137"><CODE>Date</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194673">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194675">
+JavaScript 1.3</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1204088">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1204090">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194677">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1194678">setUTCHour(<I>hoursValue</I>[, <I>minutesValue</I>, <I>secondsValue</I>, <I>msValue</I>])</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194679">
+ Parameters
+</A></H4>
+
+<A NAME="1194697">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1194682">hoursValue</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1194684">
+An integer between 0 and 23, representing the hour.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1194686">minutesValue</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1194688">
+An integer between 0 and 59, representing the minutes.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1194690">secondsValue</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1194692">
+An integer between 0 and 59, representing the seconds. If you specify the <CODE>secondsValue</CODE> parameter, you must also specify the <CODE>minutesValue</CODE>.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1194694">msValue</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1194696">
+A number between 0 and 999, representing the milliseconds. If you specify the <CODE>msValue</CODE> parameter, you must also specify the <CODE>minutesValue</CODE> and <CODE>secondsValue</CODE>.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194698">
+ Description
+</A></H4>
+
+<A NAME="1194699">
+If you do not specify the <CODE>minutesValue</CODE>, <CODE>secondsValue</CODE>, and <CODE>msValue</CODE> parameters, the values returned from the <CODE>getUTCMinutes</CODE>, <CODE>getUTCSeconds</CODE>, and <CODE>getUTCMilliseconds</CODE> methods are used.</A></P>
+<A NAME="1194700">
+If a parameter you specify is outside of the expected range, <CODE>setUTCHours</CODE> attempts to update the date information in the <CODE>Date</CODE> object accordingly. For example, if you use 100 for <CODE>secondsValue</CODE>, the minutes will be incremented by 1 (min + 1), and 40 will be used for seconds.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194701">
+ Examples
+</A></H4>
+
+<PRE><A NAME="1194702">theBigDay = new Date();<br>theBigDay.setUTCHour(8);</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194703">
+ See also
+</A></H4>
+
+<A NAME="1194710">
+<A HREF="date.htm#1193973"><CODE>Date.getUTCHours</CODE></A><CODE>, </CODE><A HREF="date.htm#1194314"><CODE>Date.setHours</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1194713">
+setUTCMilliseconds
+</A></H2>
+
+<A NAME="1194714">
+Sets the milliseconds for a specified date according to universal time.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194717">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194722">
+<A HREF="date.htm#1193137"><CODE>Date</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194724">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194726">
+JavaScript 1.3</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1204133">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1204135">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194727">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1194728">setUTCMilliseconds(<I>millisecondsValue</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194729">
+ Parameters
+</A></H4>
+
+<A NAME="1194735">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1194732">millisecondsValue</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1194734">
+A number between 0 and 999, representing the milliseconds.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194736">
+ Description
+</A></H4>
+
+<A NAME="1221173">
+If a parameter you specify is outside of the expected range, <CODE>setUTCMilliseconds</CODE> attempts to update the date information in the <CODE>Date</CODE> object accordingly. For example, if you use 1100 for <CODE>millisecondsValue</CODE>, the seconds stored in the <CODE>Date</CODE> object will be incremented by 1, and 100 will be used for milliseconds.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194738">
+ Examples
+</A></H4>
+
+<PRE><A NAME="1194739">theBigDay = new Date();<br>theBigDay.setUTCMilliseconds(500);</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194740">
+ See also
+</A></H4>
+
+<A NAME="1194747">
+<A HREF="date.htm#1194006"><CODE>Date.getUTCMilliseconds</CODE></A><CODE>, </CODE><A HREF="date.htm#1194367"><CODE>Date.setMilliseconds</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1194750">
+setUTCMinutes
+</A></H2>
+
+<A NAME="1194763">
+Sets the minutes for a specified date according to universal time.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194753">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194758">
+<A HREF="date.htm#1193137"><CODE>Date</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194760">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194762">
+JavaScript 1.3</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1204174">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1204176">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194764">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1194765">setUTCMinutes(<I>minutesValue</I>[, <I>secondsValue</I>, <I>msValue</I>])</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194766">
+ Parameters
+</A></H4>
+
+<A NAME="1194780">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1194769">minutesValue</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1194771">
+An integer between 0 and 59, representing the minutes.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1194773">secondsValue</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1194775">
+An integer between 0 and 59, representing the seconds. If you specify the <CODE>secondsValue</CODE> parameter, you must also specify the <CODE>minutesValue</CODE>.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1194777">msValue</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1194779">
+A number between 0 and 999, representing the milliseconds. If you specify the <CODE>msValue</CODE> parameter, you must also specify the <CODE>minutesValue</CODE> and <CODE>secondsValue</CODE>.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194781">
+ Description
+</A></H4>
+
+<A NAME="1194782">
+If you do not specify the <CODE>secondsValue</CODE> and <CODE>msValue</CODE> parameters, the values returned from <CODE>getUTCSeconds</CODE> and <CODE>getUTCMilliseconds</CODE> methods are used.</A></P>
+<A NAME="1194783">
+If a parameter you specify is outside of the expected range, <CODE>setUTCMinutes</CODE> attempts to update the date information in the <CODE>Date</CODE> object accordingly. For example, if you use 100 for <CODE>secondsValue</CODE>, the minutes (<CODE>minutesValue</CODE>) will be incremented by 1 (<CODE>minutesValue</CODE> + 1), and 40 will be used for seconds.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194784">
+ Examples
+</A></H4>
+
+<PRE><A NAME="1194785">theBigDay = new Date();<br>theBigDay.setUTCMinutes(43);</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194786">
+ See also
+</A></H4>
+
+<A NAME="1194793">
+<A HREF="date.htm#1194039"><CODE>Date.getUTCMinutes</CODE></A><CODE>, </CODE><A HREF="date.htm#1193778"><CODE>Date.setMinutes</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1194796">
+setUTCMonth
+</A></H2>
+
+<A NAME="1194809">
+Sets the month for a specified date according to universal time.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194799">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194804">
+<A HREF="date.htm#1193137"><CODE>Date</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194806">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194808">
+JavaScript 1.3</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1204211">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1204213">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194810">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1194811">setUTCMonth(<I>monthValue</I>[, <I>dayValue</I>])</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194812">
+ Parameters
+</A></H4>
+
+<A NAME="1194822">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1194815">monthValue</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1194817">
+An integer between 0 and 11, representing the months January through December.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1194819">dayValue</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1194821">
+An integer from 1 to 31, representing the day of the month.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194823">
+ Description
+</A></H4>
+
+<A NAME="1194824">
+If you do not specify the <CODE>dayValue</CODE> parameter, the value returned from the <CODE>getUTCDate</CODE> method is used.</A></P>
+<A NAME="1194825">
+If a parameter you specify is outside of the expected range, <CODE>setUTCMonth</CODE> attempts to update the date information in the <CODE>Date</CODE> object accordingly. For example, if you use 15 for <CODE>monthValue</CODE>, the year will be incremented by 1 (year + 1), and 3 will be used for month.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194826">
+ Examples
+</A></H4>
+
+<PRE><A NAME="1194827">theBigDay = new Date();<br>theBigDay.setUTCMonth(11);</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194828">
+ See also
+</A></H4>
+
+<A NAME="1194835">
+<A HREF="date.htm#1194072"><CODE>Date.getUTCMonth</CODE></A><CODE>, </CODE><A HREF="date.htm#1194453"><CODE>Date.setMonth</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1194838">
+setUTCSeconds
+</A></H2>
+
+<A NAME="1194851">
+Sets the seconds for a specified date according to universal time.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194841">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194846">
+<A HREF="date.htm#1193137"><CODE>Date</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194848">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194850">
+JavaScript 1.3</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1204236">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1204238">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194852">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1194853">setUTCSeconds(<I>secondsValue</I>[, <I>msValue</I>])</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194854">
+ Parameters
+</A></H4>
+
+<A NAME="1194864">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1194857">secondsValue</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1194859">
+An integer between 0 and 59.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1194861">msValue</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1194863">
+A number between 0 and 999, representing the milliseconds.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194865">
+ Description
+</A></H4>
+
+<A NAME="1194866">
+If you do not specify the <CODE>msValue</CODE> parameter, the value returned from the <CODE>getUTCMilliseconds</CODE> methods is used.</A></P>
+<A NAME="1194867">
+If a parameter you specify is outside of the expected range, <CODE>setUTCSeconds</CODE> attempts to update the date information in the <CODE>Date</CODE> object accordingly. For example, if you use 100 for <CODE>secondsValue</CODE>, the minutes stored in the <CODE>Date</CODE> object will be incremented by 1, and 40 will be used for seconds.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194868">
+ Examples
+</A></H4>
+
+<PRE><A NAME="1194869">theBigDay = new Date();<br>theBigDay.setUTCSeconds(20);</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194870">
+ See also
+</A></H4>
+
+<A NAME="1194877">
+<A HREF="date.htm#1194105"><CODE>Date.getUTCSeconds</CODE></A><CODE>, </CODE><A HREF="date.htm#1194498"><CODE>Date.setSeconds</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1194880">
+setYear
+</A></H2>
+
+<A NAME="1194893">
+Sets the year for a specified date according to local time.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194883">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194888">
+<A HREF="date.htm#1193137"><CODE>Date</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194890">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194892">
+JavaScript 1.0, NES 2.0</A></P><P><A NAME="1199589">
+</A></P><P><A NAME="1197480">
+Deprecated in JavaScript 1.3</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1204272">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1204274">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194895">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1194896">setYear(<I>yearValue</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194897">
+ Parameters
+</A></H4>
+
+<A NAME="1194903">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1194900">yearValue</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1194902">
+An integer.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194904">
+ Description
+</A></H4>
+
+<A NAME="1197858">
+<CODE>setYear</CODE> is no longer used and has been replaced by the <A HREF="date.htm#1194264"><CODE>setFullYear</CODE></A> method.</A></P>
+<A NAME="1194905">
+If <CODE>yearValue</CODE> is a number between 0 and 99 (inclusive), then the year for <CODE>dateObjectName</CODE> is set to 1900 + <CODE>yearValue</CODE>. Otherwise, the year for <CODE>dateObjectName</CODE> is set to <CODE>yearValue</CODE>.</A></P>
+<A NAME="1194906">
+To take into account years before and after 2000, you should use <A HREF="date.htm#1194264"><CODE>setFullYear</CODE></A> instead of <CODE>setYear</CODE> so that the year is specified in full.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194910">
+ Examples
+</A></H4>
+
+<A NAME="1194911">
+Note that there are two ways to set years in the 20th century.</A></P>
+<A NAME="1194912">
+<B>Example 1.</B> The year is set to 1996.</A></P>
+<PRE><A NAME="1194913">theBigDay.setYear(96)</A></PRE><A NAME="1194914">
+<B>Example 2.</B> The year is set to 1996.</A></P>
+<PRE><A NAME="1194915">theBigDay.setYear(1996)</A></PRE><A NAME="1194916">
+<B>Example 3.</B> The year is set to 2000.</A></P>
+<PRE><A NAME="1194917">theBigDay.setYear(2000)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194918">
+ See also
+</A></H4>
+
+<A NAME="1194928">
+<A HREF="date.htm#1194138"><CODE>Date.getYear</CODE></A>, <A HREF="date.htm#1194264"><CODE>Date.setFullYear</CODE></A>, <A HREF="date.htm#1194617"><CODE>Date.setUTCFullYear</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1194931">
+toGMTString
+</A></H2>
+
+<A NAME="1194944">
+Converts a date to a string, using the Internet GMT conventions.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194934">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194939">
+<A HREF="date.htm#1193137"><CODE>Date</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194941">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194943">
+JavaScript 1.0, NES 2.0</A></P><P><A NAME="1199615">
+</A></P><P><A NAME="1197485">
+Deprecated in JavaScript 1.3</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1204308">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1204310">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194945">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1194946">toGMTString()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194947">
+ Parameters
+</A></H4>
+
+<A NAME="1194948">
+None</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194949">
+ Description
+</A></H4>
+
+<A NAME="1197498">
+<CODE>toGMTString</CODE> is no longer used and has been replaced by the <A HREF="date.htm#1195045"><CODE>toUTCString</CODE></A> method.</A></P>
+<A NAME="1194950">
+The exact format of the value returned by <CODE>toGMTString</CODE> varies according to the platform.</A></P>
+<A NAME="1194954">
+You should use <A HREF="date.htm#1195045"><CODE>Date.toUTCString</CODE></A> instead of <CODE>toGMTSTring</CODE>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194955">
+ Examples
+</A></H4>
+
+<A NAME="1194956">
+In the following example, <CODE>today</CODE> is a <CODE>Date</CODE> object:</A></P>
+<PRE><A NAME="1194957">today.toGMTString()</A></PRE><A NAME="1194958">
+In this example, the <CODE>toGMTString</CODE> method converts the date to GMT (UTC) using the operating system's time-zone offset and returns a string value that is similar to the following form. The exact format depends on the platform.</A></P>
+<PRE><A NAME="1194959">Mon, 18 Dec 1995 17:28:35 GMT</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194960">
+ See also
+</A></H4>
+
+<A NAME="1194967">
+<A HREF="date.htm#1194970"><CODE>Date.toLocaleString</CODE></A>, <A HREF="date.htm#1195045"><CODE>Date.toUTCString</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1194970">
+toLocaleString
+</A></H2>
+
+<A NAME="1194984">
+Converts a date to a string, using the current locale's conventions.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194974">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194979">
+<A HREF="date.htm#1193137"><CODE>Date</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194981">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194983">
+JavaScript 1.0, NES 2.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1204321">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1204323">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194985">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1194986">toLocaleString()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194987">
+ Parameters
+</A></H4>
+
+<A NAME="1194988">
+None</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194989">
+ Description
+</A></H4>
+
+<A NAME="1194990">
+If you pass a date using <CODE>toLocaleString</CODE>, be aware that different platforms assemble the string in different ways. Methods such as <A HREF="date.htm#1193644"><CODE>getHours</CODE></A>, <A HREF="date.htm#1193710"><CODE>getMinutes</CODE></A>, and <A HREF="date.htm#1193778"><CODE>getSeconds</CODE></A> give more portable results.</A></P>
+<A NAME="1195000">
+The <CODE>toLocaleString</CODE> method relies on the underlying operating system in formatting dates. It converts the date to a string using the formatting convention of the operating system where the script is running. For example, in the United States, the month appears before the date (04/15/98), whereas in Germany the date appears before the month (15.04.98). If the operating system is not year-2000 compliant and does not use the full year for years before 1900 or over 2000, <CODE>toLocaleString</CODE> returns a string that is not year-2000 compliant. <CODE>toLocaleString</CODE> behaves similarly to <CODE>toString</CODE> when converting a year that the operating system does not properly format.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195001">
+ Examples
+</A></H4>
+
+<A NAME="1195002">
+In the following example, <CODE>today</CODE> is a <CODE>Date</CODE> object:</A></P>
+<PRE><A NAME="1195003">today = new Date(95,11,18,17,28,35) //months are represented by 0 to 11<br>today.toLocaleString()</A></PRE><A NAME="1195004">
+In this example, <CODE>toLocaleString</CODE> returns a string value that is similar to the following form. The exact format depends on the platform.</A></P>
+<PRE><A NAME="1195005">12/18/95 17:28:35</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1195006">
+ See also
+</A></H4>
+
+<A NAME="1195013">
+<A HREF="date.htm#1194931"><CODE>Date.toGMTString</CODE></A>, <A HREF="date.htm#1195045"><CODE>Date.toUTCString</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1195016">
+toSource
+</A></H2>
+
+<A NAME="1195018">
+Returns a string representing the source code of the object.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195021">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195026">
+<A HREF="date.htm#1193137"><CODE>Date</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195028">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195030">
+JavaScript 1.3</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1204334">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1204336">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195031">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1195032">toSource()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1195033">
+ Parameters
+</A></H4>
+
+<A NAME="1195034">
+None</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195035">
+ Description
+</A></H4>
+
+<A NAME="1221372">
+The <CODE>toSource</CODE> method returns the following values:</A></P>
+<ul><LI><A NAME="1221373">
+For the built-in <CODE>Date</CODE> object, <CODE>toSource</CODE> returns the following string indicating that the source code is not available:
+</A></LI><PRE><A NAME="1221374">&nbsp;&nbsp;&nbsp;function Date() {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[native code]<br>&nbsp;&nbsp;&nbsp;}</A></PRE><LI><A NAME="1221375">
+For instances of <CODE>Date</CODE>, <CODE>toSource</CODE> returns a string representing the source code.
+</A></LI></ul><A NAME="1221376">
+This method is usually called internally by JavaScript and not explicitly in code.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1206564">
+ See also
+</A></H4>
+
+<A NAME="1206568">
+<A HREF="object.htm#1193320"><CODE>Object.toSource</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1206669">
+toString
+</A></H2>
+
+<A NAME="1206686">
+Returns a string representing the specified Date object.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1206672">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1206677">
+<A HREF="date.htm#1193137"><CODE>Date</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1206679">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1206681">
+JavaScript 1.1, NES 2.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1206683">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1206685">
+ECMA-262</A></P>
+
+</TABLE>
+ </A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1206687">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1206688">toString()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1206689">
+ Parameters
+</A></H4>
+
+<A NAME="1206690">
+None.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1206691">
+ Description
+</A></H4>
+
+<A NAME="1206698">
+The <A HREF="date.htm#1193137"><CODE>Date</CODE></A> object overrides the <CODE>toString</CODE> method of the <A HREF="object.htm#1193136"><CODE>Object</CODE></A> object; it does not inherit <A HREF="object.htm#1193350"><CODE>Object.toString</CODE></A>. For <A HREF="date.htm#1193137"><CODE>Date</CODE></A> objects, the <CODE>toString</CODE> method returns a string representation of the object.</A></P>
+<A NAME="1206705">
+JavaScript calls the <CODE>toString</CODE> method automatically when a date is to be represented as a text value or when a date is referred to in a string concatenation.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1206709">
+ Examples
+</A></H4>
+
+<A NAME="1206811">
+The following example assigns the <CODE>toString</CODE> value of a Date object to <CODE>myVar</CODE>:</A></P>
+<PRE><A NAME="1206710">x = new Date();<br>myVar=x.toString();&nbsp;&nbsp;&nbsp;//assigns a value to myVar similar to:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//Mon Sep 28 14:36:22 GMT-0700 (Pacific Daylight Time) 1998</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1206711">
+ See also
+</A></H4>
+
+<A NAME="1206715">
+<A HREF="object.htm#1193350"><CODE>Object.toString</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1195045">
+toUTCString
+</A></H2>
+
+<A NAME="1195058">
+Converts a date to a string, using the universal time convention.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195048">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195053">
+<A HREF="date.htm#1193137"><CODE>Date</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195055">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195057">
+JavaScript 1.3</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1204343">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1204345">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195059">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1195060">toUTCString()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1195061">
+ Parameters
+</A></H4>
+
+<A NAME="1195062">
+None</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195063">
+ Description
+</A></H4>
+
+<A NAME="1195064">
+The value returned by <CODE>toUTCString</CODE> is a readable string formatted according to UTC convention. The format of the return value may vary according to the platform.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195066">
+ Examples
+</A></H4>
+
+<PRE><A NAME="1195067">var UTCstring;<br>Today = new Date();<br>UTCstring = Today.toUTCString();</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1195068">
+ See also
+</A></H4>
+
+<A NAME="1195075">
+<A HREF="date.htm#1194970"><CODE>Date.toLocaleString</CODE></A>, <A HREF="date.htm#1195045"><CODE>Date.toUTCString</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1195078">
+UTC
+</A></H2>
+
+<A NAME="1195080">
+Returns the number of milliseconds in a <CODE>Date</CODE> object since January 1, 1970, 00:00:00, universal time.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195083">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195088">
+<A HREF="date.htm#1193137"><CODE>Date</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left COLSPAN=2 ROWSPAN=1><P><A NAME="1195090">
+<I>Static</I></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195094">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195096">
+JavaScript 1.0, NES 2.0</A></P><P><A NAME="1199636">
+</A></P><P><A NAME="1195097">
+JavaScript 1.3: added <CODE>ms</CODE> parameter</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1204352">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1204354">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195098">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1195099">Date.UTC(<I>year</I>, <I>month</I>, <I>day</I>[, <I>hrs</I>, <I>min</I>, <I>sec</I>, <I>ms</I>])</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1195100">
+ Parameters
+</A></H4>
+
+<A NAME="1195130">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1195103">year</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1195105">
+A year after 1900.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1195107">month</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1195109">
+An integer between 0 and 11 representing the month.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1195111">date</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1195113">
+An integer between 1 and 31 representing the day of the month.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1195115">hrs</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1195117">
+An integer between 0 and 23 representing the hours.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1195119">min</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1195121">
+An integer between 0 and 59 representing the minutes.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1195123">sec</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1195125">
+An integer between 0 and 59 representing the seconds.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1195127">ms</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1195129">
+An integer between 0 and 999 representing the milliseconds.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195131">
+ Description
+</A></H4>
+
+<A NAME="1195132">
+<CODE>UTC</CODE> takes comma-delimited date parameters and returns the number of milliseconds between January 1, 1970, 00:00:00, universal time and the time you specified.</A></P>
+<A NAME="1195133">
+You should specify a full year for the year; for example, 1998. If a year between 0 and 99 is specified, the method converts the year to a year in the 20th century (1900 + year); for example, if you specify 95, the year 1995 is used.</A></P>
+<A NAME="1195134">
+The <CODE>UTC</CODE> method differs from the <CODE>Date</CODE> constructor in two ways.</A></P>
+<ul><LI><A NAME="1195135">
+<CODE>Date.UTC</CODE> uses universal time instead of the local time.
+</A></LI><LI><A NAME="1195136">
+<CODE>Date.UTC</CODE> returns a time value as a number instead of creating a <CODE>Date</CODE> object.
+</A></LI></ul><A NAME="1195137">
+If a parameter you specify is outside of the expected range, the <CODE>UTC</CODE> method updates the other parameters to allow for your number. For example, if you use 15 for <CODE>month</CODE>, the year will be incremented by 1 (year + 1), and 3 will be used for the month.</A></P>
+<A NAME="1195138">
+Because UTC is a static method of <CODE>Date</CODE>, you always use it as <CODE>Date.UTC()</CODE>, rather than as a method of a <CODE>Date</CODE> object you created.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195139">
+ Examples
+</A></H4>
+
+<A NAME="1195140">
+The following statement creates a <CODE>Date</CODE> object using GMT instead of local time:</A></P>
+<PRE><A NAME="1195141">gmtDate = new Date(Date.UTC(96, 11, 1, 0, 0, 0))</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1195142">
+ See also
+</A></H4>
+
+<A NAME="1195146">
+<A HREF="date.htm#1194184"><CODE>Date.parse</CODE></A> </A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1206897">
+valueOf
+</A></H2>
+
+<A NAME="1206914">
+Returns the primitive value of a Date object.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1206900">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1206905">
+<A HREF="date.htm#1193137"><CODE>Date</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1206907">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1206909">
+JavaScript 1.1</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1206911">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1206913">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1206915">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1206916">valueOf()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1206917">
+ Parameters
+</A></H4>
+
+<A NAME="1221650">
+None</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1221651">
+ Description
+</A></H4>
+
+<A NAME="1221658">
+The <CODE>valueOf</CODE> method of <A HREF="date.htm#1193137"><CODE>Date</CODE></A> returns the primitive value of a Date object as a number data type, the number of milliseconds since midnight 01 January, 1970 UTC.</A></P>
+<A NAME="1206933">
+This method is usually called internally by JavaScript and not explicitly in code.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1206934">
+ Examples
+</A></H4>
+
+<PRE><A NAME="1206935">x = new Date(56,6,17);<br>myVar=x.valueOf()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//assigns -424713600000 to myVar</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1206936">
+ See also
+</A></H4>
+
+<A NAME="1206940">
+<A HREF="object.htm#1193540"><CODE>Object.valueOf</CODE></A></A></P>
+
+<HR>
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="checkbox.htm">Previous</A>
+ | <A HREF="document.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT>
+<P ALIGN=right>
+<FONT SIZE=-2><I>Last Updated:  05/28/99  11:59:09</I></FONT>
+<P> <CENTER>Copyright (c) 1999
+<A HREF="http://home.netscape.com/misc/contact_info.html"
+TARGET=_top>Netscape Communications Corporation</A></FONT>
+</CENTER>
+<P>
+</BODY>
+</HTML>
+
+

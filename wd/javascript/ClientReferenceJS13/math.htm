@@ -1,0 +1,1646 @@
+<HTML>
+<HEAD>
+<TITLE>
+</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="location.htm">Previous</A>
+ | <A HREF="mimetype.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT><BR><BR>
+<HR>
+
+<H1><A NAME="Math"></A>
+<A NAME="1193138">
+ Math
+</A></H1>
+<A NAME="1193139">
+A built-in object that has properties and methods for mathematical constants and functions. For example, the <CODE>Math</CODE> object's <A HREF="math.htm#1193490"><CODE>PI</CODE></A> property has the value of pi.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left COLSPAN=2 ROWSPAN=1><P><A NAME="1193145">
+<I>Core object</I></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193149">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193151">
+JavaScript 1.0, NES 2.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1201615">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1201617">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193152">
+ Created by
+</A></H4>
+
+<A NAME="1193156">
+The <A HREF="math.htm#1193138"><CODE>Math</CODE></A> object is a top-level, predefined JavaScript object. You can automatically access it without using a constructor or calling a method.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193157">
+ Description
+</A></H4>
+
+<A NAME="1193158">
+All properties and methods of <CODE>Math</CODE> are static. You refer to the constant PI as <CODE>Math.PI</CODE> and you call the sine function as <CODE>Math.sin(x)</CODE>, where <CODE>x</CODE> is the method's argument. Constants are defined with the full precision of real numbers in JavaScript. </A></P>
+<A NAME="1193162">
+It is often convenient to use the <A HREF="stmt.htm#1004910"><CODE>with</CODE></A> statement when a section of code uses several <CODE>Math</CODE> constants and methods, so you don't have to type "Math" repeatedly. For example,</A></P>
+<PRE><A NAME="1193163">with (Math) {<br>&nbsp;&nbsp;&nbsp;a = PI * r*r<br>&nbsp;&nbsp;&nbsp;y = r*sin(theta)<br>&nbsp;&nbsp;&nbsp;x = r*cos(theta)<br>}</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193164">
+ Property Summary
+</A></H4>
+
+<A NAME="1193226">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1193167">
+<B>Property
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1193169">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193174"><A HREF="math.htm#1193363"><CODE>E</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193176">
+Euler's constant and the base of natural logarithms, approximately 2.718.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193181"><A HREF="math.htm#1193389"><CODE>LN10</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193183">
+Natural logarithm of 10, approximately 2.302.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193188"><A HREF="math.htm#1193415"><CODE>LN2</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193190">
+Natural logarithm of 2, approximately 0.693.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193195"><A HREF="math.htm#1193440"><CODE>LOG10E</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193197">
+Base 10 logarithm of E (approximately 0.434).</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193202"><A HREF="math.htm#1193465"><CODE>LOG2E</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193204">
+Base 2 logarithm of E (approximately 1.442).</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193209"><A HREF="math.htm#1193490"><CODE>PI</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193211">
+Ratio of the circumference of a circle to its diameter, approximately 3.14159.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193216"><A HREF="math.htm#1193515"><CODE>SQRT1_2</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193218">
+Square root of 1/2; equivalently, 1 over the square root of 2, approximately 0.707.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193223"><A HREF="math.htm#1193540"><CODE>SQRT2</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193225">
+Square root of 2, approximately 1.414.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193227">
+ Method Summary
+</A></H4>
+
+<A NAME="1193359">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1193230">
+<B>Method
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1193232">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193237"><A HREF="math.htm#1195395"><CODE>abs</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193239">
+Returns the absolute value of a number.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193244"><A HREF="math.htm#1195429"><CODE>acos</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193246">
+Returns the arccosine (in radians) of a number.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193251"><A HREF="math.htm#1195485"><CODE>asin</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193253">
+Returns the arcsine (in radians) of a number.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193258"><A HREF="math.htm#1195541"><CODE>atan</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193260">
+Returns the arctangent (in radians) of a number.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193265"><A HREF="math.htm#1195597"><CODE>atan2</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193267">
+Returns the arctangent of the quotient of its arguments. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193272"><A HREF="math.htm#1195654"><CODE>ceil</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193274">
+Returns the smallest integer greater than or equal to a number.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193279"><A HREF="math.htm#1195695"><CODE>cos</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193281">
+Returns the cosine of a number.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193286"><A HREF="math.htm#1196408"><CODE>exp</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193288">
+Returns E<SUP>number</SUP>, where <CODE>number</CODE> is the argument, and E is Euler's constant, the base of the natural logarithms.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193293"><A HREF="math.htm#1196455"><CODE>floor</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193295">
+Returns the largest integer less than or equal to a number.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193300"><A HREF="math.htm#1196917"><CODE>log</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193302">
+Returns the natural logarithm (base E) of a number.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193307"><A HREF="math.htm#1197362"><CODE>max</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193309">
+Returns the greater of two numbers.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193314"><A HREF="math.htm#1197403"><CODE>min</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193316">
+Returns the lesser of two numbers.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193321"><A HREF="math.htm#1197651"><CODE>pow</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193323">
+Returns <CODE>base</CODE> to the <CODE>exponent</CODE> power, that is, <CODE>base</CODE><SUP>exponent</SUP>.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193328"><A HREF="math.htm#1197697"><CODE>random</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193330">
+Returns a pseudo-random number between 0 and 1.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193335"><A HREF="math.htm#1197725"><CODE>round</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193337">
+Returns the value of a number rounded to the nearest integer.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193342"><A HREF="math.htm#1197769"><CODE>sin</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193344">
+Returns the sine of a number.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193349"><A HREF="math.htm#1197825"><CODE>sqrt</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193351">
+Returns the square root of a number.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193356"><A HREF="math.htm#1194346"><CODE>tan</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193358">
+Returns the tangent of a number.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+<A NAME="1205814">
+In addition, this object inherits the <A HREF="object.htm#1193628"><CODE>watch</CODE></A> and <A HREF="object.htm#1193499"><CODE>unwatch</CODE></A> methods from <A HREF="object.htm#1193136"><CODE>Object</CODE></A>.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1195395">
+abs
+</A></H2>
+
+<A NAME="1195412">
+Returns the absolute value of a number.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195398">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195403">
+<A HREF="math.htm#1193138"><CODE>Math</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left COLSPAN=2 ROWSPAN=1><P><A NAME="1195405">
+<I>Static</I></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195409">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195411">
+JavaScript 1.0, NES 2.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1201648">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1201650">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195413">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1195414">abs(<I>x</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1195415">
+ Parameters
+</A></H4>
+
+<A NAME="1195421">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1195418">x</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1195420">
+A number</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195422">
+ Examples
+</A></H4>
+
+<A NAME="1195423">
+The following function returns the absolute value of the variable <CODE>x</CODE>:</A></P>
+<PRE><A NAME="1195424">function getAbs(x) {<br>&nbsp;&nbsp;&nbsp;return Math.abs(x)<br>}</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1195425">
+ Description
+</A></H4>
+
+<A NAME="1195426">
+Because <CODE>abs</CODE> is a static method of <CODE>Math</CODE>, you always use it as <CODE>Math.abs()</CODE>, rather than as a method of a <CODE>Math</CODE> object you created.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1195429">
+acos
+</A></H2>
+
+<A NAME="1195446">
+Returns the arccosine (in radians) of a number.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195432">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195437">
+<A HREF="math.htm#1193138"><CODE>Math</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left COLSPAN=2 ROWSPAN=1><P><A NAME="1195439">
+<I>Static</I></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195443">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195445">
+JavaScript 1.0, NES 2.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1201669">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1201671">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195447">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1195448">acos(<I>x</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1195449">
+ Parameters
+</A></H4>
+
+<A NAME="1195455">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1195452">x</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1195454">
+A number</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195456">
+ Description
+</A></H4>
+
+<A NAME="1195457">
+The <CODE>acos</CODE> method returns a numeric value between 0 and pi radians. If the value of <CODE>number</CODE> is outside this range, it returns <CODE>NaN</CODE>.</A></P>
+<A NAME="1195458">
+Because <CODE>acos</CODE> is a static method of <CODE>Math</CODE>, you always use it as <CODE>Math.acos()</CODE>, rather than as a method of a <CODE>Math</CODE> object you created.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195459">
+ Examples
+</A></H4>
+
+<A NAME="1195460">
+The following function returns the arccosine of the variable <CODE>x</CODE>:</A></P>
+<PRE><A NAME="1195461">function getAcos(x) {<br>&nbsp;&nbsp;&nbsp;return Math.acos(x)<br>}</A></PRE><A NAME="1195462">
+If you pass -1 to <CODE>getAcos</CODE>, it returns 3.141592653589793; if you pass 2, it returns <CODE>NaN</CODE> because 2 is out of range.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195463">
+ See also
+</A></H4>
+
+<A NAME="1195482">
+<A HREF="math.htm#1195485"><CODE>Math.asin</CODE></A>, <A HREF="math.htm#1195541"><CODE>Math.atan</CODE></A>, <A HREF="math.htm#1195597"><CODE>Math.atan2</CODE></A>, <A HREF="math.htm#1195695"><CODE>Math.cos</CODE></A>, <A HREF="math.htm#1197769"><CODE>Math.sin</CODE></A>, <A HREF="math.htm#1194346"><CODE>Math.tan</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1195485">
+asin
+</A></H2>
+
+<A NAME="1195502">
+Returns the arcsine (in radians) of a number.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195488">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195493">
+<A HREF="math.htm#1193138"><CODE>Math</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left COLSPAN=2 ROWSPAN=1><P><A NAME="1195495">
+<I>Static</I></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195499">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195501">
+JavaScript 1.0, NES 2.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1201682">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1201684">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195503">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1195504">asin(<I>x</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1195505">
+ Parameters
+</A></H4>
+
+<A NAME="1195511">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1195508">x</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1195510">
+A number</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195512">
+ Description
+</A></H4>
+
+<A NAME="1195513">
+The <CODE>asin</CODE> method returns a numeric value between -pi/2 and pi/2 radians. If the value of <CODE>number</CODE> is outside this range, it returns <CODE>NaN</CODE>.</A></P>
+<A NAME="1195514">
+Because <CODE>asin</CODE> is a static method of <CODE>Math</CODE>, you always use it as <CODE>Math.asin()</CODE>, rather than as a method of a <CODE>Math</CODE> object you created.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195515">
+ Examples
+</A></H4>
+
+<A NAME="1195516">
+The following function returns the arcsine of the variable <CODE>x</CODE>:</A></P>
+<PRE><A NAME="1195517">function getAsin(x) {<br>&nbsp;&nbsp;&nbsp;return Math.asin(x)<br>}</A></PRE><A NAME="1195518">
+If you pass <CODE>getAsin</CODE> the value 1, it returns 1.570796326794897 (pi/2); if you pass it the value 2, it returns <CODE>NaN</CODE> because 2 is out of range.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195519">
+ See also
+</A></H4>
+
+<A NAME="1195538">
+<A HREF="math.htm#1195429"><CODE>Math.acos</CODE></A>, <A HREF="math.htm#1195541"><CODE>Math.atan</CODE></A>, <A HREF="math.htm#1195597"><CODE>Math.atan2</CODE></A>, <A HREF="math.htm#1195695"><CODE>Math.cos</CODE></A>, <A HREF="math.htm#1197769"><CODE>Math.sin</CODE></A>, <A HREF="math.htm#1194346"><CODE>Math.tan</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1195541">
+atan
+</A></H2>
+
+<A NAME="1195558">
+Returns the arctangent (in radians) of a number.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195544">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195549">
+<A HREF="math.htm#1193138"><CODE>Math</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left COLSPAN=2 ROWSPAN=1><P><A NAME="1195551">
+<I>Static</I></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195555">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195557">
+JavaScript 1.0, NES 2.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1201695">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1201697">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195559">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1195560">atan(<I>x</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1195561">
+ Parameters
+</A></H4>
+
+<A NAME="1195567">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1195564">x</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1195566">
+A number</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195568">
+ Description
+</A></H4>
+
+<A NAME="1195569">
+The <CODE>atan</CODE> method returns a numeric value between -pi/2 and pi/2 radians.</A></P>
+<A NAME="1195570">
+Because <CODE>atan</CODE> is a static method of <CODE>Math</CODE>, you always use it as <CODE>Math.atan()</CODE>, rather than as a method of a <CODE>Math</CODE> object you created.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195571">
+ Examples
+</A></H4>
+
+<A NAME="1195572">
+The following function returns the arctangent of the variable <CODE>x</CODE>:</A></P>
+<PRE><A NAME="1195573">function getAtan(x) {<br>&nbsp;&nbsp;&nbsp;return Math.atan(x)<br>}</A></PRE><A NAME="1195574">
+If you pass <CODE>getAtan</CODE> the value 1, it returns 0.7853981633974483; if you pass it the value .5, it returns 0.4636476090008061.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195575">
+ See also
+</A></H4>
+
+<A NAME="1195594">
+<A HREF="math.htm#1195429"><CODE>Math.acos</CODE></A>, <A HREF="math.htm#1195485"><CODE>Math.asin</CODE></A>, <A HREF="math.htm#1195597"><CODE>Math.atan2</CODE></A>, <A HREF="math.htm#1195695"><CODE>Math.cos</CODE></A>, <A HREF="math.htm#1197769"><CODE>Math.sin</CODE></A>, <A HREF="math.htm#1194346"><CODE>Math.tan</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1195597">
+atan2
+</A></H2>
+
+<A NAME="1195614">
+Returns the arctangent of the quotient of its arguments.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195600">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195605">
+<A HREF="math.htm#1193138"><CODE>Math</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left COLSPAN=2 ROWSPAN=1><P><A NAME="1195607">
+<I>Static</I></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195611">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195613">
+JavaScript 1.0, NES 2.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1201757">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1201759">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195615">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1195616">atan2(<I>y</I>, <I>x</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1195617">
+ Parameters
+</A></H4>
+
+<A NAME="1195623">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1195620">y, x</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1195622">
+Number</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195624">
+ Description
+</A></H4>
+
+<A NAME="1195625">
+The <CODE>atan2</CODE> method returns a numeric value between -pi and pi representing the angle theta of an (<CODE>x,y</CODE>) point. This is the counterclockwise angle, measured in radians, between the positive X axis, and the point (<CODE>x,y</CODE>). Note that the arguments to this function pass the y-coordinate first and the x-coordinate second.</A></P>
+<A NAME="1195626">
+<CODE>atan2</CODE> is passed separate <CODE>x</CODE> and <CODE>y</CODE> arguments, and <CODE>atan</CODE> is passed the ratio of those two arguments.</A></P>
+<A NAME="1195627">
+Because <CODE>atan2</CODE> is a static method of <CODE>Math</CODE>, you always use it as <CODE>Math.atan2()</CODE>, rather than as a method of a <CODE>Math</CODE> object you created.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195628">
+ Examples
+</A></H4>
+
+<A NAME="1195629">
+The following function returns the angle of the polar coordinate:</A></P>
+<PRE><A NAME="1195630">function getAtan2(x,y) {<br>&nbsp;&nbsp;&nbsp;return Math.atan2(x,y)<br>}</A></PRE><A NAME="1195631">
+If you pass <CODE>getAtan2</CODE> the values (90,15), it returns 1.4056476493802699; if you pass it the values (15,90), it returns 0.16514867741462683.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195632">
+ See also
+</A></H4>
+
+<A NAME="1195651">
+<A HREF="math.htm#1195429"><CODE>Math.acos</CODE></A>, <A HREF="math.htm#1195485"><CODE>Math.asin</CODE></A>, <A HREF="math.htm#1195541"><CODE>Math.atan</CODE></A>, <A HREF="math.htm#1195695"><CODE>Math.cos</CODE></A>, <A HREF="math.htm#1197769"><CODE>Math.sin</CODE></A>, <A HREF="math.htm#1194346"><CODE>Math.tan</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1195654">
+ceil
+</A></H2>
+
+<A NAME="1195672">
+Returns the smallest integer greater than or equal to a number.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195658">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195663">
+<A HREF="math.htm#1193138"><CODE>Math</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left COLSPAN=2 ROWSPAN=1><P><A NAME="1195665">
+<I>Static</I></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195669">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195671">
+JavaScript 1.0, NES 2.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1201809">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1201811">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195673">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1195674">ceil(<I>x</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1195675">
+ Parameters
+</A></H4>
+
+<A NAME="1195681">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1195678">x</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1195680">
+A number</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195682">
+ Description
+</A></H4>
+
+<A NAME="1195683">
+Because <CODE>ceil</CODE> is a static method of <CODE>Math</CODE>, you always use it as <CODE>Math.ceil()</CODE>, rather than as a method of a <CODE>Math</CODE> object you created.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195684">
+ Examples
+</A></H4>
+
+<A NAME="1195685">
+The following function returns the ceil value of the variable <CODE>x</CODE>:</A></P>
+<PRE><A NAME="1195686">function getCeil(x) {<br>&nbsp;&nbsp;&nbsp;return Math.ceil(x)<br>}</A></PRE><A NAME="1195687">
+If you pass 45.95 to <CODE>getCeil</CODE>, it returns 46; if you pass -45.95, it returns -45.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195688">
+ See also
+</A></H4>
+
+<A NAME="1195692">
+<A HREF="math.htm#1196455"><CODE>Math.floor</CODE></A> </A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1195695">
+cos
+</A></H2>
+
+<A NAME="1195713">
+Returns the cosine of a number.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195699">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195704">
+<A HREF="math.htm#1193138"><CODE>Math</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left COLSPAN=2 ROWSPAN=1><P><A NAME="1195706">
+<I>Static</I></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195710">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195712">
+JavaScript 1.0, NES 2.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1201822">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1201824">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195714">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1195715">cos(<I>x</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1195716">
+ Parameters
+</A></H4>
+
+<A NAME="1195722">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1195719">x</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1195721">
+A number</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195723">
+ Description
+</A></H4>
+
+<A NAME="1195724">
+The <CODE>cos</CODE> method returns a numeric value between -1 and 1, which represents the cosine of the angle.</A></P>
+<A NAME="1195725">
+Because <CODE>cos</CODE> is a static method of <CODE>Math</CODE>, you always use it as <CODE>Math.cos()</CODE>, rather than as a method of a <CODE>Math</CODE> object you created.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195726">
+ Examples
+</A></H4>
+
+<A NAME="1195727">
+The following function returns the cosine of the variable <CODE>x</CODE>:</A></P>
+<PRE><A NAME="1195728">function getCos(x) {<br>&nbsp;&nbsp;&nbsp;return Math.cos(x)<br>}</A></PRE><A NAME="1195729">
+If <CODE>x</CODE> equals 2*<CODE>Math.PI</CODE>, <CODE>getCos</CODE> returns 1; if <CODE>x</CODE> equals <CODE>Math.PI</CODE>, the <CODE>getCos</CODE> method returns -1.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195730">
+ See also
+</A></H4>
+
+<A NAME="1195746">
+<A HREF="math.htm#1195429"><CODE>Math.acos</CODE></A>, <A HREF="math.htm#1195485"><CODE>Math.asin</CODE></A>, <A HREF="math.htm#1195541"><CODE>Math.atan</CODE></A>, <A HREF="math.htm#1195597"><CODE>Math.atan2</CODE></A>, <A HREF="math.htm#1197769"><CODE>Math.sin</CODE></A>, <A HREF="math.htm#1194346"><CODE>Math.tan</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193363">
+E
+</A></H2>
+
+<A NAME="1193381">
+Euler's constant and the base of natural logarithms, approximately 2.718.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193367">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193372">
+<A HREF="math.htm#1193138"><CODE>Math</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left COLSPAN=2 ROWSPAN=1><P><A NAME="1193374">
+<I>Static, Read-only</I></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193378">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193380">
+JavaScript 1.0, NES 2.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1201892">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1201894">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1201530">
+ Description
+</A></H4>
+
+<A NAME="1201531">
+Because <CODE>E</CODE> is a static property of <CODE>Math</CODE>, you always use it as <CODE>Math.E</CODE>, rather than as a property of a <CODE>Math</CODE> object you created.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193382">
+ Examples
+</A></H4>
+
+<A NAME="1193383">
+The following function returns Euler's constant:</A></P>
+<PRE><A NAME="1193384">function getEuler() {<br>&nbsp;&nbsp;&nbsp;return Math.E<br>}</A></PRE>
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1196408">
+exp
+</A></H2>
+
+<A NAME="1196410">
+Returns E<SUP>x</SUP>, where <CODE>x</CODE> is the argument, and <CODE>E</CODE> is Euler's constant, the base of the natural logarithms.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1196413">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1196418">
+<A HREF="math.htm#1193138"><CODE>Math</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left COLSPAN=2 ROWSPAN=1><P><A NAME="1196420">
+<I>Static</I></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1196424">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1196426">
+JavaScript 1.0, NES 2.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1201909">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1201911">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1196427">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1196428">exp(x)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1196429">
+ Parameters
+</A></H4>
+
+<A NAME="1196435">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1196432">x</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1196434">
+A number</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1196436">
+ Description
+</A></H4>
+
+<A NAME="1196437">
+Because <CODE>exp</CODE> is a static method of <CODE>Math</CODE>, you always use it as <CODE>Math.exp()</CODE>, rather than as a method of a <CODE>Math</CODE> object you created.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1196438">
+ Examples
+</A></H4>
+
+<A NAME="1196439">
+The following function returns the exponential value of the variable <CODE>x</CODE>:</A></P>
+<PRE><A NAME="1196440">function getExp(x) {<br>&nbsp;&nbsp;&nbsp;return Math.exp(x)<br>}</A></PRE><A NAME="1196441">
+If you pass <CODE>getExp</CODE> the value 1, it returns 2.718281828459045.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1196442">
+ See also
+</A></H4>
+
+<A NAME="1196452">
+<A HREF="math.htm#1193363"><CODE>Math.E</CODE></A>, <A HREF="math.htm#1196917"><CODE>Math.log</CODE></A>, <A HREF="math.htm#1197651"><CODE>Math.pow</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1196455">
+floor
+</A></H2>
+
+<A NAME="1196472">
+Returns the largest integer less than or equal to a number.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1196458">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1196463">
+<A HREF="math.htm#1193138"><CODE>Math</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left COLSPAN=2 ROWSPAN=1><P><A NAME="1196465">
+<I>Static</I></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1196469">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1196471">
+JavaScript 1.0, NES 2.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1201918">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1201920">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1196473">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1196474">floor(<I>x</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1196475">
+ Parameters
+</A></H4>
+
+<A NAME="1196481">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1196478">x</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1196480">
+A number</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1196482">
+ Description
+</A></H4>
+
+<A NAME="1196483">
+Because <CODE>floor</CODE> is a static method of <CODE>Math</CODE>, you always use it as <CODE>Math.floor()</CODE>, rather than as a method of a <CODE>Math</CODE> object you created.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1196484">
+ Examples
+</A></H4>
+
+<A NAME="1196485">
+The following function returns the floor value of the variable <CODE>x</CODE>:</A></P>
+<PRE><A NAME="1196486">function getFloor(x) {<br>&nbsp;&nbsp;&nbsp;return Math.floor(x)<br>}</A></PRE><A NAME="1196487">
+If you pass 45.95 to <CODE>getFloor</CODE>, it returns 45; if you pass -45.95, it returns -46.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1196488">
+ See also
+</A></H4>
+
+<A NAME="1196492">
+<A HREF="math.htm#1195654"><CODE>Math.ceil</CODE></A> </A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193389">
+LN10
+</A></H2>
+
+<A NAME="1193407">
+The natural logarithm of 10, approximately 2.302.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193393">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193398">
+<A HREF="math.htm#1193138"><CODE>Math</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left COLSPAN=2 ROWSPAN=1><P><A NAME="1193400">
+<I>Static, Read-only</I></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193404">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193406">
+JavaScript 1.0, NES 2.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1201931">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1201933">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193408">
+ Examples
+</A></H4>
+
+<A NAME="1193409">
+The following function returns the natural log of 10:</A></P>
+<PRE><A NAME="1193410">function getNatLog10() {<br>&nbsp;&nbsp;&nbsp;return Math.LN10<br>}</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193411">
+ Description
+</A></H4>
+
+<A NAME="1193412">
+Because <CODE>LN10</CODE> is a static property of <CODE>Math</CODE>, you always use it as <CODE>Math.LN10</CODE>, rather than as a property of a <CODE>Math</CODE> object you created.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193415">
+LN2
+</A></H2>
+
+<A NAME="1193432">
+The natural logarithm of 2, approximately 0.693.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193418">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193423">
+<A HREF="math.htm#1193138"><CODE>Math</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left COLSPAN=2 ROWSPAN=1><P><A NAME="1193425">
+<I>Static, Read-only</I></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193429">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193431">
+JavaScript 1.0, NES 2.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1201984">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1201986">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193433">
+ Examples
+</A></H4>
+
+<A NAME="1193434">
+The following function returns the natural log of 2:</A></P>
+<PRE><A NAME="1193435">function getNatLog2() {<br>&nbsp;&nbsp;&nbsp;return Math.LN2<br>}</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193436">
+ Description
+</A></H4>
+
+<A NAME="1193437">
+Because <CODE>LN2</CODE> is a static property of <CODE>Math</CODE>, you always use it as <CODE>Math.LN2</CODE>, rather than as a property of a <CODE>Math</CODE> object you created.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1196917">
+log
+</A></H2>
+
+<A NAME="1196934">
+Returns the natural logarithm (base <CODE>E</CODE>) of a number.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1196920">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1196925">
+<A HREF="math.htm#1193138"><CODE>Math</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left COLSPAN=2 ROWSPAN=1><P><A NAME="1196927">
+<I>Static</I></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1196931">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1196933">
+JavaScript 1.0, NES 2.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1201993">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1201995">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1196935">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1196936">log(<I>x</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1196937">
+ Parameters
+</A></H4>
+
+<A NAME="1196943">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1196940">x</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1196942">
+A number</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1196944">
+ Description
+</A></H4>
+
+<A NAME="1205911">
+If the value of <CODE>number</CODE> is negative, the return value is always <CODE>NaN</CODE>.</A></P>
+<A NAME="1196946">
+Because <CODE>log</CODE> is a static method of <CODE>Math</CODE>, you always use it as <CODE>Math.log()</CODE>, rather than as a method of a <CODE>Math</CODE> object you created.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1196947">
+ Examples
+</A></H4>
+
+<A NAME="1196948">
+The following function returns the natural log of the variable <CODE>x</CODE>:</A></P>
+<PRE><A NAME="1196949">function getLog(x) {<br>&nbsp;&nbsp;&nbsp;return Math.log(x)<br>}</A></PRE><A NAME="1196950">
+If you pass <CODE>getLog</CODE> the value 10, it returns 2.302585092994046; if you pass it the value 0, it returns <CODE>-Infinity</CODE>; if you pass it the value -1, it returns <CODE>NaN</CODE> because -1 is out of range.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1196951">
+ See also
+</A></H4>
+
+<A NAME="1196958">
+<A HREF="math.htm#1196408"><CODE>Math.exp</CODE></A>, <A HREF="math.htm#1197651"><CODE>Math.pow</CODE></A> </A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193440">
+LOG10E
+</A></H2>
+
+<A NAME="1193457">
+The base 10 logarithm of E (approximately 0.434).<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193443">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193448">
+<A HREF="math.htm#1193138"><CODE>Math</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left COLSPAN=2 ROWSPAN=1><P><A NAME="1193450">
+<I>Static, Read-only</I></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193454">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193456">
+JavaScript 1.0, NES 2.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1201998">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202000">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193458">
+ Examples
+</A></H4>
+
+<A NAME="1193459">
+The following function returns the base 10 logarithm of <CODE>E</CODE>:</A></P>
+<PRE><A NAME="1193460">function getLog10e() {<br>&nbsp;&nbsp;&nbsp;return Math.LOG10E<br>}</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193461">
+ Description
+</A></H4>
+
+<A NAME="1193462">
+Because <CODE>LOG10E</CODE> is a static property of <CODE>Math</CODE>, you always use it as <CODE>Math.LOG10E</CODE>, rather than as a property of a <CODE>Math</CODE> object you created.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193465">
+LOG2E
+</A></H2>
+
+<A NAME="1193482">
+The base 2 logarithm of E (approximately 1.442).<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193468">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193473">
+<A HREF="math.htm#1193138"><CODE>Math</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left COLSPAN=2 ROWSPAN=1><P><A NAME="1193475">
+<I>Static, Read-only</I></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193479">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193481">
+JavaScript 1.0, NES 2.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202007">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202009">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193483">
+ Examples
+</A></H4>
+
+<A NAME="1193484">
+The following function returns the base 2 logarithm of E:</A></P>
+<PRE><A NAME="1193485">function getLog2e() {<br>&nbsp;&nbsp;&nbsp;return Math.LOG2E<br>}</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193486">
+ Description
+</A></H4>
+
+<A NAME="1193487">
+Because <CODE>LOG2E</CODE> is a static property of <CODE>Math</CODE>, you always use it as <CODE>Math.LOG2E</CODE>, rather than as a property of a <CODE>Math</CODE> object you created.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1197362">
+max
+</A></H2>
+
+<A NAME="1197380">
+Returns the larger of two numbers.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1197366">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1197371">
+<A HREF="math.htm#1193138"><CODE>Math</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left COLSPAN=2 ROWSPAN=1><P><A NAME="1197373">
+<I>Static</I></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1197377">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1197379">
+JavaScript 1.0, NES 2.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202016">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202018">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1197381">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1197382">max(<I>x</I>,<I>y</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1197383">
+ Parameters
+</A></H4>
+
+<A NAME="1197389">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1197386">x, y</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1197388">
+Numbers.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1197390">
+ Description
+</A></H4>
+
+<A NAME="1197391">
+Because <CODE>max</CODE> is a static method of <CODE>Math</CODE>, you always use it as <CODE>Math.max()</CODE>, rather than as a method of a <CODE>Math</CODE> object you created.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1197392">
+ Examples
+</A></H4>
+
+<A NAME="1197393">
+The following function evaluates the variables <CODE>x</CODE> and <CODE>y</CODE>:</A></P>
+<PRE><A NAME="1197394">function getMax(x,y) {<br>&nbsp;&nbsp;&nbsp;return Math.max(x,y)<br>}</A></PRE><A NAME="1197395">
+If you pass <CODE>getMax</CODE> the values 10 and 20, it returns 20; if you pass it the values -10 and -20, it returns -10.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1197396">
+ See also
+</A></H4>
+
+<A NAME="1197400">
+<A HREF="math.htm#1197403"><CODE>Math.min</CODE></A> </A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1197403">
+min
+</A></H2>
+
+<A NAME="1197420">
+Returns the smaller of two numbers.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1197406">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1197411">
+<A HREF="math.htm#1193138"><CODE>Math</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left COLSPAN=2 ROWSPAN=1><P><A NAME="1197413">
+<I>Static</I></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1197417">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1197419">
+JavaScript 1.0, NES 2.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202118">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202120">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1197421">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1197422">min(<I>x</I>,<I>y</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1197423">
+ Parameters
+</A></H4>
+
+<A NAME="1197429">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1197426">x, y</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1197428">
+Numbers.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1197430">
+ Description
+</A></H4>
+
+<A NAME="1197431">
+Because <CODE>min</CODE> is a static method of <CODE>Math</CODE>, you always use it as <CODE>Math.min()</CODE>, rather than as a method of a <CODE>Math</CODE> object you created.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1197432">
+ Examples
+</A></H4>
+
+<A NAME="1197433">
+The following function evaluates the variables <CODE>x </CODE>and <CODE>y</CODE>:</A></P>
+<PRE><A NAME="1197434">function getMin(x,y) {<br>&nbsp;&nbsp;&nbsp;return Math.min(x,y)<br>}</A></PRE><A NAME="1197435">
+If you pass <CODE>getMin</CODE> the values 10 and 20, it returns 10; if you pass it the values -10 and -20, it returns -20.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1197436">
+ See also
+</A></H4>
+
+<A NAME="1197440">
+<A HREF="math.htm#1197362"><CODE>Math.max</CODE></A> </A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193490">
+PI
+</A></H2>
+
+<A NAME="1193491">
+The ratio of the circumference of a circle to its diameter, approximately 3.14159.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193494">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193499">
+<A HREF="math.htm#1193138"><CODE>Math</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left COLSPAN=2 ROWSPAN=1><P><A NAME="1193501">
+<I>Static, Read-only</I></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193505">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1199147">
+JavaScript 1.0, NES 2.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202151">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202153">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193508">
+ Examples
+</A></H4>
+
+<A NAME="1193509">
+The following function returns the value of pi:</A></P>
+<PRE><A NAME="1193510">function getPi() {<br>&nbsp;&nbsp;&nbsp;return Math.PI<br>}</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193511">
+ Description
+</A></H4>
+
+<A NAME="1193512">
+Because <CODE>PI</CODE> is a static property of <CODE>Math</CODE>, you always use it as <CODE>Math.PI</CODE>, rather than as a property of a <CODE>Math</CODE> object you created.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1197651">
+pow
+</A></H2>
+
+<A NAME="1197668">
+Returns <CODE>base</CODE> to the <CODE>exponent</CODE> power, that is, <CODE>base</CODE><SUP>exponent</SUP>.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1197654">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1197659">
+<A HREF="math.htm#1193138"><CODE>Math</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left COLSPAN=2 ROWSPAN=1><P><A NAME="1197661">
+<I>Static</I></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1197665">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1197667">
+JavaScript 1.0, NES 2.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202180">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202182">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1197669">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1197670">pow(<I>x</I>,<I>y</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1197671">
+ Parameters
+</A></H4>
+
+<A NAME="1197681">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1197674">base</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1197676">
+The base number</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1197678">exponent</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1197680">
+The exponent to which to raise <CODE>base</CODE></A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1197682">
+ Description
+</A></H4>
+
+<A NAME="1197683">
+Because <CODE>pow</CODE> is a static method of <CODE>Math</CODE>, you always use it as <CODE>Math.pow()</CODE>, rather than as a method of a <CODE>Math</CODE> object you created.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1197684">
+ Examples
+</A></H4>
+
+<PRE><A NAME="1197685">function raisePower(x,y) {<br>&nbsp;&nbsp;&nbsp;return Math.pow(x,y)<br>}</A></PRE><A NAME="1197686">
+If <CODE>x</CODE> is 7 and <CODE>y</CODE> is 2, <CODE>raisePower</CODE> returns 49 (7 to the power of 2).</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1197687">
+ See also
+</A></H4>
+
+<A NAME="1197694">
+<A HREF="math.htm#1196408"><CODE>Math.exp</CODE></A>, <A HREF="math.htm#1196917"><CODE>Math.log</CODE></A> </A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1197697">
+random
+</A></H2>
+
+<A NAME="1197698">
+Returns a pseudo-random number between 0 and 1. The random number generator is seeded from the current time, as in Java.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1197701">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1197706">
+<A HREF="math.htm#1193138"><CODE>Math</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left COLSPAN=2 ROWSPAN=1><P><A NAME="1197708">
+<I>Static</I></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1197712">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1197714">
+JavaScript 1.0, NES 2.0: Unix only</A></P><P><A NAME="1199337">
+</A></P><P><A NAME="1199338">
+JavaScript 1.1, NES 2.0: all platforms</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202205">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202207">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1197715">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1197716">random()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1197717">
+ Parameters
+</A></H4>
+
+<A NAME="1197718">
+None.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1197719">
+ Description
+</A></H4>
+
+<A NAME="1197720">
+Because <CODE>random</CODE> is a static method of <CODE>Math</CODE>, you always use it as <CODE>Math.random()</CODE>, rather than as a method of a <CODE>Math</CODE> object you created.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1197721">
+ Examples
+</A></H4>
+
+<PRE><A NAME="1197722">//Returns a random number between 0 and 1<br>function getRandom() {<br>&nbsp;&nbsp;&nbsp;return Math.random()<br>}</A></PRE>
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1197725">
+round
+</A></H2>
+
+<A NAME="1197742">
+Returns the value of a number rounded to the nearest integer.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1197728">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1197733">
+<A HREF="math.htm#1193138"><CODE>Math</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left COLSPAN=2 ROWSPAN=1><P><A NAME="1197735">
+<I>Static</I></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1197739">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1197741">
+JavaScript 1.0, NES 2.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202226">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202228">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1197743">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1197744">round(<I>x</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1197745">
+ Parameters
+</A></H4>
+
+<A NAME="1197751">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1197748">x</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1197750">
+A number</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1197752">
+ Description
+</A></H4>
+
+<A NAME="1197753">
+If the fractional portion of <CODE>number</CODE> is .5 or greater, the argument is rounded to the next higher integer. If the fractional portion of <CODE>number</CODE> is less than .5, the argument is rounded to the next lower integer.</A></P>
+<A NAME="1197754">
+Because <CODE>round</CODE> is a static method of <CODE>Math</CODE>, you always use it as <CODE>Math.round()</CODE>, rather than as a method of a <CODE>Math</CODE> object you created.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1197755">
+ Examples
+</A></H4>
+
+<PRE><A NAME="1198138">//Returns the value 20<br>x=Math.round(20.49)</A></PRE><PRE><A NAME="1197757">//Returns the value 21<br>x=Math.round(20.5)</A></PRE><PRE><A NAME="1197758">//Returns the value -20<br>x=Math.round(-20.5)</A></PRE><PRE><A NAME="1197759">//Returns the value -21<br>x=Math.round(-20.51)</A></PRE>
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1197769">
+sin
+</A></H2>
+
+<A NAME="1197786">
+Returns the sine of a number.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1197772">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1197777">
+<A HREF="math.htm#1193138"><CODE>Math</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left COLSPAN=2 ROWSPAN=1><P><A NAME="1197779">
+<I>Static</I></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1197783">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1197785">
+JavaScript 1.0, NES 2.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202243">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202245">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1197787">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1197788">sin(<I>x</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1197789">
+ Parameters
+</A></H4>
+
+<A NAME="1197795">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1197792">x</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1197794">
+A number</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1197796">
+ Description
+</A></H4>
+
+<A NAME="1197797">
+The <CODE>sin</CODE> method returns a numeric value between -1 and 1, which represents the sine of the argument.</A></P>
+<A NAME="1197798">
+Because <CODE>sin</CODE> is a static method of <CODE>Math</CODE>, you always use it as <CODE>Math.sin()</CODE>, rather than as a method of a <CODE>Math</CODE> object you created.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1197799">
+ Examples
+</A></H4>
+
+<A NAME="1197800">
+The following function returns the sine of the variable <CODE>x</CODE>:</A></P>
+<PRE><A NAME="1197801">function getSine(x) {<br>&nbsp;&nbsp;&nbsp;return Math.sin(x)<br>}</A></PRE><A NAME="1197802">
+If you pass <CODE>getSine</CODE> the value <CODE>Math.PI/2</CODE>, it returns 1.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1197803">
+ See also
+</A></H4>
+
+<A NAME="1197819">
+<A HREF="math.htm#1195429"><CODE>Math.acos</CODE></A>, <A HREF="math.htm#1195485"><CODE>Math.asin</CODE></A>, <A HREF="math.htm#1195541"><CODE>Math.atan</CODE></A>, <A HREF="math.htm#1195597"><CODE>Math.atan2</CODE></A>, <A HREF="math.htm#1195695"><CODE>Math.cos</CODE></A>, <A HREF="math.htm#1194346"><CODE>Math.tan</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1197825">
+sqrt
+</A></H2>
+
+<A NAME="1197843">
+Returns the square root of a number.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1197829">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1197834">
+<A HREF="math.htm#1193138"><CODE>Math</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left COLSPAN=2 ROWSPAN=1><P><A NAME="1197836">
+<I>Static</I></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1197840">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1197842">
+JavaScript 1.0, NES 2.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202260">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202262">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1197844">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1197845">sqrt(<I>x</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1197846">
+ Parameters
+</A></H4>
+
+<A NAME="1197852">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1197849">x</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1197851">
+A number</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1197853">
+ Description
+</A></H4>
+
+<A NAME="1197854">
+If the value of <CODE>number</CODE> is negative, <CODE>sqrt</CODE> returns <CODE>NaN</CODE>.</A></P>
+<A NAME="1197855">
+Because <CODE>sqrt</CODE> is a static method of <CODE>Math</CODE>, you always use it as <CODE>Math.sqrt()</CODE>, rather than as a method of a <CODE>Math</CODE> object you created.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1197856">
+ Examples
+</A></H4>
+
+<A NAME="1197857">
+The following function returns the square root of the variable <CODE>x</CODE>:</A></P>
+<PRE><A NAME="1197858">function getRoot(x) {<br>&nbsp;&nbsp;&nbsp;return Math.sqrt(x)<br>}</A></PRE><A NAME="1197859">
+If you pass <CODE>getRoot</CODE> the value 9, it returns 3; if you pass it the value 2, it returns 1.414213562373095.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193515">
+SQRT1_2
+</A></H2>
+
+<A NAME="1193516">
+The square root of 1/2; equivalently, 1 over the square root of 2, approximately 0.707.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193519">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193524">
+<A HREF="math.htm#1193138"><CODE>Math</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left COLSPAN=2 ROWSPAN=1><P><A NAME="1193526">
+<I>Static, Read-only</I></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193530">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193532">
+JavaScript 1.0, NES 2.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202273">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202275">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193533">
+ Examples
+</A></H4>
+
+<A NAME="1193534">
+The following function returns 1 over the square root of 2:</A></P>
+<PRE><A NAME="1193535">function getRoot1_2() {<br>&nbsp;&nbsp;&nbsp;return Math.SQRT1_2<br>}</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193536">
+ Description
+</A></H4>
+
+<A NAME="1193537">
+Because <CODE>SQRT1_2</CODE> is a static property of <CODE>Math</CODE>, you always use it as <CODE>Math.SQRT1_2</CODE>, rather than as a property of a <CODE>Math</CODE> object you created.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193540">
+SQRT2
+</A></H2>
+
+<A NAME="1193557">
+The square root of 2, approximately 1.414.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193543">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193548">
+<A HREF="math.htm#1193138"><CODE>Math</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left COLSPAN=2 ROWSPAN=1><P><A NAME="1193550">
+<I>Static, Read-only</I></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193554">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193556">
+JavaScript 1.0, NES 2.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202282">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202284">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193558">
+ Examples
+</A></H4>
+
+<A NAME="1193559">
+The following function returns the square root of 2:</A></P>
+<PRE><A NAME="1193560">function getRoot2() {<br>&nbsp;&nbsp;&nbsp;return Math.SQRT2<br>}</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193561">
+ Description
+</A></H4>
+
+<A NAME="1193562">
+Because <CODE>SQRT2</CODE> is a static property of <CODE>Math</CODE>, you always use it as <CODE>Math.SQRT2</CODE>, rather than as a property of a <CODE>Math</CODE> object you created.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1194346">
+tan
+</A></H2>
+
+<A NAME="1194363">
+Returns the tangent of a number.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194349">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194354">
+<A HREF="math.htm#1193138"><CODE>Math</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left COLSPAN=2 ROWSPAN=1><P><A NAME="1194356">
+<I>Static</I></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194360">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194362">
+JavaScript 1.0, NES 2.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202291">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202293">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194364">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1194365">tan(<I>x</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194366">
+ Parameters
+</A></H4>
+
+<A NAME="1194372">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1194369">x</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1194371">
+A number</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194373">
+ Description
+</A></H4>
+
+<A NAME="1194374">
+The <CODE>tan</CODE> method returns a numeric value that represents the tangent of the angle.</A></P>
+<A NAME="1194375">
+Because <CODE>tan</CODE> is a static method of <CODE>Math</CODE>, you always use it as <CODE>Math.tan()</CODE>, rather than as a method of a <CODE>Math</CODE> object you created.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194376">
+ Examples
+</A></H4>
+
+<A NAME="1194377">
+The following function returns the tangent of the variable <CODE>x</CODE>:</A></P>
+<PRE><A NAME="1194378">function getTan(x) {<br>&nbsp;&nbsp;&nbsp;return Math.tan(x)<br>}</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194380">
+ See also
+</A></H4>
+
+<A NAME="1194396">
+<A HREF="math.htm#1195429"><CODE>Math.acos</CODE></A>, <A HREF="math.htm#1195485"><CODE>Math.asin</CODE></A>, <A HREF="math.htm#1195541"><CODE>Math.atan</CODE></A>, <A HREF="math.htm#1195597"><CODE>Math.atan2</CODE></A>, <A HREF="math.htm#1195695"><CODE>Math.cos</CODE></A>, <A HREF="math.htm#1197769"><CODE>Math.sin</CODE></A> </A></P>
+
+<HR>
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="location.htm">Previous</A>
+ | <A HREF="mimetype.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT>
+<P ALIGN=right>
+<FONT SIZE=-2><I>Last Updated:  05/28/99  11:59:53</I></FONT>
+<P> <CENTER>Copyright (c) 1999
+<A HREF="http://home.netscape.com/misc/contact_info.html"
+TARGET=_top>Netscape Communications Corporation</A></FONT>
+</CENTER>
+<P>
+</BODY>
+</HTML>
+
+

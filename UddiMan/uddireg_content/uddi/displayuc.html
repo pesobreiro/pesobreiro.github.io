@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<META name="GENERATOR" content="IBM WebSphere Homepage Builder V5.0.1 for Windows">
+<title>Displaying the user console</title>
+<link rel="stylesheet" type="text/css" href="../../wasstyle.css">
+</head>
+
+<body>
+<H3><A href="index.htm#TOC11" name="displayuc">Displaying the user console</A></H3>
+<P>
+This topic describes how to display the UDDI Registry user console (sometimes referred to as the GUI).
+The URL you use depends on whether or not you have enabled WebSphere security:
+
+<UL>
+  <LI>If you have the WebSphere security disabled,
+you can access the UDDI User Console by
+using the following URL in your Web browser:
+  <pre>http://localhost:9080/uddigui</pre>
+  <p><b>Note:</b> With WebSphere security disabled,
+all the publish operations are performed
+using a userid of UNAUTHENTICATED.
+  </li>
+  <li>If you have WebSphere security enabled,
+you can access the UDDI User Console through
+  HTTPS by
+using the following URL in your Web browser:
+  <pre>https://localhost:9443/uddigui</pre>
+  <p>The User Console displays the default frameset
+  containing the header frame, navigation frame
+  showing find options, and details frame.
+  When you click the link to show the publish
+  options in the navigation frame, you are
+  challenged for a userid and password.</p>
+  <p>If WebSphere security is enabled and you
+  try to access a publish action via an unsecured
+  link, e.g. clicking the publish link on the
+  navigation frame where the User Console was
+  opened with <CODE>http://localhost:9080/uddigui</CODE>, you will get a security constraint error
+  (HTTP Error 403). Inquire functions will
+  work as expected.</P>
+</UL>
+</body>
+</html>

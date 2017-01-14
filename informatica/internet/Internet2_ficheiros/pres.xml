@@ -1,0 +1,74 @@
+<xml xmlns:v="urn:schemas-microsoft-com:vml"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:p="urn:schemas-microsoft-com:office:powerpoint">
+ <p:presentation notessizey="5614" savewithfonts="t">
+  <p:master id="3" type="main" href="master03.htm" xmlhref="master03.xml"
+   template="RosettaNet Partner Conference" layout="title_body"
+   slots="title,body,dateTime,footer,slideNumber">
+   <p:schemes>
+    <p:colorscheme
+     colors="#FFFFFF,#000000,#808080,#000000,#00CC99,#3333CC,#CCCCFF,#B2B2B2"/>
+    <p:colorscheme
+     colors="#0000FF,#FFFFFF,#000000,#FFFF00,#FF9900,#00FFFF,#FF0000,#969696"/>
+    <p:colorscheme
+     colors="#FFFFCC,#000000,#666633,#808000,#339933,#800000,#0033CC,#FFCC66"/>
+    <p:colorscheme
+     colors="#FFFFFF,#000000,#333333,#000000,#DDDDDD,#808080,#4D4D4D,#EAEAEA"/>
+    <p:colorscheme
+     colors="#FFFFFF,#000000,#808080,#000000,#FFCC66,#0000FF,#CC00CC,#C0C0C0"/>
+    <p:colorscheme
+     colors="#FFFFFF,#000000,#808080,#000000,#C0C0C0,#0066FF,#FF0000,#009900"/>
+    <p:colorscheme
+     colors="#FFFFFF,#000000,#808080,#000000,#3399FF,#99FFCC,#CC00CC,#B2B2B2"/>
+   </p:schemes>
+  </p:master>
+  <p:master id="4" type="title" href="master04.htm" xmlhref="master04.xml"
+   layout="title_subtitle"
+   slots="centerTitle,subTitle,dateTime,footer,slideNumber"/>
+  <p:master id="1" type="notes" href="master01.htm" layout="notes"
+   slots="header,dateTime,slideImage,body,footer,slideNumber"/>
+  <p:master id="2" type="handout" href="master02.htm" layout="handout"
+   slots="header,dateTime,footer,slideNumber"/>
+  <p:slide id="7" href="slide0007.htm" masterhref="master04.htm"
+   layout="title_subtitle" slots="centerTitle,subTitle" collapseoutline="t"/>
+  <p:slide id="65" href="slide0065.htm" layout="title_body" slots="title,body"/>
+  <p:slide id="42" href="slide0042.htm" layout="title_body" slots="title,body"/>
+  <p:slide id="66" href="slide0066.htm" layout="title_body" slots="title,body"/>
+  <p:slide id="104" href="slide0104.htm" layout="title_body" slots="title,body"/>
+  <p:slide id="102" href="slide0102.htm" layout="title_body" slots="title,body"/>
+  <p:slide id="126" href="slide0126.htm" layout="title_body" slots="title,body"/>
+  <p:slide id="130" href="slide0130.htm" layout="title_body" slots="title,body"/>
+  <p:slide id="67" href="slide0067.htm" layout="title_body" slots="title,body"/>
+  <p:slide id="92" href="slide0092.htm" masterhref="master04.htm"
+   layout="title_subtitle" slots="centerTitle,subTitle"/>
+  <p:slide id="91" href="slide0091.htm" layout="title_body" slots="title,body"/>
+  <p:slide id="87" href="slide0087.htm" layout="title_body" slots="title,body"/>
+  <p:slide id="89" href="slide0089.htm" layout="title_body" slots="title,body"/>
+  <p:slide id="90" href="slide0090.htm" layout="title_body" slots="title,body"/>
+  <p:slide id="131" href="slide0131.htm" masterhref="master04.htm"
+   layout="title_subtitle" slots="centerTitle,subTitle"/>
+  <p:slide id="85" href="slide0085.htm" layout="title_body" slots="title,body"/>
+  <p:slide id="125" href="slide0125.htm" layout="title_body" slots="title,body"/>
+  <p:slide id="127" href="slide0127.htm" layout="title_body" slots="title,body"/>
+  <p:slide id="132" href="slide0132.htm" layout="title_body" slots="title,body"/>
+  <p:slide id="128" href="slide0128.htm" layout="title_body" slots="title,body"/>
+  <p:slide id="62" href="slide0062.htm" layout="title_body" slots="title,body"/>
+  <p:slide id="81" href="slide0081.htm" layout="title_body" slots="title,body"/>
+  <p:viewstate type="slideView" restoredleft="309" manualadjustleft="t"/>
+  <p:slideshowsettings pencolor="schemeText"/>
+  <p:tag name="___PPT2001" type="binary" datasize="68" dataoffset="1"/>
+  <p:kinsoku language="Japanese" level="levelOne"/>
+  <p:font name="Times" charset="0" type="4"/>
+  <p:font name="Verdana" charset="0" type="4" family="34"/>
+  <p:font name="Arial" charset="0" type="4" family="34"/>
+  <p:headersfooters slidenumber="t"
+   footerstr="Standards Convergence © COPYRIGHT 2001 ROSETTANET.  ALL RIGHTS RESERVED."
+   noheader="t" nodate="t"/>
+  <p:headersfooters notes="t" slidenumber="t"/>
+  <p:pptdocumentsettings framecolors="WhiteTextOnBlack" hideslideanimation="t"/>
+ </p:presentation>
+ <o:shapedefaults v:ext="edit" spidmax="214018">
+  <o:colormru v:ext="edit" colors="#009,black,teal,#343a46,#ff9,#b2b2b2,#252e7f,#191f59"/>
+  <o:colormenu v:ext="edit" fillcolor="none [1]" strokecolor="#0c9"
+   shadowcolor="black"/>
+ </o:shapedefaults></xml>

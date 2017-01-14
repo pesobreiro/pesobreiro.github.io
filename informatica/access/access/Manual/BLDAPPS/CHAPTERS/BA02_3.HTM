@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>Creating Your First Function</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba02_2.htm" OnClick="SyncURL(&quot;chapters/ba02_2.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<a NAME="3CreatingYourFirstFunction"></a>
+<p CLASS="heading3OrgHeading1h1">Creating Your First Function</p>
+<p CLASS="Textttext">If you discover that you're repeatedly using the same expression in forms, reports, or queries, you may want to write a custom function that calculates that expression, and then use the function in place of the expression. For example, suppose that you often need to calculate the date of the first day of the next month (perhaps this is the date that payment is due or that shipments go out). You can calculate this date with the following expression.</p>
+<p CLASS="CodeTextct">= DateSerial(Year(Now), Month(Now) + 1, 1)</p>
+<p CLASS="Textttext">However, this complicated expression is easy to mistype. Instead of typing this expression, you could substitute a custom <span CLASS="ElementNameeln">Function</span> procedure that performs this calculation. Writing a <span CLASS="ElementNameeln">Function</span> procedure to perform a calculation has several significant advantages over using the equivalent expression. Using a <span CLASS="ElementNameeln">Function</span> procedure, you can:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspBe sure that the calculation is performed the same way every time, without the risk of a typing mistake.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspModify the calculation by changing it in only one place (the module in which the function is defined) rather than in every place the calculation is used.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspPerform complex operations, such as <span CLASS="ElementNameeln">If...Then</span> logic or looping, which are difficult or impossible to handle in a simple expression.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspHandle errors in ways that you define.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspInclude comments to document complicated expressions.</p>
+<p CLASS="Textttext">This section shows you how to create a simple function that calculates the date of the first day of the next month. You'll use this function to set the value of the BillingDate text box on the Orders form in the Orders sample application.
+<p CLASS="Textttext">If you want to use this function in other forms and reports, you'll want to create a standard module to store it in. You create a standard module in the same way you create and open other database objects.</p>
+<p CLASS="heading9ListProcedureHeadinglproch"><span CLASS="ProcedureIconproci"><img SRC="../images/bluetri.jpg" ALIGN="LEFT" WIDTH="9" HEIGHT="17">&nbsp;&nbsp;&nbsp;</span>To create a standard module</p>
+<p CLASS="ListProcedureSingleItemlprocs"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspIn the Database window, click the <span CLASS="ElementNameeln">Modules</span> tab, and then click <span CLASS="ElementNameeln">New</span>.</p>
+<p CLASS="ListText1lt1">Microsoft Access displays a new module in the Module window.
+<p CLASS="ListArt1la"><img SRC="..\images\ABAC0210.jpg"></p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span><span CLASS="EmSpaceems">When you open a new module, Microsoft Access automatically includes two </span><span CLASS="ElementNameeln">Option</span><span CLASS="EmSpaceems"> statements in the Declarations section, as shown in the preceding illustration. These statements tell Microsoft Access how to sort data when running code and whether to warn you if you don't declare variables. For more information, search the Help index for &quot;Option.&quot;</span></p>
+<p CLASS="heading9ListProcedureHeadinglproch"><span CLASS="ProcedureIconproci"><img SRC="../images/bluetri.jpg" ALIGN="LEFT" WIDTH="9" HEIGHT="17">&nbsp;&nbsp;&nbsp;</span>To create a new function</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">1</span>&nbsp;&nbsp;&amp;nbspBelow the <span CLASS="ElementNameeln">Option Explicit</span> statement (or any empty line in a module), type <span CLASS="ElementNameeln">Function</span> followed by a space and the name you want to give the function. In this case, name your new function FirstOfNextMonth.</p>
+<p CLASS="ListNoteText1lnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span><span CLASS="Xref">It's a good idea to give your functions relatively short names that describe their purpose or the value they return. Function names can't contain spaces or punctuation marks. For more information on names in Visual Basic, see <a HREF="../chapters/ba02_4.htm#4NamingConventions" OnClick="SyncURL(&quot;chapters/ba02_4.htm&quot;)">&quot;Naming Conventions&quot;</a> later in this chapter.</span></p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">2</span>&nbsp;&nbsp;&amp;nbspPress <span CLASS="KeyNamekn">ENTER</span>.</p>
+<p CLASS="ListText1lt1">When you press <span CLASS="KeyNamekn">ENTER</span>, Microsoft Access scans your typing, checks it for obvious errors, formats it according to a consistent set of rules for capitalization and spacing, and displays it again. This occurs every time you enter a new line in the Module window. Microsoft Access also adds a blank line and an <span CLASS="ElementNameeln">End Function</span> statement. The <span CLASS="ElementNameeln">End Function</span> statement is always the last line in a function.
+<p CLASS="ListArt1la"><img SRC="..\images\ABAC0211.jpg"></p>
+<p CLASS="Textttext">Note that Microsoft Access adds a set of parentheses after the name of the function. Use these parentheses to enclose any arguments the function takes, if you decide that the function should take arguments.</p>
+<a NAME="4PerformingCalculationsinaVisualBasicFunction"></a>
+<p CLASS="heading4OrgHeading2h2">Performing Calculations in a Visual Basic Function</p>
+<p CLASS="Textttext">You perform calculations in Visual Basic the same way you perform calculations elsewhere in Microsoft Access<img SRC="../images/Emdash.gif" BORDER="0" VSPACE="0" HSPACE="0" WIDTH="16" HEIGHT="5">by using an expression. The difference is in the way you specify where the result of the expression goes. When you create an expression for a control on a form or for a field in a query, the result of that expression is assigned to that control or that field.
+<p CLASS="Textttext">When you perform a calculation in Visual Basic, however, it isn't obvious where the results should go. You have to explicitly assign a destination to the expression. In the case of a function, you want the result of the calculation to be the value returned by the function, so you assign the calculation to the name of the function.</p>
+<p CLASS="Arta"><img SRC="..\images\ABAC0212.jpg"></p>
+<p CLASS="Textttext">To make a function return the result of a calculation, add an expression to the function that assigns the calculation to the name of the function. For the FirstOfNextMonth function, you add the following line of code between the <span CLASS="ElementNameeln">Function</span> and <span CLASS="ElementNameeln">End</span> <span CLASS="ElementNameeln">Function</span> statements.</p>
+<p CLASS="CodeTextct">FirstOfNextMonth = DateSerial(Year(Now), Month(Now) + 1, 1)</p>
+<a NAME="4CompilingYourProcedure"></a>
+<p CLASS="heading4OrgHeading2h2">Compiling Your Procedure</p>
+<p CLASS="Textttext">Before you can run a procedure you've written, Microsoft Access must compile it. When it compiles a procedure, Microsoft Access makes a final check for errors and converts the procedure into executable format. Because Microsoft Access checks the syntax of each line as you enter it, your procedures compile very quickly.
+<p CLASS="Textttext">You don't have to explicitly compile your procedures. If you've written a <span CLASS="ElementNameeln">Function </span>procedure, you can simply use it in an expression. Then, when Microsoft Access evaluates the expression, it makes sure all the functions in the expression have been compiled, compiling any uncompiled functions. If any of those functions use other uncompiled procedures, Microsoft Access compiles those as well, and so on, until it has compiled all the code required for it to evaluate the expression. If Microsoft Access discovers an error at any point during the compilation process, it stops compiling and displays an error message.
+<p CLASS="Textttext">Although automatic compiling is convenient, you can encounter error messages when you aren't expecting them. For example, if you write a function and then use it in a form without compiling it first, you may not discover an error in the function until Microsoft Access attempts to compile it when you try to view data in the form.
+<p CLASS="Textttext">To make sure that a procedure has been compiled, you can explicitly compile the code in your database.</p>
+<p CLASS="heading9ListProcedureHeadinglproch"><span CLASS="ProcedureIconproci"><img SRC="../images/bluetri.jpg" ALIGN="LEFT" WIDTH="9" HEIGHT="17">&nbsp;&nbsp;&nbsp;</span>To compile code in all currently open forms, reports, and modules</p>
+<p CLASS="ListProcedureSingleItemlprocs"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspOn the <span CLASS="ElementNameeln">Debug</span> menu in the Module window, click <span CLASS="ElementNameeln">Compile Loaded Modules</span>.</p>
+<p CLASS="ListProcedureTextlproct">Microsoft Access compiles all procedures that are in open modules. If it encounters an error, Microsoft Access stops compiling, displays a message, and highlights the line of code that contains the error.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For information on debugging errors in your code, see Chapter 7, <a HREF="../chapters/ba07_1.htm" OnClick="SyncURL(&quot;chapters/ba07_1.htm&quot;)">&quot;Debugging Visual Basic Code.&quot;</a></p>
+<p CLASS="heading9ListProcedureHeadinglproch"><span CLASS="ProcedureIconproci"><img SRC="../images/bluetri.jpg" ALIGN="LEFT" WIDTH="9" HEIGHT="17">&nbsp;&nbsp;&nbsp;</span>To compile all code in the current database</p>
+<p CLASS="ListProcedureSingleItemlprocs"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspOn the <span CLASS="ElementNameeln">Debug</span> menu in the Module window, click <span CLASS="ElementNameeln">Compile All Modules</span> or <span CLASS="ElementNameeln">Compile And Save All Modules</span>.</p>
+<p CLASS="ListProcedureTextlproct">Microsoft Access compiles all the procedures in the database. This may take time if you have a large number of procedures or modules.
+<p CLASS="TipTexttpt"><span CLASS="TipHeadingtph">Tip</span>&nbsp;&nbsp;&amp;nbspIf you click <span CLASS="ElementNameeln">Compile And Save All Modules</span>, Microsoft Access saves all the code in your database in its compiled form.<span CLASS="EmSpaceems"> I</span>t's a good idea to save modules after you compile them, because this allows Microsoft Access to run them more quickly when you first open them in <br>the future.</p>
+<a NAME="4UsingYourFunction"></a>
+<p CLASS="heading4OrgHeading2h2">Using Your Function</p>
+<p CLASS="Textttext">If you've followed the steps in this section, you now have a working function that you can use in an expression almost anywhere in Microsoft Access. You may want to use your new function:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspIn other Visual Basic procedures that you write.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspIn the expression that defines a calculated field in a form, report, or query.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspIn the expression that defines the criteria in a query or the condition in a macro. </p>
+<p CLASS="Textttext">The following procedure shows you how to create a calculated text box on the Orders form that shows the billing date of the order. When order takers take a new order, this text box will use the FirstOfNextMonth function to automatically display the first day of the next month as the order's billing date.</p>
+<p CLASS="heading9ListProcedureHeadinglproch"><span CLASS="ProcedureIconproci"><img SRC="../images/bluetri.jpg" ALIGN="LEFT" WIDTH="9" HEIGHT="17">&nbsp;&nbsp;&nbsp;</span>To display the result of a function in a calculated text box</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">1</span>&nbsp;&nbsp;&amp;nbspOpen the Orders form in Design view.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">2</span>&nbsp;&nbsp;&amp;nbspAdd an unbound text box to the Orders form, and set its <span CLASS="ElementNameeln">Name</span> property to BillingDate.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">3</span>&nbsp;&nbsp;&amp;nbspSet its <span CLASS="ElementNameeln">ControlSource</span> property to the following expression:</p>
+<p CLASS="ListCodeText1lct1">&nbsp;&nbsp;&nbsp;=FirstOfNextMonth()</p>
+<p CLASS="ListArt1la"><img SRC="..\images\ABAC0213.jpg">
+<p CLASS="ListText1lt1">Now, when an order taker begins to enter a new order, the BillingDate text box automatically displays the first day of the month that follows the current month on the computer's system clock.
+<p CLASS="ListText1lt1"></p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>When you use a function in the property sheet, you need to include the parentheses after the function name. If the function has required arguments, you must include them inside the parentheses. For more information, see the following section, <a HREF="../chapters/ba02_3.htm#4SupplyingArgumentstoYourFunction" OnClick="SyncURL(&quot;chapters/ba02_3.htm&quot;)">&quot;Supplying Arguments to Your Function.&quot;</a></p>
+<a NAME="4SupplyingArgumentstoYourFunction"></a>
+<p CLASS="heading4OrgHeading2h2">Supplying Arguments to Your Function</p>
+<p CLASS="Textttext">Functions often take one or more arguments<img SRC="../images/Emdash.gif" BORDER="0" VSPACE="0" HSPACE="0" WIDTH="16" HEIGHT="5">values that you supply when you call the function and that the function uses to calculate the value it returns. Many of the functions supplied with Microsoft Access take arguments. The functions you write can take arguments as well.
+<p CLASS="Textttext">For example, the FirstOfNextMonth function currently returns the first day of the month that follows the current month on the computer's system clock. This works fine when an order taker enters a new order, but it's not what should be displayed in the BillingDate text box for orders that were taken in previous months. Instead, the value in the BillingDate text box should be the first day of the month that follows the value in the OrderDate text box.
+<p CLASS="Textttext">You can change the function so that it accepts an argument and then calculates the first day of the month following a date you pass to that argument. You specify the arguments for a function by placing them inside the parentheses that follow the function name.</p>
+<p CLASS="CodeTextct">Function FirstOfNextMonth (dtmAny As Date) As Date<br>&nbsp;&nbsp;&amp;nbspFirstOfNextMonth = DateSerial(Year(dtmAny), Month(dtmAny) + 1, 1)<br>End Function</p>
+<p CLASS="Textttext">In the <span CLASS="ElementNameeln">ControlSource</span> property box of the BillingDate text box, you pass the function the value in the OrderDate control, so that the function always returns the first day of the month following the month that the order was taken.</p>
+<p CLASS="Arta"><img SRC="..\images\ABAC0215.jpg"></p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For information on syntax and naming rules for arguments, search the Help index for &quot;Function statement.&quot;</p>
+<a NAME="4AddingCommentstoYourProcedure"></a>
+<p CLASS="heading4OrgHeading2h2">Adding Comments to Your Procedure</p>
+<p CLASS="Textttext">Whenever you create new procedures or modify existing code, it's a good idea to add comments that describe what the code does. Comments don't change what your code does, but they help you and other programmers understand it and they make your code considerably easier to maintain.
+<p CLASS="Textttext">Each line of a comment begins with an apostrophe ( ' ). This symbol tells Visual Basic to ignore any words that follow on that line. You can enter comments on a line by themselves, as shown in the following code, or at the end of a line of code.</p>
+<p CLASS="CodeTextct">Function FirstOfNextMonth (dtmAny As Date) As Date<br>&nbsp;&nbsp;&nbsp;' This function calculates and returns the date of<br>&nbsp;&nbsp;&nbsp;' the first day of the month following the date passed by<br>&nbsp;&nbsp;&nbsp;' the argument.<br>&nbsp;&nbsp;&nbsp;' Note that this works even if Month(dtmAny) = 12.<br>&nbsp;&nbsp;&amp;nbspFirstOfNextMonth = DateSerial(Year(dtmAny), Month(dtmAny) + 1, 1) <br>End Function</p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="ba02_4.htm" OnClick="SyncURL(&quot;chapters/ba02_4.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--
+ Generated: Mon Jun 03 13:06:22 EDT 2002 jfouffa.w3.org
+ -->
+<html lang='en-US' xml:lang="en-US" xmlns=
+"http://www.w3.org/1999/xhtml">
+<head>
+<title>Changes</title>
+<link rel='stylesheet' type='text/css' href='./spec.css' />
+<link rel='stylesheet' type='text/css' href='W3C-CR.css' />
+<link rel='next' href='idl-definitions.html' />
+<link rel='contents' href='Overview.html#contents' />
+<link rel='copyright' href='copyright-notice.html' />
+<link rel='glossary' href='glossary.html' />
+<link rel='Start' href='Overview.html' />
+<link rel='index' href='def-index.html' />
+<link rel='author' href='mailto:www-dom@w3.org' />
+<link rel='help' href='http://www.w3.org/DOM/' />
+<link rel='prev' href='html.html' />
+</head>
+<body>
+<div class='navbar' align='center'><a accesskey='p' href=
+'html.html'>previous</a> &nbsp; <a accesskey='n' href=
+'idl-definitions.html'>next</a> &nbsp; <a accesskey='c' href=
+'Overview.html#contents'>contents</a> &nbsp; <a accesskey='i' href=
+'def-index.html'>index</a> 
+
+<hr title='Navigation area separator' />
+</div>
+
+<div class='noprint' style='text-align: right'>
+<p style='font-family: monospace;font-size:small'>05 June 2002</p>
+</div>
+
+<div class='div1'><a id="Changes" name='Changes'></a> 
+
+<h1 id='Changes-h1' class='adiv1'>Appendix A: Changes</h1>
+
+<dl>
+<dt><i>Editor</i>:</dt>
+
+<dd>Philippe Le H&eacute;garet, W3C</dd>
+</dl>
+
+<div class='div2'><a id="DOMLevel1to2Changes" name=
+'DOMLevel1to2Changes'></a> 
+
+<h2 id='DOMLevel1to2Changes-h2' class='adiv2'>A.1: Changes between
+DOM Level 1 and DOM Level 2</h2>
+
+<p><b>Note:</b> The DOM Level 2 HTML module is not backward
+compatible with the DOM Level 1 HTML module.</p>
+
+<dl>
+<dt><b>OMG IDL</b></dt>
+
+<dd>The DOM Level 2 specifications are now using Corba 2.3.1
+instead of Corba 2.2.</dd>
+
+<dt><b>XHTML 1.0 support</b></dt>
+
+<dd>The DOM Level 2 HTML module supports HTML 4 as well as XHTML
+1.0 documents. Therefore, case sensitivity in methods depends on
+the <code>Document</code> supports the feature "<code>XML</code>"
+as well as "<code>HTML</code>".</dd>
+</dl>
+
+<div class='div3'><a id="DOMLevel1Changes" name=
+'DOMLevel1Changes'></a> 
+
+<h3 id='DOMLevel1Changes-h3' class='adiv3'>A.1.1: Changes to DOM
+Level 1 interfaces and exceptions</h3>
+
+<dl>
+<dt><b>Interface <a href=
+'html.html#ID-26809268'><code>HTMLDocument</code></a></b></dt>
+
+<dd>the method <code>getElementById</code> is now inherited from
+the <code>Document</code> interface [<a class='noxref normative'
+href='references.html#DOMCore'>DOM Level 2 Core</a>] where it was
+moved.</dd>
+
+<dt><b>Interface <a href=
+'html.html#ID-97790553'><code>HTMLFrameElement</code></a></b></dt>
+
+<dd>the attribute <code>contentDocument</code> was added.</dd>
+
+<dt><b>Interface <a href=
+'html.html#ID-50708718'><code>HTMLIFrameElement</code></a></b></dt>
+
+<dd>the attribute <code>contentDocument</code> was added.</dd>
+
+<dt><b>Interface <a href=
+'html.html#ID-6043025'><code>HTMLInputElement</code></a></b></dt>
+
+<dd>the attribute <code>type</code> is no longer read only.<br />
+The type of the attribute <code>size</code> was changed from
+<code>DOMString</code> to <code>unsigned long</code>.</dd>
+
+<dt><b>Interface <a href=
+'html.html#ID-9893177'><code>HTMLObjectElement</code></a></b></dt>
+
+<dd>The attribute <code>contentDocument</code> was added.<br />
+The attribute <code>form</code> was removed.</dd>
+
+<dt><b>Interface <a href=
+'html.html#ID-70901257'><code>HTMLOptionElement</code></a></b></dt>
+
+<dd>Changing the <code>defaultSelected</code> attribute does not
+reset the state of the form control.</dd>
+
+<dt><b>Interface <a href=
+'html.html#ID-24874179'><code>HTMLTextAreaElement</code></a></b></dt>
+
+<dd>Changing the <code>defaultValue</code> attribute does not reset
+the contents of the form control.</dd>
+
+<dt><b>Interface <a href=
+'html.html#ID-17701901'><code>HTMLImageElement</code></a></b></dt>
+
+<dd>The <code>lowSrc</code> attribute was removed.<br />
+The types of the attributes <code>border</code>,
+<code>height</code>, <code>hspace</code>, <code>width</code> and
+<code>vspace</code> were changed from <code>DOMString</code> to
+<code>long</code>.</dd>
+
+<dt><b>Interface <a href=
+'html.html#ID-94282980'><code>HTMLSelectElement</code></a></b></dt>
+
+<dd>The type of the attribute <code>options</code> was changed from
+<a href='html.html#ID-75708506'><code>HTMLCollection</code></a> to
+<a href=
+'html.html#HTMLOptionsCollection'><code>HTMLOptionsCollection</code></a>.<br />
+
+ The attribute <code>length</code> is no longer readonly.</dd>
+
+<dt><b>Module and package name</b></dt>
+
+<dd>The module name used in the OMG IDL is now
+<code>html2</code>.<br />
+ The package name used in the Java bindings is now
+<code>org.w3c.dom.html2</code>.</dd>
+</dl>
+</div>
+
+<!-- div3 DOMLevel1Changes -->
+<div class='div3'><a id="DOMLevel2Addons" name=
+'DOMLevel2Addons'></a> 
+
+<h3 id='DOMLevel2Addons-h3' class='adiv3'>A.1.2: New
+Interfaces</h3>
+
+<dl>
+<dt><b>Interface <a href=
+'html.html#ID-HTML-DOM'><code>HTMLDOMImplementation</code></a></b></dt>
+
+<dd>The <a href=
+'html.html#ID-HTML-DOM'><code>HTMLDOMImplementation</code></a>
+interface was added to the HTML module.</dd>
+
+<dt><b>Interface <a href=
+'html.html#HTMLOptionsCollection'><code>HTMLOptionsCollection</code></a></b></dt>
+
+<dd>The <a href=
+'html.html#HTMLOptionsCollection'><code>HTMLOptionsCollection</code></a>
+interface was added to the HTML module.</dd>
+</dl>
+</div>
+
+<!-- div3 DOMLevel2Addons --></div>
+
+<!-- div2 DOMLevel1to2Changes --></div>
+
+<!-- div1 Changes -->
+<div class='navbar' align='center'>
+<hr title='Navigation area separator' />
+<a accesskey='p' href='html.html'>previous</a> &nbsp; <a accesskey=
+'n' href='idl-definitions.html'>next</a> &nbsp; <a accesskey='c'
+href='Overview.html#contents'>contents</a> &nbsp; <a accesskey='i'
+href='def-index.html'>index</a></div>
+</body>
+</html>
+

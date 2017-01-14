@@ -1,0 +1,195 @@
+<html>
+<head>
+<title>1º Conferência de Gestão e Economia do Desporto</title>
+<meta http-equiv="Content-Type" content="text/html;">
+<!-- Fireworks MX Dreamweaver MX target.  Created Mon Mar 12 20:27:14 GMT+0000 (GMT Standard Time) 2001-->
+<script language="JavaScript">
+<!--
+function makeArray(n){
+    this.length = n;
+    for (i=1;i<=n;i++){
+        this[i]=0;
+    }
+    return this;
+}
+
+function displayDate(){
+    var this_month = new makeArray(12);
+    this_month[0]  = "Janeiro";
+    this_month[1]  = "Fevereiro";
+    this_month[2]  = "Março";
+    this_month[3]  = "Abril";
+    this_month[4]  = "Maio";
+    this_month[5]  = "Junho";
+    this_month[6]  = "Julho";
+    this_month[7]  = "Agosto";
+    this_month[8]  = "Setembro"; 
+    this_month[9]  = "Outubro";
+    this_month[10] = "Novembro";
+    this_month[11] = "Dezembro";
+    var today = new Date();
+    var day   = today.getDate();
+    var month = today.getMonth();
+    var year  = today.getYear();
+    if (year < 1900){
+        year += 1900;
+    }
+    return(this_month[month]+" "+day+", "+year);
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_preloadImages() { //v3.0
+ var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+   var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+   if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function mmLoadMenus() {
+  if (window.mm_menu_0308184112_0) return;
+  window.mm_menu_0308184112_0 = new Menu("root",76,15,"Verdana, Arial, Helvetica, sans-serif",9,"#cccccc","#cccccc","#006666","#006633","left","middle",3,0,1000,-5,7,true,true,true,0,true,true);
+  mm_menu_0308184112_0.addMenuItem("&Acirc;mbito","location='ambito.html'");
+  mm_menu_0308184112_0.addMenuItem("Destinat&aacute;rios","location='destinatario.html'");
+  mm_menu_0308184112_0.addMenuItem("Objectivos","location='objectivos.html'");
+   mm_menu_0308184112_0.bgImageUp="images/mmmenu3_76x15_up.gif";
+   mm_menu_0308184112_0.bgImageOver="images/mmmenu3_76x15_over.gif";
+   mm_menu_0308184112_0.fontWeight="bold";
+   mm_menu_0308184112_0.hideOnMouseOut=true;
+   mm_menu_0308184112_0.bgColor='#555555';
+  window.mm_menu_0308184112_1 = new Menu("root",99,15,"Verdana, Arial, Helvetica, sans-serif",9,"#cccccc","#cccccc","#006666","#006633","left","middle",3,0,1000,-5,7,true,true,true,0,true,true);
+  mm_menu_0308184112_1.addMenuItem("Keynote&nbsp;Speakers","location='keynotespeakers.html'");
+  mm_menu_0308184112_1.addMenuItem("Curr&iacute;culos","location='curriculos.html'");
+   mm_menu_0308184112_1.bgImageUp="images/mmmenu2_99x15_up.gif";
+   mm_menu_0308184112_1.bgImageOver="images/mmmenu2_99x15_over.gif";
+   mm_menu_0308184112_1.fontWeight="bold";
+   mm_menu_0308184112_1.hideOnMouseOut=true;
+   mm_menu_0308184112_1.bgColor='#555555';
+  window.mm_menu_0308184112_2 = new Menu("root",165,15,"Verdana, Arial, Helvetica, sans-serif",9,"#cccccc","#cccccc","#006666","#006633","left","middle",3,0,1000,-5,7,true,true,true,0,true,true);
+  mm_menu_0308184112_2.addMenuItem("Condi&ccedil;&otilde;es&nbsp;de&nbsp;Realiza&ccedil;&atilde;o","location='condicoesrealizacao.html'");
+  mm_menu_0308184112_2.addMenuItem("Apresenta&ccedil;&atilde;o&nbsp;de&nbsp;Comunica&ccedil;&otilde;es","location='apresentacaocomunicacoes.html'");
+  mm_menu_0308184112_2.addMenuItem("Comunica&ccedil;&otilde;es&nbsp;Admitidas","location='comunicacoesadmitidas.html'");
+   mm_menu_0308184112_2.bgImageUp="images/mmmenu1_165x15_up.gif";
+   mm_menu_0308184112_2.bgImageOver="images/mmmenu1_165x15_over.gif";
+   mm_menu_0308184112_2.fontWeight="bold";
+   mm_menu_0308184112_2.hideOnMouseOut=true;
+   mm_menu_0308184112_2.bgColor='#555555';
+
+  mm_menu_0308184112_2.writeMenus();
+} // mmLoadMenus()
+
+//-->
+</script>
+<script language="JavaScript1.2" src="mm_menu.js"></script>
+</head>
+<body bgcolor="#ffffff"  onLoad="MM_preloadImages('images/index_r2_c2_f2.jpg','images/index_r2_c4_f2.jpg','images/index_r2_c6_f2.jpg','images/index_r2_c8_f2.jpg','images/index_r2_c11_f2.jpg','images/index_r2_c14_f2.jpg','images/index_r6_c13_f2.jpg');">
+<script language="JavaScript1.2">mmLoadMenus();</script>
+<font face="Verdana" size="1"> 
+<script language="javascript">document.write(displayDate());</script>
+</font> 
+<table border="0" cellpadding="0" cellspacing="0" width="700">
+<!-- fwtable fwsrc="mainpt.png" fwbase="index.jpg" fwstyle="Dreamweaver" fwdocid = "742308039" fwnested="0" -->
+  <tr>
+   <td><img src="images/spacer.gif" width="9" height="1" border="0" alt=""></td>
+   <td><img src="images/spacer.gif" width="115" height="1" border="0" alt=""></td>
+   <td><img src="images/spacer.gif" width="1" height="1" border="0" alt=""></td>
+   <td><img src="images/spacer.gif" width="73" height="1" border="0" alt=""></td>
+   <td><img src="images/spacer.gif" width="38" height="1" border="0" alt=""></td>
+   <td><img src="images/spacer.gif" width="4" height="1" border="0" alt=""></td>
+   <td><img src="images/spacer.gif" width="108" height="1" border="0" alt=""></td>
+   <td><img src="images/spacer.gif" width="4" height="1" border="0" alt=""></td>
+   <td><img src="images/spacer.gif" width="70" height="1" border="0" alt=""></td>
+   <td><img src="images/spacer.gif" width="39" height="1" border="0" alt=""></td>
+   <td><img src="images/spacer.gif" width="3" height="1" border="0" alt=""></td>
+   <td><img src="images/spacer.gif" width="106" height="1" border="0" alt=""></td>
+   <td><img src="images/spacer.gif" width="4" height="1" border="0" alt=""></td>
+   <td><img src="images/spacer.gif" width="3" height="1" border="0" alt=""></td>
+   <td><img src="images/spacer.gif" width="111" height="1" border="0" alt=""></td>
+   <td><img src="images/spacer.gif" width="4" height="1" border="0" alt=""></td>
+   <td><img src="images/spacer.gif" width="8" height="1" border="0" alt=""></td>
+   <td><img src="images/spacer.gif" width="1" height="1" border="0" alt=""></td>
+  </tr>
+
+  <tr>
+   <td colspan="17"><img name="index_r1_c1" src="images/index_r1_c1.jpg" width="700" height="3" border="0" alt=""></td>
+   <td><img src="images/spacer.gif" width="1" height="3" border="0" alt=""></td>
+  </tr>
+  <tr>
+   <td rowspan="6"><img name="index_r2_c1" src="images/index_r2_c1.jpg" width="9" height="417" border="0" alt=""></td>
+   <td colspan="2"><a href="index.html" onMouseOut="MM_swapImgRestore();" onMouseOver="MM_swapImage('index_r2_c2','','images/index_r2_c2_f2.jpg',1);"><img name="index_r2_c2" src="images/index_r2_c2.jpg" width="116" height="24" border="0" alt=""></a></td>
+   <td colspan="2"><a href="#" onMouseOut="MM_swapImgRestore();MM_startTimeout();" onMouseOver="MM_showMenu(window.mm_menu_0308184112_0,0,24,null,'index_r2_c4');MM_swapImage('index_r2_c4','','images/index_r2_c4_f2.jpg',1);"><img name="index_r2_c4" src="images/index_r2_c4.jpg" width="111" height="24" border="0" alt=""></a></td>
+   <td colspan="2"><a href="#" onMouseOut="MM_swapImgRestore();MM_startTimeout();" onMouseOver="MM_showMenu(window.mm_menu_0308184112_1,4,24,null,'index_r2_c6');MM_swapImage('index_r2_c6','','images/index_r2_c6_f2.jpg',1);"><img name="index_r2_c6" src="images/index_r2_c6.jpg" width="112" height="24" border="0" alt=""></a></td>
+   <td colspan="3"><a href="programa.html" onMouseOut="MM_swapImgRestore();" onMouseOver="MM_swapImage('index_r2_c8','','images/index_r2_c8_f2.jpg',1);"><img name="index_r2_c8" src="images/index_r2_c8.jpg" width="113" height="24" border="0" alt=""></a></td>
+   <td colspan="3"><a href="#" onMouseOut="MM_swapImgRestore();MM_startTimeout();" onMouseOver="MM_showMenu(window.mm_menu_0308184112_2,3,24,null,'index_r2_c11');MM_swapImage('index_r2_c11','','images/index_r2_c11_f2.jpg',1);"><img name="index_r2_c11" src="images/index_r2_c11.jpg" width="113" height="24" border="0" alt=""></a></td>
+   <td colspan="3"><a href="organizacao.html" onMouseOut="MM_swapImgRestore();" onMouseOver="MM_swapImage('index_r2_c14','','images/index_r2_c14_f2.jpg',1);"><img name="index_r2_c14" src="images/index_r2_c14.jpg" width="118" height="24" border="0" alt=""></a></td>
+   <td rowspan="6"><img name="index_r2_c17" src="images/index_r2_c17.jpg" width="8" height="417" border="0" alt=""></td>
+   <td><img src="images/spacer.gif" width="1" height="24" border="0" alt=""></td>
+  </tr>
+  <tr>
+   <td colspan="15"><img name="index_r3_c2" src="images/index_r3_c2.jpg" width="683" height="176" border="0" usemap="#m_index_r3_c2" alt=""></td>
+   <td><img src="images/spacer.gif" width="1" height="176" border="0" alt=""></td>
+  </tr>
+  <tr>
+   <td rowspan="4" colspan="3"><img name="index_r4_c2" src="images/index_r4_c2.jpg" width="189" height="217" border="0" usemap="#m_index_r4_c2" alt=""></td>
+    <td colspan="5"><a href="inscricao/inscricao.aspx"><img name="index_r4_c5" src="images/index_r4_c5.jpg" width="224" height="27" border="0" alt="Inscrição..." usemap="#index_r4_c5Map"></a></td> 
+    <td rowspan="2" colspan="7"><img name="index_r4_c10" src="images/index_r4_c10.jpg" width="270" height="176" border="0" usemap="#m_index_r4_c10" alt=""></td>
+   <td><img src="images/spacer.gif" width="1" height="27" border="0" alt=""></td>
+  </tr>
+  <tr>
+   <td rowspan="3" colspan="5"><img name="index_r5_c5" src="images/index_r5_c5.jpg" width="224" height="190" border="0" usemap="#m_index_r5_c5" alt=""></td>
+   <td><img src="images/spacer.gif" width="1" height="149" border="0" alt=""></td>
+  </tr>
+  <tr>
+   <td rowspan="2" colspan="3"><img name="index_r6_c10" src="images/index_r6_c10.jpg" width="148" height="41" border="0" usemap="#m_index_r6_c10" alt=""></td>
+   <td colspan="3"><a href="sportmanagementconference.html" onMouseOut="MM_swapImgRestore();" onMouseOver="MM_swapImage('index_r6_c13','','images/index_r6_c13_f2.jpg',1);"><img name="index_r6_c13" src="images/index_r6_c13.jpg" width="118" height="24" border="0" alt=""></a></td>
+   <td rowspan="2"><img name="index_r6_c16" src="images/index_r6_c16.jpg" width="4" height="41" border="0" alt=""></td>
+   <td><img src="images/spacer.gif" width="1" height="24" border="0" alt=""></td>
+  </tr>
+  <tr>
+   <td colspan="3"><img name="index_r7_c13" src="images/index_r7_c13.jpg" width="118" height="17" border="0" alt=""></td>
+   <td><img src="images/spacer.gif" width="1" height="17" border="0" alt=""></td>
+  </tr>
+<map name="m_index_r3_c2">
+<area shape="circle" coords="56,52, 50" href="http://www.ipsantarem.pt" title="Instituto Politécnico de Santarém" alt="Instituto Politécnico de Santarém" >
+<area shape="rect" coords="525,124,580,194" href="http://www.cm-riomaior.pt" title="Câmara Municipal de Rio Maior" alt="Câmara Municipal de Rio Maior" >
+<area shape="rect" coords="583,124,683,214" href="http://www.cefd.pt" title="Centro de Estudos e Formação Desportiva" alt="Centro de Estudos e Formação Desportiva" >
+<area shape="circle" coords="55,166, 48" href="http://www.esdrm.pt" title="Escola Superior de Desporto de Rio Maior" alt="Escola Superior de Desporto de Rio Maior" >
+</map>
+<map name="m_index_r4_c2">
+<area shape="rect" coords="7,173,287,200" href="http://www.mct.pt" title="Fundação para a ciência e tecnologias" alt="Fundação para a ciência e tecnologias" >
+<area shape="circle" coords="56,109, 47" href="http://pascal.iseg.utl.pt/~cief/index.html" title="Centro de Investigação sobre Economia Financeira" alt="Centro de Investigação sobre Economia Financeira" >
+<area shape="circle" coords="55,-10, 48" href="http://www.esdrm.pt" title="Escola Superior de Desporto de Rio Maior" alt="Escola Superior de Desporto de Rio Maior" >
+</map>
+<map name="m_index_r4_c10">
+<area shape="rect" coords="-6,172,42,209" href="http://www.sportuguese.pt/fundesporto" title="Fundação do Desporto" alt="Fundação do Desporto" >
+<area shape="rect" coords="112,-52,167,18" href="http://www.cm-riomaior.pt" title="Câmara Municipal de Rio Maior" alt="Câmara Municipal de Rio Maior" >
+<area shape="rect" coords="151,63,241,138" href="http://www.ccr-lvt.pt" title="Comissão de Coordenação da Região de Lisboa e Vale do Tejo" alt="Comissão de Coordenação da Região de Lisboa e Vale do Tejo" >
+<area shape="rect" coords="170,-52,270,38" href="http://www.cefd.pt" title="Centro de Estudos e Formação Desportiva" alt="Centro de Estudos e Formação Desportiva" >
+  </map>
+<map name="m_index_r5_c5">
+<area shape="rect" coords="218,145,266,182" href="http://www.sportuguese.pt/fundesporto" title="Fundação do Desporto" alt="Fundação do Desporto" >
+<area shape="circle" coords="158,163, 19" href="http://www.cefd.pt" title="Centro de Estudos e Formação Desportiva" alt="Centro de Estudos e Formação Desportiva" >
+<area shape="rect" coords="-182,146,98,173" href="http://www.mct.pt" title="Fundação para a ciência e tecnologias" alt="Fundação para a ciência e tecnologias" >
+</map>
+<map name="m_index_r6_c10">
+<area shape="rect" coords="-6,-4,42,33" href="http://www.sportuguese.pt/fundesporto" title="Fundação do Desporto" alt="Fundação do Desporto" >
+</map>
+</table>
+<p align="left"><font face="Verdana" size="1"> </font> </p>
+<map name="index_r4_c5Map">
+  <area shape="rect" coords="5,2,219,26" href="inscricao/inscricao.aspx">
+</map>
+</body>
+</html>

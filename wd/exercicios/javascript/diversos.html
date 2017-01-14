@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+	<title>Exemplo Javascript</title>
+</head>
+
+<body>
+<p>O meu primeiro script</p>
+<script language="JavaScript1.2">
+	//Isto é um comentário 
+	//Vou escrever no documento
+	document.write("Olá browser  \n" + "Internet explorer");
+	document.write("<a href='http://www.netscape.com'> Netscape</a>");
+	document.write("<p></p>");
+	var idade = 17;
+	if (idade>=18){
+		document.write("Maior");
+	}
+	else
+	{
+		document.write("menor");
+	}
+	
+	//um ciclo for para escrever idade 20x
+	for (var i=1;i<=20;i++)
+	{
+		document.write(i);
+	}
+	//um ciclo while
+	i=1;
+	while ( i <= 10)
+	{
+		document.write("<p>"+ i +"</p>");
+		i++;
+	}
+	
+	//alert('Isto é uma mensagem');
+	
+	if (confirm('Deseja Sair')){
+		alert('vou sair!');
+	}
+	else 	{
+		alert('vou ficar!');
+	}
+	;
+
+	//i = prompt('Diga o seu nome','escreva o seu nome aqui');
+	//document.write("Benvindo ao nosso site " + i);
+
+</script>
+</body>
+</html>

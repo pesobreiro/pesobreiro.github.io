@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>Implementing Database Replication</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba20_1.htm" OnClick="SyncURL(&quot;chapters/ba20_1.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<a NAME="3ImplementingDatabaseReplication"></a>
+<p CLASS="heading3OrgHeading1h1">Implementing Database Replication</p>
+<p CLASS="Textttext">You can implement database replication by using:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspMicrosoft Access menu commands.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspBriefcase replication in Windows 95.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspMicrosoft Replication Manager.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspData Access Objects (DAO) programming.</p>
+<p CLASS="Textttext">The first three replication tools provide an easy-to-use visual interface. You can use DAO to build replication directly into your application's code.</p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>If some users of your database need to continue using it in its original form, make a copy of your database before you implement database replication.</p>
+<a NAME="4ReplicationMenuCommands"></a>
+<p CLASS="heading4OrgHeading2h2">Replication Menu Commands</p>
+<p CLASS="Textttext">Microsoft Access provides replication menu commands that you can use while working in your databases. By using the <span CLASS="ElementNameeln">Replication</span> command on the <span CLASS="ElementNameeln">Tools</span> menu, you can:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspCreate a replica.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspSynchronize your replica with another member of the replica set.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspResolve synchronization conflicts by using the Conflict Resolver.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspRecover the replica set's Design Master, if necessary.</p>
+<p CLASS="Textttext">One of the easiest ways to become familiar with the concepts and procedures associated with database replication is to experiment with the Microsoft Access replication commands. To convert a database to a Design Master and create a replica, open the existing database, click the <span CLASS="ElementNameeln">Tools</span> menu, point to <span CLASS="ElementNameeln">Replication</span>, and then click <span CLASS="ElementNameeln">Create Replica</span>. You can then explore the changes made to the design of your database and the similarities between the replica and the Design Master. Next, make a change to the data in the replica and a change to a table design in the Design Master, and then click <span CLASS="ElementNameeln">Synchronize Now </span>(<span CLASS="ElementNameeln">Tools</span> menu,<span CLASS="ElementNameeln"> Replication</span> submenu). You can then open the replica and the Design Master to confirm that the changes appear in the other member of the replica set.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on the changes that are made to the design of your database when you convert it to a Design Master, see <a HREF="../chapters/ba20_4.htm" OnClick="SyncURL(&quot;chapters/ba20_4.htm&quot;)">&quot;Changes to Your Database&quot;</a> later in this chapter.</p>
+<a NAME="4BriefcaseReplication"></a>
+<p CLASS="heading4OrgHeading2h2">Briefcase Replication</p>
+<p CLASS="Textttext">Microsoft Windows 95 Briefcase replication is a convenient way to implement replication on a laptop computer. To use Briefcase replication, drag the Microsoft Access database (.mdb) file from a shared folder on the corporate network to the My Briefcase icon on your laptop computer's desktop. This converts the database to a Design Master and creates a replica in your Briefcase. You can disconnect your laptop from the network and make changes to the data in the replica. When you are finished working on the files on the laptop computer, reconnect to the corporate network. You can then synchronize the changes between the replica on your laptop and the Design Master on the network by double-clicking the My Briefcase icon and clicking <span CLASS="ElementNameeln">Update All</span> on the <span CLASS="ElementNameeln">Briefcase</span> menu.
+<p CLASS="Textttext">During the conversion process, Briefcase gives you the opportunity to make a backup copy of the original database file. The backup copy has the same file name as the original, except that it has a .bak file name extension instead of an .mdb file name extension. It is kept in the same folder as the original database file. Save the backup copy and use it only in the event that you can't use a replica to re-create the replica set.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on re-creating a replica set, see <a HREF="../chapters/ba20_5.htm#4UsingReplicasInsteadofBackups" OnClick="SyncURL(&quot;chapters/ba20_5.htm&quot;)">&quot;Using Replicas Instead of Backups&quot;</a> later in this chapter. </p>
+<a NAME="4ReplicationManager">
+<p CLASS="heading4OrgHeading2h2">Replication Manager</p></a>
+<p CLASS="Textttext">Replication Manager provides a visual interface for converting databases, making additional replicas, viewing the relationships between replicas, and setting the properties of replicas. Replication Manager is provided in Microsoft Office 97, Developer Edition. You can use Replication Manager to:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspManage a large number of replicas.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspSynchronize data over the Internet or an internal Web (intranet).</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspSupport laptop users who aren't always connected to a network. Laptop users can specify a network file location where synchronization information is deposited for later processing.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspCreate replicas of more than one database.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspSet schedules for synchronizing replicas. You can schedule synchronizations ahead of time so that they can occur unattended at anticipated times. You can also synchronize replicas at any time with a single menu command.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspConfigure synchronizations to send data, receive data, or send and receive data.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspAccess additional tools for troubleshooting.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on Replication Manager, search the Help index for &quot;Replication Manager.&quot;</p>
+<a NAME="4ReplicationwithDAO"></a>
+<p CLASS="heading4OrgHeading2h2">Replication with DAO</p>
+<p CLASS="Textttext">The DAO programming interface provides methods and properties that you can use to implement several Briefcase replication features in your Visual Basic code. You can use DAO to:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspConvert a database to a Design Master.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspCreate and populate additional replicas.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspCreate and populate partial replicas.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspSynchronize replicas.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspGet and set specific properties of a replicated database.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspResolve conflicts and errors.</p>
+<p CLASS="Textttext">Although DAO requires programming, it gives you the ability to customize your replication system. Generally, you use DAO under the following circumstances:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspWhen you need to synchronize replicas when certain events occur. For example, you may want to trigger synchronization whenever a replica receives updated product pricing information from headquarters. You can use DAO to provide event-based replication.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspWhen you need to distribute your replicated database to users who have minimal computer expertise. In this case, you can use DAO to design a simplified replication interface or to make replication completely transparent to users.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspWhen you need to create a replica that contains only part of the data, you can create a partial replica. For example, you may want to create a replica that only contains a subset of a large amount of data to minimize the disk space you use and to maximize performance.</p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>If you use DAO to convert your database to a Design Master and then create an additional replica, be sure to open the Design Master first and synchronize the replicas before you open the second replica.</p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="ba20_3.htm" OnClick="SyncURL(&quot;chapters/ba20_3.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

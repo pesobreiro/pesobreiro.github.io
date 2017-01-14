@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+<META name="GENERATOR" content="IBM WebSphere Homepage Builder V5.0.1 for Windows">
+<title>Configuring WebSphere to use HTTPS and SSL</title>
+<link rel="stylesheet" type="text/css" href="../../wasstyle.css">
+</head>
+
+<body>
+<H3><A href="index.htm#TOC10" name="configssl">Configuring WebSphere to use HTTPS and SSL</A></H3>
+<P>To support the use of secure access with
+the IBM WebSphere UDDI Registry, you need
+to configure WebSphere to use HTTPS and SSL.
+This section describes a simple way in which
+you can do this for WebSphere Application
+Server AE, using the WebSphere sample certificates.
+<B>Please note that this configuration should
+never be used in a production environment.</B> A more comprehensive way of setting up SSL
+is to configure SSL through the web server,
+as described in section <cite>6.6.18.1a.7 Configuring SSL in WebSphere Application
+Server</cite> in the WebSphere Application Server Advanced
+Edition InfoCenter.
+</p>
+<p>
+<b>Note:</b> The following instructions are for WebSphere
+Application Server AE; if you are using AEd
+then refer to the AEd documentation.</P>
+<p>
+To configure WebSphere to use HTTPS and SSL,
+complete the following steps:
+<OL>
+  <LI>Set aliases of your Virtual Host:
+  <OL>
+    <LI>On the WAS AE Administrative Console, in
+    the tree on the left-hand side click
+    on <B>Virtual Hosts...-&gt; Default Host</B> (or whichever host you have set up the UDDI
+    Registry to use if you are not using the
+    default one.)
+    <LI>On the &quot;General&quot; tab, add a new
+    host alias, called &quot;*:9443&quot;. (9443
+    is the default WAS SSL port.) This is in
+    addition to the aliases &quot;*:9080&quot;
+    and &quot;*:80&quot; which should already
+    be setup. (Make sure that there are colons
+    and not full stops between the * and the
+    number.)
+    <LI>Click &quot;Apply&quot;.
+  </OL>
+  <LI>Add a new HTTP transport
+  <OL>
+    <LI>In the tree, go to <B>Nodes... -&gt; machine name... -&gt; Application
+    Servers... -&gt; Default Server</B> (or whichever server you have set up to
+    use if not the default one.)
+    <LI>Go to the &quot;Service&quot; tab, select
+    &quot;Web Container Service&quot;, and press
+    &quot;Edit properties&quot;.
+    <LI>Go to the &quot;Transport&quot; tab. There
+    should be at least one transport already
+    defined, with host=* and port=9080.
+    <LI>Press &quot;Add&quot; to add a new transport.
+    On the &quot;General&quot; tab, enter
+    &quot;*&quot;
+    as the host and &quot;9443&quot; as the
+    port.
+    Check the &quot;Enable SSL&quot; and
+    &quot;Use
+    Global SSL Default Configuration&quot;
+    checkboxes.
+    Press &quot;OK&quot;.
+    <LI>Press &quot;OK&quot; again.
+    <LI>Press &quot;Apply&quot;.
+  </OL>
+  <LI>Check Default SSL Configuration - needed
+  for Samples
+  <P>The SSL configuration uses key files and
+  trust files. If you haven't changed these
+  then the initial default values are adequate
+  and will work with the samples. However,
+  if you have changed the trust and key values,
+  then you will either need to edit the SOAP
+  sample code, or check that your SSL configuration
+  is set up appropriately as follows:</P>
+  <OL>
+    <LI>Go to the <B>Console... -&gt; Security Center</B> menu.
+    <LI>Go to the &quot;General tab and click the
+    ellipsis &quot;...&quot; button next to &quot;Default
+    SSL Configuration&quot;.
+    <LI>Go to the &quot;General&quot; tab. The settings
+    should be:
+    <UL>
+      <LI>Key file name = ${WAS_HOME}/etc/DummyServerKeyFile.jks
+      (the password for this file is &quot;WebAS&quot;)
+      <LI>Key file format = JKS
+      <LI>Trust file name = ${WAS_HOME}/etc/DummyServerTrustFile.jks
+      (the password for this file is &quot;WebAS&quot;)
+      <LI>Trust file format = JKS
+      <P>You don't need to enable client authentication
+      and the security level can be left as &quot;high&quot;.</P>
+    </UL>
+  </OL>
+  <LI><P>For SOAP samples to work, you need to ensure
+  that the Client JDK is either the one shipped
+  with IBM WebSphere Application Server or
+  a later IBM JDK.:</P>
+  <UL>
+    <LI>For Windows - ensure that C:\WebSphere\AppServer\java\bin
+    is present in the PATH statement before and
+    other JDK's
+    <LI>For Linux - ensure that /opt/WebSphere/AppServer/java/bin
+    is present in the PATH statement before and
+    other JDK's
+  </UL>
+  <P><B>NOTE:</B> You <B>must</B> use the IBM WebSphere supplied JDK or a
+  later level of the IBM JDK.</P>
+  <P>For Windows, the default system path can
+  be set via <B>Control Panel ...-&gt; Settings ...-&gt;
+  System ...-&gt; Advanced Properties ...-&gt;
+  Environment Variables</B><BR>
+  Alternatively, this can be accomplished just
+  for the shell where you plan to run the samples
+  by modifying the path within the shell:</P>
+  <H5>Windows</H5>
+  <TABLE width="691" bgcolor="#cccccc">
+    <TBODY>
+      <TR>
+        <TD width="18"></TD>
+        <TD width="657">set path=c:\WebSphere\AppServer\java\bin;%path%</TD>
+      </TR>
+    </TBODY>
+  </TABLE>
+  <H5>Linux</H5>
+  <TABLE width="694" bgcolor="#cccccc">
+    <TBODY>
+      <TR>
+        <TD width="18"></TD>
+        <TD width="660">export PATH=/opt/WebSphere\AppServer/java/bin:$PATH</TD>
+      </TR>
+    </TBODY>
+  </TABLE>
+  
+  <LI>Stop and restart the Default Server.
+</OL>
+
+
+
+</body>
+</html>

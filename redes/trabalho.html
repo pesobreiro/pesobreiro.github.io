@@ -1,0 +1,95 @@
+<%@ Page Language="C#" ContentType="text/html" ResponseEncoding="iso-8859-1" %>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" title="Default" href="../index.css">
+</head>
+<body>
+<h2>Trabalho</h2>
+<p>O trabalho a ser desenvolvido baseia-se na elabora&ccedil;&atilde;o de um relat&oacute;rio
+    que aborda a instala&ccedil;&atilde;o e configura&ccedil;&atilde;o de servidores,
+    que ser&aacute; realizado por cada um dos grupos de trabalho. <br>
+  Os temas de trabalho s&atilde;o sobre:</p>
+<ul>
+  <li>    Pol&iacute;ticas para Active Directory</li>
+  <li>    Instala&ccedil;&atilde;o remota e response files</li>
+  <li>    Internet Security and Acceleration Server (ISA) 2000</li>
+  <li>    Exchange Server</li>
+  <li>Instalar um servidor em Linux que funcione como PDC (Windows NT) numa rede
+    com utilizadores 2000 </li>
+</ul>
+<p><strong> Pol&iacute;ticas para Active Directory</strong></p>
+<p>Implementar um servidor que permita que controle e realize a gest&atilde;o de uma
+  rede dos utilizadores, que dever&atilde;o ter as seguintes restri&ccedil;&otilde;es:</p>
+<ol>
+  <li>	S&oacute; t&ecirc;m acesso ao Word, Excel e ao Outlook express</li>
+  <li>T&ecirc;m definido como imagem do ambiente de trabalho o logotipo da empresa,
+    bem como um screensaver apropriado. </li>
+  <li>N&atilde;o podem alterar as defini&ccedil;&otilde;es do ambiente de trabalho</li>
+  <li>N&atilde;o t&ecirc;m permiss&otilde;es para instalar programas</li>
+  <li>N&atilde;o t&ecirc;m acesso ao painel de controle</li>
+  <li>N&atilde;o t&ecirc;m acesso &agrave; linha de comandos</li>
+  <li>N&atilde;o podem executar aplica&ccedil;&otilde;es a partir do menu iniciar</li>
+</ol>
+<p>Dever&atilde;o ser implementadas medidas que permita a utiliza&ccedil;&atilde;o de Roaming profile,
+  suportando o acesso do utilizador &agrave;s suas defini&ccedil;&otilde;es pessoais mesmo que seja
+  realizado a substitui&ccedil;&atilde;o por motivos de avaria.</p>
+<p>Por &uacute;ltimo, dever&atilde;o estar implementadas medidas de seguran&ccedil;a para os users
+  que permita o acesso s&oacute; &agrave; sua &aacute;rea de trabalho e realize os backups dos dados
+  peri&oacute;dicamente do servidor. </p>
+<p><strong>Instala&ccedil;&atilde;o remota e response files </strong></p>
+<p>Requisitos para instala&ccedil;&atilde;o remota:</p>
+<ol>
+  <li>Implementar um servidor RIS</li>
+  <li>Criar as imagens com o RIPPrep</li>
+</ol>
+<p>Answer files:</p>
+<ol>
+  <li> Criar answer file que permita uma instala&ccedil;&atilde;o por parte do t&eacute;cnico com
+    menos interac&ccedil;&atilde;o poss&iacute;vel</li>
+  <li>Garantir a resposta &agrave;s quest&otilde;es colocadas durante o setup</li>
+</ol>
+<p><strong>Internet Security and Acceleration Server</strong></p>
+<p>Instalar um servidor com o ISA server onde ser&atilde;o adicionadas algumas restri&ccedil;&otilde;es,
+  nomeadamente:</p>
+<ul>
+  <li>Cortar o acesso a alguns sites onde se apresenta uma p&aacute;gina alternativa
+    a convidar o utilizador a aceder a outros conte&uacute;dos, sugerindo inclusiv&eacute;
+    alguns sites.</li>
+  <li>S&oacute; permitir o acesso atrav&eacute;s dos protocolos http, smtp e pop aos utilizadores
+    durante o per&iacute;odo normal de trabalho.</li>
+  <li>Permitir aos utilizadores durante a hora de almo&ccedil;o a utiliza&ccedil;&atilde;o sem restri&ccedil;&otilde;es</li>
+</ul>
+<p>O servidor ISA dever&aacute; ser preparado para dois tipos de utilizadores os <strong>users</strong> onde
+  se aplicam as restri&ccedil;&otilde;es referidas anteriormente e os <strong>administrators</strong>,
+  que n&atilde;o t&ecirc;m qualquer restri&ccedil;&atilde;o.</p>
+<p><strong>Exchange server</strong></p>
+<p>O Exchange server dever&aacute; ser implementado com duas contas e testado com envio
+  e recep&ccedil;&atilde;o de mensagens entre os dois utilizadores.</p>
+<p>Com as seguintes restri&ccedil;&otilde;es:</p>
+<ul>
+  <li>A caixa do correio est&aacute; limitada a 5Mb</li>
+  <li>N&atilde;o &eacute; permitido o Relay no servidor</li>
+  <li>Os utilizadores podem enviar e receber mensagens de qualquer destinat&aacute;rio </li>
+</ul>
+<p>N&atilde;o se devem esquecer de implementar o connector e salvaguardar as devidas
+  restri&ccedil;&otilde;es.</p>
+<p><strong>Servidor Samba</strong></p>
+<p>Quem quiser ser diferente, pode implementar um servidor linux com o samba
+  que implemente as funcionalidades de um PDC, falar com o professor para receber
+  documenta&ccedil;&atilde;o de apoio. </p>
+<p>  <strong>Considera&ccedil;&otilde;es gerais </strong><br>
+  O trabalho ser&aacute; realizado utilizando os recursos existentes na sala de
+            inform&aacute;tica e baseia-se na utiliza&ccedil;&atilde;o de um Servidor e de
+            um Posto. O trabalho ser&aacute; validado atrav&eacute;s verifica&ccedil;&atilde;o,
+            se os objectivos definidos foram atingidos. <br>
+  Ap&oacute;s a selec&ccedil;&atilde;o do tema do trabalho e Dever&aacute; ser
+            enviado por e-mail para <a href="mailto:sobreiro@esdrm.pt">sobreiro@esdrm.pt</a> onde dever&aacute; ser identificado
+            o tema do Trabalho de Inform&aacute;tica e os elementos que constituem
+o grupo.&nbsp;</p>
+<p>Para al&eacute;m da documenta&ccedil;&atilde;o j&aacute; indicada, podem utilizar a <a href="http://www.microsoft.com">www.microsoft.com </a>e  <a href="http://www.labmice.com">www.labmice.com</a> . </p>
+<p align="center"><a href="javascript:window.history.back()">Voltar</a></p>
+</body>
+</html>

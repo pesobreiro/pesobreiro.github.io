@@ -1,0 +1,63 @@
+<!doctype html public" -//IETF//DTD 	HTML//EN">
+<HTML>
+
+<HEAD>
+<SCRIPT LANGUAGE="JAVASCRIPT">
+<!-- 
+
+function checkbrowse()
+{
+var bn, bv, ver
+bn = navigator.appName;
+bv = parseInt(navigator.appVersion);
+if (bn=="Microsoft Internet Explorer" && bv<"4") ver = "IE3";
+else ver = "NotIE3";
+if (ver=="IE3") top.cont.parts.location.href="part20.htm";
+if (ver=="NotIE3") top.cont.parts.location.href="nav/part20.htm";
+}
+//-->
+</SCRIPT>
+<TITLE>Edit an Object</TITLE>
+<META NAME="GENERATOR" 	CONTENT="Merch. System HTML Development">
+<META NAME="AUTHOR" 	CONTENT="Merch. System HTML Development">
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" OnLoad="checkbrowse();">
+<Font Face ="Verdana, Arial, Helvetica">
+
+<P align=right><SMALL>
+<A HREF="p209822.htm" Target="TOC"><IMG SRC="prev.gif"ALT="Previous page"BORDER=0></A>
+<A HREF="p20981.htm" Target="TOC"><IMG SRC="toc20.gif"ALT="Contents"BORDER=0></A>
+<A HREF="p209824.htm" Target="TOC"><IMG SRC="Next.gif"ALT="Next 
+page"BORDER=0></A></SMALL></P>
+<H3>Edit an Object</H3>
+
+<P>
+As your project progresses and the project information changes, you’ll inevitably need to edit some of the 
+linked objects that you’ve included in your project file, to correspond to these changes. For example, if you 
+have included a spreadsheet about costs as an object in your project file, you’ll want to edit the spreadsheet 
+data whenever costs change.
+<P>
+Editing an embedded object has no effect on the source file from which the object was copied. Likewise, 
+changes made to the source file are not reflected in objects that have been embedded in Microsoft Project files. 
+Linked objects work differently, however, because editing the source information in the source file changes the 
+linked information in the destination program.
+<P>
+If you decide to cancel the link while saving these edits, you delete the source-destination relationship, but the 
+existing information remains intact in the destination file. At that point, you can make any changes you want to 
+the object in the destination file. Because it is no longer a linked object, those changes will no longer be 
+reflected in the source file.
+<P>
+<B><B><IMG SRC="bluetri.gif">	To edit an object in Microsoft Project</B></B>
+<OL>
+<LI>Double-click the object.
+<LI>Edit the object using the source program commands.
+<LI>On the <B>File</B> menu of the source program, click <B>Exit and Update</B> (or the program’s 
+equivalent command).
+</OL>
+<P align = Center > <A HREF="http://www.microsoft.com/misc/cpyright.htm"><EM>&#169;1996-1997 Microsoft Corporation. All rights 
+reserved.</EM></A></P>
+</BODY>
+</FONT>
+</HTML>
+

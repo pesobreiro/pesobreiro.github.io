@@ -1,0 +1,67 @@
+<!doctype html public" -//IETF//DTD 	HTML//EN">
+<HTML>
+
+<HEAD>
+<SCRIPT LANGUAGE="JAVASCRIPT">
+<!-- 
+
+function checkbrowse()
+{
+var bn, bv, ver
+bn = navigator.appName;
+bv = parseInt(navigator.appVersion);
+if (bn=="Microsoft Internet Explorer" && bv<"4") ver = "IE3";
+else ver = "NotIE3";
+if (ver=="IE3") top.cont.parts.location.href="part11.htm";
+if (ver=="NotIE3") top.cont.parts.location.href="nav/part11.htm";
+}
+//-->
+</SCRIPT>
+<TITLE>Add Lead Time to Tasks</TITLE>
+<META NAME="GENERATOR" 	CONTENT="Merch. System HTML Development">
+<META NAME="AUTHOR" 	CONTENT="Merch. System HTML Development">
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" OnLoad="checkbrowse();">
+<Font Face ="Verdana, Arial, Helvetica">
+
+<P align=right><SMALL>
+<A HREF="p119816.htm" Target="TOC"><IMG SRC="prev.gif"ALT="Previous page"BORDER=0></A>
+<A HREF="p11981.htm" Target="TOC"><IMG SRC="toc11.gif"ALT="Contents"BORDER=0></A>
+<A HREF="p119818.htm" Target="TOC"><IMG SRC="Next.gif"ALT="Next 
+page"BORDER=0></A></SMALL></P>
+<H2>Add Lead Time to Tasks</H2>
+
+<P>
+Most likely, you’ve linked many of your tasks with a finish-to-start (FS) link, so that the successor task doesn’t 
+start until its predecessor task finishes. In some cases, that dependency might be absolutely necessary and 
+true to life. A clock can’t be hung before it’s built. But sometimes the work on a successor task can begin 
+before its predecessor task is entirely finished. The work can overlap. If the museum crew prepares one gallery 
+wall at a time, maybe they can start hanging clocks before all the walls are finished.
+<P>
+The way to make FS-linked tasks overlap is to add lead time to the link. By adding lead time, you cause the 
+successor task to begin on an earlier date. If the successor task is a critical task, adding lead time allows the 
+project to end on an earlier date. You might find that you can overlap tasks so much that they start at the same 
+time. If that’s the case, you should consider changing the FS link to a start-to-start (SS) link, instead of adding 
+lead time.
+<P>
+<B><B><img src="bluetri.gif">	To add lead time</B></B>
+<OL>
+<LI>On the <B>View Bar</B>, click <B>Gantt Chart</B> <img src="gant.gif">.
+<LI>In the <B>Task Name</B> field, select the successor task you want, and then click <B>Task 
+Information</B> <img src="resi.gif">.
+<LI>Click the <B>Predecessors</B> tab.
+<LI>In the <B>Lag</B> field, type the lead time you want, as a duration (type a negative number) or as a 
+percentage of the predecessor task duration (type the negative completion percentage).
+<BR>For example, if the predecessor task has a duration of 2 days and you want the successor task to begin 1 
+day before the predecessor task is completed, type –50% in the Lag field.
+<BR>Lead time units are minute, hour, day, and week. To specify elapsed duration, precede the time unit with 
+the letter &quot;e&quot; (for example, <I>edays</I> for elapsed days). Elapsed days include weekends and 
+other nonworking days.
+</OL>
+<P align = Center > <A HREF="http://www.microsoft.com/misc/cpyright.htm"><EM>&#169;1996-1997 Microsoft Corporation. All rights 
+reserved.</EM></A></P>
+</BODY>
+</FONT>
+</HTML>
+

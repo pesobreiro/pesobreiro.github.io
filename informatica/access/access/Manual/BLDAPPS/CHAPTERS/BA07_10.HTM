@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>Debugging Event Procedures</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba07_9.htm" OnClick="SyncURL(&quot;chapters/ba07_9.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<a NAME="3DebuggingEventProcedures"></a>
+<p CLASS="heading3OrgHeading1h1">Debugging Event Procedures</p>
+<p CLASS="Textttext">Certain events that are a normal part of using Microsoft Windows can pose special challenges when you're debugging an application that uses event procedures. It's important to be aware of these issues so they don't confuse you or complicate the debugging process.
+<p CLASS="Textttext">If you keep in mind that suspending execution can put events at odds with what your application expects, you can usually find solutions. You may need to use the <span CLASS="ElementNameeln">Print </span>method of the <span CLASS="ElementNameeln">Debug </span>object instead of breakpoints to monitor values of properties or variables. You may also need to change the values of variables that depend on the sequence of events.
+<p CLASS="Textttext">If you suspend execution during a MouseDown event procedure, you can release the mouse button or use the mouse to do any number of tasks. However, when you continue execution, the application assumes that the mouse button is still pressed down. A MouseUp event doesn't occur until you press the mouse button down again and release it.
+<p CLASS="Textttext">When you press the mouse button down after you continue execution, you suspend execution in the MouseDown event procedure again if it contains a breakpoint. In this scenario, the MouseUp event never occurs. The typical solution is to remove the breakpoint in the MouseDown event procedure.
+<p CLASS="Textttext">If you suspend execution during a KeyDown event procedure, considerations similar to those during a MouseDown event procedure apply. If you retain a breakpoint in a KeyDown event procedure, a KeyUp event may never occur.
+<p CLASS="Textttext">If you suspend execution during a GotFocus or LostFocus event procedure, the timing of system messages may cause inconsistent results. You can avoid this problem by using the <span CLASS="ElementNameeln">Print </span>method of the <span CLASS="ElementNameeln">Debug </span>object instead of suspending execution in GotFocus or LostFocus event procedures.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on using events, see Chapter 6, <a HREF="../chapters/ba06_1.htm" OnClick="SyncURL(&quot;chapters/ba06_1.htm&quot;)">&quot;Responding to Events.&quot;</a></p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="ba07_11.htm" OnClick="SyncURL(&quot;chapters/ba07_11.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

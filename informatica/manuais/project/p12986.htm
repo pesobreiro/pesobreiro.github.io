@@ -1,0 +1,71 @@
+<!doctype html public" -//IETF//DTD 	HTML//EN">
+<HTML>
+
+<HEAD>
+<SCRIPT LANGUAGE="JAVASCRIPT">
+<!-- 
+
+function checkbrowse()
+{
+var bn, bv, ver
+bn = navigator.appName;
+bv = parseInt(navigator.appVersion);
+if (bn=="Microsoft Internet Explorer" && bv<"4") ver = "IE3";
+else ver = "NotIE3";
+if (ver=="IE3") top.cont.parts.location.href="part12.htm";
+if (ver=="NotIE3") top.cont.parts.location.href="nav/part12.htm";
+}
+//-->
+</SCRIPT>
+<TITLE>Delay a Task Yourself</TITLE>
+<META NAME="GENERATOR" 	CONTENT="Merch. System HTML Development">
+<META NAME="AUTHOR" 	CONTENT="Merch. System HTML Development">
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" OnLoad="checkbrowse();">
+<Font Face ="Verdana, Arial, Helvetica">
+
+<P align=right><SMALL>
+<A HREF="p12985.htm" Target="TOC"><IMG SRC="prev.gif"ALT="Previous page"BORDER=0></A>
+<A HREF="p12981.htm" Target="TOC"><IMG SRC="toc12.gif"ALT="Contents"BORDER=0></A>
+<A HREF="p12987.htm" Target="TOC"><IMG SRC="Next.gif"ALT="Next 
+page"BORDER=0></A></SMALL></P>
+<H2>Delay a Task Yourself</H2>
+
+<P>
+When you add delay time to a task, you delay not only that task but also its successors. If you add a delay to a 
+critical task, for instance, you can cause the project finish date to occur later. Allowing Microsoft Project to 
+automatically resolve resource overallocations can add delay time to both critical and noncritical tasks that 
+have overallocated resources, with sometimes unpredictable results. If you have just a few overallocated 
+resources, you might get better results if you add delay to tasks yourself.
+<P>
+When you add delay to a task manually, you can check the effect on the resource’s allocation, and then adjust 
+the delay further if needed. So that you don’t affect the finish date of your schedule, first delay tasks that 
+won’t delay the project finish date (those with total slack). Add delay time only up to the amount of slack time 
+for each task. It’s useful also to delay noncritical tasks before tasks on the critical path.
+<P>
+Experiment with adding delay times to different tasks to see the effect on your schedule. Note that delay time is 
+always given in elapsed time and that nonworking time is included in the delay time.
+<P>
+<B><B><img src="bluetri.gif">	To delay a task with an overallocated resource</B></B>
+<OL>
+<LI>On the <B>View Bar</B>, click <B>More Views </B><img src="more.gif">.
+<LI>In the <B>Views</B> list, click <B>Resource Allocation</B>, and then click <B>Apply</B>.
+<LI>On the <B>View</B> menu, point to <B>Toolbars</B>, and then click <B>Resource Management</B>.
+<LI>In the top pane, select an overallocated resource in the <B>Resource Name</B> field.
+<LI>In the bottom pane,<B> </B>select a task that is assigned to the resource during the time the resource is 
+overallocated in the<B> Task Name</B> field.
+<LI>In the <B>Leveling Delay</B> field, type the duration by which you want to delay the task.
+<BR>To avoid delaying successor tasks and the finish date of the schedule, type a value that is not greater 
+than the total slack for that task. You can see the total slack for a task by inserting the Total Slack field into the 
+Leveling Gantt view in the bottom pane.
+<LI>Press <font size=-1>ENTER</font>.
+<BR>The amounts of delay and slack for a task are indicated by thin lines next to each task.
+<LI>If the resource is still overallocated, increase the delay value.
+</OL>
+<P align = Center > <A HREF="http://www.microsoft.com/misc/cpyright.htm"><EM>&#169;1996-1997 Microsoft Corporation. All rights 
+reserved.</EM></A></P>
+</BODY>
+</FONT>
+</HTML>
+

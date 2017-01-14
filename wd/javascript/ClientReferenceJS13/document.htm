@@ -1,0 +1,1933 @@
+<HTML>
+<HEAD>
+<TITLE>
+</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="date.htm">Previous</A>
+ | <A HREF="event.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT><BR><BR>
+<HR>
+
+<H1><A NAME="document"></A>
+<A NAME="1193137">
+ document
+</A></H1>
+<A NAME="1193138">
+Contains information about the current document, and provides methods for displaying HTML output to the user.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left COLSPAN=2 ROWSPAN=1><P><A NAME="1193141">
+<I>Client-side object</I></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193145">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193147">
+JavaScript 1.0</A></P><P><A NAME="1199589">
+</A></P><P><A NAME="1199590">
+JavaScript 1.1: added <CODE>onBlur</CODE> and <CODE>onFocus</CODE> syntax; added <CODE>applets</CODE>, <CODE>domain</CODE>, <CODE>embeds</CODE>, <CODE>forms</CODE>, <I><CODE>formName</CODE></I>, <CODE>images</CODE>, and <CODE>plugins</CODE> properties.</A></P><P><A NAME="1199591">
+</A></P><P><A NAME="1199592">
+JavaScript 1.2: added <CODE><A HREF="document.htm#1222722">classes</A></CODE>, <CODE><A HREF="document.htm#1225120">ids</A></CODE>, <A HREF="document.htm#1193842"><CODE>layers</CODE></A>, and <A HREF="document.htm#1221745"><CODE>tags</CODE></A><CODE> </CODE>properties; added <A HREF="document.htm#1195550"><CODE>captureEvents</CODE></A>, <A HREF="document.htm#1226818"><CODE>contextual</CODE></A>, <A HREF="document.htm#1195981"><CODE>getSelection</CODE></A>, <A HREF="document.htm#1196006"><CODE>handleEvent</CODE></A>, <A HREF="document.htm#1196601"><CODE>releaseEvents</CODE></A>, and <A HREF="document.htm#1196632"><CODE>routeEvent</CODE></A> methods.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193148">
+ Created by
+</A></H4>
+
+<A NAME="1193151">
+The HTML <A HREF="http://developer.netscape.com/docs/manuals/htmlguid/index.htm?content=tags2.htm#tags:BODY" TARGET="_top"><CODE>BODY</A></CODE> tag. The JavaScript runtime engine creates a <CODE>document</CODE> object for each HTML page. Each <A HREF="window.htm#1200703"><CODE>window</CODE></A> object has a <CODE>document</CODE> property whose value is a <CODE>document</CODE> object.</A></P>
+<A NAME="1193155">
+To define a <CODE>document</CODE> object, use standard HTML syntax for the <CODE>BODY</CODE> tag with the addition of JavaScript event handlers.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193156">
+ Event handlers
+</A></H4>
+
+<A NAME="1193157">
+The <CODE>onBlur</CODE>, <CODE>onFocus</CODE>, <CODE>onLoad</CODE>, and <CODE>onUnload</CODE> event handlers are specified in the <CODE>BODY</CODE> tag but are actually event handlers for the <A HREF="window.htm#1200703"><CODE>window</CODE></A> object. The following are event handlers for the <CODE>document</CODE> object.</A></P>
+<ul><LI><A NAME="1193164">
+<A HREF="handlers.htm#1119876"><CODE>onClick</CODE></A>
+</A></LI><LI><A NAME="1193168">
+<A HREF="handlers.htm#1119971"><CODE>onDblClick</CODE></A>
+</A></LI><LI><A NAME="1193172">
+<A HREF="handlers.htm#1120313"><CODE>onKeyDown</CODE></A>
+</A></LI><LI><A NAME="1193176">
+<A HREF="handlers.htm#1120393"><CODE>onKeyPress</CODE></A>
+</A></LI><LI><A NAME="1193180">
+<A HREF="handlers.htm#1120473"><CODE>onKeyUp</CODE></A>
+</A></LI><LI><A NAME="1193184">
+<A HREF="handlers.htm#1120635"><CODE>onMouseDown</CODE></A>
+</A></LI><LI><A NAME="1193188">
+<A HREF="handlers.htm#1120892"><CODE>onMouseUp</CODE></A>
+</A></LI></ul>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193189">
+ Description
+</A></H4>
+
+<A NAME="1193190">
+An HTML document consists of <CODE>HEAD</CODE> and <CODE>BODY</CODE> tags. The <CODE>HEAD</CODE> tag includes information on the document's title and base (the absolute URL base to be used for relative URL links in the document). The <CODE>BODY</CODE> tag encloses the body of a document, which is defined by the current URL. The entire body of the document (all other HTML elements for the document) goes within the <CODE>BODY</CODE> tag.</A></P>
+<A NAME="1193194">
+You can load a new document by setting the <A HREF="window.htm#1202507"><CODE>window.location</CODE></A> property.</A></P>
+<A NAME="1193195">
+You can clear the document pane (and remove the text, form elements, and so on so they do not redisplay) with these statements:</A></P>
+<PRE><A NAME="1193196">document.close();<br>document.open();<br>document.write();</A></PRE><A NAME="1193197">
+You can omit the <CODE>document.open</CODE> call if you are writing text or HTML, since <CODE>write</CODE> does an implicit open of that MIME type if the document stream is closed.</A></P>
+<A NAME="1193198">
+You can refer to the anchors, forms, and links of a document by using the <CODE>anchors</CODE>, <CODE>forms</CODE>, and <CODE>links</CODE> arrays. These arrays contain an entry for each anchor, form, or link in a document and are properties of the <CODE>document</CODE> object.</A></P>
+<A NAME="1193199">
+Do not use <CODE>location</CODE> as a property of the <CODE>document</CODE> object; use the <CODE>document.URL</CODE> property instead. The <CODE>document.location</CODE> property, which is a synonym for <CODE>document.URL</CODE>, is deprecated.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193200">
+ Property Summary
+</A></H4>
+
+<A NAME="1193346">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1193203">
+<B>Property
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1193205">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193210"><A HREF="document.htm#1193438"><CODE>alinkColor</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193212">
+A string that specifies the <CODE>ALINK</CODE> attribute.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193217"><A HREF="document.htm#1193482"><CODE>anchors</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193219">
+An array containing an entry for each anchor in the document.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193224"><A HREF="document.htm#1193507"><CODE>applets</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193226">
+An array containing an entry for each applet in the document.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193231"><A HREF="document.htm#1193532"><CODE>bgColor</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193233">
+A string that specifies the <CODE>BGCOLOR</CODE> attribute.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1226471"><A HREF="document.htm#1222722"><CODE>classes</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1226473">
+Creates a <A HREF="style.htm#1193137"><CODE>Style</CODE></A> object that can specify the styles of HTML tags with a specific CLASS attribute.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193238"><A HREF="document.htm#1193577"><CODE>cookie</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193240">
+Specifies a cookie.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193245"><A HREF="document.htm#1193628"><CODE>domain</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193247">
+Specifies the domain name of the server that served a document.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193252"><A HREF="document.htm#1193658"><CODE>embeds</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193254">
+An array containing an entry for each plug-in in the document.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193259"><A HREF="document.htm#1193704"><CODE>fgColor</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193261">
+A string that specifies the <CODE>TEXT</CODE> attribute.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193266"><I><A HREF="document.htm#1193744"></I><CODE>formName</CODE><I></A></I></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193268">
+A separate property for each named form in the document.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193273"><A HREF="document.htm#1193750"><CODE>forms</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193275">
+An array a containing an entry for each form in the document.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1230373"><A HREF="document.htm#1221167"><CODE>height</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1230375">
+The height of the document, in pixels.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1226511"><A HREF="document.htm#1225120"><CODE>ids</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1226513">
+Creates a <A HREF="style.htm#1193137"><CODE>Style</CODE></A> object that can specify the style of individual HTML tags.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193280"><A HREF="document.htm#1226315"><CODE>images</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193282">
+An array containing an entry for each image in the document.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193287"><A HREF="document.htm#1193811"><CODE>lastModified</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193289">
+A string that specifies the date the document was last modified.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193294"><A HREF="document.htm#1193842"><CODE>layers</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193296">
+Array containing an entry for each layer within the document.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193301"><A HREF="document.htm#1193876"><CODE>linkColor</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193303">
+A string that specifies the <CODE>LINK</CODE> attribute.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193308"><A HREF="document.htm#1193918"><CODE>links</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193310">
+An array containing an entry for each link in the document.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193315"><A HREF="document.htm#1193949"><CODE>plugins</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193317">
+An array containing an entry for each plug-in in the document.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193322"><A HREF="document.htm#1193980"><CODE>referrer</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193324">
+A string that specifies the URL of the calling document.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1226538"><A HREF="document.htm#1221745"><CODE>tags</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1226540">
+Creates a <A HREF="style.htm#1193137"><CODE>Style</CODE></A> object that can specify the styles of HTML tags.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193329"><A HREF="document.htm#1194011"><CODE>title</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193331">
+A string that specifies the contents of the <CODE>TITLE</CODE> tag.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193336"><A HREF="document.htm#1194041"><CODE>URL</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193338">
+A string that specifies the complete URL of a document.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193343"><A HREF="document.htm#1194076"><CODE>vlinkColor</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193345">
+A string that specifies the <CODE>VLINK</CODE> attribute.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1221729"><A HREF="document.htm#1221484"><CODE>width</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1221731">
+The width of the document, in pixels.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193347">
+ Method Summary
+</A></H4>
+
+<A NAME="1202311">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1193350">
+<B>Method
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1193352">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193357"><A HREF="document.htm#1195550"><CODE>captureEvents</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193359">
+Sets the document to capture all events of the specified type.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193364"><A HREF="document.htm#1197324"><CODE>close</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193366">
+Closes an output stream and forces data to display.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1228256"><A HREF="document.htm#1226818"><CODE>contextual</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1228258">
+Uses contextual selection criteria to specify a <A HREF="style.htm#1193137"><CODE>Style</CODE></A> object that can set the style of individual HTML tags.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193371"><A HREF="document.htm#1195981"><CODE>getSelection</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193373">
+Returns a string containing the text of the current selection.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193378"><A HREF="document.htm#1196006"><CODE>handleEvent</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193380">
+Invokes the handler for the specified event. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193385"><A HREF="document.htm#1196317"><CODE>open</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193387">
+Opens a stream to collect the output of <CODE>write</CODE> or <CODE>writeln</CODE> methods.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193392"><A HREF="document.htm#1196601"><CODE>releaseEvents</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193394">
+Sets the window or document to release captured events of the specified type, sending the event to objects further along the event hierarchy.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193400"><A HREF="document.htm#1196632"><CODE>routeEvent</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193402">
+Passes a captured event along the normal event hierarchy.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193407"><A HREF="document.htm#1221642"><CODE>write</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193409">
+Writes one or more HTML expressions to a document in the specified window.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193414"><A HREF="document.htm#1194456"><CODE>writeln</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193416">
+Writes one or more HTML expressions to a document in the specified window and follows them with a newline character.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+<A NAME="1208447">
+In addition, this object inherits the <A HREF="object.htm#1193628"><CODE>watch</CODE></A> and <A HREF="object.htm#1193499"><CODE>unwatch</CODE></A> methods from <A HREF="object.htm#1193136"><CODE>Object</CODE></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193418">
+ Examples
+</A></H4>
+
+<A NAME="1193419">
+The following example creates two frames, each with one document. The document in the first frame contains links to anchors in the document of the second frame. Each document defines its colors.</A></P>
+<A NAME="1193420">
+<CODE>doc0.html</CODE>, which defines the frames, contains the following code:</A></P>
+<PRE><A NAME="1193421">&lt;HTML&gt;<br>&lt;HEAD&gt;<br>&lt;TITLE&gt;Document object example&lt;/TITLE&gt;<br>&lt;/HEAD&gt;<br>&lt;FRAMESET COLS="30%,70%"&gt;<br>&lt;FRAME SRC="doc1.html" NAME="frame1"&gt;<br>&lt;FRAME SRC="doc2.html" NAME="frame2"&gt;<br>&lt;/FRAMESET&gt;<br>&lt;/HTML&gt;</A></PRE><A NAME="1193422">
+<CODE>doc1.html</CODE>, which defines the content for the first frame, contains the following code:</A></P>
+<PRE><A NAME="1193423">&lt;HTML&gt;<br>&lt;SCRIPT&gt;<br>&lt;/SCRIPT&gt;<br>&lt;BODY<br>&nbsp;&nbsp;&nbsp;BGCOLOR="antiquewhite"<br>&nbsp;&nbsp;&nbsp;TEXT="darkviolet"<br>&nbsp;&nbsp;&nbsp;LINK="fuchsia"<br>&nbsp;&nbsp;&nbsp;ALINK="forestgreen"<br>&nbsp;&nbsp;&nbsp;VLINK="navy"&gt;<br>&lt;P&gt;&lt;B&gt;Some links&lt;/B&gt;<br>&lt;LI&gt;&lt;A HREF="doc2.html#numbers" TARGET="frame2"&gt;Numbers&lt;/A&gt;<br>&lt;LI&gt;&lt;A HREF="doc2.html#colors" TARGET="frame2"&gt;Colors&lt;/A&gt;<br>&lt;LI&gt;&lt;A HREF="doc2.html#musicTypes" TARGET="frame2"&gt;Music types&lt;/A&gt;<br>&lt;LI&gt;&lt;A HREF="doc2.html#countries" TARGET="frame2"&gt;Countries&lt;/A&gt;<br>&lt;/BODY&gt;<br>&lt;/HTML&gt;</A></PRE><A NAME="1193424">
+<CODE>doc2.html</CODE>, which defines the content for the second frame, contains the following code:</A></P>
+<PRE><A NAME="1193425">&lt;HTML&gt;<br>&lt;SCRIPT&gt;<br>&lt;/SCRIPT&gt;<br>&lt;BODY<br>&nbsp;&nbsp;&nbsp;BGCOLOR="oldlace" onLoad="alert('Hello, World.')"<br>&nbsp;&nbsp;&nbsp;TEXT="navy"&gt;<br>&lt;P&gt;&lt;A NAME="numbers"&gt;&lt;B&gt;Some numbers&lt;/B&gt;&lt;/A&gt;<br>&lt;UL&gt;&lt;LI&gt;one<br>&lt;LI&gt;two<br>&lt;LI&gt;three<br>&lt;LI&gt;four&lt;/UL&gt;<br>&lt;P&gt;&lt;A NAME="colors"&gt;&lt;B&gt;Some colors&lt;/B&gt;&lt;/A&gt;<br>&lt;UL&gt;&lt;LI&gt;red<br>&lt;LI&gt;orange<br>&lt;LI&gt;yellow<br>&lt;LI&gt;green&lt;/UL&gt;<br>&lt;P&gt;&lt;A NAME="musicTypes"&gt;&lt;B&gt;Some music types&lt;/B&gt;&lt;/A&gt;<br>&lt;UL&gt;&lt;LI&gt;R&amp;B<br>&lt;LI&gt;Jazz<br>&lt;LI&gt;Soul<br>&lt;LI&gt;Reggae&lt;/UL&gt;<br>&lt;P&gt;&lt;A NAME="countries"&gt;&lt;B&gt;Some countries&lt;/B&gt;&lt;/A&gt;<br>&lt;UL&gt;&lt;LI&gt;Afghanistan<br>&lt;LI&gt;Brazil<br>&lt;LI&gt;Canada<br>&lt;LI&gt;Finland&lt;/UL&gt;<br>&lt;/BODY&gt;<br>&lt;/HTML&gt;</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193427">
+ See also
+</A></H4>
+
+<A NAME="1193434">
+<A HREF="frame.htm#1193137"><CODE>Frame</CODE></A>, <A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193438">
+alinkColor
+</A></H2>
+
+<A NAME="1193439">
+A string specifying the color of an active link (after mouse-button down, but before mouse-button up).<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193442">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193447">
+<A HREF="document.htm#1193137"><CODE>document</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193449">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193451">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193452">
+ Description
+</A></H4>
+
+<A NAME="1193453">
+The <CODE>alinkColor</CODE> property is expressed as a hexadecimal RGB triplet or as a string literal (see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>). This property is the JavaScript reflection of the <CODE>ALINK</CODE> attribute of the <CODE>BODY</CODE> tag.</A></P>
+<A NAME="1193461">
+If you express the color as a hexadecimal RGB triplet, you must use the format <CODE>rrggbb</CODE>. For example, the hexadecimal RGB values for salmon are <CODE>red=FA</CODE>, <CODE>green=80</CODE>, and <CODE>blue=72</CODE>, so the RGB triplet for salmon is <CODE>"FA8072"</CODE>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193462">
+ Examples
+</A></H4>
+
+<A NAME="1193463">
+The following example sets the color of active links using a string literal:</A></P>
+<PRE><A NAME="1193464">document.alinkColor="aqua"</A></PRE><A NAME="1193465">
+The following example sets the color of active links to aqua using a hexadecimal triplet:</A></P>
+<PRE><A NAME="1193466">document.alinkColor="00FFFF"</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193467">
+ See also
+</A></H4>
+
+<A NAME="1193477">
+<A HREF="document.htm#1193532"><CODE>document.bgColor</CODE></A>, <A HREF="document.htm#1193704"><CODE>document.fgColor</CODE></A>, <A HREF="document.htm#1193876"><CODE>document.linkColor</CODE></A>, <A HREF="document.htm#1194076"><CODE>document.vlinkColor</CODE></A> </A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193482">
+anchors
+</A></H2>
+
+<A NAME="1193499">
+An array of objects corresponding to named anchors in source order.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193485">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193490">
+<A HREF="document.htm#1193137"><CODE>document</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left COLSPAN=2 ROWSPAN=1><P><A NAME="1193492">
+<I>Read-only</I></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193496">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193498">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193500">
+ Description
+</A></H4>
+
+<A NAME="1193501">
+You can refer to the <CODE>Anchor</CODE> objects in your code by using the <CODE>anchors</CODE> array. This array contains an entry for each <CODE>A</CODE> tag containing a <CODE>NAME</CODE> attribute in a document; these entries are in source order. For example, if a document contains three named anchors whose <CODE>NAME</CODE> attributes are <CODE>anchor1</CODE>, <CODE>anchor2</CODE>, and <CODE>anchor3</CODE>, you can refer to the anchors either as:</A></P>
+<PRE><A NAME="1193502">document.anchors["anchor1"]<br>document.anchors["anchor2"]<br>document.anchors["anchor3"]</A></PRE><A NAME="1193503">
+or as:</A></P>
+<PRE><A NAME="1200270">document.anchors[0]<br>document.anchors[1]<br>document.anchors[2]</A></PRE><A NAME="1200271">
+To obtain the number of anchors in a document, use the <CODE>length</CODE> property: <CODE>document.anchors.length</CODE>. If a document names anchors in a systematic way using natural numbers, you can use the <CODE>anchors</CODE> array and its <CODE>length</CODE> property to validate an anchor name before using it in operations such as setting <CODE>location.hash</CODE>.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193507">
+applets
+</A></H2>
+
+<A NAME="1193524">
+An array of objects corresponding to the applets in a document in source order.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193510">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193515">
+<A HREF="document.htm#1193137"><CODE>document</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left COLSPAN=2 ROWSPAN=1><P><A NAME="1193517">
+<I>Read-only</I></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193521">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193523">
+JavaScript 1.1</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193525">
+ Description
+</A></H4>
+
+<A NAME="1193526">
+You can refer to the applets in your code by using the <CODE>applets</CODE> array. This array contains an entry for each <CODE>Applet</CODE> object (<CODE>APPLET</CODE> tag) in a document; these entries are in source order. For example, if a document contains three applets whose <CODE>NAME</CODE> attributes are <CODE>app1</CODE>, <CODE>app2</CODE>, and <CODE>app3</CODE>, you can refer to the anchors either as:</A></P>
+<PRE><A NAME="1193527">document.applets["app1"]<br>document.applets["app2"]<br>document.applets["app3"]</A></PRE><A NAME="1193528">
+or as:</A></P>
+<PRE><A NAME="1220563">document.applets[0]<br>document.applets[1]<br>document.applets[2]</A></PRE><A NAME="1220564">
+To obtain the number of applets in a document, use the <CODE>length</CODE> property: <CODE>document.applets.length</CODE>.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193532">
+bgColor
+</A></H2>
+
+<A NAME="1193545">
+A string specifying the color of the document background.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193535">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193540">
+<A HREF="document.htm#1193137"><CODE>document</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193542">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193544">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193546">
+ Description
+</A></H4>
+
+<A NAME="1193547">
+The <CODE>bgColor</CODE> property is expressed as a hexadecimal RGB triplet or as a string literal (see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>). This property is the JavaScript reflection of the <CODE>BGCOLOR</CODE> attribute of the <CODE>BODY</CODE> tag. The default value of this property is set by the user with the preferences dialog box.</A></P>
+<A NAME="1193555">
+If you express the color as a hexadecimal RGB triplet, you must use the format <CODE>rrggbb</CODE>. For example, the hexadecimal RGB values for salmon are <CODE>red=FA</CODE>, <CODE>green=80</CODE>, and <CODE>blue=72</CODE>, so the RGB triplet for <CODE>salmon</CODE> is <CODE>"FA8072"</CODE>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193556">
+ Examples
+</A></H4>
+
+<A NAME="1193557">
+The following example sets the color of the document background to aqua using a string literal:</A></P>
+<PRE><A NAME="1193558">document.bgColor="aqua"</A></PRE><A NAME="1193559">
+The following example sets the color of the document background to aqua using a hexadecimal triplet:</A></P>
+<PRE><A NAME="1193560">document.bgColor="00FFFF"</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193561">
+ See also
+</A></H4>
+
+<A NAME="1193571">
+<A HREF="document.htm#1193438"><CODE>document.alinkColor</CODE></A>, <A HREF="document.htm#1193704"><CODE>document.fgColor</CODE></A>, <A HREF="document.htm#1193876"><CODE>document.linkColor</CODE></A>, <A HREF="document.htm#1194076"><CODE>document.vlinkColor</CODE></A> </A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1195550">
+captureEvents
+</A></H2>
+
+<A NAME="1195563">
+Sets the document to capture all events of the specified type.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195553">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195558">
+<A HREF="document.htm#1193137"><CODE>document</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195560">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195562">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195564">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1195565">captureEvents(<I>eventType</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1195566">
+ Parameters
+</A></H4>
+
+<A NAME="1195572">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1195569">eventType</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1195571">
+The type of event to be captured. The available event types are listed with the <CODE>event</CODE> object.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195573">
+ Description
+</A></H4>
+
+<A NAME="1195574">
+When a window with frames wants to capture events in pages loaded from different locations (servers), you need to use <A HREF="window.htm#1201687"><CODE>window.captureEvents</CODE></A> in a signed script and precede it with <A HREF="window.htm#1202163"><CODE>window.enableExternalCapture</CODE></A>. For more information and an example, see <A HREF="window.htm#1202163"><CODE>window.enableExternalCapture</CODE></A>. </A></P>
+<A NAME="1200081">
+<CODE>captureEvents</CODE> works in tandem with <CODE>releaseEvents</CODE>, <CODE>routeEvent</CODE>, and <CODE>handleEvent</CODE>. For more information on events, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1222722">
+classes
+</A></H2>
+
+<A NAME="1222735">
+Creates a <A HREF="style.htm#1193137"><CODE>Style</CODE></A> object that can specify the styles of HTML tags with a specific <CODE>CLASS</CODE> attribute.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1222725">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1222730">
+<A HREF="document.htm#1193137"><CODE>document</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1222732">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1222734">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1222736">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1222737">document.classes.<I>className</I>.<I>tagName</I></A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1222738">
+ Parameters
+</A></H4>
+
+<A NAME="1222744">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1223059">className</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1223061">
+The case-insensitive value of the <CODE>CLASS</CODE> attribute of the specified HTML tag in <I><CODE>tagName</CODE></I>.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1222741">tagName</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1222743">
+The case-insensitive name of any HTML tag, such as <CODE>H1</CODE> or <CODE>BLOCKQUOTE</CODE>. If the value of <I><CODE>tagName</CODE></I> is <CODE>all</CODE>, <I><CODE>tagName</CODE></I> refers to all HTML tags.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1222745">
+ Description
+</A></H4>
+
+<A NAME="1223237">
+Use the <CODE>classes</CODE> property to specify the style of HTML tags that have a specific <CODE>CLASS</CODE> attribute. For example, you can specify that the color of the <CODE>GreenBody</CODE> class of both the <CODE>P</CODE> or the <CODE>BLOCKQUOTE</CODE> tags is green. See the <A HREF="style.htm#1193137"><CODE>Style</CODE></A> object for a description of the style properties you can specify for <CODE>classes</CODE>.</A></P>
+<A NAME="1222748">
+If you use the <CODE>classes</CODE> property within the <CODE>STYLE</CODE> tag (instead of within the <CODE>SCRIPT</CODE> tag), you can optionally omit <CODE>document</CODE> from the <CODE>classes</CODE> syntax. The <CODE>classes</CODE> property always applies to the current <A HREF="document.htm#1193137"><CODE>document</CODE></A> object.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1222749">
+ Examples
+</A></H4>
+
+<A NAME="1224426">
+This example sets the color of all tags using the <CODE>GreenBody</CODE> <CODE>CLASS</CODE> attribute to green:</A></P>
+<PRE><A NAME="1224428">&lt;STYLE TYPE="text/javascript"&gt;<br>&nbsp;&nbsp;&nbsp;classes.GreenBody.all.color="green"<br>&lt;/STYLE&gt;</A></PRE><A NAME="1222752">
+Notice that you can omit the document object within the <CODE>STYLE</CODE> tag. Within the <CODE>SCRIPT</CODE> tag, you must specify the document object as follows:</A></P>
+<PRE><A NAME="1224610">&lt;SCRIPT LANGUAGE="JavaScript1.2"&gt;<br>&nbsp;&nbsp;&nbsp;document.classes.GreenBody.all.color="green"<br>&lt;/SCRIPT&gt;</A></PRE><A NAME="1224611">
+In this example, text appearing within either of the following tags appears green:</A></P>
+<PRE><A NAME="1224655">&lt;P CLASS="GreenBody"&gt;<br>&lt;BLOCKQUOTE CLASS="GreenBody"&gt;</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1228052">
+ See also
+</A></H4>
+
+<A NAME="1228062">
+<A HREF="document.htm#1226818"><CODE>document.contextual</CODE></A>, <A HREF="document.htm#1225120"><CODE>document.ids</CODE></A>, <A HREF="document.htm#1221745"><CODE>document.tags</CODE></A>, <A HREF="style.htm#1193137"><CODE>Style</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1197324">
+close
+</A></H2>
+
+<A NAME="1195603">
+Closes an output stream and forces data sent to layout to display.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195593">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195598">
+<A HREF="document.htm#1193137"><CODE>document</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195600">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195602">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195604">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1195605">close()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1195606">
+ Parameters
+</A></H4>
+
+<A NAME="1195607">
+None.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195608">
+ Description
+</A></H4>
+
+<A NAME="1221027">
+The <CODE>close</CODE> method closes a stream opened with the <CODE>document.open</CODE> method. If the stream was opened to layout, the <CODE>close</CODE> method forces the content of the stream to display. Font style tags, such as <CODE>BIG</CODE> and <CODE>CENTER</CODE>, automatically flush a layout stream.</A></P>
+<A NAME="1195610">
+The <CODE>close</CODE> method also stops the "meteor shower" in the Netscape icon and displays Document: Done in the status bar.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195611">
+ Examples
+</A></H4>
+
+<A NAME="1195612">
+The following function calls <CODE>document.close</CODE> to close a stream that was opened with <CODE>document.open</CODE>. The <CODE>document.close</CODE> method forces the content of the stream to display in the window.</A></P>
+<PRE><A NAME="1195613">function windowWriter1() {<br>&nbsp;&nbsp;&nbsp;var myString = "Hello, world!"<br>&nbsp;&nbsp;&nbsp;msgWindow.document.open()<br>&nbsp;&nbsp;&nbsp;msgWindow.document.write(myString + "&lt;P&gt;")<br>&nbsp;&nbsp;&nbsp;msgWindow.document.close()<br>}</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1195614">
+ See also
+</A></H4>
+
+<A NAME="1226816">
+<A HREF="document.htm#1196317"><CODE>document.open</CODE></A>, <A HREF="document.htm#1221642"><CODE>document.write</CODE></A>, <A HREF="document.htm#1194456"><CODE>document.writeln</CODE></A> </A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1226818">
+contextual
+</A></H2>
+
+<A NAME="1226831">
+Uses contextual selection criteria to specify a <A HREF="style.htm#1193137"><CODE>Style</CODE></A> object that can set the style of individual HTML tags.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1226821">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1226826">
+<A HREF="document.htm#1193137"><CODE>document</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1226828">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1226830">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1226601">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1226602">contextual(<I>context1</I>, ...[<I>contextN</I>,] <I>affectedStyle</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1227032">
+ Parameters
+</A></H4>
+
+<A NAME="1227038">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1227035">context1, ...[contextN]</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1227037">
+The <A HREF="style.htm#1193137"><CODE>Style</CODE></A> objects, described by <A HREF="document.htm#1222722"><CODE>document.classes</CODE></A> or <A HREF="document.htm#1221745"><CODE>document.tags</CODE></A>, that establish the context for the affected <A HREF="style.htm#1193137"><CODE>Style</CODE></A> object.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1227319">affectedStyle</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1227321">
+The <A HREF="style.htm#1193137"><CODE>Style</CODE></A> object whose style properties you want to change.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1227039">
+ Description
+</A></H4>
+
+<A NAME="1227040">
+The <CODE>contextual</CODE> method provides a fine level of control for specifying styles. It lets you selectively apply a style to an HTML element that appears in a very specific context. For example, you can specify that the color of text within any <CODE>EM</CODE> tag that appears in an <CODE>H1</CODE> is blue.</A></P>
+<A NAME="1227601">
+You can further narrow the selection by specifying multiple contexts. For example, you can set the color of any <CODE>LI</CODE> tags with two or more <CODE>UL</CODE> parents by specifying <CODE>UL</CODE> for the first two contexts.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1227052">
+ Examples
+</A></H4>
+
+<A NAME="1227053">
+<B>Example 1.</B> This example sets the color of text within any <CODE>EM</CODE> tag that appears in an <CODE>H1</CODE> to blue.</A></P>
+<PRE><A NAME="1227054">&lt;STYLE TYPE="text/javascript"&gt;<br>&nbsp;&nbsp;&nbsp;contextual(document.tags.H1, document.tags.EM).color="blue";<br>&lt;/STYLE&gt;</A></PRE><A NAME="1227055">
+Notice that you can omit the document object within the <CODE>STYLE</CODE> tag. Within the <CODE>SCRIPT</CODE> tag, you must specify the document object as follows:</A></P>
+<PRE><A NAME="1227056">&lt;SCRIPT LANGUAGE="JavaScript1.2"&gt;<br>document.contextual(document.tags.H1, document.tags.EM).color="blue";<br>&lt;/SCRIPT&gt;</A></PRE><A NAME="1227057">
+In this example, text appearing within the <CODE>EM</CODE> tag is blue:</A></P>
+<PRE><A NAME="1227058">&lt;H1 CLASS="Main"&gt;The following text is &lt;EM&gt;blue&lt;/EM&gt;&lt;/H1&gt;</A></PRE><A NAME="1228932">
+<B>Example 2.</B> This example sets the color of an <CODE>LI</CODE> element with two or more <CODE>UL</CODE> parents to red.</A></P>
+<PRE><A NAME="1229185">&lt;STYLE TYPE="text/javascript"&gt;<br>&nbsp;&nbsp;&nbsp;contextual(tags.UL, tags.UL, tags.LI).color="red";<br>&lt;/STYLE&gt;</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1229186">
+ See also
+</A></H4>
+
+<A NAME="1229196">
+<A HREF="document.htm#1222722"><CODE>document.classes</CODE></A>, <A HREF="document.htm#1221745"><CODE>document.tags</CODE></A>, <A HREF="style.htm#1193137"><CODE>Style</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193577">
+cookie
+</A></H2>
+
+<A NAME="1193590">
+String value representing all of the cookies associated with this document.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193580">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193585">
+<A HREF="document.htm#1193137"><CODE>document</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193587">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193589">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193591">
+ Security
+</A></H4>
+
+<B><A NAME="HeadRunIn;"></A>
+<A NAME="1219602">
+JavaScript 1.1. </A></B><A NAME="1193592">
+This property is tainted by default. For information on data tainting, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193596">
+ Description
+</A></H4>
+
+<A NAME="1193597">
+A cookie is a small piece of information stored by the web browser in the <CODE>cookies.txt</CODE> file. Use <CODE>string</CODE> methods such as <CODE>substring</CODE>, <CODE>charAt</CODE>, <CODE>indexOf</CODE>, and <CODE>lastIndexOf</CODE> to determine the value stored in the cookie. See <A HREF="cookies.htm#1002170">Appendix C, "Netscape Cookies"</A> for a complete specification of the cookie syntax.</A></P>
+<A NAME="1193603">
+You can set the <CODE>cookie</CODE> property at any time.</A></P>
+<A NAME="1193605">
+The <CODE>"expires="</CODE> component in the cookie file sets an expiration date for the cookie, so it persists beyond the current browser session. This date string is formatted as follows:</A></P>
+<PRE><A NAME="1193606">Wdy, DD-Mon-YY HH:MM:SS GMT</A></PRE><A NAME="1193607">
+This format represents the following values:</A></P>
+<ul><P><LI><A NAME="1193608">
+<CODE>Wdy</CODE> is a string representing the full name of the day of the week.</A></LI>
+<P><LI><A NAME="1193609">
+<CODE>DD</CODE> is an integer representing the day of the month.</A></LI>
+<P><LI><A NAME="1193610">
+<CODE>Mon</CODE> is a string representing the three-character abbreviation of the month.</A></LI>
+<P><LI><A NAME="1193611">
+<CODE>YY</CODE> is an integer representing the last two digits of the year.</A></LI>
+<P><LI><A NAME="1193612">
+<CODE>HH</CODE>, <CODE>MM</CODE>, and <CODE>SS</CODE> are 2-digit representations of hours, minutes, and seconds, respectively.</A></LI>
+</ul><A NAME="1193613">
+For example, a valid cookie expiration date is</A></P>
+<PRE><A NAME="1193614">expires=Wednesday, 09-Nov-99 23:12:40 GMT</A></PRE><A NAME="1193615">
+The cookie date format is the same as the date returned by <CODE>toGMTString</CODE>, with the following exceptions:</A></P>
+<ul><P><LI><A NAME="1193616">
+Dashes are added between the day, month, and year.</A></LI>
+<P><LI><A NAME="1193617">
+The year is a 2-digit value for cookies.</A></LI>
+</ul>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193618">
+ Examples
+</A></H4>
+
+<A NAME="1193619">
+The following function uses the <CODE>cookie</CODE> property to record a reminder for users of an application. The cookie expiration date is set to one day after the date of the reminder.</A></P>
+<PRE><A NAME="1193620">function RecordReminder(time, expression) {<br>&nbsp;&nbsp;&nbsp;// Record a cookie of the form "@&lt;T&gt;=&lt;E&gt;" to map<br>&nbsp;&nbsp;&nbsp;// from &lt;T&gt; in milliseconds since the epoch,<br>&nbsp;&nbsp;&nbsp;// returned by Date.getTime(), onto an encoded expression,<br>&nbsp;&nbsp;&nbsp;// &lt;E&gt; (encoded to contain no white space, semicolon,<br>&nbsp;&nbsp;&nbsp;// or comma characters)<br>&nbsp;&nbsp;&nbsp;document.cookie = "@" + time + "=" + expression + ";"<br>&nbsp;&nbsp;&nbsp;// set the cookie expiration time to one day<br>&nbsp;&nbsp;&nbsp;// beyond the reminder time<br>&nbsp;&nbsp;&nbsp;document.cookie += "expires=" + cookieDate(time + 24*60*60*1000)<br>&nbsp;&nbsp;&nbsp;// cookieDate is a function that formats the date<br>&nbsp;&nbsp;&nbsp;//according to the cookie spec <br>}</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193621">
+ See also
+</A></H4>
+
+<A NAME="1193625">
+<A HREF="hidden.htm#1193138"><CODE>Hidden</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193628">
+domain
+</A></H2>
+
+<A NAME="1193641">
+Specifies the domain name of the server that served a document.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193631">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193636">
+<A HREF="document.htm#1193137"><CODE>document</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193638">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193640">
+JavaScript 1.1</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193642">
+ Security
+</A></H4>
+
+<B><A NAME="HeadRunIn;"></A>
+<A NAME="1219614">
+JavaScript 1.1. </A></B><A NAME="1193643">
+This property is tainted by default. For information on data tainting, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193647">
+ Description
+</A></H4>
+
+<B><A NAME="HeadRunIn;"></A>
+<A NAME="1220363">
+JavaScript 1.1. </A></B><A NAME="1193648">
+The <CODE>domain</CODE> property lets scripts on multiple servers share properties when data tainting is not enabled. With tainting disabled, a script running in one window can read properties of another window only if both windows come from the same Web server. But large Web sites with multiple servers might need to share properties among servers. For example, a script on the host <CODE>www.royalairways.com</CODE> might need to share properties with a script on the host <CODE>search.royalairways.com</CODE>.</A></P>
+<A NAME="1193650">
+If scripts on two different servers change their <CODE>domain</CODE> property so that both scripts have the same domain name, both scripts can share properties. For example, a script loaded from <CODE>search.royalairways.com</CODE> could set its <CODE>domain</CODE> property to <CODE>"royalairways.com"</CODE>. A script from <CODE>www.royalairways.com</CODE> running in another window could also set its <CODE>domain</CODE> property to <CODE>"royalairways.com"</CODE>. Then, since both scripts have the domain <CODE>"royalairways.com"</CODE>, these two scripts can share properties, even though they did not originate from the same server.</A></P>
+<A NAME="1193651">
+You can change <CODE>domain</CODE> only in a restricted way. Initially, <CODE>domain</CODE> contains the hostname of the Web server from which the document was loaded. You can set <CODE>domain</CODE> only to a domain suffix of itself. For example, a script from <CODE>search.royalairways.com</CODE> can't set its <CODE>domain</CODE> property to <CODE>"search.royalairways"</CODE>. And a script from <CODE>IWantYourMoney.com</CODE> cannot set its domain to <CODE>"royalairways.com"</CODE>.</A></P>
+<A NAME="1193652">
+Once you change the <CODE>domain </CODE>property,<CODE> </CODE>you cannot change it back to its original value. For example, if you change <CODE>domain</CODE> from <CODE>"search.royalairways.com"</CODE> to <CODE>"royalairways.com"</CODE>, you cannot reset it to <CODE>"search.royalairways.com"</CODE>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193653">
+ Examples
+</A></H4>
+
+<A NAME="1193654">
+The following statement changes the <CODE>domain</CODE> property to <CODE>"braveNewWorld.com"</CODE>. This statement is valid only if <CODE>"braveNewWorld.com"</CODE> is a suffix of the current domain, such as <CODE>"www.braveNewWorld.com"</CODE>.</A></P>
+<PRE><A NAME="1193655">document.domain="braveNewWorld.com"</A></PRE>
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193658">
+embeds
+</A></H2>
+
+<A NAME="1193675">
+An array containing an entry for each object embedded in the document.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193661">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193666">
+<A HREF="document.htm#1193137"><CODE>document</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left COLSPAN=2 ROWSPAN=1><P><A NAME="1193668">
+<I>Read-only</I></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193672">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193674">
+JavaScript 1.1</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193676">
+ Description
+</A></H4>
+
+<A NAME="1193679">
+You can refer to embedded objects (created with the <A HREF="http://developer.netscape.com/docs/manuals/htmlguid/index.htm?content=tags14.htm#tags:EMBED" TARGET="_top"><CODE>EMBED</A></CODE> tag) in your code by using the <CODE>embeds</CODE> array. This array contains an entry for each <CODE>EMBED</CODE> tag in a document in source order. For example, if a document contains three embedded objects whose <CODE>NAME</CODE> attributes are <CODE>e1</CODE>, <CODE>e2</CODE>, and <CODE>e3</CODE>, you can refer to the objects either as:</A></P>
+<PRE><A NAME="1193680">document.embeds["e1"]<br>document.embeds["e2"]<br>document.embeds["e3"]</A></PRE><A NAME="1193681">
+or as:</A></P>
+<PRE><A NAME="1193682">document.embeds[0]<br>document.embeds[1]<br>document.embeds[2]</A></PRE><A NAME="1220602">
+To obtain the number of embedded objects in a document, use the <CODE>length</CODE> property: <CODE>document.embeds.length</CODE>.</A></P>
+<A NAME="1193683">
+Elements in the <CODE>embeds</CODE> array may have public callable functions, if they refer to a plug-in that uses LiveConnect. See the LiveConnect information in the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+<A NAME="1193689">
+Use the elements in the <CODE>embeds</CODE> array to interact with the plug-in that is displaying the embedded object. If a plug-in is not Java-enabled, you cannot do anything with its element in the <CODE>embeds</CODE> array. The fields and methods of the elements in the <CODE>embeds</CODE> array vary from plug-in to plug-in; see the documentation supplied by the plug-in manufacturer.</A></P>
+<A NAME="1193690">
+When you use the <CODE>EMBED</CODE> tag to generate output from a plug-in application, you are not creating a <I><A HREF="plugin.htm#1193137"></I><CODE>Plugin</CODE><I></A></I> object.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193694">
+ Examples
+</A></H4>
+
+<A NAME="1193695">
+The following code includes an audio plug-in in a document.</A></P>
+<PRE><A NAME="1193696">&lt;EMBED SRC="train.au" HEIGHT=50 WIDTH=250&gt;</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193697">
+ See also
+</A></H4>
+
+<A NAME="1193701">
+<I><A HREF="plugin.htm#1193137"></I><CODE>Plugin</CODE><I></A></I> </A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193704">
+fgColor
+</A></H2>
+
+<A NAME="1193717">
+A string specifying the color of the document (foreground) text.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193707">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193712">
+<A HREF="document.htm#1193137"><CODE>document</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193714">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193716">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193718">
+ Description
+</A></H4>
+
+<A NAME="1210360">
+The <CODE>fgColor</CODE> property is expressed as a hexadecimal RGB triplet or as a string literal (see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>). This property is the JavaScript reflection of the <CODE>TEXT</CODE> attribute of the <CODE>BODY</CODE> tag. The default value of this property is set by the user with the preferences dialog box You cannot set this property after the HTML source has been through layout.</A></P>
+<A NAME="1193727">
+If you express the color as a hexadecimal RGB triplet, you must use the format <CODE>rrggbb</CODE>. For example, the hexadecimal RGB values for salmon are <CODE>red=FA</CODE>, <CODE>green=80</CODE>, and <CODE>blue=72</CODE>, so the RGB triplet for <CODE>salmon</CODE> is <CODE>"FA8072"</CODE>.</A></P>
+<A NAME="1193728">
+You can override the value set in the <CODE>fgColor</CODE> property in either of the following ways:</A></P>
+<ul><P><LI><A NAME="1193729">
+Setting the <CODE>COLOR</CODE> attribute of the <CODE>FONT</CODE> tag.</A></LI>
+<P><LI><A NAME="1193730">
+Using the <CODE>fontcolor</CODE> method.</A></LI>
+</ul>
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193744">
+formName<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193734">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193739">
+<A HREF="document.htm#1193137"><CODE>document</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193741">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193743">
+JavaScript 1.1</A></P>
+
+</TABLE>
+
+</A></H2>
+
+<A NAME="1193745">
+The <CODE>document</CODE> object contains a separate property for each form in the document. The name of this property is the value of its <CODE>NAME</CODE> attribute. See <A HREF="hidden.htm#1193138"><CODE>Hidden</CODE></A> for information on <CODE>Form</CODE> objects. You cannot add new forms to the document by creating new properties, but you can modify the form by modifying this object.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193750">
+forms
+</A></H2>
+
+<A NAME="1193767">
+An array containing an entry for each form in the document.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193753">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193758">
+<A HREF="document.htm#1193137"><CODE>document</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left COLSPAN=2 ROWSPAN=1><P><A NAME="1193760">
+<I>Read-only</I></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193764">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193766">
+JavaScript 1.1</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193768">
+ Security
+</A></H4>
+
+<B><A NAME="HeadRunIn;"></A>
+<A NAME="1219662">
+JavaScript 1.1. </A></B><A NAME="1193769">
+This property is tainted by default. For information on data tainting, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193773">
+ Description
+</A></H4>
+
+<A NAME="1193774">
+You can refer to the forms in your code by using the <CODE>forms</CODE> array (you can also use the form name). This array contains an entry for each <CODE>Form</CODE> object (<CODE><A HREF="http://developer.netscape.com/docs/manuals/htmlguid/index.htm?content=tags10.htm#tags:FORM" TARGET="_top">FORM</A></CODE> tag) in a document; these entries are in source order. For example, if a document contains three forms whose <CODE>NAME</CODE> attributes are <CODE>form1</CODE>, <CODE>form2</CODE>, and <CODE>form3</CODE>, you can refer to the objects in the <CODE>forms</CODE> array either as:</A></P>
+<PRE><A NAME="1193777">document.forms["<CODE>form1</CODE>"]<br>document.forms["<CODE>form2</CODE>"]<br>document.forms["<CODE>form3</CODE>"]</A></PRE><A NAME="1193778">
+or as:</A></P>
+<PRE><A NAME="1193779">document.forms[0]<br>document.forms[1]<br>document.forms[2]</A></PRE><A NAME="1193780">
+Additionally, the document object has a separate property for each named form, so you could refer to these forms also as:</A></P>
+<PRE><A NAME="1193781">document.<CODE>form1<br></CODE>document.<CODE>form2<br></CODE>document.<CODE>form3</CODE></A></PRE><A NAME="1193782">
+For example, you would refer to a <CODE>Text</CODE> object named <CODE>quantity</CODE> in the second form as <CODE>document.forms[1].quantity</CODE>. You would refer to the <CODE>value</CODE> property of this <CODE>Text</CODE> object as <CODE>document.forms[1].quantity.value</CODE>.</A></P>
+<A NAME="1193783">
+The value of each element in the <CODE>forms</CODE> array is <CODE>&lt;object nameAttribute&gt;</CODE>, where <CODE>nameAttribute</CODE> is the <CODE>NAME</CODE> attribute of the form.</A></P>
+<A NAME="1220630">
+To obtain the number of forms in a document, use the <CODE>length</CODE> property: <CODE>document.forms.length</CODE>.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1195981">
+getSelection
+</A></H2>
+
+<A NAME="1195994">
+Returns a string containing the text of the current selection. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195984">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195989">
+<A HREF="document.htm#1193137"><CODE>document</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195991">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195993">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195995">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1195996">getSelection()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1195997">
+ Description
+</A></H4>
+
+<A NAME="1195998">
+This method works only on the current document. </A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195999">
+ Security
+</A></H4>
+
+<A NAME="1196000">
+You cannot determine selected areas in another window.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1196001">
+ Examples
+</A></H4>
+
+<A NAME="1196002">
+If you have a form with the following code and you click on the button, JavaScript displays an alert box containing the currently selected text from the window containing the button:</A></P>
+<PRE><A NAME="1196003">&lt;INPUT TYPE="BUTTON" NAME="getstring" <br>&nbsp;&nbsp;&nbsp;VALUE="Show highlighted text (if any)" <br>&nbsp;&nbsp;&nbsp;onClick="alert('You have selected:\n'+document.getSelection());"&gt;</A></PRE>
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1196006">
+handleEvent
+</A></H2>
+
+<A NAME="1196019">
+Invokes the handler for the specified event. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1196009">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1196014">
+<A HREF="document.htm#1193137"><CODE>document</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1196016">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1196018">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1196020">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1196021">handleEvent(<I>event</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1196022">
+ Parameters
+</A></H4>
+
+<A NAME="1196028">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1196025">event</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1196027">
+The name of an event for which the specified object has an event handler.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1196029">
+ Description
+</A></H4>
+
+<A NAME="1199821">
+For information on handling events, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1221167">
+height
+</A></H2>
+
+<A NAME="1221184">
+The height of a document, in pixels.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1221170">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1221175">
+<A HREF="document.htm#1193137"><CODE>document</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1221181">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1221183">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1221658">
+ See also
+</A></H4>
+
+<A NAME="1221662">
+<A HREF="document.htm#1221484"><CODE>document.width</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1225120">
+ids
+</A></H2>
+
+<A NAME="1225124">
+Creates a <A HREF="style.htm#1193137"><CODE>Style</CODE></A> object that can specify the style of individual HTML tags.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1225127">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1225132">
+<A HREF="document.htm#1193137"><CODE>document</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1225134">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1225136">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1225137">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1225138">document.ids.<I>idValue</I></A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1225139">
+ Parameters
+</A></H4>
+
+<A NAME="1225149">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1225142">idValue</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1225144">
+The case-insensitive value of the <CODE>ID</CODE> attribute of any HTML tag.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1225150">
+ Description
+</A></H4>
+
+<A NAME="1225731">
+Use the <CODE>ids</CODE> property to specify the style of any HTML tag that has a specific <CODE>ID</CODE> attribute. For example, you can specify that the color of the <CODE>NewTopic</CODE> <CODE>ID</CODE> is green. See the <A HREF="style.htm#1193137"><CODE>Style</CODE></A> object for a description of the style properties you can specify for <CODE>ids</CODE>.</A></P>
+<A NAME="1225317">
+The <CODE>ids</CODE> property is useful when you want to provide an exception to a class defined in the <A HREF="document.htm#1222722"><CODE>document.classes</CODE></A> property.</A></P>
+<A NAME="1225155">
+If you use the <CODE>ids</CODE> property within the <CODE>STYLE</CODE> tag (instead of within the <CODE>SCRIPT</CODE> tag), you can optionally omit <CODE>document</CODE> from the <CODE>ids</CODE> syntax. The <CODE>ids</CODE> property always applies to the current <A HREF="document.htm#1193137"><CODE>document</CODE></A> object.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1225159">
+ Examples
+</A></H4>
+
+<A NAME="1225160">
+This example sets the Main <CODE>CLASS</CODE> attribute to 18-point bold green, but provides an exception for tags whose <CODE>ID</CODE> is <CODE>NewTopic</CODE>:</A></P>
+<PRE><A NAME="1225161">&lt;STYLE TYPE="text/javascript"&gt;<br>&nbsp;&nbsp;&nbsp;classes.Main.all.color="green"<br>&nbsp;&nbsp;&nbsp;classes.Main.all.fontSize="18pt"<br>&nbsp;&nbsp;&nbsp;classes.Main.all.fontWeight="bold"<br>&nbsp;&nbsp;&nbsp;ids.NewTopic.color="blue"<br>&lt;/STYLE&gt;</A></PRE><A NAME="1225162">
+Notice that you can omit the document object within the <CODE>STYLE</CODE> tag. Within the <CODE>SCRIPT</CODE> tag, you must specify the document object as follows:</A></P>
+<PRE><A NAME="1225163">&lt;SCRIPT LANGUAGE="JavaScript1.2"&gt;<br>&nbsp;&nbsp;&nbsp;document.classes.Main.all.color="green"<br>&nbsp;&nbsp;&nbsp;document.classes.Main.all.fontSize="18pt"<br>&nbsp;&nbsp;&nbsp;document.classes.Main.all.fontWeight="bold"<br>&nbsp;&nbsp;&nbsp;document.ids.NewTopic.color="blue"<br>&lt;/SCRIPT&gt;</A></PRE><A NAME="1225164">
+In this example, text appearing within the following tag is 18-point bold green:</A></P>
+<PRE><A NAME="1226312">&lt;H1 CLASS="Main"&gt;Green head&lt;/H1&gt;</A></PRE><A NAME="1226370">
+However, text appearing within the following tag is 18-point bold blue:</A></P>
+<PRE><A NAME="1226371">&lt;H1 CLASS="Main" ID="NewTopic"&gt;Blue head&lt;/H1&gt;</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1228161">
+ See also
+</A></H4>
+
+<A NAME="1228174">
+<A HREF="document.htm#1222722"><CODE>document.classes</CODE></A>, <A HREF="document.htm#1226818"><CODE>document.contextual</CODE></A>, <A HREF="document.htm#1221745"><CODE>document.tags</CODE></A>, <A HREF="style.htm#1193137"><CODE>Style</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1226315">
+images
+</A></H2>
+
+<A NAME="1226332">
+An array containing an entry for each image in the document. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1226318">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1226323">
+<A HREF="document.htm#1193137"><CODE>document</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left COLSPAN=2 ROWSPAN=1><P><A NAME="1226325">
+<I>Read-only</I></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1226329">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1226331">
+JavaScript 1.1</A></P>
+
+</TABLE>
+</A></P>
+<A NAME="1193803">
+You can refer to the images in a document by using the <CODE>images</CODE> array. This array contains an entry for each <CODE>Image</CODE> object (<CODE><A HREF="http://developer.netscape.com/docs/manuals/htmlguid/index.htm?content=tags8.htm#tags:IMG" TARGET="_top">IMG</A></CODE> tag) in a document; the entries are in source order. Images created with the <CODE>Image</CODE> constructor are not included in the <CODE>images</CODE> array. For example, if a document contains three images whose <CODE>NAME</CODE> attributes are <CODE>im1</CODE>, <CODE>im2</CODE>, and <CODE>im3</CODE>, you can refer to the objects in the <CODE>images</CODE> array either as:</A></P>
+<PRE><A NAME="1193806">document.images["<CODE>im1</CODE>"]<br>document.images["<CODE>im2</CODE>"]<br>document.images["<CODE>im3</CODE>"]</A></PRE><A NAME="1193807">
+or as:</A></P>
+<PRE><A NAME="1193808">document.images[0]<br>document.images[1]<br>document.images[2]</A></PRE><A NAME="1220670">
+To obtain the number of images in a document, use the <CODE>length</CODE> property: <CODE>document.images.length</CODE>.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193811">
+lastModified
+</A></H2>
+
+<A NAME="1193828">
+A string representing the date that a document was last modified.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193814">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193819">
+<A HREF="document.htm#1193137"><CODE>document</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left COLSPAN=2 ROWSPAN=1><P><A NAME="1193821">
+<I>Read-only</I></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193825">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193827">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193829">
+ Security
+</A></H4>
+
+<B><A NAME="HeadRunIn;"></A>
+<A NAME="1219679">
+JavaScript 1.1. </A></B><A NAME="1193830">
+This property is tainted by default. For information on data tainting, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193834">
+ Description
+</A></H4>
+
+<A NAME="1193835">
+The <CODE>lastModified</CODE> property is derived from the HTTP header data sent by the web server. Servers generally obtain this date by examining the file's modification date.</A></P>
+<A NAME="1193836">
+The last modified date is not a required portion of the header, and some servers do not supply it. If the server does not return the last modified information, JavaScript receives a 0, which it displays as January 1, 1970 GMT. The following code checks the date returned by <CODE>lastModified</CODE> and prints out a value that corresponds to unknown.</A></P>
+<PRE><A NAME="1193837">lastmod = document.lastModified // get string of last modified date<br>lastmoddate = Date.parse(lastmod)&nbsp;&nbsp;&nbsp;// convert modified string to date<br>if(lastmoddate == 0){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// unknown date (or January 1, 1970 GMT)<br>&nbsp;&nbsp;&nbsp;document.writeln("Lastmodified: Unknown")<br>&nbsp;&nbsp;&nbsp;} else {<br>&nbsp;&nbsp;&nbsp;document.writeln("LastModified: " + lastmod)<br>}</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193838">
+ Examples
+</A></H4>
+
+<A NAME="1193839">
+In the following example, the <CODE>lastModified</CODE> property is used in a <CODE>SCRIPT</CODE> tag at the end of an HTML file to display the modification date of the page:</A></P>
+<PRE><A NAME="1193840">document.write("This page updated on " + document.lastModified)</A></PRE>
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193842">
+layers
+</A></H2>
+
+<A NAME="1193843">
+The layers property is an array containing an entry for each layer within the document.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193846">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193851">
+<A HREF="document.htm#1193137"><CODE>document</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193853">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193855">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193856">
+ Description
+</A></H4>
+
+<A NAME="1193857">
+You can refer to the layers in your code by using the <CODE>layers</CODE> array. This array contains an entry for each <CODE>Layer</CODE> object (<A HREF="http://developer.netscape.com/docs/manuals/htmlguid/index.htm?content=tags12.htm#tags:LAYER" TARGET="_top"><CODE>LAYER</A></CODE> or <CODE><A HREF="http://developer.netscape.com/docs/manuals/htmlguid/index.htm?content=tags12.htm#tags:ILAYER" TARGET="_top">ILAYER</A></CODE> tag) in a document; these entries are in source order. For example, if a document contains three layers whose <CODE>NAME</CODE> attributes are <CODE>layer1</CODE>, <CODE>layer2</CODE>, and <CODE>layer3</CODE>, you can refer to the objects in the <CODE>layers</CODE> array either as:</A></P>
+<PRE><A NAME="1193862">document.layers["layer1"]<br>document.layers["layer2"]<br>document.layers["layer3"]</A></PRE><A NAME="1193863">
+or as:</A></P>
+<PRE><A NAME="1193864">document.layers[0]<br>document.layers[1]<br>document.layers[2]</A></PRE><A NAME="1193865">
+When accessed by integer index, array elements appear in z-order from back to front, where 0 is the bottommost layer and higher layers are indexed by consecutive integers. The index of a layer is not the same as its <CODE>zIndex</CODE> property, as the latter does not necessarily enumerate layers with consecutive integers. Adjacent layers can have the same <CODE>zIndex</CODE> property values.</A></P>
+<A NAME="1193866">
+These are valid ways of accessing layer objects:</A></P>
+<PRE><A NAME="1193867">document.layerName <br>document.layers[index] <br>document.layers["layerName"] <br>// example of using layers property to access nested layers:<br>document.layers["parentlayer"].layers["childlayer"]</A></PRE><A NAME="1193868">
+Elements of a layers array are JavaScript objects that cannot be set by assignment, though their properties can be set. For example, the statement</A></P>
+<PRE><A NAME="1193869">document.layers[0]="music"</A></PRE><A NAME="1193870">
+is invalid (and ignored) because it attempts to alter the <CODE>layers</CODE> array. However, the properties of the objects in the array readable and some are writable. For example, the statement</A></P>
+<PRE><A NAME="1193871">document.layers["suspect1"].left = 100;</A></PRE><A NAME="1193872">
+is valid. This sets the layer's horizontal position to 100. The following example sets the background color to blue for the layer <CODE>bluehouse</CODE> which is nested in the layer <CODE>houses</CODE>.</A></P>
+<PRE><A NAME="1193873">document.layers["houses"].layers["bluehouse"].bgColor="blue";</A></PRE><A NAME="1220915">
+To obtain the number of layers in a document, use the <CODE>length</CODE> property: <CODE>document.layers.length</CODE>.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193876">
+linkColor
+</A></H2>
+
+<A NAME="1193889">
+A string specifying the color of the document hyperlinks.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193879">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193884">
+<A HREF="document.htm#1193137"><CODE>document</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193886">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193888">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193890">
+ Description
+</A></H4>
+
+<A NAME="1193891">
+The <CODE>linkColor</CODE> property is expressed as a hexadecimal RGB triplet or as a string literal (see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>). This property is the JavaScript reflection of the <CODE>LINK</CODE> attribute of the <CODE>BODY</CODE> tag. The default value of this property is set by the user with the preferences dialog box. You cannot set this property after the HTML source has been through layout.</A></P>
+<A NAME="1193897">
+If you express the color as a hexadecimal RGB triplet, you must use the format <CODE>rrggbb</CODE>. For example, the hexadecimal RGB values for salmon are <CODE>red=FA</CODE>, <CODE>green=80</CODE>, and <CODE>blue=72</CODE>, so the RGB triplet for salmon is <CODE>"FA8072"</CODE>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193898">
+ Examples
+</A></H4>
+
+<A NAME="1193899">
+The following example sets the color of document links to aqua using a string literal:</A></P>
+<PRE><A NAME="1193900">document.linkColor="aqua"</A></PRE><A NAME="1193901">
+The following example sets the color of document links to aqua using a hexadecimal triplet:</A></P>
+<PRE><A NAME="1193902">document.linkColor="00FFFF"</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193903">
+ See also
+</A></H4>
+
+<A NAME="1193913">
+<A HREF="document.htm#1193438"><CODE>document.alinkColor</CODE></A>, <A HREF="document.htm#1193532"><CODE>document.bgColor</CODE></A>, <A HREF="document.htm#1193704"><CODE>document.fgColor</CODE></A>, <A HREF="document.htm#1194076"><CODE>document.vlinkColor</CODE></A> </A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193918">
+links
+</A></H2>
+
+<A NAME="1193935">
+An array of objects corresponding to <CODE>Area</CODE> and <CODE>Link</CODE> objects in source order. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193921">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193926">
+<A HREF="document.htm#1193137"><CODE>document</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left COLSPAN=2 ROWSPAN=1><P><A NAME="1193928">
+<I>Read-only</I></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193932">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193934">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193936">
+ Security
+</A></H4>
+
+<B><A NAME="HeadRunIn;"></A>
+<A NAME="1219691">
+JavaScript 1.1. </A></B><A NAME="1200182">
+This property is tainted by default. For information on data tainting, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193941">
+ Description
+</A></H4>
+
+<A NAME="1193942">
+You can refer to the <CODE>Area</CODE> and <CODE>Link</CODE> objects in your code by using the <CODE>links</CODE> array. This array contains an entry for each <CODE>Area</CODE> (<CODE>&lt;<A HREF="http://developer.netscape.com/docs/manuals/htmlguid/index.htm?content=tags8.htm#tags:AREA" TARGET="_top">AREA</A> HREF="..."&gt;</CODE> tag) and <CODE>Link</CODE> (<CODE>&lt;<A HREF="http://developer.netscape.com/docs/manuals/htmlguid/index.htm?content=tags7.htm#tags:A" TARGET="_top">A</A> HREF="..."&gt;</CODE> tag) object in a document in source order. It also contains links created with the <CODE>link</CODE> method. For example, if a document contains three links, you can refer to them as:</A></P>
+<PRE><A NAME="1193947">document.links[0]<br>document.links[1]<br>document.links[2]</A></PRE><A NAME="1220950">
+To obtain the number of links in a document, use the <CODE>length</CODE> property: <CODE>document.links.length</CODE>.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1196317">
+open
+</A></H2>
+
+<A NAME="1196330">
+Opens a stream to collect the output of <CODE>write</CODE> or <CODE>writeln</CODE> methods.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1196320">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1196325">
+<A HREF="document.htm#1193137"><CODE>document</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1196327">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1196329">
+JavaScript 1.0</A></P><P><A NAME="1199613">
+</A></P><P><A NAME="1199614">
+JavaScript 1.1: added <CODE>"replace"</CODE> parameter; <CODE>document.open()</CODE> or <CODE>document.open("text/html")</CODE> clears the current document if it has finished loading</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1196331">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1196332">open([<I>mimeType</I>, [<I>replace</I>]])</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1196333">
+ Parameters
+</A></H4>
+
+<A NAME="1196343">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1196336">mimeType</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1196338">
+A string specifying the type of document to which you are writing. If you do not specify <CODE>mimeType</CODE>, <CODE>text/html</CODE> is the default.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1196340">replace</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1196342">
+The string <CODE>"replace"</CODE>. If you supply this parameter, <CODE>mimeType</CODE> must be <CODE>"text/html"</CODE>. Causes the new document to reuse the history entry that the previous document used. </A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1196344">
+ Description
+</A></H4>
+
+<A NAME="1196345">
+Sample values for <CODE>mimeType</CODE> are:</A></P>
+<ul><P><LI><A NAME="1196346">
+<CODE>text/html</CODE> specifies a document containing ASCII text with HTML formatting.</A></LI>
+<P><LI><A NAME="1196347">
+<CODE>text/plain</CODE> specifies a document containing plain ASCII text with end-of-line characters to delimit displayed lines.</A></LI>
+<P><LI><A NAME="1196348">
+<CODE>image/gif</CODE> specifies a document with encoded bytes constituting a GIF header and pixel data.</A></LI>
+<P><LI><A NAME="1196349">
+<CODE>image/jpeg</CODE> specifies a document with encoded bytes constituting a JPEG header and pixel data.</A></LI>
+<P><LI><A NAME="1196350">
+<CODE>image/x-bitmap</CODE> specifies a document with encoded bytes constituting a bitmap header and pixel data.</A></LI>
+<P><LI><A NAME="1196351">
+<CODE>plugIn</CODE> loads the specified plug-in and uses it as the destination for <CODE>write</CODE> and <CODE>writeln</CODE> methods. For example, <CODE>"x-world/vrml"</CODE> loads the VR Scout VRML plug-in from Chaco Communications, and <CODE>"application/x-director"</CODE> loads the Macromedia Shockwave plug-in. Plug-in MIME types are only valid if the user has installed the required plug-in software.</A></LI>
+</ul><A NAME="1196352">
+The <CODE>open</CODE> method opens a stream to collect the output of <CODE>write</CODE> or <CODE>writeln</CODE> methods. If the <CODE>mimeType</CODE> is <CODE>text</CODE> or <CODE>image</CODE>, the stream is opened to layout; otherwise, the stream is opened to a plug-in. If a document exists in the target window, the <CODE>open</CODE> method clears it.</A></P>
+<A NAME="1196353">
+End the stream by using the <CODE>document.close</CODE> method. The <CODE>close</CODE> method causes text or images that were sent to layout to display. After using <CODE>document.close</CODE>, call <CODE>document.open</CODE> again when you want to begin another output stream.</A></P>
+<A NAME="1196354">
+In JavaScript 1.1 and later, <CODE>document.open</CODE> or <CODE>document.open("text/html")</CODE> clears the current document if it has finished loading. This is because this type of <CODE>open</CODE> call writes a default <CODE>&lt;BASE HREF=&gt;</CODE> tag so you can generate relative URLs based on the generating script's document base.</A></P>
+<A NAME="1196355">
+The <CODE>"replace"</CODE> keyword<CODE> </CODE>causes the new document to reuse the history entry that the previous document used. When you specify <CODE>"replace"</CODE> while opening a document, the target window's history length is not incremented even after you write and close.</A></P>
+<A NAME="1196356">
+<CODE>"replace"</CODE> is typically used on a window that has a blank document or an <CODE>"about:blank"</CODE> URL. After <CODE>"replace"</CODE> is specified, the <CODE>write</CODE> method typically generates HTML for the window, replacing the history entry for the blank URL. Take care when using generated HTML on a window with a blank URL. If you do not specify <CODE>"replace"</CODE>, the generated HTML has its own history entry, and the user can press the Back button and back up until the frame is empty.</A></P>
+<A NAME="1196357">
+After <CODE>document.open("text/html","replace")</CODE> executes, <CODE>history.current</CODE> for the target window is the URL of document that executed <CODE>document.open</CODE>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1196358">
+ Examples
+</A></H4>
+
+<A NAME="1196359">
+<B>Example 1.</B> The following function calls <CODE>document.open</CODE> to open a stream before issuing a <CODE>write</CODE> method:</A></P>
+<PRE><A NAME="1196360">function windowWriter1() {<br>&nbsp;&nbsp;&nbsp;var myString = "Hello, world!"<br>&nbsp;&nbsp;&nbsp;msgWindow.document.open()<br>&nbsp;&nbsp;&nbsp;msgWindow.document.write("&lt;P&gt;" + myString)<br>&nbsp;&nbsp;&nbsp;msgWindow.document.close()<br>}</A></PRE><A NAME="1196361">
+<B>Example 2.</B> The following function calls <CODE>document.open</CODE> with the <CODE>"replace"</CODE> keyword to open a stream before issuing <CODE>write</CODE> methods. The HTML code in the <CODE>write</CODE> methods is written to <CODE>msgWindow</CODE>, replacing the current history entry. The history length of <CODE>msgWindow</CODE> is not incremented.</A></P>
+<PRE><A NAME="1196362">function windowWriter2() {<br>&nbsp;&nbsp;&nbsp;var myString = "Hello, world!"<br>&nbsp;&nbsp;&nbsp;msgWindow.document.open("text/html","replace")<br>&nbsp;&nbsp;&nbsp;msgWindow.document.write("&lt;P&gt;" + myString)<br>&nbsp;&nbsp;&nbsp;msgWindow.document.write("&lt;P&gt;history.length is " + <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msgWindow.history.length)<br>&nbsp;&nbsp;&nbsp;msgWindow.document.close()<br>}</A></PRE><A NAME="1196363">
+The following code creates the <CODE>msgWindow</CODE> window and calls the function:</A></P>
+<PRE><A NAME="1196364">msgWindow=window.open('','',<br>&nbsp;&nbsp;&nbsp;'toolbar=yes,scrollbars=yes,width=400,height=300')<br>windowWriter2()</A></PRE><A NAME="1196365">
+<B>Example 3.</B> In the following example, the <CODE>probePlugIn</CODE> function determines whether a user has the Shockwave plug-in installed:</A></P>
+<PRE><A NAME="1196366">function probePlugIn(mimeType) {<br>&nbsp;&nbsp;&nbsp;var havePlugIn = false<br>&nbsp;&nbsp;&nbsp;var tiny = window.open("", "teensy", "width=1,height=1")<br>&nbsp;&nbsp;&nbsp;if (tiny != null) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (tiny.document.open(mimeType) != null)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;havePlugIn = true<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tiny.close()<br>&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;return havePlugIn<br>}</A></PRE><PRE><A NAME="1196367">var haveShockwavePlugIn = probePlugIn("application/x-director")</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1196368">
+ See also
+</A></H4>
+
+<A NAME="1196378">
+<A HREF="document.htm#1197324"><CODE>document.close</CODE></A>, <A HREF="document.htm#1221642"><CODE>document.write</CODE></A>, <A HREF="document.htm#1194456"><CODE>document.writeln</CODE></A>, <A HREF="location.htm#1194198"><CODE>Location.reload</CODE></A>, <A HREF="location.htm#1194240"><CODE>Location.replace</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193949">
+plugins
+</A></H2>
+
+<A NAME="1193969">
+An array of objects corresponding to <A HREF="plugin.htm#1193137"><CODE>Plugin</CODE></A> objects in source order. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193955">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193960">
+<A HREF="document.htm#1193137"><CODE>document</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left COLSPAN=2 ROWSPAN=1><P><A NAME="1193962">
+<I>Read-only</I></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193966">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193968">
+JavaScript 1.1</A></P>
+
+</TABLE>
+</A></P>
+<A NAME="1193973">
+You can refer to the <A HREF="plugin.htm#1193137"><CODE>Plugin</CODE></A> objects in your code by using the <CODE>plugins</CODE> array. This array contains an entry for each <A HREF="plugin.htm#1193137"><CODE>Plugin</CODE></A> object in a document in source order. For example, if a document contains three plugins, you can refer to them as:</A></P>
+<PRE><A NAME="1193977">document.plugins[0]<br>document.plugins[1]<br>document.plugins[2]</A></PRE>
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193980">
+referrer
+</A></H2>
+
+<A NAME="1193997">
+Specifies the URL of the calling document when a user clicks a link.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193983">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193988">
+<A HREF="document.htm#1193137"><CODE>document</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left COLSPAN=2 ROWSPAN=1><P><A NAME="1193990">
+<I>Read-only</I></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193994">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193996">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193998">
+ Security
+</A></H4>
+
+<B><A NAME="HeadRunIn;"></A>
+<A NAME="1219699">
+JavaScript 1.1. </A></B><A NAME="1193999">
+This property is tainted by default. For information on data tainting, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194003">
+ Description
+</A></H4>
+
+<A NAME="1194004">
+When a user navigates to a destination document by clicking a <CODE>Link</CODE> object on a source document, the <CODE>referrer</CODE> property contains the URL of the source document.</A></P>
+<A NAME="1194005">
+<CODE>referrer</CODE> is empty if the user typed a URL in the Location box, or used some other means to get to the current URL. <CODE>referrer</CODE> is also empty if the server does not provide environment variable information.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194006">
+ Examples
+</A></H4>
+
+<A NAME="1194007">
+In the following example, the <CODE>getReferrer</CODE> function is called from the destination document. It returns the URL of the source document.</A></P>
+<PRE><A NAME="1194008">function getReferrer() {<br>&nbsp;&nbsp;&nbsp;return document.referrer<br>}</A></PRE>
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1196601">
+releaseEvents
+</A></H2>
+
+<A NAME="1196602">
+Sets the document to release captured events of the specified type, sending the event to objects further along the event hierarchy. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1196605">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1196610">
+<A HREF="document.htm#1193137"><CODE>document</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1196612">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1196614">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+<BLOCKQUOTE><B>NOTE: </B><A NAME="1196616">
+If the original target of the event is a window, the window receives the event 
+even if it is set to release that type of event. 
+</A>
+</BLOCKQUOTE>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1196617">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1196618">releaseEvents(<I>eventType</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1196619">
+ Parameters
+</A></H4>
+
+<A NAME="1196625">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1196622">eventType</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1196624">
+Type of event to be captured.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1196626">
+ Description
+</A></H4>
+
+<A NAME="1196627">
+<CODE>releaseEvents</CODE> works in tandem with <CODE>captureEvents</CODE>, <CODE>routeEvent</CODE>, and <CODE>handleEvent</CODE>. For more information on events, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1196632">
+routeEvent
+</A></H2>
+
+<A NAME="1196645">
+Passes a captured event along the normal event hierarchy. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1196635">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1196640">
+<A HREF="document.htm#1193137"><CODE>document</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1196642">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1196644">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1196646">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1196647">routeEvent(<I>event</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1196648">
+ Parameters
+</A></H4>
+
+<A NAME="1196654">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1196651">event</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1196653">
+Name of the event to be routed. </A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1196655">
+ Description
+</A></H4>
+
+<A NAME="1196656">
+If a sub-object (document or layer) is also capturing the event, the event is sent to that object. Otherwise, it is sent to its original target. </A></P>
+<A NAME="1196657">
+<CODE>routeEvent</CODE> works in tandem with <CODE>captureEvents</CODE>, <CODE>releaseEvents</CODE>, and <CODE>handleEvent</CODE>. For more information on events, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1221745">
+tags
+</A></H2>
+
+<A NAME="1221762">
+Creates a <A HREF="style.htm#1193137"><CODE>Style</CODE></A> object that can specify the styles of HTML tags.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1221748">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1221753">
+<A HREF="document.htm#1193137"><CODE>document</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1221759">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1221761">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1222049">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1222050">document.tags.<I>tagName</I></A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1222051">
+ Parameters
+</A></H4>
+
+<A NAME="1222057">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1222054">tagName</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1222056">
+The case-insensitive name of any HTML tag, such as <CODE>H1</CODE> or <CODE>BLOCKQUOTE</CODE>.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1221771">
+ Description
+</A></H4>
+
+<A NAME="1221772">
+Use the <CODE>tags</CODE> property to specify the style of HTML tags. For example, you can specify that the color of any <CODE>H1</CODE> tag is blue, and that the alignment of any <CODE>H1</CODE> or <CODE>H2</CODE> tag is centered. See the <A HREF="style.htm#1193137"><CODE>Style</CODE></A> object for a description of the properties you can specify for HTML tags.</A></P>
+<A NAME="1222154">
+Because all HTML elements inherit from the <CODE>BODY</CODE> tag, you can specify a default document style by setting the style properties of <CODE>BODY</CODE>.</A></P>
+<A NAME="1222233">
+If you use the <CODE>tags</CODE> property within the <CODE>STYLE</CODE> tag (instead of within the <CODE>SCRIPT</CODE> tag), you can optionally omit <CODE>document</CODE> from the <CODE>tags</CODE> syntax. The <CODE>tags</CODE> property always applies to the current <A HREF="document.htm#1193137"><CODE>document</CODE></A> object.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1222141">
+ Examples
+</A></H4>
+
+<A NAME="1222172">
+<B>Example 1.</B> This example sets the color of all <CODE>H1</CODE> tags to blue:</A></P>
+<PRE><A NAME="1222319">&lt;STYLE TYPE="text/javascript"&gt;<br>&nbsp;&nbsp;&nbsp;tags.H1.color="blue"<br>&lt;/STYLE&gt;</A></PRE><A NAME="1222320">
+Notice that you can omit the <CODE>document</CODE> object within the <CODE>STYLE</CODE> tag. Within the <CODE>SCRIPT</CODE> tag, you must specify the <CODE>document</CODE> object as follows:</A></P>
+<PRE><A NAME="1222435">&lt;SCRIPT LANGUAGE="JavaScript1.2"&gt;<br>&nbsp;&nbsp;&nbsp;document.tags.H1.color="blue"<br>&lt;/SCRIPT&gt;</A></PRE><A NAME="1222345">
+<B>Example 2.</B> This example sets a universal left margin for a document:</A></P>
+<PRE><A NAME="1222213">document.tags.Body.marginLeft="20pt"</A></PRE><A NAME="1222210">
+Because all HTML tags inherit from <CODE>BODY</CODE>, this example sets the left margin for the entire document to 20 points.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1228201">
+ See also
+</A></H4>
+
+<A NAME="1228214">
+<A HREF="document.htm#1222722"><CODE>document.classes</CODE></A>, <A HREF="document.htm#1226818"><CODE>document.contextual</CODE></A>, <A HREF="document.htm#1225120"><CODE>document.ids</CODE></A>, <A HREF="style.htm#1193137"><CODE>Style</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1194011">
+title
+</A></H2>
+
+<A NAME="1194028">
+A string representing the title of a document.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194014">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194019">
+<A HREF="document.htm#1193137"><CODE>document</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left COLSPAN=2 ROWSPAN=1><P><A NAME="1194021">
+<I>Read-only</I></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194025">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194027">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194029">
+ Security
+</A></H4>
+
+<B><A NAME="HeadRunIn;"></A>
+<A NAME="1219711">
+JavaScript 1.1. </A></B><A NAME="1194030">
+This property is tainted by default. For information on data tainting, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194034">
+ Description
+</A></H4>
+
+<A NAME="1194035">
+The <CODE>title</CODE> property is a reflection of the value specified between the <CODE>TITLE</CODE> start and end tags. If a document does not have a title, the <CODE>title</CODE> property is null.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194036">
+ Examples
+</A></H4>
+
+<A NAME="1194037">
+In the following example, the value of the <CODE>title</CODE> property is assigned to a variable called <CODE>docTitle</CODE>:</A></P>
+<PRE><A NAME="1194038">var newWindow = window.open("http://home.netscape.com")<br>var docTitle = newWindow.document.title</A></PRE>
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1194041">
+URL
+</A></H2>
+
+<A NAME="1194058">
+A string specifying the complete URL of the document.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194044">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194049">
+<A HREF="document.htm#1193137"><CODE>document</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left COLSPAN=2 ROWSPAN=1><P><A NAME="1194051">
+<I>Read-only</I></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194055">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194057">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194059">
+ Security
+</A></H4>
+
+<B><A NAME="HeadRunIn;"></A>
+<A NAME="1219727">
+JavaScript 1.1. </A></B><A NAME="1194060">
+This property is tainted by default. For information on data tainting, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194064">
+ Description
+</A></H4>
+
+<A NAME="1194065">
+<CODE>URL</CODE> is a string-valued property containing the full URL of the document. It usually matches what <CODE>window.location.href</CODE> is set to when you load the document, but redirection may change <CODE>location.href</CODE>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194066">
+ Examples
+</A></H4>
+
+<A NAME="1194067">
+The following example displays the URL of the current document:</A></P>
+<PRE><A NAME="1194068">document.write("The current URL is " + document.URL)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194069">
+ See also
+</A></H4>
+
+<A NAME="1194073">
+<A HREF="location.htm#1193550"><CODE>Location.href</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1194076">
+vlinkColor
+</A></H2>
+
+<A NAME="1194089">
+A string specifying the color of visited links.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194079">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194084">
+<A HREF="document.htm#1193137"><CODE>document</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194086">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194088">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194090">
+ Description
+</A></H4>
+
+<A NAME="1194091">
+The <CODE>vlinkColor</CODE> property is expressed as a hexadecimal RGB triplet or as a string literal (see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>). This property is the JavaScript reflection of the <CODE>VLINK</CODE> attribute of the <CODE>BODY</CODE> tag. The default value of this property is set by the user with the preferences dialog box. You cannot set this property after the HTML source has been through layout.</A></P>
+<A NAME="1194097">
+If you express the color as a hexadecimal RGB triplet, you must use the format <CODE>rrggbb</CODE>. For example, the hexadecimal RGB values for salmon are <CODE>red=FA</CODE>, <CODE>green=80</CODE>, and <CODE>blue=72</CODE>, so the RGB triplet for salmon is <CODE>"FA8072"</CODE>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194098">
+ Examples
+</A></H4>
+
+<A NAME="1194099">
+The following example sets the color of visited links to aqua using a string literal:</A></P>
+<PRE><A NAME="1194100">document.vlinkColor="aqua"</A></PRE><A NAME="1194101">
+The following example sets the color of active links to aqua using a hexadecimal triplet:</A></P>
+<PRE><A NAME="1194102">document.vlinkColor="00FFFF"</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194103">
+ See also
+</A></H4>
+
+<A NAME="1194113">
+<A HREF="document.htm#1193438"><CODE>document.alinkColor</CODE></A>, <A HREF="document.htm#1193532"><CODE>document.bgColor</CODE></A>, <A HREF="document.htm#1193704"><CODE>document.fgColor</CODE></A>, <A HREF="document.htm#1193876"><CODE>document.linkColor</CODE></A> </A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1221484">
+width
+</A></H2>
+
+<A NAME="1221497">
+The width of a document, in pixels.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1221487">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1221492">
+<A HREF="document.htm#1193137"><CODE>document</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1221494">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1221496">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1221635">
+ See also
+</A></H4>
+
+<A NAME="1221639">
+<A HREF="document.htm#1221167"><CODE>document.height</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1221642">
+write 
+</A></H2>
+
+<A NAME="1194395">
+Writes one or more HTML expressions to a document in the specified window.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194385">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194390">
+<A HREF="document.htm#1193137"><CODE>document</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194392">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194394">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194396">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1194397">document.write(<I>expr1</I>[, ...,<I>exprN</I>])</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194398">
+ Parameters
+</A></H4>
+
+<A NAME="1194404">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1194401">expr1, ... expr<I>N</I></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1194403">
+Any JavaScript expressions.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194405">
+ Description
+</A></H4>
+
+<A NAME="1194406">
+The <CODE>write</CODE> method displays any number of expressions in the document window. You can specify any JavaScript expression with the <CODE>write</CODE> method, including numeric, string, or logical expressions.</A></P>
+<A NAME="1194407">
+The <CODE>write</CODE> method is the same as the <CODE>writeln</CODE> method, except the <CODE>write</CODE> method does not append a newline character to the end of the output.</A></P>
+<A NAME="1194408">
+Use the <CODE>write</CODE> method within any <CODE>SCRIPT</CODE> tag or within an event handler. Event handlers execute after the original document closes, so the <CODE>write</CODE> method implicitly opens a new document of <CODE>mimeType</CODE> <CODE>text/html</CODE> if you do not explicitly issue a <CODE>document.open</CODE> method in the event handler.</A></P>
+<A NAME="1194411">
+You can use the <CODE>write</CODE> method to generate HTML and JavaScript code. However, the HTML parser reads the generated code as it is being written, so you might have to escape some characters. For example, the following <CODE>write</CODE> method generates a comment and writes it to <CODE>window2</CODE>:</A></P>
+<PRE><A NAME="1194412">window2=window.open('','window2')<br>beginComment="\&lt;!--"<br>endComment="--\&gt;"<br>window2.document.write(beginComment)<br>window2.document.write(" This some text inside a comment. ")<br>window2.document.write(endComment)</A></PRE><B><A NAME="HeadRunIn;"></A>
+<A NAME="1194414">
+Printing, saving, and viewing generated HTML. </A></B><A NAME="1194415">
+In Navigator 3.0 and later, users can print and save generated HTML using the commands on the File menu.</A></P>
+<A NAME="1194416">
+If you choose Page Source from the Navigator View menu or View Frame Source from the right-click menu, the web browser displays the content of the HTML file with the generated HTML. (This is what would be displayed using a <CODE>wysiwyg:</CODE> URL.)</A></P>
+<A NAME="1194417">
+If you instead want to view the HTML source showing the scripts which generate HTML (with the <A HREF="document.htm#1221642"><CODE>document.write</CODE></A> and <A HREF="document.htm#1194456"><CODE>document.writeln</CODE></A> methods), do not use the Page Source or View Frame Source menu items. In this situation, use the <CODE>view-source:</CODE> protocol.</A></P>
+<A NAME="1194424">
+For example, assume the file <CODE>file://c|/test.html</CODE> contains this text:</A></P>
+<PRE><A NAME="1194425">&lt;HTML&gt;<br>&lt;BODY&gt;<br>Hello, <br>&lt;SCRIPT&gt;document.write(" there.")&lt;/SCRIPT&gt;<br>&lt;/BODY&gt;<br>&lt;/HTML&gt;</A></PRE><A NAME="1194426">
+If you load this URL into the web browser, it displays the following:</A></P>
+<PRE><A NAME="1194427">Hello, there.</A></PRE><A NAME="1194428">
+If you choose View Document Source, the browser displays:</A></P>
+<PRE><A NAME="1194429">&lt;HTML&gt;<br>&lt;BODY&gt;<br>Hello, <br>&nbsp;there.<br>&lt;/BODY&gt;<br>&lt;/HTML&gt;</A></PRE><A NAME="1194430">
+If you load <CODE>view-source:file://c|/test.html</CODE>, the browser displays:</A></P>
+<PRE><A NAME="1194431">&lt;HTML&gt;<br>&lt;BODY&gt;<br>Hello, <br>&lt;SCRIPT&gt;document.write(" there.")&lt;/SCRIPT&gt;<br>&lt;/BODY&gt;<br>&lt;/HTML&gt;</A></PRE><A NAME="1194432">
+For information on specifying the <CODE>view-source:</CODE> protocol in the <CODE>location</CODE> object, see the <I><A HREF="location.htm#1193137"></I><CODE>Location</CODE><I></A></I> object.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194436">
+ Examples
+</A></H4>
+
+<A NAME="1194437">
+In the following example, the <CODE>write</CODE> method takes several arguments, including strings, a numeric, and a variable:</A></P>
+<PRE><A NAME="1194438">var mystery = "world"<br>// Displays Hello world testing 123<br>msgWindow.document.write("Hello ", mystery, " testing ", 123)</A></PRE><A NAME="1194439">
+In the following example, the <CODE>write</CODE> method takes two arguments. The first argument is an assignment expression, and the second argument is a string literal.</A></P>
+<PRE><A NAME="1194440">//Displays Hello world...<br>msgWindow.<CODE>document.write</CODE>(mystr = "Hello ", "world...")</A></PRE><A NAME="1194441">
+In the following example, the <CODE>write</CODE> method takes a single argument that is a conditional expression. If the value of the variable <CODE>age</CODE> is less than 18, the method displays "Minor." If the value of <CODE>age</CODE> is greater than or equal to 18, the method displays "Adult."</A></P>
+<PRE><A NAME="1194442">msgWindow.document.write(status = (age &gt;= 18) ? "Adult" : "Minor")</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194443">
+ See also
+</A></H4>
+
+<A NAME="1194453">
+<A HREF="document.htm#1197324"><CODE>document.close</CODE></A>, <A HREF="document.htm#1196317"><CODE>document.open</CODE></A>, <A HREF="document.htm#1194456"><CODE>document.writeln</CODE></A> </A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1194456">
+writeln 
+</A></H2>
+
+<A NAME="1194457">
+Writes one or more HTML expressions to a document in the specified window and follows them with a newline character.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194460">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194465">
+<A HREF="document.htm#1193137"><CODE>document</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194467">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194469">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194470">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1194471">writeln(<I>expr1</I>[, ... <I>exprN</I>])</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194472">
+ Parameters
+</A></H4>
+
+<A NAME="1194478">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1194475">expr1, ... expr<I>N</I></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1194477">
+Any JavaScript expressions.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194479">
+ Description
+</A></H4>
+
+<A NAME="1194480">
+The <CODE>writeln</CODE> method displays any number of expressions in a document window. You can specify any JavaScript expression, including numeric, string, or logical expressions.</A></P>
+<A NAME="1194481">
+The <CODE>writeln</CODE> method is the same as the <CODE>write</CODE> method, except the <CODE>writeln</CODE> method appends a newline character to the end of the output. HTML ignores the newline character, except within certain tags such as the <CODE>PRE</CODE> tag.</A></P>
+<A NAME="1194482">
+Use the <CODE>writeln</CODE> method within any <CODE>SCRIPT</CODE> tag or within an event handler. Event handlers execute after the original document closes, so the <CODE>writeln</CODE> method will implicitly open a new document of <CODE>mimeType</CODE> <CODE>text/html</CODE> if you do not explicitly issue a <CODE>document.open</CODE> method in the event handler.</A></P>
+<A NAME="1197488">
+In Navigator 3.0 and later, users can print and save generated HTML using the commands on the File menu.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194484">
+ Examples
+</A></H4>
+
+<A NAME="1194485">
+All the examples used for the <CODE>write</CODE> method are also valid with the <CODE>writeln</CODE> method.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194486">
+ See also
+</A></H4>
+
+<A NAME="1194496">
+<A HREF="document.htm#1197324"><CODE>document.close</CODE></A>, <A HREF="document.htm#1196317"><CODE>document.open</CODE></A>, <A HREF="document.htm#1221642"><CODE>document.write</CODE></A></A></P>
+
+<HR>
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="date.htm">Previous</A>
+ | <A HREF="event.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT>
+<P ALIGN=right>
+<FONT SIZE=-2><I>Last Updated:  05/28/99  11:59:17</I></FONT>
+<P> <CENTER>Copyright (c) 1999
+<A HREF="http://home.netscape.com/misc/contact_info.html"
+TARGET=_top>Netscape Communications Corporation</A></FONT>
+</CENTER>
+<P>
+</BODY>
+</HTML>
+
+

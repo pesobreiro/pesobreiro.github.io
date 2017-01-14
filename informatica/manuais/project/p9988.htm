@@ -1,0 +1,70 @@
+<!doctype html public" -//IETF//DTD 	HTML//EN">
+<HTML>
+
+<HEAD>
+<SCRIPT LANGUAGE="JAVASCRIPT">
+<!-- 
+
+function checkbrowse()
+{
+var bn, bv, ver
+bn = navigator.appName;
+bv = parseInt(navigator.appVersion);
+if (bn=="Microsoft Internet Explorer" && bv<"4") ver = "IE3";
+else ver = "NotIE3";
+if (ver=="IE3") top.cont.parts.location.href="part09.htm";
+if (ver=="NotIE3") top.cont.parts.location.href="nav/part09.htm";
+}
+//-->
+</SCRIPT>
+<TITLE>Control How Resource Costs Are Accrued</TITLE>
+<META NAME="GENERATOR" 	CONTENT="Merch. System HTML Development">
+<META NAME="AUTHOR" 	CONTENT="Merch. System HTML Development">
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" OnLoad="checkbrowse();">
+<Font Face ="Verdana, Arial, Helvetica">
+
+<P align=right><SMALL>
+<A HREF="p9987.htm" Target="TOC"><IMG SRC="prev.gif"ALT="Previous page"BORDER=0></A>
+<A HREF="p9981.htm" Target="TOC"><IMG SRC="toc09.gif"ALT="Contents"BORDER=0></A>
+</SMALL></P>
+<H1>Control How Resource Costs Are Accrued</H1>
+
+<P>
+How do you want to account for resource costs? Do you want to incur the full cost of a resource when it 
+starts? When it ends? Or would you prefer to incur the cost gradually, over the entire time a resource works on 
+a project?
+<P>
+Microsoft Project provides you with two commonly used cost-accounting methods. You can <I>accrue</I> 
+resource costs, or you can <I>prorate</I> them. When you accrue a cost, you incur the entire cost all at once. 
+When you prorate a cost, you incur the cost gradually, as the task progresses. For example, you can:
+<UL>
+<LI>Accrue the cost of a resource when the task starts if you must pay a lump-sum amount before any work 
+begins.
+<LI>Prorate the cost of a resource if you need to track cost based on the completion of a task. Standard and 
+overtime resource costs can be prorated. By default, Microsoft Project prorates resource costs.
+<LI>Accrue the cost of a resource when the task ends if you’re holding payment until the work is finished.
+</UL>
+<P>
+<B><B><img src="bluetri.gif">	To select a method for accruing resource costs</B></B>
+<OL>
+<LI>On the <B>View Bar</B>, click <B>Resource Sheet</B> <img src="ress.gif">.
+<LI>In the <B>Resource Name </B>field, select a resource, and then click <B>Resource Information</B> <img 
+src="resi.gif">.
+<LI>Click the <B>Costs</B> tab.
+<LI>In the <B>Cost accrual</B> box, click an accrual method.
+<UL>
+<LI>To accrue the cost when the task begins, click <B>Start</B>.
+<LI>To accrue the cost based on the completion percentage of the task, click <B>Prorated</B>.
+<LI>To accrue the cost when the task is completed, click <B>End</B>.
+</UL>
+</OL>
+<P>
+
+<P align = Center > <A HREF="http://www.microsoft.com/misc/cpyright.htm"><EM>&#169;1996-1997 Microsoft Corporation. All rights 
+reserved.</EM></A></P>
+</BODY>
+</FONT>
+</HTML>
+

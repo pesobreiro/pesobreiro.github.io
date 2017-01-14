@@ -1,0 +1,328 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 4//EN">
+<html>
+<head>
+<title>How to search</title>
+<!-- WebSphere InfoCenter Version 1.4 - 09/14/2001                          -->
+<!--                                                                        --> 
+<!-- (C) COPYRIGHT International Business Machines Corp. 2000, 2001         --> 
+<!-- All Rights Reserved                                                    --> 
+<!-- Licensed Materials - Property of IBM                                   --> 
+<!--                                                                        --> 
+<!-- US Government Users Restricted Rights - Use, duplication or            --> 
+<!-- disclosure restricted by GSA ADP Schedule Contract with IBM Corp.      --> 
+<!--                                                                        -->
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.rsac.org/ratingsv01.html" l gen true comment "RSACi North America Server" by "epc@www.ibm.com" for "http://www.ibm.com/" on "1997.07.05T21:46-0500" r (n 0 s 0 v 0 l 0))' />
+<meta http-equiv="PICS-Label" content='(PICS-1.0 "http://www.classify.org/safesurf/" l gen true for "http://www.ibm.com/" by "epc@www.ibm.com" r (SS~~000 1 SS~~100 1))' />
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="GENERATOR" content="IBM WebSphere Page Designer V3.5.2 for Windows">
+<link href="websphere.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<h2><a name="top">Using the WebSphere InfoCenter search</a></h2>
+<hr />
+
+<ul>
+  <li><a href="howtosearch.html#use">Using the search (input, restrictions, and 
+    such)</a></li>
+  <li><a href="howtosearch.html#gen">Enabling the search</a></li>
+  <li><a href="howtosearch.html#ie">Microsoft Internet Explorer enablement and 
+    workarounds</a></li>
+  <li><a href="howtosearch.html#ns">Netscape Navigator or Communicator enablement 
+    and workarounds</a></li>
+  <li><a href="howtosearch.html#report">Reporting search problems</a></li>
+</ul>
+
+<p>A correctly working search should display an input box, although you might 
+need to be patient (waiting approximately 30 seconds or less) if you are starting 
+the search for the first time during a work session.</p>
+
+<p>After clicking "Search" on the top of the InfoCenter frame set, if you do not 
+then see the input box displayed on the left side of the InfoCenter, use the above 
+links to view "Enabling the search."</p>
+
+<!--Using the search-->
+<h3><a name="use" href="howtosearch.html#top">Using the search</a></h3>
+<!-- former content of howtosearch -->
+<p>Search documents accessible from the InfoCenter for a 
+single or multiple words.  The search is not case sensitive.</p>
+
+<blockquote>
+<p>
+<!--Single word search-->
+<h4>Single word search</h4>
+
+<p>Type the word in the input field and click the Search button.</p>
+
+<!--Multiple word search-->
+<h4>Multiple word search</h4>
+
+<p>Type each word, separated by a blank space, and click the Search button.  
+For example:
+<pre>
+<em>word1 word2 word3</em>
+</pre>
+<p>The search will be on the words in the order they appear. For example,
+a search on "red orange" will find the phrase "red orange" but not the
+phrase "orange red."</p> 
+
+<!--Using search results-->
+<h4>Using the search results</h4>
+<p>The search yields a list of the documents that contain the search word 
+or words. To display a document, click the entry in the list.</p>
+
+<!--Search rankings-->
+<h4>Search rankings</h4>
+
+<p>The documents are listed in order from the highest ranking hit (indicated by 
+  *****) to the lowest ranking hit (*). A document may contain more than one hit, 
+  each with a different ranking. The document is assigned the ranking of its highest 
+  ranking hit. The number of hits is indicated by a number following the ranking, 
+  for example (***4). If two documents have the same ranking, then the document 
+  with the most number of hits will be higher in the list.</p>
+
+<p>If you searched for multiple words, any document that contains all of the search words in the specified order 
+will be listed as a high ranking hit. If only one or two of the words are found, 
+or if there are intervening words, or if the words are in a different order, 
+the hit will be lower ranking.</p>
+
+<!--Search restrictions-->
+<h4>Search restrictions</h4>
+<p>Boolean searches are not supported.  The common boolean search qualifiers <tt>and</tt> and <tt>or</tt> are in the list of common words that are ignored in a search.  Thus, both of the following searches will produce the same results:</p>
+<pre>
+servlets and beans
+servlets or beans
+</pre>
+
+<p>Wildcard searches are not supported.  The search on 
+<tt>java*</tt> will only look for the literal string <tt>java*</tt>. It
+will not find <tt>javadoc</tt>, for example.</p>
+
+</blockquote>
+
+<!--Enabling search-->
+<h3><a name="gen" href="howtosearch.html#top">Enabling the search</a></h3>
+
+<p>Although the InfoCenter is not implemented in JavaHelp, it does use the standard 
+JavaHelp search, encapsulated in an applet for use from a 
+Web browser. Some users will not have to perform any enablement tasks to begin using this 
+lightweight, effective search.</p>
+ 
+<p>The most common search problems seem to be related to the Java and applet support 
+provided by various browser brands and versions. After enabling a browser to support the 
+search applet, or finding another browser that does, runtime search problems are rare. The main task is 
+ensuring that your browser will display the search applet in the first place.</p>
+
+<p>To support the search, your browser must:</p>
+<ul>
+<li>Support Java applets</li>
+<li>Have its Java support turned on (see your browser documentation for instructions)</li>
+</ul>
+
+<p>Though the IBM WebSphere InfoCenter team does not endorse the use of any particular
+browser brand or version for performing the search, as long as the browser supports the 
+above technologies, be aware that:</p>
+ 
+ <br>
+ <ul>
+ <li>Testing is performed using Netscape Navigator and Microsoft Internet Explorer, but
+ does not include every available version of these browsers on every
+ supported operating system.</li>
+ <li>Most problem reports involve Netscape browsers, with the majority of cases being a 
+ common but fairly simple to fix problem described below.</li>
+ </ul>
+    
+<!--IE enablement and workarounds-->
+<h3><a name="ie" href="howtosearch.html#top">Microsoft Internet Explorer enablement and workarounds</a></h3>
+
+<p>At this time, there are no known problems that are specific to Internet Explorer.</p>
+
+<!--Netscape enablement and workarounds-->
+<h3><a name="ns" href="howtosearch.html#top">Netscape Navigator or Communicator enablement and workarounds</a></h3>
+ 
+<p>If your Netscape browser fails to display the search input box, try the following workarounds. You might need to
+ extrapolate the workarounds to your particular version and environment. For the most part, 
+ particular error messages are 
+ not discussed because it has been found that any one of several messages can indicate 
+ the same basic problem. Do not disregard a workaround just because the error message
+ mentioned in the description does not match the one that you are encountering.</p>
+
+<!--Shut the browser down and start again-->
+<h4>Shut the browser down and start again</h4>
+
+<p>Although it sounds simplistic, this workaround can help:</p>
+<br>
+<ol>
+<li>Stop all instances of Netscape browsers so that there is no Netscape code of any sort 
+running on the machine.</li>
+<li>Open an instance of the Netscape browser once again.</li>
+<li>Try once again to start the search.</li>
+</ol>
+
+<p>Optionally, try removing all saved internet files by purging the browser cache. 
+For example, this can be done on Netscape by selecting the following: <b>Edit</b> 
+<img src="insarrow.gif" alt="then click" width="9" height="9"> <b>Preferences</b> 
+<img src="insarrow.gif" alt="then click" width="9" height="9"> <b>Advanced</b> 
+<img src="insarrow.gif" alt="then click" width="9" height="9"> <b>Cache</b> <img src="insarrow.gif" alt="then click" width="9" height="9"> 
+<b>Clear Disk Cache</b> and <b>Clear Memory Cache</b>.</p>
+
+<!--Help the browser find a JVM security class-->
+<h4>Help the browser find a JVM security class</h4>
+
+<p>A common problem involves a missing or misplaced security class. Try the following workaround, 
+especially if you see the following line in the browser Java console:</p>
+
+<pre>
+   <code>Cannot find class	 java/security/InvalidParameterException.</code>
+</pre>
+
+<p>To fix the problem, you must ensure that the browser can find the classes in 
+the java.security package. Netscape browsers can access classes provided through the system 
+CLASSPATH environment variable. For information about accessing and changing your system CLASSPATH, 
+refer to your operating system documentation or system administrator.    </p>
+
+<p>Use one of the following solutions to provide the <samp>InvalidParameterException.class</samp>
+to the Netscape browser.</p>
+<p><strong>If you have a JDK installed</strong></p>
+<ul>
+<li>
+<p><strong>Note: </strong>You can download the latest JDK from <a href="http://java.sun.com"
+target="_blank">http://java.sun.com</a>
+<p>For older JDKs that have a classes.zip in the lib directory, 
+make sure that the CLASSPATH environment variable 
+points to <samp>classes.zip</samp> of your JDK.</p>
+
+<p>For example, in AIX, add the following to your .profile file.<br>
+<samp>
+     &nbsp;&nbsp;&nbsp;&nbsp;CLASSPATH=/usr/jdk_base/lib/classes.zip<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;export CLASSPATH<br>
+</samp></p>
+</li>
+
+
+<li>For newer JDKs that do not include <samp>classes.zip</samp> file, add the 
+	<samp>rt.jar</samp> (the runtime environment jar) file to the system CLASSPATH.
+	Sun's JDK and JRE downloads include the <samp>rt.jar</samp> file.  WebSphere Application 
+	Server and WebSphere Studio also provide JDKs and the <samp>rt.jar</samp> file.
+	<ol>
+		<li>To locate the <samp>rt.jar</samp> file on your system, from a command window, enter:
+
+		<samp> dir &lt;<var>jdk_root</var>&gt; /s rt.jar</samp> (on Windows platforms) or <br>
+		<samp>ls &lt;<var>jdk_root</var>&gt;/rt.jar</samp> (on UNIX platforms)<br>
+		</li>
+		
+		<li>After you locate the <samp>rt.jar</samp> file, do the following:
+			<ol type="square">
+				<li>Add the <samp>rt.jar</samp> file to the system CLASSPATH, as for example:
+				<pre>&lt;<i>jdk_root</i>&gt;\jre\lib\rt.jar</pre>
+				</li>
+
+				<li>Add the <samp>\bin</samp> directory for the JDK to the system path, as for example:
+				<pre>&lt;<i>jdk_root</i>&gt;\bin</pre>
+				</li>
+
+				<li>Apply the changes.  To ensure the changes are activated, reboot your system.</li>
+
+				<li>Open your Netscape browser and start the Java console.</li>
+
+				<li>Run the search applet.  You might still see some error messages, such as the following, 
+					but the search should return results.<br> <br> 
+				<code>
+				# Error: Invalid Hash of this JAR entry (-7882)<br>
+				#	jar file: C:\TEMP\jzip8D6H.TMP<br>
+				#	path:     com/sun/java/help/search/GeneratorHeap.class<br>
+				# Error: This operation cannot be performed because a required<br>
+					certificate has expired.  Click on the `Security' icon<br>
+					for more information about certificates. (-8181)<br>
+			   #	jar file: C:\TEMP\jzip8D6H.TMP<br>
+			   #	path:     C:\TEMP\jzip8D6H.TMP<br>
+			   # Error: loading of signatures has failed (-1)<br>
+			   #	jar file: C:\TEMP\jzip8D6H.TMP<br>
+			   #	path:     /F|/test_search/wps/doc/de/InfoCenter/<br>
+			   </code>
+               <p><strong>Note:</strong>&nbsp;&nbsp;The path to the JDK varies by system, and the JDK must be compatible with the browser
+				version. Consult the browser documentation for specific  restrictions.</p>
+			   </li>
+			</ol>
+		</li>
+	   </ol></ul>
+<p><strong>If you do not have a JDK installed</strong></p>
+<ul><li>
+<p>If the machine that runs your Netscape browser does not have a JDK installed, then Netscape 
+cannot use the CLASSPATH environment variable to find the InvalidParameterException.class file. 
+Instead, you can provide your own dummy version of InvalidParameterException.class for the 
+Netscape browser to use.</p>
+<ol>
+<li>On a machine with the JDK installed, compile the following source file named 
+	InvalidParameterException.java: 
+<pre>
+package java.security;
+
+public class InvalidParameterException
+ extends Exception
+{
+  public static void main(String[] args)
+  {
+     System.out.println("dummy class " +
+     "allowing Netscape " +
+     "to work with the Search applet.");
+  }
+}
+
+</pre>
+	</li>
+
+	<li>Copy the resulting InvalidParameterException.class file to your client machine 
+	and to a location where the Netscape browser can find it. 
+<p>Depending on the browser version, place the file in a location relative to 
+the "java" directory under your Netscape browser installation:</p>
+	<ul>
+	<li>For Netscape Navigator version 4.08 or later, put the class file in the following 
+		directory: <br>
+		<var>Netscape installation directory</var>/java/security/ 
+		<ol>
+			<li>Create a &quot;security&quot; directory under &quot;java&quot;.</li>
+			<li>Put InvalidParameterException.class in the security directory.</li>
+		</ol>
+	</li>
+	<li>For Netscape Navigator 4.07 and earlier, put the class file in the following 
+	directory: <br>
+	<var>Netscape installation directory</var>/java/classes/java/security/ 
+	<ol>
+	  <li>Create a &quot;java&quot; directory under &quot;classes&quot;.</li>
+	  <li>Create a &quot;security&quot; directory under &quot;java&quot;.</li>
+	  <li>Put InvalidParameterException.class in the security directory.</li>
+	</ol>
+	</li>
+	</ul>
+<p>Create new directories as needed. For example, for the older browser workaround, 
+create two new directories, java and security under classes. If necessary, try all 
+locations, to see whether one will work for your particular 
+browser.</p>
+</li>
+</ol>
+</ul>
+
+<!--Reporting search problems-->
+<h3><a name="report" href="howtosearch.html#top">Reporting search problems</a></h3>
+
+<p>If you find a problem that is not already documented here, you can notify either your
+IBM support representative (if running a locally installed search) or the
+IBM Web site team (if using the search contained in the online WebSphere
+InfoCenter).</p>
+
+<p>Please include the following information:</p>
+<ul>
+<li>Whether you are using a locally installed search or the IBM Web site version</li>
+<li>The browser brand (Netscape, Internet Explorer) and version</li>
+<li>Any information or errors reported by the browser, through its Java console or otherwise</li>
+<li>Description of the problem</li>
+</ul>
+
+<p>Although many search problems seem to be browser related (which means they are often 
+outside of the control of this IBM product), it is acknowledged that they can frustrate
+users of our product. Alternatives are being explored to improve the quality of the search for 
+all users, regardless of browser peculiarities.</p>
+</body>
+</html>

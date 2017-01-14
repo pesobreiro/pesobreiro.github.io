@@ -1,0 +1,66 @@
+<!--DO NOT TRANSLATE-->
+<F1=SansSerif,12,plain>
+<F2=SansSerif,11,plain>
+<F3=SansSerif,11,plain>
+<F4=SansSerif,11,plain>
+<F5=SansSerif,11,plain>
+
+<!--TRANSLATION NOTES-->
+<!--Translate text between numbered tags-->
+<!--Do not translate directories or filenames-->
+
+<1>IBM WebSphere UDDI Registry<F1>
+  <2>Overview<F2><uddireg_content/uddi/overview.html#SEC2>
+  <2>Installing the IBM WebSphere UDDI Registry<F2><uddireg_content/uddi/install.html#install>
+    <3>Prerequisites<F3><uddireg_content/uddi/install.html#prereqs>
+    <3>Installation on Windows platforms<F3><uddireg_content/uddi/install.html#windows>
+    <3>Installation on Linux platforms<F3><uddireg_content/uddi/install.html#linux>
+    <3>Installation on Websphere Application Server single-server edition for Developers (AEd)<F3><uddireg_content/uddi/install.html#aed>
+    <3>Installing the UDDI Registry into WebSphere<F3><uddireg_content/uddi/install.html#instweb>
+  <2>Removing the UDDI Registry application from WebSphere<F3><uddireg_content/uddi/remove.html#remove>
+    <2>Configuring the UDDI Registry<F2><uddireg_content/uddi/configure.html#configure>
+    <3>Configuring global UDDI properties<F3><uddireg_content/uddi/configure.html#global>
+    <3>Configuring security properties<F3><uddireg_content/uddi/configure.html#security>
+    <3>Configuring user console (GUI) properties<F3><uddireg_content/uddi/configure.html#guiprops>
+    <3>Customizing the UDDI User Console (GUI)<F3><uddireg_content/uddi/configure.html#custgui>
+    <3>Configuring SOAP interface properties<F3><uddireg_content/uddi/configure.html#soap>
+    <3>Configuring SOAP properties with the AAT<F3><uddireg_content/uddi/configure.html#runatt>
+    <3>Configuring SOAP properties in the deployment descriptor<F3><uddireg_content/uddi/configure.html#editdd>
+    <3>Configuring WebSphere to use HTTPS and SSL<F3><uddireg_content/uddi/configssl.html#configssl>
+  <2>Administering the UDDI Registry<F2><uddireg_content/uddi/running.html#admin> 
+    <3>Running the UDDI Registry<F3><uddireg_content/uddi/running.html#running>
+    <3>Backing up and restoring the UDDI Registry<F3><uddireg_content/uddi/backup.html#backup>
+    <3>Uninstalling the UDDI Registry<F3><uddireg_content/uddi/uninstall.html#uninstall>
+    <2>The UDDI user console<F2><uddireg_content/uddi/uddigui.html#uddigui>
+    <3>Displaying the user console<F3><uddireg_content/uddi/displayuc.html#displayuc>
+    <3>Finding category values for the UDDI user console<F3><uddireg_content/uddi/catgvals.html#catgvals>
+  <2>The SOAP Application Programming Interface<F2><uddireg_content/uddi/soapapi.html#soapapi>
+    <3>Using the SOAP API<F3><uddireg_content/uddi/soapapi.html#usesoap>
+    <3>Handling Errors as a User of the SOAP API<F3><uddireg_content/uddi/soapapi.html#handlesoap>
+    <3>Understanding SOAP parsing errors<F3><uddireg_content/uddi/soapapi.html#undersoap>
+  <2>The Application Programming Interface<F2><uddireg_content/uddi/api.html#api>
+    <3>Inquiry API<F3><uddireg_content/uddi/api.html#inquire>
+    <3>The browse pattern<F3><uddireg_content/uddi/api.html#browse>
+    <3>The drill-down pattern<F3><uddireg_content/uddi/api.html#SEC6>
+    <3>The invocation pattern<F3><uddireg_content/uddi/api.html#SEC7>
+    <3>Inquiry API functions<F3><uddireg_content/uddi/api.html#SEC8>
+    <3>Find binding<F3><uddireg_content/uddi/api.html#SEC10>
+  <2>The EJB Interface<F2><uddireg_content/uddi/ejb.html#ejb>
+    <3>The datatypes package<F3><uddireg_content/uddi/ejb.html#ejbdata>
+    <3>Methods in the EJB Interface<F3><uddireg_content/uddi/ejb.html#ejbmeth>
+  <2>Problem determination<F2><uddireg_content/uddi/probdet.html#SEC20">
+    <3>Turning on UDDI trace<F3><uddireg_content/uddi/probdet.html#trace>
+  <2>Messages<F2><uddireg_content/uddi/messages.html#messages>
+  <2>Samples<F2><uddireg_content/uddi/samples.html#SEC22>
+    <3>Samples functionality<F3><uddireg_content/uddi/samples.html#SEC23>
+    <3>Configuring, compiling, and running the samples<F3><uddireg_content/uddi/samplrun.html#SEC14>
+    <3>Configuring the samples<F3><uddireg_content/uddi/samplrun.html#SEC32>
+    <3>Setting the classpath<F3><uddireg_content/uddi/samplrun.html#SEC33>
+    <3>Compiling the samples<F3><uddireg_content/uddi/samplrun.html#SEC34>
+    <3>Running the samples<F3><uddireg_content/uddi/samplrun.html#SEC35>
+    <3>Output to the console<F3><uddireg_content/uddi/samplrun.html#SEC36>
+  <2>Verifying the UDDI Registry Installation<F2><uddireg_content/uddi/verify.html#verify>
+  <2>Reporting Problems with the IBM WebSphere UDDI Registry<F3><uddireg_content/uddi/report.html#report>
+  <2>Applying service to the IBM WebSphere UDDI Registry<F3><uddireg_content/uddi/service.html#service>
+
+  <2>Feedback<F2><welcome.html#feedback>

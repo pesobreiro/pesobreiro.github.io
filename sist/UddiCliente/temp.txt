@@ -1,0 +1,23 @@
+HTTP/1.1 500 Internal Server Error
+Server: WebSphere Application Server/4.0
+Content-Type: text/xml
+Content-Length: 615
+Content-Language: pt
+Connection: close
+
+<?xml version="1.0" encoding="UTF-8" ?>
+<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+<Body>
+	<Fault>
+		<faultcode>Client</faultcode>
+		<faultstring>Client Error</faultstring>
+		<detail>
+			<dispositionReport generic="2.0" xmlns="urn:uddi-org:api_v2" operator="operator">
+			<result errno="10500">
+				<errInfo errCode="E_fatalError">E_fatalError (10500) Serious technical error has occurred while processing the request. The content of element type &quot;businessService&quot; must match &quot;(name+,description*,bindingTemplates,categoryBag?)&quot;.</errInfo>
+			</result>
+			</dispositionReport>
+		</detail>
+	</Fault>
+</Body>
+</Envelope>

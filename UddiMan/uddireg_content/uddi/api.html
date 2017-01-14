@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<META name="GENERATOR" content="IBM WebSphere Homepage Builder V5.0.1 for Windows">
+<title>The application programming interface</title>
+<link rel="stylesheet" type="text/css" href="../../wasstyle.css">
+</head>
+
+<body>
+
+<h1><a href="#TOC17" name="api">The application programming interface</a></h1>
+<p>
+The IBM WebSphere UDDI Registry fully supports
+the Application Programming Interface (API)
+specification which can be viewed by visiting
+<a href="http://www.uddi.org/pubs/ProgrammersAPI-V2.00-Open-20010608.pdf" target="_new"><tt>http://www.uddi.org/pubs/ProgrammersAPI-V2.00-Open-20010608.pdf</tt></a>.
+Any changes from this specification are
+be documented within the IBM WebSphere UDDI Registry information.
+
+<ul compact>
+<li><a href="#inquire">The Inquiry API</a></li>
+<li><a href="#browse">The browse pattern</a></li>
+<li><a href="#SEC6">The drill-down pattern</a></li>
+<li><a href="#SEC7">The invocation pattern</a></li>
+<li><a href="#SEC8">Inquiry API functions</a></li>
+<li><a href="#SEC9">Accessible queries</a></li>
+<li><a href="#SEC10">find_binding</a></li>
+<li><a href="#find_business">find_business</A></li>
+</ul>
+<h4><a name="inquire">The Inquiry API</a></h4>
+<p><br>The Inquiry API provides three forms of query that follow broadly used conventions
+which match the needs of software traditionally used within registries.</p>
+<h4><a name="browse">The browse pattern</a></h4>
+<p>Software that allows people to explore and examine data - especially hierarchical data
+ - requires browse capabilities. The browse pattern characteristically involves starting
+  with some broad information, performing a search, finding general result sets and then
+   selecting more specific information for drill-down.
+   </p>
+   <p>
+   The UDDI API specifications accommodate the browse pattern by way of the
+    <i>find_xx</i> API calls. These calls form the search capabilities provided by the
+	 API and are matched with summary return messages that return overview information
+	  about the registered information that is associated with the inquiry message type
+	   and the search criteria specified in the inquiry.
+	   </p>
+	   <p>
+	   A typical browse sequence might involve finding whether a particular business you
+	    know about has any information registered. This sequence would start with a call
+		 to <i>find_business</i>, perhaps passing the first few characters of a business
+		  name that you know. This returns a <i>businessList</i> result. This result is 
+		  overview information (keys, names and descriptions) derived from the registered 
+		  businessEntity information, matching on the name fragment that you provided.
+		  If you spot the business you are looking for within this list, you can drill 
+		  down into the corresponding businessService information, looking for particular 
+		  service types (e.g. purchasing, shipping, etc) using the <i>find_service</i> 
+		  API call. Similarly, if you know the technical <i>fingerprint</i> 
+		  (tModel signature) of a particular software interface and want to see if the 
+		  business you've chosen provides a web service that supports that interface, you 
+		  can use the find_binding inquiry message.</p>
+<h4><a name="SEC6">The drill-down pattern</a></h4>
+<p align="left">When you have a key for one of the four main data types managed by a UDDI or compatible registry, you can 
+use that key to access the full registered details for a specific data instance. The UDDI 
+data types are businessEntity, businessService, bindingTemplate and tModel. You can access 
+the full registered information for any of these structures by passing a relevant key type 
+to one of the <i>get_xx</i> API calls.<br>Continuing the example from the previous section 
+on browsing, one of the data items returned by all of the <i>find_x</i><i> </i>return sets 
+is key information. In the case of the business we were interested in, the businessKey value 
+returned within the contents of a businessList structure can be passed as an argument to
+<i>get_businessDetail</i>. The successful return to this message is a <i>businessDetail</i>
+message containing the full registered information for the entity whose key value was 
+passed. This will be a full <i>businessEntity</i> structure.</p>
+
+<h4><a name="SEC7">The invocation pattern</a></h4>
+<p>In order to prepare an application to take advantage of a remote web service that is 
+registered within the UDDI registry by other businesses or entities, you need to prepare 
+that application to use the information found in the registry for the specific service 
+being invoked. <br>The <i>bindingTemplate</i> data obtained from the UDDI registry 
+represents the specific details about an instance of a given interface type, including 
+the location at which a program starts interacting with the service. The calling 
+application or program should cache this information and use it to contact the service at 
+the registered address whenever the calling application needs to communicate with the service instance. <br>If the remote service has been moved without any knowledge on the part of the callers, the call will fail. When a call fails using cached information previously obtained from a UDDI register, the proper behavior is to query the UDDI registry for fresh bindingTemplate information. The proper call is <i>get_bindingDetails</i> passing the original bindingKey value. If the data returned is different from the cached information, the service invocation will retry the invocation using the fresh information. If the result of this retry is successful, the new information replaces the cached information.<br>By using this pattern with web services, a business using a UDDI operator Site can automate the recovery of a large number of partners without undue communication and coordination costs. For example, if a business has activated a disaster recovery site, most of the calls from partners will fail when they try to invoke services at the failed site. By updating the UDDI information with the new address for the service, partners who use the invocation pattern will automatically locate the new service information and recover without further administrative action.</p>
+
+<h4><a name="SEC8">Inquiry API functions</a></h4>
+<p>The messages in this section represent inquiries that anyone can make of any Operator Site at any time. These messages all behave synchronously and are required to be exposed via HTTP-POST only. Other synchronous or asynchronous mechanisms may be provided at the discretion of the individual UDDI Operator Site of UDDI compatible registry.</p>
+<h4><a name="SEC9">Accessible queries</a></h4>
+<p>The accessible queries are:<br></p><dl>
+  <dt>find_binding</DT>
+  <dd>used to locate specific bindings within a registered businessService. Returns a bindingDetail message.</DD>
+  <dt>find_business</DT>
+  <dd>used to locate information about one or more businesses. Returns a businessList message.</DD>
+  <dt>find_relatedBusinesses</DT>
+  <dd>used to locate information about businessEntity registrations that are related to a specific business entity whose key is passed in the inquiry. The Related Businesses feature is used to manage registration of business units and subsequently relate them based on organizational hierarchies or business partner relationships. Returns a relatedBusinessList message.</DD>
+  <dt>find_Service</DT>
+  <dd>used to locate specific services within a registered businessEntity. Returns a serviceList message.</DD>
+  <dt>find_tModel</DT>
+  <dd>used to locate one or more tModel information structures. Returns a tModelList structure.</DD>
+  <dt>get_bindingDetail</DT>
+  <dd>used to get full bindingTemplate information suitable for making one or more service requests. Returns a bindingDetail message.</DD>
+  <dt>get_businessDetail</DT>
+  <dd>used to get the full businessEntity information for one or more businesses or organizations. Returns a businessDetail message</DD>
+  <dt>get_businessDetailExt</DT>
+  <dd>used to get extended businessEntity information. Returns a businessDetailExt message.</DD>
+  <dt>get_serviceDetail</DT>
+  <dd>used to get full details for a given set of registered businessService data. Returns a serviceDetail message.</DD>
+  <dt>get_tModelDetail</DT>
+  <dd>used to get full details for a given set of registered tModel data. Returns a tModelDetail message.</DD>
+</dl>
+
+<h4><a name="SEC10">find_binding</a></h4><p>The find_binding API call returns a bindingDetail message that contains zero or more bindingTemplate structures matching the criteria specified in the argument list.</p><h4><a href="#TOC11" name="SEC11">Syntax</a></h4><p><samp>&lt;find_binding serviceKey=&quot;uuid_key&quot; [maxRows=&quot;nn&quot;] generic=&quot;2.0&quot;<br>xmins=&quot;urn:uddi-org:api_v2&quot;&gt;<br>[&lt;findQualifiers/&gt;]<br>&lt;tModelBag/&gt;<br>&lt;/find_binding&gt;</samp></p><h4><a href="#TOC12" name="SEC12">Arguments</a></h4><ul>
+  <li><b>serviceKey: </b>This uuid_key is used to specify a particular instance of a businessService element in the registered data. Only bindings in the specific businessService data identified by the serviceKey passed will be searched.
+  <li><b>maxRows:</b> This optional integer value allows the requesting program to limit the number of results returned.
+  <li><b>findQualifiers:</b> This optional collection of findQualifier elements can be used to alter the default behavior of search functionality.
+  <li><b>tModelBag: </b>This is a list of tModel <i>uuid_key</i> values that represent the technical <i>fingerprint</i> of a bindingTemplate structure contained within the businessService specified by the serviceKey value. Only bindingTemplates that contain all of the tModel keys specified will be returned (logical AND). the order of the keys in the tModel bag is not relevant.
+</ul>
+
+<h5><a name="SEC13">Returns</a></h5><p>This API call returns a bindingDetail message upon success. In the event that no matches were located for the specified criteria, the bindingDetail structure returned will be empty (e.g. contain no bindingTemplate data). This signifies a zero match result. If no arguments are passed, a zero-match result will be returned.<br>In the event of an overly large number of matches (as determined by each Operator Site), or if the number of matches exceeds the value of the <i>maxRows</i> attribute, the Operator site will truncate the result set. If this occurs, the response message will contain the <i>truncated </i>attribute with the value <i>&quot;true&quot;</i>.<br>If any error occurs in processing this API call, a dispositionReport element will be returned to the caller within a SOAP Fault. The following error number information is relevant:<br></p><dl>
+  <dt>E_invalidKeyPassed</dt>
+  <dd>signifies that the <i>uuid_key</i> value passed does not match with any known serviceKey or tModelKey values. The error structure signifies which condition occurred first, and the invalid key is included clearly in text.</dd>
+  <dt>E_unsupported</dt>
+  <dd>signifies that one of the findQualifier values passed is invalid. The invalid qualifier is indicated clearly in text.</dd>
+</dl>
+
+<h4><a name="find_business"></a>find_business</h4><p>The find_business API call returns a businessList message that matches the conditions specified in the arguments.</p><h4>Syntax</h4><samp>&lt;find_business [maxRows=&quot;nn&quot;] generic=&quot;2.0&quot; xmins=&quot;urn:uddi-org:api_v2&quot;&gt;<br>[&lt;findQualifiers/&gt;<br>[&lt;name/&gt; [&lt;name/&gt;]... ] (up to five different name values)<br>[&lt;discoveryURLs/&gt;<br>[&lt;indentifierBag/&gt;<br>[&lt;categoryBag/&gt;<br>[&lt;tModelBag/&gt;<br>&lt;/find_business&gt;</samp><h4>Arguments</h4><ul>
+  <li><b>maxRows:</b>&nbsp;This optional integer value allows the requesting program to limit the number of results returned.
+  <li><b>findQualifiers:</b> This collection of findQualifier elements can be used to alter the default behavior of search functionality.
+  <li><b>name:</b> This string is a partial or full business name. Wildcard searching (which can be disabled by specifying the ExactName find qualifie value) can be accomplished using the % character. The businessList returned contains businessInfo structures for businesses whose name matches the value(s) passed (lexical-order match - i.e. leftmost in left-to-right languages - if no wild cards are present). Up to 5 name values may be specified. If multiple name values are passed, the match occurs on a logical OR basis.
+  <li><b>identifierBag:</b> This is a list of business identifier references. The returned businessList contains businessInfo structures matching any of the identifiers passed (logical OR by default).
+  <li><b>categoryBag:</b>&nbsp;this is a list of category references. The returned businessList contains businessInfo elements matching all of the categories passed (logical AND by default). Special findQualifers are defined that affect categoryBag treatment.
+  <li><b>tModelBag:</b> The registered businessEntity data contains a bindingTemplates element that in turn contains bindingTemplate elements that contain specific tModel references. The tModelBag arguement lets you search for businesses that have bindings that expose a specific <i>fingerprint</i> within the tModelInstanceDetails collection. The returned businessList contains businessInfo structures that provide a summarized view of registered businessEntity data that contains bindingTemplate structures that match all of the tModel keys passed (logical AND by default).
+  <li><b>discoveryURLs:</b> This is a list of URLs to be matched against the discoveryURL data associated with any registered businessEntity information. To search for URL without regard to useType attribute values, pass the useType component of the discoveryURL elements as empty attributes. If useTpye values are included, then the match will be made only on registered information that matches both the useTpye and URL value. The returned businessList contains businessInfo structures matching any of the URL's passed (logical OR).
+</ul>
+<h5>Returns</h5>
+<p>This call returns a businessList on success. This structure contains information about each matching business, and summaries of the businessServices exposed by the individual businesses. If a tModel was used in the search, the resulting serviceInfos structure will only reflect data for the businessServices that actually contain a matching bindingTemplate. In the event that no matches were located for the specified criteria, a businessList structure with zero businessInfo structures is returned. If no arguments are passed, a zero-match result set will be returned.<br></p>
+
+
+
+</body>
+</html>

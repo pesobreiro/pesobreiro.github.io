@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<META name="GENERATOR" content="IBM WebSphere Homepage Builder V5.0.1 for Windows">
+<TITLE></title>
+<link rel="stylesheet" type="text/css" href="../../wasstyle.css">
+</HEAD>
+<BODY>
+<H2><a name="migrate.html#migrate">Migrating to Version 1.1.1 of the IBM WebSphere
+UDDI Registry</a></H2>
+<H3>Behavioural changes</H3>
+<OL>
+  <LI>There have been a few minor changes to the
+  EJB interface which mean that you may need
+  to rewrite your EJB client applications:
+  <OL type="a">
+    <LI>Remove any declarations that involve any
+    of the classes in the <B>com.ibm.uddi.exceptions</B> package. There are only 5 Exceptions:
+    <UL>
+      <LI>DuplicateLanguageCodeException
+      <LI>EmptyNameException
+      <LI>PersistenceException
+      <LI>TooManyConnectionsException
+      <LI>TooManyNamesException
+    </UL>
+    <P>This includes trying to do a <B>throw/catch</B> or <B>throws</B> for any of these Exceptions, and also trying
+    to <B>import</B> the package, or trying to instantiate/subclass
+    any of the Exceptions.</P>
+    
+    <LI>In the BusinessEntity class, a user cannot
+    set the name of the business by doing
+    an
+    <B>exampleBusinessEntity.setName(String aString);</B>
+    <P>The user must now do an <B>exampleBusinessEntity.setNames(com.ibm.uddi.datatypes.NameList
+    aList); </B>(please note that it is setName<B>s</B> and not setName as before)</P>
+  </OL>
+  <LI>Some changes have occured with the behaviour
+  of the UDDI User Console with regard to SSL
+  and authentication:
+  <OL type="a">
+    <LI>With authentication disabled, it is now possible
+    to inquire and publish via HTTP on port 9080,
+    or HTTPS on port 9443 (if configured).
+    <LI>With authentication enabled, it is possible
+    to inquire over HTTP without authenticating.
+    Publish actions require access via HTTPS
+    on port 9443 and you will be asked for authentication.
+  </OL>
+  <LI>tModels are now called technical models
+</OL>
+<H3>Migration procedure</H3>
+<P>If you have previously installed version
+1.1 of the IBM WebSphere UDDI Registry, then
+you should take the following steps in order
+to migrate to version 1.1.1.</P>
+<P>UDDI Version 1.1.1 requires a new level of
+WebSphere Application Server, Version 4.0.3.
+It is recommended that you upgrade in two
+steps:</P>
+<UL>
+  <LI>Upgrade to WebSphere Application Server 4.0.3
+  and then confirm that UDDI will still run
+  as expected.
+  <LI>Upgrade to UDDI Version 1.1.1
+</UL>
+<OL>
+  <LI>Upgrade to WebSphere Application Server 4.0.3.
+  <LI>If you have made any changes to the configuration
+  properties in the file uddi.properties, which
+  is located in the properties subdirectory
+  of your WebSphere AppServer install tree,
+  then you should make a copy of this file
+  (or make a note of all the changes), so that
+  you will be able to reapply the changes to
+  the file after you have installed the new
+  release. The uddi.properties file will be
+  replaced by the installation procedure.
+  <LI>Uninstall the IBM WebSphere UDDI Registry
+  using Add/Remove Programs on Windows platforms,
+  or rpm -e IBMWebSphere-UDDI on Linux. This
+  will remove the application, but will preserve
+  the UDDI Registry database.
+  <LI>Please note that you will be prompted during
+  the installation procedure as to whether
+  you want to replace the UDDI Registry database.
+  If you have any data in the UDDI Registry
+  which you wish to preserve, then you should
+  reply &quot;<B>No</B>&quot; when prompted &quot;Do you want to
+  create a new UDDI Registry database?&quot;
+  and then confirm this choice.
+  <LI>You can now follow the instructions on &quot;<A href="install.html#windows">Installation on Windows Platforms</A>&quot; or &quot;<A href="install.html#linux">Installation on Linux Platforms</A><A href="install.html#windows#install">&quot;</A>.
+  <LI>After completing the install procedure, you
+  should edit the uddi.properties file to reflect
+  any changes that you require to the configuration
+  properties. You should <B><U>not</U></B> replace this file with your previous copy
+  from version 1.1 of the IBM WebSphere UDDI
+  Registry as its format has changed.
+</OL>
+</BODY>
+</HTML>

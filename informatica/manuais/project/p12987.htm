@@ -1,0 +1,127 @@
+<!doctype html public" -//IETF//DTD 	HTML//EN">
+<HTML>
+
+<HEAD>
+<SCRIPT LANGUAGE="JAVASCRIPT">
+<!-- 
+
+function checkbrowse()
+{
+var bn, bv, ver
+bn = navigator.appName;
+bv = parseInt(navigator.appVersion);
+if (bn=="Microsoft Internet Explorer" && bv<"4") ver = "IE3";
+else ver = "NotIE3";
+if (ver=="IE3") top.cont.parts.location.href="part12.htm";
+if (ver=="NotIE3") top.cont.parts.location.href="nav/part12.htm";
+}
+//-->
+</SCRIPT>
+<TITLE>Delay Tasks Automatically</TITLE>
+<META NAME="GENERATOR" 	CONTENT="Merch. System HTML Development">
+<META NAME="AUTHOR" 	CONTENT="Merch. System HTML Development">
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" OnLoad="checkbrowse();">
+<Font Face ="Verdana, Arial, Helvetica">
+
+<P align=right><SMALL>
+<A HREF="p12986.htm" Target="TOC"><IMG SRC="prev.gif"ALT="Previous page"BORDER=0></A>
+<A HREF="p12981.htm" Target="TOC"><IMG SRC="toc12.gif"ALT="Contents"BORDER=0></A>
+<A HREF="p12988.htm" Target="TOC"><IMG SRC="Next.gif"ALT="Next 
+page"BORDER=0></A></SMALL></P>
+<H2>Delay Tasks Automatically</H2>
+
+<P>
+When you have many resource overallocations, you can have Microsoft Project add delay times to those tasks 
+automatically. You can then check the results and make adjustments if necessary. This is often faster than 
+adding delay to one task at a time.
+<P>
+In a process called <I>leveling</I>, Microsoft Project delays or splits tasks automatically until the resources 
+assigned to them are no longer overallocated. You can prioritize tasks to specify which tasks should be 
+delayed first and which should not be delayed at all. You can decide whether to level all resources or only 
+selected resources. And you can level with or without delaying the finish date of the schedule. Remember, 
+though, you should apply leveling only after analyzing and refining the schedule yourself.
+<P>
+If you’re scheduling from a finish date, you can still level your project. Earlier versions of Microsoft Project did 
+not allow leveling for projects scheduled from a finish date. Leveling tasks in projects scheduled from a finish 
+date will have negative delay values applied to them. This will cause a task or resource assignment’s finish 
+date to occur earlier because the delay will be applied from the finish of the task or assignment.
+<P>
+Automatic leveling might not result in the best solution to your problem because Microsoft Project can follow 
+only a limited set of fixed rules. It checks predecessor dependencies, slack time, dates, priority, and task 
+constraints to determine which tasks to delay. It can’t get creative and substitute a resource on an 
+overallocated task or change the task’s duration. Only you know the subtleties of your schedule.
+<P>
+You should always review the changes Microsoft Project has made when it levels resources by delaying tasks. 
+You can review these changes on the Leveling Gantt view. If you don’t like the changes, you can remove them 
+at any time.
+<P>
+<B><B><img src="bluetri.gif">	To delay tasks automatically to level overallocated resources</B></B>
+<OL>
+<LI>On the <B>Tools</B> menu, click <B>Resource Leveling</B>.
+<LI>Click <B>Manual</B> to level resources only when you click the <B>Level Now</B> button.
+<LI>In the <B>Look for overallocations on a basis</B> box, click a time period to determine the sensitivity with 
+which leveling will recognize overallocations.
+<BR>Leveling will occur only if a resource is scheduled to do more work than it has the capacity for in the 
+specified period.
+<LI>Under <B>Leveling range for</B>, select whether you want the entire project leveled or only those tasks 
+falling within a specific time period.
+<LI>In the <B>Leveling order</B> box, click one of the following leveling orders:
+<UL>
+<LI>Click <B>ID Only</B> to have Microsoft Project check tasks in the ascending order of their ID numbers 
+before considering other leveling criteria to determine which tasks to level.
+<LI>Click <B>Standard</B> to have Microsoft Project check tasks in the order of their predecessor 
+dependencies, slack, dates, priority, and then task constraints.
+<LI>Click <B>Priority, Standard</B> to have Microsoft Project check tasks’ priorities to be leveled before 
+considering predecessor dependencies, slack, dates, and then task constraints.
+</UL>
+<LI>To prevent the finish date of your project from being moved out, select the <B>Level only within available 
+slack</B> check box.
+<LI>To have leveling adjust when a resource works on a task independent of other resources working on the 
+same task, select the <B>Leveling can adjust individual assignments on a task</B> check box.
+<BR>When the task’s priority is set to <B>Do Not Level</B>, Microsoft Project will skip the task.
+<LI>To interrupt tasks by creating splits in the remaining work on tasks or resource assignments, select the 
+<B>Leveling can create splits in remaining work</B> check box.
+<LI>Click <B>Level Now</B>.
+</OL>
+</BOTTOM>
+<P>
+Immediately after leveling your project, you can undo the action if you don’t get the results you want.
+<P>
+<B><B><img src="bluetri.gif">	To immediately undo the effects of leveling</B></B>
+<UL>
+<LI>On the <B>Edit</B> menu, click <B>Undo Leveling</B>.
+</UL>
+<P>
+<B><B><img src="bluetri.gif">	To remove the effects of the last leveling operation</B></B>
+<UL>
+<LI>Click <B>Clear Leveling</B> in the <B>Resource Leveling</B> dialog box.
+</UL>
+<P>
+If there are tasks that you prefer not to delay unless absolutely necessary, you can select the order in which 
+Microsoft Project delays tasks with overallocated resources. You do this by assigning a higher priority to 
+urgent tasks that should start as early as possible.
+<P>
+<B><B><img src="bluetri.gif">	To prioritize the delay order of tasks with overallocated 
+resources</B></B>
+<OL>
+<LI>On the <B>View Bar</B>, click <B>More Views</B> <img src="more.gif">.
+<LI>In the <B>Views</B> list, click <B>Leveling Gantt</B>, and then click <B>Apply</B>.
+<LI>In the <B>Task Name</B> field, select a task that has overallocated resources.
+<LI>Click <B>Task Information</B> <img src="resi.gif">, and then click the <B>General</B> tab.
+<LI>In the <B>Priority</B> box, click a priority for this task based on the order in which you want Microsoft 
+Project to level tasks, and then click <B>OK</B>.
+<BR>Microsoft Project delays tasks with the lowest priority first. If you don’t want a task to be leveled, click 
+<B>Do Not Level</B>.
+<LI>Repeat steps 3 through 5 for each task with overallocated resources.
+<LI>On the <B>Tools</B> menu, click <B>Resource Leveling</B>.
+<LI>In the <B>Leveling order</B> box, click <B>Priority, Standard</B>.
+<LI>Click <B>Level Now</B>.
+</OL>
+<P align = Center > <A HREF="http://www.microsoft.com/misc/cpyright.htm"><EM>&#169;1996-1997 Microsoft Corporation. All rights 
+reserved.</EM></A></P>
+</BODY>
+</FONT>
+</HTML>
+

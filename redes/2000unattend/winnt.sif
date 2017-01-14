@@ -1,0 +1,83 @@
+;SetupMgrTag
+[Data]
+    AutoPartition=1
+    MsDosInitiated="0"
+    UnattendedInstall="Yes"
+
+[Unattended]
+    UnattendMode=FullUnattended
+    OemSkipEula=Yes
+    OemPreinstall=No
+    TargetPath=\WINNT
+
+[GuiUnattended]
+    AdminPassword=passwordAdministradorLocal
+    OEMSkipRegional=1
+    TimeZone=85
+    OemSkipWelcome=1
+    AutoLogon=Yes
+    AutoLogonCount=1
+
+[UserData]
+    FullName=user
+    ComputerName=*
+    ProductId = "O Serial do 2000"
+
+[Display]
+    BitsPerPel=32
+    Xresolution=800
+    YResolution=600
+    Vrefresh=85
+
+[TapiLocation]
+    AreaCode=243
+
+[RegionalSettings]
+    LanguageGroup=1
+    Language=00000816
+
+[SetupMgr]
+    ComputerName0=wks1
+    ComputerName1=wks2
+    ComputerName2=wks3
+    ComputerName3=wks4
+
+[Identification]
+    JoinDomain=rede4
+    DomainAdmin=Administrator
+    DomainAdminPassword=passwordParaAdicionarDominio
+
+[Networking]
+    InstallDefaultComponents=No
+
+[NetAdapters]
+    Adapter1=params.Adapter1
+
+[params.Adapter1]
+    INFID=*
+
+[NetClients]
+    MS_MSClient=params.MS_MSClient
+
+[NetServices]
+    MS_SERVER=params.MS_SERVER
+
+[NetProtocols]
+    MS_TCPIP=params.MS_TCPIP
+
+[params.MS_TCPIP]
+    DNS=No
+    UseDomainNameDevolution=No
+    EnableLMHosts=Yes
+    AdapterSections=params.MS_TCPIP.Adapter1
+
+[params.MS_TCPIP.Adapter1]
+    SpecificTo=Adapter1
+    DHCP=No
+    IPAddress=10.0.0.39
+    SubnetMask=255.255.255.0
+    DefaultGateway=10.0.0.39
+    DNSServerSearchOrder=10.0.0.39
+    WINS=No
+    NetBIOSOptions=0
+

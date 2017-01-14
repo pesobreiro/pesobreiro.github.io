@@ -1,0 +1,128 @@
+<HTML>
+<HEAD>
+<TITLE>Displaying Errors with the JavaScript Console
+</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="mail.htm">Previous</A>
+ | <A HREF="glossary.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT><BR><BR>
+<HR>
+<A NAME="1004918">
+<P></A><CENTER><H2>Appendix B<BR>
+<A NAME="1039624">
+Displaying Errors with the JavaScript Console</A></H2></CENTER>
+<A NAME="1044390">
+This appendix describes how to use the JavaScript console to evaluate expressions and display error messages to the user.</A></P>
+<A NAME="1045565">
+This appendix contains the following sections:</A></P>
+<ul><LI><A NAME="1045566">
+<A HREF="console.htm#1044393">Opening the JavaScript Console</A>
+</A></LI><LI><A NAME="1045584">
+<A HREF="console.htm#1044397">Evaluating Expressions with the Console</A>
+</A></LI><LI><A NAME="1045585">
+<A HREF="console.htm#1045065">Displaying Error Messages with the Console</A>
+</A></LI></ul><B><A NAME="HeadRunIn;"></A>
+<A NAME="1044769">
+JavaScript&nbsp;1.2 and earlier versions. </A></B><A NAME="1044770">
+The JavaScript console is not available.</A></P>
+
+<HR><H2><A NAME="Opening the JavaScript Console"></A>
+<A NAME="1044393">
+ Opening the JavaScript Console
+</A></H2><A NAME="1044394">
+To open the JavaScript console, do one of the following. The console opens in a new window.</A></P>
+<ul><P><LI><A NAME="1044819">
+Enter the following URL in the location bar.</A></LI>
+<PRE><A NAME="1045138">javascript:</A></PRE><P><LI><A NAME="1044820">
+Choose Open Page from the File menu, and enter the following URL:</A></LI>
+<PRE><A NAME="1045169">javascript:</A></PRE><P><LI><A NAME="1044871">
+Supply the following code in your HTML page:</A></LI>
+<PRE><A NAME="1044396">&lt;A HREF="javascript:"&gt;Open JavaScript console&lt;/A&gt;</A></PRE></ul>
+<HR><H2><A NAME="Evaluating Expressions with the Console"></A>
+<A NAME="1044397">
+ Evaluating Expressions with the Console
+</A></H2><A NAME="1044940">
+The JavaScript console is a two-frame window. The lower frame contains a field labeled <CODE>javascript typein</CODE>, where you can type one-line expressions. You can use this field to assign values to variables, test comparison operators, and perform math operations.</A></P>
+<A NAME="1045014">
+To evaluate an expression:</A></P>
+<OL>
+<P><LI><A NAME="1045002">
+Type the expression into the <CODE>javascript typein</CODE> field.</A></LI>
+<P><LI><A NAME="1045003">
+Press Return.</A></LI>
+<P><A NAME="1045062">
+The results are displayed in the upper frame.
+</P></A>
+
+</OL>
+<A NAME="1045063">
+For example, you could evaluate the following expressions:</A></P>
+<PRE><A NAME="1045064">alert("hello there")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Displays an alert dialog box<br>5-2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Displays "3" in the upper frame<br>var high=100; var low=45; // Creates two variables<br>high-low; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Displays 55 in upper frame</A></PRE>
+<HR><H2><A NAME="Displaying Error Messages with the Console"></A>
+<A NAME="1045065">
+ Displaying Error Messages with the Console
+</A></H2><A NAME="1044923">
+When a JavaScript error condition is encountered in the client (for example, on an HTML page or within an email message), a dialog box is displayed describing the error (for example, <CODE>Line 64: myVariable is not defined</CODE>). For most users, these errors are incomprehensible, and dismissing the dialog box becomes annoying. The only people likely to be interested in the errors are JavaScript developers, testers, and sophisticated users.</A></P>
+<A NAME="1044924">
+You can force JavaScript errors to be displayed only in the JavaScript console. Then, when a JavaScript error occurs, the error message is directed to the console, and no dialog box appears. Since the console is normally not displayed, the user receives no direct indication that a JavaScript error has occurred. If a user or developer wants to view a JavaScript error, they need to open the console.</A></P>
+<A NAME="1044925">
+The text of JavaScript error messages appears the same way whether they are displayed in the console or in the traditional error dialog box.</A></P>
+<A NAME="1044926">
+JavaScript error descriptions are always displayed in English regardless of the locale.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1044916">
+ Setting Preferences for Displaying Errors
+</A></H3>
+
+<A NAME="1044398">
+You can specify whether to automatically open the console when a JavaScript error occurs or to display a dialog box for each JavaScript error. To set preferences for displaying errors, modify the Navigator preference file <CODE>prefs.js</CODE> as follows.</A></P>
+<OL>
+<P><LI><A NAME="1045317">
+Make sure Navigator is not running.</A></LI>
+<P><A NAME="1045318">
+Navigator may overwrite your changes if it is running when you edit the 
+preferences.
+</P></A>
+
+<P><LI><A NAME="1045319">
+Open <CODE>prefs.js</CODE>.</A></LI>
+<P><A NAME="1045332">
+The preference file is in the user's directory under the <CODE>Netscape/Users</CODE> 
+directory. For example, on Windows NT, you may find <CODE>prefs.js</CODE> in the 
+following location:
+</P></A>
+
+<PRE><A NAME="1045333">&lt;<I>Netscape path</I>&gt;\Users\&lt;<I>user name</I>&gt;</A></PRE><P><LI><A NAME="1045320">
+Add one of the following lines to <CODE>prefs.js</CODE>:</A></LI>
+<ul>
+</P><LI><A NAME="1045343">
+To automatically open the console when a JavaScript error occurs, add the following line to <CODE>prefs.js</CODE>:</A></LI>
+<PRE><A NAME="1045344">&nbsp;&nbsp;&nbsp;&nbsp;user_pref("javascript.console.open_on_error", true);</A></PRE></P><LI><A NAME="1045345">
+To open a dialog box each time an error occurs, add the following line to <CODE>prefs.js</CODE>:</A></LI>
+<PRE><A NAME="1045338">&nbsp;&nbsp;&nbsp;&nbsp;user_pref("javascript.classic.error_alerts", true);</A></PRE></ul>
+<P><LI><A NAME="1045322">
+Save and close <CODE>prefs.js</CODE>.</A></LI>
+</OL>
+
+<HR>
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="mail.htm">Previous</A>
+ | <A HREF="glossary.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT>
+<P ALIGN=right>
+<FONT SIZE=-2><I>Last Updated:  05/27/99  21:21:50</I></FONT>
+<P> <CENTER>Copyright (c) 1999
+<A HREF="http://home.netscape.com/misc/contact_info.html"
+TARGET=_top>Netscape Communications Corporation</A></FONT>
+</CENTER>
+<P>
+</BODY>
+</HTML>
+
+

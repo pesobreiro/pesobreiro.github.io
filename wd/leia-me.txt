@@ -1,0 +1,3 @@
+1. Criar a seguinte pasta: C:\Documentos\aulas\Cursos\ProgramacaoInternet\aulas e colocar o conteudo do cd.
+
+2. Criar um site no IIS para o caminho já referido.

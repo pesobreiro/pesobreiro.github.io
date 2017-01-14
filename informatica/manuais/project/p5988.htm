@@ -1,0 +1,92 @@
+<!doctype html public" -//IETF//DTD 	HTML//EN">
+<HTML>
+
+<HEAD>
+<SCRIPT LANGUAGE="JAVASCRIPT">
+<!-- 
+
+function checkbrowse()
+{
+var bn, bv, ver
+bn = navigator.appName;
+bv = parseInt(navigator.appVersion);
+if (bn=="Microsoft Internet Explorer" && bv<"4") ver = "IE3";
+else ver = "NotIE3";
+if (ver=="IE3") top.cont.parts.location.href="part05.htm";
+if (ver=="NotIE3") top.cont.parts.location.href="nav/part05.htm";
+}
+//-->
+</SCRIPT>
+<TITLE>Overlap or Delay Tasks</TITLE>
+<META NAME="GENERATOR" 	CONTENT="Merch. System HTML Development">
+<META NAME="AUTHOR" 	CONTENT="Merch. System HTML Development">
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" OnLoad="checkbrowse();">
+<Font Face ="Verdana, Arial, Helvetica">
+
+<P align=right><SMALL>
+<A HREF="p5987.htm" Target="TOC"><IMG SRC="prev.gif"ALT="Previous page"BORDER=0></A>
+<A HREF="p5981.htm" Target="TOC"><IMG SRC="toc05.gif"ALT="Contents"BORDER=0></A>
+</SMALL></P>
+<H2>Overlap or Delay Tasks</H2>
+
+<P>
+Sometimes task links alone might not show accurately when tasks will actually start. For example, in the 
+clockwork project, painting the walls precedes hanging the clocks, and those tasks have a finish-to-start link. 
+The schedule shows that the clocks will be hung immediately after the painter finishes painting, but that’s 
+before the paint has had a chance to dry.
+<P>
+You can fine-tune task links — and make sure you don’t gum up the clockwork — by using <I>lag time</I> 
+and <I>lead time</I>. By using lag time, you can specify a waiting period, or delay, between the finish of a 
+predecessor task and the start of a successor task. To avoid making the museum crew crowbar the clocks out 
+of hardened paint, the exhibit planner should probably add lag time between painting the walls and hanging the 
+clocks.
+<P>
+<IMG SRC="0509.GIF" ALT="Image File: 0509">
+<P>
+With lead time, you can overlap two tasks so that a successor task starts before the predecessor task finishes. 
+The exhibit planner could assign one person to begin hanging labels soon after the first clock is hung.
+<P>
+<IMG SRC="0510.GIF" ALT="Image File: 0510">
+<P>
+After you enter tasks and assign dependencies to them, analyze your schedule and look for instances where 
+you can apply lead or lag time. By using lead and lag time, you can make your schedule more accurate, and you 
+may be able to shorten it as well.
+<P>
+You can express lead or lag time as units of time or as a percentage of the predecessor task’s duration. For 
+example, the paint on the walls must dry for 1 day before clocks can be hung, so the exhibit manager can 
+specify a 1-day lag between painting the walls and hanging the clocks. Or, if the electrician can begin wiring 
+display cases after half the cases are installed, the &quot;Install and position case lights&quot; task can start 
+when the &quot;Install wood and glass cases&quot; task is 50 percent complete, regardless of the duration of 
+the predecessor task.
+<P>
+<B><B><img src="bluetri.gif">	To add lead or lag time</B></B>
+<OL>
+<LI>On the <B>View Bar</B>, click <B>Gantt Chart</B> <img src="gant.gif">.
+<TABLE CELLPADDING=5 CELLSPACING=0 border=5 width=30% align=right>
+<TR>
+<TD VALIGN=top><Font Face ="Verdana, Arial, Helvetica">To add lead or lag time to a successor task 
+quickly, double-click the link line on the Gantt Chart and type the lead or lag time in the <B>Lag</B> box of the 
+<B>Task Dependency</B> dialog box.</FONT></TD>  
+</TABLE><LI>In the <B>Task Name</B> field, select the successor task you want, and then click <B>Task 
+Information</B> <img src="info.gif">.
+<LI>Select the <B>Predecessors</B> tab.
+<LI>In the <B>Lag</B> field, type the lead time or lag time you want, as a duration or as a percentage of the 
+predecessor task’s duration.
+<BR>Type lead time as a negative number or as a negative completion percentage. Type lag time as a positive 
+number or as a positive completion percentage.
+<BR>Use <I>minute</I>, <I>hour</I>, <I>day</I>, or <I>week</I> for the lead or lag time units. To specify 
+elapsed duration, precede the time unit with the letter &quot;e&quot; (for example, <I>edays</I> for elapsed 
+days). Elapsed days include weekends and other nonworking days.
+</OL>
+</BOTTOM>
+<P>
+<P>
+
+<P align = Center > <A HREF="http://www.microsoft.com/misc/cpyright.htm"><EM>&#169;1996-1997 Microsoft Corporation. All rights 
+reserved.</EM></A></P>
+</BODY>
+</FONT>
+</HTML>
+

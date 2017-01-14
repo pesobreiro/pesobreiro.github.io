@@ -1,0 +1,99 @@
+<HTML>
+<HEAD>
+<TITLE>LiveAudio and LiveConnect
+</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="lc.htm">Previous</A>
+ | <A HREF="partapp.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT><BR><BR>
+<HR>
+<A NAME="1001595">
+<P></A><CENTER><H2>Chapter 16<BR>
+<A NAME="1020017">
+LiveAudio and LiveConnect</A></H2></CENTER>
+<A NAME="1020056">
+LiveAudio is LiveConnect aware. Using LiveConnect, LiveAudio, and JavaScript, essentially any event that can be described programmatically using the JavaScript framework can trigger a sound event. For example, you can create alternative sound control interfaces, defer the load of a sound file until the user clicks a button, create buttons that make clicking noises, or create audio confirmation for interface interactions (have an object "say" what it does when the users clicks it or moves the mouse over it). This chapter describes how to use JavaScript to control embedded LiveAudio elements.</A></P>
+<A NAME="1020230">
+This chapter contains the following sections:</A></P>
+<ul><LI><A NAME="1020231">
+<A HREF="liveaud.htm#1020064">JavaScript Methods for Controlling LiveAudio</A>
+</A></LI><LI><A NAME="1020232">
+<A HREF="liveaud.htm#1020098">Using the LiveAudio LiveConnect Methods</A>
+</A></LI></ul>
+<HR><H2><A NAME="JavaScript Methods for Controlling LiveAudio"></A>
+<A NAME="1020064">
+ JavaScript Methods for Controlling LiveAudio
+</A></H2><A NAME="1020065">
+LiveAudio provides the following major JavaScript controlling methods. For these methods to be available to JavaScript (and the web page), you must embed a LiveAudio console (any console will do, it can even be hidden) somewhere on your page.</A></P>
+<ul><LI><A NAME="1020067">
+<CODE>play({loop[TRUE, FALSE or an INT]}, '{url_to_sound}')</CODE> 
+</A></LI><LI><A NAME="1020069">
+<CODE>pause()</CODE> 
+</A></LI><LI><A NAME="1020071">
+<CODE>stop()</CODE> 
+</A></LI><LI><A NAME="1020073">
+<CODE>StopAll()</CODE> 
+</A></LI><LI><A NAME="1020075">
+<CODE>start_time({number of seconds})</CODE> 
+</A></LI><LI><A NAME="1020077">
+<CODE>end_time({number of seconds})</CODE> 
+</A></LI><LI><A NAME="1020079">
+<CODE>setvol({percentage number - without "%" sign})</CODE> 
+</A></LI><LI><A NAME="1020081">
+<CODE>fade_to({volume percent to fade to, without the "%"})</CODE> 
+</A></LI><LI><A NAME="1020083">
+<CODE>fade_from_to({volume % start fade}, {volume % end fade})</CODE> 
+</A></LI><LI><A NAME="1020085">
+<CODE>start_at_beginning()</CODE> 
+</A></LI><LI><A NAME="1020087">
+<CODE>stop_at_end()</CODE> 
+</A></LI></ul><A NAME="1020088">
+The following JavaScript state indication methods do not control the LiveAudio plug-in, but they give you information about the current state of the plug-in:</A></P>
+<ul><LI><A NAME="1020090">
+<CODE>IsReady</CODE> 
+</A></LI><LI><A NAME="1020092">
+<CODE>IsPlaying</CODE> 
+</A></LI><LI><A NAME="1020094">
+<CODE>IsPaused</CODE> 
+</A></LI><LI><A NAME="1020096">
+<CODE>GetVolume</CODE> 
+</A></LI></ul>
+<HR><H2><A NAME="Using the LiveAudio LiveConnect Methods"></A>
+<A NAME="1020098">
+ Using the LiveAudio LiveConnect Methods
+</A></H2><A NAME="1020099">
+One example of using JavaScript to control a LiveAudio plug-in is to have JavaScript play a sound. In the following example, all of the HTML is needed to make the plug-in play a sound.</A></P>
+<PRE><A NAME="1020100">&lt;HTML&gt;<br>&lt;BODY&gt;</A></PRE><PRE><A NAME="1020101">&lt;EMBED SRC="sound1.wav"<br>&nbsp;&nbsp;&nbsp;HIDDEN=TRUE&gt;</A></PRE><PRE><A NAME="1020102">&lt;A HREF="javascript:document.embeds[0].play(false)"&gt;<br>Play the sound now!&lt;/A&gt;</A></PRE><PRE><A NAME="1020103">&lt;/BODY&gt;<br>&lt;/HTML&gt;</A></PRE><A NAME="1020104">
+The preceding method of playing a sound file is probably the simplest, but can pose many problems. For example, if you are using the <CODE>document.embeds</CODE> array, JavaScript&nbsp;1.0 will generate an error, because the <CODE>embeds</CODE> array is a JavaScript&nbsp;1.1 feature. Rather than use the <CODE>embeds</CODE> array, you can identify the particular <CODE>&lt;EMBED&gt;</CODE> tag you would like to use in JavaScript by using the <CODE>NAME</CODE> and <CODE>MASTERSOUND</CODE> attributes in your original <CODE>&lt;EMBED&gt; </CODE>tag, as follows:</A></P>
+<PRE><A NAME="1020105">&lt;HTML&gt;<br>&lt;BODY&gt;</A></PRE><PRE><A NAME="1020106">&lt;EMBED SRC="sound1.wav"<br>&nbsp;&nbsp;&nbsp;HIDDEN=TRUE<br>&nbsp;&nbsp;&nbsp;NAME="firstsound"<br>&nbsp;&nbsp;&nbsp;MASTERSOUND&gt;</A></PRE><PRE><A NAME="1020107">&lt;A HREF="javascript:document.firstsound.play(false)"&gt;<br>Play the sound now!&lt;/A&gt;</A></PRE><PRE><A NAME="1020108">&lt;/BODY&gt;<br>&lt;/HTML&gt;</A></PRE><A NAME="1020109">
+This is a much more descriptive way to describe your plug-in in JavaScript, and can go a long way towards eliminating confusion. If, for example you had several sounds embedded in an HTML document, it may be easier for developers to use the <CODE>NAME</CODE> attribute rather than the <CODE>embeds</CODE> array. In the preceding example, notice that the <CODE>MASTERSOUND</CODE> attribute in the <CODE>&lt;EMBED&gt;</CODE> tag is used. This is because any time a <CODE>NAME</CODE> attribute is used referencing LiveAudio, an accommodating <CODE>MASTERSOUND</CODE> tag must be present as well.</A></P>
+<A NAME="1020110">
+Another common example of using LiveConnect and LiveAudio is to defer loading a sound until a user clicks the "play" button. To do this, try the following:</A></P>
+<PRE><A NAME="1020111">&lt;HTML&gt;<br>&lt;HEAD&gt;<br>&lt;SCRIPT LANGUAGE="JavaScript"&gt;<br>&lt;!-- Hide JavaScript from older browsers</A></PRE><PRE><A NAME="1020112">function playDeferredSound() {<br>&nbsp;&nbsp;&nbsp;document.firstsound.play(false,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'http://url_to_new_sound_file/sound1.wav');<br>}</A></PRE><PRE><A NAME="1020113">// --&gt;<br>&lt;/SCRIPT&gt;</A></PRE><PRE><A NAME="1020114">&lt;/HEAD&gt;<br>&lt;BODY&gt;</A></PRE><PRE><A NAME="1020115">&lt;EMBED<br>&nbsp;&nbsp;&nbsp;SRC="stub1.wav"<br>&nbsp;&nbsp;&nbsp;HIDDEN=TRUE<br>&nbsp;&nbsp;&nbsp;NAME="firstsound"<br>&nbsp;&nbsp;&nbsp;MASTERSOUND&gt;</A></PRE><PRE><A NAME="1020116">&lt;A HREF="javascript:playDeferredSound()"&gt;Load and play the sound&lt;/A&gt;</A></PRE><PRE><A NAME="1020117">&lt;/BODY&gt;<br>&lt;/HTML&gt;</A></PRE><A NAME="1020118">
+The stub file, <CODE>stub1.wav</CODE>, is loaded relatively quickly. (For a description of how to create a stub file, see the EmeraldNet LiveAudio information at <CODE><A HREF="http://emerald.net/liveaudio/" TARGET="_top">http://emerald.net/liveaudio/</A></CODE>.) The <CODE>play</CODE> method then loads the sound file only when it is called. Using this example, the sound file is loaded only when the user wants to hear it.</A></P>
+<A NAME="1020121">
+Web designers might want to create entire new interfaces with LiveConnected LiveAudio. To create an alternate console for sound playing and interaction, a designer might do the following:</A></P>
+<PRE><A NAME="1020122">&lt;HTML&gt;<br>&lt;HEAD&gt;</A></PRE><PRE><A NAME="1020123">&lt;SCRIPT LANGUAGE="JavaScript"&gt;<br>&lt;!-- Hide JavaScript from older browsers</A></PRE><PRE><A NAME="1020124">function playSound() {<br>&nbsp;&nbsp;&nbsp;document.firstSound.play(false);<br>}</A></PRE><PRE><A NAME="1020125">function pauseSound() {<br>&nbsp;&nbsp;&nbsp;document.firstSound.pause();<br>}</A></PRE><PRE><A NAME="1020126">function stopSound() {<br>&nbsp;&nbsp;&nbsp;document.firstSound.stop();<br>}</A></PRE><PRE><A NAME="1020127">function volup() {<br>&nbsp;&nbsp;&nbsp;currentVolume = document.firstSound.GetVolume();<br>&nbsp;&nbsp;&nbsp;newVolume = (currentVolume + 10);</A></PRE><PRE><A NAME="1020128">&nbsp;&nbsp;&nbsp;if (document.firstSound.GetVolume() == 100) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert("Volume is already at maximum");<br>&nbsp;&nbsp;&nbsp;}</A></PRE><PRE><A NAME="1020129">&nbsp;&nbsp;&nbsp;if (newVolume &lt; 90) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.firstSound.setvol(newVolume);<br>&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;else<br>&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ((newVolume &lt;= 100) &amp;&amp; (newVolume &gt; 90)) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.firstSound.setvol(100);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;}<br>}</A></PRE><PRE><A NAME="1020130">function voldown() {<br>&nbsp;&nbsp;&nbsp;currentVolume = document.firstSound.GetVolume();<br>&nbsp;&nbsp;&nbsp;newVolume = (currentVolume - 10);</A></PRE><PRE><A NAME="1020131">&nbsp;&nbsp;&nbsp;if (document.firstSound.GetVolume() == 0) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert("Volume is already at minimum");<br>&nbsp;&nbsp;&nbsp;}</A></PRE><PRE><A NAME="1020132">&nbsp;&nbsp;&nbsp;if (newVolume &gt; 10) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.firstSound.setvol(newVolume);<br>&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;else {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ((newVolume &gt;= 0) &amp;&amp; (newVolume &lt; 10)) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.firstSound.setvol(0);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;}<br>}</A></PRE><PRE><A NAME="1020133">// --&gt;<br>&lt;/SCRIPT&gt;<br>&lt;/HEAD&gt;</A></PRE><PRE><A NAME="1020134">&lt;BODY&gt;</A></PRE><PRE><A NAME="1020135">&lt;EMBED <br>&nbsp;&nbsp;&nbsp;SRC="sound1.wav"<br>&nbsp;&nbsp;&nbsp;HIDDEN=TRUE<br>&nbsp;&nbsp;&nbsp;AUTOSTART=FALSE<br>&nbsp;&nbsp;&nbsp;NAME="firstSound"<br>&nbsp;&nbsp;&nbsp;MASTERSOUND&gt;</A></PRE><PRE><A NAME="1020136">&lt;P&gt;&lt;A HREF="javascript:playSound()"&gt;Play the sound now!&lt;/A&gt;&lt;/P&gt;<br>&lt;P&gt;&lt;A HREF="javascript:pauseSound()"&gt;Pause the sound now!&lt;/A&gt;&lt;/P&gt;<br>&lt;P&gt;&lt;A HREF="javascript:stopSound()"&gt;Stop the sound now!&lt;/A&gt;&lt;/P&gt;<br>&lt;P&gt;&lt;A HREF="javascript:volup()"&gt;Increment the Volume!&lt;/A&gt;&lt;/P&gt;<br>&lt;P&gt;&lt;A HREF="javascript:voldown()"&gt;Decrement the Volume!&lt;/A&gt;&lt;/P&gt;</A></PRE><PRE><A NAME="1020137">&lt;/BODY&gt;<br>&lt;/HTML&gt;</A></PRE><A NAME="1020138">
+The preceding example illustrates how you might create your own method of controlling a sound file. The possibilities are really endless; you can use images and <CODE>onClick</CODE> event handlers to simulate your own sound player.</A></P>
+
+<HR>
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="lc.htm">Previous</A>
+ | <A HREF="partapp.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT>
+<P ALIGN=right>
+<FONT SIZE=-2><I>Last Updated:  05/27/99  21:21:47</I></FONT>
+<P> <CENTER>Copyright (c) 1999
+<A HREF="http://home.netscape.com/misc/contact_info.html"
+TARGET=_top>Netscape Communications Corporation</A></FONT>
+</CENTER>
+<P>
+</BODY>
+</HTML>
+
+

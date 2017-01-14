@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>Database Security</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba20_9.htm" OnClick="SyncURL(&quot;chapters/ba20_9.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<a NAME="3DatabaseSecurity"></a>
+<p CLASS="heading3OrgHeading1h1">Database Security</p>
+<p CLASS="Textttext">Replicated databases use the same security model as nonreplicated databases: users' permissions on the database are determined at the time they start Microsoft Access and log on. As a developer, it's up to you to make sure the same security information is available at each location where a replica is used. You can do this by making the identical system database (the file that stores security information) available to users at each location where a replica is used. The default system database is called System.mdw. You cannot replicate the system database, but you can manually copy it to each location. Another way to make the same system database available to all your users is to re-create the entries for users and groups at each location in the local system database by entering the same user and group names with their associated personal identifiers (PIDs) at each location. Modifications to permissions is a design change and can only be made in the Design Master replica.
+<p CLASS="Textttext">There should always be at least one user with Administer permission on the database. For example, a user must have Administer permission on the database to:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspConvert a database to a Design Master.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspChange the setting of the <span CLASS="ElementNameeln">ReplicableBool</span> property of an object or make another replica the Design Master. You can change the setting of the <span CLASS="ElementNameeln">ReplicableBool</span> property only in the Design Master replica.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspMake a replica the Design Master. You can perform this action in any replica in the set; however, you should never have more than one Design Master replica in a set at one time.</p>
+<p CLASS="Textttext">By default, Administer permission is granted to the Users group, the Admins group, and the creator of the database.</p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="ba20_11.htm" OnClick="SyncURL(&quot;chapters/ba20_11.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

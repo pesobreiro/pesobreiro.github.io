@@ -1,0 +1,57 @@
+<html>
+<head>
+<script>
+	<!-- Exemplo de um script para validar o numero de contribuinte -->
+	function validaNif(nif,txtBox){
+			var control=0;
+			var digitocon=0;
+			var teste=0;
+			if ((isNaN(nif)) || (nif.length < 9))
+			{
+					alert("Nif Errado");
+					txtBox.focus();
+					//return;
+					//erros=false;
+					}
+			else
+					{
+					control=nif.charAt(0);
+					if ((control=='1') || (control=='2') || (control=='5') || (control=='6') || (control=='7') || (control=='9'))
+					{
+							digitocon=parseInt(nif.charAt(8));
+							for (var x=0; x<7; x++)
+							{
+									teste += parseInt(nif.charAt(x))*(10-(x+1));
+							}
+							if (((teste % 11==0) && (digitocon==0)) || ((teste % 11==1) && (digitocon==0)) || (teste % 11==11-digitocon))
+							{
+									//'nif válido
+									alert('Nif Correcto');
+							}
+							else
+							{
+									//erros=true
+									alert('Nif Errado');
+									txtBox.focus();
+							}
+					}
+			}
+	}
+</script>
+</head>
+<body>
+        
+<h2 align="center">Validação do N&uacute;mero Contribuinte</h2>
+		<form>
+		<table>
+			<tr>
+				<td>N&uacute;mero Contribuinte:</td>
+				<td><input name="textbox" type="text"> </td>
+				<td><input type="button" value="Valida" onclick="validaNif(textbox.value,textbox)"></td>
+			</tr>
+		</table>
+        </form>
+<p align="center"><a href="javascript:window.history.back()">Voltar</a></p>
+</body>
+
+</html>

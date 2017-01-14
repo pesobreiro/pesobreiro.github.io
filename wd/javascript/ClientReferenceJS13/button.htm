@@ -1,0 +1,538 @@
+<HTML>
+<HEAD>
+<TITLE>
+</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="boolean.htm">Previous</A>
+ | <A HREF="checkbox.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT><BR><BR>
+<HR>
+
+<H1><A NAME="Button"></A>
+<A NAME="1193137">
+ Button
+</A></H1>
+<A NAME="1193147">
+A push button on an HTML form.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193140">
+<I>Client-side object</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193142">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193144">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193146">
+JavaScript 1.0</A></P><P><A NAME="1195138">
+</A></P><P><A NAME="1195139">
+JavaScript 1.1: added <CODE>type</CODE> property; added <CODE>onBlur</CODE> and <CODE>onFocus</CODE> event handlers; added <CODE>blur</CODE> and <CODE>focus</CODE> methods.</A></P><P><A NAME="1195148">
+</A></P><P><A NAME="1195149">
+JavaScript 1.2: added <CODE>handleEvent</CODE> method.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193148">
+ Created by
+</A></H4>
+
+<A NAME="1193151">
+The HTML <CODE><A HREF="http://developer.netscape.com/docs/manuals/htmlguid/index.htm?content=tags10.htm#tags:INPUT" TARGET="_top">INPUT</A></CODE> tag, with <CODE>"button"</CODE> as the value of the <CODE>TYPE</CODE> attribute. For a given form, the JavaScript runtime engine creates appropriate <CODE>Button</CODE> objects and puts these objects in the <A HREF="form.htm#1193375"><CODE>elements</CODE></A> array of the corresponding <A HREF="form.htm#1197470"><CODE>Form</CODE></A> object. You access a <CODE>Button</CODE> object by indexing this array. You can index the array either by number or, if supplied, by using the value of the <CODE>NAME</CODE> attribute.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193158">
+ Event handlers
+</A></H4>
+
+<ul><LI><A NAME="1193162">
+<A HREF="handlers.htm#1119670"><CODE>onBlur</CODE></A>
+</A></LI><LI><A NAME="1193166">
+<A HREF="handlers.htm#1119876"><CODE>onClick</CODE></A>
+</A></LI><LI><A NAME="1193170">
+<A HREF="handlers.htm#1120186"><CODE>onFocus</CODE></A>
+</A></LI><LI><A NAME="1193174">
+<A HREF="handlers.htm#1120635"><CODE>onMouseDown</CODE></A>
+</A></LI><LI><A NAME="1193178">
+<A HREF="handlers.htm#1120892"><CODE>onMouseUp</CODE></A>
+</A></LI></ul>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193179">
+ Description
+</A></H4>
+
+<A NAME="1193183">
+A <CODE>Button</CODE> object on a form looks as follows:<P>
+<IMG SRC="graphics/button.gif">
+</A></P>
+<A NAME="1193186">
+A <CODE>Button</CODE> object is a form element and must be defined within a <CODE><A HREF="http://developer.netscape.com/docs/manuals/htmlguid/index.htm?content=tags10.htm#tags:FORM" TARGET="_top">FORM</A></CODE> tag.</A></P>
+<A NAME="1193187">
+The <CODE>Button</CODE> object is a custom button that you can use to perform an action you define. The button executes the script specified by its <CODE>onClick</CODE> event handler.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193188">
+ Property Summary
+</A></H4>
+
+<A NAME="1193222">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1193191">
+<B>Property
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1193193">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193198"><A HREF="button.htm#1193276"><CODE>form</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193200">
+Specifies the form containing the <CODE>Button</CODE> object.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193205"><A HREF="button.htm#1193312"><CODE>name</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193207">
+Reflects the <CODE>NAME</CODE> attribute.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193212"><A HREF="button.htm#1193354"><CODE>type</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193214">
+Reflects the <CODE>TYPE</CODE> attribute.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193219"><A HREF="button.htm#1193376"><CODE>value</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193221">
+Reflects the <CODE>VALUE</CODE> attribute.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193223">
+ Method Summary
+</A></H4>
+
+<A NAME="1193257">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1193226">
+<B>Method
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1193228">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193233"><A HREF="button.htm#1193778"><CODE>blur</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193235">
+Removes focus from the button.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193240"><A HREF="button.htm#1193906"><CODE>click</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193242">
+Simulates a mouse-click on the button.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193247"><A HREF="button.htm#1194317"><CODE>focus</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193249">
+Gives focus to the button.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193254"><A HREF="button.htm#1194100"><CODE>handleEvent</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193256">
+Invokes the handler for the specified event.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193258">
+ 
+</A></H4>
+
+<A NAME="1196755">
+In addition, this object inherits the <A HREF="object.htm#1193628"><CODE>watch</CODE></A> and <A HREF="object.htm#1193499"><CODE>unwatch</CODE></A> methods from <A HREF="object.htm#1193136"><CODE>Object</CODE></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193259">
+ Examples
+</A></H4>
+
+<A NAME="1193260">
+The following example creates a button named <CODE>calcButton</CODE>. The text "Calculate" is displayed on the face of the button. When the button is clicked, the function <CODE>calcFunction</CODE> is called.</A></P>
+<PRE><A NAME="1193261">&lt;INPUT TYPE="button" VALUE="Calculate" NAME="calcButton"<br>&nbsp;&nbsp;&nbsp;onClick="calcFunction(this.form)"&gt;</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193262">
+ See also
+</A></H4>
+
+<A NAME="1193272">
+<A HREF="form.htm#1197470"><CODE>Form</CODE></A>, <A HREF="reset.htm#1193137"><CODE>Reset</CODE></A>, <A HREF="submit.htm#1193137"><CODE>Submit</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193778">
+blur
+</A></H2>
+
+<A NAME="1193792">
+Removes focus from the button.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193782">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193787">
+<A HREF="button.htm#1193137"><CODE>Button</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193789">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193791">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193793">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1193794">blur()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193795">
+ Parameters
+</A></H4>
+
+<A NAME="1193796">
+None</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193797">
+ Examples
+</A></H4>
+
+<A NAME="1193798">
+The following example removes focus from the button element <CODE>userButton:</CODE></A></P>
+<PRE><A NAME="1193799">userButton.blur()</A></PRE><A NAME="1193800">
+This example assumes that the button is defined as</A></P>
+<PRE><A NAME="1193801">&lt;INPUT TYPE="button" NAME="userButton"&gt;</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193802">
+ See also
+</A></H4>
+
+<A NAME="1193806">
+<A HREF="button.htm#1194317"><CODE>Button.focus</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193906">
+click
+</A></H2>
+
+<A NAME="1193907">
+Simulates a mouse-click on the button, but does not trigger the button's <CODE>onClick</CODE> event handler. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193910">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193915">
+<A HREF="button.htm#1193137"><CODE>Button</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193917">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193919">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193920">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1193921">click()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193922">
+ Parameters
+</A></H4>
+
+<A NAME="1193923">
+None.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1197521">
+ Security
+</A></H4>
+
+<A NAME="1197523">
+Submitting a form to a <CODE>mailto:</CODE> or <CODE>news:</CODE> URL requires the <CODE>UniversalSendMail</CODE> privilege. For information on security, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1194317">
+focus
+</A></H2>
+
+<A NAME="1194330">
+Navigates to the button and gives it focus.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194320">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194325">
+<A HREF="button.htm#1193137"><CODE>Button</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194327">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194329">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194331">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1194332">focus()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194333">
+ Parameters
+</A></H4>
+
+<A NAME="1194334">
+None.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194335">
+ See also
+</A></H4>
+
+<A NAME="1194339">
+<A HREF="button.htm#1193778"><CODE>Button.blur</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193276">
+form
+</A></H2>
+
+<A NAME="1193293">
+An object reference specifying the form containing the button.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193279">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193284">
+<A HREF="button.htm#1193137"><CODE>Button</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193286">
+<I>Read-only</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193288">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193290">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193292">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193294">
+ Description
+</A></H4>
+
+<A NAME="1193295">
+Each form element has a <CODE>form</CODE> property that is a reference to the element's parent form. This property is especially useful in event handlers, where you might need to refer to another element on the current form.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193296">
+ Examples
+</A></H4>
+
+<A NAME="1193297">
+<B>Example 1.</B> In the following example, the form <CODE>myForm</CODE> contains a <CODE>Text</CODE> object and a button. When the user clicks the button, the value of the <CODE>Text</CODE> object is set to the form's name. The button's <CODE>onClick</CODE> event handler uses <CODE>this.form</CODE> to refer to the parent form, <CODE>myForm</CODE>.</A></P>
+<PRE><A NAME="1193298">&lt;FORM NAME="myForm"&gt;<br>Form name:&lt;INPUT TYPE="text" NAME="text1" VALUE="Beluga"&gt;<br>&lt;P&gt;<br>&lt;INPUT NAME="button1" TYPE="button" VALUE="Show Form Name"<br>&nbsp;&nbsp;&nbsp;onClick="this.form.text1.value=this.form.name"&gt;<br>&lt;/FORM&gt;</A></PRE><A NAME="1193299">
+<B>Example 2.</B> The following example shows a form with several elements. When the user clicks <CODE>button2</CODE>, the function <CODE>showElements</CODE> displays an alert dialog box containing the names of each element on the form <CODE>myForm</CODE>.</A></P>
+<PRE><A NAME="1193300">function showElements(theForm) {<br>&nbsp;&nbsp;&nbsp;str = "Form Elements of form " + theForm.name + ": \n "<br>&nbsp;&nbsp;&nbsp;for (i = 0; i &lt; theForm.length; i++) <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str += theForm.elements[i].name + "\n"<br>&nbsp;&nbsp;&nbsp;alert(str)<br>}<br>&lt;/script&gt;<br>&lt;FORM NAME="myForm"&gt;<br>Form name:&lt;INPUT TYPE="text" NAME="text1" VALUE="Beluga"&gt;<br>&lt;P&gt;<br>&lt;INPUT NAME="button1" TYPE="button" VALUE="Show Form Name"<br>&nbsp;&nbsp;&nbsp;onClick="this.form.text1.value=this.form.name"&gt;<br>&lt;INPUT NAME="button2" TYPE="button" VALUE="Show Form Elements"<br>&nbsp;&nbsp;&nbsp;onClick="showElements(this.form)"&gt;<br>&lt;/FORM&gt;</A></PRE><A NAME="1193301">
+The alert dialog box displays the following text:</A></P>
+<PRE><A NAME="1193302">JavaScript Alert:<br>Form Elements of form myForm:<br>text1<br>button1<br>button2</A></PRE><A NAME="1193303">
+<B>Example 3.</B> The following example uses an object reference, rather than the <CODE>this</CODE> keyword, to refer to a form. The code returns a reference to <CODE>myForm</CODE>, which is a form containing <CODE>myButton</CODE>.</A></P>
+<PRE><A NAME="1193304">document.myForm.myButton.form</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193305">
+ See also
+</A></H4>
+
+<A NAME="1193309">
+<A HREF="form.htm#1197470"><CODE>Form</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1194100">
+handleEvent
+</A></H2>
+
+<A NAME="1194113">
+Invokes the handler for the specified event. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194103">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194108">
+<A HREF="button.htm#1193137"><CODE>Button</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194110">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194112">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194114">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1194115">handleEvent(<I>event</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194116">
+ Parameters
+</A></H4>
+
+<A NAME="1194122">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1194119">event</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1194121">
+The name of an event for which the object has an event handler.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194123">
+ Description
+</A></H4>
+
+<A NAME="1194126">
+For information on handling events, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193312">
+name
+</A></H2>
+
+<A NAME="1193325">
+A string specifying the button's name.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193315">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193320">
+<A HREF="button.htm#1193137"><CODE>Button</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193322">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193324">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193326">
+ Security
+</A></H4>
+
+<B><A NAME="HeadRunIn;"></A>
+<A NAME="1193327">
+JavaScript 1.1. </A></B><A NAME="1198832">
+This property is tainted by default. For information on data tainting, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193331">
+ Description
+</A></H4>
+
+<A NAME="1193332">
+The <CODE>name</CODE> property initially reflects the value of the <CODE>NAME</CODE> attribute. Changing the <CODE>name</CODE> property overrides this setting.</A></P>
+<A NAME="1193333">
+Do not confuse the <CODE>name</CODE> property with the label displayed on a button. The <CODE>value</CODE> property specifies the label for the button. The <CODE>name</CODE> property is not displayed on the screen; it is used to refer programmatically to the object.</A></P>
+<A NAME="1193334">
+If multiple objects on the same form have the same <CODE>NAME</CODE> attribute, an array of the given name is created automatically. Each element in the array represents an individual <CODE>Form</CODE> object. Elements are indexed in source order starting at 0. For example, if two <A HREF="text.htm#1193137"><CODE>Text</CODE></A> elements and a <A HREF="button.htm#1193137"><CODE>Button</CODE></A> element on the same form have their <CODE>NAME</CODE> attribute set to <CODE>"myField"</CODE>, an array with the elements <CODE>myField[0]</CODE>, <CODE>myField[1]</CODE>, and <CODE>myField[2]</CODE> is created. You need to be aware of this situation in your code and know whether <CODE>myField</CODE> refers to a single element or to an array of elements.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193341">
+ Examples
+</A></H4>
+
+<A NAME="1193342">
+In the following example, the <CODE>valueGetter</CODE> function uses a <CODE>for</CODE> loop to iterate over the array of elements on the <CODE>valueTest</CODE> form. The <CODE>msgWindow</CODE> window displays the names of all the elements on the form:</A></P>
+<PRE><A NAME="1193343">newWindow=window.open("http://home.netscape.com")</A></PRE><PRE><A NAME="1193344">function valueGetter() {<br>&nbsp;&nbsp;&nbsp;var msgWindow=window.open("")<br>&nbsp;&nbsp;&nbsp;for (var i = 0; i &lt; newWindow.document.valueTest.elements.length; i++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msgWindow.document.write(newWindow.document.valueTest.elements[i].name + "&lt;BR&gt;")<br>&nbsp;&nbsp;&nbsp;}<br>}</A></PRE><A NAME="1193345">
+In the following example, the first statement creates a window called <CODE>netscapeWin</CODE>. The second statement displays the value <CODE>"netscapeHomePage"</CODE> in the Alert dialog box, because <CODE>"netscapeHomePage"</CODE> is the value of the <CODE>windowName</CODE> argument of <CODE>netscapeWin</CODE>.</A></P>
+<PRE><A NAME="1193346">netscapeWin=window.open("http://home.netscape.com","netscapeHomePage")</A></PRE><PRE><A NAME="1193347">alert(netscapeWin.name)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193348">
+ See also
+</A></H4>
+
+<A NAME="1193352">
+<A HREF="button.htm#1193376"><CODE>Button.value</CODE></A> </A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193354">
+type
+</A></H2>
+
+<A NAME="1193355">
+For all <CODE>Button</CODE> objects, the value of the <CODE>type</CODE> property is <CODE>"button"</CODE>. This property specifies the form element's type.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193358">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193363">
+<A HREF="button.htm#1193137"><CODE>Button</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193365">
+<I>Read-only</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193367">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193369">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193371">
+JavaScript 1.1</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193372">
+ Examples
+</A></H4>
+
+<A NAME="1193373">
+The following example writes the value of the <CODE>type</CODE> property for every element on a form.</A></P>
+<PRE><A NAME="1193374">for (var i = 0; i &lt; document.form1.elements.length; i++) {<br>&nbsp;&nbsp;&nbsp;document.writeln("&lt;BR&gt;type is " + document.form1.elements[i].type)<br>}</A></PRE>
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193376">
+value
+</A></H2>
+
+<A NAME="1193393">
+A string that reflects the button's <CODE>VALUE</CODE> attribute.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193379">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193384">
+<A HREF="button.htm#1193137"><CODE>Button</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left COLSPAN=2 ROWSPAN=1><P><A NAME="1193386">
+<I>Read-only</I> on Mac and UNIX; modifiable on Windows</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193390">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193392">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193394">
+ Security
+</A></H4>
+
+<B><A NAME="HeadRunIn;"></A>
+<A NAME="1193395">
+JavaScript 1.1. </A></B><A NAME="1198846">
+This property is tainted by default. For information on data tainting, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193399">
+ Description
+</A></H4>
+
+<A NAME="1193400">
+This string is displayed on the face of the button.</A></P>
+<A NAME="1193401">
+The <CODE>value</CODE> property is read-only for Macintosh and UNIX systems. On Windows, you can change this property.</A></P>
+<A NAME="1193402">
+When a <CODE>VALUE</CODE> attribute is not specified in HTML, the <CODE>value</CODE> property is an empty string.</A></P>
+<A NAME="1193403">
+Do not confuse the <CODE>value</CODE> property with the <CODE>name</CODE> property. The <CODE>name</CODE> property is not displayed on the screen; it is used to refer programmatically to the objects.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193404">
+ Examples
+</A></H4>
+
+<A NAME="1193405">
+The following function evaluates the <CODE>value</CODE> property of a group of buttons and displays it in the <CODE>msgWindow</CODE> window:</A></P>
+<PRE><A NAME="1193406">function valueGetter() {<br>&nbsp;&nbsp;&nbsp;var msgWindow=window.open("")<br>&nbsp;&nbsp;&nbsp;msgWindow.document.write("submitButton.value is " +<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.valueTest.submitButton.value + "&lt;BR&gt;")<br>&nbsp;&nbsp;&nbsp;msgWindow.document.write("resetButton.value is " +<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.valueTest.resetButton.value + "&lt;BR&gt;")<br>&nbsp;&nbsp;&nbsp;msgWindow.document.write("helpButton.value is " +<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.valueTest.helpButton.value + "&lt;BR&gt;")<br>&nbsp;&nbsp;&nbsp;msgWindow.document.close()<br>}</A></PRE><A NAME="1193407">
+This example displays the following values:</A></P>
+<PRE><A NAME="1193408">Query Submit<br>Reset<br>Help</A></PRE><A NAME="1193409">
+The previous example assumes the buttons have been defined as follows:</A></P>
+<PRE><A NAME="1193410">&lt;INPUT TYPE="submit" NAME="submitButton"&gt;<br>&lt;INPUT TYPE="reset" NAME="resetButton"&gt;<br>&lt;INPUT TYPE="button" NAME="helpButton" VALUE="Help"&gt;</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193411">
+ See also
+</A></H4>
+
+<A NAME="1193415">
+<A HREF="button.htm#1193312"><CODE>Button.name</CODE></A></A></P>
+
+<HR>
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="boolean.htm">Previous</A>
+ | <A HREF="checkbox.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT>
+<P ALIGN=right>
+<FONT SIZE=-2><I>Last Updated:  05/28/99  11:59:05</I></FONT>
+<P> <CENTER>Copyright (c) 1999
+<A HREF="http://home.netscape.com/misc/contact_info.html"
+TARGET=_top>Netscape Communications Corporation</A></FONT>
+</CENTER>
+<P>
+</BODY>
+</HTML>
+
+

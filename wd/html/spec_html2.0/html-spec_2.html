@@ -1,0 +1,241 @@
+<!DOCTYPE HTML PUBLIC                "-//IETF//DTD HTML Strict//EN">
+<HTML>
+<HEAD>
+<!-- This HTML file has been created by texi2html 1.36
+     from html-spec.texi on 18 October 1995 -->
+
+<TITLE>Hypertext Markup Language - 2.0  - Terms</TITLE>
+</HEAD>
+<BODY>
+<p>Go to the <A HREF="html-spec_1.html" REL=FIRST>first</A>, <A HREF="html-spec_1.html" REL=PREVIOUS>previous</A>, <A HREF="html-spec_3.html" REL=NEXT>next</A>, <A HREF="html-spec_14.html" REL=LAST>last</A> section, <A HREF="html-spec_toc.html" REL=TOC>table of contents</A>.</p>
+<HR>
+
+
+<H1><A NAME="SEC2" HREF="html-spec_toc.html#SEC2" REL=TOC>Terms</A></H1>
+
+<DL COMPACT>
+
+<DT><EM><A NAME="GLOSS1">absolute URI</A></EM>
+<DD>
+a <A HREF="html-spec_2.html#GLOSS35" REL=GLOSSARY>URI</A> in absolute form;  for example, as per <A HREF="html-spec_11.html#BIB2" REL=BIBLIOGRAPHY>[URL]</A>
+
+<DT><EM><A NAME="GLOSS2">anchor</A></EM>
+<DD>
+one of two ends of a <A HREF="html-spec_2.html#GLOSS19" REL=GLOSSARY>hyperlink</A>;  typically, a phrase
+marked as an <EM>A</EM> <A HREF="html-spec_2.html#GLOSS13" REL=GLOSSARY>element</A>.
+
+<DT><EM><A NAME="GLOSS3">base URI</A></EM>
+<DD>
+an <A HREF="html-spec_2.html#GLOSS1" REL=GLOSSARY>absolute URI</A> used in combination with a relative
+<A HREF="html-spec_2.html#GLOSS35" REL=GLOSSARY>URI</A> to determine another <A HREF="html-spec_2.html#GLOSS1" REL=GLOSSARY>absolute URI</A>.
+
+<DT><EM><A NAME="GLOSS4">character</A></EM>
+<DD>
+An atom of information, for example a letter or a
+digit.  Graphic characters have associated glyphs, whereas control
+characters have associated processing semantics.
+
+<DT><EM><A NAME="GLOSS5">character encoding scheme</A></EM>
+<DD>
+A function whose domain is the set of
+sequences of octets, and whose range is the set of sequences of
+characters from a <A HREF="html-spec_2.html#GLOSS4" REL=GLOSSARY>character</A> repertoire;  that is, a sequence of octets
+and a <A HREF="html-spec_2.html#GLOSS4" REL=GLOSSARY>character</A> encoding scheme determines a sequence of characters.
+
+<DT><EM><A NAME="GLOSS6">character repertoire</A></EM>
+<DD>
+A finite set of characters;  e.g.  the range
+of a <A HREF="html-spec_2.html#GLOSS8" REL=GLOSSARY>coded character set</A>.
+
+<DT><EM><A NAME="GLOSS7">code position</A></EM>
+<DD>
+An integer.  A <A HREF="html-spec_2.html#GLOSS8" REL=GLOSSARY>coded character set</A> and a code
+position from its domain determine a <A HREF="html-spec_2.html#GLOSS4" REL=GLOSSARY>character</A>.
+
+<DT><EM><A NAME="GLOSS8">coded character set</A></EM>
+<DD>
+A function whose domain is a subset of the
+integers and whose range is a <A HREF="html-spec_2.html#GLOSS4" REL=GLOSSARY>character</A> repertoire.  That is, for some
+set of integers (usually of the form {0, 1, 2, ..., N} ), a coded
+<A HREF="html-spec_2.html#GLOSS4" REL=GLOSSARY>character</A> set and an integer in that set determine a
+<A HREF="html-spec_2.html#GLOSS4" REL=GLOSSARY>character</A>.  Conversely, a <A HREF="html-spec_2.html#GLOSS4" REL=GLOSSARY>character</A> and a <A HREF="html-spec_2.html#GLOSS8" REL=GLOSSARY>coded character set</A> determine
+the <A HREF="html-spec_2.html#GLOSS4" REL=GLOSSARY>character</A>'s <A HREF="html-spec_2.html#GLOSS7" REL=GLOSSARY>code position</A> (or, in rare cases, a few code
+positions).
+
+<DT><EM><A NAME="GLOSS9">conforming HTML user agent</A></EM>
+<DD>
+A <A HREF="html-spec_2.html#GLOSS36" REL=GLOSSARY>user agent</A> that conforms to this
+specification in its processing of the Internet <A HREF="html-spec_2.html#GLOSS22" REL=GLOSSARY>Media Type</A>
+<SAMP>`text/html'</SAMP>.
+
+<DT><EM><A NAME="GLOSS10">data character</A></EM>
+<DD>
+Characters other than <A HREF="html-spec_2.html#GLOSS20" REL=GLOSSARY>markup</A>, which make up the
+content of elements.
+
+<DT><EM><A NAME="GLOSS11">document character set</A></EM>
+<DD>
+a <A HREF="html-spec_2.html#GLOSS8" REL=GLOSSARY>coded character set</A> whose range
+includes all characters used in a document.  Every <A HREF="html-spec_2.html#GLOSS27" REL=GLOSSARY>SGML document</A> has
+exactly one <A HREF="html-spec_2.html#GLOSS11" REL=GLOSSARY>document character set</A>.  Numeric character references are
+resolved via the <A HREF="html-spec_2.html#GLOSS11" REL=GLOSSARY>document character set</A>.
+
+<DT><EM><A NAME="GLOSS12">DTD</A></EM>
+<DD>
+document type definition.  Rules that apply SGML to the
+<A HREF="html-spec_2.html#GLOSS20" REL=GLOSSARY>markup</A> of documents of a particular type, including a set of <A HREF="html-spec_2.html#GLOSS13" REL=GLOSSARY>element</A>
+and <A HREF="html-spec_2.html#GLOSS15" REL=GLOSSARY>entity</A> declarations.  <A HREF="html-spec_11.html#BIB14" REL=BIBLIOGRAPHY>[SGML]</A>
+
+<DT><EM><A NAME="GLOSS13">element</A></EM>
+<DD>
+A component of the hierarchical structure defined by a
+document type definition;  it is identified in a document instance by
+descriptive <A HREF="html-spec_2.html#GLOSS20" REL=GLOSSARY>markup</A>, usually a <A HREF="html-spec_2.html#GLOSS30" REL=GLOSSARY>start-tag</A> and <A HREF="html-spec_2.html#GLOSS14" REL=GLOSSARY>end-tag</A>.  <A HREF="html-spec_11.html#BIB14" REL=BIBLIOGRAPHY>[SGML]</A>
+
+<DT><EM><A NAME="GLOSS14">end-tag</A></EM>
+<DD>
+Descriptive <A HREF="html-spec_2.html#GLOSS20" REL=GLOSSARY>markup</A> that identifies the end of an
+<A HREF="html-spec_2.html#GLOSS13" REL=GLOSSARY>element</A>.  <A HREF="html-spec_11.html#BIB14" REL=BIBLIOGRAPHY>[SGML]</A>
+
+<DT><EM><A NAME="GLOSS15">entity</A></EM>
+<DD>
+data with an associated notation or interpretation;  for
+example, a sequence of octets associated with an Internet Media
+Type.  <A HREF="html-spec_11.html#BIB14" REL=BIBLIOGRAPHY>[SGML]</A>
+
+<DT><EM><A NAME="GLOSS16">fragment identifier</A></EM>
+<DD>
+the portion of an <EM>HREF</EM> attribute
+value following the <SAMP>`#'</SAMP> <A HREF="html-spec_2.html#GLOSS4" REL=GLOSSARY>character</A> which modifies the presentation
+of the destination of a <A HREF="html-spec_2.html#GLOSS19" REL=GLOSSARY>hyperlink</A>.
+
+<DT><EM><A NAME="GLOSS17">form data set</A></EM>
+<DD>
+a sequence of name/value pairs;  the names are
+given by an <A HREF="html-spec_2.html#GLOSS18" REL=GLOSSARY>HTML document</A> and the values are given by a user.
+
+<DT><EM><A NAME="GLOSS18">HTML document</A></EM>
+<DD>
+An <A HREF="html-spec_2.html#GLOSS27" REL=GLOSSARY>SGML document</A> conforming to this document type
+definition.
+
+<DT><EM><A NAME="GLOSS19">hyperlink</A></EM>
+<DD>
+a relationship between two anchors, called the head
+and the tail.  The link goes from the tail to the head.  The head
+and tail are also known as destination and source, respectively.
+
+<DT><EM><A NAME="GLOSS20">markup</A></EM>
+<DD>
+Syntactically delimited characters added to the data of a
+document to represent its structure.  There are four different kinds of
+<A HREF="html-spec_2.html#GLOSS20" REL=GLOSSARY>markup</A>:  descriptive <A HREF="html-spec_2.html#GLOSS20" REL=GLOSSARY>markup</A> (tags), references, <A HREF="html-spec_2.html#GLOSS20" REL=GLOSSARY>markup</A> declarations,
+and processing instructions.  <A HREF="html-spec_11.html#BIB14" REL=BIBLIOGRAPHY>[SGML]</A>
+
+<DT><EM><A NAME="GLOSS21">may</A></EM>
+<DD>
+A document or user interface is conforming whether this
+statement applies or not.
+
+<DT><EM><A NAME="GLOSS22">media type</A></EM>
+<DD>
+an Internet <A HREF="html-spec_2.html#GLOSS22" REL=GLOSSARY>Media Type</A>, as per <A HREF="html-spec_11.html#BIB8" REL=BIBLIOGRAPHY>[IMEDIA]</A>.
+
+<DT><EM><A NAME="GLOSS23">message entity</A></EM>
+<DD>
+a head and body.  The head is a collection of
+name/value fields, and the body is a sequence of octets.  The head
+defines the content type and content transfer encoding of the body.  <A HREF="html-spec_11.html#BIB4" REL=BIBLIOGRAPHY>[MIME]</A>
+
+<DT><EM><A NAME="GLOSS24">minimally conforming HTML user agent</A></EM>
+<DD>
+A <A HREF="html-spec_2.html#GLOSS36" REL=GLOSSARY>user agent</A> that conforms
+to this specification except for form processing.  It <A HREF="html-spec_2.html#GLOSS21" REL=GLOSSARY>may</A> only process
+level 1 HTML documents.
+
+<DT><EM><A NAME="GLOSS25">must</A></EM>
+<DD>
+Documents or user agents in conflict with this statement
+are not conforming.
+
+<DT><EM><A NAME="GLOSS26">numeric character reference</A></EM>
+<DD>
+<A HREF="html-spec_2.html#GLOSS20" REL=GLOSSARY>markup</A> that refers to a <A HREF="html-spec_2.html#GLOSS4" REL=GLOSSARY>character</A>
+by its <A HREF="html-spec_2.html#GLOSS7" REL=GLOSSARY>code position</A> in the <A HREF="html-spec_2.html#GLOSS11" REL=GLOSSARY>document character set</A>.
+
+<DT><EM><A NAME="GLOSS27">SGML document</A></EM>
+<DD>
+A sequence of characters organized physically as a
+set of entities and logically into a hierarchy of elements.  An SGML
+document consists of data characters and <A HREF="html-spec_2.html#GLOSS20" REL=GLOSSARY>markup</A>;  the <A HREF="html-spec_2.html#GLOSS20" REL=GLOSSARY>markup</A> describes
+the structure of the information and an instance of that
+structure.  <A HREF="html-spec_11.html#BIB14" REL=BIBLIOGRAPHY>[SGML]</A>
+
+<DT><EM><A NAME="GLOSS28">shall</A></EM>
+<DD>
+If a document or <A HREF="html-spec_2.html#GLOSS36" REL=GLOSSARY>user agent</A> conflicts with this statement,
+it does not conform to this specification.
+
+<DT><EM><A NAME="GLOSS29">should</A></EM>
+<DD>
+If a document or <A HREF="html-spec_2.html#GLOSS36" REL=GLOSSARY>user agent</A> conflicts with this
+statement, undesirable results <A HREF="html-spec_2.html#GLOSS21" REL=GLOSSARY>may</A> occur in practice even though it
+conforms to this specification.
+
+<DT><EM><A NAME="GLOSS30">start-tag</A></EM>
+<DD>
+Descriptive <A HREF="html-spec_2.html#GLOSS20" REL=GLOSSARY>markup</A> that identifies the start of an
+<A HREF="html-spec_2.html#GLOSS13" REL=GLOSSARY>element</A> and specifies its generic identifier and attributes.  <A HREF="html-spec_11.html#BIB14" REL=BIBLIOGRAPHY>[SGML]</A>
+
+<DT><EM><A NAME="GLOSS31">syntax-reference character set</A></EM>
+<DD>
+A <A HREF="html-spec_2.html#GLOSS8" REL=GLOSSARY>coded character set</A> whose range
+includes all characters used for <A HREF="html-spec_2.html#GLOSS20" REL=GLOSSARY>markup</A>;  e.g.  name characters and
+delimiter characters.
+
+<DT><EM><A NAME="GLOSS32">tag</A></EM>
+<DD>
+<A HREF="html-spec_2.html#GLOSS20" REL=GLOSSARY>Markup</A> that delimits an <A HREF="html-spec_2.html#GLOSS13" REL=GLOSSARY>element</A>.  A <A HREF="html-spec_2.html#GLOSS32" REL=GLOSSARY>tag</A> includes a name which
+refers to an <A HREF="html-spec_2.html#GLOSS13" REL=GLOSSARY>element</A> declaration in the <A HREF="html-spec_2.html#GLOSS12" REL=GLOSSARY>DTD</A>, and <A HREF="html-spec_2.html#GLOSS21" REL=GLOSSARY>may</A> include
+attributes.  <A HREF="html-spec_11.html#BIB14" REL=BIBLIOGRAPHY>[SGML]</A>
+
+<DT><EM><A NAME="GLOSS33">text entity</A></EM>
+<DD>
+A finite sequence of characters.  A <A HREF="html-spec_2.html#GLOSS33" REL=GLOSSARY>text entity</A>
+typically takes the form of a sequence of octets with some associated
+<A HREF="html-spec_2.html#GLOSS4" REL=GLOSSARY>character</A> encoding scheme, transmitted over the network or stored in a
+file.  <A HREF="html-spec_11.html#BIB14" REL=BIBLIOGRAPHY>[SGML]</A>
+
+<DT><EM><A NAME="GLOSS34">typical</A></EM>
+<DD>
+<A HREF="html-spec_2.html#GLOSS34" REL=GLOSSARY>Typical</A> processing is described for many elements.  This
+is not a mandatory part of the specification but is given as guidance
+for designers and to help explain the uses for which the elements were
+intended.
+
+<DT><EM><A NAME="GLOSS35">URI</A></EM>
+<DD>
+A Uniform Resource Identifier is a formatted string that
+serves as an identifier for a resource, typically on the Internet.  URIs
+are used in HTML to identify the anchors of hyperlinks.  URIs in
+common practice include Uniform Resource Locators (URLs)<A HREF="html-spec_11.html#BIB2" REL=BIBLIOGRAPHY>[URL]</A>
+and Relative URLs <A HREF="html-spec_11.html#BIB5" REL=BIBLIOGRAPHY>[RELURL]</A>.
+
+<DT><EM><A NAME="GLOSS36">user agent</A></EM>
+<DD>
+A component of a distributed system that presents
+an interface and processes requests on behalf of a user;  for example,
+a www browser or a mail <A HREF="html-spec_2.html#GLOSS36" REL=GLOSSARY>user agent</A>.
+
+<DT><EM><A NAME="GLOSS37">WWW</A></EM>
+<DD>
+The World-Wide Web is a hypertext-based, distributed
+information system created by researchers at CERN in
+Switzerland.  <EM>http://www.w3.org/</EM>
+
+</DL>
+
+<HR>
+<p>Go to the <A HREF="html-spec_1.html" REL=FIRST>first</A>, <A HREF="html-spec_1.html" REL=PREVIOUS>previous</A>, <A HREF="html-spec_3.html" REL=NEXT>next</A>, <A HREF="html-spec_14.html" REL=LAST>last</A> section, <A HREF="html-spec_toc.html" REL=TOC>table of contents</A>.</p>
+</BODY>
+</HTML>

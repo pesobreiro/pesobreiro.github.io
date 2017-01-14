@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>Generating Errors with the Err Object</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba08_5.htm" OnClick="SyncURL(&quot;chapters/ba08_5.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<a NAME="3GeneratingErrorswiththeErrObject"></a>
+<p CLASS="heading3OrgHeading1h1">Generating Errors with the Err Object</p>
+<p CLASS="Textttext">You can generate a specific error in your code with the <span CLASS="ElementNameeln">Raise </span>method of the <span CLASS="ElementNameeln">Err </span>object. You've already seen this statement used to regenerate the current error in error-handling code. However, you can simulate any Visual Basic run-time error by passing the error code for that error to the <span CLASS="ElementNameeln">Raise </span>method. For example:</p>
+<p CLASS="CodeTextct">Err.Raise Number:=71&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' Simulate &quot;Disk not ready&quot; error.</p>
+<p CLASS="Textttext">This is useful when you are testing your application, or when you want to treat a particular condition as being equivalent to a run-time error. For example, when a module calls routines in a dynamic-link library (DLL), you may want error values returned from the DLL routines to be handled as actual Visual Basic errors by the rest of your application.
+<p CLASS="Textttext">You can also use the <span CLASS="ElementNameeln">Raise </span>method of the<span CLASS="ElementNameeln"> Err </span>object to generate your own, user-defined errors by supplying an error code that doesn't correspond to a Visual Basic run-time error code. Your error-handling code can handle the errors you've defined.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also</span>&nbsp;&nbsp;&amp;nbspFor more information on the <span CLASS="ElementNameeln">Raise</span> method, search the Help index for &quot;Raise method.&quot;</p>
+<p CLASS="Textttext">The <span CLASS="ElementNameeln">CVErr</span> function provides similar functionality. You can use the <span CLASS="ElementNameeln">CVErr</span> function to raise a user-defined error, or to defer handling of a run-time error. For example, you can create a function that evaluates its arguments to make sure they are the proper data type. If they are not, you can use the <span CLASS="ElementNameeln">CVErr</span> function to return an error number that you can respond to in an error-handling routine elsewhere in your code.</p>
+<p CLASS="CodeTextct">Function DoubleNum(intNum)<br>&nbsp;&nbsp;&amp;nbspIf IsNumeric(intNum) Then<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbspDoubleNum = intNum * 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' Return result.<br>&nbsp;&nbsp;&amp;nbspElse<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbspDoubleNum = CVErr(30000)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' Return a user-defined error.<br>&nbsp;&nbsp;&amp;nbspEnd If<br>End Function</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also</span>&nbsp;&nbsp;&amp;nbspFor more information on the <span CLASS="ElementNameeln">CVErr</span> function, search the Help index for &quot;CVErr function.&quot;</p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>You need to make sure that your error numbers don't conflict with error numbers in Visual Basic or other Microsoft Basic products. ActiveX controls, formerly called OLE<span CLASS="NewTermntrm"> </span>controls or custom controls<span CLASS="NewTermntrm">,</span> may also define their own error numbers. To avoid conflicts with them, consult the documentation for any ActiveX controls you use in your application.</p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="ba08_7.htm" OnClick="SyncURL(&quot;chapters/ba08_7.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

@@ -1,0 +1,657 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<META name="GENERATOR" content="IBM WebSphere Homepage Builder V5.0.1 for Windows">
+<TITLE>Installing the IBM WebSphere UDDI Registry</title>
+<link rel="stylesheet" type="text/css" href="../../wasstyle.css">
+</HEAD>
+<BODY>
+<H2><a href="install.html#TOC3" name="install"></a>Installing the IBM WebSphere UDDI Registry</H2>
+<P>If you are migrating to version 1.1.1 of
+the IBM WebSphere UDDI Registry having previously
+installed version 1.1, then you should read
+the section on <a href="migrate.html#migrate">&quot;Migrating from an earlier
+release of the IBM WebSphere UDDI Registry&quot;</a>
+prior to installing the product.</P>
+<p><a name="prereqs"><b>Prerequisites:</b></a> 
+
+<ul>
+<li>Ensure that you system has one of the following operating systems:
+<UL>
+  <LI>Windows NT Server 4.0 SP 6a or higher</li>
+  <LI>Windows 2000 Advanced Server 2000 SP1 or
+    SP2 or Windows Server 2000 SP1 or SP2</li>
+    <LI>Red Hat Linux 7.1, 2.4 kernel 
+    <LI>SuSE Linux for Intel 7.1. 2.4 kernel 
+  </UL>
+  </li>
+  <li>Ensure that you have
+the following products already installed
+on your system:
+<UL>
+    <LI>DB2 Enterprise Edition Version 7.2 FP5 or FP6.
+    <LI>A web server, such as IBM HTTP Server 1.3.19,
+    Microsoft Internet Information Server 5.0,
+    or any other web server supported by WebSphere
+    Application Server (see <A href="http://www-4.ibm.com/software/webservers/appserv/doc/v40/prereqs/ae_v403.htm" target="_new">http://www-4.ibm.com/software/webservers/appserv/doc/v40/prereqs/ae_v403.htm</A>).
+  </li>
+  <LI>WebSphere Application Server Advanced Edition
+    (AE) v4.0.3 or WebSphere Application Server
+    Advanced Edition - Developer Only Option
+    (AEd) v4.0.3.</li>
+    <LI>A browser: Internet Explorer V5.5 with SP2
+    and security fix Q321232 (which must be applied
+    in that order), or Netscape Navigator V6.1
+    or later.</li>
+  </UL>
+  </li>
+  <LI>Installation of WebSphere Application Server
+  defaults the JDBC Drivers to 1.0 level.
+  You
+  <B>must</B> upgrade this driver to 2.0 level by running
+  the <I>usejdbc2</I>command file. On Windows systems, <I>usejdbc2.bat </I>is located in &lt;DB2-install-dir&gt;\java12
+  (unless you have installed DB2 into a different
+  directory location than the default location).
+  On Linux, this is located in $HOME/sqllib/java12
+  as usejdbc12, where $HOME is the home directory
+  of the DB2 instance. On Windows the 'DB2
+  JDBC Applet Server' must be stopped (for
+  example, via the 'Services' menu) when you
+  run the <I>usejdbc2.bat</I>, otherwise you will get a 'file locked error'.
+  Failure to run <I>usejdbc2.bat</I> will cause the WebSphere Application Server
+  to fail on startup with an error code of
+  10. It is particularly important to run <I>usejdbc2.bat</I> on Windows systems.
+  <li>If you do not have security turned on in
+your WebSphere Application Server, then you
+are recommended to install
+the IBM WebSphere UDDI Registry before
+enabling WebSphere security. If you have
+security turned on, then the UDDI Registry
+installation program prompts you
+for your WebSphere userid and password several
+times.
+  </li>
+  <LI>Ensure DB2 is started.
+  <UL>
+    <LI>On Windows operating systems, it will be
+    started automatically, unless you have changed
+    the installed defaults. You can check whether
+    DB2 is started, and start it manually, from
+    the Windows 'Services' application (accessed
+    via the Control Panel for Windows NT and
+    via the 'Administrative Tools' option in
+    the Control Panel for Windows 2000). The
+    service name is DB2-DB2.
+    <LI>On Linux operating systems, you should switch
+    to the DB2 instance you intend to use
+    for
+    the UDDI Registry, using <I>su - db2inst1</I> where db2inst1 is the instance id, then
+    ensure that sqllib\db2profile has been executed,
+    either by having been called from the id's
+    profile, or by executing '<I>. ./sqllib/db2profile</I>'. You can then run <I>db2start </I>to start DB2.
+  </UL>
+  <li>Ensure that you have a DB2 userid
+(and password) with administrative
+privileges, needed to 
+create and access the UDDI Registry
+database.
+  </li>
+  <li>
+As part of the installation process, the
+  module visibility of your application server
+  is changed to 'Application' which
+  is required by the UDDI Registry application.
+</li>
+  <LI>If you have previously installed the IBM
+  WebSphere UDDI Registry, ensure that you
+  have uninstalled the product from your system
+  (on Windows, this is done via Add/Remove
+  Programs; on Linux via <CODE>rpm -e IBMWebSphere-UDDI</CODE>).
+<li>If you plan to use UDDI4J to access the IBM UDDI Registry, you must use the
+version 2 API supplied with the product. UDDI4J version 1 is not supported.
+</li>
+</ul>
+<H3><A name="windows">Installation on Windows platforms</A></H3>
+<p>To install the IBM WebSphere UDDI Registry
+on Windows, complete the following steps:<OL>
+  <li>Download 'IBMWebSphereUDDI_1.1.1_nt.zip'
+  from the download site and unzip this file
+  into a temporary directory. In this temporary
+  directory you will find, amongst others,
+  the following files:
+  <ul>
+    <li>A<B> </B><B>readme.txt</B><B> </B>file, which should always be read first.
+    In general it duplicates these instructions
+    but may include last minute corrections.</li>
+    <li>A <B>setup.exe</B> file to start the installation.</li>
+  </ul>
+  </li>
+  <LI>Run the <B>setup.exe</B> file.
+  <P>Please note that the WebSphere Application
+  Server will be recycled during this install,
+  so you should stop any other WebSphere work
+  before running setup.exe, and close the WebSphere
+  Administrative Console.</P>
+  <P>The setup program checks whether you already
+  have an instance of the IBM WebSphere UDDI
+  Registry installed on your system. If you
+  do, then it will give you the option to overwrite
+  the existing installation, or to abort the
+  install process. Unless you are re-installing
+  the same service level of the product, you
+  should abort the install process and remove
+  the existing installation using Add/Remove
+  Programs from the Control Panel, before running
+  <B>setup.exe</B> again.</P>
+  <P>The setup program checks that you have
+  the prerequisite level of database product
+  installed (see <A href="#prereqs">Prerequisites</A> above).
+  <ul>
+    <li>If you have the required level of one of
+    the prerequisite database products installed,
+    the installation uses this product for the
+    UDDI registry. If you have more than one
+    of the prerequisite database products installed,
+    then you will be asked which you would like
+    to use for the UDDI Registry database.</li>
+    <li>If you do not have a prerequisite level of
+    database product installed, the installation
+    will offer you the choice of continuing the
+    installation (by answering 'Yes') or aborting
+    the installation (by answering 'No'). You
+    should only answer 'Yes' if you are planning
+    to do a custom install of just the Information
+    Center, the UDDI4J package, the Samples,
+    or the EJB client files.</li>
+  </ul>
+  <p>The installation also checks for the version
+  of WebSphere Application Server installed
+  on the system. If the appropriate level
+  (See <A href="#prereqs">Prerequisites</A> above) is not installed, then the installation
+  will offer you the choice of continuing the
+  installation (by answering 'Yes') or aborting
+  the installation (by answering 'No'). You
+  should only reply 'Yes' if you are planning
+  to do a custom install of just the Information
+  Center, the UDDI4J package, the Samples,
+  or the EJB client files.</p>
+  <p>The installation of the IBM WebSphere UDDI
+  Registry continues automatically, and you
+  are prompted whenever you need to make a
+  decision that affects the installation, as
+  follows.<LI>You are asked to state that you agree
+  the licence terms and conditions. These
+are the licence terms and conditions that
+  you accepted when you obtained the product;
+  for example, from the download site.
+  </li>
+  <li>You are given the option to override the
+  default directory location (Destination Folder),
+  in case you want to. To override the default
+  directory location, select 'Browse' and then
+  either browse to find a suitable directory
+  location or type an alternative location,
+  and click <B>OK</B>. If the directory does not exist, you are
+  asked if you want to create it. Click <B>Next</B> to continue. In the rest of these instructions,
+  the directory location is referred to as
+  &lt;UDDI-install-dir&gt;.</li>
+  <li>You are prompted to select either a Custom
+  or a Typical
+  install:
+  <ul>
+    <li>Typical install is the default. This installs
+    all the components of the IBM WebSphere UDDI
+    Registry that you need to use it.</li>
+    <li>The Custom install allows you
+  to select one or more of the following
+    components:
+    <UL compact>
+      <LI>UDDI Registry Files</li>
+      <LI>UDDI4J</li>
+      <LI>InfoCenter</li>
+      <LI>Sample Files</li>
+      <LI>Setup UDDI Registry Database
+      <LI>EJB</li>
+    </UL>
+    <p><b>Notes:</b>
+    <ul>
+      <LI>If you select <B>UDDI</B> <B>Registry File</B><B>s</B>, which installs the IBM WebSphere UDDI registry
+      program, then you should also select at least
+      the '<B>Setup UDDI Registry Database</B>' component as well.
+      <li>You can choose not to setup the UDDI Registry
+      database (by not selecting <b>Setup UDDI Registry Database</b>); for example, if you are installing on
+      top of a previous version of the IBM UDDI
+      Registry Database, and want to preserve existing
+      data in the registry. However, be aware that
+      the format of the registry data might have
+      changed, so that your old registry database
+      might no longer be compatible.</li>
+    </ul>
+    <p>The main purpose of the Custom Install option
+    is to allow you to install other components,
+    such as the Information Center, or the
+    Samples,
+    or the UDDI4J package, on a separate
+    machine
+    from the UDDI registry files. The components
+    that can be selected on a Custom Install
+    are:</p>
+    <UL>
+      <LI>UDDI Registry Files - this choice installs
+      the IBM WebSphere UDDI Registry program.
+      If this is your first installation then you
+      must select Setup UDDI Registry Database.
+      The InfoCenter is automatically selected.
+      <LI>UDDI4J - this choice installs the UDDI4J
+      package.
+      <LI>InfoCenter - the choice installs the Information
+      Center.
+      <LI>Sample Files - this choice installs the installation
+      verification programs and the other
+      UDDI
+      sample programs.
+      <LI>Setup UDDI Registry DB - this choice will
+      install the code that will load your UDDI
+      database. It is essential you select this
+      option if this is a new installation. If
+      you choose NOT to setup the UDDI Registry
+      database, please refer to the note above
+      referring to 'You can choose not to setup
+      the UDDI Registry database....&quot;.
+      <LI>EJB - this choice will install the EJB client
+      classes and javadocs for the EJB interface.
+    </ul></li>
+</ul></li>
+    <LI>You are prompted to provide a database userid
+  and password during the UDDI installation.
+  This userid is used to create and access
+  the UDDI Registry database, and should be
+  a userid with administrative privileges which
+  obeys the rules for DB2 userids.
+  <p>Some database setup is performed for you
+    as part of the installation process.
+    Some
+    of this setup needs the WebSphere Administrative
+    Server to be running; if it is not, the
+    installation
+    process starts it for you.
+    <p>The database setup completes the following
+  steps:<OL>
+      <LI>Create a JDBC provider in your WebSphere
+    Application Server called 'UDDI JDBC Driver'
+    and an associated data source (UDDI data
+    source). If you already have a JDBC provider
+    called 'UDDI JDBC Driver' then this, together
+    with any associated data source, is replaced.</li>
+      <LI>Create a database called UDDI20 and populate
+    it with the tables and standard categorization
+    schemes that are required for the UDDI
+      Registry.
+    If you already have a database called
+      UDDI20,
+    then this will be replaced (unless you
+      choose
+    not to 'Setup UDDI Registry Files', as
+      part
+    of a Custom install).</li>
+    </OL>
+    <LI>The installation process will places a file
+  <I>uddi.ear</I> into the &lt;UDDI-install-dir&gt;, copy
+  it into the<I> installableApps</I> subdirectory of the WebSphere application
+  server installation, and deploy it into WebSphere.
+    <LI>When the installation has finished, you will
+  see a screen asking you if you want to
+  look
+  at the readme. If you wish to view the
+  readme
+  then check the box otherwise click on '<B>Finish</B>' to complete the installation.
+    <li>If you are installing the IBM WebSphere UDDI
+    Registry onto WebSphere Application Server
+    single-server edition for developers (AEd),
+    you should now continue to the section &quot;Installing
+    on WebSphere Application Server single-server
+    edition for Developers (AEd)&quot;.</li>
+    <LI>After completing the installation you will
+  be able to see the UDDI Registry application
+  using the WebSphere Administrative Console
+  as follows:
+  <OL>
+      <LI>Start the WebSphere Administrator's Console
+    if it is not already running.
+      <li>In the navigation pane, expand the administrative
+    domain so that you can see '<b>Enterprise Applications'</b>, and expand that to show the applications
+    that are installed. An application called
+    'UDDI Registry' should be shown. 
+  </OL></li></OL>
+<H4><A name="runcheck">Running the Registry and Checking the Installation</A></H4>
+<P>In order to use the IBM WebSphere UDDI Registry,
+you will need to start the WebSphere default
+server (or stop and restart it if it is already
+running). This is done from the WebSphere
+Administrative console, by expanding the
+tree view in the left pane to show Nodes
+-&gt; <I>node-name</I> -&gt; AppServers -&gt; Defaults Server,
+then right-clicking on the Default Server
+and selecting <B>Start</B>, then clicking 'OK' when the start completes
+    (if the server was already started, then
+    you will need to right-click and select
+    <B>Stop</B> before doing this).</P>
+<P>You should next <A href="configssl.html#configssl">configure WebSphere to use HTTPS and SSL</A> and then 
+<a href="verify.html#verify">run the Installation Verification Program (IVP) samples</A>.</P>
+<P>You can change the default values with which the IBM WebSphere UDDI Registry application has been installed, as described in
+ <A href="configure.html#SEC7">Configuring the UDDI Registry</A>. You will need to configure the getServletURLPrefix
+and getServletName properties as described
+in that section, to provide appropriate values
+for discovery URLs on your system.</P>
+<H4><A name="diagoutw">Installation diagnostic output</A></H4>
+<P>The output from the various steps that are
+performed is logged into log files in the
+<TT>&lt;UDDI-install-dir&gt;/logs</TT> directory, where <CODE>&lt;UDDI-install-dir&gt;</CODE> is the target directory that you decided
+to use when installing the UDDI code.</P>
+<H3><A name="linux">Installation on Linux platforms</A></H3>
+<P><BR>
+Download 'IBMWebSphereUDDI_1.1.1_i386.zip'
+from the download site and unzip this file
+into a temporary directory. In this temporary
+directory you will find the following file:</P>
+<UL>
+  <LI>A readme.txt file, which must always be read
+  first. In general it duplicates these instructions,
+  buy may contain last minute corrections.
+  <LI>IBMWebSphere-UDDI-1.1.1-0.i386.rpm
+</UL>
+<P>To install the UDDI Registry into your Linux
+system, please ensure the following:</P>
+<P>If you plan to use DB2:</P>
+<UL>
+  <LI>That you have DB2 installed and started.
+  <LI>That you know the db2 instance id, and password
+  for the instance you wish to install UDDI
+  to.
+  <LI>That you know the directory where DB2 was
+  installed.
+</UL>
+
+<P>For all cases:</P>
+<UL>
+  <LI>That you have WebSphere Application Server
+  Advanced Edition multiserver (AE) version
+  4.0.2, or single-server edition for Developers
+  (AEd) version 4.0.2 installed and functional.
+  <LI>That you know the nodename of the node within
+  WebSphere Application Server you wish to
+  install UDDI to.
+  <LI>That you know the directory where WebSphere
+  Application Server is installed.
+</UL>
+<P>With these items to hand, you can now install
+the IBM WebSphere UDDI Registry.</P>
+<UL>
+  <LI>Start the WebSphere Application Server. For
+  WebSphere Application Server AE this is accomplished
+  by running <I>startupServer.sh</I> (for AEd this would be <I>'startServer.sh</I>') in the WebSphere bin directory (that is,
+  the bin subdirectory of the directory in
+  which WebSphere Application Server is installed).
+  <LI>Start the UDDI install:
+  <UL>
+    <LI>if you have WebSphere installed in the default
+    path of /opt/WebSphere/AppServer then issue
+    <KBD>rpm -i IBMWebSphere-UDDI-1.1.1-0.i386.rpm</KBD>
+    <LI>otherwise, you should issue <KBD>rpm -i IBMWebSphere-UDDI-1.1.1-0.i386.rpm
+    --prefix=/the/path/to/WebSphere</KBD> replacing /the/path/to/WebSphere with the
+    location of your WebSphere directory (the
+    default would be /opt)
+  </UL>
+</UL>
+<P>After the UDDI package has been unpacked,
+you will be prompted for the information
+you gathered earlier. If the defaults are
+acceptable, simply press RETURN, and the
+IBM WebSphere UDDI Registry will be installed.</P>
+<P>If the default values offered to you do not
+match the values you gathered, enter 'n'
+and press RETURN. You will then be prompted
+to enter each value in turn. For each value,
+to keep the default, you can press RETURN.
+For the database type selection, where available,
+enter the number of the option you require.</P>
+<P>Note that you will be prompted for which
+database type you plan to use, and only further
+prompted for information relevant to your
+chosen type. The database type cannot be
+defaulted by pressing RETURN.</P>
+<P>Once you have completed entering the new
+values, you will be prompted again to check
+if the values are now acceptable. If they
+are, press RETURN, and installation will
+proceed, if not, enter 'n' to be given another
+opportunity to change the values. You may
+change the values as many times as you wish,
+until you are happy with them.</P>
+<P>The installation of the IBM WebSphere UDDI
+Registry will now continue without interruptions.</P>
+<P>If you are installing the IBM WebSphere UDDI
+Registry onto WebSphere Application Server
+single-server edition for developers (AEd),
+the installer will exit and refer you to
+the section &quot;<A href="#aed">Installing on WebSphere Application Server
+single-server edition for Developers (AEd)</A>&quot;.</P>
+<P>Once installed, you must install the UDDI
+Registry application into the WebSphere Application
+Server by following the instructions in the
+section &quot;<A>Installing the UDDI Registry application
+into WebSphere</A>&quot;. After following the steps in that
+section, you should be able to see the UDDI
+Registry application from the WebSphere Administrative
+Console. The installed files will have been
+placed at /opt/WebSphere/UDDIReg, or, if
+you chose a custom prefix, at $PREFIX/WebSphere/UDDIReg,
+where $PREFIX is your custom prefix.</P>
+<H3><A name="aed">Installation on WebSphere Application Server single-server edition for Developers (AEd)</A></H3>
+    <P>The parts of the installation which set things
+    up in WebSphere will only work for WebSphere
+    Application Server Advanced Edition (WAS
+    AE), and not for the developer's single-server
+    edition (WAS AEd).<BR>
+You can install the IBM WebSphere UDDI Registry
+onto WebSphere AEd, but there are a number
+of steps which have to be completed by hand
+after setup.exe has been run.<BR>
+    These steps are:</P>
+    <OL>
+      <LI>Create a JDBC Driver for UDDI
+      <LI>Create a Datasource for UDDI under the JDBC
+      Driver
+      <LI>Define virtual host bindings for the uddi.ear
+      application
+      <LI>Install the uddi.ear application
+      <LI>Start the UDDI Registry application
+      <P align="left">1) To create the JDBC driver for UDDI, start
+      the WebSphere Administrative Console,
+      and
+      expand the Resources folder of the
+      WebSphere
+      Administrative Domain in the left hand
+      pane,
+      to display the JDBC Drivers. Click
+      on 'JDBC
+      Drivers' to display the drivers in
+      the main
+      pane. Click on the '<B>New</B>' button to add a new 'User Defined JDBC
+      driver' for use by the UDDI Registry.<BR>
+      Fill in the following information:</P>
+      <UL>
+        <LI>Server Class Path: For Windows - C:\Program
+    Files\SQLLIB\java12\db2java.zip (replace
+    C:\Program Files\SQLLIB with the install
+    location of DB2 if you have not installed
+    it in the default directory location) and
+    on Linux - /usr/IBMdb2/V7.1/java12/db2java.zip.
+        <LI>Name: <I>UDDI JDBC Driver</I>
+        <LI>Description: JDBC Driver for IBM WebSphere
+        UDDI Registry
+        <LI>Implementation Classname: COM.ibm.db2.jdbc.DB2ConnectionPoolDataSource
+      </UL>
+      <P>Click on '<B>OK</B>' when completed.</P>
+  <P>'Save' the configuration.</P>
+  <P>You should see the <I>UDDI JDBC Driver</I> added to the tree of JDBC Drivers.</P>
+      <P>2) Expand the tree for the newly-added <I>UDDI JDBC Driver</I> in the left-hand pane to reveal its Data
+  Sources, and click on '<B>Data Sources</B>'. Be sure to add the datasource for UDDI
+      under the JDBC driver for UDDI. Click
+      on
+      <B>New</B> in the main pane, and fill in the following
+      information:</P>
+      <UL>
+        <LI>Name: UDDI datasource
+        <LI>JNDI Name: datasources/uddids
+        <LI>Description: Data source for IBM WebSphere
+        UDDI Registry
+        <LI>Category: UDDI
+    <LI>Database Name:uddi20
+    <LI>Default User ID: a user name, such as db2inst1,
+    with permission to the database
+    <LI>Default Password: the password for the user
+    name specified above
+    <LI>Minimum Pool Size: 1
+        <LI>Maximum Pool Size: 30
+        <LI>Connection Timeout: 1000
+        <LI>Idle Timeout: 2000
+        <LI>Orphan Timeout: 3000
+        <LI>Statement Cache Size: 100
+    <LI>Do <B>not</B> select the box labelled 'Disable Auto Connection
+        Cleanup'
+      </UL>
+      <P>Click on '<B>OK</B>' when completed to add the datasource.</P>
+  <P>'Save' the datasource.</P>
+  <P>3) The installation will have placed the
+      UDDI application file, uddi.ear, in
+      the directory
+      &lt;UDDI-install-dir&gt;.</P>
+      To create virtual host bindings for
+      the uddi.ear
+      application:
+      <UL>
+        <LI>Run the Application Assembly Tool (AAT) from the program starter menu under WebSphere
+        <LI>Clear the welcome panel if it surfaces
+        <LI>To load the uddi.ear into AAT,select File
+    -&gt; Open, navigate to the uddi.ear file
+    under &lt;UDDI-install-dir&gt;, select it
+    and press '<B>Apply</B>'
+        <LI>Expand &quot;UDDI Registry&quot; and select
+        Web Modules
+        <LI>Select UDDI User Console in the right-hand
+        pane
+        <LI>Select the bindings tab
+        <LI>Enter your host name into the &quot;virtual
+        host&quot; field (you can use &quot;default_host&quot;)
+        and press Apply
+        <LI>Select UDDI Soap and select the Bindings
+        tab
+        <LI>Enter your host name into the &quot;virtual
+        host&quot; field and press Apply
+        again
+        <LI>Save the changes using either File -&gt;
+        Save from the menu, or press the Save icon
+        on the Toolbar
+        <LI>Clear the &quot;Archive was saved successfully&quot;message
+        <LI>Close the Application Assembly Tool
+      </UL>
+      <P>4) To install the uddi.ear application from
+      the administrative console, expand '<B>Nodes</B>' in the left-hand pane to display the node
+      on which to install the application,
+      expand
+      this node to display Enterprise Applications,
+      and click on '<B>Enterprise Applications</B>'. In the main pane, click on the '<B>Install</B>' button, Browse to find uddi.ear, and select
+  it. This will cause the Filepath: to be filled
+  in. The other two fields on the first panel
+  of the Application Installation wizard do
+  not apply to .ear files, so click <B>Next</B> and take all the default values on the following
+      panels.</P>
+      <P>From the WebSphere administrative console
+      you should use the save link at the top of
+      the page to save the configuration.</P>
+  Alternatively, you can install the EAR file
+  from a command shell window by changing directory
+  to the directory containing uddi.ear and
+  entering:<BR>
+  <KBD> seappinstall -install uddi.ear -interactive
+  false</KBD>. <BR>
+  The Linux equivalent of this command is:<BR>
+  <CODE>/opt/WebSphere/AppServer/bin/<KBD>SEAppInstall.sh -install uddi.ear -interactive
+  false</KBD></CODE>.
+  <P>From the WebSphere administrative console
+      you should use the save link at the
+      top of
+      the page to save the configuration.</P>
+      <P>5) You need to shut down the Application
+      server and restart it for the UDDI
+      server
+      to run.</P>
+      <UL>
+        <LI>From the WebSphere Administration console
+        navigate down through Nodes -&gt; Application
+        Servers, to select 'default server'
+        <LI>Click the '<B>Stop</B>' button and continue to take defaults until
+        the server has stopped
+        <LI>Use the desktop program start menu under
+        WebSphere to restart the WebSphere Application
+        server
+      </UL>
+      <P>The UDDI Registry application should now
+      be running.<BR>
+      You can check from the WebSphere Application
+      server Administrative console or by running
+      the the UDDI User Console.</P>
+      <P>6) You will also need to set up SSL. Refer
+      to the section &quot;<A href="configssl.html#configssl">Configuring WebSphere to use HTTPS and SSL</A>&quot; for details of the required settings,
+      but please also refer to the WebSphere AEd InfoCenter
+      (<A href="http://www-4.ibm.com/software/webservers/appserv/doc/v40/aes/infocenter/index.html" target="_new">http://www-4.ibm.com/software/webservers/appserv/doc/v40/aes/infocenter/index.html</A>) for information on how to perform the configuration
+      of SSL with WebSphere AEd.</P>
+    </OL>
+<H3><A name="instweb">Installing the UDDI Registry application into WebSphere</A></H3>
+<P>The UDDI Registry is supplied as a J2EE application
+file, uddi.ear. This is automatically installed
+into the WebSphere Application Server during
+installation. If you want to change any of
+its configuration properties using AAT see
+<A href="configure.html#runatt">
+&quot;Configuring SOAP properties with the
+AAT&quot;</A>. You will need to remove uddi.ear from WebSphere
+first, and then reinstall it afterwards using
+the Administrative Console, as follows:</P>
+<OL>
+  <LI>Start the WebSphere Administrator's Console
+  (if it is not already running).
+  <LI>Expand the administrative domain in the left
+  hand pane so that you can see 'Enterprise
+  Applications' and right click on that.
+  Select
+  'Install Enterprise Application'.
+  <LI>The 'Install Application (*.ear) radio button
+  should be selected. Click on '<B>Browse</B>', and find uddi.ear (this should be in the
+  directory that is displayed to you in the
+  browse pane, which is the <I>installableApps</I> subdirectory of the WebSphere AppServer
+  installation. Click '<B>Open</B>' to fill in the Path field with the path
+  to the uddi.ear. Click '<B>Next</B>'.
+  <LI>Keep clicking '<B>Next'</B> to accept all the filled-in default values
+  until the '<B>Finish</B>' button appears, and then click that.
+  <LI>You will be asked, &quot;Application code
+  necessary for installation has already
+  been
+  generated. Regenerate code now?&quot; to
+  which you should reply '<B>No</B>'.
+  <LI>When the UDDI Registry application has been
+  installed, a message will appear to tell
+  you that the enterprise application install
+  has been successful.
+</OL>
+<P>These instructions are for WebSphere Application
+Server Advanced Edition (AE). If you are
+using WebSphere Application Server single-server
+edition for Developers (AEd), please refer
+to the section on '<A href="#aed">Installing on WebSphere Application Server
+single-server edition for Developers (AEd)</A>', which includes, as step 3, instructions
+on how to install the UDDI Registry application
+into AEd.</P>
+</BODY>
+</HTML>

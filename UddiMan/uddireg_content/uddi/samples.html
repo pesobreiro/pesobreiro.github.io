@@ -1,0 +1,306 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+<META name="GENERATOR" content="IBM WebSphere Homepage Builder V5.0.1 for Windows">
+<title>Samples</title>
+<link rel="stylesheet" type="text/css" href="../../wasstyle.css">
+</head>
+
+<body>
+<H3><A href="#TOC22" name="SEC22">Samples</A></H3>
+<P>Some samples to help you develop applications
+to access the IBM WebSphere UDDI Registry
+are available from the WSDD web site.</P>
+<P>There are two basic sets of Java UDDI SOAP
+samples, each consisting of four samples
+of varying complexity. The first set is written
+using basic java libraries at the socket
+level. Each of these SOAP samples explicitly
+send XML SOAP strings, read in from files,
+in HTTP POST requests to the publish and
+inquiry servlets, and outputs the XML SOAP
+response. The second set is written using
+the UDDI4J v2 Java API to hide the implementation
+of sending XML over HTTP, and uses Java objects
+rather than XML to represent UDDI data structures.
+
+<P>In each set there are four samples - one
+focussing on each of the four main UDDI data
+structures: tModel, businessEntity, businessService
+and bindingTemplate.</P>
+
+<P>The SOAP samples which explicity user XML
+SOAP over HTTP are called:<BR></P>
+<UL>
+  <LI>SOAPSample 1a - shows manipulation of tModels
+  <LI>SOAPSample 1b - shows manipulation of businessEntities
+  <LI>SOAPSample 1c - shows manipulation of businessServices
+  <LI>SOAPSample 1d - combines all three of the
+  above together
+</UL>
+<P><BR>
+The UDDI4J samples are called:<BR></P>
+<UL>
+  <LI>UDDI4JSample 1a - shows manipulation of tModels
+  <LI>UDDI4JSample1b - shows manipulation of businessEntities
+  <LI>UDDI4JSample1c - shows manipulation of businessServices
+  <LI>UDDI4JSample1d - combines all three of the
+  above together
+</UL>
+<P>The two sets of samples mirror each other,
+in that they make the identical sequence
+of UDDI API calls - the SOAP samples use
+XML SOAP explicitly to achieve this, while
+the UDDI4J samples perform identical operations
+using the UDDI4J API.</P>
+<P>Each sample will accomplish the functions
+shown (below), for the data structure it
+is focussing on.</P>
+<DL>
+  <DT>find_*
+  <DD>to show that the structure is not there
+  <DT>save_*
+  <DD>to save the data structure
+  <DT>find_*
+  <DD>to show that the data structure has been
+  saved
+  <DT>delete_*
+  <DD>to delete the saved data structure
+  <DT>find_*
+  <DD>to show that the data structure has been
+  deleted
+</DL>
+<H3><A href="#TOC23" name="SEC23">Samples functionality</A></H3>
+<p>
+The following topics describe various ways that the samples function:
+<ul compact>
+<li><a href="#SEC24">Use of AuthTokens</A></li>
+<li><a href="#SEC25">Additional UDDI API calls</A></li>
+<li><a href="#SEC26">Samples cleanup</a></li>
+<li><a href="#SEC27">Making UDDI API calls</A></li>
+<li><a href="#SSL">SSL</A></li>
+<li><a href="#ivpsamp">IVP (Installation verification Program) SOAP SAMPLES</A></li>
+</ul>
+
+<H4><A href="#TOC24" name="SEC24">Use of AuthTokens</A></H4>
+<P>Note that the SOAP Samples do not make use
+of authTokens. This is because the IBM WebSphere
+UDDI Registry does not make use of authTokens
+as its primary security implementation -
+it uses WebSphere Application Server intgrated
+security. (See the UDDI security section
+for more information.) However, the UDDI4J
+Java API requires the use of authTokens and
+so these are used in the UDDI4J samples.</P>
+<P>Each of the samples starts with a get_authToken
+UDDI API call. An authInfo String is then
+extracted from the authToken returned by
+this call. The authInfo String obtained in
+this way is needed (by the UDDI4J API only,
+not the the UDDI Registry) to perform save_*
+and delete_* API calls, but is not needed
+for find_* calls. More information on the
+use of authTokens and integrated WebSphere
+security can be found in the security section.</P>
+
+<H4><A href="#TOC25" name="SEC25">Additional UDDI API calls</A></H4>
+<P>The UDDI data structures tModel and businessEntity
+can be published independently of other published
+information. However, this is not the case
+for businessServices and bindingTemplates.
+A businessService can only be published as
+a child of a businessEntity, and a bindingTemplate
+can only be published as a child of a businessService.
+A bindingTemplate also needs to include a
+reference to a tModel when it is published.
+For these reasons, samples 1c and 1d (both
+SOAP and UDDI4J) both publish extra information
+in addition to the data structures they are
+focussing on. (See <a href="#SEC27">&quot;Making UDDI API
+calls&quot;</a> below for a list of the UDDI API
+calls that each sample makes.</P>
+<H4><A href="#TOC26" name="SEC26">Samples cleanup</A></H4>
+<P>Any information that was saved, in addition
+to that saved in the main part of the sample,
+is deleted. In the UDDI4J samples, the authToken
+is deactivated by calling discard_authToken.</P>
+<H4><A href="#TOC27" name="SEC27">Making UDDI API calls</A></H4>
+<P>The UDDI API calls made for each sample are
+listed below:</P>
+<UL>
+  <li>SOAPSample1a - tModel
+  <DL>
+    <DT>find_tModel</DT>
+    <DD>this shows that no tModel with the specified
+    search criteria exists</DD>
+    <DT>save_tModel</DT>
+    <DD>the tModelKey is obtained from the response,
+    to be used in the delete_tModel call</DD>
+    <DT>find_tModel</DT>
+    <DD>this shows that the tModel has been saved
+    successfully</DD>
+    <DT>delete_tModel</DT>
+    <DD>deletes the saved tModel</DD>
+    <DT>find_tModel</DT>
+    <DD>shows that the tModel has been deleted successfully</DD>
+  </DL>
+  </li>
+  <li>SOAPSample1b - businessEntity
+  <DL>
+    <DT>find_business</DT>
+    <DD>this shows that no businessEntity with the
+    specified search criteria exists</DD>
+    <DT>save_business</DT>
+    <DD>the businessKey is obtained from the response,
+    to be used in the delete_business call</DD>
+    <DT>find_business</DT>
+    <DD>this shows that the businessEntity has been
+    saved successfully</DD>
+    <DT>delete_business</DT>
+    <DD>deletes the saves businessEntity</DD>
+    <DT>find_business</DT>
+    <DD>shows that the businessEntity has been deleted
+    successfully</DD>
+  </DL>
+  </li>
+  <li>SOAPSample1c - businessService
+  <P>Each businessService is the logical child
+  of a single businessEntity, and so, when
+  performing a save_business UDDI API call,
+  a businessKey must be passed. Hence, this
+  sample does a save_business call before exercising
+  the businessService API in order to obtain
+  a businessKey. The created business is then
+  deleted at the end of the sample.</P>
+  <DL>
+    <DT>save_business</DT>
+    <DD>a business is needed so that the businessService
+    can be saved as the child of a businessEntity.
+    The businessKey is obtained from the response,
+    to be used in the save_service and delete_service
+    call</DD>
+    <DT>find_service</DT>
+    <DD>this shows that no businessService with the
+    specified search criteria exists</DD>
+    <DT>save_service</DT>
+    <DD>the serviceKey is obtained from the response
+    and used in the delete_service call</DD>
+    <DT>find_service</DT>
+    <DD>this shows that no businessService has been
+    saved successfully</DD>
+    <DT>delete_business</DT>
+    <DD>deletes the saved businessService</DD>
+    <DT>find_service</DT>
+    <DD>shows that the businessService has been deleted
+    successfully</DD>
+    <DT>delete_business</DT>
+    <DD>deletes the saved businessEntity</DD>
+  </DL>
+  </li>
+  <li>SOAPSample1d - all together
+  <P>Each bindingTemplate is the logical child
+of a single businessService, and so, when
+performing a save_binding UDDI API call,
+a serviceKey must be passed. In order to
+obtain a serviceKey, this sample performs
+a save_business call, which saves a businessEntity
+which, in turn, includes a businessService.
+The created business and service are both
+deleted at the end of the sample.</P>
+  <P>In addition, each bindingTemplate has one
+  or more tModels associated with it. At least
+  one tModelInstanceDetails data structure
+  must be included in the save_binding UDDI
+  API call. In order to obtain a tModel to
+  use, the sample saves a tModel before calling
+  save_binding, and deletes the tModel at the
+  end of the sample.</P>
+  <DL>
+    <DT>save_business</DT>
+    <DD>the businessEntity saved here includes a
+    businessService which is required so that
+    the bindingTemplate can be saved as the child
+    of a businessService. The businessKey and
+    serviceKey are obtained from the response,
+    and are used in the delete_business and save_binding
+    calls respectively</DD>
+    <DT>save_tModel</DT>
+    <DD>saves a tModel to be associated with the
+    bindingTemplate. The tModelKey is obtained
+    from the response and used in the save_binding
+    and delete_tModel calls</DD>
+    <DT>find_binding</DT>
+    <DD>this shows that no bindingTemplate with the
+    specified search criteria exists</DD>
+    <DT>save_binding</DT>
+    <DD>the bindingKey is obtained from the response,
+    to be used in the delete_binding call</DD>
+    <DT>find_binding</DT>
+    <DD>to show that the bindingTemplate was saved
+    successfully</DD>
+    <DT>delete_binding</DT>
+    <DD>deletes the saved bindingTemplate</DD>
+    <DT>find_binding</DT>
+    <DD>to show that the bindingTemplate was deleted
+    successfully</DD>
+    <DT>delete_business</DT>
+    <DD>this API call will also delete the service
+    that was saved with the business. In fact
+    it will delete ALL services and bindings
+    that are contents of the business</DD>
+    <DT>delete_tModel</DT>
+    <DD>deletes the saved tModel</DD>
+  </DL>
+  </li>
+</UL>
+<H4><A href="#SSL" name="SSL">SSL</A></H4>
+<P>When WebSphere security is enabled, the samples
+use HTTP over SSL to access the publish API.
+As written, they use the WebSphere defauly
+dummy SSL implementation. This is used by
+the samples to make it simple for you to
+set up a test environment with security enabled.
+It is not intended that the samples' SSL
+setup should be used in production without
+changing the encryption keys and trust certificates.
+It is beyond the scope of these samples or
+of this documentation to offer advice on
+setting up your security configuration -
+you can find out more information in the
+documentation for WebSphere elsewhere in
+this InfoCenter, and in the documentation
+for your Web Server.</P>
+<H4><a name="ivpsamp">IVP (Installation Verification Program) SOAP
+SAMPLES</a></H4>
+<P>In addition, there are 2 IVP (installation
+verification program) SOAP Samples, SOAPSampleIVPa
+and SOAPSampleIVPb. These are intended to
+verify the successful installation of the
+product, and should be used in conjunction
+with the GUI. The idea is that the user will
+run SOAPSampleIVPa, which saves some data
+to the Registry. The user then enquires on
+the data using the GUI, and deletes the data
+by running SOAPSampleIVPb.</P>
+<P>The IVP samples are installed into the same
+target directory as the other SOAP samlpes,
+and use the same XML files as the basic java
+SOAP samples.</P>
+<P>SOAPSampleIVPa saves 3 businesses, 6 services
+(2 per business) and 3 tModels. (These numbers
+can be easily configured.) These data structures
+are as basic as possible, just having a name.
+The keys returned by the save_* UDDI API
+calls are then written to a file, SOAPSampleIVPa.out.
+SOAPSampleIVPb then reads these keys from
+the file in order to delete the saved data
+from the UDDI Registry.</P>
+<P>Note that consecutive runs of SOAPSampleIVPa
+will overwrite the output file SOAPSampleIVPa.out,
+so, if you wish to use SOAPSampleIVPb to
+delete the data, you must run this before
+you next run SOAPSampleIVPa.</P>
+<P></P>
+</body>
+</html>

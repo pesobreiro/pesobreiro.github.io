@@ -1,0 +1,1696 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--
+ Generated: Mon Jun 03 13:06:25 EDT 2002 jfouffa.w3.org
+ -->
+<html lang='en-US' xml:lang="en-US" xmlns=
+"http://www.w3.org/1999/xhtml">
+<head>
+<title>Java Language Binding</title>
+<link rel='stylesheet' type='text/css' href='./spec.css' />
+<link rel='stylesheet' type='text/css' href='W3C-CR.css' />
+<link rel='next' href='ecma-script-binding.html' />
+<link rel='contents' href='Overview.html#contents' />
+<link rel='copyright' href='copyright-notice.html' />
+<link rel='glossary' href='glossary.html' />
+<link rel='Start' href='Overview.html' />
+<link rel='index' href='def-index.html' />
+<link rel='author' href='mailto:www-dom@w3.org' />
+<link rel='help' href='http://www.w3.org/DOM/' />
+<link rel='prev' href='idl-definitions.html' />
+</head>
+<body>
+<div class='navbar' align='center'><a accesskey='p' href=
+'idl-definitions.html'>previous</a> &nbsp; <a accesskey='n' href=
+'ecma-script-binding.html'>next</a> &nbsp; <a accesskey='c' href=
+'Overview.html#contents'>contents</a> &nbsp; <a accesskey='i' href=
+'def-index.html'>index</a> 
+
+<hr title='Navigation area separator' />
+</div>
+
+<div class='noprint' style='text-align: right'>
+<p style='font-family: monospace;font-size:small'>05 June 2002</p>
+</div>
+
+<div class='div1'><a id="java-binding" name='java-binding'></a> 
+
+<h1 id='java-binding-h1' class='adiv1'>Appendix C: Java Language
+Binding</h1>
+
+<p>This appendix contains the complete Java Language [<a class=
+'noxref normative' href='references.html#Java'>Java</a>] binding
+for the Level 2 Document Object Model HTML.</p>
+
+<p>The Java files are also available as <a class='normative' href=
+'java-binding.zip'>http://www.w3.org/TR/2002/CR-DOM-Level-2-HTML-20020605/java-binding.zip</a></p>
+
+<h3 id='org.w3c.dom.html2.HTMLDOMImplementation'>
+org/w3c/dom/html2/HTMLDOMImplementation.java:</h3>
+
+<div class='java-code'>
+<pre>
+package org.w3c.dom.html2;
+
+import org.w3c.dom.DOMImplementation;
+
+public interface HTMLDOMImplementation extends DOMImplementation {
+    public HTMLDocument createHTMLDocument(String title);
+
+}
+</pre>
+</div>
+
+<h3 id='org.w3c.dom.html2.HTMLCollection'>
+org/w3c/dom/html2/HTMLCollection.java:</h3>
+
+<div class='java-code'>
+<pre>
+package org.w3c.dom.html2;
+
+import org.w3c.dom.Node;
+
+public interface HTMLCollection {
+    public int getLength();
+
+    public Node item(int index);
+
+    public Node namedItem(String name);
+
+}
+</pre>
+</div>
+
+<h3 id='org.w3c.dom.html2.HTMLOptionsCollection'>
+org/w3c/dom/html2/HTMLOptionsCollection.java:</h3>
+
+<div class='java-code'>
+<pre>
+package org.w3c.dom.html2;
+
+import org.w3c.dom.Node;
+import org.w3c.dom.DOMException;
+
+public interface HTMLOptionsCollection {
+    public int getLength();
+    public void setLength(int length)
+                          throws DOMException;
+
+    public Node item(int index);
+
+    public Node namedItem(String name);
+
+}
+</pre>
+</div>
+
+<h3 id='org.w3c.dom.html2.HTMLDocument'>
+org/w3c/dom/html2/HTMLDocument.java:</h3>
+
+<div class='java-code'>
+<pre>
+package org.w3c.dom.html2;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.NodeList;
+import org.w3c.dom.DOMException;
+
+public interface HTMLDocument extends Document {
+    public String getTitle();
+    public void setTitle(String title);
+
+    public String getReferrer();
+
+    public String getDomain();
+
+    public String getURL();
+
+    public HTMLElement getBody();
+    public void setBody(HTMLElement body);
+
+    public HTMLCollection getImages();
+
+    public HTMLCollection getApplets();
+
+    public HTMLCollection getLinks();
+
+    public HTMLCollection getForms();
+
+    public HTMLCollection getAnchors();
+
+    public String getCookie();
+    public void setCookie(String cookie)
+                          throws DOMException;
+
+    public void open();
+
+    public void close();
+
+    public void write(String text);
+
+    public void writeln(String text);
+
+    public NodeList getElementsByName(String elementName);
+
+}
+</pre>
+</div>
+
+<h3 id='org.w3c.dom.html2.HTMLElement'>
+org/w3c/dom/html2/HTMLElement.java:</h3>
+
+<div class='java-code'>
+<pre>
+package org.w3c.dom.html2;
+
+import org.w3c.dom.Element;
+
+public interface HTMLElement extends Element {
+    public String getId();
+    public void setId(String id);
+
+    public String getTitle();
+    public void setTitle(String title);
+
+    public String getLang();
+    public void setLang(String lang);
+
+    public String getDir();
+    public void setDir(String dir);
+
+    public String getClassName();
+    public void setClassName(String className);
+
+}
+</pre>
+</div>
+
+<h3 id='org.w3c.dom.html2.HTMLHtmlElement'>
+org/w3c/dom/html2/HTMLHtmlElement.java:</h3>
+
+<div class='java-code'>
+<pre>
+package org.w3c.dom.html2;
+
+public interface HTMLHtmlElement extends HTMLElement {
+    public String getVersion();
+    public void setVersion(String version);
+
+}
+</pre>
+</div>
+
+<h3 id='org.w3c.dom.html2.HTMLHeadElement'>
+org/w3c/dom/html2/HTMLHeadElement.java:</h3>
+
+<div class='java-code'>
+<pre>
+package org.w3c.dom.html2;
+
+public interface HTMLHeadElement extends HTMLElement {
+    public String getProfile();
+    public void setProfile(String profile);
+
+}
+</pre>
+</div>
+
+<h3 id='org.w3c.dom.html2.HTMLLinkElement'>
+org/w3c/dom/html2/HTMLLinkElement.java:</h3>
+
+<div class='java-code'>
+<pre>
+package org.w3c.dom.html2;
+
+public interface HTMLLinkElement extends HTMLElement {
+    public boolean getDisabled();
+    public void setDisabled(boolean disabled);
+
+    public String getCharset();
+    public void setCharset(String charset);
+
+    public String getHref();
+    public void setHref(String href);
+
+    public String getHreflang();
+    public void setHreflang(String hreflang);
+
+    public String getMedia();
+    public void setMedia(String media);
+
+    public String getRel();
+    public void setRel(String rel);
+
+    public String getRev();
+    public void setRev(String rev);
+
+    public String getTarget();
+    public void setTarget(String target);
+
+    public String getType();
+    public void setType(String type);
+
+}
+</pre>
+</div>
+
+<h3 id='org.w3c.dom.html2.HTMLTitleElement'>
+org/w3c/dom/html2/HTMLTitleElement.java:</h3>
+
+<div class='java-code'>
+<pre>
+package org.w3c.dom.html2;
+
+public interface HTMLTitleElement extends HTMLElement {
+    public String getText();
+    public void setText(String text);
+
+}
+</pre>
+</div>
+
+<h3 id='org.w3c.dom.html2.HTMLMetaElement'>
+org/w3c/dom/html2/HTMLMetaElement.java:</h3>
+
+<div class='java-code'>
+<pre>
+package org.w3c.dom.html2;
+
+public interface HTMLMetaElement extends HTMLElement {
+    public String getContent();
+    public void setContent(String content);
+
+    public String getHttpEquiv();
+    public void setHttpEquiv(String httpEquiv);
+
+    public String getName();
+    public void setName(String name);
+
+    public String getScheme();
+    public void setScheme(String scheme);
+
+}
+</pre>
+</div>
+
+<h3 id='org.w3c.dom.html2.HTMLBaseElement'>
+org/w3c/dom/html2/HTMLBaseElement.java:</h3>
+
+<div class='java-code'>
+<pre>
+package org.w3c.dom.html2;
+
+public interface HTMLBaseElement extends HTMLElement {
+    public String getHref();
+    public void setHref(String href);
+
+    public String getTarget();
+    public void setTarget(String target);
+
+}
+</pre>
+</div>
+
+<h3 id='org.w3c.dom.html2.HTMLIsIndexElement'>
+org/w3c/dom/html2/HTMLIsIndexElement.java:</h3>
+
+<div class='java-code'>
+<pre>
+package org.w3c.dom.html2;
+
+public interface HTMLIsIndexElement extends HTMLElement {
+    public HTMLFormElement getForm();
+
+    public String getPrompt();
+    public void setPrompt(String prompt);
+
+}
+</pre>
+</div>
+
+<h3 id='org.w3c.dom.html2.HTMLStyleElement'>
+org/w3c/dom/html2/HTMLStyleElement.java:</h3>
+
+<div class='java-code'>
+<pre>
+package org.w3c.dom.html2;
+
+public interface HTMLStyleElement extends HTMLElement {
+    public boolean getDisabled();
+    public void setDisabled(boolean disabled);
+
+    public String getMedia();
+    public void setMedia(String media);
+
+    public String getType();
+    public void setType(String type);
+
+}
+</pre>
+</div>
+
+<h3 id='org.w3c.dom.html2.HTMLBodyElement'>
+org/w3c/dom/html2/HTMLBodyElement.java:</h3>
+
+<div class='java-code'>
+<pre>
+package org.w3c.dom.html2;
+
+public interface HTMLBodyElement extends HTMLElement {
+    public String getALink();
+    public void setALink(String aLink);
+
+    public String getBackground();
+    public void setBackground(String background);
+
+    public String getBgColor();
+    public void setBgColor(String bgColor);
+
+    public String getLink();
+    public void setLink(String link);
+
+    public String getText();
+    public void setText(String text);
+
+    public String getVLink();
+    public void setVLink(String vLink);
+
+}
+</pre>
+</div>
+
+<h3 id='org.w3c.dom.html2.HTMLFormElement'>
+org/w3c/dom/html2/HTMLFormElement.java:</h3>
+
+<div class='java-code'>
+<pre>
+package org.w3c.dom.html2;
+
+public interface HTMLFormElement extends HTMLElement {
+    public HTMLCollection getElements();
+
+    public int getLength();
+
+    public String getName();
+    public void setName(String name);
+
+    public String getAcceptCharset();
+    public void setAcceptCharset(String acceptCharset);
+
+    public String getAction();
+    public void setAction(String action);
+
+    public String getEnctype();
+    public void setEnctype(String enctype);
+
+    public String getMethod();
+    public void setMethod(String method);
+
+    public String getTarget();
+    public void setTarget(String target);
+
+    public void submit();
+
+    public void reset();
+
+}
+</pre>
+</div>
+
+<h3 id='org.w3c.dom.html2.HTMLSelectElement'>
+org/w3c/dom/html2/HTMLSelectElement.java:</h3>
+
+<div class='java-code'>
+<pre>
+package org.w3c.dom.html2;
+
+import org.w3c.dom.DOMException;
+
+public interface HTMLSelectElement extends HTMLElement {
+    public String getType();
+
+    public int getSelectedIndex();
+    public void setSelectedIndex(int selectedIndex);
+
+    public String getValue();
+    public void setValue(String value);
+
+    public int getLength();
+    public void setLength(int length)
+                      throws DOMException;
+
+    public HTMLFormElement getForm();
+
+    public HTMLOptionsCollection getOptions();
+
+    public boolean getDisabled();
+    public void setDisabled(boolean disabled);
+
+    public boolean getMultiple();
+    public void setMultiple(boolean multiple);
+
+    public String getName();
+    public void setName(String name);
+
+    public int getSize();
+    public void setSize(int size);
+
+    public int getTabIndex();
+    public void setTabIndex(int tabIndex);
+
+    public void add(HTMLElement element, 
+                    HTMLElement before)
+                    throws DOMException;
+
+    public void remove(int index);
+
+    public void blur();
+
+    public void focus();
+
+}
+</pre>
+</div>
+
+<h3 id='org.w3c.dom.html2.HTMLOptGroupElement'>
+org/w3c/dom/html2/HTMLOptGroupElement.java:</h3>
+
+<div class='java-code'>
+<pre>
+package org.w3c.dom.html2;
+
+public interface HTMLOptGroupElement extends HTMLElement {
+    public boolean getDisabled();
+    public void setDisabled(boolean disabled);
+
+    public String getLabel();
+    public void setLabel(String label);
+
+}
+</pre>
+</div>
+
+<h3 id='org.w3c.dom.html2.HTMLOptionElement'>
+org/w3c/dom/html2/HTMLOptionElement.java:</h3>
+
+<div class='java-code'>
+<pre>
+package org.w3c.dom.html2;
+
+public interface HTMLOptionElement extends HTMLElement {
+    public HTMLFormElement getForm();
+
+    public boolean getDefaultSelected();
+    public void setDefaultSelected(boolean defaultSelected);
+
+    public String getText();
+
+    public int getIndex();
+
+    public boolean getDisabled();
+    public void setDisabled(boolean disabled);
+
+    public String getLabel();
+    public void setLabel(String label);
+
+    public boolean getSelected();
+    public void setSelected(boolean selected);
+
+    public String getValue();
+    public void setValue(String value);
+
+}
+</pre>
+</div>
+
+<h3 id='org.w3c.dom.html2.HTMLInputElement'>
+org/w3c/dom/html2/HTMLInputElement.java:</h3>
+
+<div class='java-code'>
+<pre>
+package org.w3c.dom.html2;
+
+public interface HTMLInputElement extends HTMLElement {
+    public String getDefaultValue();
+    public void setDefaultValue(String defaultValue);
+
+    public boolean getDefaultChecked();
+    public void setDefaultChecked(boolean defaultChecked);
+
+    public HTMLFormElement getForm();
+
+    public String getAccept();
+    public void setAccept(String accept);
+
+    public String getAccessKey();
+    public void setAccessKey(String accessKey);
+
+    public String getAlign();
+    public void setAlign(String align);
+
+    public String getAlt();
+    public void setAlt(String alt);
+
+    public boolean getChecked();
+    public void setChecked(boolean checked);
+
+    public boolean getDisabled();
+    public void setDisabled(boolean disabled);
+
+    public int getMaxLength();
+    public void setMaxLength(int maxLength);
+
+    public String getName();
+    public void setName(String name);
+
+    public boolean getReadOnly();
+    public void setReadOnly(boolean readOnly);
+
+    public int getSize();
+    public void setSize(int size);
+
+    public String getSrc();
+    public void setSrc(String src);
+
+    public int getTabIndex();
+    public void setTabIndex(int tabIndex);
+
+    public String getType();
+    public void setType(String type);
+
+    public String getUseMap();
+    public void setUseMap(String useMap);
+
+    public String getValue();
+    public void setValue(String value);
+
+    public void blur();
+
+    public void focus();
+
+    public void select();
+
+    public void click();
+
+}
+</pre>
+</div>
+
+<h3 id='org.w3c.dom.html2.HTMLTextAreaElement'>
+org/w3c/dom/html2/HTMLTextAreaElement.java:</h3>
+
+<div class='java-code'>
+<pre>
+package org.w3c.dom.html2;
+
+public interface HTMLTextAreaElement extends HTMLElement {
+    public String getDefaultValue();
+    public void setDefaultValue(String defaultValue);
+
+    public HTMLFormElement getForm();
+
+    public String getAccessKey();
+    public void setAccessKey(String accessKey);
+
+    public int getCols();
+    public void setCols(int cols);
+
+    public boolean getDisabled();
+    public void setDisabled(boolean disabled);
+
+    public String getName();
+    public void setName(String name);
+
+    public boolean getReadOnly();
+    public void setReadOnly(boolean readOnly);
+
+    public int getRows();
+    public void setRows(int rows);
+
+    public int getTabIndex();
+    public void setTabIndex(int tabIndex);
+
+    public String getType();
+
+    public String getValue();
+    public void setValue(String value);
+
+    public void blur();
+
+    public void focus();
+
+    public void select();
+
+}
+</pre>
+</div>
+
+<h3 id='org.w3c.dom.html2.HTMLButtonElement'>
+org/w3c/dom/html2/HTMLButtonElement.java:</h3>
+
+<div class='java-code'>
+<pre>
+package org.w3c.dom.html2;
+
+public interface HTMLButtonElement extends HTMLElement {
+    public HTMLFormElement getForm();
+
+    public String getAccessKey();
+    public void setAccessKey(String accessKey);
+
+    public boolean getDisabled();
+    public void setDisabled(boolean disabled);
+
+    public String getName();
+    public void setName(String name);
+
+    public int getTabIndex();
+    public void setTabIndex(int tabIndex);
+
+    public String getType();
+
+    public String getValue();
+    public void setValue(String value);
+
+}
+</pre>
+</div>
+
+<h3 id='org.w3c.dom.html2.HTMLLabelElement'>
+org/w3c/dom/html2/HTMLLabelElement.java:</h3>
+
+<div class='java-code'>
+<pre>
+package org.w3c.dom.html2;
+
+public interface HTMLLabelElement extends HTMLElement {
+    public HTMLFormElement getForm();
+
+    public String getAccessKey();
+    public void setAccessKey(String accessKey);
+
+    public String getHtmlFor();
+    public void setHtmlFor(String htmlFor);
+
+}
+</pre>
+</div>
+
+<h3 id='org.w3c.dom.html2.HTMLFieldSetElement'>
+org/w3c/dom/html2/HTMLFieldSetElement.java:</h3>
+
+<div class='java-code'>
+<pre>
+package org.w3c.dom.html2;
+
+public interface HTMLFieldSetElement extends HTMLElement {
+    public HTMLFormElement getForm();
+
+}
+</pre>
+</div>
+
+<h3 id='org.w3c.dom.html2.HTMLLegendElement'>
+org/w3c/dom/html2/HTMLLegendElement.java:</h3>
+
+<div class='java-code'>
+<pre>
+package org.w3c.dom.html2;
+
+public interface HTMLLegendElement extends HTMLElement {
+    public HTMLFormElement getForm();
+
+    public String getAccessKey();
+    public void setAccessKey(String accessKey);
+
+    public String getAlign();
+    public void setAlign(String align);
+
+}
+</pre>
+</div>
+
+<h3 id='org.w3c.dom.html2.HTMLUListElement'>
+org/w3c/dom/html2/HTMLUListElement.java:</h3>
+
+<div class='java-code'>
+<pre>
+package org.w3c.dom.html2;
+
+public interface HTMLUListElement extends HTMLElement {
+    public boolean getCompact();
+    public void setCompact(boolean compact);
+
+    public String getType();
+    public void setType(String type);
+
+}
+</pre>
+</div>
+
+<h3 id='org.w3c.dom.html2.HTMLOListElement'>
+org/w3c/dom/html2/HTMLOListElement.java:</h3>
+
+<div class='java-code'>
+<pre>
+package org.w3c.dom.html2;
+
+public interface HTMLOListElement extends HTMLElement {
+    public boolean getCompact();
+    public void setCompact(boolean compact);
+
+    public int getStart();
+    public void setStart(int start);
+
+    public String getType();
+    public void setType(String type);
+
+}
+</pre>
+</div>
+
+<h3 id='org.w3c.dom.html2.HTMLDListElement'>
+org/w3c/dom/html2/HTMLDListElement.java:</h3>
+
+<div class='java-code'>
+<pre>
+package org.w3c.dom.html2;
+
+public interface HTMLDListElement extends HTMLElement {
+    public boolean getCompact();
+    public void setCompact(boolean compact);
+
+}
+</pre>
+</div>
+
+<h3 id='org.w3c.dom.html2.HTMLDirectoryElement'>
+org/w3c/dom/html2/HTMLDirectoryElement.java:</h3>
+
+<div class='java-code'>
+<pre>
+package org.w3c.dom.html2;
+
+public interface HTMLDirectoryElement extends HTMLElement {
+    public boolean getCompact();
+    public void setCompact(boolean compact);
+
+}
+</pre>
+</div>
+
+<h3 id='org.w3c.dom.html2.HTMLMenuElement'>
+org/w3c/dom/html2/HTMLMenuElement.java:</h3>
+
+<div class='java-code'>
+<pre>
+package org.w3c.dom.html2;
+
+public interface HTMLMenuElement extends HTMLElement {
+    public boolean getCompact();
+    public void setCompact(boolean compact);
+
+}
+</pre>
+</div>
+
+<h3 id='org.w3c.dom.html2.HTMLLIElement'>
+org/w3c/dom/html2/HTMLLIElement.java:</h3>
+
+<div class='java-code'>
+<pre>
+package org.w3c.dom.html2;
+
+public interface HTMLLIElement extends HTMLElement {
+    public String getType();
+    public void setType(String type);
+
+    public int getValue();
+    public void setValue(int value);
+
+}
+</pre>
+</div>
+
+<h3 id='org.w3c.dom.html2.HTMLDivElement'>
+org/w3c/dom/html2/HTMLDivElement.java:</h3>
+
+<div class='java-code'>
+<pre>
+package org.w3c.dom.html2;
+
+public interface HTMLDivElement extends HTMLElement {
+    public String getAlign();
+    public void setAlign(String align);
+
+}
+</pre>
+</div>
+
+<h3 id='org.w3c.dom.html2.HTMLParagraphElement'>
+org/w3c/dom/html2/HTMLParagraphElement.java:</h3>
+
+<div class='java-code'>
+<pre>
+package org.w3c.dom.html2;
+
+public interface HTMLParagraphElement extends HTMLElement {
+    public String getAlign();
+    public void setAlign(String align);
+
+}
+</pre>
+</div>
+
+<h3 id='org.w3c.dom.html2.HTMLHeadingElement'>
+org/w3c/dom/html2/HTMLHeadingElement.java:</h3>
+
+<div class='java-code'>
+<pre>
+package org.w3c.dom.html2;
+
+public interface HTMLHeadingElement extends HTMLElement {
+    public String getAlign();
+    public void setAlign(String align);
+
+}
+</pre>
+</div>
+
+<h3 id='org.w3c.dom.html2.HTMLQuoteElement'>
+org/w3c/dom/html2/HTMLQuoteElement.java:</h3>
+
+<div class='java-code'>
+<pre>
+package org.w3c.dom.html2;
+
+public interface HTMLQuoteElement extends HTMLElement {
+    public String getCite();
+    public void setCite(String cite);
+
+}
+</pre>
+</div>
+
+<h3 id='org.w3c.dom.html2.HTMLPreElement'>
+org/w3c/dom/html2/HTMLPreElement.java:</h3>
+
+<div class='java-code'>
+<pre>
+package org.w3c.dom.html2;
+
+public interface HTMLPreElement extends HTMLElement {
+    public int getWidth();
+    public void setWidth(int width);
+
+}
+</pre>
+</div>
+
+<h3 id='org.w3c.dom.html2.HTMLBRElement'>
+org/w3c/dom/html2/HTMLBRElement.java:</h3>
+
+<div class='java-code'>
+<pre>
+package org.w3c.dom.html2;
+
+public interface HTMLBRElement extends HTMLElement {
+    public String getClear();
+    public void setClear(String clear);
+
+}
+</pre>
+</div>
+
+<h3 id='org.w3c.dom.html2.HTMLBaseFontElement'>
+org/w3c/dom/html2/HTMLBaseFontElement.java:</h3>
+
+<div class='java-code'>
+<pre>
+package org.w3c.dom.html2;
+
+public interface HTMLBaseFontElement extends HTMLElement {
+    public String getColor();
+    public void setColor(String color);
+
+    public String getFace();
+    public void setFace(String face);
+
+    public String getSize();
+    public void setSize(String size);
+
+}
+</pre>
+</div>
+
+<h3 id='org.w3c.dom.html2.HTMLFontElement'>
+org/w3c/dom/html2/HTMLFontElement.java:</h3>
+
+<div class='java-code'>
+<pre>
+package org.w3c.dom.html2;
+
+public interface HTMLFontElement extends HTMLElement {
+    public String getColor();
+    public void setColor(String color);
+
+    public String getFace();
+    public void setFace(String face);
+
+    public String getSize();
+    public void setSize(String size);
+
+}
+</pre>
+</div>
+
+<h3 id='org.w3c.dom.html2.HTMLHRElement'>
+org/w3c/dom/html2/HTMLHRElement.java:</h3>
+
+<div class='java-code'>
+<pre>
+package org.w3c.dom.html2;
+
+public interface HTMLHRElement extends HTMLElement {
+    public String getAlign();
+    public void setAlign(String align);
+
+    public boolean getNoShade();
+    public void setNoShade(boolean noShade);
+
+    public String getSize();
+    public void setSize(String size);
+
+    public String getWidth();
+    public void setWidth(String width);
+
+}
+</pre>
+</div>
+
+<h3 id='org.w3c.dom.html2.HTMLModElement'>
+org/w3c/dom/html2/HTMLModElement.java:</h3>
+
+<div class='java-code'>
+<pre>
+package org.w3c.dom.html2;
+
+public interface HTMLModElement extends HTMLElement {
+    public String getCite();
+    public void setCite(String cite);
+
+    public String getDateTime();
+    public void setDateTime(String dateTime);
+
+}
+</pre>
+</div>
+
+<h3 id='org.w3c.dom.html2.HTMLAnchorElement'>
+org/w3c/dom/html2/HTMLAnchorElement.java:</h3>
+
+<div class='java-code'>
+<pre>
+package org.w3c.dom.html2;
+
+public interface HTMLAnchorElement extends HTMLElement {
+    public String getAccessKey();
+    public void setAccessKey(String accessKey);
+
+    public String getCharset();
+    public void setCharset(String charset);
+
+    public String getCoords();
+    public void setCoords(String coords);
+
+    public String getHref();
+    public void setHref(String href);
+
+    public String getHreflang();
+    public void setHreflang(String hreflang);
+
+    public String getName();
+    public void setName(String name);
+
+    public String getRel();
+    public void setRel(String rel);
+
+    public String getRev();
+    public void setRev(String rev);
+
+    public String getShape();
+    public void setShape(String shape);
+
+    public int getTabIndex();
+    public void setTabIndex(int tabIndex);
+
+    public String getTarget();
+    public void setTarget(String target);
+
+    public String getType();
+    public void setType(String type);
+
+    public void blur();
+
+    public void focus();
+
+}
+</pre>
+</div>
+
+<h3 id='org.w3c.dom.html2.HTMLImageElement'>
+org/w3c/dom/html2/HTMLImageElement.java:</h3>
+
+<div class='java-code'>
+<pre>
+package org.w3c.dom.html2;
+
+public interface HTMLImageElement extends HTMLElement {
+    public String getName();
+    public void setName(String name);
+
+    public String getAlign();
+    public void setAlign(String align);
+
+    public String getAlt();
+    public void setAlt(String alt);
+
+    public int getBorder();
+    public void setBorder(int border);
+
+    public int getHeight();
+    public void setHeight(int height);
+
+    public int getHspace();
+    public void setHspace(int hspace);
+
+    public boolean getIsMap();
+    public void setIsMap(boolean isMap);
+
+    public String getLongDesc();
+    public void setLongDesc(String longDesc);
+
+    public String getSrc();
+    public void setSrc(String src);
+
+    public String getUseMap();
+    public void setUseMap(String useMap);
+
+    public int getVspace();
+    public void setVspace(int vspace);
+
+    public int getWidth();
+    public void setWidth(int width);
+
+}
+</pre>
+</div>
+
+<h3 id='org.w3c.dom.html2.HTMLObjectElement'>
+org/w3c/dom/html2/HTMLObjectElement.java:</h3>
+
+<div class='java-code'>
+<pre>
+package org.w3c.dom.html2;
+
+import org.w3c.dom.Document;
+
+public interface HTMLObjectElement extends HTMLElement {
+    public String getCode();
+    public void setCode(String code);
+
+    public String getAlign();
+    public void setAlign(String align);
+
+    public String getArchive();
+    public void setArchive(String archive);
+
+    public String getBorder();
+    public void setBorder(String border);
+
+    public String getCodeBase();
+    public void setCodeBase(String codeBase);
+
+    public String getCodeType();
+    public void setCodeType(String codeType);
+
+    public String getData();
+    public void setData(String data);
+
+    public boolean getDeclare();
+    public void setDeclare(boolean declare);
+
+    public String getHeight();
+    public void setHeight(String height);
+
+    public String getHspace();
+    public void setHspace(String hspace);
+
+    public String getName();
+    public void setName(String name);
+
+    public String getStandby();
+    public void setStandby(String standby);
+
+    public int getTabIndex();
+    public void setTabIndex(int tabIndex);
+
+    public String getType();
+    public void setType(String type);
+
+    public String getUseMap();
+    public void setUseMap(String useMap);
+
+    public String getVspace();
+    public void setVspace(String vspace);
+
+    public String getWidth();
+    public void setWidth(String width);
+
+    public Document getContentDocument();
+
+}
+</pre>
+</div>
+
+<h3 id='org.w3c.dom.html2.HTMLParamElement'>
+org/w3c/dom/html2/HTMLParamElement.java:</h3>
+
+<div class='java-code'>
+<pre>
+package org.w3c.dom.html2;
+
+public interface HTMLParamElement extends HTMLElement {
+    public String getName();
+    public void setName(String name);
+
+    public String getType();
+    public void setType(String type);
+
+    public String getValue();
+    public void setValue(String value);
+
+    public String getValueType();
+    public void setValueType(String valueType);
+
+}
+</pre>
+</div>
+
+<h3 id='org.w3c.dom.html2.HTMLAppletElement'>
+org/w3c/dom/html2/HTMLAppletElement.java:</h3>
+
+<div class='java-code'>
+<pre>
+package org.w3c.dom.html2;
+
+public interface HTMLAppletElement extends HTMLElement {
+    public String getAlign();
+    public void setAlign(String align);
+
+    public String getAlt();
+    public void setAlt(String alt);
+
+    public String getArchive();
+    public void setArchive(String archive);
+
+    public String getCode();
+    public void setCode(String code);
+
+    public String getCodeBase();
+    public void setCodeBase(String codeBase);
+
+    public String getHeight();
+    public void setHeight(String height);
+
+    public String getHspace();
+    public void setHspace(String hspace);
+
+    public String getName();
+    public void setName(String name);
+
+    public String getObject();
+    public void setObject(String object);
+
+    public String getVspace();
+    public void setVspace(String vspace);
+
+    public String getWidth();
+    public void setWidth(String width);
+
+}
+</pre>
+</div>
+
+<h3 id='org.w3c.dom.html2.HTMLMapElement'>
+org/w3c/dom/html2/HTMLMapElement.java:</h3>
+
+<div class='java-code'>
+<pre>
+package org.w3c.dom.html2;
+
+public interface HTMLMapElement extends HTMLElement {
+    public HTMLCollection getAreas();
+
+    public String getName();
+    public void setName(String name);
+
+}
+</pre>
+</div>
+
+<h3 id='org.w3c.dom.html2.HTMLAreaElement'>
+org/w3c/dom/html2/HTMLAreaElement.java:</h3>
+
+<div class='java-code'>
+<pre>
+package org.w3c.dom.html2;
+
+public interface HTMLAreaElement extends HTMLElement {
+    public String getAccessKey();
+    public void setAccessKey(String accessKey);
+
+    public String getAlt();
+    public void setAlt(String alt);
+
+    public String getCoords();
+    public void setCoords(String coords);
+
+    public String getHref();
+    public void setHref(String href);
+
+    public boolean getNoHref();
+    public void setNoHref(boolean noHref);
+
+    public String getShape();
+    public void setShape(String shape);
+
+    public int getTabIndex();
+    public void setTabIndex(int tabIndex);
+
+    public String getTarget();
+    public void setTarget(String target);
+
+}
+</pre>
+</div>
+
+<h3 id='org.w3c.dom.html2.HTMLScriptElement'>
+org/w3c/dom/html2/HTMLScriptElement.java:</h3>
+
+<div class='java-code'>
+<pre>
+package org.w3c.dom.html2;
+
+public interface HTMLScriptElement extends HTMLElement {
+    public String getText();
+    public void setText(String text);
+
+    public String getHtmlFor();
+    public void setHtmlFor(String htmlFor);
+
+    public String getEvent();
+    public void setEvent(String event);
+
+    public String getCharset();
+    public void setCharset(String charset);
+
+    public boolean getDefer();
+    public void setDefer(boolean defer);
+
+    public String getSrc();
+    public void setSrc(String src);
+
+    public String getType();
+    public void setType(String type);
+
+}
+</pre>
+</div>
+
+<h3 id='org.w3c.dom.html2.HTMLTableElement'>
+org/w3c/dom/html2/HTMLTableElement.java:</h3>
+
+<div class='java-code'>
+<pre>
+package org.w3c.dom.html2;
+
+import org.w3c.dom.DOMException;
+
+public interface HTMLTableElement extends HTMLElement {
+    public HTMLTableCaptionElement getCaption();
+    public void setCaption(HTMLTableCaptionElement caption)
+                      throws DOMException;
+
+    public HTMLTableSectionElement getTHead();
+    public void setTHead(HTMLTableSectionElement tHead)
+                      throws DOMException;
+
+    public HTMLTableSectionElement getTFoot();
+    public void setTFoot(HTMLTableSectionElement tFoot)
+                      throws DOMException;
+
+    public HTMLCollection getRows();
+
+    public HTMLCollection getTBodies();
+
+    public String getAlign();
+    public void setAlign(String align);
+
+    public String getBgColor();
+    public void setBgColor(String bgColor);
+
+    public String getBorder();
+    public void setBorder(String border);
+
+    public String getCellPadding();
+    public void setCellPadding(String cellPadding);
+
+    public String getCellSpacing();
+    public void setCellSpacing(String cellSpacing);
+
+    public String getFrame();
+    public void setFrame(String frame);
+
+    public String getRules();
+    public void setRules(String rules);
+
+    public String getSummary();
+    public void setSummary(String summary);
+
+    public String getWidth();
+    public void setWidth(String width);
+
+    public HTMLElement createTHead();
+
+    public void deleteTHead();
+
+    public HTMLElement createTFoot();
+
+    public void deleteTFoot();
+
+    public HTMLElement createCaption();
+
+    public void deleteCaption();
+
+    public HTMLElement insertRow(int index)
+                                 throws DOMException;
+
+    public void deleteRow(int index)
+                          throws DOMException;
+
+}
+</pre>
+</div>
+
+<h3 id='org.w3c.dom.html2.HTMLTableCaptionElement'>
+org/w3c/dom/html2/HTMLTableCaptionElement.java:</h3>
+
+<div class='java-code'>
+<pre>
+package org.w3c.dom.html2;
+
+public interface HTMLTableCaptionElement extends HTMLElement {
+    public String getAlign();
+    public void setAlign(String align);
+
+}
+</pre>
+</div>
+
+<h3 id='org.w3c.dom.html2.HTMLTableColElement'>
+org/w3c/dom/html2/HTMLTableColElement.java:</h3>
+
+<div class='java-code'>
+<pre>
+package org.w3c.dom.html2;
+
+public interface HTMLTableColElement extends HTMLElement {
+    public String getAlign();
+    public void setAlign(String align);
+
+    public String getCh();
+    public void setCh(String ch);
+
+    public String getChOff();
+    public void setChOff(String chOff);
+
+    public int getSpan();
+    public void setSpan(int span);
+
+    public String getVAlign();
+    public void setVAlign(String vAlign);
+
+    public String getWidth();
+    public void setWidth(String width);
+
+}
+</pre>
+</div>
+
+<h3 id='org.w3c.dom.html2.HTMLTableSectionElement'>
+org/w3c/dom/html2/HTMLTableSectionElement.java:</h3>
+
+<div class='java-code'>
+<pre>
+package org.w3c.dom.html2;
+
+import org.w3c.dom.DOMException;
+
+public interface HTMLTableSectionElement extends HTMLElement {
+    public String getAlign();
+    public void setAlign(String align);
+
+    public String getCh();
+    public void setCh(String ch);
+
+    public String getChOff();
+    public void setChOff(String chOff);
+
+    public String getVAlign();
+    public void setVAlign(String vAlign);
+
+    public HTMLCollection getRows();
+
+    public HTMLElement insertRow(int index)
+                                 throws DOMException;
+
+    public void deleteRow(int index)
+                          throws DOMException;
+
+}
+</pre>
+</div>
+
+<h3 id='org.w3c.dom.html2.HTMLTableRowElement'>
+org/w3c/dom/html2/HTMLTableRowElement.java:</h3>
+
+<div class='java-code'>
+<pre>
+package org.w3c.dom.html2;
+
+import org.w3c.dom.DOMException;
+
+public interface HTMLTableRowElement extends HTMLElement {
+    public int getRowIndex();
+
+    public int getSectionRowIndex();
+
+    public HTMLCollection getCells();
+
+    public String getAlign();
+    public void setAlign(String align);
+
+    public String getBgColor();
+    public void setBgColor(String bgColor);
+
+    public String getCh();
+    public void setCh(String ch);
+
+    public String getChOff();
+    public void setChOff(String chOff);
+
+    public String getVAlign();
+    public void setVAlign(String vAlign);
+
+    public HTMLElement insertCell(int index)
+                                  throws DOMException;
+
+    public void deleteCell(int index)
+                           throws DOMException;
+
+}
+</pre>
+</div>
+
+<h3 id='org.w3c.dom.html2.HTMLTableCellElement'>
+org/w3c/dom/html2/HTMLTableCellElement.java:</h3>
+
+<div class='java-code'>
+<pre>
+package org.w3c.dom.html2;
+
+public interface HTMLTableCellElement extends HTMLElement {
+    public int getCellIndex();
+
+    public String getAbbr();
+    public void setAbbr(String abbr);
+
+    public String getAlign();
+    public void setAlign(String align);
+
+    public String getAxis();
+    public void setAxis(String axis);
+
+    public String getBgColor();
+    public void setBgColor(String bgColor);
+
+    public String getCh();
+    public void setCh(String ch);
+
+    public String getChOff();
+    public void setChOff(String chOff);
+
+    public int getColSpan();
+    public void setColSpan(int colSpan);
+
+    public String getHeaders();
+    public void setHeaders(String headers);
+
+    public String getHeight();
+    public void setHeight(String height);
+
+    public boolean getNoWrap();
+    public void setNoWrap(boolean noWrap);
+
+    public int getRowSpan();
+    public void setRowSpan(int rowSpan);
+
+    public String getScope();
+    public void setScope(String scope);
+
+    public String getVAlign();
+    public void setVAlign(String vAlign);
+
+    public String getWidth();
+    public void setWidth(String width);
+
+}
+</pre>
+</div>
+
+<h3 id='org.w3c.dom.html2.HTMLFrameSetElement'>
+org/w3c/dom/html2/HTMLFrameSetElement.java:</h3>
+
+<div class='java-code'>
+<pre>
+package org.w3c.dom.html2;
+
+public interface HTMLFrameSetElement extends HTMLElement {
+    public String getCols();
+    public void setCols(String cols);
+
+    public String getRows();
+    public void setRows(String rows);
+
+}
+</pre>
+</div>
+
+<h3 id='org.w3c.dom.html2.HTMLFrameElement'>
+org/w3c/dom/html2/HTMLFrameElement.java:</h3>
+
+<div class='java-code'>
+<pre>
+package org.w3c.dom.html2;
+
+import org.w3c.dom.Document;
+
+public interface HTMLFrameElement extends HTMLElement {
+    public String getFrameBorder();
+    public void setFrameBorder(String frameBorder);
+
+    public String getLongDesc();
+    public void setLongDesc(String longDesc);
+
+    public String getMarginHeight();
+    public void setMarginHeight(String marginHeight);
+
+    public String getMarginWidth();
+    public void setMarginWidth(String marginWidth);
+
+    public String getName();
+    public void setName(String name);
+
+    public boolean getNoResize();
+    public void setNoResize(boolean noResize);
+
+    public String getScrolling();
+    public void setScrolling(String scrolling);
+
+    public String getSrc();
+    public void setSrc(String src);
+
+    public Document getContentDocument();
+
+}
+</pre>
+</div>
+
+<h3 id='org.w3c.dom.html2.HTMLIFrameElement'>
+org/w3c/dom/html2/HTMLIFrameElement.java:</h3>
+
+<div class='java-code'>
+<pre>
+package org.w3c.dom.html2;
+
+import org.w3c.dom.Document;
+
+public interface HTMLIFrameElement extends HTMLElement {
+    public String getAlign();
+    public void setAlign(String align);
+
+    public String getFrameBorder();
+    public void setFrameBorder(String frameBorder);
+
+    public String getHeight();
+    public void setHeight(String height);
+
+    public String getLongDesc();
+    public void setLongDesc(String longDesc);
+
+    public String getMarginHeight();
+    public void setMarginHeight(String marginHeight);
+
+    public String getMarginWidth();
+    public void setMarginWidth(String marginWidth);
+
+    public String getName();
+    public void setName(String name);
+
+    public String getScrolling();
+    public void setScrolling(String scrolling);
+
+    public String getSrc();
+    public void setSrc(String src);
+
+    public String getWidth();
+    public void setWidth(String width);
+
+    public Document getContentDocument();
+
+}
+</pre>
+</div>
+</div>
+
+<!-- div1 java-binding -->
+<div class='navbar' align='center'>
+<hr title='Navigation area separator' />
+<a accesskey='p' href='idl-definitions.html'>previous</a> &nbsp; <a
+accesskey='n' href='ecma-script-binding.html'>next</a> &nbsp; <a
+accesskey='c' href='Overview.html#contents'>contents</a> &nbsp; <a
+accesskey='i' href='def-index.html'>index</a></div>
+</body>
+</html>
+

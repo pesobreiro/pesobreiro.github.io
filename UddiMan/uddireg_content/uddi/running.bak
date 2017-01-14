@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<META name="GENERATOR" content="IBM WebSphere Homepage Builder V5.0.1 for Windows">
+<title>Uninstalling the IBM WebSphere UDDI Registry</title>
+</head>
+
+<body>
+<H2><A name="Admin">Administering the UDDI Registry</A></H2>
+<P>This section describes the various tasks
+about administering the UDDI Registry.</P>
+<H3><A href="index.htm#TOC5" name="running">Running the UDDI Registry</A></H3>
+<P>In order to start the UDDI Registry, you
+will need to start the UDDI Registry application.
+This is done from the WebSphere Administrative
+console, by expanding the tree view in the
+left hand pane to show <B>Enterprise Applications -&gt; UDDI Registry</B>, then right-clicking on 'UDDI Registry'
+and selecting '<B>Start</B>' ,and clicking '<B>OK</B>' when the start completes.</P>
+<P>Alternatively, you can start the UDDI Registry
+by starting the WebSphere default server
+(or stopping and restarting it if it is already
+running. This is done from the WebSphere
+Administrative console, by expanding the
+tree view in the left hand pane to show <B>Nodes -&gt; node-name -&gt; Appservers -&gt;
+Default Server</B>, then right-clicking on the Default Server
+and selecting '<B>Start</B>', then clicking '<B>OK</B>' when the start completes (if the server
+was already started, then you will need to
+right-click and select '<B>Stop</B>' before doing this).</P>
+<P>The UDDI Registry can also be stopped in
+the same manner if the need arises, by right
+clicking on 'UDDI Registry' and click on
+'<B>Stop</B>'.</P>
+
+</body>
+</html>

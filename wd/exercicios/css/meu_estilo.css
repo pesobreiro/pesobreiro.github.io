@@ -1,0 +1,25 @@
+P.P1 {
+  font-size: 30px;	
+  text-align: center;
+}
+
+P.P2 {
+ font-size: 12px;
+ text-align: justify; 		
+}
+
+P {
+	color : #993300;
+	font-family:  Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 20px;
+	font-style: oblique;
+}
+A:HOVER {
+ color: Green;
+ 
+}
+A:LINK {
+ color: Lime;	
+}
+
+

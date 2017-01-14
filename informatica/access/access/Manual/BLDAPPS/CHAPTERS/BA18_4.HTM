@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>Working with Microsoft Access Databases</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba18_3.htm" OnClick="SyncURL(&quot;chapters/ba18_3.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<a NAME="3WorkingwithMicrosoftAccessDatabases"></a>
+<p CLASS="heading3OrgHeading1h1">Working with Microsoft Access Databases</p>
+<p CLASS="Textttext">You can access data from tables located in external Microsoft Access databases from your Microsoft Access application. The procedures for linking and opening external Microsoft Access tables directly are very similar to those for linking and opening tables in other external databases. The one difference is that you don't need to specify a source database type.</p>
+<a NAME="4LinkinganExternalMicrosoftAccessTable"></a>
+<p CLASS="heading4OrgHeading2h2">Linking an External Microsoft Access Table</p>
+<p CLASS="Textttext">To link an external Microsoft Access table to your local Microsoft Access database, use the <span CLASS="ElementNameeln">CurrentDb</span> function to return an object variable that represents the current Microsoft Access database. Then create a <span CLASS="ElementNameeln">TableDef</span> object and set the connection string and source table name: set the <span CLASS="ElementNameeln">TableDef</span> object's<span CLASS="ElementNameeln"> Connect</span> property to specify the full path to the external table and set its <span CLASS="ElementNameeln">SourceTableName</span> property to the name of the external table. This method works for databases created in Microsoft Access versions 1.<span CLASS="NewTermntrm">x</span>, 2.0, 7.0, and 8.0.
+<p CLASS="Textttext">The following example links an external Microsoft Access table and then displays a message box as confirmation. Notice that the connection string begins with just a semicolon (;) rather than a source database type. It isn't necessary to specify a source database type in your connection string when you access data from external databases that use Microsoft Jet. This example assumes you want to link the Accounts table in a Microsoft Access database named AP.mdb, which is located on the server and shared folder \\Access\Data.</p>
+<p CLASS="CodeTextct">Sub LinkAccessTable()<br>&nbsp;&nbsp;&amp;nbspDim dbs As Database<br>&nbsp;&nbsp;&amp;nbspDim tdf As TableDef<br>&nbsp;&nbsp;&nbsp;' Open the Microsoft Access database.<br>&nbsp;&nbsp;&amp;nbspSet dbs = CurrentDb<br>&nbsp;&nbsp;&nbsp;' Create a TableDef object.<br>&nbsp;&nbsp;&amp;nbspSet tdf = dbs.CreateTableDef(&quot;Linked Accounts Table&quot;)<br>&nbsp;&nbsp;&nbsp;' Set the connection string to specify the full path to the file that<br>&nbsp;&nbsp;&nbsp;' contains the table you want to link.<br>&nbsp;&nbsp;&amp;nbsptdf.Connect = &quot;;DATABASE=\\Access\Data\AP.mdb&quot;<br>&nbsp;&nbsp;&nbsp;' Set the SourceTableName property to the name of the table you want to access.<br>&nbsp;&nbsp;&amp;nbsptdf.SourceTableName = &quot;Accounts&quot;<br>&nbsp;&nbsp;&nbsp;' Append the TableDef object to the TableDefs collection to create a link.<br>&nbsp;&nbsp;&amp;nbspdbs.TableDefs.Append tdf<br>&nbsp;&nbsp;&nbsp;' Display the confirmation message.<br>&nbsp;&nbsp;&amp;nbspMsgBox &quot;Finished linking &quot; &amp; tdf.SourceTableName &amp; &quot;.&quot;, 0<br>End Sub
+<p CLASS="TipIcontpi"></p>
+<p CLASS="TipTexttpt"><span CLASS="TipHeadingtph">Tip&nbsp;&nbsp;&nbsp;</span>Instead of specifying the connection string and source table name by setting properties of the <span CLASS="ElementNameeln">TableDef</span> object, you can specify them by using the<span CLASS="NewTermntrm"> connect</span> and <span CLASS="NewTermntrm">source</span> arguments of the <span CLASS="ElementNameeln">CreateTableDef</span> method. You can also use the Microsoft Access user interface to link external data. For more information on using the<span CLASS="ElementNameeln"> CreateTableDef</span> method or the user interface to link external data, see <a HREF="../chapters/ba18_3.htm#4LinkingExternalTables" OnClick="SyncURL(&quot;chapters/ba18_3.htm&quot;)">&quot;Linking External Tables&quot;</a> earlier in this chapter.</p>
+<a NAME="4OpeninganExternalMicrosoftAccessTable"></a>
+<p CLASS="heading4OrgHeading2h2">Opening an External Microsoft Access Table</p>
+<p CLASS="Textttext">To open an external Microsoft Access table directly, create a <span CLASS="ElementNameeln">Database</span> object and set the arguments of the <span CLASS="ElementNameeln">OpenDatabase</span> method to specify the full path to the external table, whether to open the table exclusively, whether to open it with read/write or read-only permissions, and the source database type.
+<p CLASS="Textttext">The following example opens an external Microsoft Access table directly from a Microsoft Access database and then creates a <span CLASS="ElementNameeln">Recordset</span> object from the table. Notice that source database type is a zero-length string (&quot;&quot;). It isn't necessary to specify a source database type in your connection string when you access data from external databases that use Microsoft Jet.</p>
+<p CLASS="CodeTextct">Sub OpenAccessTable()<br>&nbsp;&nbsp;&amp;nbspDim dbs As Database<br>&nbsp;&nbsp;&amp;nbspDim rstAccounts As Recordset<br>&nbsp;&nbsp;&nbsp;' Open an external Microsoft Access database named AP.mdb<br>&nbsp;&nbsp;&nbsp;' without exclusive access and with read/write permissions.<br>&nbsp;&nbsp;&amp;nbspSet dbs = OpenDatabase(&quot;\\Access\Data\AP.mdb&quot;, False, False, &quot;&quot;)<br>&nbsp;&nbsp;&nbsp;' Create a Recordset object from the Accounts table.<br>&nbsp;&nbsp;&amp;nbspSet rstAccounts = dbs.OpenRecordset(&quot;Accounts&quot;)<br>End Sub</p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="ba18_5.htm" OnClick="SyncURL(&quot;chapters/ba18_5.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

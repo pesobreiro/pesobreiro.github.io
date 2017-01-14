@@ -1,0 +1,110 @@
+<!doctype html public" -//IETF//DTD 	HTML//EN">
+<HTML>
+
+<HEAD>
+<SCRIPT LANGUAGE="JAVASCRIPT">
+<!-- 
+
+function checkbrowse()
+{
+var bn, bv, ver
+bn = navigator.appName;
+bv = parseInt(navigator.appVersion);
+if (bn=="Microsoft Internet Explorer" && bv<"4") ver = "IE3";
+else ver = "NotIE3";
+if (ver=="IE3") top.cont.parts.location.href="part06.htm";
+if (ver=="NotIE3") top.cont.parts.location.href="nav/part06.htm";
+}
+//-->
+</SCRIPT>
+<TITLE>Types of Constraints</TITLE>
+<META NAME="GENERATOR" 	CONTENT="Merch. System HTML Development">
+<META NAME="AUTHOR" 	CONTENT="Merch. System HTML Development">
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" OnLoad="checkbrowse();">
+<Font Face ="Verdana, Arial, Helvetica">
+
+<P align=right><SMALL>
+<A HREF="p6983.htm" Target="TOC"><IMG SRC="prev.gif"ALT="Previous page"BORDER=0></A>
+<A HREF="p6981.htm" Target="TOC"><IMG SRC="toc06.gif"ALT="Contents"BORDER=0></A>
+<A HREF="p6985.htm" Target="TOC"><IMG SRC="Next.gif"ALT="Next 
+page"BORDER=0></A></SMALL></P>
+<H1>Types of Constraints</H1>
+
+<P>
+Eight types of constraints are available in Microsoft Project. By default, all tasks are assigned the As Soon As 
+Possible constraint. You can, however, choose the constraint that best meets a task’s start or finish 
+requirements.
+<P>
+<P>
+<TABLE CELLPADDING=5 CELLSPACING=0 border=5 width=30% align=right>
+<TR>
+<TD VALIGN=top><Font Face ="Verdana, Arial, Helvetica">As Soon As Possible is the most commonly used 
+constraint.</FONT></TD>  
+</TABLE>Most constraints are based on a date you specify, tying the start or finish of a task to that date. With As Soon 
+As Possible and As Late As Possible constraints, Microsoft Project can schedule tasks flexibly relative to the 
+predecessor and successor tasks.
+<P>
+The following table lists the eight types of constraints, describes each type, and states when each type should 
+be used.
+<P><TABLE CELLPADDING=5 CELLSPACING=0>
+<TR>
+<TH ALIGN=left><B>Constraint</B></TH>  <TH ALIGN=left><B>Description</B></TH>  <TH 
+ALIGN=left><B>Use for</B></TH>  
+<TR>
+<TD VALIGN=top><Font Face ="Verdana, Arial, Helvetica"><I>As Soon As Possible 
+(ASAP)</I></FONT></TD>  <TD VALIGN=top><Font Face ="Verdana, Arial, Helvetica">Starts the task as 
+soon as possible based on links to other tasks. Allows schedule changes to start tasks earlier or 
+later.</FONT></TD>  <TD VALIGN=top><Font Face ="Verdana, Arial, Helvetica">Starting a task as soon as 
+its links with predecessor tasks, if any, allow. Do not enter a date with this constraint.</FONT></TD>  
+<TR>
+<TD VALIGN=top><Font Face ="Verdana, Arial, Helvetica"><I>As Late As Possible 
+(ALAP)</I></FONT></TD>  <TD VALIGN=top><Font Face ="Verdana, Arial, Helvetica">Starts the task as 
+late as possible based on links to other tasks. Allows schedule changes to start tasks earlier or 
+later.</FONT></TD>  <TD VALIGN=top><Font Face ="Verdana, Arial, Helvetica">Starting a task as late as 
+possible without delaying the project end date or the finish date of a successor task. Do not enter a date with 
+this constraint.</FONT></TD>  
+<TR>
+<TD VALIGN=top><Font Face ="Verdana, Arial, Helvetica"><I>Finish No Earlier Than 
+(FNET)</I></FONT></TD>  <TD VALIGN=top><Font Face ="Verdana, Arial, Helvetica">Finishes the task on 
+or after the date you enter. Allows schedule changes to finish tasks later.</FONT></TD>  <TD 
+VALIGN=top><Font Face ="Verdana, Arial, Helvetica">Tasks that perhaps can but shouldn’t finish before a 
+specific date, such as the aging process for cheese. Microsoft Project automatically assigns this constraint 
+when you enter a task finish date.</FONT></TD>  
+<TR>
+<TD VALIGN=top><Font Face ="Verdana, Arial, Helvetica"><I>Start No Earlier Than 
+(SNET)</I></FONT></TD>  <TD VALIGN=top><Font Face ="Verdana, Arial, Helvetica">Starts the task on or 
+after the date you enter. Allows schedule changes to start tasks later.</FONT></TD>  <TD 
+VALIGN=top><Font Face ="Verdana, Arial, Helvetica">Tasks that must start on or after a specific date. 
+Microsoft Project automatically assigns this constraint when you enter a task start date.</FONT></TD>  
+<TR>
+<TD VALIGN=top><Font Face ="Verdana, Arial, Helvetica"><I>Finish No Later Than 
+(FNLT)</I></FONT></TD>  <TD VALIGN=top><Font Face ="Verdana, Arial, Helvetica">Finishes the task on 
+or before the date you enter. Allows schedule changes to move the finish date up to, but not beyond, the 
+specified finish date.</FONT></TD>  <TD VALIGN=top><Font Face ="Verdana, Arial, Helvetica">Tasks that 
+must finish by a specific date.</FONT></TD>  
+<TR>
+<TD VALIGN=top><Font Face ="Verdana, Arial, Helvetica"><I>Start No Later Than 
+(SNLT)</I></FONT></TD>  <TD VALIGN=top><Font Face ="Verdana, Arial, Helvetica">Starts the task on or 
+before the date you enter. Allows schedule changes to move the start date up to, but not later than, the 
+specified start date.</FONT></TD>  <TD VALIGN=top><Font Face ="Verdana, Arial, Helvetica">Tasks that 
+must start by a specific date.</FONT></TD>  
+<TR>
+<TD VALIGN=top><Font Face ="Verdana, Arial, Helvetica"><I>Must Finish On 
+<BR>(MFO)</I></FONT></TD>  <TD VALIGN=top><Font Face ="Verdana, Arial, Helvetica">Finishes the 
+task on a specific date. Schedule changes don’t affect the finish date.</FONT></TD>  <TD 
+VALIGN=top><Font Face ="Verdana, Arial, Helvetica">Tasks that must finish on a specific 
+date.</FONT></TD>  
+<TR>
+<TD VALIGN=top><Font Face ="Verdana, Arial, Helvetica"><I>Must Start On 
+<BR>(MSO)</I></FONT></TD>  <TD VALIGN=top><Font Face ="Verdana, Arial, Helvetica">Starts the task 
+on a specific date. Schedule changes don’t affect the start date.</FONT></TD>  <TD VALIGN=top><Font 
+Face ="Verdana, Arial, Helvetica">Tasks that must start on a specific date.</FONT></TD>  
+</TABLE>
+<P align = Center > <A HREF="http://www.microsoft.com/misc/cpyright.htm"><EM>&#169;1996-1997 Microsoft Corporation. All rights 
+reserved.</EM></A></P>
+</BODY>
+</FONT>
+</HTML>
+

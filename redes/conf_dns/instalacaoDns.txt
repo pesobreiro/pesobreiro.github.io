@@ -1,0 +1,18 @@
+Pressupostos:
+	O nome do Dominio:	     redes.pt	
+	Ip de identificacao da rede: 195.60.168.0
+	Mascara:		     255.255.255.128	
+
+	Servidor de dns:	     195.60.168.50 (subdominio:ns1)
+	Servidor de www:	     195.60.168.50 (subdominio:www)	
+
+
+
+Passos a seguir para a instalação do Bind:
+	1º Definir um ficheiro com o nome named.conf, que contem a informação 	   para os ficheiros que vão ser utilizados pelo servidor de DNS.
+
+	2º Criar o ficheiro da zona(zone file) com o nome de "redes.dns" que ira conter as definicoes do dominio que estamos a configurar.
+
+	3º Criar o ficheiro para o reverse da zona com o nome de "0.168.60.195.in-addr.arpa.dns" que contem as definicoes a resolucao IP->Nome
+
+	4º Indicacao para resolucao por parte dos clientes do servidor de dns, que e definido no ficheiro "resolv.conf"

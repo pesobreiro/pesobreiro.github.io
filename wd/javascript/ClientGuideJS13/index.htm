@@ -1,0 +1,178 @@
+<HTML> 
+<HEAD> 
+
+<TITLE>Client-Side JavaScript Guide</TITLE> 
+</HEAD> 
+
+<SCRIPT> 
+<!-- 
+
+// First define a couple of functions.
+
+// Create new frame object.
+//
+// cgiString is a global variable set up below. It contains the CGI
+// string of the URL used to get here.  
+// This function searches that string for a name/value pair whose name
+// is the name arg to this function. If it finds one then it sets the
+// link to the value of that name/value pair. 
+//
+// For example, assume this frameset file is at:
+//      http://.../index.htm
+// and you want its content frame to link to foo.htm instead of
+// contents.htm, instead of the above URL, you would use
+//      http://.../index.htm?content=foo.htm
+//
+// If you wanted to link to <A NAME="TAGS:H1"> inside foo.htm, you
+// could use
+//      http://.../index.htm?content=foo.htm#TAGS:H1
+// (I think)
+
+function frameObject (name, link) { 
+
+  this.name     = name; 
+  partialString = ''; 
+
+    if (cgiString.indexOf(name + '=') != -1) { 
+      partialString = cgiString.substring(cgiString.indexOf(name + '=') 
+                                          + name.length + 1, cgiString.length); 
+
+      // Ensure that an ending delimeter exists.
+      if (partialString.indexOf(DELIMETER) != -1) { 
+        this.link = partialString.substring(0, partialString.indexOf(DELIMETER)); 
+      } 
+      // No delimeter exists, copy to end of string.
+      else { 
+        this.link = partialString; 
+      } 
+    } 
+    // Wasn't a relevant name/value pair. Use default link.
+    else { 
+      this.link = link; 
+    } 
+    // document.write('<BR>' + name + ': ' + this.link); 
+} 
+  
+
+// Build array of frame objects (number, name, link). 
+function createFrameObject (number, name, link) { 
+
+  // Create new frame object and assign properties.
+  frameObject[number] = new frameObject(name, link); 
+} 
+  
+//-------------------------------------------
+//Functions are done. Actual work starts here.
+
+var nav3plus = false; 
+
+if (navigator.userAgent.indexOf ("Mozilla") != -1) { 
+  nav3plus = parseInt(navigator.appVersion.substring(0,1)) >= 3 
+} 
+
+// If Navigator 3.0 or greater, show dynamic frameset. 
+// Otherwise, we'll have to use the standard frameset.
+if (nav3plus) { 
+  // Get calling URL 
+  var callingURL = parent.document.URL; 
+
+  // Set string to CGI calling parameters.
+  // A question mark always precedes the CGI calling parameters
+  // [name/value pairs] which have the following format: 
+  // 
+  //  ?name1=value1&name2=value2...&nameN=valueN
+  // 
+  var cgiString   = callingURL.substring(callingURL.indexOf('?'),callingURL.length); 
+
+  var DELIMETER     = '&';    // Standard CGI calling parameter separator/delimeter 
+  
+  // Create frame objects using the following format: 
+  //  createFrameObject(reference_number, name, default_URL) 
+  // 
+  //  reference_number: the number you will use in your frameset 
+  //                    to refer to this frame object. 
+  // 
+  //  name: the name used in the cgi calling string 
+  // 
+  //  default_URL: the URL assigned by default if the name is not 
+  //               included in the calling URL. 
+  // 
+  createFrameObject(1, 'content', 'whatsnew.htm'); 
+  
+  // Now write out the frameset 
+  with (document) { 
+    writeln ('<FRAMESET ROWS="69,*" BORDER="1">') 
+    writeln ('  <FRAME NAME="banner" ')
+    writeln ('         SRC="http://developer.netscape.com/library/documentation/banner.html" ')
+    writeln ('         SCROLLING=NO MARGINHEIGHT=1 MARGINWIDTH=1>') 
+    writeln ('  <FRAMESET COLS="25%,*" BORDER="1">') 
+    writeln ('    <FRAME NAME="toc" SRC="toc.htm" ')
+    writeln ('           SCROLLING=AUTO MARGINHEIGHT=1 MARGINWIDTH=1>') 
+    writeln ('    <FRAME NAME="content" SRC="' + frameObject[1].link + '" ')
+    writeln ('           SCROLLING=AUTO MARGINHEIGHT=5 MARGINWIDTH=10>') 
+    writeln ('  </FRAMESET>') 
+    writeln ('</FRAMESET>') 
+  } 
+} 
+// NOT NAVIGATOR 3.0 OR GREATER, DISPLAY DEFAULT FRAMESET 
+else { 
+    document.write ('<FRAMESET ROWS="69,*" BORDER="1">') 
+    document.write ('  <FRAME NAME="banner" ')
+    document.write ('         SRC="http://developer.netscape.com/library/documentation/banner.html" ')
+    document.write ('         SCROLLING=NO MARGINHEIGHT=1 MARGINWIDTH=1>') 
+    document.write ('  <FRAMESET COLS="25%,*" BORDER="1">') 
+    document.write ('    <FRAME NAME="toc" SRC="toc.htm" ')
+    document.write ('           SCROLLING=AUTO MARGINHEIGHT=1 MARGINWIDTH=1>') 
+    document.write ('    <FRAME SRC="whatsnew.htm" NAME="content" ')
+    document.write ('           SCROLLING=AUTO MARGINHEIGHT=5 MARGINWIDTH=10>') 
+    document.write ('  </FRAMESET>') 
+    document.write ('</FRAMESET>') 
+} 
+
+//--> 
+</SCRIPT> 
+
+<NOSCRIPT> 
+<!-- IF JAVASCRIPT IS DISABLED, DISPLAY DEFAULT FRAMESET --> 
+<FRAMESET ROWS="69,*" BORDER="1"> 
+    <FRAME 
+      NAME="banner" 
+      SRC="http://developer.netscape.com/library/documentation/banner.html" 
+      MARGINWIDTH=1 
+      MARGINHEIGHT=1 
+      SCROLLING=no 
+    > 
+    <FRAMESET COLS="25%,*" BORDER="1"> 
+        <FRAME 
+                NAME="toc" 
+                SRC="toc.htm" 
+                MARGINWIDTH=1 
+                MARGINHEIGHT=1 
+                SCROLLING=auto 
+        >
+        <FRAME 
+                NAME="content" 
+                SRC="whatsnew.htm" 
+                MARGINWIDTH=10 
+                MARGINHEIGHT=5 
+                SCROLLING=auto
+        > 
+    </FRAMESET> 
+</FRAMESET> 
+
+<NOFRAMES> 
+
+To view this page, your browser must support 
+frames.  <A 
+HREF="http://home.netscape.com/comprod/mirror/index.html">Download</A> 
+Netscape Navigator 2.0 or later for frames support. 
+
+
+If you do not have access to a browser that supports frames,
+you can view the non-frames version of the manual by opening
+contents.htm in your browser.
+<P>
+
+</NOFRAMES> 
+
+</HTML> 

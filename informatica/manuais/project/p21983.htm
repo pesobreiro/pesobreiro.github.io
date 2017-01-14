@@ -1,0 +1,83 @@
+<!doctype html public" -//IETF//DTD 	HTML//EN">
+<HTML>
+
+<HEAD>
+<SCRIPT LANGUAGE="JAVASCRIPT">
+<!-- 
+
+function checkbrowse()
+{
+var bn, bv, ver
+bn = navigator.appName;
+bv = parseInt(navigator.appVersion);
+if (bn=="Microsoft Internet Explorer" && bv<"4") ver = "IE3";
+else ver = "NotIE3";
+if (ver=="IE3") top.cont.parts.location.href="part21.htm";
+if (ver=="NotIE3") top.cont.parts.location.href="nav/part21.htm";
+}
+//-->
+</SCRIPT>
+<TITLE>Working with Many Projects in One Project File</TITLE>
+<META NAME="GENERATOR" 	CONTENT="Merch. System HTML Development">
+<META NAME="AUTHOR" 	CONTENT="Merch. System HTML Development">
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" OnLoad="checkbrowse();">
+<Font Face ="Verdana, Arial, Helvetica">
+
+<P align=right><SMALL>
+<A HREF="p21982.htm" Target="TOC"><IMG SRC="prev.gif"ALT="Previous page"BORDER=0></A>
+<A HREF="p21981.htm" Target="TOC"><IMG SRC="toc21.gif"ALT="Contents"BORDER=0></A>
+<A HREF="p21984.htm" Target="TOC"><IMG SRC="Next.gif"ALT="Next 
+page"BORDER=0></A></SMALL></P>
+<H1>Working with Many Projects in One Project File</H1>
+
+<P>
+Managing a few independent projects is straightforward: you just create a separate project file for each one. 
+But if you work frequently with a number of related projects, you can manage them more easily by 
+consolidating them. When you consolidate projects, you insert them into a single project file, so you can view 
+all the separate inserted projects in the same window. In the Gantt Chart view, each project is represented as a 
+summary task. You can show the project task alone or expand it and show the other tasks that make up the 
+project.
+<P>
+<IMG SRC="2102.GIF" ALT="Image File: 2102">
+<P>
+Consider consolidating projects in these situations:
+<TABLE CELLPADDING=5 CELLSPACING=0 border=5 width=30% align=right>
+<TR>
+<TD VALIGN=top><Font Face ="Verdana, Arial, Helvetica">You can insert up to 1,000 projects in a 
+consolidated project file.</FONT></TD>  
+</TABLE><UL>
+<LI>You have a large, complex project that you need to break down into smaller, more manageable projects, but 
+you still want to maintain the scheduling relationship between the inserted projects.
+<LI>The inserted projects of a larger project get updated frequently and you want the changes to be reflected 
+automatically in the larger project.
+<LI>You’re managing several projects that share the same resources.
+<LI>You’re tracking several separate but related projects.
+<LI>You want to create reports that include information from several projects.
+</UL>
+<P>
+<P>
+The source file for an inserted project remains a separate file. By default, this source file is linked to the 
+consolidated file. Any changes you make to the source file appear automatically in the corresponding inserted 
+project of the consolidated file, and vice versa. That way, both the source file and the inserted project are 
+updated when you update either one. Note, however, that format changes are not transmitted between source 
+and consolidated project files.
+<P>
+<IMG SRC="2103.GIF" ALT="Image File: 2103">
+<P>
+Microsoft Project provides two ways to consolidate several projects. Choose the way that best meets your 
+needs:
+<UL>
+<LI>Customize as you consolidate your projects. This method lets you specify the order and location of the 
+inserted projects within the consolidated project, as well as other factors.
+<LI>Consolidate open projects quickly. With this method, available only for projects that are already open in 
+separate windows, Microsoft Project determines the order in which the inserted projects appear in the 
+consolidated project file and automatically links them to their source files.
+</UL>
+<P align = Center > <A HREF="http://www.microsoft.com/misc/cpyright.htm"><EM>&#169;1996-1997 Microsoft Corporation. All rights 
+reserved.</EM></A></P>
+</BODY>
+</FONT>
+</HTML>
+

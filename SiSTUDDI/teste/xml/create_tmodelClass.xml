@@ -1,0 +1,27 @@
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+  <s:Body>  
+	<save_tModel generic="2.0" xmlns="urn:uddi-org:api_v2" >
+      		<authInfo>MyAuthInformation</authInfo>
+            <tModel tModelKey="UUID:3B57D207-3DE3-45F2-A15D-20C107C7196A">
+				<name>geo:test</name>
+				<overviewDoc>
+					<description xml:lang="en">Geographic Test Taxonomy</description>
+					<overviewURL>http://www.my.org/WebServices/geo.asmx?wsdl</overviewURL>
+				</overviewDoc>
+				<identifierBag>
+					<keyedReference tModelKey="UUID:3B57D207-3DE3-45F2-A15D-20C107C7196A" keyName="ib_United States" keyValue="urn:geo:test:1.3" />
+					<keyedReference tModelKey="UUID:3B57D207-3DE3-45F2-A15D-20C107C7196A" keyName="ib_Portugal" keyValue="urn:geo:test:1.4" />
+				</identifierBag>
+				<categoryBag>
+					<keyedReference keyName="North America" keyValue="geo:test:1.0" />
+					<keyedReference keyName="Canada" keyValue="geo:test:1.1" />
+					<keyedReference keyName="Provinces" keyValue="geo:test:1.1.1" />
+					<keyedReference keyName="United States" keyValue="geo:test:1.2" />
+					<keyedReference keyName="States" keyValue="geo:test:1.2.1" />
+					<keyedReference keyName="Mexico" keyValue="geo:test:1.3" />
+				</categoryBag>
+			</tModel>
+	</save_tModel>
+  </s:Body>
+</s:Envelope>
+

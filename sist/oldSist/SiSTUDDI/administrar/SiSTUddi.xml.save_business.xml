@@ -1,0 +1,12 @@
+<s:Envelope xmlns:s='http://schemas.xmlsoap.org/soap/envelope/'>
+<s:Body>
+<save_business xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:uddi-org:api_v2" generic="2.0">
+  <authInfo>db2admin</authInfo>
+  <businessEntity businessKey="2B270B15-34BA-45BD-9CDA-0D221DFB2978     ">
+    <categoryBag>
+      <keyedReference tModelKey="UUID:CD153257-086A-4237-B336-6BDCBDCC6634" keyName="Vendedores de Rua                                                                                                               " keyValue="90101504                        " />
+    </categoryBag>
+  </businessEntity>
+</save_business>
+</s:Body>
+</s:Envelope>

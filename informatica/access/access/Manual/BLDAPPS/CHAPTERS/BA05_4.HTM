@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>Using the Object Browser</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba05_3.htm" OnClick="SyncURL(&quot;chapters/ba05_3.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<a NAME="3UsingtheObjectBrowser"></a>
+<p CLASS="heading3OrgHeading1h1">Using the Object Browser</p>
+<p CLASS="Textttext">The Object Browser is a tool that provides information about objects and their methods, properties, events, and constants. The Object Browser displays all objects available to Microsoft Access, including Microsoft Access objects, DAO objects, Visual Basic objects, and objects you've defined within your application.
+<p CLASS="Textttext">The object information that you see in the Object Browser comes from an application's object library. Each application that supplies objects to Microsoft Access has an object library that contains information about the application's objects, methods, properties, events, and constants.</p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>Some objects show up in the Object Browser automatically when you start Microsoft Access. Others, such as the Microsoft Office objects, show up only after you have set a reference to the object library that contains them.</p>
+<p CLASS="heading9ListProcedureHeadinglproch"><span CLASS="ProcedureIconproci"><img SRC="../images/bluetri.jpg" ALIGN="LEFT" WIDTH="9" HEIGHT="17">&nbsp;&nbsp;&nbsp;</span>To use the Object Browser</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">1</span>&nbsp;&nbsp;&amp;nbspOpen a module.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">2</span>&nbsp;&nbsp;&amp;nbspOn the <span CLASS="ElementNameeln">View</span> menu, click <span CLASS="ElementNameeln">Object Browser</span>.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">3</span>&nbsp;&nbsp;&amp;nbspIn the <span CLASS="ElementNameeln">Project/Library</span> box, click the object library whose objects you want to see, or click <span CLASS="ElementNameeln">&lt;All Libraries&gt;</span> to view the objects of all referenced libraries together.</p>
+<p CLASS="ListText1lt1">The <span CLASS="ElementNameeln">Classes</span> box lists all the objects in the object library you selected.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">4</span>&nbsp;&nbsp;&amp;nbspIn the <span CLASS="ElementNameeln">Classes</span> box, click an object.</p>
+<p CLASS="ListText1lt1">The <span CLASS="ElementNameeln">Members Of</span> box lists the methods, properties, events, and constants associated with the object you selected.</p>
+<p CLASS="Textttext">For example, if you click <span CLASS="ElementNameeln">Access</span> in the <span CLASS="ElementNameeln">Project/Library</span> box, all the objects in the Microsoft Access object library are displayed in the <span CLASS="ElementNameeln">Classes</span> box. If you then click an object in the <span CLASS="ElementNameeln">Classes</span> box, you can view the object's members<img SRC="../images/Emdash.gif" BORDER="0" VSPACE="0" HSPACE="0" WIDTH="16" HEIGHT="5">the methods, properties, events, and constants associated with that object<img SRC="../images/Emdash.gif" BORDER="0" VSPACE="0" HSPACE="0" WIDTH="16" HEIGHT="5">in the <span CLASS="ElementNameeln">Members Of</span> box. A class definition includes all of an object's members. For example, if you click <span CLASS="ElementNameeln">Control</span> in the <span CLASS="ElementNameeln">Classes</span> box, you see the methods and properties of that <span CLASS="ElementNameeln">Control </span>object displayed in the <span CLASS="ElementNameeln">Members Of</span> box.</p>
+<p CLASS="Arta"><img SRC="..\images\ABAC0504.jpg"></p>
+<p CLASS="Textttext">From the Object Browser, you can get help on a particular object, method, property, or event. Just click the item you're interested in and then click the <span CLASS="ElementNameeln">Help</span> button <img SRC="..\images\OBHELP.gif">on the Object Browser's toolbar. You can also copy a particular item to the Clipboard so that you can paste it into your code. Click the item you want to copy and click the <span CLASS="ElementNameeln">Copy</span> button <img SRC="..\images\COPY.gif">on the Object Browser's toolbar.
+<p CLASS="Textttext">You can also view procedures that you've created yourself in Microsoft Access in the Object Browser. The <span CLASS="ElementNameeln">Project/Library</span> box displays the name of the current database and any other referenced databases, in addition to the other referenced object libraries. If you click a referenced database in the <span CLASS="ElementNameeln">Project/Library</span> box, the <span CLASS="ElementNameeln">Classes</span> box displays all standard modules in the database and their public procedures. If you select the current database, it also displays any class modules and their methods and properties. </p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on the Object Browser, search the Help index for &quot;Object Browser.&quot;</p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="ba06_1.htm" OnClick="SyncURL(&quot;chapters/ba06_1.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

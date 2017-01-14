@@ -1,0 +1,76 @@
+<!doctype html public" -//IETF//DTD 	HTML//EN">
+<HTML>
+
+<HEAD>
+<SCRIPT LANGUAGE="JAVASCRIPT">
+<!-- 
+
+function checkbrowse()
+{
+var bn, bv, ver
+bn = navigator.appName;
+bv = parseInt(navigator.appVersion);
+if (bn=="Microsoft Internet Explorer" && bv<"4") ver = "IE3";
+else ver = "NotIE3";
+if (ver=="IE3") top.cont.parts.location.href="part12.htm";
+if (ver=="NotIE3") top.cont.parts.location.href="nav/part12.htm";
+}
+//-->
+</SCRIPT>
+<TITLE>Shift Resources</TITLE>
+<META NAME="GENERATOR" 	CONTENT="Merch. System HTML Development">
+<META NAME="AUTHOR" 	CONTENT="Merch. System HTML Development">
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" OnLoad="checkbrowse();">
+<Font Face ="Verdana, Arial, Helvetica">
+
+<P align=right><SMALL>
+<A HREF="p129811.htm" Target="TOC"><IMG SRC="prev.gif"ALT="Previous page"BORDER=0></A>
+<A HREF="p12981.htm" Target="TOC"><IMG SRC="toc12.gif"ALT="Contents"BORDER=0></A>
+<A HREF="p129813.htm" Target="TOC"><IMG SRC="Next.gif"ALT="Next 
+page"BORDER=0></A></SMALL></P>
+<H2>Shift Resources</H2>
+
+<P>
+Shifting a resource from one task to another can cause the project to finish at a later date. To avoid introducing 
+these problems into your schedule, you want to shift resources from tasks with total slack to tasks without 
+total slack.
+<P>
+<IMG SRC="1204.GIF" ALT="Image File: 1204">
+<P>
+There are two kinds of slack. <I>Free slack</I> is the amount of time a task can be delayed without delaying 
+any other task. <I>Total slack</I> is the amount of time a task can be delayed without affecting the project 
+finish date. Noncritical tasks have total slack time; critical tasks do not. Noncritical tasks can finish later than 
+their scheduled dates without delaying the project finish date.
+<P>
+By identifying tasks with total slack, you can shift resources from noncritical tasks to critical tasks. The amount 
+of slack in a noncritical task indicates what portion of its assigned resources you can remove before the task 
+becomes critical. If you deplete all the total slack on one task, all the tasks that are dependent on this task lose 
+their slack and become critical.
+<P>
+<B><B><img src="bluetri.gif">	To find slack in your schedule</B></B>
+<OL><LI>On the <B>View Bar</B>, click <B>Gantt Chart</B> <img src="gant.gif">.
+<LI>On the <B>View</B> menu, point to <B>Table</B>, and then click <B>Schedule</B>.
+<LI>Scroll or drag the divider bar to the right to view the <B>Free Slack</B> and <B>Total Slack</B> fields.
+<BR>In the <B>Total Slack</B> field, zero duration indicates a critical task (by default). Negative values in the 
+<B>Total Slack</B> field indicate that there’s a scheduling conflict. (Typically, one task is linked to another 
+task that can’t move, so Microsoft Project may not honor the link.)
+</OL>
+</BOTTOM>
+<P>
+Instead of viewing slack in a column, you might prefer to see it represented graphically.
+<P>
+<B><B><img src="bluetri.gif">	To display total slack graphically</B></B>
+<OL>
+<LI>On the <B>View Bar</B>, click <B>More Views</B> <img src="more.gif">.
+<LI>In the <B>Views</B> list, click <B>Detail Gantt</B>, and then click <B>Apply</B>.
+<BR>The amount of total slack for a task is indicated by a thick dark line that is attached to the bottom-right 
+corner of the task bar.
+</OL>
+<P align = Center > <A HREF="http://www.microsoft.com/misc/cpyright.htm"><EM>&#169;1996-1997 Microsoft Corporation. All rights 
+reserved.</EM></A></P>
+</BODY>
+</FONT>
+</HTML>
+

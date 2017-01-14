@@ -1,0 +1,7 @@
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+  <s:Body>  
+    <find_tModel generic="2.0" xmlns="urn:uddi-org:api_v2">    
+      <name>MyTModel</name>  
+    </find_tModel>
+  </s:Body>
+</s:Envelope>

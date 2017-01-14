@@ -1,0 +1,197 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0 Strict Level 2//EN"><HTML>
+<HEAD>
+<!-- This HTML file has been created by texi2html 1.36
+     from html-spec.texi on 18 October 1995 -->
+
+<TITLE>Hypertext Markup Language - 2.0  - Introduction</TITLE>
+</HEAD>
+<BODY>
+Go to the first, previous, <A HREF="html-spec_2.html" REL=NEXT>next</A>, <A HREF="html-spec_14.html" REL=LAST>last</A> section, <A HREF="html-spec_toc.html" REL=TOC>table of contents</A>.
+<HR>
+
+
+<H1><A NAME="SEC1" HREF="html-spec_toc.html#SEC1" REL=TOC>Introduction</A></H1>
+<P>
+The HyperText <A HREF="html-spec_2.html#GLOSS20" REL=GLOSSARY>Markup</A> Language (HTML) is a simple data format
+used to create hypertext documents that are portable from one platform
+to another.  HTML documents are SGML documents with generic semantics
+that are appropriate for representing information from a wide range of
+domains.
+
+</P>
+<P>
+As HTML is an application of SGML, this specification assumes a
+working knowledge of <A HREF="html-spec_11.html#BIB14" REL=BIBLIOGRAPHY>[SGML]</A>.
+
+</P>
+
+
+
+<H2><A NAME="SEC1.1" HREF="html-spec_toc.html#SEC1.1" REL=TOC>Scope</A></H2>
+<P>
+HTML has been in use by the World-Wide Web (<A HREF="html-spec_2.html#GLOSS37" REL=GLOSSARY>WWW</A>) global information
+initiative since 1990.  Previously, informal documentation on HTML has
+been available from a number of sources on the Internet.  This
+specification brings together, clarifies, and formalizes a set of
+features that roughly corresponds to the capabilities of HTML in
+common use prior to June 1994.  A number of new features to HTML are
+being proposed and experimented in the Internet community.
+
+</P>
+<P>
+This document thus defines a HTML 2.0 (to distinguish it from the
+previous informal specifications).  Future (generally upwardly
+compatible) versions of HTML with new features will be released with
+higher version numbers.
+
+</P>
+<P>
+HTML is an application of ISO Standard 8879:1986 <EM>Information
+Processing Text and Office Systems;  Standard Generalized <A HREF="html-spec_2.html#GLOSS20" REL=GLOSSARY>Markup</A>
+Language</EM> (SGML).  The <A HREF="html-spec_2.html#GLOSS18" REL=GLOSSARY>HTML Document</A> Type Definition (<A HREF="html-spec_2.html#GLOSS12" REL=GLOSSARY>DTD</A>) is a
+formal definition of the HTML syntax in terms of SGML.
+
+</P>
+<P>
+This specification also defines HTML as an Internet <A HREF="html-spec_2.html#GLOSS22" REL=GLOSSARY>Media Type</A><A HREF="html-spec_11.html#BIB8" REL=BIBLIOGRAPHY>[IMEDIA]</A>
+and MIME Content Type<A HREF="html-spec_11.html#BIB4" REL=BIBLIOGRAPHY>[MIME]</A> called <SAMP>`text/html'</SAMP>.  As such, it
+defines the semantics of the HTML syntax and how that syntax <A HREF="html-spec_2.html#GLOSS29" REL=GLOSSARY>should</A> be
+interpreted by user agents.
+
+</P>
+
+
+
+<H2><A NAME="SEC1.2" HREF="html-spec_toc.html#SEC1.2" REL=TOC>Conformance</A></H2>
+<P>
+This specification governs the syntax of HTML documents and aspects of
+the behavior of HTML user agents.
+
+</P>
+
+
+
+<H3><A NAME="SEC1.2.1" HREF="html-spec_toc.html#SEC1.2.1" REL=TOC>Documents</A></H3>
+<P>
+A document is a conforming <A HREF="html-spec_2.html#GLOSS18" REL=GLOSSARY>HTML document</A> if:
+
+</P>
+
+<UL>
+<LI>
+
+It is a conforming <A HREF="html-spec_2.html#GLOSS27" REL=GLOSSARY>SGML document</A>, and it conforms to the HTML <A HREF="html-spec_2.html#GLOSS12" REL=GLOSSARY>DTD</A>
+(see section <A HREF="html-spec_9.html#SEC9.1" REL=XREF>HTML DTD</A>).
+<A NAME="FOOT1" HREF="html-spec_foot.html#FOOT1" REL=FOOTNOTE>(1)</A>
+
+<LI>
+
+It conforms to the application conventions in this
+specification.  For example, the value of the <EM>HREF</EM> attribute of
+the <EM>A</EM> <A HREF="html-spec_2.html#GLOSS13" REL=GLOSSARY>element</A> <A HREF="html-spec_2.html#GLOSS25" REL=GLOSSARY>must</A> conform to the <A HREF="html-spec_2.html#GLOSS35" REL=GLOSSARY>URI</A> syntax.
+
+<LI>
+
+Its <A HREF="html-spec_2.html#GLOSS11" REL=GLOSSARY>document character set</A> includes <A HREF="html-spec_11.html#BIB13" REL=BIBLIOGRAPHY>[ISO-8859-1]</A> and agrees with
+<A HREF="html-spec_11.html#BIB12" REL=BIBLIOGRAPHY>[ISO-10646]</A>;  that is, each <A HREF="html-spec_2.html#GLOSS7" REL=GLOSSARY>code position</A> listed in section <A HREF="html-spec_13.html#SEC13" REL=XREF>The HTML Coded Character Set</A> is included, and each <A HREF="html-spec_2.html#GLOSS7" REL=GLOSSARY>code position</A> in the document
+<A HREF="html-spec_2.html#GLOSS4" REL=GLOSSARY>character</A> set is mapped to the same <A HREF="html-spec_2.html#GLOSS4" REL=GLOSSARY>character</A> as <A HREF="html-spec_11.html#BIB12" REL=BIBLIOGRAPHY>[ISO-10646]</A> designates
+for that <A HREF="html-spec_2.html#GLOSS7" REL=GLOSSARY>code position</A>.
+<A NAME="FOOT2" HREF="html-spec_foot.html#FOOT2" REL=FOOTNOTE>(2)</A>
+
+</UL>
+
+
+
+<H3><A NAME="SEC1.2.2" HREF="html-spec_toc.html#SEC1.2.2" REL=TOC>Feature Test Entities</A></H3>
+<P>
+The HTML <A HREF="html-spec_2.html#GLOSS12" REL=GLOSSARY>DTD</A> defines a standard <A HREF="html-spec_2.html#GLOSS18" REL=GLOSSARY>HTML document</A> type and several
+variations, by way of feature test entities.  Feature test entities
+are declarations in the HTML <A HREF="html-spec_2.html#GLOSS12" REL=GLOSSARY>DTD</A> that control the inclusion or
+exclusion of portions of the <A HREF="html-spec_2.html#GLOSS12" REL=GLOSSARY>DTD</A>.
+
+</P>
+<DL COMPACT>
+
+<DT><EM>HTML.Recommended</EM>
+<DD>
+Certain features of the language are
+necessary for compatibility with widespread usage, but they <A HREF="html-spec_2.html#GLOSS21" REL=GLOSSARY>may</A>
+compromise the structural integrity of a document.  This feature test
+<A HREF="html-spec_2.html#GLOSS15" REL=GLOSSARY>entity</A> selects a more prescriptive document type definition that
+eliminates those features.  It is set to <SAMP>`IGNORE'</SAMP> by default.
+
+For example, in order to preserve the structure of a document, an
+editing <A HREF="html-spec_2.html#GLOSS36" REL=GLOSSARY>user agent</A> <A HREF="html-spec_2.html#GLOSS21" REL=GLOSSARY>may</A> translate HTML documents to the recommended
+subset, or it <A HREF="html-spec_2.html#GLOSS21" REL=GLOSSARY>may</A> require that the documents be in the recommended
+subset for import.
+
+<DT><EM>HTML.Deprecated</EM>
+<DD>
+Certain features of the language are
+necessary for compatibility with earlier versions of the
+specification, but they tend to be used and implemented inconsistently,
+and their use is deprecated.  This feature test <A HREF="html-spec_2.html#GLOSS15" REL=GLOSSARY>entity</A> enables a
+document type definition that allows these features.
+It is set to <SAMP>`INCLUDE'</SAMP> by default.
+
+Documents generated by translation software or editing software <A HREF="html-spec_2.html#GLOSS29" REL=GLOSSARY>should</A>
+not contain deprecated idioms.
+
+</DL>
+
+
+
+<H3><A NAME="SEC1.2.3" HREF="html-spec_toc.html#SEC1.2.3" REL=TOC>User Agents</A></H3>
+<P>
+An HTML <A HREF="html-spec_2.html#GLOSS36" REL=GLOSSARY>user agent</A> conforms to this specification if:
+
+</P>
+
+<UL>
+<LI>
+
+It parses the characters of an <A HREF="html-spec_2.html#GLOSS18" REL=GLOSSARY>HTML document</A> into data characters
+and <A HREF="html-spec_2.html#GLOSS20" REL=GLOSSARY>markup</A> according to <A HREF="html-spec_11.html#BIB14" REL=BIBLIOGRAPHY>[SGML]</A>.
+<A NAME="FOOT3" HREF="html-spec_foot.html#FOOT3" REL=FOOTNOTE>(3)</A>
+
+<LI>
+
+It supports the <SAMP>`ISO-8859-1'</SAMP> <A HREF="html-spec_2.html#GLOSS4" REL=GLOSSARY>character</A> encoding scheme and
+processes each <A HREF="html-spec_2.html#GLOSS4" REL=GLOSSARY>character</A> in the ISO Latin Alphabet No.  1 as specified
+in section <A HREF="html-spec_6.html#SEC6.1" REL=XREF>The HTML Document Character Set</A>.
+<A NAME="FOOT4" HREF="html-spec_foot.html#FOOT4" REL=FOOTNOTE>(4)</A>
+
+<LI>
+
+It behaves identically for documents whose parsed token sequences
+are identical.
+
+For example, comments and the whitespace in tags disappear during
+tokenization, and hence they do not influence the behavior of
+conforming user agents.
+
+<LI>
+
+It allows the user to traverse (or at least attempt to traverse,
+resources permitting) all hyperlinks from <EM>A</EM> elements in an HTML
+document.
+
+</UL>
+
+<P>
+An HTML <A HREF="html-spec_2.html#GLOSS36" REL=GLOSSARY>user agent</A> is a level 2 <A HREF="html-spec_2.html#GLOSS36" REL=GLOSSARY>user agent</A> if, additionally:
+
+</P>
+
+<UL>
+<LI>
+
+It allows the user to express all form field values specified in
+an <A HREF="html-spec_2.html#GLOSS18" REL=GLOSSARY>HTML document</A> and to (attempt to) submit the values as requests to
+information services.
+</UL>
+
+<HR>
+Go to the first, previous, <A HREF="html-spec_2.html" REL=NEXT>next</A>, <A HREF="html-spec_14.html" REL=LAST>last</A> section, <A HREF="html-spec_toc.html" REL=TOC>table of contents</A>.
+</BODY>
+</HTML>

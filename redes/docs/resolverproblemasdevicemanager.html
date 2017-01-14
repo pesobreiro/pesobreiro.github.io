@@ -1,0 +1,23 @@
+<html>
+<head>
+	Solve Device Manager problems
+</head>
+<body>
+<p>
+The Microsoft Management Console (MMC) Device Manager snap-incontains information about the devices on your system.<br>
+If a deviceisn't working correctly, you'll see a yellow icon with an exclamationpoint (!)<br>
+ next to the device. If you right-click the device and selectProperties, Windows will display the actual error message with anerror code. <br>
+ The most common error codes and a suggested approach forresolving each problem are as follows:
+    
+	<ul>
+	<li>code 1--Select the Driver tab, click Update Driver, then installan updated driver for the device (you should obtain the new driverfrom the manufacturer's Web site and ensure that your version ofWindows supports the hardware).</li>   
+	<li>code 3--This error can result from a lack of system resources.Check Task Manager to ensure that the system isn't low on memory. Ifthe system has adequate memory available, the device driver might becorrupt, which might cause the device to think it needs more memorythan it actually requires. Follow the steps for code 1 to replace thedriver. </li>
+	<li>code 10--Select the Driver tab, click Update Driver, then select"Install from a list or specific location (Advanced)" and manuallyselect the correct driver.</li>
+	<li>code 12--This error occurs because the hardware conflicts withanother device. From the device Properties dialog box, select theResources tab to view the conflicting device in the "Conflictingdevice list" at the bottom of the screen. Remove the conflictingdevice, then re-add the device to see whether that device requests adifferent, nonconflicting resource. If these steps don't resolve theerror, you'll need to manually assign resources for the twoconflicting devices.</li>
+	<li>code 14--Restart the computer.</li>
+	<li>code 16--From the device Properties dialog box, select theResources tab. If you see a question mark (?) next to one of theresources assigned to the device, select that resource to assign. Ifyou can't change the resource, click Change Settings. If ChangeSettings is unavailable, try clearing the "Use automatic settings"check box to make Change Settings available. If the device isn't Plugand Play (PnP), check the hardware documentation for more informationinstalling and configuring the device.</li>
+	<li>code 22--The device is disabled; from the device Propertiesdialog box, click Enable Device.</li>
+	</ul>	
+</p>
+</body>
+</html>

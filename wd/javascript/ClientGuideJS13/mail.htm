@@ -1,0 +1,307 @@
+<HTML>
+<HEAD>
+<TITLE>Mail Filters
+</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="partapp.htm">Previous</A>
+ | <A HREF="console.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT><BR><BR>
+<HR>
+<A NAME="1004918">
+<P></A><CENTER><H2>Appendix A<BR>
+<A NAME="1039624">
+Mail Filters</A></H2></CENTER>
+<A NAME="1039890">
+This appendix tells you how you can use JavaScript to filter your incoming mail and news when you use Netscape Messenger.</A></P>
+<A NAME="1043139">
+There are two steps to this process:</A></P>
+<OL>
+<P><LI><A NAME="1042799">
+Write a JavaScript function to serve as a filter and put it in your filters file. This function takes one argument, a message object, and can make changes to that message. </A></LI>
+<P><LI><A NAME="1042887">
+Add an entry for the JavaScript function to your mail rules file. Your rules file can have multiple filters. Messenger applies each filter in turn to a message until one of the filters acts on it.</A></LI>
+</OL>
+<A NAME="1044807">
+This appendix contains the following sections:</A></P>
+<ul><LI><A NAME="1044811">
+<A HREF="mail.htm#1040050">Creating the Filter and Adding to Your Rules File</A>
+</A></LI><LI><A NAME="1044858">
+<A HREF="mail.htm#1040117">News Filters</A>
+</A></LI><LI><A NAME="1044873">
+<A HREF="mail.htm#1040124">Message Object Reference</A>
+</A></LI><LI><A NAME="1044888">
+<A HREF="mail.htm#1040178">Debugging Your Filters</A>
+</A></LI><LI><A NAME="1044973">
+<A HREF="mail.htm#1040193">A More Complex Example</A>
+</A></LI></ul>
+<HR><H2><A NAME="Creating the Filter and Adding to Your Rules File"></A>
+<A NAME="1040050">
+ Creating the Filter and Adding to Your Rules File
+</A></H2><A NAME="1042457">
+The first step is to write a <CODE>filters.js</CODE> file. This file contains the JavaScript functions that perform the mail filtering. These functions can use all features of client-side JavaScript. The location of this file depends on your platform, as shown in the following table.</A></P>
+<A NAME="1044304">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1042025">
+<B>Platform
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1042027">
+<B>File location
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1042015">
+Unix</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1042004">
+<CODE>$(HOME)/.netscape/filters.js</CODE></A></P><P><A NAME="1042422">
+where <CODE>$(HOME)</CODE> is the directory in which Navigator is installed.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1042048">
+Windows</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1042050">
+\Program Files\Communicator\Users\<I>&lt;username&gt;</I>\Mail\filters.js</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1042081">
+Macintosh</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1042083">
+filters.js, at the root of your profile folder</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+<A NAME="1040335">
+The following is an example of a simple mail filter file. It files all messages from my_mom into the "FromMom" folder, and marks them as high priority. It also sends all messages from my_sister to the trash folder.</A></P>
+<PRE><A NAME="1040059">// filters.js file.<br>function MomFilter(message) {<br>&nbsp;&nbsp;&nbsp;if (message.from.indexOf("my_mom@mothers.net") != -1) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;message.priority = "High";<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;message.folder = "mailbox:FromMom";<br>&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;else if (message.subject.indexOf("my_sister@sisters.net") != -1) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;message.trash();<br>&nbsp;&nbsp;&nbsp;}<br>}</A></PRE><BLOCKQUOTE><B>NOTE: </B><A NAME="1042765">
+There is no way to specify an IMAP folder using the <CODE>mailbox:</CODE> syntax. So, if 
+you refile things using IMAP, they all end up on your local machine.
+</A>
+</BLOCKQUOTE>
+<A NAME="1042488">
+Once you've written the JavaScript filter function, you add a reference to the filter in your mail rules file. The location of your rules file is also platform dependent, as shown in the following table.</A></P>
+<A NAME="1044338">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1042392">
+<B>Platform
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1042394">
+<B>File location
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1042396">
+Unix</A></P><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1042398">$(HOME)/.netscape/mailrule </A></PRE><P><A NAME="1042423">
+Where <CODE>$(HOME)</CODE> is the directory in which Navigator is installed.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1042400">
+Windows</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1042402">
+<CODE>\Program Files\Communicator\Users\</CODE><I><CODE>&lt;username&gt;</CODE></I><CODE>\Mail\rules.dat</CODE> </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1042404">
+Macintosh</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1042406">
+<CODE>Filter Rules</CODE>, at the root of your profile folder</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+<A NAME="1040085">
+This file is normally only written by the filter system in Netscape Messenger. If you've got a rules file already, add the following lines to it:</A></P>
+<PRE><A NAME="1040089">name="<I>filterName</I>"<br>enabled="yes"<br>type="2"<br>scriptName="<I>scriptName</I>"</A></PRE><A NAME="1040094">
+Where:</A></P>
+<A NAME="1044347">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1042895">name="<I>filterName</I>"</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1042897">
+Gives a descriptive name to the filer.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1042899">enabled="yes"</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1042901">
+Says to use this filter. To turn off the filter, change this line to <CODE>enabled="no"</CODE>.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1042903">type="2"</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1042905">
+Marks this filter as being JavaScript. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1042907">scriptName="<I>scriptName</I>"</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1042909">
+Is the JavaScript function to execute. </A></P>
+
+</TABLE>
+</A></P>
+<A NAME="1042570">
+The appropriate entry for the example above would be:</A></P>
+<PRE><A NAME="1040098">name="Filter for Mom"<br>enabled="yes"<br>type="2"<br>scriptName="MomFilter"</A></PRE><A NAME="1040106">
+You can add multiple groups of the above lines to your rules file to add multiple filters. They are executed in the order listed in the file until one of them performs an action on the message (sets a property or calls a method).</A></P>
+<A NAME="1040111">
+If you don't already have a mail rule file, you'll need to add the following two lines at the top (before any filter references):</A></P>
+<PRE><A NAME="1040114">version="6"<br>logging="no"</A></PRE>
+<HR><H2><A NAME="News Filters"></A>
+<A NAME="1040117">
+ News Filters
+</A></H2><A NAME="1040119">
+The above discussion about adding filters to your mail rule file applies to news filters as well. The only difference between news filters and mail filters is the <CODE>type</CODE> line. With mail filters, you use <CODE>type="2"</CODE>. For news filters, you use <CODE>type="8"</CODE>.</A></P>
+
+<HR><H2><A NAME="Message Object Reference"></A>
+<A NAME="1040124">
+ Message Object Reference
+</A></H2><A NAME="1040126">
+Filter functions take one argument, a message object. For news filters it is a News Message object and for mail filters it is a Mail Message object.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1040130">
+ Mail Messages
+</A></H3>
+
+<A NAME="1040132">
+A Mail Message object has the following methods:</A></P>
+<A NAME="1044380">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1040959">
+<B>Method
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1040961">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1040963">killThread()</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1040965">
+Mark a thread as ignored.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1040967">watchThread()</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1040969">
+Mark a thread as watched.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1040971">trash()</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1040973">
+Mark the message read and move it to the trash folder.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+<A NAME="1040138">
+A Mail Message object has the following properties:</A></P>
+<A NAME="1044402">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1041041">
+<B>Property
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1041043">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1041045">folder</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1041047">
+Reflects the folder containing the message.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1041049">read</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1041051">
+Reflects whether or not the message has been read.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1041053">priority</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1041055">
+Reflects the priority of the message.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+<A NAME="1040144">
+To refile a mail message, you set the <CODE>folder</CODE> property of the message object. You can use either a full path or the <CODE>mailbox:</CODE> URL syntax to specify the destination.</A></P>
+<A NAME="1040148">
+The priority property can be set using either an integer or a string. The possible values are:</A></P>
+<ul><LI><A NAME="1040150">
+None
+</A></LI><LI><A NAME="1041115">
+Lowest
+</A></LI><LI><A NAME="1041124">
+Low
+</A></LI><LI><A NAME="1041133">
+Normal
+</A></LI><LI><A NAME="1041142">
+High
+</A></LI><LI><A NAME="1041151">
+Highest
+</A></LI></ul>
+<H4><A NAME="Head3;"></A>
+<A NAME="1040157">
+ Message Headers
+</A></H4>
+
+<A NAME="1040158">
+In addition to the properties listed above, Mail Message objects offer all of the message headers as read-only properties. So, the subject of the message can be retrieved as <CODE>message.subject</CODE> and the CC list as <CODE>message.cc</CODE>. Headers with hyphens in their names (such as <CODE>Resent-from</CODE>) cannot be retrieved with the dot syntax. Instead, retrieve them using the array syntax for a property value (such as <CODE>message["Resent-from"]</CODE>).</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1040164">
+ News Messages
+</A></H3>
+
+<A NAME="1040166">
+A News Message object has the following methods:</A></P>
+<A NAME="1044413">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1041203">
+<B>Method
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1041205">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1041207">killThread()</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1041209">
+Mark a thread as ignored.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1041211">watchThread()</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1041213">
+Mark a thread as watched.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+<A NAME="1040171">
+A News Message object has the following properties:</A></P>
+<A NAME="1044433">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1041277">
+<B>Property
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1041279">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1041281">group</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1042951">
+(Read-only) Reflects the news group containing the message.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1041285">read</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1042697">
+Reflects whether or not the message has been read.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1041289">sender</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1041291">
+(Read-only) Reflects the sender of the message.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1041293">subject</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1041295">
+(Read-only) Reflects the subject of the message.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<HR><H2><A NAME="Debugging Your Filters"></A>
+<A NAME="1040178">
+ Debugging Your Filters
+</A></H2><A NAME="1040180">
+If there is a problem with your JavaScript filters, you'll get the standard JavaScript alert telling you the nature of the error. Any filters affected by the problems are not used to filter your messages. Consequently, if you've got problems, all the mail remains unchanged in your Inbox.</A></P>
+
+<HR><H2><A NAME="A More Complex Example"></A>
+<A NAME="1040193">
+ A More Complex Example
+</A></H2><A NAME="1043000">
+This filter file lets you easily perform one of several changes to a message. First, it uses object initializers to create an array of objects. Each of those objects represents a set of messages and what the function will do with messages in that set. The objects can have the following properties:</A></P>
+<A NAME="1044455">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1043046">field</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1043048">
+Which message field to use to match against (such as From or Resent-From).</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1043053">probe</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1043055">
+The value of the field that matches.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1043064">folder</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1043066">
+The mail folder into which to put the message</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1043074">trash</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1043076">
+True if the message should be put in the Trash folder</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1043081">priority</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1043083">
+A new priority for the message.</A></P>
+
+</TABLE>
+</A></P>
+<A NAME="1043088">
+Once it has the array of filters, the code creates regular expressions from those filters to use in matching individual messages. When Messenger calls <CODE>ApplyFilters</CODE> for a message, it searches for a match in the <CODE>MyFilters</CODE> array. If it finds one, the function either puts the message in the trash, moves it to a new folder, or changes its priority.</A></P>
+<PRE><A NAME="1042782">var MyFilters = [<br>&nbsp;&nbsp;&nbsp;{field:"From",&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;probe:"cltbld@netscape.com",&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;folder:"mailbox:Client Build"},<br>&nbsp;&nbsp;&nbsp;{field:"From",&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;probe:"scopus@netscape.com",&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;folder:"mailbox:Scopus"},<br>&nbsp;&nbsp;&nbsp;{field:"Resent-From",&nbsp;probe:"bonsai-hook@warp.mcom.com",&nbsp;trash:true"},<br>&nbsp;&nbsp;&nbsp;{field:"Resent-From",&nbsp;probe:"xheads@netscape.com",&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;folder:"mailbox:X Heads"},<br>&nbsp;&nbsp;&nbsp;{field:"Resent-From",&nbsp;probe:"layers@netscape.com",&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;priority:"High"}<br>];</A></PRE><PRE><A NAME="1041510">// Initialize by compiling a regular expression for each filter<br>for (var i = 0; i &lt; MyFilters.length; i++) {<br>&nbsp;&nbsp;&nbsp;var f = MyFilters[i];<br>&nbsp;&nbsp;&nbsp;f.regexp = new RegExp("^" + f.field + " *:.*" + f.probe, "i");<br>}</A></PRE><PRE><A NAME="1041758">function ApplyFilters(message)<br>{<br>&nbsp;&nbsp;&nbsp;trace("Applying mail filters");</A></PRE><PRE><A NAME="1041635">&nbsp;&nbsp;&nbsp;for (var i = 0; i &lt; MyFilters.length; i++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var f = MyFilters[i];<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (f.regexp.test()) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (f.trash) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;message.trash();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} else if (f.folder) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;message.folder = f.folder;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} else {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;message.priority = f.priority;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;continue;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;}<br>}</A></PRE>
+<HR>
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="partapp.htm">Previous</A>
+ | <A HREF="console.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT>
+<P ALIGN=right>
+<FONT SIZE=-2><I>Last Updated:  05/27/99  21:21:48</I></FONT>
+<P> <CENTER>Copyright (c) 1999
+<A HREF="http://home.netscape.com/misc/contact_info.html"
+TARGET=_top>Netscape Communications Corporation</A></FONT>
+</CENTER>
+<P>
+</BODY>
+</HTML>
+
+

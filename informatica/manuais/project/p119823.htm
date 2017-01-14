@@ -1,0 +1,56 @@
+<!doctype html public" -//IETF//DTD 	HTML//EN">
+<HTML>
+
+<HEAD>
+<SCRIPT LANGUAGE="JAVASCRIPT">
+<!-- 
+
+function checkbrowse()
+{
+var bn, bv, ver
+bn = navigator.appName;
+bv = parseInt(navigator.appVersion);
+if (bn=="Microsoft Internet Explorer" && bv<"4") ver = "IE3";
+else ver = "NotIE3";
+if (ver=="IE3") top.cont.parts.location.href="part11.htm";
+if (ver=="NotIE3") top.cont.parts.location.href="nav/part11.htm";
+}
+//-->
+</SCRIPT>
+<TITLE>Fixed-Duration Tasks</TITLE>
+<META NAME="GENERATOR" 	CONTENT="Merch. System HTML Development">
+<META NAME="AUTHOR" 	CONTENT="Merch. System HTML Development">
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" OnLoad="checkbrowse();">
+<Font Face ="Verdana, Arial, Helvetica">
+
+<P align=right><SMALL>
+<A HREF="p119822.htm" Target="TOC"><IMG SRC="prev.gif"ALT="Previous page"BORDER=0></A>
+<A HREF="p11981.htm" Target="TOC"><IMG SRC="toc11.gif"ALT="Contents"BORDER=0></A>
+</SMALL></P>
+<H3>Fixed-Duration Tasks</H3>
+
+<P>
+When duration is fixed, it remains at whatever value you enter and Microsoft Project calculates resource units 
+as you change assignments. For example, say you assign two painters full-time to paint the walls in 4 days. 
+Later, you assign two more full-time painters. Microsoft Project set the units for each painter to 50 percent, 
+because four painters need to work only half-time to complete the walls in 4 days.
+<P>
+If you adjust the task’s duration, Microsoft Project calculates work. In the painting example, the total work for 
+the task is 64 hours (four painters × 4 days × 4 hours per day). If you change the task’s duration to 2 days, 
+Microsoft Project recalculates the total work: four painters working half-time for 2 days is 32 hours.
+<P>
+<B><B><img src="bluetri.gif">	To change a task type</B></B>
+<OL>
+<LI>On the <B>View Bar</B>, click <B>Gantt Chart</B> <img src="gant.gif">.
+<LI>In the <B>Task Name</B> field, select the task for which you want to change the task type.
+<LI>Click the <B>Advanced</B> tab, and then click a task type in the <B>Task type</B> box.
+<P>
+
+<P align = Center > <A HREF="http://www.microsoft.com/misc/cpyright.htm"><EM>&#169;1996-1997 Microsoft Corporation. All rights 
+reserved.</EM></A></P>
+</BODY>
+</FONT>
+</HTML>
+

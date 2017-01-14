@@ -1,0 +1,205 @@
+<HTML>
+<HEAD>
+<TITLE>Functions
+</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="stmtsov.htm">Previous</A>
+ | <A HREF="obj.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT><BR><BR>
+<HR>
+<A NAME="1008298">
+<P></A><CENTER><H2>Chapter 6<BR>
+<A NAME="1008302">
+Functions</A></H2></CENTER>
+<A NAME="1008304">
+Functions are one of the fundamental building blocks in JavaScript. A function is a JavaScript procedure--a set of statements that performs a specific task. To use a function, you must first define it; then your script can call it.</A></P>
+<A NAME="1009575">
+This chapter contains the following sections:</A></P>
+<ul><LI><A NAME="1009576">
+<A HREF="fcns.htm#1008305">Defining Functions</A>
+</A></LI><LI><A NAME="1009577">
+<A HREF="fcns.htm#1008321">Calling Functions</A>
+</A></LI><LI><A NAME="1009764">
+<A HREF="fcns.htm#1012766">Using the arguments Array</A>
+</A></LI><LI><A NAME="1009765">
+<A HREF="fcns.htm#1008357">Predefined Functions</A>
+</A></LI></ul>
+<HR><H2><A NAME="Defining Functions"></A>
+<A NAME="1008305">
+ Defining Functions
+</A></H2><A NAME="1009697">
+A function definition consists of the <CODE>function</CODE> keyword, followed by</A></P>
+<ul><P><LI><A NAME="1008308">
+The name of the function.</A></LI>
+<P><LI><A NAME="1008309">
+A list of arguments to the function, enclosed in parentheses and separated by commas.</A></LI>
+<P><LI><A NAME="1008310">
+The JavaScript statements that define the function, enclosed in curly braces, { }. The statements in a function can include calls to other functions defined in the current application.</A></LI>
+</ul><A NAME="1013062">
+Generally, you should define all your functions in the HEAD of a page so that when a user loads the page, the functions are loaded first. Otherwise, the user might perform an action while the page is still loading that triggers an event handler and calls an undefined function, leading to an error.</A></P>
+<A NAME="1008313">
+For example, the following code defines a simple function named <CODE>square</CODE>:</A></P>
+<PRE><A NAME="1009645">function square(number) {<br>&nbsp;&nbsp;&nbsp;return number * number;<br>}</A></PRE><A NAME="1009646">
+The function <CODE>square</CODE> takes one argument, called <CODE>number</CODE>. The function consists of one statement that indicates to return the argument of the function multiplied by itself. The <CODE>return</CODE> statement specifies the value returned by the function.</A></P>
+<PRE><A NAME="1009624"><CODE>return number * number</CODE></A></PRE><A NAME="1012732">
+All parameters are passed to functions <I>by value</I>; the value is passed to the function, but if the function changes the value of the parameter, this change is not reflected globally or in the calling function. However, if you pass an object as a parameter to a function and the function changes the object's properties, that change is visible outside the function, as shown in the following example:</A></P>
+<PRE><A NAME="1012733">function myFunc(theObject) {<br>&nbsp;&nbsp;&nbsp;theObject.make="Toyota"<br>}<br><br>mycar = {make:"Honda", model:"Accord", year:1998}<br>x=mycar.make &nbsp;&nbsp;&nbsp;&nbsp;// returns Honda<br>myFunc(mycar) &nbsp;&nbsp;&nbsp;// pass object mycar to the function<br>y=mycar.make &nbsp;&nbsp;&nbsp;&nbsp;// returns Toyota (prop was changed by the function)</A></PRE><A NAME="1008317">
+In addition to defining functions as described here, you can also define <CODE>Function</CODE> objects, as described in <A HREF="obj.htm#1008590">"Function Object" on page&nbsp;114</A>.</A></P>
+<A NAME="1009691">
+A <I>method</I> is a function associated with an object. You'll learn more about objects and methods in <A HREF="obj.htm#1008302">Chapter 7, "Working with Objects."</A></A></P>
+
+<HR><H2><A NAME="Calling Functions"></A>
+<A NAME="1008321">
+ Calling Functions
+</A></H2><A NAME="1013067">
+In a Navigator application, you can use (or <I>call</I>) any function defined in the current page. You can also use functions defined by other named windows or frames.</A></P>
+<A NAME="1009651">
+Defining a function does not execute it. Defining the function simply names the function and specifies what to do when the function is called. <I>Calling</I> the function actually performs the specified actions with the indicated parameters. For example, if you define the function <CODE>square</CODE>, you could call it as follows.</A></P>
+<PRE><A NAME="1009664">square(5)</A></PRE><A NAME="1009686">
+The preceding statement calls the function with an argument of five. The function executes its statements and returns the value twenty-five.</A></P>
+<A NAME="1008325">
+The arguments of a function are not limited to strings and numbers. You can pass whole objects to a function, too. The <CODE>show_props</CODE> function (defined in <A HREF="obj.htm#1008312">"Objects and Properties" on page&nbsp;100</A>) is an example of a function that takes an object as an argument.</A></P>
+<A NAME="1008330">
+A function can even be recursive, that is, it can call itself. For example, here is a function that computes factorials:</A></P>
+<PRE><A NAME="1008331">function factorial(n) {<br>&nbsp;&nbsp;&nbsp;if ((n == 0) || (n == 1))<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return 1<br>&nbsp;&nbsp;&nbsp;else {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result = (n * factorial(n-1) )<br>&nbsp;&nbsp;&nbsp;return result<br>&nbsp;&nbsp;&nbsp;}<br>}</A></PRE><A NAME="1012574">
+You could then compute the factorials of one through five as follows:</A></P>
+<PRE><A NAME="1012645">a=factorial(1) // returns 1<br>b=factorial(2) // returns 2<br>c=factorial(3) // returns 6<br>d=factorial(4) // returns 24<br>e=factorial(5) // returns 120</A></PRE>
+<HR><H2><A NAME="Using the arguments Array"></A>
+<A NAME="1012766">
+ Using the arguments Array
+</A></H2><A NAME="1008338">
+The arguments of a function are maintained in an array. Within a function, you can address the parameters passed to it as follows:</A></P>
+<PRE><A NAME="1008339">arguments[<I>i</I>]<br>functionName.arguments[i]</A></PRE><A NAME="1008340">
+where <CODE>i</CODE> is the ordinal number of the argument, starting at zero. So, the first argument passed to a function would be <CODE>arguments[0]</CODE>. The total number of arguments is indicated by <CODE>arguments.length</CODE>.</A></P>
+<A NAME="1008343">
+Using the <CODE>arguments</CODE> array, you can call a function with more arguments than it is formally declared to accept. This is often useful if you don't know in advance how many arguments will be passed to the function. You can use <CODE>arguments.length</CODE> to determine the number of arguments actually passed to the function, and then treat each argument using the <CODE>arguments</CODE> array.</A></P>
+<A NAME="1009813">
+For example, consider a function that concatenates several strings. The only formal argument for the function is a string that specifies the characters that separate the items to concatenate. The function is defined as follows:</A></P>
+<PRE><A NAME="1012590">function myConcat(separator) {<br>&nbsp;&nbsp;&nbsp;result="" // initialize list<br>&nbsp;&nbsp;&nbsp;// iterate through arguments<br>&nbsp;&nbsp;&nbsp;for (var i=1; i&lt;arguments.length; i++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result += arguments[i] + separator<br>&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;return result<br>}</A></PRE><A NAME="1012591">
+You can pass any number of arguments to this function, and it creates a list using each argument as an item in the list.</A></P>
+<PRE><A NAME="1012592">// returns "red, orange, blue, "<br>myConcat(", ","red","orange","blue")</A></PRE><PRE><A NAME="1012593">// returns "elephant; giraffe; lion; cheetah;"<br>myConcat("; ","elephant","giraffe","lion", "cheetah")</A></PRE><PRE><A NAME="1012594">// returns "sage. basil. oregano. pepper. parsley. "<br>myConcat(". ","sage","basil","oregano", "pepper", "parsley")</A></PRE><A NAME="1009506">
+See the <CODE>Function</CODE> object in the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsref/index.htm" TARGET="_top"><I>Client-Side JavaScript Reference</I></A> for more information.</A></P>
+
+<HR><H2><A NAME="Predefined Functions"></A>
+<A NAME="1008357">
+ Predefined Functions
+</A></H2><A NAME="1009833">
+JavaScript has several top-level predefined functions:</A></P>
+<ul><LI><A NAME="1009845">
+<CODE>eval</CODE>
+</A></LI><LI><A NAME="1009916">
+<CODE>isFinite</CODE>
+</A></LI><LI><A NAME="1009849">
+<CODE>isNaN</CODE>
+</A></LI><LI><A NAME="1009863">
+<CODE>parseInt</CODE> and <CODE>parseFloat</CODE>
+</A></LI><LI><A NAME="1009853">
+<CODE>Number</CODE> and <CODE>String</CODE>
+</A></LI><LI><A NAME="1009855">
+<CODE>escape</CODE> and <CODE>unescape</CODE>
+</A></LI></ul><A NAME="1009836">
+The following sections introduce these functions. See the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsref/index.htm" TARGET="_top"><I>Client-Side JavaScript Reference</I></A> for detailed information on all of these functions.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1008364">
+ eval Function
+</A></H3>
+
+<A NAME="1008365">
+The <CODE>eval</CODE> function evaluates a string of JavaScript code without reference to a particular object. The syntax of <CODE>eval</CODE> is:</A></P>
+<PRE><A NAME="1008366">eval(<I>expr</I>)</A></PRE><A NAME="1008367">
+where <CODE>expr</CODE> is a string to be evaluated.</A></P>
+<A NAME="1008368">
+If the string represents an expression, <CODE>eval</CODE> evaluates the expression. If the argument represents one or more JavaScript statements, <CODE>eval</CODE> performs the statements. Do not call <CODE>eval</CODE> to evaluate an arithmetic expression; JavaScript evaluates arithmetic expressions automatically.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1009925">
+ isFinite Function
+</A></H3>
+
+<A NAME="1009926">
+The isFinite function evaluates an argument to determine whether it is a finite number. The syntax of <CODE>isFinite</CODE> is:</A></P>
+<PRE><A NAME="1009948">isFinite(<I>number</I>)</A></PRE><A NAME="1009980">
+where <CODE>number</CODE> is the number to evaluate.</A></P>
+<A NAME="1009996">
+If the argument is <CODE>NaN</CODE>, positive infinity or negative infinity, this method returns <CODE>false</CODE>, otherwise it returns <CODE>true</CODE>.</A></P>
+<A NAME="1010011">
+The following code checks client input to determine whether it is a finite number.</A></P>
+<PRE><A NAME="1010012">if(isFinite(ClientInput) == true)<br>{<br>&nbsp;&nbsp;&nbsp;/* take specific steps */<br>}</A></PRE>
+<H3><A NAME="Head2;"></A>
+<A NAME="1008370">
+ isNaN Function
+</A></H3>
+
+<A NAME="1008371">
+The <CODE>isNaN</CODE> function evaluates an argument to determine if it is "NaN" (not a number). The syntax of <CODE>isNaN</CODE> is:</A></P>
+<PRE><A NAME="1008372">isNaN(<I>testValue</I>)</A></PRE><A NAME="1008373">
+where <CODE>testValue</CODE> is the value you want to evaluate.</A></P>
+<A NAME="1008374">
+The <CODE>parseFloat</CODE> and <CODE>parseInt</CODE> functions return "NaN" when they evaluate a value that is not a number. <CODE>isNaN</CODE> returns true if passed "NaN," and false otherwise.</A></P>
+<A NAME="1008375">
+The following code evaluates <CODE>floatValue</CODE> to determine if it is a number and then calls a procedure accordingly:</A></P>
+<PRE><A NAME="1008376">floatValue=parseFloat(toFloat)</A></PRE><PRE><A NAME="1008377">if (isNaN(floatValue)) {<br>&nbsp;&nbsp;&nbsp;notFloat()<br>} else {<br>&nbsp;&nbsp;&nbsp;isFloat()<br>}</A></PRE>
+<H3><A NAME="Head2;"></A>
+<A NAME="1008379">
+ parseInt and parseFloat Functions
+</A></H3>
+
+<A NAME="1008380">
+The two "parse" functions, <CODE>parseInt</CODE> and <CODE>parseFloat</CODE>, return a numeric value when given a string as an argument.</A></P>
+<A NAME="1009327">
+The syntax of <CODE>parseFloat</CODE> is</A></P>
+<PRE><A NAME="1008387">parseFloat(<I>str</I>)</A></PRE><A NAME="1008388">
+where <CODE>parseFloat</CODE> parses its argument, the string <CODE>str</CODE>, and attempts to return a floating-point number. If it encounters a character other than a sign (+ or -), a numeral (0-9), a decimal point, or an exponent, then it returns the value up to that point and ignores that character and all succeeding characters. If the first character cannot be converted to a number, it returns "NaN" (not a number).</A></P>
+<A NAME="1008389">
+The syntax of <CODE>parseInt</CODE> is</A></P>
+<PRE><A NAME="1008390">parseInt(str [, radix])</A></PRE><A NAME="1008391">
+<CODE>parseInt</CODE> parses its first argument, the string <CODE>str</CODE>, and attempts to return an integer of the specified <CODE>radix</CODE> (base), indicated by the second, optional argument, <CODE>radix</CODE>. For example, a radix of ten indicates to convert to a decimal number, eight octal, sixteen hexadecimal, and so on. For radixes above ten, the letters of the alphabet indicate numerals greater than nine. For example, for hexadecimal numbers (base 16), A through F are used.</A></P>
+<A NAME="1008392">
+If <CODE>parseInt</CODE> encounters a character that is not a numeral in the specified radix, it ignores it and all succeeding characters and returns the integer value parsed up to that point. If the first character cannot be converted to a number in the specified radix, it returns "NaN." The <CODE>parseInt</CODE> function truncates the string to integer values.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1008394">
+ Number and String Functions
+</A></H3>
+
+<A NAME="1008395">
+The <CODE>Number</CODE> and <CODE>String</CODE> functions let you convert an object to a number or a string. The syntax of these functions is:</A></P>
+<PRE><A NAME="1008396">Number(<I>objRef</I>)<br>String(<I>objRef</I>)</A></PRE><A NAME="1008397">
+where <CODE>objRef</CODE> is an object reference.</A></P>
+<A NAME="1012662">
+The following example converts the <CODE>Date</CODE> object to a readable string.</A></P>
+<PRE><A NAME="1012710">D = new Date (430054663215)<br>// The following returns<br>// "Thu Aug 18 04:37:43 GMT-0700 (Pacific Daylight Time) 1983"<br>x = String(D)</A></PRE>
+<H3><A NAME="Head2;"></A>
+<A NAME="1012712">
+ escape and unescape Functions
+</A></H3>
+
+<A NAME="1008402">
+The <CODE>escape</CODE> and <CODE>unescape</CODE> functions let you encode and decode strings. The <CODE>escape</CODE> function returns the hexadecimal encoding of an argument in the ISO Latin character set. The <CODE>unescape</CODE> function returns the ASCII string for the specified hexadecimal encoding value.</A></P>
+<A NAME="1008403">
+The syntax of these functions is:</A></P>
+<PRE><A NAME="1008404">escape(string)<br>unescape(string)</A></PRE><A NAME="1008405">
+These functions are used primarily with server-side JavaScript to encode and decode name/value pairs in URLs.</A></P>
+
+<HR>
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="stmtsov.htm">Previous</A>
+ | <A HREF="obj.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT>
+<P ALIGN=right>
+<FONT SIZE=-2><I>Last Updated:  05/27/99  21:21:27</I></FONT>
+<P> <CENTER>Copyright (c) 1999
+<A HREF="http://home.netscape.com/misc/contact_info.html"
+TARGET=_top>Netscape Communications Corporation</A></FONT>
+</CENTER>
+<P>
+</BODY>
+</HTML>
+
+

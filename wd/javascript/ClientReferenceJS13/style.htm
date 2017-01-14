@@ -1,0 +1,1845 @@
+<HTML>
+<HEAD>
+<TITLE>
+</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="string.htm">Previous</A>
+ | <A HREF="submit.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT><BR><BR>
+<HR>
+
+<H1><A NAME="Style"></A>
+<A NAME="1193137">
+ Style
+</A></H1>
+<A NAME="1193139">
+An object that specifies the style of HTML elements.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193142">
+<I>Client-side object</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193144">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193146">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193148">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193149">
+ Created by
+</A></H4>
+
+<A NAME="1193154">
+Any of the following properties or methods of the <A HREF="document.htm#1193137"><CODE>document</CODE></A> object:</A></P>
+<ul><LI><A NAME="1210535">
+<A HREF="document.htm#1222722"><CODE>document.classes</CODE></A>
+</A></LI><LI><A NAME="1210624">
+<A HREF="document.htm#1226818"><CODE>document.contextual</CODE></A>
+</A></LI><LI><A NAME="1210639">
+<A HREF="document.htm#1225120"><CODE>document.ids</CODE></A>
+</A></LI><LI><A NAME="1210654">
+<A HREF="document.htm#1221745"><CODE>document.tags</CODE></A>
+</A></LI></ul>
+<H4><A NAME="Head3;"></A>
+<A NAME="1265022">
+ Description
+</A></H4>
+
+<A NAME="1265023">
+The <CODE>Style</CODE> object lets you implement dynamic HTML style sheets in JavaScript. The methods and properties of the Style object implement the cascading style sheet style properties of HTML in JavaScript.</A></P>
+<A NAME="1205432">
+For a complete description of style sheets, see <A HREF="http://developer.netscape.com/docs/manuals/communicator/dynhtml/index.htm" TARGET="_top"><I>Dynamic HTML in Netscape Communicator</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193188">
+ Property Summary
+</A></H4>
+
+<A NAME="1193345">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1193191">
+<B>Property
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1193193">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1254395"><A HREF="style.htm#1252548"><CODE>align</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1254397">
+Specifies the alignment of an HTML element within its parent.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193198"><A HREF="style.htm#1252474"><CODE>backgroundColor</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193200">
+Specifies a solid background color for an element.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193205"><A HREF="style.htm#1252490"><CODE>backgroundImage</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193207">
+Specifies a background image for an HTML element.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193212"><A HREF="style.htm#1258498"><CODE>borderBottomWidth</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193214">
+Specifies the width of the bottom border of an HTML element.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193219"><A HREF="style.htm#1213303"><CODE>borderColor</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193221">
+Specifies the color of the border of an HTML element.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193226"><A HREF="style.htm#1213331"><CODE>borderLeftWidth</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193228">
+Specifies the width of the left border of an HTML element.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193233"><A HREF="style.htm#1213357"><CODE>borderRightWidth</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193235">
+Specifies the width of the right border of an HTML element.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193240"><A HREF="style.htm#1213385"><CODE>borderStyle</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193242">
+Specifies the style of border, such as solid or double, around a block-level HTML element.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193247"><A HREF="style.htm#1213415"><CODE>borderTopWidth</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193249">
+Specifies the width of the top border of an HTML element.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193254"><A HREF="style.htm#1213452"><CODE>clear</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193256">
+Specifies the sides of an HTML element that allow floating elements.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193261"><A HREF="style.htm#1213484"><CODE>color</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193263">
+Specifies the color of the text in an HTML element.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193268"><A HREF="style.htm#1213510"><CODE>display</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193270">
+Overrides the usual display of an element and specifies whether the element appears in line, as a block-level element, or as a block-level list item.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193275"><A HREF="style.htm#1213546"><CODE>fontFamily</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193277">
+Specifies the font family, such as Helvetica or Arial, for an HTML text element.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193282"><A HREF="style.htm#1213658"><CODE>fontSize</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193284">
+Specifies the font size for an HTML text element.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193289"><A HREF="style.htm#1218728"><CODE>fontStyle</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193291">
+Specifies the style of the font of an HTML element.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193293"><A HREF="style.htm#1213714"><CODE>fontWeight</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193295">
+Specifies the weight of the font of an HTML element.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193300"><A HREF="style.htm#1213576"><CODE>lineHeight</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193302">
+Specifies the distance between the baselines of two adjacent lines of block-level type.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193307"><A HREF="style.htm#1271243"><CODE>listStyleType</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193309">
+Specifies the style of bullet displayed for list items.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193314"><A HREF="style.htm#1213629"><CODE>marginBottom</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193316">
+Specifies the minimal distance between the bottom of an HTML element and the top of an adjacent element.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193321"><A HREF="style.htm#1213757"><CODE>marginLeft</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193323">
+Specifies the minimal distance between the left side of an HTML element and the right side of an adjacent element.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193328"><A HREF="style.htm#1213789"><CODE>marginRight</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193330">
+Specifies the minimal distance between the right side of an HTML element and the left side of an adjacent element.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193335"><A HREF="style.htm#1213815"><CODE>marginTop</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193337">
+Specifies the minimal distance between the top of an HTML element and the bottom of an adjacent element.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1209947"><A HREF="style.htm#1213849"><CODE>paddingBottom</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1209949">
+Specifies how much space to insert between the bottom of an element and its content, such as text or an image.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1210137"><A HREF="style.htm#1213885"><CODE>paddingLeft</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1210139">
+Specifies how much space to insert between the left side of an element and its content, such as text or an image.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1210141"><A HREF="style.htm#1213910"><CODE>paddingRight</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1210143">
+Specifies how much space to insert between the right side of an element and its content, such as text or an image.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193342"><A HREF="style.htm#1213938"><CODE>paddingTop</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193344">
+Specifies how much space to insert between the top of an element and its content, such as text or an image.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1215825"><A HREF="style.htm#1213970"><CODE>textAlign</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1215827">
+Specifies the alignment of an HTML block-level text element.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1215766"><A HREF="style.htm#1214004"><CODE>textDecoration</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1215768">
+Specifies special effects, such as blinking, strike-outs, and underlines, added to an HTML text element.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1215703"><A HREF="style.htm#1267809"><CODE>textIndent</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1215705">
+Specifies the length of indentation appearing before the first formatted line of a block-level HTML text element.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1215640"><A HREF="style.htm#1214059"><CODE>textTransform</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1215642">
+Specifies the case of an HTML text element.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1215577"><A HREF="style.htm#1214093"><CODE>whiteSpace</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1215579">
+Specifies whether or not white space within an HTML element should be collapsed.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1252212"><A HREF="style.htm#1251851"><CODE>width</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1252214">
+Specifies the width of a block-level HTML element.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193347">
+ Method Summary
+</A></H4>
+
+<A NAME="1193437">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1193350">
+<B>Method
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1193352">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193357"><A HREF="style.htm#1263665"><CODE>borderWidths</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193359">
+Specifies the width of the borders of an HTML element.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193364"><A HREF="style.htm#1264235"><CODE>margins</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193366">
+Specifies the minimal distance between the sides of an HTML element and the sides of adjacent elements.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193371"><A HREF="style.htm#1264517"><CODE>paddings</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193373">
+Specifies how much space to insert between the sides of an element and its content, such as text or an image.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+<A NAME="1252468">
+In addition, this object inherits the <A HREF="object.htm#1193628"><CODE>watch</CODE></A> and <A HREF="object.htm#1193499"><CODE>unwatch</CODE></A> methods from <A HREF="object.htm#1193136"><CODE>Object</CODE></A>.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1252548">
+align
+</A></H2>
+
+<A NAME="1252561">
+Specifies the alignment of an HTML element within its parent.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1252551">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1252556">
+<A HREF="style.htm#1193137"><CODE>Style</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1252558">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1252560">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1269798">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1269799"><I>styleObject</I>.align = {left | right | none}</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1269800">
+ Parameters
+</A></H4>
+
+<A NAME="1269813">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1269803">styleObject</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1269808">
+A <A HREF="style.htm#1193137"><CODE>Style</CODE></A> object.</A></P>
+
+</TABLE>
+</A></P>
+<A NAME="1253017">
+Do not confuse <CODE>align</CODE> with <A HREF="style.htm#1213970"><CODE>textAlign</CODE></A>, which specifies the alignment of the content of text elements.</A></P>
+<A NAME="1253305">
+The <CODE>align</CODE> property is a reflection of the cascading style sheet <CODE>float</CODE> property.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1252474">
+backgroundColor
+</A></H2>
+
+<A NAME="1252487">
+Specifies a solid background color for an element.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1252477">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1252482">
+<A HREF="style.htm#1193137"><CODE>Style</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1252484">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1252486">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1270123">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1270124"><I>styleObject</I>.backgroundColor = <I>colorValue</I></A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1270125">
+ Parameters
+</A></H4>
+
+<A NAME="1270141">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1270128">styleObject</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1270133">
+A <A HREF="style.htm#1193137"><CODE>Style</CODE></A> object.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1270135">colorValue</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1270139">
+A string evaluating to a color value, as described in <A HREF="colors.htm#1002170">Appendix B, "Color Values."</A></A></P>
+
+</TABLE>
+</A></P>
+<A NAME="1260008">
+The <CODE>backgroundColor</CODE> property is a reflection of the cascading style sheet <CODE>background-color</CODE> property.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1252490">
+backgroundImage
+</A></H2>
+
+<A NAME="1213261">
+Specifies a background image for an HTML element.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1213251">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1213256">
+<A HREF="style.htm#1193137"><CODE>Style</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1213258">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1213260">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1270030">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1270031"><I>styleObject</I>.backgroundImage = <I>url</I></A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1270032">
+ Parameters
+</A></H4>
+
+<A NAME="1270048">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1270035">styleObject</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1270040">
+A <A HREF="style.htm#1193137"><CODE>Style</CODE></A> object.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1270042">url</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1270046">
+A string evaluating to either a full URL or a partial URL relative to the source of the style sheet.</A></P>
+
+</TABLE>
+</A></P>
+<A NAME="1258495">
+The <CODE>backgroundImage</CODE> property is a reflection of the cascading style sheet <CODE>background-image</CODE> property.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1258498">
+borderBottomWidth
+</A></H2>
+
+<A NAME="1250885">
+Specifies the width of the bottom border of an HTML element.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1250875">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1250880">
+<A HREF="style.htm#1193137"><CODE>Style</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1250882">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1250884">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1268879">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1268880"><I>styleObject</I>.borderBottomWidth = <I>length</I></A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1268881">
+ Parameters
+</A></H4>
+
+<A NAME="1268898">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1268884">styleObject</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1268889">
+A <A HREF="style.htm#1193137"><CODE>Style</CODE></A> object.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1268891">length</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1268893">
+A string evaluating to a size followed by a unit of measurement; for example, <CODE>10pt</CODE>.</A></P>
+
+</TABLE>
+</A></P>
+<A NAME="1250886">
+The <CODE>borderBottomWidth</CODE> property is a reflection of the cascading style sheet <CODE>border-bottom-width</CODE> property.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1247996">
+ See also
+</A></H4>
+
+<A NAME="1248006">
+<A HREF="style.htm#1213331"><CODE>Style.borderLeftWidth</CODE></A>, <A HREF="style.htm#1213357"><CODE>Style.borderRightWidth</CODE></A>, <A HREF="style.htm#1213415"><CODE>Style.borderTopWidth</CODE></A>, <A HREF="style.htm#1263665"><CODE>Style.borderWidths</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1213303">
+borderColor
+</A></H2>
+
+<A NAME="1213316">
+Specifies the color of the border of an HTML element.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1213306">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1213311">
+<A HREF="style.htm#1193137"><CODE>Style</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1213313">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1213315">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1269496">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1269497"><I>styleObject</I>.borderColor = {none | <I>colorValue</I>}</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1269498">
+ Parameters
+</A></H4>
+
+<A NAME="1269511">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1269501">styleObject</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1269506">
+A <A HREF="style.htm#1193137"><CODE>Style</CODE></A> object.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1269508">colorValue</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1269510">
+A string evaluating to a color value, as described in <A HREF="colors.htm#1002170">Appendix B, "Color Values."</A></A></P>
+
+</TABLE>
+</A></P>
+<A NAME="1250487">
+The <CODE>borderColor</CODE> property is a reflection of the cascading style sheet <CODE>border-color</CODE> property.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1213331">
+borderLeftWidth
+</A></H2>
+
+<A NAME="1213344">
+Specifies the width of the left border of an HTML element.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1213334">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1213339">
+<A HREF="style.htm#1193137"><CODE>Style</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1213341">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1213343">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1269094">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1269095"><I>styleObject</I>.borderLeftWidth = <I>length</I></A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1269096">
+ Parameters
+</A></H4>
+
+<A NAME="1269109">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1269099">styleObject</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1269104">
+A <A HREF="style.htm#1193137"><CODE>Style</CODE></A> object.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1269106">length</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1269108">
+A string evaluating to a size followed by a unit of measurement; for example, <CODE>10pt</CODE>.</A></P>
+
+</TABLE>
+</A></P>
+<A NAME="1246600">
+The <CODE>borderLeftWidth</CODE> property is a reflection of the cascading style sheet <CODE>border-left-width</CODE> property.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1248058">
+ See also
+</A></H4>
+
+<A NAME="1248068">
+<A HREF="style.htm#1258498"><CODE>Style.borderBottomWidth</CODE></A>, <A HREF="style.htm#1213357"><CODE>Style.borderRightWidth</CODE></A>, <A HREF="style.htm#1213415"><CODE>Style.borderTopWidth</CODE></A>, <A HREF="style.htm#1263665"><CODE>Style.borderWidths</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1213357">
+borderRightWidth
+</A></H2>
+
+<A NAME="1213370">
+Specifies the width of the right border of an HTML element.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1213360">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1213365">
+<A HREF="style.htm#1193137"><CODE>Style</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1213367">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1213369">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1269141">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1269142"><I>styleObject</I>.borderRightWidth = <I>length</I></A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1269143">
+ Parameters
+</A></H4>
+
+<A NAME="1269156">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1269146">styleObject</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1269151">
+A <A HREF="style.htm#1193137"><CODE>Style</CODE></A> object.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1269153">length</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1269155">
+A string evaluating to a size followed by a unit of measurement; for example, <CODE>10pt</CODE>.</A></P>
+
+</TABLE>
+</A></P>
+<A NAME="1246968">
+The <CODE>borderRightWidth</CODE> property is a reflection of the cascading style sheet <CODE>border-right-width</CODE> property.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1248101">
+ See also
+</A></H4>
+
+<A NAME="1248111">
+<A HREF="style.htm#1258498"><CODE>Style.borderBottomWidth</CODE></A>, <A HREF="style.htm#1213331"><CODE>Style.borderLeftWidth</CODE></A>, <A HREF="style.htm#1213415"><CODE>Style.borderTopWidth</CODE></A>, <A HREF="style.htm#1263665"><CODE>Style.borderWidths</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1213385">
+borderStyle
+</A></H2>
+
+<A NAME="1213398">
+Specifies the style of border, such as solid or double, around a block-level HTML element.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1213388">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1213393">
+<A HREF="style.htm#1193137"><CODE>Style</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1213395">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1213397">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1269342">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1269343"><I>styleObject</I>.borderStyle = <I>styleType</I></A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1269344">
+ Parameters
+</A></H4>
+
+<A NAME="1269357">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1269347">styleObject</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1269352">
+A <A HREF="style.htm#1193137"><CODE>Style</CODE></A> object.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1269396">styleType</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1269398">
+A string evaluating to any of the following keywords:</A></P><ul></P><LI><A NAME="1269399">
+<CODE>none</CODE></A></P><LI><A NAME="1269400">
+<CODE>solid</CODE></A></P><LI><A NAME="1269401">
+<CODE>double</CODE></A></P><LI><A NAME="1269402">
+<CODE>inset</CODE></A></P><LI><A NAME="1269403">
+<CODE>outset</CODE></A></P><LI><A NAME="1269444">
+<CODE>groove</CODE></A></P><LI><A NAME="1269469">
+<CODE>ridge</CODE></A></ul>
+
+</TABLE>
+</A></P>
+<A NAME="1250107">
+You must also specify a border width for the border to be visible.</A></P>
+<A NAME="1250370">
+The <CODE>borderStyle</CODE> property is a reflection of the cascading style sheet <CODE>border-style</CODE> property.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1213415">
+borderTopWidth
+</A></H2>
+
+<A NAME="1213428">
+Specifies the width of the top border of an HTML element.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1213418">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1213423">
+<A HREF="style.htm#1193137"><CODE>Style</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1213425">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1213427">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1269276">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1269277"><I>styleObject</I>.borderTopWidth = <I>length</I></A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1269278">
+ Parameters
+</A></H4>
+
+<A NAME="1269291">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1269281">styleObject</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1269286">
+A <A HREF="style.htm#1193137"><CODE>Style</CODE></A> object.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1269288">length</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1269290">
+A string evaluating to a size followed by a unit of measurement; for example, <CODE>10pt</CODE>.</A></P>
+
+</TABLE>
+</A></P>
+<A NAME="1247728">
+The <CODE>borderTopWidth</CODE> property is a reflection of the cascading style sheet <CODE>border-top-width</CODE> property.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1248341">
+ See also
+</A></H4>
+
+<A NAME="1248351">
+<A HREF="style.htm#1258498"><CODE>Style.borderBottomWidth</CODE></A>, <A HREF="style.htm#1213331"><CODE>Style.borderLeftWidth</CODE></A>, <A HREF="style.htm#1213357"><CODE>Style.borderRightWidth</CODE></A>, <A HREF="style.htm#1263665"><CODE>Style.borderWidths</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1263665">
+borderWidths
+</A></H2>
+
+<A NAME="1263678">
+Specifies the width of the borders of an HTML element.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1263668">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1263673">
+<A HREF="style.htm#1193137"><CODE>Style</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1263675">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1263677">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1263679">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1263680">borderWidths(<I>top, right, bottom, left</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1263681">
+ Parameters
+</A></H4>
+
+<A NAME="1263711">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1263684">top</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1263689">
+A string specifying the value of the <A HREF="style.htm#1213415"><CODE>Style.borderTopWidth</CODE></A> property.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1263691">right</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1263696">
+A string specifying the value of the <A HREF="style.htm#1213357"><CODE>Style.borderRightWidth</CODE></A> property.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1263698">bottom</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1263703">
+A string specifying the value of the <A HREF="style.htm#1258498"><CODE>Style.borderBottomWidth</CODE></A> property.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1263705">left</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1263710">
+A string specifying the value of the <A HREF="style.htm#1213331"><CODE>Style.borderLeftWidth</CODE></A> property.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1263712">
+ Description
+</A></H4>
+
+<A NAME="1263713">
+The <CODE>borderWidths</CODE> method is a convenience shortcut for setting all the border width properties.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1263714">
+ See also
+</A></H4>
+
+<A NAME="1263721">
+<A HREF="style.htm#1258498"><CODE>Style.borderBottomWidth</CODE></A>, <A HREF="style.htm#1213331"><CODE>Style.borderLeftWidth</CODE></A>, <A HREF="style.htm#1213357"><CODE>Style.borderRightWidth</CODE></A>, <A HREF="style.htm#1213415"><CODE>Style.borderTopWidth</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1213452">
+clear
+</A></H2>
+
+<A NAME="1213465">
+Specifies the sides of an HTML element that allow floating elements.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1213455">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1213460">
+<A HREF="style.htm#1193137"><CODE>Style</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1213462">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1213464">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1269911">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1269912"><I>styleObject</I>.clear = {left | right | both | none}</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1269913">
+ Parameters
+</A></H4>
+
+<A NAME="1269922">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1269916">styleObject</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1269921">
+A <A HREF="style.htm#1193137"><CODE>Style</CODE></A> object.</A></P>
+
+</TABLE>
+</A></P>
+<A NAME="1256759">
+The <CODE>clear</CODE> property is a reflection of the cascading style sheet <CODE>clear</CODE> property.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1213484">
+color
+</A></H2>
+
+<A NAME="1213497">
+Specifies the color of the text in an HTML element.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1213487">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1213492">
+<A HREF="style.htm#1193137"><CODE>Style</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1213494">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1213496">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1269980">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1269981"><I>styleObject</I>.color = <I>colorValue</I></A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1269982">
+ Parameters
+</A></H4>
+
+<A NAME="1269998">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1269985">styleObject</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1269990">
+A <A HREF="style.htm#1193137"><CODE>Style</CODE></A> object.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1269992">colorValue</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1269994">
+A string evaluating to a color value, as described in <A HREF="colors.htm#1002170">Appendix B, "Color Values."</A></A></P>
+
+</TABLE>
+</A></P>
+<A NAME="1257158">
+The <CODE>color</CODE> property is a reflection of the cascading style <CODE>color</CODE> property.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1213510">
+display
+</A></H2>
+
+<A NAME="1213523">
+Overrides the usual display of an element and specifies whether the element appears in line, as a block-level element, or as a block-level list item.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1213513">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1213518">
+<A HREF="style.htm#1193137"><CODE>Style</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1213520">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1213522">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1270202">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1270203"><I>styleObject</I>.display = <I>styleType</I></A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1270204">
+ Parameters
+</A></H4>
+
+<A NAME="1270224">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1270207">styleObject</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1270212">
+A <A HREF="style.htm#1193137"><CODE>Style</CODE></A> object.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1270214">styleType</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1270216">
+A string evaluating to any of the following keywords:</A></P><ul></P><LI><A NAME="1270217">
+<CODE>none</CODE></A></P><LI><A NAME="1270218">
+<CODE>block</CODE></A></P><LI><A NAME="1270219">
+<CODE>inline</CODE></A></P><LI><A NAME="1270220">
+<CODE>list-item</CODE></A></ul>
+
+</TABLE>
+</A></P>
+<A NAME="1260079">
+The <CODE>display</CODE> property is a reflection of the cascading style <CODE>display</CODE> property.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1213546">
+fontFamily
+</A></H2>
+
+<A NAME="1213559">
+Specifies the font family, such as Helvetica or Arial, for an HTML text element.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1213549">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1213554">
+<A HREF="style.htm#1193137"><CODE>Style</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1213556">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1213558">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1266019">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1266020"><I>styleObject</I>.fontFamily = {<I>specificFamily</I> | <I>genericFamily</I>}</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1266021">
+ Parameters
+</A></H4>
+
+<A NAME="1266055">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1266533">styleObject</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1266538">
+A <A HREF="style.htm#1193137"><CODE>Style</CODE></A> object.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1266024">specificFamily</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1266029">
+A string evaluating to a comma-separated list of specific font families, such as <CODE>Helvetica</CODE> or <CODE>Arial</CODE>.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1266031">genericFamily</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1266033">
+A string evaluating to any of the following keywords:</A></P><ul></P><LI><A NAME="1266034">
+<CODE>serif</CODE></A></P><LI><A NAME="1266035">
+<CODE>sans-serif</CODE></A></P><LI><A NAME="1266036">
+<CODE>cursive</CODE></A></P><LI><A NAME="1266037">
+<CODE>monospace</CODE></A></P><LI><A NAME="1266038">
+<CODE>fantasy</CODE></A></ul>
+
+</TABLE>
+</A></P>
+<A NAME="1266056">
+The <CODE>fontFamily</CODE> property is a reflection of the cascading style sheet <CODE>font-family</CODE> property. The <I>genericFamily</I> keywords are available for all platforms, but the specific font displayed varies on each platform.</A></P>
+<A NAME="1266408">
+You can mix the <I>specificFamily</I> and <I>genericFamily</I> keywords in the same value. For example, the following code displays text in Helvetica if that font is available; otherwise, the text displays in a sans-serif font determined by the operating system:</A></P>
+<PRE><A NAME="1266461">document.tags.H1.fontFamily = "Helvetica, sans-serif"</A></PRE><A NAME="1266603">
+You can also link to a font definition file and download it when a browser loads the web page, guaranteeing that all the fonts are available on a user's system. See <A HREF="http://developer.netscape.com/docs/manuals/communicator/dynhtml/index.htm" TARGET="_top"><I>Dynamic HTML in Netscape Communicator</I></A>.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1213658">
+fontSize
+</A></H2>
+
+<A NAME="1218724">
+Specifies the font size for an HTML text element.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1218714">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1218719">
+<A HREF="style.htm#1193137"><CODE>Style</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1218721">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1218723">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1266481">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1266482"><I>styleObject</I>.fontSize =<br>&nbsp;&nbsp;&nbsp;{<I>absoluteSize</I> | <I>relativeSize</I> | <I>length</I> | <I>percentage</I>}</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1266483">
+ Parameters
+</A></H4>
+
+<A NAME="1266517">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1266486">styleObject</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1266491">
+A <A HREF="style.htm#1193137"><CODE>Style</CODE></A> object.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1266493">absoluteSize</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1266495">
+A string evaluating to any of the following keywords:</A></P><ul></P><LI><A NAME="1266496">
+<CODE>xx-small</CODE></A></P><LI><A NAME="1266497">
+<CODE>x-small</CODE></A></P><LI><A NAME="1266498">
+<CODE>small</CODE></A></P><LI><A NAME="1266499">
+<CODE>medium</CODE></A></P><LI><A NAME="1266500">
+<CODE>large</CODE></A></P><LI><A NAME="1266501">
+<CODE>x-large</CODE></A></P><LI><A NAME="1266502">
+<CODE>xx-large</CODE></A></ul>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1266504">relativeSize</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1266506">
+A string evaluating to a size relative to the size of the parent element, indicated by either of the following keywords:</A></P><ul></P><LI><A NAME="1266507">
+<CODE>smaller</CODE></A></P><LI><A NAME="1266508">
+<CODE>larger</CODE></A></ul>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1266510">length</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1266512">
+A string evaluating to a size followed by a unit of measurement; for example, <CODE>18pt</CODE>.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1266514">percentage</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1266516">
+A string evaluating to a percent of the size of the parent element; for example, <CODE>50%</CODE>.</A></P>
+
+</TABLE>
+</A></P>
+<A NAME="1266518">
+The <CODE>fontSize</CODE> property is a reflection of the cascading style sheet <CODE>font-size</CODE> property. By default, the initial value is <CODE>medium</CODE>.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1218728">
+fontStyle
+</A></H2>
+
+<A NAME="1213699">
+Specifies the style of the font of an HTML element.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1213689">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1213694">
+<A HREF="style.htm#1193137"><CODE>Style</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1213696">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1213698">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1267193">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1267194"><I>styleObject</I>.fontStyle = <I>styleType</I></A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1267195">
+ Parameters
+</A></H4>
+
+<A NAME="1267220">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1267198">styleObject</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1267203">
+A <A HREF="style.htm#1193137"><CODE>Style</CODE></A> object.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1267205">styleType</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1267207">
+A string evaluating to either of the following keywords:</A></P><ul></P><LI><A NAME="1267208">
+<CODE>normal</CODE></A></P><LI><A NAME="1267209">
+<CODE>italic</CODE></A></ul>
+
+</TABLE>
+</A></P>
+<A NAME="1221558">
+The <CODE>fontStyle</CODE> property is a reflection of the cascading style sheet <CODE>font-style</CODE> property.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1213714">
+fontWeight
+</A></H2>
+
+<A NAME="1213727">
+Specifies the weight of the font of an HTML element.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1213717">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1213722">
+<A HREF="style.htm#1193137"><CODE>Style</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1213724">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1213726">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1266640">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1266641"><I>styleObject</I>.fontWeight = {<I>absolute</I> | <I>relative</I> | <I>numeric</I>}</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1266642">
+ Parameters
+</A></H4>
+
+<A NAME="1266664">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1266645">styleObject</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1266650">
+A <A HREF="style.htm#1193137"><CODE>Style</CODE></A> object.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1266652">absolute</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1266654">
+A string evaluating to either of the following keywords:</A></P><ul></P><LI><A NAME="1266813">
+<CODE>normal</CODE></A></P><LI><A NAME="1266890">
+<CODE>bold</CODE></A></ul>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1266656">relative</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1267110">
+A string evaluating to a weight relative to the weight of the parent element, indicated by either of the following keywords:</A></P><ul></P><LI><A NAME="1266932">
+<CODE>bolder</CODE></A></P><LI><A NAME="1266933">
+<CODE>lighter</CODE></A></ul>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1267023">numeric</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1267025">
+A string evaluating to a numeric value between 100 and 900, where 100 indicates the lightest weight and 900 indicates the heaviest weight.</A></P>
+
+</TABLE>
+</A></P>
+<A NAME="1221523">
+The <CODE>fontWeight</CODE> property is a reflection of the cascading style sheet <CODE>font-weight</CODE> property.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1213576">
+lineHeight
+</A></H2>
+
+<A NAME="1213589">
+Specifies the distance between the baselines of two adjacent lines of block-level type.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1213579">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1213584">
+<A HREF="style.htm#1193137"><CODE>Style</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1213586">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1213588">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1270870">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1270871"><I>styleObject</I>.lineHeight = {<I>number</I> | <I>length</I> | <I>percentage</I> | normal}</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1270872">
+ Parameters
+</A></H4>
+
+<A NAME="1270893">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1270875">styleObject</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1270880">
+A <A HREF="style.htm#1193137"><CODE>Style</CODE></A> object.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1270983">number</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1271129">
+A string evaluating to a size without a unit of measurement; for example, <CODE>1.2</CODE>.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1270882">length</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1270884">
+A string evaluating to a size followed by a unit of measurement; for example, <CODE>10pt</CODE>.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1270886">percentage</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1270888">
+A string evaluating to a percentage of the parent element's width; for example, <CODE>20%</CODE>.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1270890">normal</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1270892">
+The string normal, indicating that the line height is determined automatically by Navigator.</A></P>
+
+</TABLE>
+</A></P>
+<A NAME="1271239">
+The <CODE>lineHeight</CODE> property is a reflection of the cascading style sheet <CODE>line-height</CODE> property.</A></P>
+<A NAME="1271240">
+When you set the <CODE>lineHeight</CODE> property by specifying <I><CODE>number</CODE></I>, Navigator calculates the line height by multiplying the font size of the current element by <I><CODE>number</CODE></I>. For example, if <CODE>lineHeight</CODE> is set to 1.2 in a paragraph using a 10-point font, the line height is 12 points.</A></P>
+<A NAME="1271347">
+When you set <CODE>lineHeight</CODE> with <I><CODE>number</CODE></I>, children of the current paragraph inherit the line height <I>factor</I>; when you set <CODE>lineHeight</CODE> with <I><CODE>length</CODE></I> or <I><CODE>percentage</CODE></I>, children inherit the <I>resulting value</I>.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1271243">
+listStyleType
+</A></H2>
+
+<A NAME="1213614">
+Specifies the style of bullet displayed for list items.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1213604">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1213609">
+<A HREF="style.htm#1193137"><CODE>Style</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1213611">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1213613">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1270411">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1270412"><I>styleObject</I>.listStyleType = <I>styleType</I></A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1270413">
+ Parameters
+</A></H4>
+
+<A NAME="1270433">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1270416">styleObject</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1270421">
+A <A HREF="style.htm#1193137"><CODE>Style</CODE></A> object.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1270423">styleType</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1270425">
+A string evaluating to any of the following keywords:</A></P><ul></P><LI><A NAME="1270426">
+<CODE>disc</CODE></A></P><LI><A NAME="1270427">
+<CODE>circle</CODE></A></P><LI><A NAME="1270428">
+<CODE>square</CODE></A></P><LI><A NAME="1270429">
+<CODE>decimal</CODE></A></P><LI><A NAME="1270430">
+<CODE>lower-roman</CODE></A></P><LI><A NAME="1270431">
+<CODE>upper-roman</CODE></A></P><LI><A NAME="1270432">
+<CODE>lower-alpha</CODE></A></P><LI><A NAME="1270605">
+<CODE>upper-alpha</CODE></A></P><LI><A NAME="1270642">
+<CODE>none</CODE></A></ul>
+
+</TABLE>
+</A></P>
+<A NAME="1260300">
+The <CODE>listStyleType</CODE> property is a reflection of the cascading style sheet <CODE>list-style-type</CODE> property.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1213629">
+marginBottom
+</A></H2>
+
+<A NAME="1213642">
+Specifies the minimal distance between the bottom of an HTML element and the top of an adjacent element.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1213632">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1213637">
+<A HREF="style.htm#1193137"><CODE>Style</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1213639">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1213641">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1268082">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1268083"><I>styleObject</I>.marginBottom = {<I>length</I> | <I>percentage</I> | auto}</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1268084">
+ Parameters
+</A></H4>
+
+<A NAME="1268101">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1268087">styleObject</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1268092">
+A <A HREF="style.htm#1193137"><CODE>Style</CODE></A> object.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1268094">length</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1268096">
+A string evaluating to a size followed by a unit of measurement; for example, <CODE>10pt</CODE>.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1268098">percentage</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1268100">
+A string evaluating to a percentage of the parent element's width; for example, <CODE>20%</CODE>.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1268144">auto</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1268146">
+The string auto, indicating that the margin is determined automatically by Navigator.</A></P>
+
+</TABLE>
+</A></P>
+<A NAME="1233793">
+The <CODE>marginBottom</CODE> property is a reflection of the cascading style sheet <CODE>margin-bottom</CODE> property.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1240529">
+ See also
+</A></H4>
+
+<A NAME="1240536">
+<A HREF="style.htm#1213757"><CODE>Style.marginLeft</CODE></A>, <A HREF="style.htm#1213789"><CODE>Style.marginRight</CODE></A>, <A HREF="style.htm#1213815"><CODE>Style.marginTop</CODE></A>, <A HREF="style.htm#1264235"><CODE>Style.margins</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1213757">
+marginLeft
+</A></H2>
+
+<A NAME="1213770">
+Specifies the minimal distance between the left side of an HTML element and the right side of an adjacent element.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1213760">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1213765">
+<A HREF="style.htm#1193137"><CODE>Style</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1213767">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1213769">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1268261">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1268262"><I>styleObject</I>.marginLeft = {<I>length</I> | <I>percentage</I> | auto}</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1268263">
+ Parameters
+</A></H4>
+
+<A NAME="1268284">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1268266">styleObject</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1268271">
+A <A HREF="style.htm#1193137"><CODE>Style</CODE></A> object.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1268273">length</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1268275">
+A string evaluating to a size followed by a unit of measurement; for example, <CODE>10pt</CODE>.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1268277">percentage</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1268279">
+A string evaluating to a percentage of the parent element's width; for example, <CODE>20%</CODE>.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1268281">auto</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1268283">
+The string auto, indicating that the margin is determined automatically by Navigator.</A></P>
+
+</TABLE>
+</A></P>
+<A NAME="1240350">
+The <CODE>marginLeft</CODE> property is a reflection of the cascading style sheet <CODE>margin-left</CODE> property.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1240727">
+ See also
+</A></H4>
+
+<A NAME="1240737">
+<A HREF="style.htm#1213629"><CODE>Style.marginBottom</CODE></A>, <A HREF="style.htm#1213789"><CODE>Style.marginRight</CODE></A>, <A HREF="style.htm#1213815"><CODE>Style.marginTop</CODE></A>, <A HREF="style.htm#1264235"><CODE>Style.margins</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1213789">
+marginRight
+</A></H2>
+
+<A NAME="1213802">
+Specifies the minimal distance between the right side of an HTML element and the left side of an adjacent element.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1213792">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1213797">
+<A HREF="style.htm#1193137"><CODE>Style</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1213799">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1213801">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1268336">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1268337"><I>styleObject</I>.marginRight = {<I>length</I> | <I>percentage</I> | auto}</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1268338">
+ Parameters
+</A></H4>
+
+<A NAME="1268359">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1268341">styleObject</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1268346">
+A <A HREF="style.htm#1193137"><CODE>Style</CODE></A> object.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1268348">length</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1268350">
+A string evaluating to a size followed by a unit of measurement; for example, <CODE>10pt</CODE>.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1268352">percentage</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1268354">
+A string evaluating to a percentage of the parent element's width; for example, <CODE>20%</CODE>.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1268356">auto</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1268358">
+The string auto, indicating that the margin is determined automatically by Navigator.</A></P>
+
+</TABLE>
+</A></P>
+<A NAME="1240386">
+The <CODE>marginRight</CODE> property is a reflection of the cascading style sheet <CODE>margin-right</CODE> property.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1240778">
+ See also
+</A></H4>
+
+<A NAME="1240788">
+<A HREF="style.htm#1213629"><CODE>Style.marginBottom</CODE></A>, <A HREF="style.htm#1213757"><CODE>Style.marginLeft</CODE></A>, <A HREF="style.htm#1213815"><CODE>Style.marginTop</CODE></A>, <A HREF="style.htm#1264235"><CODE>Style.margins</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1264235">
+margins
+</A></H2>
+
+<A NAME="1264236">
+Specifies the minimal distance between the sides of an HTML element and the sides of adjacent elements.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1264239">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1264244">
+<A HREF="style.htm#1193137"><CODE>Style</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1264246">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1264248">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1264249">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1264250">margins(<I>top, right, bottom, left</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1264251">
+ Parameters
+</A></H4>
+
+<A NAME="1264281">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1264254">top</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1264259">
+A string specifying the value of the <A HREF="style.htm#1213815"><CODE>Style.marginTop</CODE></A> property.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1264261">right</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1264266">
+A string specifying the value of the <A HREF="style.htm#1213789"><CODE>Style.marginRight</CODE></A> property.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1264268">bottom</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1264273">
+A string specifying the value of the <A HREF="style.htm#1213629"><CODE>Style.marginBottom</CODE></A> property.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1264275">left</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1264280">
+A string specifying the value of the <A HREF="style.htm#1213757"><CODE>Style.marginLeft</CODE></A> property.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1264282">
+ Description
+</A></H4>
+
+<A NAME="1264283">
+The <CODE>margins</CODE> method is a convenience shortcut for setting all the margin properties.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1264284">
+ See also
+</A></H4>
+
+<A NAME="1264294">
+<A HREF="style.htm#1213629"><CODE>Style.marginBottom</CODE></A>, <A HREF="style.htm#1213757"><CODE>Style.marginLeft</CODE></A>, <A HREF="style.htm#1213789"><CODE>Style.marginRight</CODE></A>, <A HREF="style.htm#1213815"><CODE>Style.marginTop</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1213815">
+marginTop
+</A></H2>
+
+<A NAME="1213828">
+Specifies the minimal distance between the top of an HTML element and the bottom of an adjacent element.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1213818">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1213823">
+<A HREF="style.htm#1193137"><CODE>Style</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1213825">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1213827">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1268429">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1268430"><I>styleObject</I>.marginTop = {<I>length</I> | <I>percentage</I> | auto}</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1268431">
+ Parameters
+</A></H4>
+
+<A NAME="1268452">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1268434">styleObject</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1268439">
+A <A HREF="style.htm#1193137"><CODE>Style</CODE></A> object.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1268441">length</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1268443">
+A string evaluating to a size followed by a unit of measurement; for example, <CODE>10pt</CODE>.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1268445">percentage</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1268447">
+A string evaluating to a percentage of the parent element's width; for example, <CODE>20%</CODE>.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1268449">auto</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1268451">
+The string auto, indicating that the margin is determined automatically by Navigator.</A></P>
+
+</TABLE>
+</A></P>
+<A NAME="1240413">
+The <CODE>marginTop</CODE> property is a reflection of the cascading style sheet <CODE>margin-top</CODE> property.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1240845">
+ See also
+</A></H4>
+
+<A NAME="1240855">
+<A HREF="style.htm#1213629"><CODE>Style.marginBottom</CODE></A>, <A HREF="style.htm#1213757"><CODE>Style.marginLeft</CODE></A>, <A HREF="style.htm#1213789"><CODE>Style.marginRight</CODE></A>, <A HREF="style.htm#1264235"><CODE>Style.margins</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1213849">
+paddingBottom
+</A></H2>
+
+<A NAME="1213862">
+Specifies how much space to insert between the bottom of an element and its content, such as text or an image.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1213852">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1213857">
+<A HREF="style.htm#1193137"><CODE>Style</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1213859">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1213861">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1268509">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1268510"><I>styleObject</I>.paddingBottom = {<I>length</I> | <I>percentage</I>}</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1268511">
+ Parameters
+</A></H4>
+
+<A NAME="1268532">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1268514">styleObject</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1268519">
+A <A HREF="style.htm#1193137"><CODE>Style</CODE></A> object.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1268521">length</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1268523">
+A string evaluating to a size followed by a unit of measurement; for example, <CODE>10pt</CODE>.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1268525">percentage</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1268527">
+A string evaluating to a percentage of the parent element's width; for example, <CODE>20%</CODE>.</A></P>
+
+</TABLE>
+</A></P>
+<A NAME="1241086">
+The <CODE>paddingBottom</CODE> property is a reflection of the cascading style sheet <CODE>padding-bottom</CODE> property.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1241473">
+ See also
+</A></H4>
+
+<A NAME="1241483">
+<A HREF="style.htm#1213885"><CODE>Style.paddingLeft</CODE></A>, <A HREF="style.htm#1213910"><CODE>Style.paddingRight</CODE></A>, <A HREF="style.htm#1213938"><CODE>Style.paddingTop</CODE></A>, <A HREF="style.htm#1264517"><CODE>Style.paddings</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1213885">
+paddingLeft
+</A></H2>
+
+<A NAME="1213898">
+Specifies how much space to insert between the left side of an element and its content, such as text or an image.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1213888">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1213893">
+<A HREF="style.htm#1193137"><CODE>Style</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1213895">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1213897">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1268693">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1268694"><I>styleObject</I>.paddingLeft = {<I>length</I> | <I>percentage</I>}</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1268695">
+ Parameters
+</A></H4>
+
+<A NAME="1268712">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1268698">styleObject</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1268703">
+A <A HREF="style.htm#1193137"><CODE>Style</CODE></A> object.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1268705">length</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1268707">
+A string evaluating to a size followed by a unit of measurement; for example, <CODE>10pt</CODE>.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1268709">percentage</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1268711">
+A string evaluating to a percentage of the parent element's width; for example, <CODE>20%</CODE>.</A></P>
+
+</TABLE>
+</A></P>
+<A NAME="1241224">
+The <CODE>paddingLeft</CODE> property is a reflection of the cascading style sheet <CODE>padding-left</CODE> property.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1241757">
+ See also
+</A></H4>
+
+<A NAME="1241720">
+<A HREF="style.htm#1213849"><CODE>Style.paddingBottom</CODE></A>, <A HREF="style.htm#1213910"><CODE>Style.paddingRight</CODE></A>, <A HREF="style.htm#1213938"><CODE>Style.paddingTop</CODE></A>, <A HREF="style.htm#1264517"><CODE>Style.paddings</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1213910">
+paddingRight
+</A></H2>
+
+<A NAME="1213923">
+Specifies how much space to insert between the right side of an element and its content, such as text or an image.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1213913">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1213918">
+<A HREF="style.htm#1193137"><CODE>Style</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1213920">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1213922">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1268752">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1268753"><I>styleObject</I>.paddingRight = {<I>length</I> | <I>percentage</I>}</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1268754">
+ Parameters
+</A></H4>
+
+<A NAME="1268771">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1268757">styleObject</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1268762">
+A <A HREF="style.htm#1193137"><CODE>Style</CODE></A> object.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1268764">length</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1268766">
+A string evaluating to a size followed by a unit of measurement; for example, <CODE>10pt</CODE>.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1268768">percentage</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1268770">
+A string evaluating to a percentage of the parent element's width; for example, <CODE>20%</CODE>.</A></P>
+
+</TABLE>
+</A></P>
+<A NAME="1241232">
+The <CODE>paddingRight</CODE> property is a reflection of the cascading style sheet <CODE>padding-right</CODE> property.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1241496">
+ See also
+</A></H4>
+
+<A NAME="1241912">
+<A HREF="style.htm#1213849"><CODE>Style.paddingBottom</CODE></A>, <A HREF="style.htm#1213885"><CODE>Style.paddingLeft</CODE></A>, <A HREF="style.htm#1213938"><CODE>Style.paddingTop</CODE></A>, <A HREF="style.htm#1264517"><CODE>Style.paddings</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1264517">
+paddings
+</A></H2>
+
+<A NAME="1264518">
+Specifies how much space to insert between the sides of an element and its content, such as text or an image.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1264521">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1264526">
+<A HREF="style.htm#1193137"><CODE>Style</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1264528">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1264530">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1264531">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1264532">paddings(<I>top, right, bottom, left</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1264533">
+ Parameters
+</A></H4>
+
+<A NAME="1264563">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1264536">top</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1264541">
+A string specifying the value of the <A HREF="style.htm#1213938"><CODE>Style.paddingTop</CODE></A> property.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1264543">right</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1264548">
+A string specifying the value of the <A HREF="style.htm#1213910"><CODE>Style.paddingRight</CODE></A> property.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1264550">bottom</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1264555">
+A string specifying the value of the <A HREF="style.htm#1213849"><CODE>Style.paddingBottom</CODE></A> property.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1264557">left</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1264562">
+A string specifying the value of the <A HREF="style.htm#1213885"><CODE>Style.paddingLeft</CODE></A> property.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1264564">
+ Description
+</A></H4>
+
+<A NAME="1264565">
+The <CODE>paddings</CODE> method is a convenience shortcut for setting all the padding properties.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1264566">
+ See also
+</A></H4>
+
+<A NAME="1264576">
+<A HREF="style.htm#1213849"><CODE>Style.paddingBottom</CODE></A>, <A HREF="style.htm#1213885"><CODE>Style.paddingLeft</CODE></A>, <A HREF="style.htm#1213910"><CODE>Style.paddingRight</CODE></A>, <A HREF="style.htm#1213938"><CODE>Style.paddingTop</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1213938">
+paddingTop
+</A></H2>
+
+<A NAME="1213951">
+Specifies how much space to insert between the top of an element and its content, such as text or an image.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1213941">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1213946">
+<A HREF="style.htm#1193137"><CODE>Style</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1213948">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1213950">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1268831">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1268832"><I>styleObject</I>.paddingTop = {<I>length</I> | <I>percentage</I>}</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1268833">
+ Parameters
+</A></H4>
+
+<A NAME="1268850">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1268836">styleObject</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1268841">
+A <A HREF="style.htm#1193137"><CODE>Style</CODE></A> object.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1268843">length</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1268845">
+A string evaluating to a size followed by a unit of measurement; for example, <CODE>10pt</CODE>.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1268847">percentage</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1268849">
+A string evaluating to a percentage of the parent element's width; for example, <CODE>20%</CODE>.</A></P>
+
+</TABLE>
+</A></P>
+<A NAME="1241256">
+The <CODE>paddingTop</CODE> property is a reflection of the cascading style sheet <CODE>padding-top</CODE> property.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1241519">
+ See also
+</A></H4>
+
+<A NAME="1242068">
+<A HREF="style.htm#1213849"><CODE>Style.paddingBottom</CODE></A>, <A HREF="style.htm#1213885"><CODE>Style.paddingLeft</CODE></A>, <A HREF="style.htm#1213910"><CODE>Style.paddingRight</CODE></A>, <A HREF="style.htm#1264517"><CODE>Style.paddings</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1213970">
+textAlign
+</A></H2>
+
+<A NAME="1213983">
+Specifies the alignment of an HTML block-level text element.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1213973">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1213978">
+<A HREF="style.htm#1193137"><CODE>Style</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1213980">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1213982">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1267875">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1267876"><I>styleObject</I>.textAlign = <I>alignment</I></A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1267877">
+ Parameters
+</A></H4>
+
+<A NAME="1267894">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1267880">styleObject</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1267885">
+A <A HREF="style.htm#1193137"><CODE>Style</CODE></A> object.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1267887">alignment</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1267889">
+A string evaluating to any of the following keywords:</A></P><ul></P><LI><A NAME="1267890">
+<CODE>left</CODE></A></P><LI><A NAME="1267891">
+<CODE>right</CODE></A></P><LI><A NAME="1267892">
+<CODE>center</CODE></A></P><LI><A NAME="1267893">
+<CODE>justify</CODE></A></ul>
+
+</TABLE>
+</A></P>
+<A NAME="1254300">
+Do not confuse <CODE>textAlign</CODE> with <A HREF="style.htm#1252548"><CODE>align</CODE></A>, which specifies the alignment of an HTML element within its parent.</A></P>
+<A NAME="1226517">
+The <CODE>textAlign</CODE> property is a reflection of the cascading style sheet <CODE>text-align</CODE> property.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1214004">
+textDecoration
+</A></H2>
+
+<A NAME="1214017">
+Specifies special effects, such as blinking, strike-outs, and underlines, added to an HTML text element.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1214007">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1214012">
+<A HREF="style.htm#1193137"><CODE>Style</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1214014">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1214016">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1267666">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1267667"><I>styleObject</I>.textDecoration = <I>decoration</I></A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1267668">
+ Parameters
+</A></H4>
+
+<A NAME="1267690">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1267671">styleObject</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1267676">
+A <A HREF="style.htm#1193137"><CODE>Style</CODE></A> object.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1267678">decoration</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1267719">
+A string evaluating to any of the following keywords:</A></P><ul></P><LI><A NAME="1267720">
+<CODE>none</CODE></A></P><LI><A NAME="1267721">
+<CODE>underline</CODE></A></P><LI><A NAME="1267722">
+<CODE>line-through</CODE></A></P><LI><A NAME="1267723">
+<CODE>blink</CODE></A></ul>
+
+</TABLE>
+</A></P>
+<A NAME="1267806">
+The <CODE>textDecoration</CODE> property is a reflection of the cascading style sheet <CODE>text-decoration</CODE> property.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1267809">
+textIndent
+</A></H2>
+
+<A NAME="1214047">
+Specifies the length of indentation appearing before the first formatted line of a block-level HTML text element.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1214037">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1214042">
+<A HREF="style.htm#1193137"><CODE>Style</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1214044">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1214046">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1267937">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1267938"><I>styleObject</I>.textIndent = {<I>length</I> | <I>percentage</I>}</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1267939">
+ Parameters
+</A></H4>
+
+<A NAME="1267973">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1267942">styleObject</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1267947">
+A <A HREF="style.htm#1193137"><CODE>Style</CODE></A> object.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1267966">length</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1267968">
+A string evaluating to a size followed by a unit of measurement; for example, <CODE>18pt</CODE>.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1267970">percentage</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1267972">
+A string evaluating to a percentage of the parent element's width; for example, <CODE>20%</CODE>.</A></P>
+
+</TABLE>
+</A></P>
+<A NAME="1227999">
+The <CODE>textIndent</CODE> property is a reflection of the cascading style sheet <CODE>text-indent</CODE> property.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1214059">
+textTransform
+</A></H2>
+
+<A NAME="1214072">
+Specifies the case of an HTML text element.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1214062">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1214067">
+<A HREF="style.htm#1193137"><CODE>Style</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1214069">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1214071">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1267829">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1267830"><I>styleObject</I>.textTransform = <I>transformation</I></A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1267831">
+ Parameters
+</A></H4>
+
+<A NAME="1267848">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1267834">styleObject</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1267839">
+A <A HREF="style.htm#1193137"><CODE>Style</CODE></A> object.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1267841">transformation</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1267843">
+A string evaluating to any of the following keywords:</A></P><ul></P><LI><A NAME="1267844">
+<CODE>none</CODE></A></P><LI><A NAME="1267845">
+<CODE>capitalize</CODE></A></P><LI><A NAME="1267846">
+<CODE>uppercase</CODE></A></P><LI><A NAME="1267847">
+<CODE>lowercase</CODE></A></ul>
+
+</TABLE>
+</A></P>
+<A NAME="1225779">
+The <CODE>textTransform</CODE> property is a reflection of the cascading style sheet <CODE>text-transform</CODE> property.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1214093">
+whiteSpace
+</A></H2>
+
+<A NAME="1216801">
+Specifies whether or not white space within an HTML element should be collapsed.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1216791">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1216796">
+<A HREF="style.htm#1193137"><CODE>Style</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1216798">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1216800">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1270681">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1270682"><I>styleObject</I>.whiteSpace = {normal | pre}</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1270683">
+ Parameters
+</A></H4>
+
+<A NAME="1270700">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1270686">styleObject</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1270691">
+A <A HREF="style.htm#1193137"><CODE>Style</CODE></A> object.</A></P>
+
+</TABLE>
+</A></P>
+<A NAME="1262848">
+The <CODE>whiteSpace</CODE> property is a reflection of the cascading style sheet <CODE>white-space</CODE> property.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1251851">
+width
+</A></H2>
+
+<A NAME="1251864">
+Specifies the width of a block-level HTML element.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1251854">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1251859">
+<A HREF="style.htm#1193137"><CODE>Style</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1251861">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1251863">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1269740">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1269741"><I>styleObject</I>.width = {<I>length</I> | <I>percentage</I> | auto}</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1269742">
+ Parameters
+</A></H4>
+
+<A NAME="1269763">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1269745">styleObject</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1269750">
+A <A HREF="style.htm#1193137"><CODE>Style</CODE></A> object.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1269752">length</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1269754">
+A string evaluating to a size followed by a unit of measurement; for example, <CODE>10pt</CODE>.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1269756">percentage</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1269758">
+A string evaluating to a percentage of the parent element's width; for example, <CODE>20%</CODE>.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1269760">auto</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1269762">
+The string auto, indicating that the width is determined automatically by Navigator.</A></P>
+
+</TABLE>
+</A></P>
+<A NAME="1252188">
+The <CODE>width</CODE> property is a reflection of the cascading style sheet <CODE>width</CODE> property.</A></P>
+<A NAME="1269778">
+The <A HREF="style.htm#1213757"><CODE>Style.marginLeft</CODE></A> and <A HREF="style.htm#1213789"><CODE>Style.marginRight</CODE></A> properties take precedence over the <A HREF="style.htm#1251851"><CODE>Style.width</CODE></A> property. For example, if <CODE>marginLeft</CODE> is set to 25%, <CODE>marginRight</CODE> is set to 10%, and <CODE>width</CODE> is set to 100%, Navigator ignores the <CODE>width</CODE> value and uses 65% for the <CODE>width</CODE> setting.</A></P>
+
+<HR>
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="string.htm">Previous</A>
+ | <A HREF="submit.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT>
+<P ALIGN=right>
+<FONT SIZE=-2><I>Last Updated:  05/28/99  12:00:32</I></FONT>
+<P> <CENTER>Copyright (c) 1999
+<A HREF="http://home.netscape.com/misc/contact_info.html"
+TARGET=_top>Netscape Communications Corporation</A></FONT>
+</CENTER>
+<P>
+</BODY>
+</HTML>
+
+

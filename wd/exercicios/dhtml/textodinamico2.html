@@ -1,0 +1,42 @@
+<html>
+<head>
+
+<script type="text/javascript">
+move=150
+var i=0
+var j=0
+var timer
+
+function moveheader()
+{
+header.style.position="relative"
+if (i<=move)
+	{
+		header.style.left=i
+		i++
+	}
+else
+	{
+	if (j<=move)
+		{
+		header.style.top=j
+		j++
+		}
+	}	
+timer=setTimeout("moveheader()",1)
+}
+
+function stoptimer()
+{
+	clearTimeout(timer)
+}
+</script>
+</head>
+<body onload="moveheader()" onunload="stoptimer()">
+
+<h1 id="header">Texto dinâmico</h1>
+
+</body>
+</html>
+
+

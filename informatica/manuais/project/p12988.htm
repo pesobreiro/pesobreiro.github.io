@@ -1,0 +1,77 @@
+<!doctype html public" -//IETF//DTD 	HTML//EN">
+<HTML>
+
+<HEAD>
+<SCRIPT LANGUAGE="JAVASCRIPT">
+<!-- 
+
+function checkbrowse()
+{
+var bn, bv, ver
+bn = navigator.appName;
+bv = parseInt(navigator.appVersion);
+if (bn=="Microsoft Internet Explorer" && bv<"4") ver = "IE3";
+else ver = "NotIE3";
+if (ver=="IE3") top.cont.parts.location.href="part12.htm";
+if (ver=="NotIE3") top.cont.parts.location.href="nav/part12.htm";
+}
+//-->
+</SCRIPT>
+<TITLE>Decrease a Resource’s Work on a Task</TITLE>
+<META NAME="GENERATOR" 	CONTENT="Merch. System HTML Development">
+<META NAME="AUTHOR" 	CONTENT="Merch. System HTML Development">
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" OnLoad="checkbrowse();">
+<Font Face ="Verdana, Arial, Helvetica">
+
+<P align=right><SMALL>
+<A HREF="p12987.htm" Target="TOC"><IMG SRC="prev.gif"ALT="Previous page"BORDER=0></A>
+<A HREF="p12981.htm" Target="TOC"><IMG SRC="toc12.gif"ALT="Contents"BORDER=0></A>
+<A HREF="p12989.htm" Target="TOC"><IMG SRC="Next.gif"ALT="Next 
+page"BORDER=0></A></SMALL></P>
+<H2>Decrease a Resource’s Work on a Task</H2>
+
+<P>
+If a resource is overallocated and you don’t want to reschedule or remove some of the resource’s tasks, and 
+you can’t allow the durations of the tasks to increase, there’s another option. You can decrease the scope of 
+one of the resource’s tasks during the period of overallocation, and thus reduce the amount of work required of 
+that resource.
+<P>
+When you decrease the total work on a task, Microsoft Project (by default) decreases the duration of the task.
+<P>
+<B><B><img src="bluetri.gif">	To decrease the amount of work assigned to a resource</B></B>
+<OL>
+<LI>On the <B>View Bar</B>, click <B>Resource Usage</B> <img src="resu.gif">.
+<BR>Tasks are listed underneath the resources to which they are assigned. Overallocated resources are 
+highlighted in red and displayed with an icon in the <B>Indicators</B> field.
+<LI>In the <B>Work</B> field for the tasks to which the overallocated resource is assigned, type a lesser 
+value until the overallocation is removed.
+</OL>
+<P>
+For each resource, the Resource Usage view shows the total hours the resource is working, the hours the 
+resource is working on each task, and the hours worked per time period on the timescale. You can see a 
+graphical representation of overallocated resources in the Resource Graph view.
+<P>
+You may want the duration of a task to remain the same after you decrease the work assigned to it. When you 
+decrease the work assigned to a task that has a fixed duration, Microsoft Project decreases the resource units 
+assigned to the task. For example, a resource is assigned to a 2-day task at 100 percent resource units. If you 
+decrease the total amount of work for that task to 1 day but still want the work to be completed in 2 days, 
+Microsoft Project automatically reduces the resource’s units on that task to 50 percent. That is, the resource is 
+now assigned to work on the task half-time on each of 2 days.
+<P>
+<B><B><img src="bluetri.gif">	To keep the duration of a task constant after you decrease the amount of 
+work assigned to a resource</B></B>
+<OL>
+<LI>On the <B>View Bar</B>, click <B>Gantt Chart</B> <img src="gant.gif">.
+<LI>In the <B>Task Name</B> field, select the task whose duration you want unchanged, and then click 
+<B>Task Information </B><img src="tasi.gif">.
+<LI>Click the <B>Advanced</B> tab.
+<LI>In the <B>Task type</B> box, click <B>Fixed Duration</B>.
+</OL>
+<P align = Center > <A HREF="http://www.microsoft.com/misc/cpyright.htm"><EM>&#169;1996-1997 Microsoft Corporation. All rights 
+reserved.</EM></A></P>
+</BODY>
+</FONT>
+</HTML>
+

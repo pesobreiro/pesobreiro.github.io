@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title>HTML table of contents</title>
+<!-- WebSphere InfoCenter Version 1.4 - 09/14/2001                          -->
+<!--                                                                        --> 
+<!-- (C) COPYRIGHT International Business Machines Corp. 2000, 2001         --> 
+<!-- All Rights Reserved                                                    --> 
+<!-- Licensed Materials - Property of IBM                                   --> 
+<!--                                                                        --> 
+<!-- US Government Users Restricted Rights - Use, duplication or            --> 
+<!-- disclosure restricted by GSA ADP Schedule Contract with IBM Corp.      --> 
+<!--                                                                        -->
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.rsac.org/ratingsv01.html" l gen true comment "RSACi North America Server" by "epc@www.ibm.com" for "http://www.ibm.com/" on "1997.07.05T21:46-0500" r (n 0 s 0 v 0 l 0))' />
+<meta http-equiv="PICS-Label" content='(PICS-1.0 "http://www.classify.org/safesurf/" l gen true for "http://www.ibm.com/" by "epc@www.ibm.com" r (SS~~000 1 SS~~100 1))' />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<link href="websphere.css" rel="stylesheet" />
+<base target="Main" />
+</head>
+
+<body class="nav">
+<table class="nav" name="nav">
+
+<!-- replace with the name and link for your product documentation -->
+<tr>
+<td class="nav">
+<UL>
+  <LI><A name="TOC1" href="uddireg_content/uddi/index.htm#SEC1">Introduction</A>
+  <UL>
+    <LI><A name="TOC2" href="uddireg_content/uddi/index.htm#SEC2">Overview</A>
+  </UL>
+  <LI><A name="TOC3" href="uddireg_content/uddi/index.htm#SEC3">Prerequisites</A>
+  <LI><A name="TOC4" href="uddireg_content/uddi/index.htm#SEC4">Target Operating System</A>
+  <LI><A name="TOC5" href="uddireg_content/uddi/index.htm#SEC5">Application Programming Interface</A>
+  <LI><A name="TOC6" href="uddireg_content/uddi/index.htm#SEC6">Installing the UDDI Registry</A>
+  <LI><A name="TOC7" href="uddireg_content/uddi/index.htm#SEC7">Uninstalling the UDDI Registry</A>
+  <LI><A name="TOC8" href="uddireg_content/uddi/index.htm#SEC8">Configuring the UDDI Registry</A>
+  <UL>
+    <LI><A name="TOC9" href="uddireg_content/uddi/index.htm#SEC9">Global Configuration</A>
+    <LI><A name="TOC10" href="uddireg_content/uddi/index.htm#SEC10">User Console (GUI)</A>
+    <LI><A name="TOC11" href="uddireg_content/uddi/index.htm#SEC11">SOAP Interface</A>
+    <LI><A name="TOC12" href="uddireg_content/uddi/index.htm#SEC12">Running the WebSphere Application Assembly
+    Tool</A>
+    <LI><A name="TOC13" href="uddireg_content/uddi/index.htm#SEC13">Editing the deployment descriptor</A>
+  </UL>
+  <LI><A name="TOC14" href="uddireg_content/uddi/index.htm#SEC14">Graphical User Interface</A>
+  <LI><A name="TOC15" href="uddireg_content/uddi/index.htm#SEC15">Messages</A>
+  <UL>
+    <LI><A name="TOC16" href="uddireg_content/uddi/index.htm#SEC16">UDDI Message table</A>
+  </UL>
+  <LI><A name="TOC17" href="uddireg_content/uddi/index.htm#SEC17">Samples</A>
+  <UL>
+    <LI><A name="TOC18" href="uddireg_content/uddi/index.htm#SEC18">API calls</A>
+    <UL>
+      <LI><A name="TOC19" href="uddireg_content/uddi/index.htm#SEC19">SOAPSample1a - tModel</A>
+      <LI><A name="TOC20" href="uddireg_content/uddi/index.htm#SEC20">SOAPSample1b - businessEntity</A>
+      <LI><A name="TOC21" href="uddireg_content/uddi/index.htm#SEC21">SOAPSample1c - businessService</A>
+      <LI><A name="TOC22" href="uddireg_content/uddi/index.htm#SEC22">SOAPSample1d - all together</A>
+      <LI><A name="TOC23" href="uddireg_content/uddi/index.htm#SEC23">Configuring</A>
+      <LI><A name="TOC24" href="uddireg_content/uddi/index.htm#SEC24">Classpath</A>
+      <LI><A name="TOC25" href="uddireg_content/uddi/index.htm#SEC25">Compiling the samples</A>
+      <LI><A name="TOC26" href="uddireg_content/uddi/index.htm#SEC26">Running the samples</A>
+    </UL>
+    <LI><A name="TOC27" href="uddireg_content/uddi/index.htm#SEC27">Output to the console</A>
+  </UL>
+  <LI><A name="TOC28" href="uddireg_content/uddi/index.htm#SEC28">Feedback</A>
+</UL>
+
+</td></tr>
+</table>
+</body>
+</html>

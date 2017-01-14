@@ -1,0 +1,95 @@
+<HTML>
+<HEAD>
+<TITLE>
+</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="javobj.htm">Previous</A>
+ | <A HREF="layer.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT><BR><BR>
+<HR>
+
+<H1><A NAME="JavaPackage"></A>
+<A NAME="1193137">
+ JavaPackage
+</A></H1>
+<A NAME="1193151">
+A JavaScript reference to a Java package.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193140">
+<I>Core object</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193142">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193144">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193146">
+JavaScript 1.1, NES 2.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193152">
+ Created by
+</A></H4>
+
+<A NAME="1193153">
+A reference to the package name used with the <CODE>Packages</CODE> keyword:</A></P>
+<PRE><A NAME="1196676">Packages.<I>JavaPackage</I></A></PRE><A NAME="1196829">
+where <I>JavaPackage</I> is the name of the object's Java package. If the package is in the <CODE>java</CODE>, <CODE>netscape</CODE>, or <CODE>sun</CODE> packages, the <CODE>Packages</CODE> keyword is optional.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193162">
+ Description
+</A></H4>
+
+<A NAME="1197167">
+In Java, a package is a collection of Java classes or other Java packages. For example, the <CODE>netscape</CODE> package contains the package <CODE>netscape.javascript</CODE>; the <CODE>netscape.javascript</CODE> package contains the classes <CODE>JSObject</CODE> and <CODE>JSException.</CODE></A></P>
+<A NAME="1198245">
+In JavaScript, a <CODE>JavaPackage</CODE> is a reference to a Java package. For example, a reference to <CODE>netscape</CODE> is a <CODE>JavaPackage</CODE>. <CODE>netscape.javascript</CODE> is both a <CODE>JavaPackage</CODE> and a property of the <CODE>netscape</CODE> <CODE>JavaPackage</CODE>.</A></P>
+<A NAME="1198297">
+A <CODE>JavaClass</CODE> object is a reference to one of the classes in a package, such as <CODE>netscape.javascript.JSObject</CODE>. The <CODE>JavaPackage</CODE> and <CODE>JavaClass</CODE> hierarchy reflect the Java package and class hierarchy.</A></P>
+<A NAME="1198523">
+Although the packages and classes contained in a <CODE>JavaPackage</CODE> are its properties, you cannot use a <CODE>for...in</CODE> statement to enumerate them as you can enumerate the properties of other objects.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1197132">
+ Property Summary
+</A></H4>
+
+<A NAME="1197133">
+The properties of a <CODE>JavaPackage</CODE> are the <CODE>JavaClass</CODE> objects and any other <CODE>JavaPackage</CODE> objects it contains.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193209">
+ Examples
+</A></H4>
+
+<A NAME="1194739">
+Suppose the Redwood corporation uses the Java <CODE>redwood</CODE> package to contain various Java classes that it implements. The following code creates the <CODE>JavaPackage</CODE> <CODE>red</CODE>:</A></P>
+<PRE><A NAME="1198136">var red = Packages.redwood</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1198334">
+ See also
+</A></H4>
+
+<A NAME="1198347">
+<A HREF="javarray.htm#1193137"><CODE>JavaArray</CODE></A>, <A HREF="javclass.htm#1193137"><CODE>JavaClass</CODE></A>, <A HREF="javobj.htm#1193137"><CODE>JavaObject</CODE></A>, <A HREF="packages.htm#1193137"><CODE>Packages</CODE></A></A></P>
+
+<HR>
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="javobj.htm">Previous</A>
+ | <A HREF="layer.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT>
+<P ALIGN=right>
+<FONT SIZE=-2><I>Last Updated:  05/28/99  11:59:42</I></FONT>
+<P> <CENTER>Copyright (c) 1999
+<A HREF="http://home.netscape.com/misc/contact_info.html"
+TARGET=_top>Netscape Communications Corporation</A></FONT>
+</CENTER>
+<P>
+</BODY>
+</HTML>
+
+

@@ -1,0 +1,250 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0 Strict Level 2//EN"><HTML>
+<HEAD>
+<!-- This HTML file has been created by texi2html 1.36
+     from html-spec.texi on 18 October 1995 -->
+
+<TITLE>Hypertext Markup Language - 2.0  - Hyperlinks</TITLE>
+</HEAD>
+<BODY>
+Go to the <A HREF="html-spec_1.html" REL=FIRST>first</A>, <A HREF="html-spec_6.html" REL=PREVIOUS>previous</A>, <A HREF="html-spec_8.html" REL=NEXT>next</A>, <A HREF="html-spec_14.html" REL=LAST>last</A> section, <A HREF="html-spec_toc.html" REL=TOC>table of contents</A>.
+<HR>
+
+
+<H1><A NAME="SEC7" HREF="html-spec_toc.html#SEC7" REL=TOC>Hyperlinks</A></H1>
+
+<P>
+In addition to general purpose elements such as paragraphs and
+lists, HTML documents can express hyperlinks.  An HTML <A HREF="html-spec_2.html#GLOSS36" REL=GLOSSARY>user agent</A>
+allows the user to navigate these hyperlinks.
+
+</P>
+<P>
+A <A HREF="html-spec_2.html#GLOSS19" REL=GLOSSARY>hyperlink</A> is a relationship between two anchors, called the head
+and the tail of the <A HREF="html-spec_2.html#GLOSS19" REL=GLOSSARY>hyperlink</A><A HREF="html-spec_11.html#BIB7" REL=BIBLIOGRAPHY>[DEXTER]</A>.  Anchors are identified
+by an <A HREF="html-spec_2.html#GLOSS2" REL=GLOSSARY>anchor</A> address:  an absolute Uniform Resource Identifier (<A HREF="html-spec_2.html#GLOSS35" REL=GLOSSARY>URI</A>),
+optionally followed by a '#' and a sequence of characters called a
+<A HREF="html-spec_2.html#GLOSS16" REL=GLOSSARY>fragment identifier</A>.  For example:
+
+</P>
+
+<PRE>
+http://www.w3.org/hypertext/<A HREF="html-spec_2.html#GLOSS37" REL=GLOSSARY>WWW</A>/TheProject.html
+http://www.w3.org/hypertext/<A HREF="html-spec_2.html#GLOSS37" REL=GLOSSARY>WWW</A>/TheProject.html#z31
+</PRE>
+
+<P>
+In an <A HREF="html-spec_2.html#GLOSS2" REL=GLOSSARY>anchor</A> address, the <A HREF="html-spec_2.html#GLOSS35" REL=GLOSSARY>URI</A> refers to a resource;  it <A HREF="html-spec_2.html#GLOSS21" REL=GLOSSARY>may</A> be used
+in a variety of information retrieval protocols to obtain an <A HREF="html-spec_2.html#GLOSS15" REL=GLOSSARY>entity</A>
+that represents the resource, such as an <A HREF="html-spec_2.html#GLOSS18" REL=GLOSSARY>HTML document</A>.  The fragment
+identifier, if present, refers to some view on, or portion of the
+resource.
+
+</P>
+<P>
+Each of the following <A HREF="html-spec_2.html#GLOSS20" REL=GLOSSARY>markup</A> constructs indicates the tail <A HREF="html-spec_2.html#GLOSS2" REL=GLOSSARY>anchor</A>
+of a <A HREF="html-spec_2.html#GLOSS19" REL=GLOSSARY>hyperlink</A> or set of hyperlinks:
+
+</P>
+
+<UL>
+<LI>
+
+<EM>A</EM> elements with <EM>HREF</EM> present.
+<LI>
+
+<EM>LINK</EM> elements.
+<LI>
+
+<EM>IMG</EM> elements.
+<LI>
+
+<EM>INPUT</EM> elements with the <EM>SRC</EM> attribute present.
+<LI>
+
+<EM>ISINDEX</EM> elements.
+<LI>
+
+<EM>FORM</EM> elements with <SAMP>`METHOD=GET'</SAMP>.
+</UL>
+
+<P>
+These <A HREF="html-spec_2.html#GLOSS20" REL=GLOSSARY>markup</A> constructs refer to head anchors by a <A HREF="html-spec_2.html#GLOSS35" REL=GLOSSARY>URI</A>, either
+absolute or relative, or a <A HREF="html-spec_2.html#GLOSS16" REL=GLOSSARY>fragment identifier</A>, or both.
+
+</P>
+<P>
+In the case of a relative <A HREF="html-spec_2.html#GLOSS35" REL=GLOSSARY>URI</A>, the <A HREF="html-spec_2.html#GLOSS1" REL=GLOSSARY>absolute URI</A> in the address of
+the head <A HREF="html-spec_2.html#GLOSS2" REL=GLOSSARY>anchor</A> is the result of combining the relative <A HREF="html-spec_2.html#GLOSS35" REL=GLOSSARY>URI</A> with a
+base <A HREF="html-spec_2.html#GLOSS1" REL=GLOSSARY>absolute URI</A> as in <A HREF="html-spec_11.html#BIB5" REL=BIBLIOGRAPHY>[RELURL]</A>.  The base document is taken from the
+document's <EM>BASE</EM> <A HREF="html-spec_2.html#GLOSS13" REL=GLOSSARY>element</A>, if present;  else, it is determined as
+in <A HREF="html-spec_11.html#BIB5" REL=BIBLIOGRAPHY>[RELURL]</A>.
+
+</P>
+
+
+
+<H2><A NAME="SEC7.1" HREF="html-spec_toc.html#SEC7.1" REL=TOC>Accessing Resources</A></H2>
+
+<P>
+Once the address of the head <A HREF="html-spec_2.html#GLOSS2" REL=GLOSSARY>anchor</A> is determined, the <A HREF="html-spec_2.html#GLOSS36" REL=GLOSSARY>user agent</A>
+<A HREF="html-spec_2.html#GLOSS21" REL=GLOSSARY>may</A> obtain a representation of the resource.
+
+</P>
+<P>
+For example, if the <A HREF="html-spec_2.html#GLOSS3" REL=GLOSSARY>base URI</A> is <SAMP>`http://host/x/y.html'</SAMP> and
+the document contains:
+
+</P>
+
+<PRE>
+&#60;img src="../icons/abc.gif"&#62;
+</PRE>
+
+<P>
+then the <A HREF="html-spec_2.html#GLOSS36" REL=GLOSSARY>user agent</A> uses the <A HREF="html-spec_2.html#GLOSS35" REL=GLOSSARY>URI</A>
+<SAMP>`http://host/icons/abc.gif'</SAMP> to access the resource, as in
+<A HREF="html-spec_11.html#BIB2" REL=BIBLIOGRAPHY>[URL]</A>..
+
+</P>
+
+
+
+<H2><A NAME="SEC7.2" HREF="html-spec_toc.html#SEC7.2" REL=TOC>Activation of Hyperlinks</A></H2>
+
+<P>
+An HTML <A HREF="html-spec_2.html#GLOSS36" REL=GLOSSARY>user agent</A> allows the user to navigate the content of the
+document and request activation of hyperlinks denoted by <EM>A</EM>
+elements.  HTML user agents <A HREF="html-spec_2.html#GLOSS29" REL=GLOSSARY>should</A> also allow activation of <EM>LINK</EM>
+<A HREF="html-spec_2.html#GLOSS13" REL=GLOSSARY>element</A> hyperlinks.
+
+</P>
+<P>
+To activate a link, the <A HREF="html-spec_2.html#GLOSS36" REL=GLOSSARY>user agent</A> obtains a representation of the
+resource identified in the address of the head <A HREF="html-spec_2.html#GLOSS2" REL=GLOSSARY>anchor</A>.  If the
+representation is another <A HREF="html-spec_2.html#GLOSS18" REL=GLOSSARY>HTML document</A>, navigation <A HREF="html-spec_2.html#GLOSS21" REL=GLOSSARY>may</A> begin again
+with this new document.
+
+</P>
+
+
+
+<H2><A NAME="SEC7.3" HREF="html-spec_toc.html#SEC7.3" REL=TOC>Simultaneous Presentation of Image Resources</A></H2>
+<P>
+An HTML <A HREF="html-spec_2.html#GLOSS36" REL=GLOSSARY>user agent</A> <A HREF="html-spec_2.html#GLOSS21" REL=GLOSSARY>may</A> activate hyperlinks indicated by <EM>IMG</EM> and
+<EM>INPUT</EM> elements concurrently with processing the document;  that
+is, image hyperlinks <A HREF="html-spec_2.html#GLOSS21" REL=GLOSSARY>may</A> be processed without explicit request by the
+user.  Image resources <A HREF="html-spec_2.html#GLOSS29" REL=GLOSSARY>should</A> be embedded in the presentation at the
+point of the tail <A HREF="html-spec_2.html#GLOSS2" REL=GLOSSARY>anchor</A>, that is the <EM>IMG</EM> or <EM>INPUT</EM> <A HREF="html-spec_2.html#GLOSS13" REL=GLOSSARY>element</A>.
+
+</P>
+<P>
+<EM>LINK</EM> hyperlinks <A HREF="html-spec_2.html#GLOSS21" REL=GLOSSARY>may</A> also be processed without explicit user
+request;  for example, style sheet resources <A HREF="html-spec_2.html#GLOSS21" REL=GLOSSARY>may</A> be processed before or
+during the processing of the document.
+
+</P>
+
+
+
+<H2><A NAME="SEC7.4" HREF="html-spec_toc.html#SEC7.4" REL=TOC>Fragment Identifiers</A></H2>
+<P>
+Any characters following a <SAMP>`#'</SAMP> <A HREF="html-spec_2.html#GLOSS4" REL=GLOSSARY>character</A> in a hypertext address
+constitute a <A HREF="html-spec_2.html#GLOSS16" REL=GLOSSARY>fragment identifier</A>.  In particular, an address of
+the form <SAMP>`#fragment'</SAMP> refers to an <A HREF="html-spec_2.html#GLOSS2" REL=GLOSSARY>anchor</A> in the same document.
+
+</P>
+<P>
+The meaning of fragment identifiers depends on the <A HREF="html-spec_2.html#GLOSS22" REL=GLOSSARY>media type</A> of the
+representation of the <A HREF="html-spec_2.html#GLOSS2" REL=GLOSSARY>anchor</A>'s resource.  For <SAMP>`text/html'</SAMP>
+representations, it refers to the <EM>A</EM> <A HREF="html-spec_2.html#GLOSS13" REL=GLOSSARY>element</A> with a <EM>NAME</EM>
+attribute whose value is the same as the <A HREF="html-spec_2.html#GLOSS16" REL=GLOSSARY>fragment identifier</A>.  The
+matching is case sensitive.  The document <A HREF="html-spec_2.html#GLOSS29" REL=GLOSSARY>should</A> have exactly one such
+<A HREF="html-spec_2.html#GLOSS13" REL=GLOSSARY>element</A>.  The <A HREF="html-spec_2.html#GLOSS36" REL=GLOSSARY>user agent</A> <A HREF="html-spec_2.html#GLOSS29" REL=GLOSSARY>should</A> indicate the <A HREF="html-spec_2.html#GLOSS2" REL=GLOSSARY>anchor</A> <A HREF="html-spec_2.html#GLOSS13" REL=GLOSSARY>element</A>, for
+example by scrolling to and/or highlighting the phrase.
+
+</P>
+<P>
+For example, if the <A HREF="html-spec_2.html#GLOSS3" REL=GLOSSARY>base URI</A> is <SAMP>`http://host/x/y.html'</SAMP> and the
+user activated the link denoted by the following <A HREF="html-spec_2.html#GLOSS20" REL=GLOSSARY>markup</A>:
+
+</P>
+
+<PRE>
+&#60;p&#62; See: &#60;a href="app1.html#bananas"&#62;appendix 1&#60;/a&#62; 
+for more detail on bananas.
+</PRE>
+
+<P>
+Then the <A HREF="html-spec_2.html#GLOSS36" REL=GLOSSARY>user agent</A> accesses the resource identified by
+<SAMP>`http://host/x/app1.html'</SAMP>.  Assuming the resource is represented
+using the <SAMP>`text/html'</SAMP> <A HREF="html-spec_2.html#GLOSS22" REL=GLOSSARY>media type</A>, the <A HREF="html-spec_2.html#GLOSS36" REL=GLOSSARY>user agent</A> <A HREF="html-spec_2.html#GLOSS25" REL=GLOSSARY>must</A> locate
+the <EM>A</EM> <A HREF="html-spec_2.html#GLOSS13" REL=GLOSSARY>element</A> whose <EM>NAME</EM> attribute is <SAMP>`bananas'</SAMP>
+and begin navigation there.
+
+</P>
+
+
+
+<H2><A NAME="SEC7.5" HREF="html-spec_toc.html#SEC7.5" REL=TOC>Queries and Indexes</A></H2>
+
+<P>
+The <EM>ISINDEX</EM> <A HREF="html-spec_2.html#GLOSS13" REL=GLOSSARY>element</A> represents a set of hyperlinks.  The user
+can choose from the set by providing keywords to the <A HREF="html-spec_2.html#GLOSS36" REL=GLOSSARY>user agent</A>.  The
+<A HREF="html-spec_2.html#GLOSS36" REL=GLOSSARY>user agent</A> computes the head <A HREF="html-spec_2.html#GLOSS35" REL=GLOSSARY>URI</A> by appending <SAMP>`?'</SAMP> and the
+keywords to the <A HREF="html-spec_2.html#GLOSS3" REL=GLOSSARY>base URI</A>.  The keywords are escaped according to <A HREF="html-spec_11.html#BIB2" REL=BIBLIOGRAPHY>[URL]</A>
+and joined by <SAMP>`+'</SAMP>.  For example, if a document contains:
+
+</P>
+
+<PRE>
+&#60;BASE HREF="http://host/index"&#62;
+&#60;ISINDEX&#62;
+</PRE>
+
+<P>
+and the user provides the keywords <SAMP>`apple'</SAMP> and <SAMP>`berry'</SAMP>,
+then the <A HREF="html-spec_2.html#GLOSS36" REL=GLOSSARY>user agent</A> <A HREF="html-spec_2.html#GLOSS25" REL=GLOSSARY>must</A> access the resource
+<SAMP>`http://host/index?apple+berry'</SAMP>.
+
+</P>
+<P>
+<EM>FORM</EM> elements with <SAMP>`METHOD=GET'</SAMP> also represent sets of
+hyperlinks.  See section <A HREF="html-spec_8.html#SEC8.2.2" REL=XREF>Query Forms:  METHOD=GET</A> for details.
+
+</P>
+
+
+
+<H2><A NAME="SEC7.6" HREF="html-spec_toc.html#SEC7.6" REL=TOC>Image Maps</A></H2>
+
+<P>
+If the <EM>ISMAP</EM> attribute is present on an <EM>IMG</EM> <A HREF="html-spec_2.html#GLOSS13" REL=GLOSSARY>element</A>,
+the <EM>IMG</EM> <A HREF="html-spec_2.html#GLOSS13" REL=GLOSSARY>element</A> <A HREF="html-spec_2.html#GLOSS25" REL=GLOSSARY>must</A> be contained in an <EM>A</EM> <A HREF="html-spec_2.html#GLOSS13" REL=GLOSSARY>element</A> with an
+<EM>HREF</EM> present.  This construct represents a set of
+hyperlinks.  The user can choose from the set by choosing a pixel of
+the image.  The <A HREF="html-spec_2.html#GLOSS36" REL=GLOSSARY>user agent</A> computes the head <A HREF="html-spec_2.html#GLOSS35" REL=GLOSSARY>URI</A> by appending <SAMP>`?'</SAMP>
+and the x and y coordinates of the pixel to the <A HREF="html-spec_2.html#GLOSS35" REL=GLOSSARY>URI</A> given in the
+<EM>A</EM> <A HREF="html-spec_2.html#GLOSS13" REL=GLOSSARY>element</A>.  For example, if a document contains:
+
+</P>
+
+<PRE>
+&#60;!DOCTYPE HTML PUBLIC "-//IETF//<A HREF="html-spec_2.html#GLOSS12" REL=GLOSSARY>DTD</A> HTML 2.0//EN"&#62;
+&#60;head&#62;&#60;title&#62;ImageMap Example&#60;/title&#62;
+&#60;BASE HREF="http://host/index"&#62;&#60;/head&#62;
+&#60;body&#62;
+&#60;p&#62; Choose any of these icons:&#60;br&#62;
+&#60;a href="/cgi-bin/imagemap"&#62;&#60;img ismap src="icons.gif"&#62;&#60;/a&#62;
+</PRE>
+
+<P>
+and the user chooses the upper-leftmost pixel, the chosen
+<A HREF="html-spec_2.html#GLOSS19" REL=GLOSSARY>hyperlink</A> is the one with the <A HREF="html-spec_2.html#GLOSS35" REL=GLOSSARY>URI</A>
+<SAMP>`http://host/cgi-bin/imagemap?0,0'</SAMP>.
+
+</P>
+
+<HR>
+Go to the <A HREF="html-spec_1.html" REL=FIRST>first</A>, <A HREF="html-spec_6.html" REL=PREVIOUS>previous</A>, <A HREF="html-spec_8.html" REL=NEXT>next</A>, <A HREF="html-spec_14.html" REL=LAST>last</A> section, <A HREF="html-spec_toc.html" REL=TOC>table of contents</A>.
+</BODY>
+</HTML>

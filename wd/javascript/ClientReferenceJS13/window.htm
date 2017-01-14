@@ -1,0 +1,3753 @@
+<HTML>
+<HEAD>
+<TITLE>
+</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="textarea.htm">Previous</A>
+ | <A HREF="toplev.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT><BR><BR>
+<HR>
+
+<H1><A NAME="window"></A>
+<A NAME="1200703">
+ window
+</A></H1>
+<A NAME="1200704">
+Represents a browser window or frame. This is the top-level object for each <A HREF="document.htm#1193137"><CODE>document</CODE></A>, <A HREF="location.htm#1193137"><CODE>Location</CODE></A>, and <A HREF="history.htm#1193137"><CODE>History</CODE></A> object group. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left COLSPAN=2 ROWSPAN=1><P><A NAME="1200716">
+<I>Client-side object.</I></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1200720">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1200722">
+JavaScript 1.0</A></P><P><A NAME="1200723">
+</A></P><P><A NAME="1200733">
+JavaScript 1.1: added <A HREF="window.htm#1201877"><CODE>closed</CODE></A>, <A HREF="window.htm#1202367"><CODE>history</CODE></A>, and <A HREF="window.htm#1202911"><CODE>opener</CODE></A> properties; added <A HREF="window.htm#1201622"><CODE>blur</CODE></A>, <A HREF="window.htm#1202234"><CODE>focus</CODE></A>, and <A HREF="window.htm#1203450"><CODE>scroll</CODE></A> methods; added <A HREF="handlers.htm#1119670"><CODE>onBlur</CODE></A>, <A HREF="handlers.htm#1120097"><CODE>onError</CODE></A>, and <A HREF="handlers.htm#1120186"><CODE>onFocus</CODE></A> event handlers</A></P><P><A NAME="1200752">
+</A></P><P><A NAME="1200762">
+JavaScript 1.2: added <A HREF="window.htm#1201963"><CODE>crypto</CODE></A>, <A HREF="window.htm#1202410"><CODE>innerHeight</CODE></A>, <A HREF="window.htm#1202446"><CODE>innerWidth</CODE></A>, <A HREF="window.htm#1202528"><CODE>locationbar</CODE></A>, <A HREF="window.htm#1202556"><CODE>menubar</CODE></A>, <A HREF="window.htm#1202711"><CODE>offscreenBuffering</CODE></A>, <A HREF="window.htm#1202958"><CODE>outerHeight</CODE></A>, <A HREF="window.htm#1202987"><CODE>outerWidth</CODE></A>, <A HREF="window.htm#1203016"><CODE>pageXOffset</CODE></A>, <A HREF="window.htm#1203046"><CODE>pageYOffset</CODE></A>, <A HREF="window.htm#1203110"><CODE>personalbar</CODE></A>, <A HREF="window.htm#1203394"><CODE>screenX</CODE></A>, <A HREF="window.htm#1203422"><CODE>screenY</CODE></A>, <A HREF="window.htm#1203475"><CODE>scrollbars</CODE></A>, <A HREF="window.htm#1203897"><CODE>statusbar</CODE></A>, and <A HREF="window.htm#1203947"><CODE>toolbar</CODE></A> properties; added <A HREF="window.htm#1201548"><CODE>atob</CODE></A>, <A HREF="window.htm#1201587"><CODE>back</CODE></A>, <A HREF="window.htm#1201650"><CODE>btoa</CODE></A>, <A HREF="window.htm#1201687"><CODE>captureEvents</CODE></A>, <A HREF="window.htm#1201732"><CODE>clearInterval</CODE></A>, <A HREF="window.htm#1201996"><CODE>crypto.random</CODE></A>, <A HREF="window.htm#1202035"><CODE>crypto.signText</CODE></A>, <A HREF="window.htm#1202117"><CODE>disableExternalCapture</CODE></A>, <A HREF="window.htm#1202163"><CODE>enableExternalCapture</CODE></A>, <A HREF="window.htm#1202197"><CODE>find</CODE></A>, <A HREF="window.htm#1202267"><CODE>forward</CODE></A>, <A HREF="window.htm#1202326"><CODE>handleEvent</CODE></A>, <A HREF="window.htm#1202388"><CODE>home</CODE></A>, <A HREF="window.htm#1202585"><CODE>moveBy</CODE></A>, <A HREF="window.htm#1202631"><CODE>moveTo</CODE></A>, <A HREF="window.htm#1203211"><CODE>releaseEvents</CODE></A>, <A HREF="window.htm#1203248"><CODE>resizeBy</CODE></A>, <A HREF="window.htm#1203300"><CODE>resizeTo</CODE></A>, <A HREF="window.htm#1203352"><CODE>routeEvent</CODE></A>, <A HREF="window.htm#1203503"><CODE>scrollBy</CODE></A>, <A HREF="window.htm#1203546"><CODE>scrollTo</CODE></A>, <A HREF="window.htm#1203624"><CODE>setHotKeys</CODE></A>, <A HREF="window.htm#1203669"><CODE>setInterval</CODE></A>, <A HREF="window.htm#1203720"><CODE>setResizable</CODE></A>, <A HREF="window.htm#1203814"><CODE>setZOptions</CODE></A>, and <A HREF="window.htm#1203925"><CODE>stop</CODE></A> methods; deprecated <A HREF="window.htm#1203450"><CODE>scroll</CODE></A> method</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1200883">
+ Created by
+</A></H4>
+
+<A NAME="1200886">
+The JavaScript runtime engine creates a <CODE>window</CODE> object for each <CODE><A HREF="http://developer.netscape.com/docs/manuals/htmlguid/index.htm?content=tags2.htm#tags:BODY" TARGET="_top">BODY</A></CODE> or <CODE><A HREF="http://developer.netscape.com/docs/manuals/htmlguid/index.htm?content=tags11.htm#tags:FRAMESET" TARGET="_top">FRAMESET</A></CODE> tag. It also creates a <CODE>window</CODE> object to represent each frame defined in a <CODE><A HREF="http://developer.netscape.com/docs/manuals/htmlguid/index.htm?content=tags11.htm#tags:FRAME" TARGET="_top">FRAME</A></CODE> tag. In addition, you can create other windows by calling the <A HREF="window.htm#1202731"><CODE>window.open</CODE></A> method. For details on defining a window, see <CODE><A HREF="window.htm#1202731">open</A></CODE>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1200897">
+ Event handlers
+</A></H4>
+
+<ul><LI><A NAME="1200901">
+<A HREF="handlers.htm#1119670"><CODE>onBlur</CODE></A>
+</A></LI><LI><A NAME="1200905">
+<A HREF="handlers.htm#1120032"><CODE>onDragDrop</CODE></A>
+</A></LI><LI><A NAME="1200909">
+<A HREF="handlers.htm#1120097"><CODE>onError</CODE></A>
+</A></LI><LI><A NAME="1200913">
+<A HREF="handlers.htm#1120186"><CODE>onFocus</CODE></A>
+</A></LI><LI><A NAME="1200917">
+<A HREF="handlers.htm#1120545"><CODE>onLoad</CODE></A>
+</A></LI><LI><A NAME="1200921">
+<A HREF="handlers.htm#1120958"><CODE>onMove</CODE></A>
+</A></LI><LI><A NAME="1200925">
+<A HREF="handlers.htm#1121061"><CODE>onResize</CODE></A>
+</A></LI><LI><A NAME="1200929">
+<A HREF="handlers.htm#1121231"><CODE>onUnload</CODE></A>
+</A></LI></ul><A NAME="1200930">
+In JavaScript 1.1, on some platforms, placing an <CODE>onBlur</CODE> or <CODE>onFocus</CODE> event handler in a <CODE>FRAMESET</CODE> tag has no effect.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1200931">
+ Description
+</A></H4>
+
+<A NAME="1200932">
+The <CODE>window</CODE> object is the top-level object in the JavaScript client hierarchy. A <CODE>window</CODE> object can represent either a top-level window or a frame inside a frameset. As a matter of convenience, you can think about a <A HREF="frame.htm#1193137"><CODE>Frame</CODE></A> object as a <CODE>window</CODE> object that isn't a top-level window. However, there is not really a separate <CODE>Frame</CODE> class; these objects really are <CODE>window</CODE> objects, with a very few minor differences:</A></P>
+<ul><P><LI><A NAME="1200942">
+For a top-level window, the <A HREF="window.htm#1203076"><CODE>parent</CODE></A> and <A HREF="window.htm#1203975"><CODE>top</CODE></A> properties are references to the window itself. For a frame, the <A HREF="window.htm#1203975"><CODE>top</CODE></A> refers to the topmost browser window, and <A HREF="window.htm#1203076"><CODE>parent</CODE></A> refers to the parent window of the current window. </A></LI>
+<P><LI><A NAME="1200955">
+For a top-level window, setting the <A HREF="window.htm#1202080"><CODE>defaultStatus</CODE></A> or <A HREF="window.htm#1203861"><CODE>status</CODE></A> property sets the text appearing in the browser status line. For a frame, setting these properties only sets the status line text when the cursor is over the frame.</A></LI>
+<P><LI><A NAME="1200959">
+The <A HREF="window.htm#1201822"><CODE>close</CODE></A> method is not useful for windows that are frames.</A></LI>
+<P><LI><A NAME="1200960">
+To create an <CODE>onBlur</CODE> or <CODE>onFocus</CODE> event handler for a frame, you must set the <CODE>onblur</CODE> or <CODE>onfocus</CODE> property and specify it in all lowercase (you cannot specify it in HTML).</A></LI>
+<P><LI><A NAME="1200961">
+If a <CODE>FRAME</CODE> tag contains <CODE>SRC</CODE> and <CODE>NAME</CODE> attributes, you can refer to that frame from a sibling frame by using <CODE>parent.frameName</CODE> or <CODE>parent.frames[index]</CODE>. For example, if the fourth frame in a set has <CODE>NAME="homeFrame"</CODE>, sibling frames can refer to that frame using <CODE>parent.homeFrame</CODE> or <CODE>parent.frames[3]</CODE>.</A></LI>
+</ul><A NAME="1200962">
+For all windows, the <CODE>self</CODE> and <CODE>window</CODE> properties of a <CODE>window</CODE> object are synonyms for the current window, and you can optionally use them to refer to the current window. For example, you can close the current window by calling the <CODE>close</CODE> method of either <CODE>window</CODE> or <CODE>self</CODE>. You can use these properties to make your code more readable or to disambiguate the property reference <CODE>self.status</CODE> from a form called <CODE>status</CODE>. See the properties and methods listed below for more examples.</A></P>
+<A NAME="1200963">
+Because the existence of the current window is assumed, you do not have to refer to the name of the window when you call its methods and assign its properties. For example, <CODE>status="Jump to a new location"</CODE> is a valid property assignment, and <CODE>close()</CODE> is a valid method call. </A></P>
+<A NAME="1200964">
+However, when you open or close a window within an event handler, you must specify <CODE>window.open()</CODE> or <CODE>window.close()</CODE> instead of simply using <CODE>open()</CODE> or <CODE>close()</CODE>. Due to the scoping of static objects in JavaScript, a call to <CODE>close()</CODE> without specifying an object name is equivalent to <CODE>document.close()</CODE>.</A></P>
+<A NAME="1200965">
+For the same reason, when you refer to the <CODE>location</CODE> object within an event handler, you must specify <CODE>window.location</CODE> instead of simply using <CODE>location</CODE>. A call to <CODE>location</CODE> without specifying an object name is equivalent to <CODE>document.location</CODE>, which is a synonym for <CODE>document.URL</CODE>.</A></P>
+<A NAME="1200966">
+You can refer to a window's <CODE>Frame</CODE> objects in your code by using the <CODE>frames</CODE> array. In a window with a <CODE>FRAMESET</CODE> tag, the <CODE>frames</CODE> array contains an entry for each frame.</A></P>
+<A NAME="1200967">
+A windows lacks event handlers until HTML that contains a <CODE>BODY</CODE> or <CODE>FRAMESET</CODE> tag is loaded into it.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1200968">
+ Property Summary
+</A></H4>
+
+<A NAME="1201184">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1200971">
+<B>Property
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1200973">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1200978"><A HREF="window.htm#1201877"><CODE>closed</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1200980">
+Specifies whether a window has been closed.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1200985"><A HREF="window.htm#1201963"><CODE>crypto</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1200987">
+An object which allows access Navigator's encryption features.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1200992"><A HREF="window.htm#1202080"><CODE>defaultStatus</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1200994">
+Reflects the default message displayed in the window's status bar.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1200999"><A HREF="document.htm#1193137"><CODE>document</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201001">
+Contains information on the current document, and provides methods for displaying HTML output to the user.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201006"><A HREF="window.htm#1202300"><CODE>frames</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201008">
+An array reflecting all the frames in a window.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201013"><A HREF="window.htm#1202367"><CODE>history</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201015">
+Contains information on the URLs that the client has visited within a window.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201020"><A HREF="window.htm#1202410"><CODE>innerHeight</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201022">
+Specifies the vertical dimension, in pixels, of the window's content area.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201027"><A HREF="window.htm#1202446"><CODE>innerWidth</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201029">
+Specifies the horizontal dimension, in pixels, of the window's content area.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201034"><A HREF="window.htm#1202482"><CODE>length</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201036">
+The number of frames in the window.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201041"><A HREF="window.htm#1202507"><CODE>location</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201043">
+Contains information on the current URL.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201048"><A HREF="window.htm#1202528"><CODE>locationbar</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201050">
+Represents the browser window's location bar.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201055"><A HREF="window.htm#1202556"><CODE>menubar</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201057">
+Represents the browser window's menu bar. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201062"><A HREF="window.htm#1202677"><CODE>name</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201064">
+A unique name used to refer to this window.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201069"><A HREF="window.htm#1202711"><CODE>offscreenBuffering</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201071">
+Specifies whether updates to a window are performed in an offscreen buffer.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201076"><A HREF="window.htm#1202911"><CODE>opener</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201078">
+Specifies the window name of the calling document when a window is opened using the <CODE>open</CODE> method</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201083"><A HREF="window.htm#1202958"><CODE>outerHeight</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201085">
+Specifies the vertical dimension, in pixels, of the window's outside boundary. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201090"><A HREF="window.htm#1202987"><CODE>outerWidth</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201092">
+Specifies the horizontal dimension, in pixels, of the window's outside boundary.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201097"><A HREF="window.htm#1203016"><CODE>pageXOffset</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201099">
+Provides the current x-position, in pixels, of a window's viewed page.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201104"><A HREF="window.htm#1203046"><CODE>pageYOffset</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201106">
+Provides the current y-position, in pixels, of a window's viewed page.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201111"><A HREF="window.htm#1203076"><CODE>parent</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201113">
+A synonym for a window or frame whose frameset contains the current frame.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201118"><A HREF="window.htm#1203110"><CODE>personalbar</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201120">
+Represents the browser window's personal bar (also called the directories bar).</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201125"><A HREF="window.htm#1203394"><CODE>screenX</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201127">
+Specifies the x-coordinate of the left edge of a window.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201132"><A HREF="window.htm#1203422"><CODE>screenY</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201134">
+Specifies the y-coordinate of the top edge of a window.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201139"><A HREF="window.htm#1203475"><CODE>scrollbars</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201141">
+Represents the browser window's scroll bars. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201146"><A HREF="window.htm#1203595"><CODE>self</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201148">
+A synonym for the current window.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201153"><A HREF="window.htm#1203861"><CODE>status</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201155">
+Specifies a priority or transient message in the window's status bar.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201160"><A HREF="window.htm#1203897"><CODE>statusbar</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201162">
+Represents the browser window's status bar.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201167"><A HREF="window.htm#1203947"><CODE>toolbar</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201169">
+Represents the browser window's toolbar.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201174"><A HREF="window.htm#1203975"><CODE>top</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201176">
+A synonym for the topmost browser window.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201181"><A HREF="window.htm#1204007"><CODE>window</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201183">
+A synonym for the current window.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1201185">
+ Method Summary
+</A></H4>
+
+<A NAME="1201459">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1201188">
+<B>Method
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1201190">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201195"><A HREF="window.htm#1201497"><CODE>alert</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201197">
+Displays an Alert dialog box with a message and an OK button.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201202"><A HREF="window.htm#1201548"><CODE>atob</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201204">
+Decodes a string of data which has been encoded using base-64 encoding.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201209"><A HREF="window.htm#1201587"><CODE>back</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201211">
+Undoes the last history step in any frame within the top-level window.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201216"><A HREF="window.htm#1201622"><CODE>blur</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201218">
+Removes focus from the specified object.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201223"><A HREF="window.htm#1201650"><CODE>btoa</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201225">
+Creates a base-64 encoded string.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201230"><A HREF="window.htm#1201687"><CODE>captureEvents</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201232">
+Sets the window or document to capture all events of the specified type.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201237"><A HREF="window.htm#1201732"><CODE>clearInterval</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201242">
+Cancels a timeout that was set with the <A HREF="window.htm#1203669"><CODE>setInterval</CODE></A> method.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201247"><A HREF="window.htm#1201775"><CODE>clearTimeout</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201252">
+Cancels a timeout that was set with the <A HREF="window.htm#1203758"><CODE>setTimeout</CODE></A> method.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201257"><A HREF="window.htm#1201822"><CODE>close</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201259">
+Closes the specified window.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201264"><A HREF="window.htm#1201914"><CODE>confirm</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201266">
+Displays a Confirm dialog box with the specified message and OK and Cancel buttons.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201271"><A HREF="window.htm#1201996"><CODE>crypto.random</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201273">
+Returns a pseudo-random string whose length is the specified number of bytes.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201278"><A HREF="window.htm#1202035"><CODE>crypto.signText</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201280">
+Returns a string of encoded data which represents a signed object.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201285"><A HREF="window.htm#1202117"><CODE>disableExternalCapture</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201287">
+Disables external event capturing set by the <A HREF="window.htm#1202163"><CODE>enableExternalCapture</CODE></A> method.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201295"><A HREF="window.htm#1202163"><CODE>enableExternalCapture</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201297">
+Allows a window with frames to capture events in pages loaded from different locations (servers). </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201302"><A HREF="window.htm#1202197"><CODE>find</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201304">
+Finds the specified text string in the contents of the specified window.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201309"><A HREF="window.htm#1202234"><CODE>focus</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201311">
+Gives focus to the specified object.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201316"><A HREF="window.htm#1202267"><CODE>forward</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201318">
+Loads the next URL in the history list.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201323"><A HREF="window.htm#1202326"><CODE>handleEvent</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201325">
+Invokes the handler for the specified event.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201330"><A HREF="window.htm#1202388"><CODE>home</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201332">
+Points the browser to the URL specified in preferences as the user's home page.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201337"><A HREF="window.htm#1202585"><CODE>moveBy</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201339">
+Moves the window by the specified amounts.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201344"><A HREF="window.htm#1202631"><CODE>moveTo</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201346">
+Moves the top-left corner of the window to the specified screen coordinates.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201351"><A HREF="window.htm#1202731"><CODE>open</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201353">
+Opens a new web browser window.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201358"><A HREF="window.htm#1203138"><CODE>print</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201360">
+Prints the contents of the window or frame.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201365"><A HREF="window.htm#1203158"><CODE>prompt</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201367">
+Displays a Prompt dialog box with a message and an input field.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201372"><A HREF="window.htm#1203211"><CODE>releaseEvents</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201374">
+Sets the window to release captured events of the specified type, sending the event to objects further along the event hierarchy.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201379"><A HREF="window.htm#1203248"><CODE>resizeBy</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201381">
+Resizes an entire window by moving the window's bottom-right corner by the specified amount.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201386"><A HREF="window.htm#1203300"><CODE>resizeTo</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201388">
+Resizes an entire window to the specified outer height and width.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201393"><A HREF="window.htm#1203352"><CODE>routeEvent</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201395">
+Passes a captured event along the normal event hierarchy.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201400"><A HREF="window.htm#1203450"><CODE>scroll</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201402">
+Scrolls a window to a specified coordinate.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201407"><A HREF="window.htm#1203503"><CODE>scrollBy</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201409">
+Scrolls the viewing area of a window by the specified amount.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201414"><A HREF="window.htm#1203546"><CODE>scrollTo</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201416">
+Scrolls the viewing area of the window to the specified coordinates, such that the specified point becomes the top-left corner.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201421"><A HREF="window.htm#1203624"><CODE>setHotKeys</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201423">
+Enables or disables hot keys in a window which does not have menus.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201428"><A HREF="window.htm#1203669"><CODE>setInterval</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201430">
+Evaluates an expression or calls a function every time a specified number of milliseconds elapses.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201435"><A HREF="window.htm#1203720"><CODE>setResizable</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201437">
+Specifies whether a user is permitted to resize a window.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201442"><A HREF="window.htm#1203758"><CODE>setTimeout</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201444">
+Evaluates an expression or calls a function once after a specified number of milliseconds has elapsed.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201449"><A HREF="window.htm#1203814"><CODE>setZOptions</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201451">
+Specifies the z-order stacking behavior of a window.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201456"><A HREF="window.htm#1203925"><CODE>stop</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201458">
+Stops the current download.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+<A NAME="1201466">
+In addition, this object inherits the <A HREF="object.htm#1193628"><CODE>watch</CODE></A> and <A HREF="object.htm#1193499"><CODE>unwatch</CODE></A> methods from <A HREF="object.htm#1193136"><CODE>Object</CODE></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1201470">
+ Examples
+</A></H4>
+
+<A NAME="1201471">
+<B>Example 1. Windows opening other windows. </B>In the following example, the document in the top window opens a second window, <CODE>window2</CODE>, and defines push buttons that open a message window, write to the message window, close the message window, and close <CODE>window2</CODE>. The <CODE>onLoad</CODE> and <CODE>onUnload</CODE> event handlers of the document loaded into <CODE>window2</CODE> display alerts when the window opens and closes.</A></P>
+<A NAME="1201472">
+<CODE>win1.html</CODE>, which defines the frames for the first window, contains the following code:</A></P>
+<PRE><A NAME="1201473">&lt;HTML&gt;<br>&lt;HEAD&gt;<br>&lt;TITLE&gt;window object example: Window 1&lt;/TITLE&gt;<br>&lt;/HEAD&gt;<br>&lt;BODY BGCOLOR="antiquewhite"&gt;<br>&lt;SCRIPT&gt;<br>window2=open("win2.html","secondWindow",<br>&nbsp;&nbsp;&nbsp;"scrollbars=yes,width=250, height=400")<br>document.writeln("&lt;B&gt;The first window has no name: " <br>&nbsp;&nbsp;&nbsp;+ window.name + "&lt;/B&gt;")<br>document.writeln("&lt;BR&gt;&lt;B&gt;The second window is named: " <br>&nbsp;&nbsp;&nbsp;+ window2.name + "&lt;/B&gt;")<br>&lt;/SCRIPT&gt;<br>&lt;FORM NAME="form1"&gt;<br>&lt;P&gt;&lt;INPUT TYPE="button" VALUE="Open a message window"<br>&nbsp;&nbsp;&nbsp;onClick = "window3=window.open('','messageWindow',<br>&nbsp;&nbsp;&nbsp;'scrollbars=yes,width=175, height=300')"&gt;<br>&lt;P&gt;&lt;INPUT TYPE="button" VALUE="Write to the message window"<br>&nbsp;&nbsp;&nbsp;onClick="window3.document.writeln('Hey there'); <br>&nbsp;&nbsp;&nbsp;window3.document.close()"&gt;<br>&lt;P&gt;&lt;INPUT TYPE="button" VALUE="Close the message window"<br>&nbsp;&nbsp;&nbsp;onClick="window3.close()"&gt;<br>&lt;P&gt;&lt;INPUT TYPE="button" VALUE="Close window2"<br>&nbsp;&nbsp;&nbsp;onClick="window2.close()"&gt;<br>&lt;/FORM&gt;<br>&lt;/BODY&gt;<br>&lt;/HTML&gt;</A></PRE><A NAME="1201474">
+<CODE>win2.html</CODE>, which defines the content for <CODE>window2</CODE>, contains the following code:</A></P>
+<PRE><A NAME="1201475">&lt;HTML&gt;<br>&lt;HEAD&gt;<br>&lt;TITLE&gt;window object example: Window 2&lt;/TITLE&gt;<br>&lt;/HEAD&gt;<br>&lt;BODY BGCOLOR="oldlace"<br>&nbsp;&nbsp;&nbsp;onLoad="alert('Message from ' + window.name + ': Hello, World.')"<br>&nbsp;&nbsp;&nbsp;onUnload="alert('Message from ' + window.name + ': I\'m closing')"&gt;<br>&lt;B&gt;Some numbers&lt;/B&gt;<br>&lt;UL&gt;&lt;LI&gt;one<br>&lt;LI&gt;two<br>&lt;LI&gt;three<br>&lt;LI&gt;four&lt;/UL&gt;<br>&lt;/BODY&gt;<br>&lt;/HTML&gt;</A></PRE><A NAME="1201476">
+<B>Example 2. Creating frames. </B>The following example creates two windows, each with four frames. In the first window, the first frame contains push buttons that change the background colors of the frames in both windows. <CODE>framset1.html</CODE>, which defines the frames for the first window, contains the following code:</A></P>
+<PRE><A NAME="1201477">&lt;HTML&gt;<br>&lt;HEAD&gt;<br>&lt;TITLE&gt;Frames and Framesets: Window 1&lt;/TITLE&gt;<br>&lt;/HEAD&gt;<br>&lt;FRAMESET ROWS="50%,50%" COLS="40%,60%" <br>&nbsp;&nbsp;&nbsp;onLoad="alert('Hello, World.')"&gt;<br>&lt;FRAME SRC=framcon1.html NAME="frame1"&gt;<br>&lt;FRAME SRC=framcon2.html NAME="frame2"&gt;<br>&lt;FRAME SRC=framcon2.html NAME="frame3"&gt;<br>&lt;FRAME SRC=framcon2.html NAME="frame4"&gt;<br>&lt;/FRAMESET&gt;<br>&lt;/HTML&gt;</A></PRE><A NAME="1201478">
+<CODE>framset2.html</CODE>, which defines the frames for the second window, contains the following code:</A></P>
+<PRE><A NAME="1201479">&lt;HTML&gt;<br>&lt;HEAD&gt;<br>&lt;TITLE&gt;Frames and Framesets: Window 2&lt;/TITLE&gt;<br>&lt;/HEAD&gt;<br>&lt;FRAMESET ROWS="50%,50%" COLS="40%,60%"&gt;<br>&lt;FRAME SRC=framcon2.html NAME="frame1"&gt;<br>&lt;FRAME SRC=framcon2.html NAME="frame2"&gt;<br>&lt;FRAME SRC=framcon2.html NAME="frame3"&gt;<br>&lt;FRAME SRC=framcon2.html NAME="frame4"&gt;<br>&lt;/FRAMESET&gt;<br>&lt;/HTML&gt;</A></PRE><A NAME="1201480">
+<CODE>framcon1.html</CODE>, which defines the content for the first frame in the first window, contains the following code:</A></P>
+<PRE><A NAME="1201481">&lt;HTML&gt;<br>&lt;BODY&gt;<br>&lt;A NAME="frame1"&gt;&lt;H1&gt;Frame1&lt;/H1&gt;&lt;/A&gt;<br>&lt;P&gt;&lt;A HREF="framcon3.htm" target=frame2&gt;Click here&lt;/A&gt;<br>&nbsp;&nbsp;&nbsp;to load a different file into frame 2.<br>&lt;SCRIPT&gt;<br>window2=open("framset2.htm","secondFrameset")<br>&lt;/SCRIPT&gt;<br>&lt;FORM&gt;<br>&lt;P&gt;&lt;INPUT TYPE="button" VALUE="Change frame2 to teal"<br>&nbsp;&nbsp;&nbsp;onClick="parent.frame2.document.bgColor='teal'"&gt;<br>&lt;P&gt;&lt;INPUT TYPE="button" VALUE="Change frame3 to slateblue"<br>&nbsp;&nbsp;&nbsp;onClick="parent.frames[2].document.bgColor='slateblue'"&gt;<br>&lt;P&gt;&lt;INPUT TYPE="button" VALUE="Change frame4 to darkturquoise"<br>&nbsp;&nbsp;&nbsp;onClick="top.frames[3].document.bgColor='darkturquoise'"&gt;</A></PRE><PRE><A NAME="1201482">&lt;P&gt;&lt;INPUT TYPE="button" VALUE="window2.frame2 to violet"<br>&nbsp;&nbsp;&nbsp;onClick="window2.frame2.document.bgColor='violet'"&gt;<br>&lt;P&gt;&lt;INPUT TYPE="button" VALUE="window2.frame3 to fuchsia"<br>&nbsp;&nbsp;&nbsp;onClick="window2.frames[2].document.bgColor='fuchsia'"&gt;<br>&lt;P&gt;&lt;INPUT TYPE="button" VALUE="window2.frame4 to deeppink"<br>&nbsp;&nbsp;&nbsp;onClick="window2.frames[3].document.bgColor='deeppink'"&gt;<br>&lt;/FORM&gt;<br>&lt;/BODY&gt;<br>&lt;/HTML&gt;</A></PRE><A NAME="1201483">
+<CODE>framcon2.html</CODE>, which defines the content for the remaining frames, contains the following code:</A></P>
+<PRE><A NAME="1201484">&lt;HTML&gt;<br>&lt;BODY&gt;<br>&lt;P&gt;This is a frame.<br>&lt;/BODY&gt;<br>&lt;/HTML&gt;</A></PRE><A NAME="1201485">
+<CODE>framcon3.html</CODE>, which is referenced in a <CODE>Link</CODE> object in <CODE>framcon1.html</CODE>, contains the following code:</A></P>
+<PRE><A NAME="1201486">&lt;HTML&gt;<br>&lt;BODY&gt;<br>&lt;P&gt;This is a frame. What do you think?<br>&lt;/BODY&gt;<br>&lt;/HTML&gt;</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1201487">
+ See also
+</A></H4>
+
+<A NAME="1201494">
+<A HREF="document.htm#1193137"><CODE>document</CODE></A>, <A HREF="frame.htm#1193137"><CODE>Frame</CODE></A> </A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1201497">
+alert
+</A></H2>
+
+<A NAME="1201510">
+Displays an Alert dialog box with a message and an OK button.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1201500">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1201505">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1201507">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1201509">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1201511">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1201512">alert(<I>message</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1201513">
+ Parameters
+</A></H4>
+
+<A NAME="1201519">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201516">message</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201518">
+A string.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1201520">
+ Description
+</A></H4>
+
+<A NAME="1201524">
+An alert dialog box looks as follows:<P>
+<IMG SRC="graphics/alert.gif">
+</A></P>
+<A NAME="1201525">
+Use the <CODE>alert</CODE> method to display a message that does not require a user decision. The <CODE>message</CODE> argument specifies a message that the dialog box contains.</A></P>
+<A NAME="1201529">
+You cannot specify a title for an alert dialog box, but you can use the <A HREF="window.htm#1202731"><CODE>open</CODE></A> method to create your own alert dialog box. See <A HREF="window.htm#1202731"><CODE>open</CODE></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1201533">
+ Examples
+</A></H4>
+
+<A NAME="1201534">
+In the following example, the <CODE>testValue</CODE> function checks the name entered by a user in the <CODE>Text</CODE> object of a form to make sure that it is no more than eight characters in length. This example uses the <CODE>alert</CODE> method to prompt the user to enter a valid value.</A></P>
+<PRE><A NAME="1201535">function testValue(textElement) {<br>&nbsp;&nbsp;&nbsp;if (textElement.length &gt; 8) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert("Please enter a name that is 8 characters or less")<br>&nbsp;&nbsp;&nbsp;}<br>}</A></PRE><A NAME="1201536">
+You can call the <CODE>testValue</CODE> function in the <CODE>onBlur</CODE> event handler of a form's <CODE>Text</CODE> object, as shown in the following example:</A></P>
+<PRE><A NAME="1201537">Name: &lt;INPUT TYPE="text" NAME="userName"<br>&nbsp;&nbsp;&nbsp;onBlur="testValue(userName.value)"&gt;</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1201538">
+ See also
+</A></H4>
+
+<A NAME="1201545">
+<A HREF="window.htm#1201914"><CODE>window.confirm</CODE></A>, <A HREF="window.htm#1203158"><CODE>window.prompt</CODE></A> </A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1201548">
+atob
+</A></H2>
+
+<A NAME="1201549">
+Decodes a string of data which has been encoded using base-64 encoding.</A></P>
+<A NAME="1201562">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1201552">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1201557">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1201559">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1201561">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1201563">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1201564">atob(<I>encodedData</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1201565">
+ Parameters
+</A></H4>
+
+<A NAME="1201571">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201568">encodedData</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201570">
+A string of data which has been created using base-64 encoding.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1201572">
+ Description
+</A></H4>
+
+<A NAME="1201573">
+This method decodes a string of data which has been encoded using base-64 encoding. For example, the <A HREF="window.htm#1201650"><CODE>window.btoa</CODE></A> method takes a binary string as a parameter and returns a base-64 encoded string.</A></P>
+<A NAME="1207007">
+You can use the <A HREF="window.htm#1201650"><CODE>window.btoa</CODE></A> method to encode and transmit data which may otherwise cause communication problems, then transmit it and use the <A HREF="window.htm#1201548"><CODE>window.atob</CODE></A> method to decode the data again. For example, you can encode, transmit, and decode characters such as ASCII values 0 through 31.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1201577">
+ Examples
+</A></H4>
+
+<A NAME="1201578">
+The following example encodes and decodes the string "Hello, world".</A></P>
+<PRE><A NAME="1201579">// encode a string<br>encodedData = btoa("Hello, world");<br><br>// decode the string<br>decodedData = atob(encodedData);</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1201580">
+ See also
+</A></H4>
+
+<A NAME="1201584">
+<A HREF="window.htm#1201650"><CODE>window.btoa</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1201587">
+back
+</A></H2>
+
+<A NAME="1201588">
+Undoes the last history step in any frame within the top-level window; equivalent to the user pressing the browser's Back button. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1201591">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1201596">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1201598">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1201600">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1201601">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1201602">back()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1201603">
+ Parameters
+</A></H4>
+
+<A NAME="1201604">
+None</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1201605">
+ Description
+</A></H4>
+
+<A NAME="1201606">
+Calling the <CODE>back</CODE> method is equivalent to the user pressing the browser's Back button. That is, <CODE>back</CODE> undoes the last step anywhere within the top-level window, whether it occurred in the same frame or in another frame in the tree of frames loaded from the top-level window. In contrast, the <CODE>history</CODE> object's <CODE>back</CODE> method backs up the <I>current</I> window or frame history one step.</A></P>
+<A NAME="1201607">
+For example, consider the following scenario. While in Frame A, you click the Forward button to change Frame A's content. You then move to Frame B and click the Forward button to change Frame B's content. If you move back to Frame A and call <CODE>FrameA.back()</CODE>, the content of Frame B changes (clicking the Back button behaves the same).</A></P>
+<A NAME="1201608">
+If you want to navigate Frame A separately, use <CODE>FrameA.history.back()</CODE>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1201609">
+ Examples
+</A></H4>
+
+<A NAME="1201610">
+The following custom buttons perform the same operation as the browser's Back button:</A></P>
+<PRE><A NAME="1201611">&lt;P&gt;&lt;INPUT TYPE="button" VALUE="&lt; Go Back"<br>&nbsp;&nbsp;&nbsp;onClick="history.back()"&gt;<br>&lt;P&gt;&lt;INPUT TYPE="button" VALUE="&gt; Go Back"<br>&nbsp;&nbsp;&nbsp;onClick="myWindow.back()"&gt;</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1201612">
+ See also
+</A></H4>
+
+<A NAME="1201619">
+<A HREF="window.htm#1202267"><CODE>window.forward</CODE></A>, <A HREF="history.htm#1193841"><CODE>History.back</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1201622">
+blur
+</A></H2>
+
+<A NAME="1201636">
+Removes focus from the specified object.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1201626">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1201631">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1201633">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1201635">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1201637">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1201638">blur()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1201639">
+ Parameters
+</A></H4>
+
+<A NAME="1201640">
+None</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1201641">
+ Description
+</A></H4>
+
+<A NAME="1201642">
+Use the <CODE>blur</CODE> method to remove focus from a specific window or frame. Removing focus from a window sends the window to the background in most windowing systems.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1201643">
+ See also
+</A></H4>
+
+<A NAME="1201647">
+<A HREF="window.htm#1202234"><CODE>window.focus</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1201650">
+btoa
+</A></H2>
+
+<A NAME="1201663">
+Creates a base-64 encoded ASCII string from a string of binary data.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1201653">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1201658">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1201660">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1201662">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1201664">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1201665">btoa(<I>stringToEncode</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1201666">
+ Parameters
+</A></H4>
+
+<A NAME="1201672">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201669">stringToEncode</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201671">
+An arbitrary binary string to be encoded.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1201673">
+ Description
+</A></H4>
+
+<A NAME="1201674">
+This method takes a binary ASCII string as a parameter and returns another ASCII string which has been encoded using base-64 encoding.</A></P>
+<A NAME="1206921">
+You can use this method to encode data which may otherwise cause communication problems, transmit it, then use the <A HREF="window.htm#1201548"><CODE>window.atob</CODE></A> method to decode the data again. For example, you can encode characters such as ASCII values 0 through 31.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1201675">
+ Examples
+</A></H4>
+
+<A NAME="1201679">
+See <A HREF="window.htm#1201548"><CODE>window.atob</CODE></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1201680">
+ See also
+</A></H4>
+
+<A NAME="1201684">
+<A HREF="window.htm#1201548"><CODE>window.atob</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1201687">
+captureEvents
+</A></H2>
+
+<A NAME="1201700">
+Sets the window to capture all events of the specified type.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1201690">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1201695">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1201697">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1201699">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1201701">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1201702">captureEvents(<I>eventType1</I> [|<I>eventTypeN...</I>])</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1201703">
+ Parameters
+</A></H4>
+
+<A NAME="1201712">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201706">eventType1... eventTypeN</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201708">
+The type of event to be captured. The available event types are discussed in <A HREF="handlers.htm#1130823">Chapter 3, "Event Handlers."</A></A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1201713">
+ Security
+</A></H4>
+
+<A NAME="1201714">
+When a window with frames wants to capture events in pages loaded from different locations (servers), you need to use <CODE>captureEvents</CODE> in a signed script and precede it with <CODE>enableExternalCapture</CODE>. You must have the <CODE>UniversalBrowserWrite</CODE> privilege. For more information and an example, see <A HREF="window.htm#1202163"><CODE>enableExternalCapture</CODE></A>. For information on security, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1201723">
+ See also
+</A></H4>
+
+<A NAME="1201724">
+<CODE>captureEvents</CODE> works in tandem with <CODE>releaseEvents</CODE>, <CODE>routeEvent</CODE>, and <CODE>handleEvent</CODE>. For more information, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1201732">
+clearInterval
+</A></H2>
+
+<A NAME="1201748">
+Cancels a timeout that was set with the <A HREF="window.htm#1203669"><CODE>setInterval</CODE></A> method.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1201738">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1201743">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1201745">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1201747">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1201749">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1201750">clearInterval(<I>intervalID</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1201751">
+ Parameters
+</A></H4>
+
+<A NAME="1201757">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201754">intervalID</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201756">
+Timeout setting that was returned by a previous call to the <CODE>setInterval</CODE> method.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1201758">
+ Description
+</A></H4>
+
+<A NAME="1201762">
+See <A HREF="window.htm#1203669"><CODE>setInterval</CODE></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1201763">
+ Examples
+</A></H4>
+
+<A NAME="1201767">
+See <A HREF="window.htm#1203669"><CODE>setInterval</CODE></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1201768">
+ See also
+</A></H4>
+
+<A NAME="1201772">
+<A HREF="window.htm#1203669"><CODE>window.setInterval</CODE></A> </A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1201775">
+clearTimeout
+</A></H2>
+
+<A NAME="1201792">
+Cancels a timeout that was set with the <A HREF="window.htm#1203758"><CODE>setTimeout</CODE></A> method.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1201782">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1201787">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1201789">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1201791">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1201793">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1201794">clearTimeout(<I>timeoutID</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1201795">
+ Parameters
+</A></H4>
+
+<A NAME="1201801">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201798">timeoutID</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201800">
+A timeout setting that was returned by a previous call to the <CODE>setTimeout</CODE> method.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1201802">
+ Description
+</A></H4>
+
+<A NAME="1201806">
+See <A HREF="window.htm#1203758"><CODE>setTimeout</CODE></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1201807">
+ Examples
+</A></H4>
+
+<A NAME="1201811">
+See <A HREF="window.htm#1203758"><CODE>setTimeout</CODE></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1201812">
+ See also
+</A></H4>
+
+<A NAME="1201819">
+<A HREF="window.htm#1201732"><CODE>window.clearInterval</CODE></A>, <A HREF="window.htm#1203758"><CODE>window.setTimeout</CODE></A> </A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1201822">
+close
+</A></H2>
+
+<A NAME="1201840">
+Closes the specified window.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1201826">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1201831">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1201833">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1201835">
+JavaScript 1.0: closes any window</A></P><P><A NAME="1201836">
+</A></P><P><A NAME="1201837">
+JavaScript 1.1: closes only windows opened by JavaScript</A></P><P><A NAME="1201838">
+</A></P><P><A NAME="1201839">
+JavaScript 1.2: must use signed scripts to unconditionally close a window</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1201841">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1201842">close()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1201843">
+ Parameters
+</A></H4>
+
+<A NAME="1201844">
+None</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1201845">
+ Security 
+</A></H4>
+
+<A NAME="1201846">
+To unconditionally close a window, you need the <CODE>UniversalBrowserWrite</CODE> privilege. For information on security, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1201852">
+ Description
+</A></H4>
+
+<A NAME="1201853">
+The <CODE>close</CODE> method closes the specified window. If you call <CODE>close</CODE> without specifying a <CODE>windowReference</CODE>, JavaScript closes the current window.</A></P>
+<A NAME="1205645">
+The <CODE>close</CODE> method closes only windows opened by JavaScript using the <CODE>open</CODE> method. If you attempt to close any other window, a confirm is generated, which lets the user choose whether the window closes. This is a security feature to prevent "mail bombs" containing <CODE>self.close()</CODE>. However, if the window has only one document (the current one) in its session history, the close is allowed without any confirm. This is a special case for one-off windows that need to open other windows and then dispose of themselves.</A></P>
+<A NAME="1201857">
+In event handlers, you must specify <CODE>window.close()</CODE> instead of simply using <CODE>close()</CODE>. Due to the scoping of static objects in JavaScript, a call to <CODE>close()</CODE> without specifying an object name is equivalent to <CODE>document.close()</CODE>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1201858">
+ Examples
+</A></H4>
+
+<A NAME="1201859">
+<B>Example 1.</B> Any of the following examples closes the current window:</A></P>
+<PRE><A NAME="1201860">window.close()<br>self.close()<br>close()</A></PRE><A NAME="1201861">
+<B>Example 2: Close the main browser window.</B> The following code closes the main browser window.</A></P>
+<PRE><A NAME="1201862">top.opener.close()</A></PRE><A NAME="1201863">
+<B>Example 3.</B> The following example closes the <CODE>messageWin</CODE> window:</A></P>
+<PRE><A NAME="1201864">messageWin.close()</A></PRE><A NAME="1201865">
+This example assumes that the window was opened in a manner similar to the following:</A></P>
+<PRE><A NAME="1201866">messageWin=window.open("")</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1201867">
+ See also
+</A></H4>
+
+<A NAME="1201874">
+<A HREF="window.htm#1201877"><CODE>window.closed</CODE></A>, <A HREF="window.htm#1202731"><CODE>window.open</CODE></A> </A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1201877">
+closed
+</A></H2>
+
+<A NAME="1201895">
+Specifies whether a window is closed.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1201881">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1201886">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1201888">
+<I>Read-only</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1201890">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1201892">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1201894">
+JavaScript 1.1</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1201896">
+ Description
+</A></H4>
+
+<A NAME="1201897">
+The <CODE>closed</CODE> property is a boolean value that specifies whether a window has been closed. When a window closes, the <CODE>window</CODE> object that represents it continues to exist, and its <CODE>closed</CODE> property is set to true.</A></P>
+<A NAME="1201898">
+Use <CODE>closed</CODE> to determine whether a window that you opened, and to which you still hold a reference (from the return value of <CODE>window.open</CODE>), is still open. Once a window is closed, you should not attempt to manipulate it.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1201899">
+ Examples
+</A></H4>
+
+<A NAME="1201900">
+<B>Example 1.</B> The following code opens a window, <CODE>win1</CODE>, then later checks to see if that window has been closed. A function is called depending on whether <CODE>win1</CODE> is closed.</A></P>
+<PRE><A NAME="1201901">win1=window.open('opener1.html','window1','width=300,height=300')<br>...<br>if (win1.closed)<br>&nbsp;&nbsp;&nbsp;function1()<br>&nbsp;&nbsp;&nbsp;else<br>&nbsp;&nbsp;&nbsp;function2()</A></PRE><A NAME="1201902">
+<B>Example 2.</B> The following code determines if the current window's opener window is still closed, and calls the appropriate function.</A></P>
+<PRE><A NAME="1201903">if (window.opener.closed)<br>&nbsp;&nbsp;&nbsp;function1()<br>&nbsp;&nbsp;&nbsp;else<br>&nbsp;&nbsp;&nbsp;function2()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1201904">
+ See also
+</A></H4>
+
+<A NAME="1201911">
+<A HREF="window.htm#1201822"><CODE>window.close</CODE></A>, <A HREF="window.htm#1202731"><CODE>window.open</CODE></A> </A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1201914">
+confirm
+</A></H2>
+
+<A NAME="1201916">
+Displays a Confirm dialog box with the specified message and OK and Cancel buttons.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1201919">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1201924">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1201926">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1201928">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1201929">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1201930">confirm(<I>message</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1201931">
+ Parameters
+</A></H4>
+
+<A NAME="1201937">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1201934">message</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1201936">
+A string.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1201938">
+ Description
+</A></H4>
+
+<A NAME="1201942">
+A confirm dialog box looks as follows:<P>
+<IMG SRC="graphics/confirm.gif">
+</A></P>
+<A NAME="1201943">
+Use the <CODE>confirm</CODE> method to ask the user to make a decision that requires either an OK or a Cancel. The <CODE>message</CODE> argument specifies a message that prompts the user for the decision. The <CODE>confirm</CODE> method returns true if the user chooses OK and false if the user chooses Cancel.</A></P>
+<A NAME="1201944">
+You cannot specify a title for a confirm dialog box, but you can use the <CODE>open</CODE> method to create your own confirm dialog. See <A HREF="window.htm#1202731"><CODE>open</CODE></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1201948">
+ Examples
+</A></H4>
+
+<A NAME="1201949">
+This example uses the <CODE>confirm</CODE> method in the <CODE>confirmCleanUp</CODE> function to confirm that the user of an application really wants to quit. If the user chooses OK, the custom <CODE>cleanUp</CODE> function closes the application.</A></P>
+<PRE><A NAME="1201950">function confirmCleanUp() {<br>&nbsp;&nbsp;&nbsp;if (confirm("Are you sure you want to quit this application?")) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cleanUp()<br>&nbsp;&nbsp;&nbsp;}<br>}</A></PRE><A NAME="1201951">
+You can call the <CODE>confirmCleanUp</CODE> function in the <CODE>onClick</CODE> event handler of a form's push button, as shown in the following example:</A></P>
+<PRE><A NAME="1201952">&lt;INPUT TYPE="button" VALUE="Quit" onClick="confirmCleanUp()"&gt;</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1201953">
+ See also
+</A></H4>
+
+<A NAME="1201960">
+<A HREF="window.htm#1201497"><CODE>window.alert</CODE></A>, <A HREF="window.htm#1203158"><CODE>window.prompt</CODE></A> </A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1201963">
+crypto
+</A></H2>
+
+<A NAME="1201980">
+An object which allows access Navigator's encryption features.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1201966">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1201971">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1201973">
+<I>Read-only</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1201975">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1201977">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1201979">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1201981">
+ Description
+</A></H4>
+
+<A NAME="1201985">
+The <CODE>crypto</CODE> object is only available as a property of <A HREF="window.htm#1200703"><CODE>window</CODE></A>; it provides access to methods which support Navigator's encryption features.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1201986">
+ See also
+</A></H4>
+
+<A NAME="1201993">
+<A HREF="window.htm#1201996"><CODE>window.crypto.random</CODE></A>, <A HREF="window.htm#1202035"><CODE>window.crypto.signText</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1201996">
+crypto.random
+</A></H2>
+
+<A NAME="1202013">
+Returns a pseudo-random string whose length is the specified number of bytes.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1201999">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202004">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202006">
+Static</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202008">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202010">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202012">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202014">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1202015">crypto.random(<I>numberOfBytes</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1202016">
+ Parameters
+</A></H4>
+
+<A NAME="1202022">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1202019">numberOfBytes</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1202021">
+The number of bytes of pseudo-random data the method will return.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202023">
+ Description
+</A></H4>
+
+<A NAME="1202024">
+This method generates a random string of data whose length is specified by the <I><CODE>numberOfBytes</CODE></I> parameter.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202025">
+ Examples
+</A></H4>
+
+<A NAME="1202026">
+The following function returns a string whose length is 16 bytes.</A></P>
+<PRE><A NAME="1202027">function getRandom() {<br>&nbsp;&nbsp;&nbsp;return crypto.random(16)<br>}</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1202028">
+ See also
+</A></H4>
+
+<A NAME="1202032">
+<A HREF="math.htm#1197697"><CODE>Math.random</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1202035">
+crypto.signText
+</A></H2>
+
+<A NAME="1202052">
+Returns a string of encoded data which represents a signed object.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202038">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202043">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202045">
+Static</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202047">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202049">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202051">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202053">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1202054">crypto.signText<br>&nbsp;&nbsp;&nbsp;(<I>text, selectionStyle </I>[, <I>authority1 </I>[, ... <I>authorityN</I>]])</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1202055">
+ Parameters
+</A></H4>
+
+<A NAME="1202071">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1202058">text</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1202060">
+A string evaluating to the text you want a user to sign.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1202062">selectionStyle</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1202064">
+A string evaluating to either of the following:</A></P><ul></P><LI><A NAME="1202065">
+<CODE>ask</CODE> specifies that a dialog box will present a user with a list of possible certificates.</A></P><LI><A NAME="1202066">
+<CODE>auto</CODE> specifies that Navigator automatically selects a certificate from <I>authority1</I> through <I>authorityN</I>.</A></ul>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1202068">authority1... authorityN</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1202070">
+Optional strings evaluating to Certificate Authorities accepted by the server using the signed text.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202072">
+ Description
+</A></H4>
+
+<A NAME="1202073">
+The <CODE>signText</CODE> method asks a user to validate a <I><CODE>text</CODE></I> string by attaching a digital signature to it. If the <I><CODE>selectionStyle</CODE></I> parameter is set to <CODE>ask</CODE>, <CODE>signText</CODE> displays a dialog box, and a user must interactively select a certificate to validate the text. If <I><CODE>selectionStyle</CODE></I> is set to <CODE>auto</CODE>, Navigator attempts to automatically select a certificate.</A></P>
+<A NAME="1202074">
+Use the <CODE>signText</CODE> method to submit an encoded signature to a server; the server decodes the signature and verifies it. If <CODE>signText</CODE> fails, it returns one of the following error codes:</A></P>
+<ul><P><LI><A NAME="1202075">
+<CODE>error:noMatchingCert</CODE> specifies that the user's certificate does not match one of the certificates required by <I><CODE>authority1</CODE></I> through <I><CODE>authorityN</CODE></I>.</A></LI>
+<P><LI><A NAME="1202076">
+<CODE>error:userCancel</CODE> specifies that the user cancelled the signature dialog box without submitting a certificate.</A></LI>
+<P><LI><A NAME="1202077">
+<CODE>error:internalError</CODE> specifies that an internal error occurred.</A></LI>
+</ul>
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1202080">
+defaultStatus
+</A></H2>
+
+<A NAME="1202093">
+The default message displayed in the status bar at the bottom of the window.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202083">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202088">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202090">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202092">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202094">
+ Security
+</A></H4>
+
+<B><A NAME="HeadRunIn;"></A>
+<A NAME="1202095">
+JavaScript 1.1. </A></B><A NAME="1202096">
+This property is tainted by default. For information on data tainting, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202102">
+ Description
+</A></H4>
+
+<A NAME="1202103">
+The <CODE>defaultStatus</CODE> message appears when nothing else is in the status bar. Do not confuse the <CODE>defaultStatus</CODE> property with the <CODE>status</CODE> property. The <CODE>status</CODE> property reflects a priority or transient message in the status bar, such as the message that appears when a <CODE>mouseOver</CODE> event occurs over an anchor.</A></P>
+<A NAME="1202104">
+You can set the <CODE>defaultStatus</CODE> property at any time. You must return true if you want to set the <CODE>defaultStatus</CODE> property in the <CODE>onMouseOut</CODE> or <CODE>onMouseOver</CODE> event handlers.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202105">
+ Examples
+</A></H4>
+
+<A NAME="1202106">
+In the following example, the <CODE>statusSetter</CODE> function sets both the <CODE>status</CODE> and <CODE>defaultStatus</CODE> properties in an <CODE>onMouseOver</CODE> event handler:</A></P>
+<PRE><A NAME="1202107">function statusSetter() {<br>&nbsp;&nbsp;&nbsp;window.defaultStatus = "Click the link for the Netscape home page"<br>&nbsp;&nbsp;&nbsp;window.status = "Netscape home page"<br>}</A></PRE><PRE><A NAME="1202108">&lt;A HREF="http://home.netscape.com"<br>&nbsp;&nbsp;&nbsp;onMouseOver = "statusSetter(); return true"&gt;Netscape&lt;/A&gt;</A></PRE><A NAME="1202109">
+In the previous example, notice that the <CODE>onMouseOver</CODE> event handler returns a value of true. You must return true to set <CODE>status</CODE> or <CODE>defaultStatus</CODE> in an event handler.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202110">
+ See also
+</A></H4>
+
+<A NAME="1202114">
+<A HREF="window.htm#1203861"><CODE>window.status</CODE></A> </A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1202117">
+disableExternalCapture
+</A></H2>
+
+<A NAME="1202130">
+Disables external event capturing set by the <CODE>enableExternalCapture</CODE> method. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202120">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202125">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202127">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202129">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202131">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1202132">disableExternalCapture()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1202133">
+ Parameters
+</A></H4>
+
+<A NAME="1202134">
+None</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202135">
+ Description
+</A></H4>
+
+<A NAME="1202139">
+See <A HREF="window.htm#1202163"><CODE>enableExternalCapture</CODE></A>. </A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1202142">
+document
+</A></H2>
+
+<A NAME="1202143">
+Contains information on the current document, and provides methods for displaying HTML output to the user. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202146">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202151">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202153">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202155">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202156">
+ Description
+</A></H4>
+
+<A NAME="1202160">
+The value of this property is the window's associated <A HREF="document.htm#1193137"><CODE>document</CODE></A> object.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1202163">
+enableExternalCapture
+</A></H2>
+
+<A NAME="1202164">
+Allows a window with frames to capture events in pages loaded from different locations (servers). <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202167">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202172">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202174">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202176">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202177">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1202178">enableExternalCapture()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1202179">
+ Parameters
+</A></H4>
+
+<A NAME="1202180">
+None</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202181">
+ Description
+</A></H4>
+
+<A NAME="1202182">
+Use this method in a signed script requesting <CODE>UniversalBrowserWrite</CODE> privileges, and use it before calling the <CODE>captureEvents</CODE> method.</A></P>
+<A NAME="1202183">
+If Communicator sees additional scripts that cause the set of principals in effect for the container to be downgraded, it disables external capture of events. Additional calls to <CODE>enableExternalCapture</CODE> (after acquiring the <CODE>UniversalBrowserWrite</CODE> privilege under the reduced set of principals) can be made to enable external capture again. </A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202184">
+ Examples
+</A></H4>
+
+<A NAME="1202185">
+In the following example, the window is able to capture all <CODE>Click</CODE> events that occur across its frames. </A></P>
+<PRE><A NAME="1202186">&lt;SCRIPT ARCHIVE="myArchive.jar" ID="2"&gt;<br>function captureClicks() {<br>&nbsp;&nbsp;&nbsp;netscape.security.PrivilegeManager.enablePrivilege(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"UniversalBrowserWrite"); <br>&nbsp;&nbsp;&nbsp;enableExternalCapture();<br>&nbsp;&nbsp;&nbsp;captureEvents(Event.CLICK);<br>&nbsp;&nbsp;&nbsp;...<br>}<br>&lt;/SCRIPT&gt;</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1202187">
+ See also
+</A></H4>
+
+<A NAME="1202194">
+<A HREF="window.htm#1202117"><CODE>window.disableExternalCapture</CODE></A>, <A HREF="window.htm#1201687"><CODE>window.captureEvents</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1202197">
+find
+</A></H2>
+
+<A NAME="1202210">
+Finds the specified text string in the contents of the specified window.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202200">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202205">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202207">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202209">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202211">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1202212">find([<I>string</I>[, <I>caseSensitive</I>, <I>backward</I>]])</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1202213">
+ Parameters
+</A></H4>
+
+<A NAME="1202227">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1202216">string</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1202218">
+The text string for which to search.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1202220">caseSensitive</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1202222">
+Boolean value. If true, specifies a case-sensitive search. If you supply this parameter, you must also supply <CODE>backward</CODE>.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1202224">backward</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1202226">
+Boolean. If true, specifies a backward search. If you supply this parameter, you must also supply <CODE>casesensitive</CODE>.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202228">
+ Returns
+</A></H4>
+
+<A NAME="1202229">
+true if the string is found; otherwise, false.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202230">
+ Description
+</A></H4>
+
+<A NAME="1202231">
+When a string is specified, the browser performs a case-insensitive, forward search. If a string is not specified, the method displays the Find dialog box, allowing the user to enter a search string.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1202234">
+focus
+</A></H2>
+
+<A NAME="1202247">
+Gives focus to the specified object.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202237">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202242">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202244">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202246">
+JavaScript 1.1</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202248">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1202249">focus()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1202250">
+ Parameters
+</A></H4>
+
+<A NAME="1202251">
+None</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202252">
+ Description
+</A></H4>
+
+<A NAME="1202253">
+Use the <CODE>focus</CODE> method to navigate to a specific window or frame, and give it focus. Giving focus to a window brings the window forward in most windowing systems.</A></P>
+<A NAME="1202254">
+In JavaScript 1.1, on some platforms, the <CODE>focus</CODE> method gives focus to a frame but the focus is not visually apparent (for example, the frame's border is not darkened). </A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202255">
+ Examples
+</A></H4>
+
+<A NAME="1202256">
+In the following example, the <CODE>checkPassword</CODE> function confirms that a user has entered a valid password. If the password is not valid, the <CODE>focus</CODE> method returns focus to the <CODE>Password</CODE> object and the <CODE>select</CODE> method highlights it so the user can reenter the password.</A></P>
+<PRE><A NAME="1202257">function checkPassword(userPass) {<br>&nbsp;&nbsp;&nbsp;if (badPassword) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert("Please enter your password again.")<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;userPass.focus()<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;userPass.select()<br>&nbsp;&nbsp;&nbsp;}<br>}</A></PRE><A NAME="1202258">
+This example assumes that the <CODE>Password</CODE> object is defined as</A></P>
+<PRE><A NAME="1202259">&lt;INPUT TYPE="password" NAME="userPass"&gt;</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1202260">
+ See also
+</A></H4>
+
+<A NAME="1202264">
+<A HREF="window.htm#1201622"><CODE>window.blur</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1202267">
+forward
+</A></H2>
+
+<A NAME="1202269">
+Points the browser to the next URL in the current history list; equivalent to the user pressing the browser's Forward button<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202272">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202277">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202279">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202281">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202282">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1202283">history.forward()</A></PRE><PRE><A NAME="1202284">forward()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1202285">
+ Parameters
+</A></H4>
+
+<A NAME="1202286">
+None</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202287">
+ Description
+</A></H4>
+
+<A NAME="1202288">
+This method performs the same action as a user choosing the Forward button in the browser. The <CODE>forward</CODE> method is the same as <CODE>history.go(1)</CODE>.</A></P>
+<A NAME="1202289">
+When used with the Frame object, <CODE>forward</CODE> behaves as follows: While in Frame A, you click the Back button to change Frame A's content. You then move to Frame B and click the Back button to change Frame B's content. If you move back to Frame A and call <CODE>FrameA.forward()</CODE>, the content of Frame B changes (clicking the Forward button behaves the same). If you want to navigate Frame A separately, use <CODE>FrameA.history.forward()</CODE>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202290">
+ Examples
+</A></H4>
+
+<A NAME="1202291">
+The following custom buttons perform the same operation as the browser's Forward button:</A></P>
+<PRE><A NAME="1202292">&lt;P&gt;&lt;INPUT TYPE="button" VALUE="&lt; Go Forth"<br>&nbsp;&nbsp;&nbsp;onClick="history.forward()"&gt;<br>&lt;P&gt;&lt;INPUT TYPE="button" VALUE="&gt; Go Forth"<br>&nbsp;&nbsp;&nbsp;onClick="myWindow.forward()"&gt;</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1202293">
+ See also
+</A></H4>
+
+<A NAME="1202297">
+<A HREF="window.htm#1201587"><CODE>window.back</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1202300">
+frames
+</A></H2>
+
+<A NAME="1202301">
+An array of objects corresponding to child frames (created with the <CODE>FRAME</CODE> tag) in source order. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202304">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202309">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202311">
+<I>Read-only</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202313">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202315">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202317">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+<A NAME="1202318">
+You can refer to the child frames of a window by using the <CODE>frames</CODE> array. This array contains an entry for each child frame (created with the <CODE>FRAME</CODE> tag) in a window containing a <CODE>FRAMESET</CODE> tag; the entries are in source order. For example, if a window contains three child frames whose <CODE>NAME</CODE> attributes are <CODE>fr1</CODE>, <CODE>fr2</CODE>, and <CODE>fr3</CODE>, you can refer to the objects in the <CODE>images</CODE> array either as:</A></P>
+<PRE><A NAME="1202319">parent.frames["fr1"]<br>parent.frames["fr2"]<br>parent.frames["fr3"]</A></PRE><A NAME="1202320">
+or as:</A></P>
+<PRE><A NAME="1202321">parent.frames[0]<br>parent.frames[1]<br>parent.frames[2]</A></PRE><A NAME="1202322">
+You can find out how many child frames the window has by using the <CODE>length</CODE> property of the <CODE>window</CODE> itself or of the <CODE>frames</CODE> array.</A></P>
+<A NAME="1202323">
+The value of each element in the <CODE>frames</CODE> array is &lt;<CODE>object nameAttribute&gt;</CODE>, where <CODE>nameAttribute</CODE> is the <CODE>NAME</CODE> attribute of the frame.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1202326">
+handleEvent
+</A></H2>
+
+<A NAME="1202339">
+Invokes the handler for the specified event. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202329">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202334">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202336">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202338">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202340">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1202341">handleEvent(<I>event</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1202342">
+ Parameters
+</A></H4>
+
+<A NAME="1202348">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1202345">event</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1202347">
+The name of an event for which the specified object has an event handler.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202349">
+ Description
+</A></H4>
+
+<A NAME="1202356">
+<CODE>handleEvent</CODE> works in tandem with <A HREF="window.htm#1201687"><CODE>captureEvents</CODE></A>, <A HREF="window.htm#1203211"><CODE>releaseEvents</CODE></A>, and <A HREF="window.htm#1203352"><CODE>routeEvent</CODE></A>. For more information, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1202367">
+history
+</A></H2>
+
+<A NAME="1202380">
+Contains information on the URLs that the client has visited within a window. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202370">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202375">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202377">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202379">
+JavaScript 1.1</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202381">
+ Description
+</A></H4>
+
+<A NAME="1202385">
+The value of this property is the window's associated <A HREF="history.htm#1193137"><CODE>History</CODE></A> object.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1202388">
+home
+</A></H2>
+
+<A NAME="1202389">
+Points the browser to the URL specified in preferences as the user's home page; equivalent to the user pressing the browser's Home button.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202392">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202397">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202399">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202401">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202402">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1202403">home()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1202404">
+ Parameters
+</A></H4>
+
+<A NAME="1202405">
+None</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202406">
+ Description
+</A></H4>
+
+<A NAME="1202407">
+This method performs the same action as a user choosing the Home button in the browser.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1202410">
+innerHeight
+</A></H2>
+
+<A NAME="1202423">
+Specifies the vertical dimension, in pixels, of the window's content area. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202413">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202418">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202420">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202422">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202424">
+ Description
+</A></H4>
+
+<A NAME="1202425">
+To create a window smaller than 100 x 100 pixels, set this property in a signed script. </A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202426">
+ Security 
+</A></H4>
+
+<A NAME="1202427">
+To set the inner height of a window to a size smaller than 100 x 100 or larger than the screen can accommodate, you need the <CODE>UniversalBrowserWrite</CODE> privilege. For information on security, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202433">
+ See also
+</A></H4>
+
+<A NAME="1202443">
+<A HREF="window.htm#1202446"><CODE>window.innerWidth</CODE></A>, <A HREF="window.htm#1202958"><CODE>window.outerHeight</CODE></A>, <A HREF="window.htm#1202987"><CODE>window.outerWidth</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1202446">
+innerWidth
+</A></H2>
+
+<A NAME="1202459">
+Specifies the horizontal dimension, in pixels, of the window's content area. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202449">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202454">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202456">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202458">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202460">
+ Description
+</A></H4>
+
+<A NAME="1202461">
+To create a window smaller than 100 x 100 pixels, set this property in a signed script. </A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202462">
+ Security 
+</A></H4>
+
+<A NAME="1202463">
+To set the inner width of a window to a size smaller than 100 x 100 or larger than the screen can accommodate, you need the <CODE>UniversalBrowserWrite</CODE> privilege. For information on security, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202469">
+ See also
+</A></H4>
+
+<A NAME="1202479">
+<A HREF="window.htm#1202410"><CODE>window.innerHeight</CODE></A>, <A HREF="window.htm#1202958"><CODE>window.outerHeight</CODE></A>, <A HREF="window.htm#1202987"><CODE>window.outerWidth</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1202482">
+length
+</A></H2>
+
+<A NAME="1202499">
+The number of child frames in the window.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202485">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202490">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202492">
+<I>Read-only</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202494">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202496">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202498">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202500">
+ Description
+</A></H4>
+
+<A NAME="1202501">
+This property gives you the same result as using the <CODE>length</CODE> property of the <A HREF="window.htm#1202300"><CODE>frames</CODE></A> array.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1202507">
+location
+</A></H2>
+
+<A NAME="1202520">
+Contains information on the current URL. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202510">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202515">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202517">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202519">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202521">
+ Description
+</A></H4>
+
+<A NAME="1202525">
+The value of this property is the window's associated <A HREF="location.htm#1193137"><CODE>Location</CODE></A> object.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1202528">
+locationbar
+</A></H2>
+
+<A NAME="1202529">
+Represents the browser window's location bar (the region containing the bookmark and URL areas). <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202532">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202537">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202539">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202541">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202542">
+ Description
+</A></H4>
+
+<A NAME="1202543">
+The value of the <CODE>locationbar</CODE> property itself has one property, <CODE>visible</CODE>. If true, the location bar is visible; if false, it is hidden.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202544">
+ Security
+</A></H4>
+
+<A NAME="1202545">
+Setting the value of the location bar's <CODE>visible</CODE> property requires the <CODE>UniversalBrowserWrite</CODE> privilege. For information on security, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202551">
+ Examples
+</A></H4>
+
+<A NAME="1202552">
+The following example would make the referenced window "chromeless" (chromeless windows lack toolbars, scrollbars, status areas, and so on, much like a dialog box) by hiding most of the user interface toolbars: </A></P>
+<PRE><A NAME="1202553">self.menubar.visible=false;<br>self.toolbar.visible=false;<br>self.locationbar.visible=false;<br>self.personalbar.visible=false;<br>self.scrollbars.visible=false;<br>self.statusbar.visible=false;</A></PRE>
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1202556">
+menubar
+</A></H2>
+
+<A NAME="1202558">
+Represents the browser window's menu bar. This region contains the browser's drop-down menus such as File, Edit, View, Go, Communicator, and so on.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202561">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202566">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202568">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202570">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202571">
+ Description
+</A></H4>
+
+<A NAME="1202572">
+The value of the <CODE>menubar</CODE> property itself has one property, <CODE>visible</CODE>. If true, the menu bar is visible; if false, it is hidden.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202573">
+ Security
+</A></H4>
+
+<A NAME="1202574">
+Setting the value of the menu bar's <CODE>visible</CODE> property requires the <CODE>UniversalBrowserWrite</CODE> privilege. For information on security, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202580">
+ Examples
+</A></H4>
+
+<A NAME="1202581">
+The following example would make the referenced window "chromeless" (chromeless windows lack toolbars, scrollbars, status areas, and so on, much like a dialog box) by hiding most of the user interface toolbars: </A></P>
+<PRE><A NAME="1202582">self.menubar.visible=false;<br>self.toolbar.visible=false;<br>self.locationbar.visible=false;<br>self.personalbar.visible=false;<br>self.scrollbars.visible=false;<br>self.statusbar.visible=false;</A></PRE>
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1202585">
+moveBy
+</A></H2>
+
+<A NAME="1202586">
+Moves the window relative to its current position, moving the specified number of pixels.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202589">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202594">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202596">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202598">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202599">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1202600">moveBy(<I>horizontal</I>, <I>vertical</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1202601">
+ Parameters
+</A></H4>
+
+<A NAME="1202611">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1202604">horizontal</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1202606">
+The number of pixels by which to move the window horizontally.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1202608">vertical</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1202610">
+The number of pixels by which to move the window vertically.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202612">
+ Description
+</A></H4>
+
+<A NAME="1202613">
+This method moves the window by adding or subtracting the specified number of pixels to the current location. </A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202614">
+ Security
+</A></H4>
+
+<A NAME="1202615">
+Exceeding any of the boundaries of the screen (to hide some or all of a window) requires signed JavaScript, so a window won't move past the screen boundaries. You need the <CODE>UniversalBrowserWrite</CODE> privilege for this. For information on security, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202621">
+ Examples:
+</A></H4>
+
+<A NAME="1202622">
+To move the current window 5 pixels up towards the top of the screen (x-axis), and 10 pixels towards the right (y-axis) of the current window position, use this statement:</A></P>
+<PRE><A NAME="1202623">self.moveBy(-5,10); // relative positioning</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1202624">
+ See also
+</A></H4>
+
+<A NAME="1202628">
+<A HREF="window.htm#1202631"><CODE>window.moveTo</CODE></A> </A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1202631">
+moveTo
+</A></H2>
+
+<A NAME="1202644">
+Moves the top-left corner of the window to the specified screen coordinates.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202634">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202639">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202641">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202643">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202645">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1202646">moveTo(<I>x-coordinate</I>, <I>y-coordinate</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1202647">
+ Parameters
+</A></H4>
+
+<A NAME="1202657">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1202650">x-coordinate </A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1202652">
+The left edge of the window in screen coordinates.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1202654">y-coordinate</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1202656">
+The top edge of the window in screen coordinates.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202658">
+ Description
+</A></H4>
+
+<A NAME="1202659">
+This method moves the window to the absolute pixel location indicated by its parameters. The origin of the axes is at absolute position (0,0); this is the upper left-hand corner of the display.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202660">
+ Security
+</A></H4>
+
+<A NAME="1202661">
+Exceeding any of the boundaries of the screen (to hide some or all of a window) requires signed JavaScript, so a window won't move past the screen boundaries. You need the <CODE>UniversalBrowserWrite</CODE> privilege for this. For information on security, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202667">
+ Examples:
+</A></H4>
+
+<A NAME="1202668">
+To move the current window to 25 pixels from the top boundary of the screen (x-axis), and 10 pixels from the left boundary of the screen (y-axis), use this statement:</A></P>
+<PRE><A NAME="1202669">self.moveTo(25,10); // absolute positioning</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1202670">
+ See also
+</A></H4>
+
+<A NAME="1202674">
+<A HREF="window.htm#1202585"><CODE>window.moveBy</CODE></A> </A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1202677">
+name
+</A></H2>
+
+<A NAME="1202695">
+A string specifying the window's name.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202681">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202686">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left COLSPAN=2 ROWSPAN=1><P><A NAME="1202688">
+<I>Read-only (2.0); Modifiable (later versions)</I></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202692">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202694">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202696">
+ Security
+</A></H4>
+
+<B><A NAME="HeadRunIn;"></A>
+<A NAME="1202697">
+JavaScript 1.1. </A></B><A NAME="1202698">
+This property is tainted by default. For information on data tainting, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202704">
+ Description
+</A></H4>
+
+<A NAME="1202705">
+In JavaScript 1.0, <CODE>NAME</CODE> was a read-only property. In later versions, this property is modifiable by your code. This allows you to assign a name to a top-level window.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202706">
+ Examples
+</A></H4>
+
+<A NAME="1202707">
+In the following example, the first statement creates a window called <CODE>netscapeWin</CODE>. The second statement displays the value <CODE>"netscapeHomePage"</CODE> in the Alert dialog box, because <CODE>"netscapeHomePage"</CODE> is the value of the <CODE>windowName</CODE> argument of <CODE>netscapeWin</CODE>.</A></P>
+<PRE><A NAME="1202708">netscapeWin=window.open("http://home.netscape.com","netscapeHomePage")<br>alert(netscapeWin.name)</A></PRE>
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1202711">
+offscreenBuffering
+</A></H2>
+
+<A NAME="1202725">
+Specifies whether window updates are performed in an offscreen buffer.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202715">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202720">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202722">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202724">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202726">
+ Description
+</A></H4>
+
+<A NAME="1202727">
+By default, Navigator automatically determines whether updates to a window are performed in an offscreen buffer and then displayed in a window. You can either prevent buffering completely or require Navigator to buffer updates by setting <CODE>offscreenBuffering</CODE> to either <CODE>false</CODE> or <CODE>true</CODE>, respectively.</A></P>
+<A NAME="1202728">
+Buffering can reduce the flicker that occurs during window updates, but it requires additional system resources.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1202731">
+open
+</A></H2>
+
+<A NAME="1202746">
+Opens a new web browser window.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202734">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202739">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202741">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202743">
+JavaScript 1.0</A></P><P><A NAME="1202744">
+</A></P><P><A NAME="1202745">
+JavaScript 1.2: added several new <CODE>windowFeatures</CODE></A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202747">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1202748">open(<I>URL</I>, <I>windowName</I>[, <I>windowFeatures</I>])</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1202749">
+ Parameters
+</A></H4>
+
+<A NAME="1202770">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1202752">URL</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1202754">
+A string specifying the URL to open in the new window. See the <A HREF="location.htm#1193137"><CODE>Location</CODE></A> object for a description of the URL components.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1202759">windowName</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1202761">
+A string specifying the window name to use in the <CODE>TARGET</CODE> attribute of a <A HREF="http://developer.netscape.com/docs/manuals/htmlguid/index.htm?content=tags10.htm#tags:FORM" TARGET="_top"><CODE>FORM</A></CODE> or <CODE><A HREF="http://developer.netscape.com/docs/manuals/htmlguid/index.htm?content=tags7.htm#tags:A" TARGET="_top">A</A></CODE> tag. <CODE>windowName</CODE> can contain only alphanumeric or underscore (_) characters.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1202767">windowFeatures</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1202769">
+A string containing a comma-separated list determining whether or not to create various standard window features. These options are described in the following section.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202771">
+ Description
+</A></H4>
+
+<A NAME="1202772">
+In event handlers, you must specify <CODE>window.open()</CODE> instead of simply using <CODE>open()</CODE>. Due to the scoping of static objects in JavaScript, a call to <CODE>open()</CODE> without specifying an object name is equivalent to <CODE>document.open()</CODE>.</A></P>
+<A NAME="1202774">
+The <CODE>open</CODE> method opens a new Web browser window on the client, similar to choosing New, then Navigator Window from the Navigator File menu. The <CODE>URL</CODE> argument specifies the URL contained by the new window. If <CODE>URL</CODE> is an empty string, a new, empty window is created.</A></P>
+<A NAME="1202775">
+You can use <CODE>open</CODE> on an existing window, and if you pass the empty string for the URL, you will get a reference to the existing window, but not load anything into it. You can, for example, then look for properties in the window.</A></P>
+<A NAME="1202776">
+<I><CODE>windowFeatures</CODE></I> is an optional string containing a comma-separated list of options for the new window (do not include any spaces in this list). After a window is open, you cannot use JavaScript to change the <CODE>windowFeatures.</CODE> You can specify the following features:</A></P>
+<A NAME="1202871">
+<P><B><A NAME="1202780">
+Table 1.4&nbsp;Optional features to specify for a new window.</A></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1202784">
+<B><I>windowFeatures
+</I></B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1202786">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1202788">alwaysLowered</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1202790">
+(JavaScript 1.2) If yes, creates a new window that floats below other windows, whether it is active or not. This is a secure feature and must be set in signed scripts. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1202792">alwaysRaised</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1202794">
+(JavaScript 1.2) If yes, creates a new window that floats on top of other windows, whether it is active or not. This is a secure feature and must be set in signed scripts. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1202796">dependent</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1202798">
+(JavaScript 1.2) If yes, creates a new window as a child of the current window. A dependent window closes when its parent window closes. On Windows platforms, a dependent window does not show on the task bar. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1202800">directories</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1202802">
+If yes, creates the standard browser directory buttons, such as What's New and What's Cool.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1202804">height</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1202806">
+(JavaScript 1.0 and 1.1) Specifies the height of the window in pixels.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1202808">hotkeys</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1202810">
+(JavaScript 1.2) If no (or 0), disables most hotkeys in a new window that has no menu bar. The security and quit hotkeys remain enabled. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1202812">innerHeight</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1202814">
+(JavaScript 1.2) Specifies the height, in pixels, of the window's content area. To create a window smaller than 100 x 100 pixels, set this feature in a signed script. This feature replaces <CODE>height</CODE>, which remains for backwards compatibility. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1202816">innerWidth</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1202818">
+(JavaScript 1.2) Specifies the width, in pixels, of the window's content area. To create a window smaller than 100 x 100 pixels, set this feature in a signed script. This feature replaces <CODE>width</CODE>, which remains for backwards compatibility. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1202820">location</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1202822">
+If yes, creates a Location entry field.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1202824">menubar</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1202826">
+If yes, creates the menu at the top of the window.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1202828">outerHeight</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1202830">
+(JavaScript 1.2) Specifies the vertical dimension, in pixels, of the outside boundary of the window. To create a window smaller than 100 x 100 pixels, set this feature in a signed script.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1202832">personalbar</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1202834">
+(JavaScript 1.2) If yes, creates the Personal Toolbar, which displays buttons from the user's Personal Toolbar bookmark folder.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1202836">resizable</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1202838">
+If yes, allows a user to resize the window.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1202840">screenX</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1202842">
+(JavaScript 1.2) Specifies the distance the new window is placed from the left side of the screen. To place a window offscreen, set this feature in a signed scripts. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1202844">screenY</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1202846">
+(JavaScript 1.2) Specifies the distance the new window is placed from the top of the screen. To place a window offscreen, set this feature in a signed scripts. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1202848">scrollbars</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1202850">
+If yes, creates horizontal and vertical scrollbars when the Document grows larger than the window dimensions.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1202852">status</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1202854">
+If yes, creates the status bar at the bottom of the window.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1202856">titlebar</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1202858">
+(JavaScript 1.2) If yes, creates a window with a title bar. To set the titlebar to no, set this feature in a signed script. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1202860">toolbar</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1202862">
+If yes, creates the standard browser toolbar, with buttons such as Back and Forward.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1202864">width</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1202866">
+(JavaScript 1.0 and 1.1) Specifies the width of the window in pixels. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1202868">z-lock</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1202870">
+(JavaScript 1.2) If yes, creates a new window that does not rise above other windows when activated. This is a secure feature and must be set in signed scripts.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+<A NAME="1202872">
+Many of these features (as noted above) can either be yes or no. For these features, you can use 1 instead of yes and 0 instead of no. If you want to turn a feature on, you can also simply list the feature name in the <CODE>windowFeatures</CODE> string.</A></P>
+<A NAME="1202873">
+If <CODE>windowName</CODE> does not specify an existing window and you do not supply the <CODE>windowFeatures</CODE> parameter, all of the features which have a yes/no choice are yes by default. However, if you do supply the <CODE>windowFeatures</CODE> parameter, then the <CODE>titlebar</CODE> and <CODE>hotkeys</CODE> are still yes by default, but the other features which have a yes/no choice are no by default.</A></P>
+<A NAME="1202874">
+For example, all of the following statements turn on the toolbar option and turn off all other Boolean options:</A></P>
+<PRE><A NAME="1202875">open("", "messageWindow", "toolbar")<br>open("", "messageWindow", "toolbar=yes")<br>open("", "messageWindow", "toolbar=1")</A></PRE><A NAME="1202876">
+The following statement turn on the location and directories options and turns off all other Boolean options:</A></P>
+<PRE><A NAME="1202877">open("", "messageWindow", "toolbar,directories=yes")</A></PRE><A NAME="1202878">
+How the <CODE>alwaysLowered</CODE>, <CODE>alwaysRaised</CODE>, and <CODE>z-lock</CODE> features behave depends on the windowing hierarchy of the platform. For example, on Windows, an <CODE>alwaysLowered</CODE> or <CODE>z-locked</CODE> browser window is below all windows in all open applications. On Macintosh, an <CODE>alwaysLowered</CODE> browser window is below all browser windows, but not necessarily below windows in other open applications. Similarly for an <CODE>alwaysRaised</CODE> window.</A></P>
+<A NAME="1202879">
+You may use <CODE>open</CODE> to open a new window and then use <CODE>open</CODE> on that window to open another window, and so on. In this way, you can end up with a chain of opened windows, each of which has an <A HREF="window.htm#1202911"><CODE>opener</CODE></A> property pointing to the window that opened it.</A></P>
+<A NAME="1202883">
+Communicator allows a maximum of 100 windows to be around at once. If you open <CODE>window2</CODE> from <CODE>window1</CODE> and then are done with <CODE>window1</CODE>, be sure to set the <A HREF="window.htm#1202911"><CODE>opener</CODE></A> property of <CODE>window2</CODE> to <CODE>null</CODE>. This allows JavaScript to garbage collect <CODE>window1</CODE>. If you do not set the <CODE>opener</CODE> property to <CODE>null</CODE>, the <CODE>window1</CODE> object remains, even though it's no longer really needed.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202887">
+ Security 
+</A></H4>
+
+<A NAME="1202888">
+To perform the following operations, you need the <CODE>UniversalBrowserWrite</CODE> privilege:</A></P>
+<ul><P><LI><A NAME="1202889">
+To create a window smaller than 100 x 100 pixels or larger than the screen can accommodate by using <CODE>innerWidth</CODE>, <CODE>innerHeight</CODE>, <CODE>outerWidth</CODE>, and <CODE>outerHeight</CODE>.</A></LI>
+<P><LI><A NAME="1202890">
+To place a window off screen by using <CODE>screenX</CODE> and <CODE>screenY</CODE>.</A></LI>
+<P><LI><A NAME="1202891">
+To create a window without a titlebar by using <CODE>titlebar</CODE>.</A></LI>
+<P><LI><A NAME="1202892">
+To use <CODE>alwaysRaised</CODE>, <CODE>alwaysLowered</CODE>, or <CODE>z-lock</CODE> for any setting.</A></LI>
+</ul><A NAME="1202898">
+For information on security, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202899">
+ Examples
+</A></H4>
+
+<A NAME="1202900">
+<B>Example 1. </B>In the following example, the <CODE>windowOpener</CODE> function opens a window and uses <CODE>write</CODE> methods to display a message:</A></P>
+<PRE><A NAME="1202901">function windowOpener() {<br>&nbsp;&nbsp;&nbsp;msgWindow=window.open("","displayWindow","menubar=yes")<br>&nbsp;&nbsp;&nbsp;msgWindow.document.write<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;("&lt;HEAD&gt;&lt;TITLE&gt;Message window&lt;/TITLE&gt;&lt;/HEAD&gt;")<br>&nbsp;&nbsp;&nbsp;msgWindow.document.write<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;("&lt;CENTER&gt;&lt;BIG&gt;&lt;B&gt;Hello, world!&lt;/B&gt;&lt;/BIG&gt;&lt;/CENTER&gt;")<br>}</A></PRE><A NAME="1202902">
+<B>Example 2. </B>The following is an <CODE>onClick</CODE> event handler that opens a new client window displaying the content specified in the file <CODE>sesame.html</CODE>. The window opens with the specified option settings; all other options are false because they are not specified.</A></P>
+<PRE><A NAME="1202903">&lt;FORM NAME="myform"&gt;<br>&lt;INPUT TYPE="button" NAME="Button1" VALUE="Open Sesame!"<br>&nbsp;&nbsp;&nbsp;onClick="window.open ('sesame.html', 'newWin', <br>&nbsp;&nbsp;&nbsp;'scrollbars=yes,status=yes,width=300,height=300')"&gt;<br>&lt;/FORM&gt;</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1202904">
+ See also
+</A></H4>
+
+<A NAME="1202908">
+<A HREF="window.htm#1201822"><CODE>window.close</CODE></A> </A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1202911">
+opener
+</A></H2>
+
+<A NAME="1202912">
+Specifies the window of the calling document when a window is opened using the <CODE>open</CODE> method.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202915">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202920">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202922">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202924">
+JavaScript 1.1</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202925">
+ Description
+</A></H4>
+
+<A NAME="1202926">
+When a source document opens a destination window by calling the <CODE>open</CODE> method, the <CODE>opener</CODE> property specifies the window of the source document. Evaluate the <CODE>opener</CODE> property from the destination window.</A></P>
+<A NAME="1202927">
+This property persists across document unload in the opened window.</A></P>
+<A NAME="1202928">
+You can change the <CODE>opener</CODE> property at any time.</A></P>
+<A NAME="1202932">
+You may use <A HREF="window.htm#1202731"><CODE>window.open</CODE></A> to open a new window and then use <A HREF="window.htm#1202731"><CODE>window.open</CODE></A> on that window to open another window, and so on. In this way, you can end up with a chain of opened windows, each of which has an <CODE>opener</CODE> property pointing to the window that opened it.</A></P>
+<A NAME="1202936">
+Communicator allows a maximum of 100 windows to be around at once. If you open <CODE>window2</CODE> from <CODE>window1</CODE> and then are done with <CODE>window1</CODE>, be sure to set the <CODE>opener</CODE> property of <CODE>window2</CODE> to <CODE>null</CODE>. This allows JavaScript to garbage collect <CODE>window1</CODE>. If you do not set the <CODE>opener</CODE> property to <CODE>null</CODE>, the <CODE>window1</CODE> object remains, even though it's no longer really needed.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202937">
+ Examples
+</A></H4>
+
+<A NAME="1202938">
+<B>Example 1: Close the opener.</B> The following code closes the window that opened the current window. When the opener window closes, <CODE>opener</CODE> is unchanged. However, <CODE>window.opener.name</CODE> then evaluates to undefined.</A></P>
+<PRE><A NAME="1202939">window.opener.close()</A></PRE><A NAME="1202940">
+<B>Example 2: Close the main browser window.</B> </A></P>
+<PRE><A NAME="1202941">top.opener.close()</A></PRE><A NAME="1202942">
+<B>Example 3: Evaluate the name of the opener.</B> A window can determine the name of its opener as follows:</A></P>
+<PRE><A NAME="1202943">document.write("&lt;BR&gt;opener property is " + window.opener.name)</A></PRE><A NAME="1202944">
+<B>Example 4: Change the value of opener.</B> The following code changes the value of the <CODE>opener</CODE> property to null. After this code executes, you cannot close the opener window as shown in Example 1.</A></P>
+<PRE><A NAME="1202945">window.opener=null</A></PRE><A NAME="1202946">
+<B>Example 5: Change a property of the opener.</B> The following code changes the background color of the window specified by the <CODE>opener</CODE> property.</A></P>
+<PRE><A NAME="1202947">window.opener.document.bgColor='bisque'</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1202948">
+ See also
+</A></H4>
+
+<A NAME="1202955">
+<A HREF="window.htm#1201822"><CODE>window.close</CODE></A>, <A HREF="window.htm#1202731"><CODE>window.open</CODE></A> </A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1202958">
+outerHeight
+</A></H2>
+
+<A NAME="1202971">
+Specifies the vertical dimension, in pixels, of the window's outside boundary. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202961">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202966">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202968">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202970">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202972">
+ Description
+</A></H4>
+
+<A NAME="1202973">
+The outer boundary includes the scroll bars, the status bar, the toolbars, and other "chrome" (window border user interface elements). To create a window smaller than 100 x 100 pixels, set this property in a signed script. </A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202974">
+ See also
+</A></H4>
+
+<A NAME="1202984">
+<A HREF="window.htm#1202446"><CODE>window.innerWidth</CODE></A>, <A HREF="window.htm#1202410"><CODE>window.innerHeight</CODE></A>, <A HREF="window.htm#1202987"><CODE>window.outerWidth</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1202987">
+outerWidth
+</A></H2>
+
+<A NAME="1202988">
+Specifies the horizontal dimension, in pixels, of the window's outside boundary. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202991">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202996">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202998">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203000">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203001">
+ Description
+</A></H4>
+
+<A NAME="1203002">
+The outer boundary includes the scroll bars, the status bar, the toolbars, and other "chrome" (window border user interface elements). To create a window smaller than 100 x 100 pixels, set this property in a signed script.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203003">
+ See also
+</A></H4>
+
+<A NAME="1203013">
+<A HREF="window.htm#1202446"><CODE>window.innerWidth</CODE></A>, <A HREF="window.htm#1202410"><CODE>window.innerHeight</CODE></A>, <A HREF="window.htm#1202958"><CODE>window.outerHeight</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1203016">
+pageXOffset
+</A></H2>
+
+<A NAME="1203033">
+Provides the current x-position, in pixels, of a window's viewed page. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203019">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203024">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203026">
+<I>Read-only</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203028">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203030">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203032">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203034">
+ Description
+</A></H4>
+
+<A NAME="1203035">
+The <CODE>pageXOffset</CODE> property provides the current x-position of a page as it relates to the upper-left corner of the window's content area. This property is useful when you need to find the current location of the scrolled page before using <CODE>scrollTo</CODE> or <CODE>scrollBy</CODE>. </A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203036">
+ Examples
+</A></H4>
+
+<A NAME="1203037">
+The following example returns the x-position of the viewed page. </A></P>
+<PRE><A NAME="1203038">x = myWindow.pageXOffset</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1203039">
+ See Also
+</A></H4>
+
+<A NAME="1203043">
+<A HREF="window.htm#1203046"><CODE>window.pageYOffset</CODE></A> </A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1203046">
+pageYOffset
+</A></H2>
+
+<A NAME="1203063">
+Provides the current y-position, in pixels, of a window's viewed page. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203049">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203054">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203056">
+<I>Read-only</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203058">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203060">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203062">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203064">
+ Description
+</A></H4>
+
+<A NAME="1203065">
+The <CODE>pageYOffset</CODE> property provides the current y-position of a page as it relates to the upper-left corner of the window's content area. This property is useful when you need to find the current location of the scrolled page before using <CODE>scrollTo</CODE> or <CODE>scrollBy</CODE>. </A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203066">
+ Examples
+</A></H4>
+
+<A NAME="1203067">
+The following example returns the y-position of the viewed page. </A></P>
+<PRE><A NAME="1203068">x = myWindow.pageYOffset</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1203069">
+ See also
+</A></H4>
+
+<A NAME="1203073">
+<A HREF="window.htm#1203016"><CODE>window.pageXOffset</CODE></A> </A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1203076">
+parent
+</A></H2>
+
+<A NAME="1203077">
+The <CODE>parent</CODE> property is the window or frame whose frameset contains the current frame.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203080">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203085">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203087">
+<I>Read-only</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203089">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203091">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203093">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203094">
+ Description
+</A></H4>
+
+<A NAME="1203095">
+This property is only meaningful for frames; that is, windows that are not top-level windows.</A></P>
+<A NAME="1203096">
+The <CODE>parent</CODE> property refers to the <CODE>FRAMESET</CODE> window of a frame. Child frames within a frameset refer to sibling frames by using <CODE>parent</CODE> in place of the window name in one of the following ways: </A></P>
+<PRE><A NAME="1203097">parent.frameName<br>parent.frames[index]</A></PRE><A NAME="1203098">
+For example, if the fourth frame in a set has <CODE>NAME="homeFrame"</CODE>, sibling frames can refer to that frame using <CODE>parent.homeFrame</CODE> or <CODE>parent.frames[3]</CODE>.</A></P>
+<A NAME="1203099">
+You can use <CODE>parent.parent</CODE> to refer to the "grandparent" frame or window when a <CODE>FRAMESET</CODE> tag is nested within a child frame.</A></P>
+<A NAME="1203100">
+The value of the <CODE>parent</CODE> property is </A></P>
+<PRE><A NAME="1203101">&lt;object nameAttribute&gt;</A></PRE><A NAME="1203102">
+where <CODE>nameAttribute</CODE> is the <CODE>NAME</CODE> attribute if the parent is a frame, or an internal reference if the parent is a window.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203103">
+ Examples
+</A></H4>
+
+<A NAME="1203107">
+See examples for <A HREF="frame.htm#1193137"><CODE>Frame</CODE></A>.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1203110">
+personalbar
+</A></H2>
+
+<A NAME="1203111">
+Represents the browser window's personal bar (also called the directories bar). This is the region the user can use for easy access to certain bookmarks. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203114">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203119">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203121">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203123">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203124">
+ Description
+</A></H4>
+
+<A NAME="1203125">
+The value of the <CODE>personalbar</CODE> property itself has one property, <CODE>visible</CODE>. If true, the personal bar is visible; if false, it is hidden.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203126">
+ Security
+</A></H4>
+
+<A NAME="1203127">
+Setting the value of the personal bar's <CODE>visible</CODE> property requires the <CODE>UniversalBrowserWrite</CODE> privilege. For information on security, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203133">
+ Examples
+</A></H4>
+
+<A NAME="1203134">
+The following example would make the referenced window "chromeless" (chromeless windows lack toolbars, scrollbars, status areas, and so on, much like a dialog box) by hiding most of the user interface toolbars: </A></P>
+<PRE><A NAME="1203135">self.menubar.visible=false;<br>self.toolbar.visible=false;<br>self.locationbar.visible=false;<br>self.personalbar.visible=false;<br>self.scrollbars.visible=false;<br>self.statusbar.visible=false;</A></PRE>
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1203138">
+print
+</A></H2>
+
+<A NAME="1203151">
+Prints the contents of the window. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203141">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203146">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203148">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203150">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203152">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1203153">print()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1203154">
+ Parameters
+</A></H4>
+
+<A NAME="1203155">
+None</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1203158">
+prompt
+</A></H2>
+
+<A NAME="1203172">
+Displays a Prompt dialog box with a message and an input field.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203162">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203167">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203169">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203171">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203173">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1203174">prompt(<I>message</I>[, <I>inputDefault</I>])</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1203175">
+ Parameters
+</A></H4>
+
+<A NAME="1203185">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1203178">message</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1203180">
+A string to be displayed as the message.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1203182">inputDefault</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1203184">
+A string or integer representing the default value of the input field.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203186">
+ Description
+</A></H4>
+
+<A NAME="1203190">
+A prompt dialog box looks as follows:<P>
+<IMG SRC="graphics/prompt.gif">
+</A></P>
+<A NAME="1203191">
+Use the <CODE>prompt</CODE> method to display a dialog box that receives user input. If you do not specify an initial value for <CODE>inputDefault</CODE>, the dialog box displays <CODE>&lt;undefined&gt;</CODE>.</A></P>
+<A NAME="1203195">
+You cannot specify a title for a prompt dialog box, but you can use the <A HREF="window.htm#1202731"><CODE>open</CODE></A> method to create your own prompt dialog. See <A HREF="window.htm#1202731"><CODE>open</CODE></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203199">
+ Examples
+</A></H4>
+
+<PRE><A NAME="1203200">prompt("Enter the number of cookies you want to order:", 12)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1203201">
+ See also
+</A></H4>
+
+<A NAME="1203208">
+<A HREF="window.htm#1201497"><CODE>window.alert</CODE></A>, <A HREF="window.htm#1201914"><CODE>window.confirm</CODE></A> </A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1203211">
+releaseEvents
+</A></H2>
+
+<A NAME="1203212">
+Sets the window or document to release captured events of the specified type, sending the event to objects further along the event hierarchy. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203215">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203220">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203222">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203224">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+<BLOCKQUOTE><B>NOTE: </B><A NAME="1203226">
+If the original target of the event is a window, the window receives the event 
+even if it is set to release that type of event.
+</A>
+</BLOCKQUOTE>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203227">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1203228">releaseEvents(<I>eventType1</I> [|<I>eventTypeN...</I>])</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1203229">
+ Parameters
+</A></H4>
+
+<A NAME="1203238">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1203232">eventType1... eventTypeN</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1203234">
+The type of event to be captured. The available event types are discussed in <A HREF="handlers.htm#1130823">Chapter 3, "Event Handlers."</A></A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203239">
+ Description
+</A></H4>
+
+<A NAME="1203240">
+<CODE>releaseEvents</CODE> works in tandem with <CODE>captureEvents</CODE>, <CODE>routeEvent</CODE>, and <CODE>handleEvent</CODE>. For more information, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1203248">
+resizeBy
+</A></H2>
+
+<A NAME="1203249">
+Resizes an entire window by moving the window's bottom-right corner by the specified amount.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203252">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203257">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203259">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203261">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203262">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1203263">resizeBy(<I>horizontal</I>, <I>vertical</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1203264">
+ Parameters
+</A></H4>
+
+<A NAME="1203274">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1203267">horizontal</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1203269">
+The number of pixels by which to resize the window horizontally.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1203271">vertical</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1203273">
+The number of pixels by which to resize the window vertically.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203275">
+ Description
+</A></H4>
+
+<A NAME="1203279">
+This method changes the window's dimensions by setting its <A HREF="window.htm#1202987"><CODE>outerWidth</CODE></A> and <A HREF="window.htm#1202958"><CODE>outerHeight</CODE></A> properties. The upper left-hand corner remains anchored and the lower right-hand corner moves. <CODE>resizeBy</CODE> moves the window by adding or subtracting the specified number of pixels to that corner's current location.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203283">
+ Security
+</A></H4>
+
+<A NAME="1203284">
+Exceeding any of the boundaries of the screen (to hide some or all of a window) requires signed JavaScript, so a window won't move past the screen boundaries. In addition, windows have an enforced minimum size of 100 x 100 pixels; resizing a window to be smaller than this minimum requires signed JavaScript. You need the <CODE>UniversalBrowserWrite</CODE> privilege for this. For information on security, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203290">
+ Examples
+</A></H4>
+
+<A NAME="1203291">
+To make the current window 5 pixels narrower and 10 pixels taller than its current dimensions, use this statement: </A></P>
+<PRE><A NAME="1203292">self.resizeBy(-5,10); // relative positioning</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1203293">
+ See also
+</A></H4>
+
+<A NAME="1203297">
+<A HREF="window.htm#1203300"><CODE>window.resizeTo</CODE></A> </A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1203300">
+resizeTo
+</A></H2>
+
+<A NAME="1203313">
+Resizes an entire window to the specified pixel dimensions.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203303">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203308">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203310">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203312">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203314">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1203315">resizeTo(<I>outerWidth</I>, <I>outerHeight</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1203316">
+ Parameters
+</A></H4>
+
+<A NAME="1203326">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1203319">outerWidth</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1203321">
+An integer representing the window's width in pixels.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1203323">outerHeight</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1203325">
+An integer representing the window's height in pixels.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203327">
+ Description
+</A></H4>
+
+<A NAME="1203331">
+This method changes the window's dimensions by setting its <A HREF="window.htm#1202987"><CODE>outerWidth</CODE></A> and <A HREF="window.htm#1202958"><CODE>outerHeight</CODE></A> properties. The upper left-hand corner remains anchored and the lower right-hand corner moves. <CODE>resizeBy</CODE> moves to the specified position. The origin of the axes is at absolute position (0,0); this is the upper left-hand corner of the display.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203335">
+ Security
+</A></H4>
+
+<A NAME="1203336">
+Exceeding any of the boundaries of the screen (to hide some or all of a window) requires signed JavaScript, so a window won't move past the screen boundaries. In addition, windows have an enforced minimum size of 100 x 100 pixels; resizing a window to be smaller than this minimum requires signed JavaScript. You need the <CODE>UniversalBrowserWrite</CODE> privilege for this. For information on security, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203342">
+ Examples
+</A></H4>
+
+<A NAME="1203343">
+To make the window 225 pixels wide and 200 pixels tall, use this statement:</A></P>
+<PRE><A NAME="1203344">self.resizeTo(225,200); // absolute positioning</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1203345">
+ See also
+</A></H4>
+
+<A NAME="1203349">
+<A HREF="window.htm#1203248"><CODE>window.resizeBy</CODE></A> </A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1203352">
+routeEvent
+</A></H2>
+
+<A NAME="1203365">
+Passes a captured event along the normal event hierarchy. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203355">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203360">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203362">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203364">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203366">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1203367">routeEvent(<I>event</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1203368">
+ Parameters
+</A></H4>
+
+<A NAME="1203374">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1203371">event</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1203373">
+Name of the event to be routed. </A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203375">
+ Description
+</A></H4>
+
+<A NAME="1203376">
+If a sub-object (document or layer) is also capturing the event, the event is sent to that object. Otherwise, it is sent to its original target. </A></P>
+<A NAME="1203383">
+<CODE>routeEvent</CODE> works in tandem with <A HREF="window.htm#1201687"><CODE>captureEvents</CODE></A>, <A HREF="window.htm#1203211"><CODE>releaseEvents</CODE></A>, and <A HREF="window.htm#1202326"><CODE>handleEvent</CODE></A>. For more information, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1203394">
+screenX
+</A></H2>
+
+<A NAME="1203407">
+Specifies the x-coordinate of the left edge of a window.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203397">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203402">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203404">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203406">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203408">
+ Security
+</A></H4>
+
+<A NAME="1203409">
+Setting the value of the <CODE>screenX</CODE> property requires the <CODE>UniversalBrowserWrite</CODE> privilege. For information on security, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203415">
+ See also
+</A></H4>
+
+<A NAME="1203419">
+<A HREF="window.htm#1203422"><CODE>window.screenY</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1203422">
+screenY
+</A></H2>
+
+<A NAME="1203435">
+Specifies the y-coordinate of the top edge of a window.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203425">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203430">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203432">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203434">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203436">
+ Security
+</A></H4>
+
+<A NAME="1203437">
+Setting the value of the <CODE>screenY</CODE> property requires the <CODE>UniversalBrowserWrite</CODE> privilege. For information on security, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203443">
+ See also
+</A></H4>
+
+<A NAME="1203447">
+<A HREF="window.htm#1203394"><CODE>window.screenX</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1203450">
+scroll
+</A></H2>
+
+<A NAME="1203464">
+Scrolls a window to a specified coordinate. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203453">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203458">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203460">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203462">
+JavaScript 1.1</A></P><P><A NAME="1203463">
+JavaScript 1.2: deprecated</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203465">
+ Description
+</A></H4>
+
+<A NAME="1203466">
+In JavaScript 1.2, <CODE>scroll</CODE> is no longer used and has been replaced by <CODE><A HREF="window.htm#1203546">scrollTo</A></CODE>. <CODE><A HREF="window.htm#1203546">scrollTo</A></CODE> extends the capabilities of <CODE>scroll</CODE>. <CODE>scroll</CODE> remains for backward compatibility.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1203475">
+scrollbars
+</A></H2>
+
+<A NAME="1203476">
+Represents the browser window's vertical and horizontal scroll bars for the document area. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203479">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203484">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203486">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203488">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203489">
+ Description
+</A></H4>
+
+<A NAME="1203490">
+The value of the <CODE>scrollbars</CODE> property itself has one property, <CODE>visible</CODE>. If true, both scrollbars are visible; if false, they are hidden.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203491">
+ Security
+</A></H4>
+
+<A NAME="1203492">
+Setting the value of the scrollbars' <CODE>visible</CODE> property requires the <CODE>UniversalBrowserWrite</CODE> privilege. For information on security, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203498">
+ Examples
+</A></H4>
+
+<A NAME="1203499">
+The following example would make the referenced window "chromeless" (chromeless windows lack toolbars, scrollbars, status areas, and so on, much like a dialog box) by hiding most of the user interface toolbars: </A></P>
+<PRE><A NAME="1203500">self.menubar.visible=false;<br>self.toolbar.visible=false;<br>self.locationbar.visible=false;<br>self.personalbar.visible=false;<br>self.scrollbars.visible=false;<br>self.statusbar.visible=false;</A></PRE>
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1203503">
+scrollBy
+</A></H2>
+
+<A NAME="1203516">
+Scrolls the viewing area of a window by the specified amount.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203506">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203511">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203513">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203515">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203517">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1203518">scrollBy(<I>horizontal</I>, <I>vertical</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1203519">
+ Parameters
+</A></H4>
+
+<A NAME="1203529">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1203522">horizontal</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1203524">
+The number of pixels by which to scroll the viewing area horizontally.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1203526">vertical</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1203528">
+The number of pixels by which to scroll the viewing area vertically.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203530">
+ Description
+</A></H4>
+
+<A NAME="1203531">
+This method scrolls the content in the window if portions that can't be seen exist outside of the window. <CODE>scrollBy</CODE> scrolls the window by adding or subtracting the specified number of pixels to the current scrolled location. </A></P>
+<A NAME="1203532">
+For this method to have an effect the <CODE>visible</CODE> property of <A HREF="window.htm#1203475"><CODE>window.scrollbars</CODE></A> must be true.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203536">
+ Examples
+</A></H4>
+
+<A NAME="1203537">
+To scroll the current window 5 pixels towards the left and 30 pixels down from the current position, use this statement: </A></P>
+<PRE><A NAME="1203538">self.scrollBy(-5,30); // relative positioning</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1203539">
+ See also
+</A></H4>
+
+<A NAME="1203543">
+<A HREF="window.htm#1203546"><CODE>window.scrollTo</CODE></A> </A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1203546">
+scrollTo
+</A></H2>
+
+<A NAME="1203547">
+Scrolls the viewing area of the window so that the specified point becomes the top-left corner.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203550">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203555">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203557">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203559">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203560">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1203561">scrollTo(<I>x-coordinate</I>, <I>y-coordinate</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1203562">
+ Parameters
+</A></H4>
+
+<A NAME="1203572">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1203565">x-coordinate</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1203567">
+An integer representing the x-coordinate of the viewing area in pixels.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1203569">y-coordinate</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1203571">
+An integer representing the y-coordinate of the viewing area in pixels.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203573">
+ Description
+</A></H4>
+
+<A NAME="1203577">
+<CODE>scrollTo</CODE> replaces <A HREF="window.htm#1203450"><CODE>scroll</CODE></A>. <CODE>scroll</CODE> remains for backward compatibility. </A></P>
+<A NAME="1203578">
+The <CODE>scrollTo</CODE> method scrolls the content in the window if portions that can't be seen exist outside of the window. For this method to have an effect the <CODE>visible</CODE> property of <A HREF="window.htm#1203475"><CODE>window.scrollbars</CODE></A> must be true.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203582">
+ Examples
+</A></H4>
+
+<A NAME="1203583">
+<B>Example 1: Scroll the current viewing area.</B> To scroll the current window to the leftmost boundary and 20 pixels down from the top of the window, use this statement: </A></P>
+<PRE><A NAME="1203584">self.scrollTo(0,20); // absolute positioning</A></PRE><A NAME="1203585">
+<B>Example 2: Scroll a different viewing area.</B> The following code, which exists in one frame, scrolls the viewing area of a second frame. Two <CODE>Text</CODE> objects let the user specify the x and y coordinates. When the user clicks the Go button, the document in <CODE>frame2</CODE> scrolls to the specified coordinates.</A></P>
+<PRE><A NAME="1203586">&lt;SCRIPT&gt;<br>function scrollIt(form) {<br>&nbsp;&nbsp;&nbsp;var x = parseInt(form.x.value)<br>&nbsp;&nbsp;&nbsp;var y = parseInt(form.y.value)<br>&nbsp;&nbsp;&nbsp;parent.frame2.scrollTo(x, y)<br>}<br>&lt;/SCRIPT&gt;<br>&lt;BODY&gt;</A></PRE><PRE><A NAME="1203587">&lt;FORM NAME="myForm"&gt;<br>&lt;P&gt;&lt;B&gt;Specify the coordinates to scroll to:&lt;/B&gt;<br>&lt;BR&gt;Horizontal:<br>&lt;INPUT TYPE="text" NAME=x VALUE="0" SIZE=4&gt;<br>&lt;BR&gt;Vertical:<br>&lt;INPUT TYPE="text" NAME=y VALUE="0" SIZE=4&gt;<br>&lt;BR&gt;&lt;INPUT TYPE="button" VALUE="Go"<br>&nbsp;&nbsp;&nbsp;onClick="scrollIt(document.myForm)"&gt;<br>&lt;/FORM&gt;</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1203588">
+ See also
+</A></H4>
+
+<A NAME="1203592">
+<A HREF="window.htm#1203503"><CODE>window.scrollBy</CODE></A> </A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1203595">
+self
+</A></H2>
+
+<A NAME="1203612">
+The <CODE>self</CODE> property is a synonym for the current window.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203598">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203603">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203605">
+<I>Read-only</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203607">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203609">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203611">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203613">
+ Description
+</A></H4>
+
+<A NAME="1203614">
+The <CODE>self</CODE> property refers to the current window. That is, the value of this property is a synonym for the object itself.</A></P>
+<A NAME="1203615">
+Use the <CODE>self</CODE> property to disambiguate a <CODE>window</CODE> property from a form or form element of the same name. You can also use the <CODE>self</CODE> property to make your code more readable.</A></P>
+<A NAME="1203616">
+The value of the <CODE>self</CODE> property is </A></P>
+<PRE><A NAME="1203617">&lt;object nameAttribute&gt;</A></PRE><A NAME="1203618">
+where <CODE>nameAttribute</CODE> is the <CODE>NAME</CODE> attribute if <CODE>self</CODE> refers to a frame, or an internal reference if <CODE>self</CODE> refers to a window.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203619">
+ Examples
+</A></H4>
+
+<A NAME="1203620">
+In the following example, <CODE>self.status</CODE> is used to set the <CODE>status</CODE> property of the current window. This usage disambiguates the <CODE>status</CODE> property of the current window from a form or form element called <CODE>status</CODE> within the current window.</A></P>
+<PRE><A NAME="1203621">&lt;A HREF=""<br>&nbsp;&nbsp;&nbsp;onClick="this.href=pickRandomURL()"<br>&nbsp;&nbsp;&nbsp;onMouseOver="self.status='Pick a random URL' ; return true"&gt;<br>Go!&lt;/A&gt;</A></PRE>
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1203624">
+setHotKeys
+</A></H2>
+
+<A NAME="1203637">
+Enables or disables hot keys in a window which does not have menus.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203627">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203632">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203634">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203636">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203638">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1203639">setHotKeys(<I>trueOrFalse</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1203640">
+ Parameters
+</A></H4>
+
+<A NAME="1203648">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1203643">trueOrFalse</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1203645">
+A Boolean value specifying whether hot keys are enabled:</A></P><ul></P><LI><A NAME="1203646">
+true enables hot keys</A></P><LI><A NAME="1203647">
+false disables hot keys</A></ul>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203649">
+ Security
+</A></H4>
+
+<A NAME="1203650">
+To enable or disable hot keys, you need the <CODE>UniversalBrowserWrite</CODE> privilege. For information on security, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203656">
+ Description
+</A></H4>
+
+<A NAME="1203657">
+By default, hot keys are disabled in a window which does not display a menu. With the <CODE>setHotKeys</CODE> method, you can explicitly enable or disable all hot keys except security and quit, which are always enabled.</A></P>
+<A NAME="1203658">
+You can also specify whether to enable hot keys at the time you create a window when you use the <A HREF="window.htm#1202731"><CODE>window.open</CODE></A> method.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203662">
+ See also
+</A></H4>
+
+<A NAME="1203666">
+<A HREF="window.htm#1202731"><CODE>window.open</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1203669">
+setInterval
+</A></H2>
+
+<A NAME="1203670">
+Evaluates an expression or calls a function every time a specified number of milliseconds elapses, until canceled by a call to <CODE>clearInterval</CODE>.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203673">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203678">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203680">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203682">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203683">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1203684">setInterval(<I>expression</I>, <I>msec</I>)<br>setInterval(<I>function</I>, <I>msec</I>[, <I>arg1</I>[, ..., <I>argN</I>]])</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1203685">
+ Parameters
+</A></H4>
+
+<A NAME="1203703">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1203688">function</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1203690">
+Any function.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1203692">expression</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1203694">
+A string containing a JavaScript expression. The expression must be quoted; otherwise, <CODE>setInterval</CODE> calls it immediately. For example, <CODE>setInterval("calcnum(3, 2)", 25)</CODE>.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1203696">msec</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1203698">
+A numeric value or numeric string, in millisecond units.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1203700">arg1, ..., argn</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1203702">
+The arguments, if any, passed to <CODE>function</CODE>.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203704">
+ Description
+</A></H4>
+
+<A NAME="1203705">
+The timeouts continue to fire until the associated window or frame is destroyed or the interval is canceled using the <CODE>clearInterval</CODE> method.</A></P>
+<A NAME="1203706">
+<CODE>setInterval</CODE> does not stall the script. The script continues immediately (not waiting for the interval to elapse). The call simply schedules a future event.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203707">
+ Examples
+</A></H4>
+
+<A NAME="1203708">
+The following code displays the current time in a <CODE>Text</CODE> object. In the <CODE>startclock</CODE> function, the call to the <CODE>setInterval</CODE> method causes the <CODE>showtime</CODE> function to be called every second to update the clock. Notice that the <CODE>startclock</CODE> function and <CODE>setInterval</CODE> method are each called only one time.</A></P>
+<PRE><A NAME="1203709">&lt;SCRIPT LANGUAGE="JavaScript"&gt;<br>var timerID = null<br>var timerRunning = false<br><br>function stopclock(){<br>&nbsp;&nbsp;&nbsp;if(timerRunning)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;clearInterval(timerID)<br>&nbsp;&nbsp;&nbsp;timerRunning = false<br>}<br></A></PRE><PRE><A NAME="1211908">function startclock(){<br>&nbsp;&nbsp;&nbsp;// Make sure the clock is stopped<br>&nbsp;&nbsp;&nbsp;stopclock()<br>&nbsp;&nbsp;&nbsp;timerID = setInterval("showtime()",1000)<br>&nbsp;&nbsp;&nbsp;timerRunning = true<br>}<br><br>function showtime(){<br>&nbsp;&nbsp;&nbsp;var now = new Date()<br>&nbsp;&nbsp;&nbsp;var hours = now.getHours()<br>&nbsp;&nbsp;&nbsp;var minutes = now.getMinutes()<br>&nbsp;&nbsp;&nbsp;var seconds = now.getSeconds()<br>&nbsp;&nbsp;&nbsp;var timeValue = "" + ((hours &gt; 12) ? hours - 12 : hours)<br>&nbsp;&nbsp;&nbsp;timeValue += ((minutes &lt; 10) ? ":0" : ":") + minutes<br>&nbsp;&nbsp;&nbsp;timeValue += ((seconds &lt; 10) ? ":0" : ":") + seconds<br>&nbsp;&nbsp;&nbsp;timeValue += (hours &gt;= 12) ? " P.M." : " A.M."<br>&nbsp;&nbsp;&nbsp;document.clock.face.value = timeValue<br>}<br>&lt;/SCRIPT&gt;<br><br>&lt;BODY onLoad="startclock()"&gt;<br>&lt;FORM NAME="clock" onSubmit="0"&gt;<br>&nbsp;&nbsp;&nbsp;&lt;INPUT TYPE="text" NAME="face" SIZE=12 VALUE =""&gt;<br>&lt;/FORM&gt;<br>&lt;/BODY&gt;</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1203710">
+ See also
+</A></H4>
+
+<A NAME="1203717">
+<A HREF="window.htm#1201732"><CODE>window.clearInterval</CODE></A>, <A HREF="window.htm#1203758"><CODE>window.setTimeout</CODE></A> </A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1203720">
+setResizable
+</A></H2>
+
+<A NAME="1203733">
+Specifies whether a user is permitted to resize a window.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203723">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203728">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203730">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203732">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203734">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1203735">setResizable(<I>trueOrFalse</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1203736">
+ Parameters
+</A></H4>
+
+<A NAME="1203744">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1203739">trueOrFalse</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1203741">
+A Boolean value specifying whether a user can resize a window:</A></P><ul></P><LI><A NAME="1203742">
+true lets a user resize the window</A></P><LI><A NAME="1203743">
+false prevents a user from resizing the window</A></ul>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203745">
+ Description
+</A></H4>
+
+<A NAME="1203746">
+By default, a new Navigator window is resizable. With the <CODE>setResizable</CODE> method, you can explicitly enable or disable the ability of a user to resize a window. Not all operating systems support this method.</A></P>
+<A NAME="1203747">
+You can also specify whether a window is resizable at the time you create it when you use the <A HREF="window.htm#1202731"><CODE>window.open</CODE></A> method.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203751">
+ See also
+</A></H4>
+
+<A NAME="1203755">
+<A HREF="window.htm#1202731"><CODE>window.open</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1203758">
+setTimeout
+</A></H2>
+
+<A NAME="1203759">
+Evaluates an expression or calls a function once after a specified number of milliseconds elapses.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203762">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203767">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203769">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203771">
+JavaScript 1.0: evaluating an expression</A></P><P><A NAME="1203772">
+</A></P><P><A NAME="1203773">
+JavaScript 1.2: calling a function</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203774">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1203775">setTimeout(<I>expression</I>, <I>msec</I>)<br>setTimeout(<I>function</I>, <I>msec</I>[, <I>arg1</I>[, ..., <I>argN</I>]])</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1203776">
+ Parameters
+</A></H4>
+
+<A NAME="1203794">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1203779">expression</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1203781">
+A string containing a JavaScript expression. The expression must be quoted; otherwise, <CODE>setTimeout</CODE> calls it immediately. For example, <CODE>setTimeout("calcnum(3, 2)", 25)</CODE>.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1203783">msec</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1203785">
+A numeric value or numeric string, in millisecond units.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1203787">function</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1203789">
+Any function.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1203791">arg1, ..., arg<I>N</I></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1203793">
+The arguments, if any, passed to <CODE>function</CODE>.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203795">
+ Description
+</A></H4>
+
+<A NAME="1203796">
+The <CODE>setTimeout</CODE> method evaluates an expression or calls a function after a specified amount of time. It does not act repeatedly. For example, if a <CODE>setTimeout</CODE> method specifies five seconds, the expression is evaluated or the function is called after five seconds, not every five seconds. For repetitive timeouts, use the <CODE>setInterval</CODE> method.</A></P>
+<A NAME="1203797">
+<CODE>setTimeout</CODE> does not stall the script. The script continues immediately (not waiting for the timeout to expire). The call simply schedules a future event.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203798">
+ Examples
+</A></H4>
+
+<A NAME="1203799">
+<B>Example 1.</B> The following example displays an alert message five seconds (5,000 milliseconds) after the user clicks a button. If the user clicks the second button before the alert message is displayed, the timeout is canceled and the alert does not display.</A></P>
+<PRE><A NAME="1203800">&lt;SCRIPT LANGUAGE="JavaScript"&gt;<br>function displayAlert() {<br>&nbsp;&nbsp;&nbsp;alert("5 seconds have elapsed since the button was clicked.")<br>}<br>&lt;/SCRIPT&gt;<br>&lt;BODY&gt;<br>&lt;FORM&gt;<br>Click the button on the left for a reminder in 5 seconds; <br>click the button on the right to cancel the reminder before <br>it is displayed.<br>&lt;P&gt;<br>&lt;INPUT TYPE="button" VALUE="5-second reminder"<br>&nbsp;&nbsp;&nbsp;NAME="remind_button"<br>&nbsp;&nbsp;&nbsp;onClick="timerID=setTimeout('displayAlert()',5000)"&gt;<br>&lt;INPUT TYPE="button" VALUE="Clear the 5-second reminder"<br>&nbsp;&nbsp;&nbsp;NAME="remind_disable_button"<br>&nbsp;&nbsp;&nbsp;onClick="clearTimeout(timerID)"&gt;<br>&lt;/FORM&gt;<br>&lt;/BODY&gt;</A></PRE><A NAME="1203801">
+<B>Example 2.</B> The following example displays the current time in a <CODE>Text</CODE> object. The <CODE>showtime</CODE> function, which is called recursively, uses the <CODE>setTimeout</CODE> method to update the time every second.</A></P>
+<PRE><A NAME="1203802">&lt;HEAD&gt;<br>&lt;SCRIPT LANGUAGE="JavaScript"&gt;<br>&lt;!--<br>var timerID = null<br>var timerRunning = false<br>function stopclock(){<br>&nbsp;&nbsp;&nbsp;if(timerRunning)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;clearTimeout(timerID)<br>&nbsp;&nbsp;&nbsp;timerRunning = false<br>}<br>function startclock(){<br>&nbsp;&nbsp;&nbsp;// Make sure the clock is stopped<br>&nbsp;&nbsp;&nbsp;stopclock()<br>&nbsp;&nbsp;&nbsp;showtime()<br>}</A></PRE><PRE><A NAME="1211982">function showtime(){<br>&nbsp;&nbsp;&nbsp;var now = new Date()<br>&nbsp;&nbsp;&nbsp;var hours = now.getHours()<br>&nbsp;&nbsp;&nbsp;var minutes = now.getMinutes()<br>&nbsp;&nbsp;&nbsp;var seconds = now.getSeconds()<br>&nbsp;&nbsp;&nbsp;var timeValue = "" + ((hours &gt; 12) ? hours - 12 : hours)<br>&nbsp;&nbsp;&nbsp;timeValue += ((minutes &lt; 10) ? ":0" : ":") + minutes<br>&nbsp;&nbsp;&nbsp;timeValue += ((seconds &lt; 10) ? ":0" : ":") + seconds<br>&nbsp;&nbsp;&nbsp;timeValue += (hours &gt;= 12) ? " P.M." : " A.M."<br>&nbsp;&nbsp;&nbsp;document.clock.face.value = timeValue <br>&nbsp;&nbsp;&nbsp;timerID = setTimeout("showtime()",1000)<br>&nbsp;&nbsp;&nbsp;timerRunning = true<br>}<br>//--&gt;<br>&lt;/SCRIPT&gt;<br>&lt;/HEAD&gt;</A></PRE><PRE><A NAME="1203803">&lt;BODY onLoad="startclock()"&gt;<br>&lt;FORM NAME="clock" onSubmit="0"&gt;<br>&nbsp;&nbsp;&nbsp;&lt;INPUT TYPE="text" NAME="face" SIZE=12 VALUE =""&gt;<br>&lt;/FORM&gt;<br>&lt;/BODY&gt;</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1203804">
+ See also
+</A></H4>
+
+<A NAME="1203811">
+<A HREF="window.htm#1201775"><CODE>window.clearTimeout</CODE></A>, <A HREF="window.htm#1203669"><CODE>window.setInterval</CODE></A> </A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1203814">
+setZOptions
+</A></H2>
+
+<A NAME="1203827">
+Specifies the z-order stacking behavior of a window.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203817">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203822">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203824">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203826">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203828">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1203829">setZOptions(<I>windowPosition</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1203830">
+ Parameters
+</A></H4>
+
+<A NAME="1203839">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1203833">windowPosition</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1203835">
+A string evaluating to any of the following values:</A></P><ul></P><LI><A NAME="1203836">
+alwaysRaised creates a new window that floats on top of other windows, whether it is active or not.</A></P><LI><A NAME="1203837">
+alwaysLowered creates a new window that floats below other windows, whether it is active or not.</A></P><LI><A NAME="1203838">
+z-lock creates a new window that does not rise above other windows when activated.</A></ul>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203840">
+ Security
+</A></H4>
+
+<A NAME="1203841">
+To set this property, you need the <CODE>UniversalBrowserWrite</CODE> privilege. For information on security, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203847">
+ Description
+</A></H4>
+
+<A NAME="1203848">
+By default, a Navigator window rises to the top of the z-order when it is activated and moves down in the z-order as other windows are activated. With the <CODE>setZOptions</CODE> method, you can explicitly specify a window's position in the z-order.</A></P>
+<A NAME="1203849">
+If you do not specify an argument for <CODE>setZOptions</CODE>, this method restores the default z-order stacking behavior of a Navigator window.</A></P>
+<A NAME="1203850">
+You can also specify the order stacking behavior of a window at the time you create it when you use the <A HREF="window.htm#1202731"><CODE>window.open</CODE></A> method.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203854">
+ See also
+</A></H4>
+
+<A NAME="1203858">
+<A HREF="window.htm#1202731"><CODE>window.open</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1203861">
+status
+</A></H2>
+
+<A NAME="1203862">
+Specifies a priority or transient message in the status bar at the bottom of the window, such as the message that appears when a <CODE>mouseOver</CODE> event occurs over an anchor.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203865">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203870">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203872">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203874">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203875">
+ Security
+</A></H4>
+
+<B><A NAME="HeadRunIn;"></A>
+<A NAME="1203876">
+JavaScript 1.1. </A></B><A NAME="1203877">
+This property is tainted by default. For information on data tainting, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203883">
+ Description
+</A></H4>
+
+<A NAME="1203884">
+Do not confuse the <CODE>status</CODE> property with the <CODE>defaultStatus</CODE> property. The <CODE>defaultStatus</CODE> property reflects the default message displayed in the status bar.</A></P>
+<A NAME="1203885">
+You can set the <CODE>status</CODE> property at any time. You must return true if you want to set the <CODE>status</CODE> property in the <CODE>onMouseOver</CODE> event handler.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203886">
+ Examples
+</A></H4>
+
+<A NAME="1203887">
+Suppose you have created a JavaScript function called <CODE>pickRandomURL</CODE> that lets you select a URL at random. You can use the <CODE>onClick</CODE> event handler of an anchor to specify a value for the <CODE>HREF</CODE> attribute of the anchor dynamically, and the <CODE>onMouseOver</CODE> event handler to specify a custom message for the window in the <CODE>status</CODE> property:</A></P>
+<PRE><A NAME="1203888">&lt;A HREF=""<br>&nbsp;&nbsp;&nbsp;onClick="this.href=pickRandomURL()"<br>&nbsp;&nbsp;&nbsp;onMouseOver="self.status='Pick a random URL'; return true"&gt;<br>Go!&lt;/A&gt;</A></PRE><A NAME="1203889">
+In the preceding example, the <CODE>status</CODE> property of the window is assigned to the window's <CODE>self</CODE> property, as <CODE>self.status</CODE>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203890">
+ See also
+</A></H4>
+
+<A NAME="1203894">
+<A HREF="window.htm#1202080"><CODE>window.defaultStatus</CODE></A> </A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1203897">
+statusbar
+</A></H2>
+
+<A NAME="1203898">
+Represents the browser window's status bar. This is the region containing the security indicator, browser status, and so on. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203901">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203906">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203908">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203910">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203911">
+ Description
+</A></H4>
+
+<A NAME="1203912">
+The value of the <CODE>statusbar</CODE> property itself one property, <CODE>visible</CODE>. If true, the status bar is visible; if false, it is hidden.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203913">
+ Security
+</A></H4>
+
+<A NAME="1203914">
+Setting the value of the status bar's <CODE>visible</CODE> property requires the <CODE>UniversalBrowserWrite</CODE> privilege. For information on security, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203920">
+ Examples
+</A></H4>
+
+<A NAME="1203921">
+The following example would make the referenced window "chromeless" (chromeless windows lack toolbars, scrollbars, status areas, and so on, much like a dialog box) by hiding most of the user interface toolbars: </A></P>
+<PRE><A NAME="1203922">self.menubar.visible=false;<br>self.toolbar.visible=false;<br>self.locationbar.visible=false;<br>self.personalbar.visible=false;<br>self.scrollbars.visible=false;<br>self.statusbar.visible=false;</A></PRE>
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1203925">
+stop
+</A></H2>
+
+<A NAME="1203938">
+Stops the current download.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203928">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203933">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203935">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203937">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203939">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1203940">stop()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1203941">
+ Parameters
+</A></H4>
+
+<A NAME="1203942">
+None</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203943">
+ Definition
+</A></H4>
+
+<A NAME="1203944">
+This method performs the same action as a user choosing the Stop button in the browser.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1203947">
+toolbar
+</A></H2>
+
+<A NAME="1203948">
+Represents the browser window's toolbar, containing the navigation buttons, such as Back, Forward, Reload, Home, and so on. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203951">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203956">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203958">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203960">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203961">
+ Description
+</A></H4>
+
+<A NAME="1203962">
+The value of the <CODE>toolbar</CODE> property itself has one property, <CODE>visible</CODE>. If true, the toolbar is visible; if false, it is hidden.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203963">
+ Security
+</A></H4>
+
+<A NAME="1203964">
+Setting the value of the toolbar's <CODE>visible</CODE> property requires the <CODE>UniversalBrowserWrite</CODE> privilege. For information on security, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203970">
+ Examples
+</A></H4>
+
+<A NAME="1203971">
+The following example would make the referenced window "chromeless" (chromeless windows lack toolbars, scrollbars, status areas, and so on, much like a dialog box) by hiding most of the user interface toolbars:</A></P>
+<PRE><A NAME="1203972">self.menubar.visible=false;<br>self.toolbar.visible=false;<br>self.locationbar.visible=false;<br>self.personalbar.visible=false;<br>self.scrollbars.visible=false;<br>self.statusbar.visible=false;</A></PRE>
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1203975">
+top
+</A></H2>
+
+<A NAME="1203977">
+The <CODE>top</CODE> property is a synonym for the topmost browser window, which is a document window or web browser window.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203980">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203985">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203987">
+<I>Read-only</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203989">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1203991">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1203993">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203994">
+ Description
+</A></H4>
+
+<A NAME="1203995">
+The <CODE>top</CODE> property refers to the topmost window that contains frames or nested framesets. Use the <CODE>top</CODE> property to refer to this ancestor window. </A></P>
+<A NAME="1203996">
+The value of the <CODE>top</CODE> property is</A></P>
+<PRE><A NAME="1203997">&lt;object objectReference&gt;</A></PRE><A NAME="1203998">
+where <CODE>objectReference</CODE> is an internal reference.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203999">
+ Examples
+</A></H4>
+
+<A NAME="1204000">
+The statement <CODE>top.close()</CODE> closes the topmost ancestor window.</A></P>
+<A NAME="1204001">
+The statement <CODE>top.length</CODE> specifies the number of frames contained within the topmost ancestor window. When the topmost ancestor is defined as follows, <CODE>top.length</CODE> returns three:</A></P>
+<PRE><A NAME="1204002">&lt;FRAMESET COLS="30%,40%,30%"&gt;<br>&lt;FRAME SRC=child1.htm NAME="childFrame1"&gt;<br>&lt;FRAME SRC=child2.htm NAME="childFrame2"&gt;<br>&lt;FRAME SRC=child3.htm NAME="childFrame3"&gt;<br>&lt;/FRAMESET&gt;</A></PRE><A NAME="1204003">
+The following example sets the background color of a frame called <CODE>myFrame</CODE> to red. <CODE>myFrame</CODE> is a child of the topmost ancestor window.</A></P>
+<PRE><A NAME="1204004">top.myFrame.document.bgColor="red"</A></PRE>
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1204007">
+window
+</A></H2>
+
+<A NAME="1204024">
+The <CODE>window</CODE> property is a synonym for the current window or frame.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1204010">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1204015">
+<A HREF="window.htm#1200703"><CODE>window</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1204017">
+<I>Read-only</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1204019">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1204021">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1204023">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1204025">
+ Description
+</A></H4>
+
+<A NAME="1204026">
+The <CODE>window</CODE> property refers to the current window or frame. That is, the value of this property is a synonym for the object itself.</A></P>
+<A NAME="1204027">
+Although you can use the <CODE>window</CODE> property as a synonym for the current frame, your code may be more readable if you use the <CODE>self</CODE> property. For example, <CODE>window.name</CODE> and <CODE>self.name</CODE> both specify the name of the current frame, but <CODE>self.name</CODE> may be easier to understand (because a frame is not displayed as a separate window).</A></P>
+<A NAME="1204028">
+Use the <CODE>window</CODE> property to disambiguate a property of the <CODE>window</CODE> object from a form or form element of the same name. You can also use the <CODE>window</CODE> property to make your code more readable.</A></P>
+<A NAME="1204029">
+The value of the <CODE>window</CODE> property is</A></P>
+<PRE><A NAME="1204030">&lt;object nameAttribute&gt;</A></PRE><A NAME="1204031">
+where <CODE>nameAttribute</CODE> is the <CODE>NAME</CODE> attribute if <CODE>window</CODE> refers to a frame, or an internal reference if <CODE>window</CODE> refers to a window.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1204032">
+ Examples
+</A></H4>
+
+<A NAME="1204033">
+In the following example, <CODE>window.status</CODE> is used to set the <CODE>status</CODE> property of the current window. This usage disambiguates the <CODE>status</CODE> property of the current window from a form called "status" within the current window.</A></P>
+<PRE><A NAME="1204034">&lt;A HREF=""<br>&nbsp;&nbsp;&nbsp;onClick="this.href=pickRandomURL()"<br>&nbsp;&nbsp;&nbsp;onMouseOver="window.status='Pick a random URL' ; return true"&gt;<br>Go!&lt;/A&gt;</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1204035">
+ See also
+</A></H4>
+
+<A NAME="1193459">
+<A HREF="window.htm#1203595"><CODE>window.self</CODE></A></A></P>
+
+<HR>
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="textarea.htm">Previous</A>
+ | <A HREF="toplev.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT>
+<P ALIGN=right>
+<FONT SIZE=-2><I>Last Updated:  05/28/99  12:00:46</I></FONT>
+<P> <CENTER>Copyright (c) 1999
+<A HREF="http://home.netscape.com/misc/contact_info.html"
+TARGET=_top>Netscape Communications Corporation</A></FONT>
+</CENTER>
+<P>
+</BODY>
+</HTML>
+
+

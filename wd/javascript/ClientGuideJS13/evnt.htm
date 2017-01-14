@@ -1,0 +1,365 @@
+<HTML>
+<HEAD>
+<TITLE>Handling Events
+</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="embed.htm">Previous</A>
+ | <A HREF="navobj.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT><BR><BR>
+<HR>
+<A NAME="1009362">
+<P></A><CENTER><H2>Chapter 10<BR>
+<A NAME="1009710">
+Handling Events</A></H2></CENTER>
+<A NAME="1009771">
+JavaScript applications in Navigator are largely event-driven. <I>Events</I> are actions that usually occur as a result of something the user does. For example, clicking a button is an event, as is changing a text field or moving the mouse over a link. For your script to react to an event, you define <I>event handlers</I>, such as onChange and onClick.</A></P>
+<A NAME="1012854">
+This chapter contains the following sections:</A></P>
+<ul><LI><A NAME="1012855">
+<A HREF="evnt.htm#1009606">Defining an Event Handler</A>
+</A></LI><LI><A NAME="1012856">
+<A HREF="evnt.htm#1012525">The Event Object</A>
+</A></LI><LI><A NAME="1013178">
+<A HREF="evnt.htm#1010131">Event Capturing</A>
+</A></LI><LI><A NAME="1013179">
+<A HREF="evnt.htm#1012961">Validating Form Input</A>
+</A></LI></ul><A NAME="1013641">
+For additional information on event handling, see the article <EM><A HREF="http://developer.netscape.com/viewsource/goodman_events.html" TARGET="_top">Getting Ready for JavaScript 1.2 Events</A></EM> in the online <A HREF="http://developer.netscape.com/viewsource/" TARGET="_top">View Source</A> magazine. In addition, the <A HREF="http://developer.netscape.com/docs/technote/" TARGET="_top">JavaScript technical notes</A> contain information on programming events.</A></P>
+<A NAME="1010827">
+The following table summarizes the JavaScript events. For information on the which versions of JavaScript support each event, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsref/index.htm" TARGET="_top"><I>Client-Side JavaScript Reference</I></A>.</A></P>
+<A NAME="1012776">
+<P><B><A NAME="1010636">
+Table 10.1&nbsp;JavaScript event handlers &nbsp;</A></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1010644">
+<B>Event
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1010646">
+<B>Applies to
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1010648">
+<B>Occurs when
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1010650">
+<B>Event handler
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010652">Abort</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1010654">
+images</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1010656">
+User aborts the loading of an image (for example by clicking a link or clicking the Stop button)</A></P><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010658">onAbort</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010660">Blur</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1010662">
+windows and all form elements</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1010664">
+User removes input focus from window or form element</A></P><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010666">onBlur</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010668">Change</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1010670">
+text fields, textareas, select lists</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1010672">
+User changes value of element</A></P><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010674">onChange</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010676">Click</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1010678">
+buttons, radio buttons, checkboxes, submit buttons, reset buttons, links</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1010680">
+User clicks form element or link</A></P><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010682">onClick</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010684">DragDrop</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1010686">
+windows</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1010688">
+User drops an object onto the browser window, such as dropping a file on the browser window</A></P><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010690">onDragDrop</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010692">Error</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1010694">
+images, windows</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1010696">
+The loading of a document or image causes an error</A></P><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010698">onError</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010700">Focus</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1010702">
+windows and all form elements</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1010704">
+User gives input focus to window or form element</A></P><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010706">onFocus</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010708">KeyDown</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1010710">
+documents, images, links, text areas</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1010712">
+User depresses a key</A></P><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010714">onKeyDown</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010716">KeyPress</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1010718">
+documents, images, links, text areas</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1010720">
+User presses or holds down a key</A></P><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010722">onKeyPress</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010724">KeyUp</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1010726">
+documents, images, links, text areas</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1010728">
+User releases a key</A></P><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010730">onKeyUp</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010732">Load</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1010734">
+document body</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1010736">
+User loads the page in the Navigator</A></P><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010738">onLoad</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010740">MouseDown</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1010742">
+documents, buttons, links</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1010744">
+User depresses a mouse button</A></P><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010746">onMouseDown</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010748">MouseMove</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1010750">
+nothing by default</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1010752">
+User moves the cursor</A></P><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010754">onMouseMove</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010756">MouseOut</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1010758">
+areas, links</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1010760">
+User moves cursor out of a client-side image map or link</A></P><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010762">onMouseOut</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010764">MouseOver</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1010766">
+links</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1010768">
+User moves cursor over a link</A></P><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010770">onMouseOver</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010772">MouseUp</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1010774">
+documents, buttons, links</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1010776">
+User releases a mouse button</A></P><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010778">onMouseUp</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010780">Move</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1010782">
+windows</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1010784">
+User or script moves a window </A></P><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010786">onMove</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010788">Reset</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1010790">
+forms</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1010792">
+User resets a form (clicks a Reset button)</A></P><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010794">onReset</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010796">Resize</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1010798">
+windows</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1010800">
+User or script resizes a window</A></P><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010802">onResize</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010804">Select</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1010806">
+text fields, textareas</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1010808">
+User selects form element's input field</A></P><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010810">onSelect</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010812">Submit</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1010814">
+forms</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1010816">
+User submits a form</A></P><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010818">onSubmit</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010820">Unload</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1010822">
+document body</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1010824">
+User exits the page</A></P><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010826">onUnload</A></PRE>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<HR><H2><A NAME="Defining an Event Handler"></A>
+<A NAME="1009606">
+ Defining an Event Handler
+</A></H2><A NAME="1009610">
+You define an event handler (a JavaScript function or series of statements) to handle an event. If an event applies to an HTML tag (that is, the event applies to the JavaScript object created from that tag), then you can define an event handler for it. The name of an event handler is the name of the event, preceded by "on." For example, the event handler for the <CODE>focus</CODE> event is <CODE>onFocus</CODE>.</A></P>
+<A NAME="1009611">
+To create an event handler for an HTML tag, add an event handler attribute to the tag. Put JavaScript code in quotation marks as the attribute value. The general syntax is</A></P>
+<PRE><A NAME="1009612">&lt;TAG eventHandler="JavaScript Code"&gt;</A></PRE><A NAME="1009614">
+where <CODE>TAG</CODE> is an HTML tag, <CODE>eventHandler</CODE> is the name of the event handler, and <CODE>JavaScript Code</CODE> is a sequence of JavaScript statements.</A></P>
+<A NAME="1009615">
+For example, suppose you have created a JavaScript function called <CODE>compute</CODE>. You make Navigator call this function when the user clicks a button by assigning the function call to the button's <CODE>onClick</CODE> event handler:</A></P>
+<PRE><A NAME="1009616">&lt;INPUT TYPE="button" VALUE="Calculate" onClick="compute(this.form)"&gt;</A></PRE><A NAME="1009617">
+You can put any JavaScript statements as the value of the <CODE>onClick</CODE> attribute. These statements are executed when the user clicks the button. To include more than one statement, separate statements with semicolons (;).</A></P>
+<A NAME="1010301">
+Notice that in the preceding example, <CODE>this.form</CODE> refers to the current form. The keyword <CODE>this</CODE> refers to the current object, which in this case is the button. The construct <CODE>this.form</CODE> then refers to the form containing the button. The <CODE>onClick</CODE> event handler is a call to the <CODE>compute</CODE> function, with the current form as the argument.</A></P>
+<A NAME="1012654">
+When you create an event handler, the corresponding JavaScript object gets a property with the name of the event handler. This property allows you to access the object's event handler. For example, in the preceding example, JavaScript creates a <CODE>Button</CODE> object with an <CODE>onclick</CODE> property whose value is <CODE>"compute(this.form)"</CODE>.</A></P>
+<A NAME="1010278">
+Be sure to alternate double quotation marks with single quotation marks. Because event handlers in HTML must be enclosed in quotation marks, you must use single quotation marks to delimit string arguments. For example:</A></P>
+<PRE><A NAME="1010279">&lt;INPUT TYPE="button" NAME="Button1" VALUE="Open Sesame!"<br>&nbsp;&nbsp;&nbsp;onClick="window.open('mydoc.html', 'newWin')"&gt;</A></PRE><A NAME="1009622">
+In general, it is good practice to define functions for your event handlers instead of using multiple JavaScript statements:</A></P>
+<ul><P><LI><A NAME="1009623">
+It makes your code modular--you can use the same function as an event handler for many different items.</A></LI>
+<P><LI><A NAME="1009624">
+It makes your code easier to read.</A></LI>
+</ul>
+<H3><A NAME="Head2;"></A>
+<A NAME="1009637">
+ Example: Using an Event Handler
+</A></H3>
+
+<A NAME="1009638">
+In the form shown in the following figure, you can enter an expression (for example, 2+2) in the first text field, and then click the button. The second text field then displays the value of the expression (in this case, 4).</A></P>
+<P><A NAME="1010328">
+<B>Figure 10.1&nbsp;&nbsp;&nbsp;Form with an event handler <P>
+<IMG SRC="graphics/gs2.gif">
+
+</B></A></P>
+
+
+<A NAME="1010342">
+The script for this form is as follows:</A></P>
+<PRE><A NAME="1009639">&lt;HEAD&gt;<br>&lt;SCRIPT&gt;<br>&lt;!--- Hide script from old browsers<br>function compute(f) {<br>&nbsp;&nbsp;&nbsp;if (confirm("Are you sure?"))<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;f.result.value = eval(f.expr.value)<br>&nbsp;&nbsp;&nbsp;else<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert("Please come back again.")<br>}<br>// end hiding from old browsers --&gt;<br>&lt;/SCRIPT&gt;<br>&lt;/HEAD&gt;</A></PRE><PRE><A NAME="1009640">&lt;BODY&gt;<br>&lt;FORM&gt;<br>Enter an expression:<br>&lt;INPUT TYPE="text" NAME="expr" SIZE=15 &gt;<br>&lt;INPUT TYPE="button" VALUE="Calculate" onClick="compute(this.form)"&gt;<br>&lt;BR&gt;<br>Result:<br>&lt;INPUT TYPE="text" NAME="result" SIZE=15 &gt;<br>&lt;/FORM&gt;<br>&lt;/BODY&gt;</A></PRE><A NAME="1009645">
+The HEAD of the document defines a single function, <CODE>compute</CODE>, taking one argument, <CODE>f</CODE>, which is a <CODE>Form</CODE> object. The function uses the <CODE>window.confirm</CODE> method to display a Confirm dialog box with OK and Cancel buttons.</A></P>
+<A NAME="1009648">
+If the user clicks OK, then <CODE>confirm</CODE> returns true, and the value of the <CODE>result</CODE> text field is set to the value of <CODE>eval(f.expr.value)</CODE>. The JavaScript function <CODE>eval</CODE> evaluates its argument, which can be any string representing any JavaScript expression or statements.</A></P>
+<A NAME="1009651">
+If the user clicks Cancel, then <CODE>confirm</CODE> returns false and the <CODE>alert</CODE> method displays another message.</A></P>
+<A NAME="1009653">
+The form contains a button with an <CODE>onClick</CODE> event handler that calls the <CODE>compute</CODE> function. When the user clicks the button, JavaScript calls <CODE>compute</CODE> with the argument <CODE>this.form</CODE> that denotes the current <CODE>Form</CODE> object. In <CODE>compute</CODE>, this form is referred to as the argument <CODE>f</CODE>.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1009658">
+ Calling Event Handlers Explicitly
+</A></H3>
+
+<A NAME="1009660">
+Follow these guidelines when calling event handlers.</A></P>
+<ul><P><LI><A NAME="1014175">
+You can reset an event handler specified by HTML, as shown in the following example.</A></LI>
+<PRE><A NAME="1009661">&lt;SCRIPT LANGUAGE="JavaScript"&gt;<br>function fun1() {<br>&nbsp;&nbsp;&nbsp;...<br>}<br>function fun2() {<br>&nbsp;&nbsp;&nbsp;...<br>}<br>&lt;/SCRIPT&gt;</A></PRE><PRE><A NAME="1009662">&lt;FORM NAME="myForm"&gt;<br>&lt;INPUT TYPE="button" NAME="myButton"<br>&nbsp;&nbsp;&nbsp;onClick="fun1()"&gt;<br>&lt;/FORM&gt;</A></PRE><PRE><A NAME="1009663">&lt;SCRIPT&gt;<br>document.myForm.myButton.onclick=fun2<br>&lt;/SCRIPT&gt;</A></PRE><P><A NAME="1009664">
+<B>JavaScript&nbsp;1.0.</B> You cannot reset an event handler.
+</P></A>
+
+<P><LI><A NAME="1014365">
+Event handlers are function references, so you must assign <CODE>fun2</CODE> itself, not <CODE>fun2()</CODE> (the latter calls <CODE>fun2</CODE> and has whatever type and value <CODE>fun2</CODE> returns).</A></LI>
+<P><LI><A NAME="1009665">
+Because the event handler HTML attributes are literal function bodies, you cannot use <CODE>&lt;INPUT onClick=fun1&gt;</CODE> in the HTML source to make <CODE>fun1</CODE> the <CODE>onClick</CODE> handler for an input. Instead, you must set the value in JavaScript, as in the preceding example.</A></LI>
+</ul><B><A NAME="HeadRunIn;"></A>
+<A NAME="1014305">
+JavaScript&nbsp;1.1 and earlier versions. </A></B><A NAME="1014306">
+you must spell event handler names in lowercase, for example, <CODE>myForm.onsubmit</CODE> or <CODE>myButton.onclick</CODE>.</A></P>
+
+<HR><H2><A NAME="The Event Object"></A>
+<A NAME="1012525">
+ The Event Object
+</A></H2><A NAME="1012526">
+Each event has an associated <CODE>event</CODE> object. The <CODE>event</CODE> object provides information about the event, such as the type of event and the location of the cursor at the time of the event. When an event occurs, and if an event handler has been written to handle the event, the <CODE>event</CODE> object is sent as an argument to the event handler.</A></P>
+<A NAME="1010125">
+In the case of a <CODE>MouseDown</CODE> event, for example, the <CODE>event</CODE> object contains the type of event (in this case <CODE>"MouseDown"</CODE>), the x and y position of the mouse cursor at the time of the event, a number representing the mouse button used, and a field containing the modifier keys (Control, Alt, Meta, or Shift) that were depressed at the time of the event. The properties of the <CODE>event</CODE> object vary from one type of event to another, as described in the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsref/index.htm" TARGET="_top"><I>Client-Side JavaScript Reference</I></A>.</A></P>
+<B><A NAME="HeadRunIn;"></A>
+<A NAME="1014443">
+JavaScript&nbsp;1.1 and earlier versions. </A></B><A NAME="1014444">
+The <CODE>event</CODE> object is not available.</A></P>
+
+<HR><H2><A NAME="Event Capturing"></A>
+<A NAME="1010131">
+ Event Capturing
+</A></H2><A NAME="1010199">
+Typically, the object on which an event occurs handles the event. For example, when the user clicks a button, it is often the button's event handler that handles the event. Sometimes you may want the <CODE>window</CODE> or <CODE>document</CODE> object to handle certain types of events instead of leaving them for the individual parts of the document. For example, you may want the <CODE>document</CODE> object to handle all <CODE>MouseDown</CODE> events no matter where they occur in the document.</A></P>
+<A NAME="1010499">
+JavaScript's event capturing model allows you to define methods that capture and handle events before they reach their intended target. To accomplish this, the <CODE>window</CODE>, <CODE>document</CODE>, and <CODE>layer</CODE> objects use these event-specific methods:</A></P>
+<ul><P><LI><A NAME="1010133">
+<CODE>captureEvents</CODE>--captures events of the specified type.</A></LI>
+<P><LI><A NAME="1013420">
+<CODE>releaseEvents</CODE>--ignores the capturing of events of the specified type.</A></LI>
+<P><LI><A NAME="1013421">
+<CODE>routeEvent</CODE>--routes the captured event to a specified object.</A></LI>
+<P><LI><A NAME="1013422">
+<CODE>handleEvent</CODE>--handles the captured event (not a method of <CODE>layer</CODE>).</A></LI>
+</ul><B><A NAME="HeadRunIn;"></A>
+<A NAME="1014468">
+JavaScript&nbsp;1.1 and earlier versions. </A></B><A NAME="1014469">
+Event capturing is not available.</A></P>
+<A NAME="1010402">
+As an example, suppose you wanted to capture all <CODE>Click</CODE> events occurring in a window. Briefly, the steps for setting up event capturing are:</A></P>
+<OL>
+<P><LI><A NAME="1014488">
+<A HREF="evnt.htm#1010535">Enable Event Capturing</A></A></LI>
+<P><LI><A NAME="1010536">
+<A HREF="evnt.htm#1010420">Define the Event Handler</A></A></LI>
+<P><LI><A NAME="1010542">
+<A HREF="evnt.htm#1010449">Register the Event Handler</A></A></LI>
+</OL>
+<A NAME="1010531">
+The following sections explain these steps.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1010535">
+ Enable Event Capturing
+</A></H3>
+
+<A NAME="1010545">
+To set up the window to capture all <CODE>Click</CODE> events, use a statement such as the following:</A></P>
+<PRE><A NAME="1010413">window.captureEvents(Event.CLICK);</A></PRE><A NAME="1010481">
+The argument to <CODE>captureEvents</CODE> is a property of the <CODE>event</CODE> object and indicates the type of event to capture. To capture multiple events, the argument is a list separated by or (<CODE>|</CODE>). For example, the following statement captures <CODE>Click</CODE>, <CODE>MouseDown</CODE>, and <CODE>MouseUp</CODE> events: </A></P>
+<PRE><A NAME="1010482">window.captureEvents(Event.CLICK | Event.MOUSEDOWN | Event.MOUSEUP)</A></PRE><BLOCKQUOTE><B>NOTE: </B><A NAME="1014535">
+If a window with frames needs to capture events in pages loaded from different 
+locations, you need to use <CODE>captureEvents</CODE> in a signed script and call 
+<CODE>enableExternalCapture</CODE>. For information on signed scripts, see <A HREF="sec.htm#1019081">Chapter 14, 
+"JavaScript Security."</A>
+</A>
+</BLOCKQUOTE>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1010420">
+ Define the Event Handler
+</A></H3>
+
+<A NAME="1010554">
+Next, define a function that handles the event. The argument <CODE>e</CODE> is the <CODE>event</CODE> object for the event. </A></P>
+<PRE><A NAME="1010421">function clickHandler(e) {<br>&nbsp;&nbsp;&nbsp;//What goes here depends on how you want to handle the event.<br>&nbsp;&nbsp;&nbsp;//This is described below.<br>}</A></PRE><A NAME="1010422">
+You have the following options for handling the event:</A></P>
+<ul><P><LI><A NAME="1010423">
+Return <CODE>true</CODE>. In the case of a link, the link is followed and no other event handler is checked. If the event cannot be canceled, this ends the event handling for that event. </A></LI>
+<PRE><A NAME="1010424">&nbsp;&nbsp;&nbsp;function clickHandler(e) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return true;<br>&nbsp;&nbsp;&nbsp;}</A></PRE></P><A NAME="1010425">
+This allows the event to be completely handled by the document or window. The event is not handled by any other object, such as a button in the document or a child frame of the window.</A><P><P><LI><A NAME="1010565">
+Return <CODE>false</CODE>. In the case of a link, the link is not followed. If the event is non-cancelable, this ends the event handling for that event. </A></LI>
+<PRE><A NAME="1010426">&nbsp;&nbsp;&nbsp;function clickHandler(e) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return false;<br>&nbsp;&nbsp;&nbsp;}</A></PRE></P><A NAME="1010494">
+This allows you to suppress the handling of an event type. The event is not handled by any other object, such as a button in the document or a child frame of the window. You can use this, for example, to suppress the right mouse button in an application.</A><P><P><LI><A NAME="1010589">
+Call <CODE>routeEvent</CODE>. JavaScript looks for other event handlers for the event. If another object is attempting to capture the event (such as the document), JavaScript calls its event handler. If no other object is attempting to capture the event, JavaScript looks for an event handler for the event's original target (such as a button). The <CODE>routeEvent</CODE> function returns the value returned by the event handler. The capturing object can look at this return and decide how to proceed. </A></LI>
+</P><A NAME="1010438">
+When <CODE>routeEvent</CODE> calls an event handler, the event handler is activated. If <CODE>routeEvent</CODE> calls an event handler whose function is to display a new page, the action takes place without returning to the capturing object.</A><P><PRE><A NAME="1010442">&nbsp;&nbsp;&nbsp;function clickHandler(e) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var retval = routeEvent(e);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (retval == false) return false;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else return true;<br>&nbsp;&nbsp;&nbsp;}</A></PRE><P><LI><A NAME="1010446">
+Call the <CODE>handleEvent</CODE> method of an event receiver. Any object that can register event handlers is an event receiver. This method explicitly calls the event handler of the event receiver and bypasses the capturing hierarchy. For example, if you wanted all <CODE>Click</CODE> events to go to the first link on the page, you could use: </A></LI>
+<PRE><A NAME="1010447">&nbsp;&nbsp;&nbsp;function clickHandler(e) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; window.document.links[0].handleEvent(e);<br>&nbsp;&nbsp;&nbsp;}</A></PRE></P><A NAME="1010448">
+As long as the link has an <CODE>onClick</CODE> handler, the link will handle any click event it receives.</A><P></ul>
+<H3><A NAME="Head2;"></A>
+<A NAME="1010449">
+ Register the Event Handler
+</A></H3>
+
+<A NAME="1010555">
+Finally, register the function as the window's event handler for that event:</A></P>
+<PRE><A NAME="1010450">window.onClick = clickHandler;</A></PRE>
+<H3><A NAME="Head2;"></A>
+<A NAME="1010157">
+ A Complete Example
+</A></H3>
+
+<A NAME="1010158">
+In the following example, the window and document capture and release events:</A></P>
+<PRE><A NAME="1010159">&lt;HTML&gt;<br>&lt;SCRIPT&gt;</A></PRE><PRE><A NAME="1010160">function fun1(e) {<br>&nbsp;&nbsp;&nbsp;alert ("The window got an event of type: " + e.type + <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" and will call routeEvent.");<br>&nbsp;&nbsp;&nbsp;window.routeEvent(e);<br>&nbsp;&nbsp;&nbsp;alert ("The window returned from routeEvent.");<br>&nbsp;&nbsp;&nbsp;return true;<br>}</A></PRE><PRE><A NAME="1010161">function fun2(e) {<br>&nbsp;&nbsp;&nbsp;alert ("The document got an event of type: " + e.type);<br>&nbsp;&nbsp;&nbsp;return false;<br>}</A></PRE><PRE><A NAME="1010162">function setWindowCapture() {<br>&nbsp;&nbsp;&nbsp;window.captureEvents(Event.CLICK);<br>}</A></PRE><PRE><A NAME="1010163">function releaseWindowCapture() {<br>&nbsp;&nbsp;&nbsp;window.releaseEvents(Event.CLICK);<br>}</A></PRE><PRE><A NAME="1010164">function setDocCapture() {<br>&nbsp;&nbsp;&nbsp;document.captureEvents(Event.CLICK);<br>}</A></PRE><PRE><A NAME="1010165">function releaseDocCapture() {<br>&nbsp;&nbsp;&nbsp;document.releaseEvents(Event.CLICK);<br>}</A></PRE><PRE><A NAME="1010166">window.onclick=fun1;<br>document.onclick=fun2;</A></PRE><PRE><A NAME="1010167">&lt;/SCRIPT&gt;<br>...<br>&lt;/HTML&gt;</A></PRE>
+<HR><H2><A NAME="Validating Form Input"></A>
+<A NAME="1012961">
+ Validating Form Input
+</A></H2><A NAME="1012962">
+One of the most important uses of JavaScript is to validate form input to server-based programs such as server-side JavaScript applications or CGI programs. This is useful for several reasons:</A></P>
+<ul><P><LI><A NAME="1012965">
+It reduces load on the server. "Bad data" are already filtered out when input is passed to the server-based program.</A></LI>
+<P><LI><A NAME="1012966">
+It reduces delays in case of user error. Validation otherwise has to be performed on the server, so data must travel from client to server, be processed, and then returned to client for valid input.</A></LI>
+<P><LI><A NAME="1012967">
+It simplifies the server-based program.</A></LI>
+</ul><A NAME="1012968">
+Generally, you'll want to validate input in (at least) two places:</A></P>
+<ul><P><LI><A NAME="1012970">
+As the user enters it, with an <CODE>onChange</CODE> event handler on each form element that you want validated.</A></LI>
+<P><LI><A NAME="1012972">
+When the user submits the form, with an <CODE>onClick</CODE> event handler on the button that submits the form.</A></LI>
+</ul><A NAME="1012975">
+The <A HREF="http://developer.netscape.com/tech/javascript/index.html" TARGET="_top">JavaScript page</A> on DevEdge contains pointers to sample code. One such pointer is a complete set of form validation functions. This section presents some simple examples, but you should check out the samples on DevEdge.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1012977">
+ Example Validation Functions
+</A></H3>
+
+<A NAME="1012978">
+The following are some simple validation functions.</A></P>
+<PRE><A NAME="1012979">&lt;HEAD&gt;<br>&lt;SCRIPT LANGUAGE="JavaScript"&gt;<br>function isaPosNum(s) {<br>&nbsp;&nbsp;&nbsp;return (parseInt(s) &gt; 0)<br>}</A></PRE><PRE><A NAME="1012980">function qty_check(item, min, max) {<br>&nbsp;&nbsp;&nbsp;var returnVal = false<br>&nbsp;&nbsp;&nbsp;if (!isaPosNum(item.value)) <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert("Please enter a positive number")<br>&nbsp;&nbsp;&nbsp;else if (parseInt(item.value) &lt; min) <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert("Please enter a " + item.name + " greater than " + min)<br>&nbsp;&nbsp;&nbsp;else if (parseInt(item.value) &gt; max) <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert("Please enter a " + item.name + " less than " + max)<br>&nbsp;&nbsp;&nbsp;else <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;returnVal = true<br>&nbsp;&nbsp;&nbsp;return returnVal<br>}</A></PRE><PRE><A NAME="1012981">function validateAndSubmit(theform) {<br>&nbsp;&nbsp;&nbsp;if (qty_check(theform.quantity, 0, 999)) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert("Order has been Submitted")<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return true<br>&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;else {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert("Sorry, Order Cannot Be Submitted!")<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return false<br>&nbsp;&nbsp;&nbsp;}<br>}<br>&lt;/SCRIPT&gt;<br>&lt;/HEAD&gt;</A></PRE><A NAME="1012982">
+<CODE>isaPosNum</CODE> is a simple function that returns true if its argument is a positive number, and false otherwise.</A></P>
+<A NAME="1012983">
+<CODE>qty_check</CODE> takes three arguments: an object corresponding to the form element being validated (<CODE>item</CODE>) and the minimum and maximum allowable values for the item (<CODE>min</CODE> and <CODE>max</CODE>). It checks that the value of <CODE>item</CODE> is a number between min and max and displays an alert if it is not.</A></P>
+<A NAME="1012984">
+<CODE>validateAndSubmit</CODE> takes a <CODE>Form</CODE> object as its argument; it uses <CODE>qty_check</CODE> to check the value of the form element and submits the form if the input value is valid. Otherwise, it displays an alert and does not submit the form.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1012986">
+ Using the Validation Functions
+</A></H3>
+
+<A NAME="1012988">
+In this example, the BODY of the document uses <CODE>qty_check</CODE> as an <CODE>onChange</CODE> event handler for a text field and <CODE>validateAndSubmit</CODE> as the <CODE>onClick</CODE> event handler for a button.</A></P>
+<PRE><A NAME="1012990">&lt;BODY&gt;<br>&lt;FORM NAME="widget_order" ACTION="lwapp.html" METHOD="post"&gt;<br>How many widgets today? <br>&lt;INPUT TYPE="text" NAME="quantity" onChange="qty_check(this, 0, 999)"&gt;<br>&lt;BR&gt; <br>&lt;INPUT TYPE="button" VALUE="Enter Order" onClick="validateAndSubmit(this.form)"&gt;<br>&lt;/FORM&gt;<br>&lt;/BODY&gt;</A></PRE><A NAME="1012991">
+This form submits the values to a page in a server-side JavaScript application called <CODE>lwapp.html</CODE>. It also could be used to submit the form to a CGI program. The form is shown in the following figure.</A></P>
+<P><A NAME="1012997">
+<B>Figure 10.2&nbsp;&nbsp;&nbsp;A JavaScript form<P>
+<IMG SRC="graphics/gs3.gif">
+
+</B></A></P>
+
+
+<A NAME="1012998">
+The <CODE>onChange</CODE> event handler is triggered when you change the value in the text field and move focus from the field by either pressing the Tab key or clicking the mouse outside the field. Notice that both event handlers use <CODE>this</CODE> to represent the current object: in the text field, it is used to pass the JavaScript object corresponding to the text field to <CODE>qty_check</CODE>, and in the button it is used to pass the JavaScript <CODE>Form</CODE> object to <CODE>validateAndSubmit</CODE>.</A></P>
+<A NAME="1013000">
+To submit the form to the server-based program, this example uses a button that calls <CODE>validateAndSubmit</CODE>, which submits the form using the <CODE>submit</CODE> method, if the data are valid. You can also use a submit button (defined by <CODE>&lt;INPUT TYPE="submit"&gt;</CODE>) and then put an <CODE>onSubmit</CODE> event handler on the form that returns false if the data are not valid. For example,</A></P>
+<PRE><A NAME="1013006">&lt;FORM NAME="widget_order" ACTION="lwapp.html" METHOD="post" <br>&nbsp;&nbsp;&nbsp;onSubmit="return qty_check(theform.quantity, 0, 999)"&gt;<br>...<br>&lt;INPUT TYPE="submit"&gt;<br>...<br>&lt;/FORM&gt;</A></PRE><A NAME="1013007">
+When <CODE>qty_check</CODE> returns false if the data are invalid, the <CODE>onSubmit</CODE> handler will prohibit the form from being submitted.</A></P>
+
+<HR>
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="embed.htm">Previous</A>
+ | <A HREF="navobj.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT>
+<P ALIGN=right>
+<FONT SIZE=-2><I>Last Updated:  05/27/99  21:21:34</I></FONT>
+<P> <CENTER>Copyright (c) 1999
+<A HREF="http://home.netscape.com/misc/contact_info.html"
+TARGET=_top>Netscape Communications Corporation</A></FONT>
+</CENTER>
+<P>
+</BODY>
+</HTML>
+
+

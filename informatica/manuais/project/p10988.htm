@@ -1,0 +1,60 @@
+<!doctype html public" -//IETF//DTD 	HTML//EN">
+<HTML>
+
+<HEAD>
+<SCRIPT LANGUAGE="JAVASCRIPT">
+<!-- 
+
+function checkbrowse()
+{
+var bn, bv, ver
+bn = navigator.appName;
+bv = parseInt(navigator.appVersion);
+if (bn=="Microsoft Internet Explorer" && bv<"4") ver = "IE3";
+else ver = "NotIE3";
+if (ver=="IE3") top.cont.parts.location.href="part10.htm";
+if (ver=="NotIE3") top.cont.parts.location.href="nav/part10.htm";
+}
+//-->
+</SCRIPT>
+<TITLE>Determine If Fixed-Date Constraints Are Necessary</TITLE>
+<META NAME="GENERATOR" 	CONTENT="Merch. System HTML Development">
+<META NAME="AUTHOR" 	CONTENT="Merch. System HTML Development">
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" OnLoad="checkbrowse();">
+<Font Face ="Verdana, Arial, Helvetica">
+
+<P align=right><SMALL>
+<A HREF="p10987.htm" Target="TOC"><IMG SRC="prev.gif"ALT="Previous page"BORDER=0></A>
+<A HREF="p10981.htm" Target="TOC"><IMG SRC="toc10.gif"ALT="Contents"BORDER=0></A>
+<A HREF="p10989.htm" Target="TOC"><IMG SRC="Next.gif"ALT="Next 
+page"BORDER=0></A></SMALL></P>
+<H2>Determine If Fixed-Date Constraints Are Necessary</H2>
+
+<P>
+When a task really must start or finish on or near a specific date, you can apply the appropriate fixed-date 
+constraint for that task, such as the Must Start On constraint or the Must Finish On constraint. But applying 
+unnecessary fixed-date constraints can prevent Microsoft Project from calculating a schedule properly. For 
+instance, if you specify that a task must start on a certain date when it doesn’t have to, you might prevent 
+Microsoft Project from scheduling that task to start at the earliest possible date. In general, the earlier your 
+tasks start (and finish), the earlier your project finishes.
+<P>
+Sometimes, project managers apply a fixed-date constraint when they don’t intend to (for instance, if they enter 
+a specific start date and finish date for a task after they enter the task). If you link tasks, you don’t have to 
+enter dates in the Start and Finish fields because Microsoft Project will do it for you.
+<P>
+You can also inadvertently apply fixed-date constraints by dragging the pointer on the Gantt Chart to create a 
+task bar (and thus a task). If you create a task this way, by default Microsoft Project constrains the task 
+depending on which way you drag the pointer. If you drag the pointer from left to right, Microsoft Project will 
+constrain the task to start no earlier than a date. If you drag the pointer from right to left, the task will be 
+constrained to finish no earlier than a date.
+<P>
+You should check all tasks with fixed-date constraints to make sure each constraint is necessary and hasn’t 
+been applied by mistake.
+<P align = Center > <A HREF="http://www.microsoft.com/misc/cpyright.htm"><EM>&#169;1996-1997 Microsoft Corporation. All rights 
+reserved.</EM></A></P>
+</BODY>
+</FONT>
+</HTML>
+

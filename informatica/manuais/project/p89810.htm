@@ -1,0 +1,66 @@
+<!doctype html public" -//IETF//DTD 	HTML//EN">
+<HTML>
+
+<HEAD>
+<SCRIPT LANGUAGE="JAVASCRIPT">
+<!-- 
+
+function checkbrowse()
+{
+var bn, bv, ver
+bn = navigator.appName;
+bv = parseInt(navigator.appVersion);
+if (bn=="Microsoft Internet Explorer" && bv<"4") ver = "IE3";
+else ver = "NotIE3";
+if (ver=="IE3") top.cont.parts.location.href="part08.htm";
+if (ver=="NotIE3") top.cont.parts.location.href="nav/part08.htm";
+}
+//-->
+</SCRIPT>
+<TITLE>Control When a Resource Starts Working on a Task</TITLE>
+<META NAME="GENERATOR" 	CONTENT="Merch. System HTML Development">
+<META NAME="AUTHOR" 	CONTENT="Merch. System HTML Development">
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" OnLoad="checkbrowse();">
+<Font Face ="Verdana, Arial, Helvetica">
+
+<P align=right><SMALL>
+<A HREF="p8989.htm" Target="TOC"><IMG SRC="prev.gif"ALT="Previous page"BORDER=0></A>
+<A HREF="p8981.htm" Target="TOC"><IMG SRC="toc08.gif"ALT="Contents"BORDER=0></A>
+<A HREF="p89811.htm" Target="TOC"><IMG SRC="Next.gif"ALT="Next 
+page"BORDER=0></A></SMALL></P>
+<H2>Control When a Resource Starts Working on a Task</H2>
+
+<P>
+When you assign resources to a task, Microsoft Project assumes by default that each resource begins working 
+on the task on that task’s start date. But that scenario might not match reality. One resource might begin work 
+on the start date, but another might not be available until several hours or days later.
+<P>
+With Microsoft Project, you can specify exactly when a resource begins working on a task. For example, you 
+can stagger the times that multiple resources begin working on the same task by delaying the starting time of 
+one or more of the resources. This is true even if you have only one resource assigned to a task. When you 
+delay the start of a resource assignment, Microsoft Project recalculates the start date and time for the 
+resource’s work on the task.
+<P>
+<B><B><img src="bluetri.gif">	To control when a resource works on a task</B></B>
+<OL>
+<LI>On the <B>View Bar</B>, click <B>Gantt Chart </B><img src="gant.gif">.
+<LI>On the <B>Window</B> menu, click <B>Split</B>.
+<LI>In the <B>Task Name </B>field, select the task for which you want the resource’s work to be delayed.
+<LI>Click the <B>Task Form</B> view in the bottom pane.
+<LI>On the <B>Format</B> menu, point to <B>Details</B>, and then click <B>Resource Schedule</B>.
+<LI>If there is no work for the resource in the <B>Work</B> field, enter the work in the field, and then press 
+<font size=-1>ENTER</font>.
+<LI>In the <B>Delay</B> field for the resource, enter the duration by which you want to delay the start of the 
+resource’s work.
+<BR>For example, type <B>2h</B> for a delay of 2 hours; type <B>2d</B> for a delay of 2 days.
+<LI>Click <B>OK</B>.
+<LI>On the <B>Window</B> menu, click <B>Remove Split</B>.
+</OL>
+<P align = Center > <A HREF="http://www.microsoft.com/misc/cpyright.htm"><EM>&#169;1996-1997 Microsoft Corporation. All rights 
+reserved.</EM></A></P>
+</BODY>
+</FONT>
+</HTML>
+

@@ -1,0 +1,93 @@
+<!doctype html public" -//IETF//DTD 	HTML//EN">
+<HTML>
+
+<HEAD>
+<SCRIPT LANGUAGE="JAVASCRIPT">
+<!-- 
+
+function checkbrowse()
+{
+var bn, bv, ver
+bn = navigator.appName;
+bv = parseInt(navigator.appVersion);
+if (bn=="Microsoft Internet Explorer" && bv<"4") ver = "IE3";
+else ver = "NotIE3";
+if (ver=="IE3") top.cont.parts.location.href="part12.htm";
+if (ver=="NotIE3") top.cont.parts.location.href="nav/part12.htm";
+}
+//-->
+</SCRIPT>
+<TITLE>Assign a Resource to Variable Work Hours for a Task (Resource Contouring)</TITLE>
+<META NAME="GENERATOR" 	CONTENT="Merch. System HTML Development">
+<META NAME="AUTHOR" 	CONTENT="Merch. System HTML Development">
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" OnLoad="checkbrowse();">
+<Font Face ="Verdana, Arial, Helvetica">
+
+<P align=right><SMALL>
+<A HREF="p129816.htm" Target="TOC"><IMG SRC="prev.gif"ALT="Previous page"BORDER=0></A>
+<A HREF="p12981.htm" Target="TOC"><IMG SRC="toc12.gif"ALT="Contents"BORDER=0></A>
+</SMALL></P>
+<H2>Assign a Resource to Variable Work Hours for a Task (Resource Contouring)</H2>
+
+<P>
+At times your schedule may show that each overallocated resource is scheduled to work all available work 
+hours. How can you use existing resources to resolve overallocations? It’s possible to free up the time of some 
+resources by assigning them to their tasks only for the number of hours they will actually spend on the task 
+each day. Closely matching a resource’s assigned hours on a task to the actual hours spent on the task each 
+day is called <I>resource contouring</I>.
+<P>
+When you assign a resource to a task, Microsoft Project automatically assigns the same number of hours per 
+time period throughout the duration of the task. This is known as a flat contour. You can change this behavior 
+to more accurately reflect how a resource’s work will be patterned throughout the duration of a specific task.
+<P>
+<P>
+<TABLE CELLPADDING=5 CELLSPACING=0 border=5 width=30% align=right>
+<TR>
+<TD VALIGN=top><Font Face ="Verdana, Arial, Helvetica">If several resources are assigned to one task, you 
+can contour each resource’s time independently.</FONT></TD>  
+</TABLE>You can select one of several predefined work contours to apply to a particular resource working on a 
+particular task. You pick the contour that best matches the way the resource will actually work on the task. This 
+allows you to fine-tune a resource’s allocated hours, possibly freeing up time that that resource can use on a 
+different task, one with overallocated resources.
+<P>
+<IMG SRC="1205.GIF" ALT="Image File: 1205">
+<P>
+The Resource Usage and Task Usage views display the work contours.
+<P>
+<B><B><img src="bluetri.gif">	To apply a contour to an assignment</B></B>
+<OL>
+<LI>On the <B>View Bar</B>, click <B>Task Usage </B><img src="tasu.gif">.
+<BR>Resources are grouped under the tasks to which they are assigned.
+<LI>In the <B>Task Name </B>field, select a resource for which you want to apply a preset work contour.
+<LI>Click <B>Assignment Information </B><img src="resi.gif">, and then click the <B>General</B> tab.
+<LI>In the <B>Work contour</B> box, click a contour pattern.
+<LI>To change the start and finish dates for the resource assignment, click the new dates in the <B>Start</B> 
+and <B>Finish</B> boxes.
+</OL>
+</BOTTOM>
+<P>
+When working with work contours, keep the following in mind:
+<UL>
+<LI>Once you’ve applied a specific contour to a task, adding new total work values for the task will 
+automatically reapply the preset work contour pattern for the task and resources. Microsoft Project will first 
+distribute the new task work values across the affected time span, and then assign new work values to the 
+resources working on the task.
+<LI>If you change the start date of a task or the start date of a resource’s work on a task that has a preset 
+contour applied to it, the contour will automatically shift and be reapplied to include the new date. All work 
+values within the timespan will receive new values to preserve the pattern of the original contour.
+<LI>Once you manually edit a work value on the timescale portion of a view that has a preset contour applied 
+to it, the preset contour pattern will no longer be automatically applied. You can, however, reapply the preset 
+contour to redistribute the new values.
+<LI>If you increase the duration of a task, the preset contour will be stretched to include the new timespan.
+<LI>If actual work has been entered, any changes to the task’s total work or to the total remaining work will be 
+automatically redistributed to the remaining work values and not to the actual work.
+<P>
+
+<P align = Center > <A HREF="http://www.microsoft.com/misc/cpyright.htm"><EM>&#169;1996-1997 Microsoft Corporation. All rights 
+reserved.</EM></A></P>
+</BODY>
+</FONT>
+</HTML>
+

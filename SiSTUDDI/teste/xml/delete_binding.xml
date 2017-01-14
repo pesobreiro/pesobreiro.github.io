@@ -1,0 +1,8 @@
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+  <s:Body>  
+    <delete_binding generic="2.0" xmlns="urn:uddi-org:api_v2">    
+      <authInfo>MyAuthInformation</authInfo>
+      <bindingKey>myBindingKey</bindingKey>  
+    </delete_binding>
+  </s:Body>
+</s:Envelope>

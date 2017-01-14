@@ -1,0 +1,1116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<META name="GENERATOR" content="IBM WebSphere Homepage Builder V5.0.1 for Windows">
+<TITLE>introduction</TITLE>
+</HEAD>
+<BODY>
+<UL>
+  <LI><A name="TOC1" href="#SEC1">Copyright</A>
+  <LI><A name="TOC2" href="#SEC2">Prerequisites</A>
+  <LI><A name="TOC3" href="#SEC3">Target Operating System</A>
+  <LI><A name="TOC4" href="#SEC4">Installation Verification Program (IVP)</A>
+  <LI><A name="TOC5" href="#SEC5">Uninstalling the UDDI Registry</A>
+  <LI><A name="TOC6" href="#SEC6">Configuring the UDDI Registry</A>
+  <UL>
+    <LI><A name="TOC7" href="#SEC7">Global Configuration</A>
+    <UL>
+      <LI><A name="TOC8" href="#SEC8">Security</A>
+      <LI><A name="TOC9" href="#SEC9">User Console (GUI)</A>
+      <LI><A name="TOC10" href="#SEC10">Setting up SSL</A>
+      <LI><A name="TOC11" href="#SEC11">Accessing the User Console</A>
+      <LI><A name="TOC12" href="#SEC12">SOAP Interface</A>
+      <LI><A name="TOC13" href="#SEC13">Running the WebSphere Application Assembly
+      Tool</A>
+      <LI><A name="TOC14" href="#SEC14">Editing the deployment descriptor</A>
+    </UL>
+  </UL>
+  <LI><A name="TOC15" href="#SEC15">Graphical User Interface</A><A name="TOC15" href="#SEC15">ser Interface</A>
+  <UL>
+    <LI><A name="TOC16" href="#SEC16">Category Values</A>
+  </UL>
+  <LI><A name="TOC17" href="#SEC17">Application Programming Interface</A>
+  <LI><A name="TOC18" href="#SEC18">Messages</A>
+  <UL>
+    <LI><A name="TOC19" href="#SEC19">UDDI Message table</A>
+  </UL>
+  <LI><A name="TOC20" href="#SEC20">Problem Diagnosis</A>
+  <UL>
+    <LI><A name="TOC21" href="#SEC21">Trace</A>
+  </UL>
+  <LI><A name="TOC22" href="#SEC22">Samples</A>
+  <UL>
+    <LI><A name="TOC23" href="#SEC23">Samples setup</A>
+    <UL>
+      <LI><A name="TOC24" href="#SEC24">AuthTokens</A>
+      <LI><A name="TOC25" href="#SEC25">Keys</A>
+    </UL>
+    <LI><A name="TOC26" href="#SEC26">Samples cleanup</A>
+    <LI><A name="TOC27" href="#SEC27">API calls</A>
+    <UL>
+      <LI><A name="TOC28" href="#SEC28">SOAPSample1a - tModel</A>
+      <LI><A name="TOC29" href="#SEC29">SOAPSample1b - businessEntity</A>
+      <LI><A name="TOC30" href="#SEC30">SOAPSample1c - businessService</A>
+      <LI><A name="TOC31" href="#SEC31">SOAPSample1d - all together</A>
+      <LI><A name="TOC32" href="#SEC32">Configuring</A>
+      <LI><A name="TOC33" href="#SEC33">Classpath</A>
+      <LI><A name="TOC34" href="#SEC34">Compiling the samples</A>
+      <LI><A name="TOC35" href="#SEC35">Running the samples</A>
+    </UL>
+    <LI><A name="TOC36" href="#SEC36">Output to the console</A>
+  </UL>
+  <LI><A name="TOC37" href="#SEC37">Feedback</A>
+</UL>
+<P><IMG src="websphere.gif" width="976" height="95" border="0"></P>
+<H1><A href="#TOC1" name="SEC1">Copyright</A></H1>
+<P>(C) Copyright International Business Machine
+Corporation 1997, 2001 and others. All rights
+reserved. Note to U.S. Government Users -
+Documentation related to restricted rights
+- Use, duplication or disclosure restricted
+by GSA ADP Schedule contract with IBM Corp.</P>
+<H1><A href="#TOC2" name="SEC2">Prerequisites</A></H1>
+<P>The IBM WebSphere UDDI Registry assumes that
+the following products are already installed
+on the user's system:<BR></P>
+<UL>
+  <LI>DB2 Version 7.2
+  <LI>A web server, such as HTTP Server 1.3.19,
+  Internet Information Server 5.0, or any other
+  web server supported by WebSphere Application
+  Server (see <A href="http://www-4.ibm.com/software/webservers/appserv/doc/v40/prereqs/ae_v401.htm">http://www-4.ibm.com/software/webservers/appserv/doc/v40/prereqs/ae_v401.htm</A>).
+  <LI>WebSphere Application Server Advanced Edition
+  (AE) v4.0.1 or WebSphere Application Server
+  Advanced Edition - Developer Only Option
+  (AEd) v4.0.1 
+</UL>
+<H1><A href="#TOC3" name="SEC3">Target Operating System</A></H1>
+<P>The IBM WebSphere UDDI Registry will run
+on the following operating systems:<BR></P>
+<UL>
+  <LI>Windows NT Server 4.0 SP 6a
+  <LI>Windows 2000 Server 2000 SP1 or SP2
+</UL>
+<H1><A href="#TOC4" name="SEC4">Installation Verification Program (IVP)</A></H1>
+<P>Once you have completed the installation
+and configuration steps, you can run the
+installation verification programs. The samples
+all rely on SSL being configured.<BR>
+There are two IVP SOAP samples called SOAPSampleIVPa
+and SOAPSampleIVPb. They are intended to
+verify the successful installation of the
+product, and should be used in conjunction
+with the UDDI Users Console (GUI). <BR>
+SOAPSampleIVPa saves some data to the registry
+which you can then find using the GUI. Finally
+you can delete the data by running SOAPSampleIVPb.<BR>
+The IVP samples are installed into the same
+target directory as the other SOAP samples
+and they use the same XML files as the basic
+Java SOAP samples.<BR>
+SOAPSampleIVPa saves three businesses, six
+services (2 per business) and three tModels.
+The data structures are very basic and consist
+only of a name. The keys returned by the
+save_* UDDI API calls are then written to
+a file, <I>SOAPSampleIVPa.out</I>. SOAPSampleIVPb then reads in these keys
+from the file in order to delete the saved
+data from the UDDI registry.<BR>
+Note that consecutive runs of SOAPSampleIVPa
+will overwrite the output file <I>SOAPSampleIVPa.out</I>, so if you wish to use SOAPSampleIVPb to
+delete the data, you must run this before
+you next run SOAPSampleIVPa<BR>
+To run the IVP, follow these steps which
+for simplicity assumes everything is run
+on the same system as the UDDI Registry:</P>
+<OL>
+  <LI>Ensure that DB2 and the WebSphere Admin Server
+  are started.
+  <LI>Start the WebSphere Administrator's Console
+  and ensure the default server is started
+  and the UDDI Registry Application is started.
+  <LI>Open up a command prompt and CD to &lt;uddi-install-dir&gt;/Samples/soap.
+  <LI>Compile both SOAPSampleIVPa and SOAPSampleIVPb.
+  <LI>Run SOAPSampleIVPa. This should publish a
+  number of businesses and services and service
+  types into the registry.
+  <LI>Now start your browser and enter URL <I>http://localhost:9080/uddiguibeta</I> (if you have WebSphere security disabled,
+  or <I>https://localhost:9433/uddiguibeta</I> (if you have WebSphere security enabled),
+  and you should be presented with UDDI GUI
+  home page.
+  <P>On the find page select the business radio
+  button and enter % (the wild card symbol)
+  in the data entry field, and then press
+  the
+  find action. You should get a results page
+  returned with three businesses (mybusiness1,
+  2 and 3).</P>
+  <LI>If you press the &quot;Show Services&quot;
+  option next to any of the businesses, you
+  will see the services that are available
+  for that business.
+  <LI>If you now run SOAPSampleIVPb (from the command
+  prompt as before), this will delete all
+  of
+  the IVP data.
+  <LI>If you now do a Find from the GUI with the
+  wild card as in step 6 (above), you will
+  get an empty results page back.
+</OL>
+<P>.</P>
+
+<H1><A href="#TOC5" name="SEC5">Uninstalling the UDDI Registry</A></H1>
+<P>If you need to uninstall the IBM WebSphere
+UDDI Registry, you should do this via Add/Remove
+Programs from the Control Panel. <BR>
+The uninstall procedure may be unable to
+remove all of the directories for the IBM
+WebSphere UDDI Registry, in which case you
+should delete the target directory under
+which you chose to install the UDDI Registry
+(by default this will be <I>C:/WebSphere/UDDIReg</I>) and all its subdirectories. If the install
+directory has for some reason been deleted
+without using Add/Remove Programs to uninstall
+the IBM WebSphere UDDI Registry, then you
+may need to manually delete its key from
+the Windows registry.<BR>
+You should also uninstall the UDDI Registry
+application from WebSphere. To do this:<BR></P>
+<OL>
+  <LI>Start the WebSphere Administrative Console
+  (the WebSphere Admin Server will need to
+  be running for you to do this; you can start
+  it from a command shell window with the command
+  <I>net start &quot;IBM WS Admin Server 4.0&quot;</I>).
+  <LI>Expand the tree view in the left-hand pane
+  to display 'Enterprise Applications', and
+  further expand that to display 'UDDI Registry'.
+  <LI>Right click on 'UDDI Registry' and select
+  Stop to stop the application. Click 'OK'
+  when this completes.
+  <LI>Right click again on 'UDDI Registry' and
+  select Remove to remove the application.
+  Say 'no' when asked whether you want to export
+  the binding information, and then 'yes' when
+  asked if you want to remove the UDDI Registry
+  and the objects it contains. Click 'OK' when
+  the remove completes.
+</OL>
+<H1><A href="#TOC6" name="SEC6">Configuring the UDDI Registry</A></H1>
+<P>The following aspects of the UDDI Registry
+are configurable by the user:</P>
+<H2><A href="#TOC7" name="SEC7">Global Configuration</A></H2>
+<P>The following global configuration properties
+can be set by updating/editing the properties
+file <I>uddi.properties</I>, which is in the properties subdirectory
+of the WebSphere install directory (that
+is, in <I>C:\WebSphere\AppServer\uddi.properties</I> if you have installed WebSphere in the default
+location):</P>
+<OL>
+  <LI>The dbMaxResultCount, which is the limit
+  on the number of rows of information that
+  should be returned on Find requests, and
+  will apply if the request does not specify
+  a limit itself (or if it specifies a limit
+  which exceeds this value). The initial
+  value
+  for this in <I>uddi.properties</I> is 100.
+  <LI>The default language to be used as the xml:lang
+  when one is not specified. The initial value
+  for this in <I>uddi.properties</I> is en-US. This property must contain one
+  of the valid xml:lang values.
+  <LI>The UDDI site operator name. This is a string
+  which is stored in every registry object,
+  to indicate the operator of the UDDI Registry.
+  The initial value for this in <I>uddi.properties</I> is <I>www.mycompany.com/uddi</I>. You will want to configure this to your
+  own value.
+  <LI>The maximum number of search keys that can
+  be used on find API requests. The initial
+  value for this in <I>uddi.properties</I> is 5.
+  <LI>The servlet prefix and servlet name, used
+  to build up the discovery URL. The initial
+  value for these are <I>http://localhost:9080/uddibeta </I>and <I>inquiryapi</I>.
+  <LI>Context URLs used to qualify the URLs to
+  the document root. The initial values for
+  these are <I>websphere/uddi</I> for both the uddicontext and the uddiProtectcontext.
+</OL>
+<H3><A href="#TOC8" name="SEC8">Security</A></H3>
+<P>Configuring security will be documented at
+a later date.</P>
+<H3><A href="#TOC9" name="SEC9">User Console (GUI)</A></H3>
+<P>Information about the User Console (GUI)
+Configuration will be added at a later date.</P>
+<H3><A href="#TOC10" name="SEC10">Setting up SSL</A></H3>
+<P>You will need to configure WebSphere to use
+HTTPS and SSL in order to run the publish
+API servlet of the IBM WebSphere UDDI Registry.<BR>
+This section describes a simple way in which
+you can do this, which will allow you to
+use the SOAP Samples in their supplied form.
+A more correct way of setting up SSL is to
+configure it via the web server (see section
+6.6.18.1a.7 on '<I>Configuring SSL in WebSphere Application
+Server' </I>in the WebSphere Application Server Advanced
+Edition InfoCenter).<BR>
+the following instructions are for Websphere
+Application Server AE; if you are using AEd
+then you will need to refer to its documentation.<BR></P>
+<OL>
+  <LI>Set aliases of your Virtual Host:
+  <OL>
+    <LI>On the WAS AE Administrative Console, in
+    the tree on the left-hand side click
+    on <B>Virtual Hosts...-&gt; Default Host</B> (or whichever host you have set up the UDDI
+    Registry to use if you are not using the
+    default one.)
+    <LI>On the &quot;General&quot; tab, add a new
+    host alias, called &quot;*:9443&quot;. (9443
+    is the default WAS SSL port.) This is in
+    addition t the aliases &quot;*:9080&quot;
+    and &quot;*:80&quot; which should already
+    be setup. (Make sure that there are colons
+    and not full stops between the * and the
+    number.)
+    <LI>Click &quot;Apply&quot;.
+  </OL>
+  <LI>Add a new HTTP transport
+  <OL>
+    <LI>In the tree, go to <B>Nodes... -&gt; machine name... -&gt; Application
+    Servers... -&gt; Default Server</B> (or whichever server you have set up to
+    use if not the default one.)
+    <LI>Go to the &quot;Service&quot; tab, select
+    &quot;Web Container Service&quot;, and press
+    &quot;Edit properties&quot;.
+    <LI>Go to the &quot;Transport&quot; tab. There
+    should be at least one transport already
+    defined, with host=* and port=9080.
+    <LI>Press &quot;Add&quot; to add a new transport.
+    On the &quot;General&quot; tab, enter
+    &quot;*&quot;
+    as the host and &quot;9443&quot; as the
+    port.
+    Check the &quot;Enable SSL&quot; and
+    &quot;Use
+    Global SSL Default Configuration&quot;
+    checkboxes.
+    Press &quot;OK&quot;.
+    <LI>Press &quot;OK&quot; again.
+    <LI>Press &quot;Apply&quot;.
+  </OL>
+  <LI>Check Default SSL Configuration - needed
+  for Samples
+  <P>The SSL configuration uses key files and
+  trust files. If you haven't changed these
+  then the initial default values are adequate
+  and will work with the samples. However,
+  if you have changed the trust and key values,
+  then you will either need to edit the SOAP
+  sample code, or check that your SSL configuration
+  is set up appropriately as follows:</P>
+  <OL>
+    <LI>Go to the <B>Console... -&gt; Security Center</B> menu.
+    <LI>Go to the &quot;General tab and click the
+    ellipsis &quot;...&quot; button next to &quot;Default
+    SSL Configuration&quot;.
+    <LI>Go to the &quot;General&quot; tab. The settings
+    should be:
+    <UL>
+      <LI>Key file name = ${WAS_HOME}/etc/DummyServerKeyFile.jks
+      (the password for this file is &quot;WebAS&quot;)
+      <LI>Key file format = JKS
+      <LI>Trust file name = ${WAS_HOME}/etc/DummyServerTrustFile.jks
+      (the password for this file is &quot;WebAS&quot;)
+      <LI>Trust file format = JKS
+      <P>You don't need to enable client authentication
+      and the security level can be left as &quot;high&quot;.</P>
+    </UL>
+  </OL>
+  <LI>Make sure your path picks up the WebSphere
+  configuration
+  <P>In order for the SOAP Samples to use the
+  WebSphere SSL configuration, you need to
+  ensure that <I>C:\WebSphere\AppServer\java\bin</I> appears in the path prior to <I>C:\WINNT\system32</I>. This may require you to edit your path
+  statement.</P>
+  <LI>Stop and restart the Default Server.
+</OL>
+<H3><A href="#TOC11" name="SEC11">Accessing the User Console</A></H3>
+<P>If you have the WebSphere security disabled,
+then you access the UDDI User Console (also
+sometimes referred to as the GUI) using the
+following URL: <I>http://localhost:9080/uddiguibeta</I>. Note that with WebSphere security disabled,
+all the publish operations will be performed
+using a userid of UNAUTHENTICATED.<BR>
+If you have WebSphere security enabled, then
+you access the UDDI User Console via a secure
+protocol using the following URL: <I>https://localhost:9443/uddiguibeta</I>. You will be challenged for a userid and
+password immediately. Note that for the Beta,
+if security is enabled, then both inquiry
+and publish functions will be secured when
+accessed via the User Console.<BR>
+If you have WebSphere security enabled, and
+you try to access the GUI via the unsecured
+URL of <I>http://localhost:9080/uddiguibeta</I>, then you will get a security constraint
+error.</P>
+<H3><A href="#TOC12" name="SEC12">SOAP Interface</A></H3>
+<OL>
+  <LI><I>defaultPoolSize</I> - the number of SOAP parsers with which
+  to initialize the parser pool for the SOAP
+  interface. The can be set independently for
+  the Publish (uddipublish) and Inquiry (uddi)
+  APIs. For example, if you expect more inquiries
+  than publish requests via the SOAP interface,
+  you can set a lager pool size for the Inquiry
+  API. The default initial size for both APIs
+  is 10.
+  <LI>The <I>context root</I> used for the Publish and Inquiry APIs, which
+  forms a part of the URL by which they are
+  accessed. By default this is /uddibeta.
+  <LI>Whether the API is to be secure (via HTTPS)
+  or insecure (via HTTP). The default is
+  to
+  use HTTPS.
+  <P align="left">These values can be changed in two ways:</P>
+  <OL>
+    <LI>Running the WebSphere Application Assembly
+    Tool (ATT) (recommended option)
+    <LI>Editing the deployment descriptor for the
+    SOAP module in the UDDI application directly.
+    <P>Option (2) above is faster and could be the
+    preferred method in a Test Environment.</P>
+  </OL>
+</OL>
+<H3><A href="#TOC13" name="SEC13">Running the WebSphere Application Assembly
+Tool</A></H3>
+<UL>
+  <LI>Select <I>Update</I> and click on the Application icon.
+  <LI>Select the <I>uddi.ear</I> file (this is placed, by the UDDI installation,
+  into the UDDI install directory (e.g. C:\WebSphere\UDDIReg\uddi.ear).
+  <LI>Expand the <I>uddi.ear</I>&nbsp;icon on the left hand pane in the AAT.
+  <LI>Expand the <I>Web Modules</I> tree.
+  <LI>Expand the <I>uddi Soap&nbsp;</I>tree.
+  <LI>To change the <I>defaultPoolSize, </I>expand Web Components and then <I>uddipublish</I> (for the publish API) or <I>uddi</I> (for the inquiry API).
+  <UL>
+    <LI>Click on <I>Initialization Parameters</I> which will show the <I>defaultPoolSize</I> parameter in the upper right hand pane.
+    This can be edited in the lower right
+    hand
+    pane.
+  </UL>
+  <LI>To change the <I>context root</I>, click on <I>UDDI Soap</I> which will display general information about
+  the SOAP module in the lower right hand pane
+  in AAT. The <I>context root</I> can be edited in this pane.
+  <LI>To change the publish API to use HTTP (instead
+  of HTTPS), click on <I>Security Constraints</I> and change the <I>Transport Guarantee</I> from Confidential to none.
+  <LI>Having made any changes above, you must now
+  save them. To do this, click on <I>File -&gt; Save (or Save As)</I> to save your changes.
+  <LI>Redeploy the <I>uddi.ear</I> to WebSphere, by first removing it and reinstalling
+  it via the Administrator's Console.
+</UL>
+<H3><A href="#TOC14" name="SEC14">Editing the deployment descriptor</A></H3>
+<UL>
+  <LI>Use Windows Explorer to find the <I>WEB-INF subdirectory</I> of the UDDI-ear application in the installed
+  applications within the WebSphere install
+  directory (e.g. C:\WebSphere\AppServer\installedApps\uddi.ear\soap.war\WEB-INF).
+  <LI>The deployment descriptor for the SOAP module
+  (<I>web.xml) </I>is found in this directory. It can be edited
+  directly to specify the desired settings.
+  <LI>Stop and restart the WebSphere server for
+  the changes to take effect.
+</UL>
+<H1><A href="#TOC15" name="SEC15">Graphical User Interface</A></H1>
+<P>The Graphical User Interface (GUI), also
+referred to an the UDDI User Console, is
+split into three distinct areas. At the top
+of the screen are buttons which activate
+various functions in the areas below this
+bar......<BR>
+<IMG src="guitop3.jpg" width="1021" height="94" border="0"><BR><BR>
+The <I>Find</I> button above activates the Find tab below
+this banner to the left ....<BR>
+<IMG src="guitabf.jpg" width="246" height="316" border="0"><BR>
+while the <I>Publish</I> button activates the Publish tab in the
+same area....<BR>
+<IMG src="guitabp.jpg" width="248" height="412" border="0"><BR>
+Each of these tabs create different information
+to the right of these areas, depending on
+options chosen. For example, below is the
+home page detail for the IBM WebSphere UDDI
+Registry ...<BR>
+<BR>
+<IMG src="guidata.jpg" width="603" height="413" border="0"></P>
+<P>The complete screen (showing the home page)
+looks like this ....<BR>
+<IMG src="guiall.jpg" width="857" height="430" border="0"></P>
+<H2><A href="#TOC16" name="SEC16">Category Values</A></H2>
+<P>In the UDDI User Console, there are a number
+of places where you can specify category
+values (this is in the &quot;locators&quot;
+section on several of the forms). To find
+a value corresponding to the possible categories
+in the various categorization schemes, you
+should do the following:</P>
+<OL>
+  <LI>Start the DB2 Control Center (by <B>Start -&gt;Programs-&gt;IBM DB2-&gt;Control
+  Center</B>)
+  <LI>Expand the tree on the left-hand pane to
+  get to the Systems-&gt;<I>machine name</I>-&gt;instances-&gt;DB2-&gt;Databases-&gt;UDDI20
+  <LI>Expand UDDI20 and select &quot;Tables&quot;
+  <LI>You will see a list of tables, one of which
+  is called CATEGORY
+  <LI>Right click on this and either select &quot;Export&quot;
+  to export the data to an output file, or
+  select &quot;Sample Contents&quot;
+  <LI>If you view the data using &quot;Sample Contents&quot;,
+  then you will need to click on &quot;Next&quot;
+  to view further rows, or use the filter
+  to
+  select the items of interest
+  <LI>The data consists of rows of four fields
+  per row: NAME, CODE, DESCRIPTION and PARENTCODE
+  <LI>The NAME is the name of the categorization
+  scheme, which can be udditype, naics, unspcs,
+  geo or unspsc7. These provide categorizations
+  by geography, type of business, etc.
+  <LI>The CODE is the value you should specify
+  on the UDDI User Console, corresponding
+  to
+  the DESCRIPTION which describes the category
+  you want to search for (on Find requests)
+  or specify (on Publish requests)
+  <LI>Having found the category value (CODE) you
+  want to use, you should then enter it into
+  the form and select the categorization scheme
+  (NAME) to which it belongs from the pull-down
+  menu
+</OL>
+<H1><A href="#TOC17" name="SEC17">Application Programming Interface</A></H1>
+<P><BR>
+The IBM WebSphere UDDI Registry fully supports
+the Application Programming Interface (API)
+specification which can be viewed by visiting
+<A href="http://www.uddi.org/pubs/ProgrammersAPI-V2.00-Open-20010608.pdf"><I>http://www.uddi.org/pubs/ProgrammersAPI-V2.00-Open-20010608.pdf</I></A>. Any changes from this specification will
+be documented within this document.<BR>
+</P>
+
+<H1><A href="#TOC18" name="SEC18">Messages</A></H1><p>When the IBM WebSphere UDDI Registry is running,
+it might issue messages to report events
+or errors. The messages are in the form UDxxnnnnS
+where:<BR><FONT face="Arial"><B><FONT color="#330000"><BR>
+</FONT></B></FONT>
+<DL>
+  <DT>xx
+  <DD>is a two character descriptor identifying
+  which component is involved
+  <DT>nnnn
+  <DD>give the error code being issued
+  <DT>S
+  <DD>is either I (Information) or E (Error)
+</DL>
+<H3><A href="#TOC19" name="SEC19">UDDI Message table</A></H3>
+<P>To help you diagnose problems and minimize
+the need to enable trace in any of the above
+components, view the messages
+table. You can view the messages by prefix
+or
+component, whichever is easiest for you to
+find in the table.  All messages are documented
+with user/system action and explanation.
+<br>
+</P>
+<center>
+<TABLE border="3" cellspacing="4" cellpadding="2" width="80%" bgcolor="#80ffff">
+  <caption><a NAME="comptable"></a><b><font color="#FF0000"><font size=+3>UDDI Components Message Prefix Table</font></font></b>
+<br>
+  <b><font color="#000000"><font size=-1>click on individual links for
+message documentation for the component</font></font></b></caption>
+<!-- <tr>
+<td><b><tt>PrefixPrefixPrefix</tt></b></td>
+
+<td>
+<center><b><tt>ComponentPrefix</tt></b></center>
+</td>
+
+</tr>
+-->
+  <tr>
+<td><tt><a href="UDAI.html" target="_blank">UDAI</a></tt></td>
+
+<td><tt><a href="UDAI.html" target="_blank">API</a></tt></td>
+</tr>
+
+<tr>
+<td><tt><a href="UDAR.html" target="_blank">UDAR</a></tt></td>
+
+<td><tt><a href="UDAR.html" target="_blank">Approval</a></tt></td>
+
+</tr>
+
+<tr>
+<td><tt><a href="UDCF.html" target="_blank">UDCF</a></tt></td>
+
+<td><tt><a href="UDCF.html" target="_blank">Configuration</a></tt></td>
+</tr>
+
+<tr>
+<td><tt><a href="UDDA.html" target="_blank">UDDA</a></tt></td>
+
+<td><tt><a href="UDDA.html" target="_blank">Datatypes</a></tt></td>
+
+</tr>
+
+<tr>
+<td><tt><a href="UDDM.html" target="_blank">UDDM</a></tt></td>
+
+<td><tt><a href="UDDM.html" target="_blank">DOM</a></tt></td>
+
+</tr>
+
+<tr>
+<td><tt><a href="UDEJ.html" target="_blank">UDEJ</a></tt></td>
+
+<td><tt><a href="UDEJ.html" target="_blank">EJB Interface</a></tt></td>
+
+</tr>
+
+<tr>
+<td><tt><a href="UDEX.html" target="_blank">UDEX</a></tt></td>
+
+<td><tt><a href="UDEX.html" target="_blank">Exceptions</a></tt></td>
+
+</tr>
+
+<tr>
+<td><tt><a href="UDIN.html" target="_blank">UDIN</a></tt></td>
+
+<td><tt><a href="UDIN.html" target="_blank">Installation</a></tt></td>
+
+</tr>
+
+<tr>
+<td><tt><a href="UDLC.html" target="_blank">UDLC</a></tt></td>
+
+<td><tt><a href="UDLC.html" target="_blank">Local API</a></tt></td>
+
+</tr>
+
+<tr>
+<td><tt><a href="UDPR.html" target="_blank">UDPR</a></tt></td>
+
+<td><tt><a href="UDPR.html" target="_blank">Persistence</a></tt></td>
+
+</tr>
+
+<tr>
+<td><tt><a href="UDRS.html" target="_blank">UDRS</a></tt></td>
+
+<td><tt><a href="UDRS.html" target="_blank">Logging</a></tt></td>
+
+</tr>
+
+<tr>
+<td><tt><a href="UDSC.html" target="_blank">UDSC</a></tt></td>
+
+<td><tt><a href="UDSC.html" target="_blank">Security</a></tt></td>
+
+</tr>
+
+<tr>
+<td><tt><a href="UDSP.html" target="_blank">UDSP</a></tt></td>
+
+<td><tt><a href="UDSP.html" target="_blank">SOAP Interface</a></tt></td>
+
+</tr>
+
+<tr>
+<td><tt><a href="UDUC.html" target="_blank">UDUC</a></tt></td>
+
+<td><tt><a href="UDUC.html" target="_blank">User Console</a></tt></td>
+
+</tr>
+
+<tr>
+<td><tt><a href="UDUU.html" target="_blank">UDUU</a></tt></td>
+
+<td><tt><a href="UDUU.html" target="_blank">UUID</a></tt></td>
+
+</tr>
+
+</table></center>
+<H2><A href="#TOC20" name="SEC20">Problem Diagnosis</A></H2>
+<H3><A href="#TOC21" name="SEC21">Trace</A></H3>
+<P>If errors occur, you may need to turn on
+tracing for UDDI, in order to collect additional
+diagnostic information. The simplest way
+to enable trace for the whole of the IBM
+WebSphere UDDI Registry is as follows:</P>
+<OL>
+  <LI>From the WebSphere Administrative Console's
+  action bar, select <B>Console... -&gt; Trace... -&gt; Trace Settings</B> and fill in a trace string of <I>com.ibm.uddi.*</I>.
+  <LI>Click &quot;Apply&quot;
+  <LI>Select <B>Console... -&gt; Trace... -&gt; Enabled</B> and ensure that enabled is checked.
+  <P>This will cause UDDI trace records to be
+  written to Default_Server_stdout.log and
+  to the WebSphere trace file.</P>
+</OL>
+<H1><A href="#TOC22" name="SEC22">Samples</A></H1>
+<P>The IBM WebSphere UDDI Registry contains
+two basic sets of Java samples of varying
+complexity: the first set explicitly sends
+XML strings, read in from files, as HTTP
+POST requests to the publish and inquiry
+servlets, and outputs the XML response; the
+second set uses the UDDI4J Java API to hide
+the implementation of sending XML over HTTP,
+and uses Java objects rather than XML to
+represent UDDI data structures. Each sample
+will accomplish the functions shown (in (1)
+below) for each of tModel, businessEntity,
+businessService and bindingTemplate. There
+will also be a further set of samples which
+will show the use of all four structures
+together.<BR></P>
+<OL>
+  <LI>A simple sample to show the interaction with
+  the UDDI registry using hand-crafted XML.
+  This sample shows XML being sent to the server
+  and being returned. It shows XML in flight
+  to accomplish the following API functions:
+  <UL>
+    <LI>find_* - to show that the information is
+    not there
+    <LI>save_* - to save the information
+    <LI>find_* - to show that the information has
+    been saved
+    <LI>delete_* - to delete the saved information
+    <LI>find_* - to show that the information has
+    been deleted
+  </UL>
+  <LI>A similar sample to the one above but using
+  UDDI4J instead of XML. This will show the
+  user the advantages of using UDDI4J to code
+  their entries within the registry.
+</OL>
+<P>The SOAP samples are called:<BR></P>
+<UL>
+  <LI>SOAPSample 1a - shows manipulation of tModels
+  <LI>SOAPSample 1b - shows manipulation of businessEntities
+  <LI>SOAPSample 1c - shows manipulation of businessServices
+  <LI>SOAPService 1d - combines all three of the
+  above together
+</UL>
+<P><BR>
+The UDDI4J samples are called:<BR></P>
+<UL>
+  <LI>UDDI4JSample 1a - shows manipulation of tModels
+  <LI>UDDI4JSample1b - shows manipulation of businessEntities
+  <LI>UDDI4JSample1c - shows manipulation of businessServices
+  <LI>UDDI4JSample1d - combines all three of the
+  above together
+</UL>
+<H2><A href="#TOC23" name="SEC23">Samples setup</A></H2>
+<H3><A href="#TOC24" name="SEC24">AuthTokens</A></H3>
+<P>Each of the samples starts with a get_authToken
+UDDI API call. An authInfo element is then
+extracted from the authToken returned by
+this call. The authInfo element obtained
+in this way is needed to perform save_* and
+delete_* API calls, but is not needed for
+find_* calls. Although security is not fully
+implemented in the Beta release, the use
+of authTokens is included to show how they
+are used. When security is implemented the
+get_authToken API calls will need valid userID
+and cred attributes - in the Beta these are
+hardcoded into the XML files as userID='uddiUser'
+and cred='uddiPwd'.</P>
+<H3><A href="#TOC25" name="SEC25">Keys</A></H3>
+<P>Sample1c (businessService) need a businessKey
+in order to save a new businessService and
+bindingTemplate. This is done by making the
+necessary API calls to obtain keys before
+the main part of the sample occurs.</P>
+<H2><A href="#TOC26" name="SEC26">Samples cleanup</A></H2>
+<P>Any information that was saved, in addition
+to that saved in the main part of the sample,
+is deleted. The authToken is deactivated
+by calling discard_authToken.</P>
+<H2><A href="#TOC27" name="SEC27">API calls</A></H2>
+<P>Before ANY of the five UDDI API calls (in
+(1) above) each of the samples begins with
+a get_authToken API call. an authInfo element
+is then extracted from the authToken returned
+by this call. The authInfo element obtained
+in this way is required to perform save_*
+and delete_* API calls, but is not needed
+for find_* calls.</P>
+<P>Samples 1c (businessService) and 1d (all
+together) need a businessKey and a serviceKey
+respectively in order to save a new businessService
+and bindingTemplate respectively. This is
+accomplished by making the necessary API
+calls to obtain keys before the main part
+of the sample occurs.</P>
+<P><BR>
+After the five UDDI API calls any information
+that was saved, in addition to the main part
+of the sample, is deleted. The authToken
+is deactivated by calling discard_authToken.<BR>
+<BR>
+The UDDI API calls made for each sample are
+listed below:</P>
+<H3><A href="#TOC28" name="SEC28">SOAPSample1a - tModel</A></H3>
+<DL>
+  <DT>get_authToken
+  <DD>the authInfo element is obtained from the
+  response and used in the save_tModel, delete_tModel
+  and discard_authToken calls
+  <DT>find_tModel
+  <DD>.
+  <DT>save_tModel
+  <DD>the tModelKey is obtained from the response
+  and used in the delete_tModel call
+  <DT>find_tModel
+  <DD>.
+  <DT>delete_tModel
+  <DD>.
+  <DT>find_tModel
+  <DD>.
+  <DT>discard_authToken
+  <DD>.
+</DL>
+<H3><A href="#TOC29" name="SEC29">SOAPSample1b - businessEntity</A></H3>
+<DL>
+  <DT>get_authToken
+  <DD>the authInfo element is obtained from the
+  response and used in the save_business,
+  delete_business
+  and discard_authToken calls
+  <DT>find_business
+  <DD>.
+  <DT>save_business
+  <DD>the businessKey is obtained from the response
+  and used in the delete_business call
+  <DT>find_business
+  <DD>.
+  <DT>delete_business
+  <DD>.
+  <DT>find_business
+  <DD>.
+  <DT>discard_authToken
+  <DD>.
+</DL>
+<H3><A href="#TOC30" name="SEC30">SOAPSample1c - businessService</A></H3>
+<P>Each businessService is the logical child
+of a single businessEntity, and so, when
+performing a save_business UDDI API call,
+a businessKEy must be passed. Hence, this
+sample does a save_business call before exercising
+the businessService API in order to obtain
+a businessKey. The created business is then
+deleted at the end of the sample.</P>
+<DL>
+  <DT>get_authToken
+  <DD>the authInfo element is obtained from the
+  response and used in the save_*, delete_*
+  and discard_authToken calls
+  <DT>save_business
+  <DD>a business is needed so that the businessService
+  can be saved as the child of a businessEntity.
+  The businessKey is obtained from the response
+  and used in the delete_service call
+  <DT>find_service
+  <DD>.
+  <DT>delete_service
+  <DD>.
+  <DT>find_service
+  <DD>.
+  <DT>delete_business
+  <DD>.
+  <DT>discard_authToken
+  <DD>.
+  </DL>
+<H3><A href="#TOC31" name="SEC31">SOAPSample1d - all together</A></H3>
+<P>Each bindingTemplate is the logical child
+of a single businessService, and so, when
+performing a save_binding UDDI API call,
+a serviceKey must be passed. In order to
+obtain a serviceKey, this sample performs
+a save_business call, which saves a businessEntity
+which, in turn, includes a businessService.
+The created business and service are both
+deleted at the end of the sample.<BR></P>
+<DL>
+  <DT>get_authToken
+  <DD>the authInfo element is obtained from the
+  response and used in the save_*, delete_*
+  and discard_authToken calls
+  <DT>save_business
+  <DD>the businessEntity saved here includes a
+  businessService which is required so that
+  the bindingTemplate can be saved as the
+  child
+  of a businessService. The businessKey and
+  serviceKey are obtained from the response
+  and are used in the delete_business and
+  save_binding
+  calls respectively.
+  <DT>find_binding
+  <DD>.
+  <DT>save_binding
+  <DD>the bindingKey is obtained from the response
+  and used in the delete_binding call
+  <DT>find_binding
+  <DD>.
+  <DT>delete_binding
+  <DD>.
+  <DT>find_binding
+  <DD>.
+  <DT>delete_business
+  <DD>this API call will also delete the service
+  that was saved with the business. ALL businesses
+  and bindings that are contents of the business
+  are deleted 
+  <DT>discard_authToken
+  <DD>.
+</DL>
+<DL>
+  <DT><A href="#TOC14" name="SEC14">Configuring, Compiling and Running the Samples</A>
+</DL>
+<H3><A href="#TOC32" name="SEC32">Configuring</A></H3>
+<P>Each sample has three fields which need to
+be configured before compilation. These are:<BR></P>
+<DL>
+  <DT>private static final String host
+  <DD>= &quot;hostname&quot;;
+  <DT>private static final String inquiryServletPath
+  <DD>= &quot;inquiryServletPath&quot;;
+  <DT>private static final String publishServletPath
+  <DD>= &quot;publishServletPath&quot;;
+</DL>
+<P>The host must be the name of the registry
+host machine, <I>without</I> the prefix &quot;http://&quot;, e.g. &quot;localhost&quot;
+or &quot;aspidistra.myhouse.com&quot;.<BR>
+The inquiryServletPath must be the name of
+the path on the host machine from where the
+inquiry servlet is accessed, e.g. &quot;uddibeta/inquiryapi&quot;.<BR>
+The publishServletPath must be the path on
+the host machine from where the publish servlet
+is accessed, e.g. &quot;uddibean/publishapi&quot;.</P>
+<H3><A href="#TOC33" name="SEC33">Classpath</A></H3>
+<P>The java classpath needed to run the sample
+must contain, apart from the standard java
+class libraries, only the ibmjsse.jar. This
+JAR file contains the classes needed for
+SSL, and is located in the WebSphere/AppServer/java/jre/lib/ext
+directory.</P>
+<H3><A href="#TOC34" name="SEC34">Compiling the samples</A></H3>
+<P>To compile the samples, ensure the classpath
+is set up correctly and type &quot;java SOAPSample1*.java&quot;
+on the command prompt in the same directory
+as the sample files.</P>
+<H3><A href="#TOC35" name="SEC35">Running the samples</A></H3>
+<P>Ensure the XML files containing the UDDI
+API messages are in the same directory as
+the java class files and type &quot;java
+SOAPSample1a&quot;, &quot;java SOAPSample1b&quot;
+and so on. The samples will send output to
+the console.</P>
+<H2><A href="#TOC36" name="SEC36">Output to the console</A></H2>
+<P>All the sample output is sent to the console.
+Below is an example of the output for SOAPSample1a:</P>
+<P><CODE>C:\SOAPSamples&gt;java SOAPSample1a<BR>
+<BR>
+GETTING AUTHTOKEN:<BR>
+-----------------<BR>
+<BR>
+Sending the Following Message:<BR>
+<BR>
+&lt;s:Envelope xmlns:s=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;<BR>
+&lt;s:Body&gt;<BR>
+&lt;get_authToken generic=&quot;2.0&quot;
+xmlns=&quot;urn:uddi-org:api_v2&quot; userID=&quot;uddiUser&quot;
+c<BR>
+red=&quot;uddiPwd&quot;&gt;&lt;/get_authToken&gt;<BR>
+&lt;/s:Body&gt;<BR>
+&lt;/s:Envelope&gt;<BR>
+<BR>
+<BR>
+Received the following response:<BR>
+<BR>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;
+?&gt;&lt;Envelope xmlns=&quot;http://schemas.xmlsoap.o<BR>
+rg/soap/envelope/&quot;&gt;&lt;Body&gt;&lt;authToken
+generic=&quot;2.0&quot; xmlns=&quot;urn:uddi-org:api_v2&quot;
+op<BR>
+erator=&quot;operator&quot;&gt;&lt;authInfo&gt;dummy
+authToken&lt;/authInfo&gt;&lt;/authToken&gt;&lt;/Body&gt;&lt;/Envel<BR>
+ope&gt;<BR>
+<BR>
+authInfo = dummy authToken<BR>
+<BR>
+FINDING T-MODEL:<BR>
+----------------<BR>
+<BR>
+Sending the Following Message:<BR>
+<BR>
+&lt;s:Envelope xmlns:s=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;<BR>
+&lt;s:Body&gt;<BR>
+&lt;find_tModel generic=&quot;2.0&quot; xmlns=&quot;urn:uddi-org:api_v2&quot;&gt;<BR>
+&lt;name&gt;MyTModel&lt;/name&gt;<BR>
+&lt;/find_tModel&gt;<BR>
+&lt;/s:Body&gt;<BR>
+&lt;/s:Envelope&gt;<BR>
+<BR>
+<BR>
+Received the following response:<BR>
+<BR>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;
+?&gt;&lt;Envelope xmlns=&quot;http://schemas.xmlsoap.o<BR>
+rg/soap/envelope/&quot;&gt;&lt;Body&gt;&lt;tModelList
+generic=&quot;2.0&quot; xmlns=&quot;urn:uddi-org:api_v2&quot;
+o<BR>
+perator=&quot;operator&quot; truncated=&quot;false&quot;&gt;&lt;tModelInfos&gt;&lt;/tModelInfos&gt;&lt;/tModelList&gt;&lt;/B<BR>
+ody&gt;&lt;/Envelope&gt;<BR>
+<BR>
+<BR>
+SAVING T-MODEL:<BR>
+---------------<BR>
+<BR>
+Sending the Following Message:<BR>
+<BR>
+&lt;s:Envelope xmlns:s=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;<BR>
+&lt;s:Body&gt;<BR>
+&lt;save_tModel generic=&quot;2.0&quot; xmlns=&quot;urn:uddi-org:api_v2&quot;&gt;<BR>
+&lt;authInfo&gt;dummy authToken&lt;/authInfo&gt;<BR>
+&lt;tModel tModelKey=&quot;&quot;&gt;<BR>
+&lt;name&gt;MyTModel&lt;/name&gt;<BR>
+&lt;/tModel&gt;<BR>
+&lt;/save_tModel&gt;<BR>
+&lt;/s:Body&gt;<BR>
+&lt;/s:Envelope&gt;<BR>
+<BR>
+<BR>
+Received the following response:<BR>
+<BR>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;
+?&gt;&lt;Envelope xmlns=&quot;http://schemas.xmlsoap.o<BR>
+rg/soap/envelope/&quot;&gt;&lt;Body&gt;&lt;tModelDetail
+generic=&quot;2.0&quot; xmlns=&quot;urn:uddi-org:api_v2&quot;<BR>
+operator=&quot;operator&quot;&gt;&lt;tModel
+tModelKey=&quot;UUID:0C871117-077B-4AF2-9FCC-016E35EB0E0<BR>
+9&quot; operator=&quot;operator&quot; authorizedName=&quot;unauthenticatedUser&quot;&gt;&lt;name&gt;MyTModel&lt;/name<BR>
+&gt;&lt;/tModel&gt;&lt;/tModelDetail&gt;&lt;/Body&gt;&lt;/Envelope&gt;<BR>
+<BR>
+<BR>
+FINDING T-MODEL:<BR>
+----------------<BR>
+<BR>
+Sending the Following Message:<BR>
+<BR>
+&lt;s:Envelope xmlns:s=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;<BR>
+&lt;s:Body&gt;<BR>
+&lt;find_tModel generic=&quot;2.0&quot; xmlns=&quot;urn:uddi-org:api_v2&quot;&gt;<BR>
+&lt;name&gt;MyTModel&lt;/name&gt;<BR>
+&lt;/find_tModel&gt;<BR>
+&lt;/s:Body&gt;<BR>
+&lt;/s:Envelope&gt;<BR>
+<BR>
+<BR>
+Received the following response:<BR>
+<BR>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;
+?&gt;&lt;Envelope xmlns=&quot;http://schemas.xmlsoap.o<BR>
+rg/soap/envelope/&quot;&gt;&lt;Body&gt;&lt;tModelList
+generic=&quot;2.0&quot; xmlns=&quot;urn:uddi-org:api_v2&quot;
+o<BR>
+perator=&quot;operator&quot; truncated=&quot;false&quot;&gt;&lt;tModelInfos&gt;&lt;tModelInfo
+tModelKey=&quot;UUID:0C<BR>
+871117-077B-4AF2-9FCC-016E35EB0E09&quot;&gt;&lt;name
+xml:lang=&quot;en&quot;&gt;MyTModel&lt;/name&gt;&lt;/tModelI<BR>
+nfo&gt;&lt;/tModelInfos&gt;&lt;/tModelList&gt;&lt;/Body&gt;&lt;/Envelope&gt;<BR>
+<BR>
+<BR>
+DELETING T-MODEL:<BR>
+-----------------<BR>
+<BR>
+Sending the Following Message:<BR>
+<BR>
+&lt;s:Envelope xmlns:s=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;<BR>
+&lt;s:Body&gt;<BR>
+&lt;delete_tModel generic=&quot;2.0&quot;
+xmlns=&quot;urn:uddi-org:api_v2&quot;&gt;<BR>
+&lt;authInfo&gt;dummy authToken&lt;/authInfo&gt;<BR>
+&lt;tModelKey&gt;UUID:0C871117-077B-4AF2-9FCC-016E35EB0E09&lt;/tModelKey&gt;<BR>
+&lt;/delete_tModel&gt;<BR>
+&lt;/s:Body&gt;<BR>
+&lt;/s:Envelope&gt;<BR>
+<BR>
+<BR>
+Received the following response:<BR>
+<BR>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;
+?&gt;&lt;Envelope xmlns=&quot;http://schemas.xmlsoap.o<BR>
+rg/soap/envelope/&quot;&gt;&lt;Body&gt;&lt;dispositionReport
+generic=&quot;2.0&quot; xmlns=&quot;urn:uddi-org:ap<BR>
+i_v2&quot; operator=&quot;operator&quot;&gt;&lt;result
+errno=&quot;0&quot;&gt;&lt;errInfo errCode=&quot;E_success&quot;&gt;E_succe<BR>
+ss (0) Success. &lt;/errInfo&gt;&lt;/result&gt;&lt;/dispositionReport&gt;&lt;/Body&gt;&lt;/Envelope&gt;<BR>
+<BR>
+<BR>
+FINDING T-MODEL:<BR>
+----------------<BR>
+<BR>
+Sending the Following Message:<BR>
+<BR>
+&lt;s:Envelope xmlns:s=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;<BR>
+&lt;s:Body&gt;<BR>
+&lt;find_tModel generic=&quot;2.0&quot; xmlns=&quot;urn:uddi-org:api_v2&quot;&gt;<BR>
+&lt;name&gt;MyTModel&lt;/name&gt;<BR>
+&lt;/find_tModel&gt;<BR>
+&lt;/s:Body&gt;<BR>
+&lt;/s:Envelope&gt;<BR>
+<BR>
+<BR>
+Received the following response:<BR>
+<BR>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;
+?&gt;&lt;Envelope xmlns=&quot;http://schemas.xmlsoap.o<BR>
+rg/soap/envelope/&quot;&gt;&lt;Body&gt;&lt;tModelList
+generic=&quot;2.0&quot; xmlns=&quot;urn:uddi-org:api_v2&quot;
+o<BR>
+perator=&quot;operator&quot; truncated=&quot;false&quot;&gt;&lt;tModelInfos&gt;&lt;/tModelInfos&gt;&lt;/tModelList&gt;&lt;/B<BR>
+ody&gt;&lt;/Envelope&gt;<BR>
+<BR>
+<BR>
+DISCARDING AUTHTOKEN:<BR>
+--------------------<BR>
+<BR>
+Sending the Following Message:<BR>
+<BR>
+&lt;s:Envelope xmlns:s=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;<BR>
+&lt;s:Body&gt;<BR>
+&lt;discard_authToken generic=&quot;2.0&quot;
+xmlns=&quot;urn:uddi-org:api_v2&quot;&gt;<BR>
+&lt;authInfo&gt;dummy authToken&lt;/authInfo&gt;<BR>
+&lt;/discard_authToken&gt;<BR>
+&lt;/s:Body&gt;<BR>
+&lt;/s:Envelope&gt;<BR>
+<BR>
+<BR>
+Received the following response:<BR>
+<BR>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;
+?&gt;&lt;Envelope xmlns=&quot;http://schemas.xmlsoap.o<BR>
+rg/soap/envelope/&quot;&gt;&lt;Body&gt;&lt;dispositionReport
+generic=&quot;2.0&quot; xmlns=&quot;urn:uddi-org:ap<BR>
+i_v2&quot; operator=&quot;operator&quot;&gt;&lt;result
+errno=&quot;0&quot;&gt;&lt;errInfo errCode=&quot;E_success&quot;&gt;E_succe<BR>
+ss (0) Success. &lt;/errInfo&gt;&lt;/result&gt;&lt;/dispositionReport&gt;&lt;/Body&gt;&lt;/Envelope&gt;</CODE></P>
+<H1><A href="#TOC37" name="SEC37">Feedback</A></H1>
+<P>We would welcome any feedback you might have
+on this documentation. Please send any comments
+or observations to 'idrcf@hursley.ibm.com'
+and we will endeavor to respond to you as
+quickly as possible.</P>
+
+</BODY>
+</HTML>

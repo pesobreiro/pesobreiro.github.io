@@ -1,0 +1,434 @@
+<VisualStudioProject>
+    <CSHARP
+        ProjectType = "Web"
+        ProductVersion = "7.0.9466"
+        SchemaVersion = "1.0"
+        ProjectGuid = "{08EDF011-75F8-40B9-A79A-C1BB4A267D1A}"
+    >
+        <Build>
+            <Settings
+                ApplicationIcon = ""
+                AssemblyKeyContainerName = ""
+                AssemblyName = "SiSTUddi"
+                AssemblyOriginatorKeyFile = ""
+                DefaultClientScript = "JScript"
+                DefaultHTMLPageLayout = "Grid"
+                DefaultTargetSchema = "IE50"
+                DelaySign = "false"
+                OutputType = "Library"
+                RootNamespace = "SiSTUddi"
+                StartupObject = ""
+            >
+                <Config
+                    Name = "Debug"
+                    AllowUnsafeBlocks = "false"
+                    BaseAddress = "285212672"
+                    CheckForOverflowUnderflow = "false"
+                    ConfigurationOverrideFile = ""
+                    DefineConstants = "DEBUG;TRACE"
+                    DocumentationFile = ""
+                    DebugSymbols = "true"
+                    FileAlignment = "4096"
+                    IncrementalBuild = "true"
+                    Optimize = "false"
+                    OutputPath = "bin\"
+                    RegisterForComInterop = "false"
+                    RemoveIntegerChecks = "false"
+                    TreatWarningsAsErrors = "false"
+                    WarningLevel = "4"
+                />
+                <Config
+                    Name = "Release"
+                    AllowUnsafeBlocks = "false"
+                    BaseAddress = "285212672"
+                    CheckForOverflowUnderflow = "false"
+                    ConfigurationOverrideFile = ""
+                    DefineConstants = "TRACE"
+                    DocumentationFile = ""
+                    DebugSymbols = "false"
+                    FileAlignment = "4096"
+                    IncrementalBuild = "false"
+                    Optimize = "true"
+                    OutputPath = "bin\"
+                    RegisterForComInterop = "false"
+                    RemoveIntegerChecks = "false"
+                    TreatWarningsAsErrors = "false"
+                    WarningLevel = "4"
+                />
+            </Settings>
+            <References>
+                <Reference
+                    Name = "System"
+                    AssemblyName = "System"
+                />
+                <Reference
+                    Name = "System.Drawing"
+                    AssemblyName = "System.Drawing"
+                />
+                <Reference
+                    Name = "System.Data"
+                    AssemblyName = "System.Data"
+                />
+                <Reference
+                    Name = "System.Web"
+                    AssemblyName = "System.Web"
+                />
+                <Reference
+                    Name = "System.XML"
+                    AssemblyName = "System.Xml"
+                />
+                <Reference
+                    Name = "Microsoft.Uddi.Sdk"
+                    AssemblyName = "Microsoft.Uddi.Sdk"
+                />
+                <Reference
+                    Name = "SiST"
+                    AssemblyName = "SiST"
+                    HintPath = "..\..\..\desenvolvimento\sist\bin\Debug\SiST.dll"
+                />
+            </References>
+        </Build>
+        <Files>
+            <Include>
+                <File
+                    RelPath = "AssemblyInfo.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Global.asax"
+                    SubType = "Component"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "Global.asax.cs"
+                    DependentUpon = "Global.asax"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Global.asax.resx"
+                    DependentUpon = "Global.asax.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "Parametros.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Web.config"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "administrar\index.aspx"
+                    SubType = "Form"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "administrar\index.aspx.cs"
+                    DependentUpon = "index.aspx"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "administrar\index.aspx.resx"
+                    DependentUpon = "index.aspx.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "administrar\login.aspx"
+                    SubType = "Form"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "administrar\login.aspx.cs"
+                    DependentUpon = "login.aspx"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "administrar\login.aspx.resx"
+                    DependentUpon = "login.aspx.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "administrar\Logs.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "administrar\PublicarTaxonomias.aspx"
+                    SubType = "Form"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "administrar\PublicarTaxonomias.aspx.cs"
+                    DependentUpon = "PublicarTaxonomias.aspx"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "administrar\PublicarTaxonomias.aspx.resx"
+                    DependentUpon = "PublicarTaxonomias.aspx.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "administrar\Serializador.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "administrar\Servico.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "administrar\Taxonomia.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "administrar\VerificarAcesso.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "css\geral.css"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "imagens\casa.gif"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "imagens\dirbaixo.gif"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "imagens\dircima.gif"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "imagens\esqbaixo.gif"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "imagens\esqcima.gif"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "imagens\farol.jpg"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "imagens\flor.gif"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "imagens\fotos.jpg"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "imagens\login.gif"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "imagens\logoSist.gif"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "imagens\logoSist2.jpg"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "imagens\SiST.gif"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "include\menubaixo.inc"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "include\topo.inc"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "include\topoAdmin.inc"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "include\topoPublicar.inc"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "pesquisar\Pesquisa.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "pesquisar\Pesquisar.aspx"
+                    SubType = "Form"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "pesquisar\Pesquisar.aspx.cs"
+                    DependentUpon = "Pesquisar.aspx"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "pesquisar\Pesquisar.aspx.resx"
+                    DependentUpon = "Pesquisar.aspx.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "publicar\Empresa.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "publicar\index.aspx"
+                    SubType = "Form"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "publicar\index.aspx.cs"
+                    DependentUpon = "index.aspx"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "publicar\index.aspx.resx"
+                    DependentUpon = "index.aspx.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "publicar\publicar.aspx"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "publicar\publicar.aspx.cs"
+                    DependentUpon = "publicar.aspx"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "publicar\publicar.aspx.resx"
+                    DependentUpon = "publicar.aspx.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "publicar\PublicarEmpresa.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "publicar\PublicarServico.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "publicar\Registrar.aspx"
+                    SubType = "Form"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "publicar\Registrar.aspx.cs"
+                    DependentUpon = "Registrar.aspx"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "publicar\Registrar.aspx.resx"
+                    DependentUpon = "Registrar.aspx.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "publicar\RegistrarEmpresa.aspx"
+                    SubType = "Form"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "publicar\RegistrarEmpresa.aspx.cs"
+                    DependentUpon = "RegistrarEmpresa.aspx"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "publicar\RegistrarEmpresa.aspx.resx"
+                    DependentUpon = "RegistrarEmpresa.aspx.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "publicar\RegistrarProduto.aspx"
+                    SubType = "Form"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "publicar\RegistrarProduto.aspx.cs"
+                    DependentUpon = "RegistrarProduto.aspx"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "publicar\RegistrarProduto.aspx.resx"
+                    DependentUpon = "RegistrarProduto.aspx.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "publicar\RegistrarServico.aspx"
+                    SubType = "Form"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "publicar\RegistrarServico.aspx.cs"
+                    DependentUpon = "RegistrarServico.aspx"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "publicar\RegistrarServico.aspx.resx"
+                    DependentUpon = "RegistrarServico.aspx.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "publicar\RegistrarServicoWeb.aspx"
+                    SubType = "Form"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "publicar\RegistrarServicoWeb.aspx.cs"
+                    DependentUpon = "RegistrarServicoWeb.aspx"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "publicar\RegistrarServicoWeb.aspx.resx"
+                    DependentUpon = "RegistrarServicoWeb.aspx.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "publicar\Utilizador.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "xml\uddi_v2.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "xml\uddi_v2.xsd"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "xml\uddi_v2.xsx"
+                    DependentUpon = "uddi_v2.xsd"
+                    BuildAction = "None"
+                />
+            </Include>
+        </Files>
+    </CSHARP>
+</VisualStudioProject>
+

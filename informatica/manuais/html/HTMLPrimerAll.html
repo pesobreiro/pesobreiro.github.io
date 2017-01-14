@@ -1,0 +1,2029 @@
+<HTML><HEAD>
+<TITLE>
+  NCSA--A Beginner's Guide to HTML
+</TITLE>
+
+<META HTTP-EQUIV="Window-target" CONTENT="_top"> 
+<META NAME="description" CONTENT="">
+    <!-- Add a description of this page to be displayed in search results. -->
+<META NAME="keywords" CONTENT="NCSA,computing">
+    <!--                       ^^^^^^^^^^^^^^ -->
+    <!-- Add to or edit these keywords with words or phrases relevant to -->	
+    <!-- this webpage in order to improve search results. -->
+
+
+<!--#include virtual="/includes/include-header.html" -->
+
+</HEAD>
+
+<BODY <!--#include virtual="/includes/include-body.html" --> >
+
+ 
+<!--#include virtual="/includes/include-navbar.html?ncsa" -->
+   <!--                                             ^^^^^^^^ -->
+   <!-- This selects the title graphic to be displayed atop the navbar. -->
+   <!-- The query string options are: alliance, ncsa, access, resources -->
+   <!-- Defaults to alliance if empty. -->
+
+
+<!-- MAIN BODY BEGINS -->
+
+
+<font face="arial,helvetica">
+<H2 align=center>
+  A Beginner's Guide to HTML     
+</H2>
+
+
+<DIV align=center><hr width=70% size=1><font face="arial,helvetica" size="-1">
+<a href="index.html">Primer intro</a> | 
+<a href="HTMLPrimerAll.html">Full-length version</a> | <a href="HTMLPrimerPrintable.html">Printable version</a> |
+<a href="HTMLPrimerP1.html">Part 1</a> |
+<a href="HTMLPrimerP2.html">Part 2</a> |
+<a href="HTMLPrimerP3.html">Part 3</a> 
+<!-- | <a href="HTMLPrimerPDF.pdf">PDF version</a> -->
+<hr width=70% size=1></DIV>
+
+
+
+<P>
+This is a primer for producing documents in HTML, the hypertext markup language
+used on the World Wide Web. This guide is intended to be an introduction
+to using HTML and creating files for the Web. Links are provided to additional
+information. You should also check your local bookstore; there are many
+volumes about the Web and HTML that could be useful.
+
+<UL>
+<LI><A HREF="#GS"><B>Getting Started</B></A>
+    <UL>
+    <LI><A HREF="#AE">Terms to Know</A>
+    <LI><A HREF="#WT">What Isn't Covered</A>
+    <LI><A HREF="#HV">HTML Version</A>
+    </UL>
+
+<LI><A HREF="#HD"><B>HTML Documents</B></A>
+    <UL>
+    <LI><A HREF="#WI">What an HTML Document Is</A>
+    <LI><A HREF="#HE">HTML Editors</A>
+    <LI><A HREF="#GY">Getting Your Files on a Server</A>
+    <LI><A HREF="#TEM">Tags Explained</A>
+    <LI><A HREF="#TM2">The Minimal HTML Document</A>
+    <LI><A HREF="#TeT">A Teaching Tool</A>
+    </UL>
+
+<LI><A HREF="#MT"><B>Markup Tags</B></A>
+      <UL>
+      <LI><A HREF="#HT">HTML</A>
+      <LI><A HREF="#HE2">HEAD</A>
+      <LI><A HREF="#TI">TITLE</A>
+      <LI><A HREF="#BO">BODY</A>
+      <LI><A HREF="#HE3">Headings</A>
+      <LI><A HREF="#PA">Paragraphs</A>
+      <LI><A HREF="#LI">Lists</A>
+      <LI><A HREF="#PT">Preformatted Text</A>
+      <LI><A HREF="#EQ">Extended Quotations</A>
+      <LI><A HREF="#FL">Forced Line Breaks/Postal Addresses</A>
+      <LI><A HREF="#HR">Horizontal Rules</A>
+      </UL>
+
+<LI><A HREF="#CF"><B>Character Formatting</B></A>
+    <UL>
+    <LI><A HREF="#PV">Logical Versus Physical Styles</A>
+    <LI><A HREF="#ES">Escape Sequences</A>
+    </UL>
+
+<LI><A HREF="#LI2"><B>Linking</B></A>
+      <UL>
+      <LI><A HREF="#RL">Relative Pathnames Versus Absolute Pathnames</A>
+      <LI><A HREF="#UR">URLs</A>
+      <LI><A HREF="#LTS">Links to Specific Sections</A>
+      <LI><A HREF="#M2">Mailto</A>
+</UL>
+
+<LI><A HREF="#II"><B>Inline Images</B></A>
+      <UL>
+      <LI><A HREF="#IS">Image Size Attributes</A>
+      <LI><A HREF="#AI">Aligning Images</A>
+      <LI><A HREF="#AT2">Alternate Text for Images</A>
+          <LI><A HREF="#IH">Images as Hyperlinks</A>
+      <LI><A HREF="#BG">Background Graphics</A>
+      <LI><A HREF="#OC">Background Color</A>
+      <LI><A HREF="#EI">External Images, Sounds, and Animations</A>
+      </UL>
+
+<LI><A HREF="#TA"><B>Tables</B></A>
+      <UL>
+      <LI><A HREF="#TT">Table Tags</A>
+      <LI><A HREF="#GT">General Table Format</A>
+      <LI><A HREF="#TF">Tables for Nontabular Information</A>
+      </UL>
+
+<LI><A HREF="#FF"><B>Fill-out Forms</B></A>
+
+<LI><A HREF="#TR"><B>Troubleshooting</B></A>
+    <UL>
+    <LI><A HREF="#AO">Avoid Overlapping Tags</A>
+    <LI><A HREF="#OE">Embed Only Anchors and Character Tags</A>
+    <LI><A HREF="#FS">Do the Final Steps</A>
+    <LI><A HREF="#CO">Commenting Your Files</A>
+    </UL>
+
+<LI><A HREF="#FM"><B>For More Information</B></A>
+    <UL>
+    <LI><A HREF="#SG">Style Guides</A>
+    <LI><A HREF="#OI">Other Introductory Documents</A>
+    <LI><A HREF="#AR">Additional Online References</A>
+    <LI><A HREF="#TH">Thanks</A>
+    </UL>
+</UL>
+
+
+
+
+
+
+</P><P> 
+<H2>
+    <A NAME = "GS">Getting Started</A></H2>
+</P><P>
+<H4 ALIGN=LEFT>
+    <A NAME = "AE">Terms to Know</A></H4>
+</P><P>
+<DL COMPACT>
+<DT><I>WWW</I>
+<DD>World Wide Web
+<DT><I>Web</I>
+<DD>World Wide Web  
+<DT><I>SGML</I>
+<DD>Standard Generalized Markup Language--a standard for
+    describing markup languages
+<DT><I>DTD</I>
+<DD>Document Type Definition--this is the formal specification of a 
+markup language, written using SGML
+<DT><I>HTML</I>
+<DD>HyperText Markup Language--HTML is an SGML DTD <BR>
+In practical terms, HTML is a collection of platform-independent styles
+(indicated by markup tags) that define the various components of a World
+Wide Web document. HTML was invented by Tim Berners-Lee while at CERN,
+the European Laboratory for Particle Physics in Geneva.
+</DL>
+
+
+<H4 ALIGN=LEFT>
+    <A NAME = "WT">What Isn't Covered</A></H4>
+<P>
+This primer assumes that you:
+
+<UL>
+<LI>know how to use <A HREF="/SDG/Software/Mosaic/">NCSA Mosaic</A> or
+    some other Web browser
+<LI>have a general understanding of how Web servers and client browsers
+    work
+<LI>have access to a Web server (or that you want to produce HTML documents 
+    for personal use in local-viewing mode)
+</UL>
+
+<H4 ALIGN=LEFT>
+    <A NAME = "HV">HTML Version</A></H4>
+</P><P>
+This guide reflects the most current specification--HTML Version 4.0--
+plus some additional features that have been widely and consistently
+implemented in browsers. Future versions and new features for HTML
+are under development.
+
+
+
+
+
+</P><P> 
+<H2>
+    <A NAME = "HD">HTML Documents</A></H2>
+</P><P>
+<H4 ALIGN=LEFT>
+    <A NAME = "WI">What an HTML Document Is</A></H4>
+</P><P>
+
+HTML documents are plain-text (also known as ASCII) files that can be
+created using any text editor (e.g., Emacs or vi on UNIX machines;
+SimpleText on a Macintosh; Notepad on a Windows machine). You can also use
+word-processing software if you remember to save your document as "text
+only with line breaks".
+
+<H4 ALIGN=LEFT>
+    <A NAME = "HE">HTML Editors</A></H4>
+</P><P>
+
+Some WYSIWYG editors are also available (e.g., Claris Home Page or Adobe
+PageMill, both for Windows and Macintosh). You may wish to try one of
+them after you learn some of the basics of HTML tagging. WYSIWYG is an
+acronym for "what you see is what you get"; it means that you design
+your HTML document visually, as if you were using a word processor,
+instead of writing the markup tags in a plain-text file and imagining
+what the resulting page will look like. It is useful to know enough HTML
+to code a document before you determine the usefulness of a WYSIWYG
+editor, in case you want to add HTML features that your editor doesn't support.
+</P><P>
+If you haven't already selected your software, refer to Tom Magliery's <A
+HREF="http://sdg.ncsa.uiuc.edu/~mag/work/HTMLEditors/">online listing of
+HTML editors</A> (organized by platform) to help you in your search for
+appropriate software.
+
+<H4 ALIGN=LEFT>
+    <A NAME = "GY">Getting Your Files on a Server</A></H4>
+</P><P>
+
+If you have access to a Web server at school or work, contact your
+<I>webmaster</I> (the individual who maintains the server) to see how
+you can get your files on the Web. If you do not have access to a server
+at work or school, check to see if your community operates a
+<I>FreeNet</I>, a community-based network that provides free access to
+the Internet. Lacking a FreeNet, you may need to contact a local
+Internet provider that will post your files on a server for a fee.
+(Check your local newspaper for advertisements or with your Chamber of
+Commerce for the names of companies.)
+
+<H4 ALIGN=LEFT>
+    <A NAME = "TEM">Tags Explained</A></H4>
+</P><P>
+
+An <I>element</I> is a fundamental component of the structure of a text
+document. Some examples of elements are heads, tables, paragraphs, and
+lists. Think of it this way: you use HTML tags to mark the elements of a
+file for your browser. Elements can contain plain text, other elements,
+or both.
+</P><P>
+To denote the various elements in an HTML document, you use <I>tags</I>.
+HTML tags consist of a left angle bracket (<TT>&lt;</TT>), a tag name,
+and a right angle bracket (<TT>&gt;</TT>). Tags are usually paired
+(e.g., <TT>&lt;H1&gt;</TT> and <TT>&lt;/H1&gt;</TT>) to start and end
+the tag instruction. The end tag looks just like the start tag except a
+slash (/) precedes the text within the brackets. HTML tags are <A
+HREF="#MT">listed below</A>.
+</P><P>
+Some elements may include an <I>attribute</I>, which is additional
+information that is included inside the start tag. For example, you can
+specify the alignment of images (top, middle, or bottom) by including
+the appropriate attribute with the image source HTML code. Tags that
+have optional attributes are <A HREF="#MT">noted below</A>.
+</P><P>
+<B>NOTE:</B><I> HTML is not case sensitive.
+</I><TT>&lt;title&gt;</TT> is equivalent to 
+<TT>&lt;TITLE&gt;</TT> or <TT>&lt;TiTlE&gt;</TT>. There are a
+few exceptions noted in <A HREF = "#ES">Escape Sequences</A> below.
+</P><P>
+Not all tags are supported by all World Wide Web browsers. If a browser
+does not support a tag, it will simply ignore it. Any text placed
+between a pair of unknown tags will still be displayed, however.
+
+
+
+
+<H4 ALIGN=LEFT>
+    <A NAME="TM2">The Minimal HTML Document</A></H4>
+</P><P>
+Every HTML document should contain certain standard HTML tags.  
+Each document consists of head and body text. The head contains
+the title, and the body contains the actual text that is made
+up of paragraphs, lists, and other elements. Browsers expect
+specific information because they are programmed according to HTML
+and SGML specifications.
+</P><P>
+Required elements are shown in this sample bare-bones document:
+</P><P>
+<PRE>    &lt;html&gt;
+    &lt;head&gt;
+    &lt;TITLE&gt;A Simple HTML Example&lt;/TITLE&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;H1&gt;HTML is Easy To Learn&lt;/H1&gt;
+    &lt;P&gt;Welcome to the world of HTML.
+    This is the first paragraph. While short it is  
+    still a paragraph!&lt;/P&gt;
+    &lt;P&gt;And this is the second paragraph.&lt;/P&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+</PRE>
+
+The required elements are the <TT>&lt;html&gt;</TT>,
+<TT>&lt;head&gt;</TT>, <TT>&lt;title&gt;</TT>, and <TT>&lt;body&gt;</TT>
+tags (and their corresponding end tags). Because you should include
+these tags in each file, you might want to create a template file with
+them. (Some browsers will format your HTML file correctly even if these
+tags are not included. But some browsers won't! So make sure to include them.)
+</P><P>
+Click to see the <A HREF="simpleexample.html">formatted version</A>
+of the example. A <A HREF="LongerCoded.html">longer example</A> is also 
+available but you should read through the rest of the guide before
+you take a look. This longer-example file contains tags explained
+in the next section.
+</P><P>
+
+<H4 ALIGN=LEFT>
+    <A NAME="TeT">A Teaching Tool</A></H4>
+</P><P>
+To see a copy of the file that your browser reads to generate the
+information in your current window, select View Source (or the
+equivalent) from the browser menu. (Most browsers have a "View" menu
+under which this command is listed.) The file contents, with all the
+HTML tags, are displayed in a new window.
+</P><P>
+This is an excellent way to see how HTML is used and to learn tips and
+constructs. Of course, the HTML might not be technically correct. Once
+you become familiar with HTML and check the many online and hard-copy
+references on the subject, you will learn to distinguish between "good"
+and "bad" HTML.
+</P><P>
+Remember that you can save a source file with the HTML codes and use it
+as a template for one of your Web pages or modify the format to suit
+your purposes.
+
+
+
+
+
+</P><P> 
+<H2>
+    <A NAME="MT">Markup Tags</A></H2>
+</P><P>
+<H4 ALIGN=LEFT>
+    <A NAME="HT">HTML</A></H4>
+</P><P>
+This element tells your browser that the file contains HTML-coded
+information. The file extension <TT>.html</TT> also indicates this an
+HTML document and must be used. (If you are restricted to 8.3 filenames
+(e.g., <TT>LeeHome.htm</TT>, use only <TT>.htm</TT> for your extension.)
+
+
+<H4 ALIGN=LEFT>
+    <A NAME="HE2">HEAD</A></H4>
+</P><P>
+The head element identifies the first part of your HTML-coded document
+that contains the title. The title is shown as part of your browser's
+window (see below).
+
+<H4 ALIGN=LEFT>
+    <A NAME="TI">TITLE</A></H4>
+</P><P>
+The title element contains your document title and identifies its
+content in a global context. The title is typically displayed in the title
+bar at the top of the browser window, but not inside the window itself. The
+title is also what is displayed on someone's hotlist or bookmark list,
+so choose something descriptive, unique, and relatively short. A title
+is also used to identify your page for search engines (such as <A
+HREF="http://www.hotbot.com/">HotBot</A> or <A
+HREF="http://www.infoseek.com/">Infoseek</A>).
+</P><P>
+For example, you might include a shortened title of a book along with
+the chapter contents: <I>NCSA Mosaic Guide (Windows): Installation</I>.
+This tells the software name, the platform, and the chapter contents,
+which is more useful than simply calling the document
+<I>Installation</I>. Generally you should keep your titles to 64
+characters or fewer.
+
+
+<H4 ALIGN=LEFT>
+    <A NAME="BO">BODY</A></H4>
+</P><P>
+The second--and largest--part of your HTML document is the body, which
+contains the content of your document (displayed within the text area of
+your browser window). The tags explained below are used within the body
+of your HTML document.
+
+
+<H4 ALIGN=LEFT>
+    <A NAME="HE3">Headings</A></H4>
+</P><P>
+HTML has six levels of headings, numbered 1 through 6, with 1 being
+the largest. Headings are typically displayed in larger and/or bolder
+fonts than normal body text. The first heading in each document should
+be tagged <TT>&lt;H1&gt;</TT>.  
+</P><P>
+The syntax of the heading element is:
+<BR>
+<TT>&lt;H</TT><I>y</I><TT>&gt;</TT><I>Text of heading</I><TT>
+&lt;/H</TT><I>y</I><TT>&gt;</TT>
+<BR>
+where <I>y</I> is a number between 1 and 6 specifying the level
+of the heading. 
+</P><P>
+Do not skip levels of headings in your document. For example, don't
+start with a level-one heading (&lt;H1&gt;) and then next use a
+level-three (&lt;H3&gt;) heading.
+
+
+<H4 ALIGN=LEFT>
+    <A NAME="PA">Paragraphs</A></H4>
+</P><P>
+Unlike documents in most word processors, carriage returns in HTML files
+aren't significant. In fact, any amount of <I>whitespace</I> --
+including spaces, linefeeds, and carriage returns -- are automatically
+compressed into a single space when your HTML document is displayed in a
+browser. So you don't have to worry about how long your lines of text
+are. Word wrapping can occur at any point in your source file without 
+affecting how the page will be displayed.
+</P><P>
+In the bare-bones example shown in the Minimal HTML Document section,
+the first paragraph is coded as 
+
+<PRE>    &lt;P&gt;Welcome to the world of HTML.  
+    This is the first paragraph.
+    While short it is
+    still a paragraph!&lt;/P&gt;
+</PRE>
+
+</P><P>
+In the source file there is a line break between the sentences. A
+Web browser ignores this line break and starts a new paragraph only
+when it encounters another <TT>&lt;P&gt;</TT> tag.  
+
+</P><P>
+<B>Important:</B>   
+You must indicate paragraphs with <TT>&lt;P&gt;</TT> elements. A browser
+ignores any indentations or blank lines in the source text. Without
+<TT>&lt;P&gt;</TT> elements, the document becomes one large paragraph. (One
+exception is text tagged as "preformatted," which is explained below.)
+For example, the following would produce identical output as the first  
+bare-bones HTML example:
+
+<PRE>    &lt;H1&gt;Level-one heading&lt;/H1&gt;
+    &lt;P&gt;Welcome to the world of HTML. This is the  
+    first paragraph. While short it is still a
+    paragraph! &lt;/P&gt; &lt;P&gt;And this is the second paragraph.&lt;/P&gt;
+</PRE>
+
+To preserve readability in HTML files, put headings on separate lines,
+use a blank line or two where it helps identify the start of a new
+section, and separate paragraphs with blank lines (in addition to the
+<TT>&lt;P&gt;</TT> tags). These extra spaces will help you when you edit
+your files (but your browser will ignore the extra spaces because it has
+its own set of rules on spacing that do not depend on the spaces you put
+in your source file).
+
+</P><P>
+<B>NOTE:</B>
+The <TT>&lt;/P&gt;</TT> closing tag may be omitted. This is because
+browsers understand that when they encounter a <TT>&lt;P&gt;</TT> tag,
+it means that the previous paragraph has ended. However, since HTML now
+allows certain attributes to be assigned to the <TT>&lt;P&gt;</TT> tag,
+it's generally a good idea to include it.
+
+</P><P>
+Using the <TT>&lt;P&gt;</TT> and <TT>&lt;/P&gt;</TT> as a paragraph
+container means that you can center a paragraph by including the
+<TT>ALIGN=</TT><I>alignment</I> attribute in your source file.
+
+<PRE>    &lt;TT&gt;&lt;P ALIGN=CENTER&gt;&lt;/TT&gt;
+    This is a centered paragraph.
+    [See the formatted version below.]
+    &lt;/P&gt;
+</PRE>
+</P><P>
+</P><P ALIGN=CENTER>
+This is a centered paragraph.
+</P>
+</P><P>
+It is also possible to align a paragraph to the right instead, by
+including the <TT>ALIGN=RIGHT</TT> attribute. <TT>ALIGN=LEFT</TT> is the
+default alignment; if no <TT>ALIGN</TT> attribute is included, the
+paragraph will be left-aligned.
+
+
+<H4 ALIGN=LEFT>
+    <A NAME="LI">Lists</A></H4>
+</P><P>
+HTML supports unnumbered, numbered, and definition lists. You can nest
+lists too, but use this feature sparingly because too many nested items
+can get difficult to follow.
+
+</P><P><B>Unnumbered Lists</B>
+</P><P>
+To make an unnumbered, bulleted list,
+<OL>
+    <LI>start with an opening list <TT>&lt;UL&gt;</TT> (for unnumbered list) tag
+    <LI>enter the <TT>&lt;LI&gt;</TT> (list item) tag followed by the
+        individual item; no closing <TT>&lt;/LI&gt;</TT> tag is needed
+    <LI>end the entire list with a closing list <TT>&lt;/UL&gt;</TT> tag
+</OL>
+
+</P><P>
+Below is a sample three-item list:  
+
+<PRE>    &lt;UL&gt;
+    &lt;LI&gt; apples
+    &lt;LI&gt; bananas
+    &lt;LI&gt; grapefruit
+    &lt;/UL&gt;
+</PRE>
+
+</P><P>
+The output is:
+
+<UL>
+<LI>apples  
+<LI>bananas 
+<LI>grapefruit
+</UL>
+
+</P><P>
+The <TT>&lt;LI&gt;</TT> items can contain multiple paragraphs.
+Indicate the paragraphs with the <TT>&lt;P&gt;</TT> paragraph
+tags.
+
+</P><P>
+<B>Numbered Lists</B>
+</P><P>
+A numbered list (also called an <I>ordered list</I>, from which the tag
+name derives) is identical to an unnumbered list, except it uses
+<TT>&lt;OL&gt;</TT> instead of <TT>&lt;UL&gt;</TT>. The items are tagged
+using the same <TT>&lt;LI&gt;</TT> tag. The following HTML code:
+
+<PRE>    &lt;OL&gt;
+    &lt;LI&gt; oranges
+    &lt;LI&gt; peaches
+    &lt;LI&gt; grapes
+    &lt;/OL&gt;
+</PRE>
+
+</P><P>
+produces this formatted output:
+
+<OL>
+<LI>oranges 
+<LI>peaches 
+<LI>grapes  
+</OL>
+
+</P><P>
+<B>Definition Lists</B>
+</P><P>
+A definition list (coded as <TT>&lt;DL&gt;</TT>) usually consists of
+alternating a <I>definition term</I> (coded as <TT>&lt;DT&gt;</TT>) and
+a definition definition (coded as <TT>&lt;DD&gt;</TT>). Web browsers
+generally format the definition on a new line and indent it.
+
+</P><P>
+The following is an example of a definition list:
+
+<PRE>    &lt;DL&gt;
+    &lt;DT&gt; NCSA
+    &lt;DD&gt; NCSA, the National Center for Supercomputing
+      Applications, is located on the campus of the
+      University of Illinois at Urbana-Champaign.
+    &lt;DT&gt; Cornell Theory Center
+    &lt;DD&gt; CTC is located on the campus of Cornell
+      University in Ithaca, New York.
+    &lt;/DL&gt;
+</PRE>
+
+</P><P>
+The output looks like:  
+
+<DL>
+<DT>NCSA
+<DD>NCSA, the National Center for Supercomputing Applications, is located
+    on the campus of the University of Illinois at Urbana-Champaign.
+<DT>Cornell Theory Center
+<DD>CTC is located on the campus of Cornell University in Ithaca, New
+    York.
+</DL>
+
+</P><P>
+The <TT>&lt;DT&gt;</TT> and <TT>&lt;DD&gt;</TT> entries can
+contain multiple paragraphs (indicated by <TT>&lt;P&gt;</TT> paragraph
+tags), lists, or other definition information.
+</P><P>
+The <TT>COMPACT</TT> attribute can be used routinely in case your
+definition terms are very short. If, for example, you are showing some
+computer options, the options may fit on the same line as the start of
+the definition.
+
+<PRE>&lt;DL COMPACT&gt;
+&lt;DT&gt; -i
+&lt;DD&gt;invokes NCSA Mosaic for Microsoft Windows
+  using the initialization file defined in the path
+&lt;DT&gt; -k
+&lt;DD&gt;invokes NCSA Mosaic for Microsoft Windows in
+  kiosk mode
+&lt;/DL&gt;
+</PRE>
+
+The output looks like:
+<DL COMPACT>
+<DT>-i
+<DD>invokes NCSA Mosaic for Microsoft Windows using the 
+initialization file defined in the path.
+<DT>-k
+<DD>invokes NCSA Mosaic for Microsoft Windows in kiosk mode.
+</DL>
+
+</P><P>
+<B>Nested Lists</B>
+</P><P>
+Lists can be nested. You can also have a number
+of paragraphs, each containing a nested list, in a single list item.
+
+</P><P>
+Here is a sample nested list:
+
+<PRE>    &lt;UL&gt;
+    &lt;LI&gt; A few New England states:
+        &lt;UL&gt;
+        &lt;LI&gt; Vermont
+        &lt;LI&gt; New Hampshire
+        &lt;LI&gt; Maine
+        &lt;/UL&gt;
+    &lt;LI&gt; Two Midwestern states:
+        &lt;UL&gt;
+        &lt;LI&gt; Michigan
+        &lt;LI&gt; Indiana
+        &lt;/UL&gt;
+    &lt;/UL&gt;
+</PRE>
+
+</P><P>
+The nested list is displayed as 
+
+<UL>
+<LI>A few New England states:
+    <UL>
+    <LI>Vermont 
+    <LI>New Hampshire
+    <LI>Maine
+    </UL>
+<LI>Two Midwestern states:  
+    <UL>
+    <LI>Michigan
+    <LI>Indiana
+    </UL>
+</UL>
+
+<H4 ALIGN=LEFT>
+    <A NAME="PT">Preformatted Text</A></H4>
+</P><P>
+Use the<TT>&lt;PRE&gt;</TT> tag (which stands for "preformatted") to
+generate text in a fixed-width font. This tag also makes spaces, new
+lines, and tabs significant -- multiple spaces are displayed as multiple
+spaces, and lines break in the same locations as in the source HTML
+file. This is useful for program listings, among other things. For
+example, the following lines:
+
+<PRE>    &lt;PRE&gt;
+      #!/bin/csh
+      cd $SCR
+      cfs get mysrc.f:mycfsdir/mysrc.f  
+      cfs get myinfile:mycfsdir/myinfile    
+      fc -02 -o mya.out mysrc.f     
+      mya.out   
+      cfs save myoutfile:mycfsdir/myoutfile 
+      rm *  
+    &lt;/PRE&gt;
+</PRE>
+
+</P><P>
+display as:
+
+<PRE>      #!/bin/csh
+      cd $SCR
+      cfs get mysrc.f:mycfsdir/mysrc.f  
+      cfs get myinfile:mycfsdir/myinfile    
+      fc -02 -o mya.out mysrc.f     
+      mya.out   
+      cfs save myoutfile:mycfsdir/myoutfile 
+      rm *
+</PRE>
+
+</P><P>
+The <TT>&lt;PRE&gt;</TT> tag can be used with an optional <TT>WIDTH</TT>
+attribute that specifies the maximum number of characters for a line.
+<TT>WIDTH</TT> also signals your browser to choose an appropriate font
+and indentation for the text.
+</P><P>
+Hyperlinks can be used within <TT>&lt;PRE&gt;</TT> sections. You should
+avoid using other HTML tags within <TT>&lt;PRE&gt;</TT> sections,
+however.
+
+</P><P>
+Note that because &lt;, &gt;, and &amp; have special meanings in HTML,
+you must use their escape sequences (<TT>&amp;lt;</TT>,
+<TT>&amp;gt;</TT>, and <TT>&amp;amp;</TT>, respectively) to enter these
+characters. See the section <A HREF = "#ES">Escape Sequences</A> for
+more information.
+
+<H4 ALIGN=LEFT>
+    <A NAME="EQ">Extended Quotations</A></H4>
+</P><P>
+Use the <TT>&lt;BLOCKQUOTE&gt;</TT> tag to include lengthy quotations in
+a separate block on the screen. Most browsers generally change the
+margins for the quotation to separate it from surrounding text.
+
+</P><P>
+In the example:
+
+<PRE>    &lt;P&gt;Omit needless words.&lt;/P&gt;
+    &lt;BLOCKQUOTE&gt;
+    &lt;P&gt;Vigorous writing is concise. A sentence should
+    contain no unnecessary words, a paragraph no unnecessary
+    sentences, for the same reason that a drawing should have
+    no unnecessary lines and a machine no unnecessary parts.
+    &lt;/P&gt;
+    &lt;P&gt;--William Strunk, Jr., 1918 &lt;/P&gt;
+    &lt;/BLOCKQUOTE&gt;
+</PRE>
+
+</P><P>
+the result is:
+    </P><P>Omit needless words.</P>
+<BLOCKQUOTE>
+    </P><P>Vigorous writing is concise. A sentence should contain no unnecessary words, 
+    a paragraph no unnecessary sentences, for the same reason that a drawing
+    should have no unnecessary lines and a machine no unnecessary parts.</P>
+    </P><P>--William Strunk, Jr., 1918</P>
+</BLOCKQUOTE>
+
+
+
+<H4 ALIGN=LEFT>
+    <A NAME="FL">Forced Line Breaks/Postal Addresses</A></H4>
+</P><P>
+</P><P>
+The <TT>&lt;BR&gt;</TT> tag forces a line break with no extra (white)
+space between lines. Using <TT>&lt;P&gt;</TT> elements for short lines
+of text such as postal addresses results in unwanted additional white
+space. For example, with <BR>:
+<PRE>    National Center for Supercomputing Applications&lt;BR&gt;
+    605 East Springfield Avenue&lt;BR&gt;
+    Champaign, Illinois 61820-5518&lt;BR&gt;
+</PRE>
+The output is:</P><P>
+    National Center for Supercomputing Applications<BR>
+    605 East Springfield Avenue<BR>
+    Champaign, Illinois 61820-5518<BR>
+    </P><P>
+<H4 ALIGN=LEFT>
+    <A NAME="HR">Horizontal Rules</A></H4>
+</P><P>
+The <TT>&lt;HR&gt;</TT> tag produces a horizontal line the width
+of the browser window. A horizontal rule is useful to separate
+major sections of your document.
+</P><P>
+You can vary a rule's size (thickness) and width (the percentage of the
+window covered by the rule). Experiment with the settings until you are
+satisfied with the presentation. For example:
+<PRE>&lt;HR SIZE=4 WIDTH="50%"&gt;
+</PRE>
+
+displays as: <HR SIZE=4 WIDTH=50%>
+
+
+
+</P><P> 
+<H2>
+    <A NAME="CF">Character Formatting</A></H2>
+</P><P>
+HTML has two types of styles for individual words or sentences: logical
+and physical. <EM>Logical styles</EM> tag text according to its meaning,
+while <I>physical styles</I> indicate the specific appearance of a
+section. For example, in the preceding sentence, the words "logical
+styles" was tagged as "emphasis." The same effect (formatting those
+words in italics) could have been achieved via a different tag that
+tells your browser to "put these words in italics."
+</P><P>
+<H4 ALIGN=LEFT>
+    <A NAME="PV">Logical Versus Physical Styles</A></H4>
+</P><P>
+</P><P>
+If physical and logical styles produce the same result on the screen,
+why are there both? 
+</P><P>
+In the ideal SGML universe, content is divorced from presentation. Thus
+SGML tags a level-one heading as a level-one heading, but does not
+specify that the level-one heading should be, for instance, 24-point
+bold Times centered. The advantage of this approach (it's similar in
+concept to style sheets in many word processors) is that if you decide
+to change level-one headings to be 20-point left-justified Helvetica,
+all you have to do is change the definition of the level-one heading in
+your Web browser. Indeed, many browsers today let you define how you want
+the various HTML tags rendered on-screen using what are called
+<I>cascading style sheets</I>, or CSS. CSS is more advanced than HTML,
+though, and will not be covered in this Primer. (You can learn more
+about CSS at the <A HREF="http://www.w3c.org/Style/">World Wide Web
+Consortium</A> CSS site.) 
+</P><P>
+Another advantage of logical tags is that they help enforce consistency
+in your documents. It's easier to tag something as <TT>&lt;H1&gt;</TT>
+than to remember that level-one headings are 24-point bold Times
+centered or whatever. For example, consider the <TT>&lt;STRONG&gt;</TT>
+tag. Most browsers render it in bold text. However, it is possible that
+a reader would prefer that these sections be displayed in red instead.
+(This is possible using a local cascading style sheet on the reader's own
+computer.) Logical styles offer this flexibility.
+
+</P><P>
+Of course, if you want something to be displayed in italics (for
+example) and do not want a browser's setting to display it
+differently, you should use physical styles. Physical styles, therefore,
+offer consistency in that something you tag a certain way will always be
+displayed that way for readers of your document.
+</P><P>
+Try to be consistent about which type of style you use. If you tag with
+physical styles, do so throughout a document. If you use logical styles,
+stick with them within a document. Keep in mind that future releases of
+HTML might not support certain logical styles, which could mean that
+browsers will not display your logical-style coding. (For example, the
+<TT>&lt;DFN&gt;</TT> tag -- short for "definition", and typically
+displayed in italics -- is not widely supported and will be ignored
+if the reader's browser does not understand it.)
+
+<H4 ALIGN=LEFT>
+    Logical Styles</H4>
+</P><P>
+<DL>
+<DT><TT>&lt;DFN&gt;</TT>
+<DD>for a word being defined. Typically displayed in italics. (<DFN>NCSA
+     Mosaic</DFN> is a World Wide Web browser.)
+<DT><TT>&lt;EM&gt;</TT>
+<DD>for emphasis. Typically displayed in italics. (<EM>Consultants cannot
+reset your password unless you call the help line.</EM>)
+<DT><TT>&lt;CITE&gt;</TT>
+<DD>for titles of books, films, etc. Typically displayed in italics.
+    (<CITE>A Beginner's Guide to HTML</CITE>)   
+<DT><TT>&lt;CODE&gt;</TT>
+<DD>for computer code. Displayed in a fixed-width font.
+    (The <TT>&lt;stdio.h&gt;</TT> header file)  
+<DT><TT>&lt;KBD&gt;</TT>
+<DD>for user keyboard entry. Typically displayed in plain fixed-width font.
+    (Enter <KBD>passwd</KBD> to change your password.)
+<DT><TT>&lt;SAMP&gt;</TT>
+<DD>for a sequence of literal characters. Displayed in a fixed-width font.
+    (<SAMP>Segmentation fault: Core dumped.</SAMP>) 
+<DT><TT>&lt;STRONG&gt;</TT>
+<DD>for strong emphasis. Typically displayed in bold. 
+    (<STRONG>NOTE:</STRONG> Always check your links.)
+    <DT><TT>&lt;VAR&gt;</TT>
+<DD>for a variable, where you will replace
+    the variable with specific information. Typically displayed in italics.
+    (<KBD>rm</KBD> <VAR>filename</VAR> deletes the file.)
+</DL>
+
+<H4 ALIGN=LEFT>
+    Physical Styles</H4>
+</P><P>
+<DL>
+<DT><TT>&lt;B&gt;</TT>
+    <DD>bold text
+<DT><TT>&lt;I&gt;</TT>
+    <DD>italic text
+<DT><TT>&lt;TT&gt;</TT>
+    <DD>typewriter text, e.g. fixed-width font.
+</DL>
+
+
+<H4 ALIGN=LEFT>
+    <A NAME="ES">Escape Sequences</A> (a.k.a. Character Entities)</H4>
+</P><P>
+Character entities have two functions:
+
+<UL>
+<LI>escaping special characters
+<LI>displaying other characters not available in the plain ASCII
+    character set (primarily characters with diacritical marks)
+</UL>
+
+Three ASCII characters--the left angle bracket (&lt;), the right angle
+bracket (&gt;), and the ampersand (&amp;)--have special meanings in HTML
+and therefore cannot be used "as is" in text. (The angle brackets are
+used to indicate the beginning and end of HTML tags, and the ampersand
+is used to indicate the beginning of an escape sequence.) Double quote
+marks may be used as-is but a character entity may also be used
+(&quot;).
+</P><P>
+To use one of the three characters in an HTML document, you must enter
+its <I>escape sequence</I> instead:
+
+<DL>
+<DT><TT>&amp;lt;</TT>
+    <DD>the escape sequence for &lt;
+<DT><TT>&amp;gt;</TT>
+    <DD>the escape sequence for &gt;
+<DT><TT>&amp;amp;</TT>
+    <DD>the escape sequence for &amp;
+</DL>
+
+</P><P>
+Additional escape sequences support accented characters, such as:
+
+<DL>
+<DT><TT>&amp;ouml;</TT>
+    <DD>a lowercase o with an umlaut: &ouml;    
+<DT><TT>&amp;ntilde;</TT>
+    <DD>a lowercase n with a tilde: &ntilde;
+<DT><TT>&amp;Egrave;</TT>
+    <DD>an uppercase E with a grave accent: &Egrave;
+</DL>
+
+You can substitute other letters for the <I>o</I>, <I>n</I>, and
+<I>E</I> shown above. Visit the World Wide Web Consortium for a complete list of
+<A
+HREF="http://www.w3.org/hypertext/WWW/MarkUp/html-spec/html-spec_13.html#SEC106">
+special characters</A>.
+</P><P>
+<B>NOTE:</B> Unlike the rest of HTML, the escape sequences are case
+sensitive. You cannot, for instance, use <TT>&amp;LT;</TT> instead of
+<TT>&amp;lt;</TT>.
+
+
+
+</P><P> 
+<H2>
+    <A NAME="LI2">Linking</A></H2>
+</P><P>
+The chief power of HTML comes from its ability to link text and/or an
+image to another document or section of a document. A browser highlights
+the identified text or image with color and/or underlines to indicate
+that it is a <I>hypertext link</I> (often shortened to <I>hyperlink</I>
+or just <I>link</I>).
+
+</P><P>
+HTML's single hypertext-related tag is <TT>&lt;A&gt;</TT>, which
+stands for <I>anchor</I>. To include an anchor in your document:
+
+<OL>
+<LI>start the anchor with <TT>&lt;A</TT>  (include a space after
+    the <TT>A</TT>)
+<LI>specify the document you're linking to by entering the parameter
+    <TT>HREF="</TT><I>filename</I><TT>"</TT>
+    followed by a closing right angle bracket (<TT>&gt;</TT>)
+<LI>enter the text that will serve as the hypertext link in the current
+    document
+<LI>enter the ending anchor tag: <TT>&lt;/A&gt;</TT> (no space
+    is needed before the end anchor tag)
+</OL>
+
+</P><P>
+Here is a sample hypertext reference in a file called <TT>US.html</TT>: 
+
+<PRE>    &lt;A HREF="MaineStats.html"&gt;Maine&lt;/A&gt;
+</PRE>
+
+</P><P>
+This entry makes the word <I>Maine</I> the hyperlink to the document
+<TT>MaineStats.html</TT>, which is in the same directory as the first
+document.
+
+<H4 ALIGN=LEFT>
+    <A NAME="RL">Relative Pathnames Versus Absolute Pathnames</A></H4>
+</P><P>
+You can link to documents in other directories by specifying the
+<I>relative path</I> from the current document to the linked document.
+For example, a link to a file <TT>NYStats.html</TT> located in the
+subdirectory <TT>AtlanticStates</TT> would be:
+
+<PRE>    &lt;A HREF="AtlanticStates/NYStats.html"&gt;New York&lt;/A&gt;
+</PRE>
+
+</P><P>
+These are called <I>relative links</I> because you are specifying the
+path to the linked file relative to the location of the current file.
+You can also use the absolute pathname (the complete URL) of the file,
+but relative links are more efficient in accessing a server. They also
+have the advantage of making your documents more "portable" -- for
+instance, you can create several web pages in a single folder on your
+local computer, using relative links to hyperlink one page to another,
+and then upload the entire folder of web pages to your web server. The
+pages on the server will then link to other pages on the server, and the
+copies on your hard drive will still point to the other pages stored there.
+</P><P>
+It is important to point out that UNIX is a case-sensitive operating
+system where filenames are concerned, while DOS and the MacOS are not.
+For instance, on a Macintosh, "DOCUMENT.HTML", "Document.HTML", and
+"document.html" are all the same name. If you make a relative hyperlink
+to "DOCUMENT.HTML", and the file is actually named "document.html", the
+link will still be valid. But if you upload all your pages to a UNIX web
+server, the link will no longer work. Be sure to check your filenames
+before uploading.
+</P><P>
+Pathnames use the standard UNIX syntax. The UNIX syntax for the parent
+directory (the directory that contains the current directory) is "..". 
+(For more information consult a beginning UNIX reference text such as
+<I>Learning the UNIX Operating System</I> from O'Reilly and Associates,
+Inc.)
+</P><P>
+If you were in the <TT>NYStats.html</TT> file and were referring to the original
+document <TT>US.html</TT>, your link would look like this:
+
+<PRE>    &lt;A HREF="../US.html"&gt;United States&lt;/A&gt;
+</PRE>
+
+
+In general, you should use relative links whenever possible because:
+
+<OL>
+<LI>it's easier to move a group of documents to another location (because
+    the relative path names will still be valid)
+<LI>it's more efficient connecting to the server
+<LI>there is less to type
+</OL>
+
+</P><P>
+However, use absolute pathnames when linking to documents that are not
+directly related. For example, consider a group of documents that
+comprise a user manual. Links within this group should be relative
+links. Links to other documents (perhaps a reference to related
+software) should use absolute pathnames instead. This way if you move
+the user manual to a different directory, none of the links would have
+to be updated.
+
+
+
+
+<H4 ALIGN=LEFT>
+    <A NAME="UR">URLs</A></H4>
+</P><P>
+The World Wide Web uses Uniform Resource Locators (URLs) to specify
+the location of files on other servers. A URL includes the type of
+resource being accessed (e.g., Web, gopher, FTP), the address of the server,
+and the location of the file. The syntax is:
+
+</P><P>
+<I>scheme</I><TT>://</TT><I>host.domain</I>
+<TT>[:</TT><I>port</I><TT>]/</TT><I>path</I><TT>/</TT>
+<I>filename</I>
+
+</P><P>
+where <I>scheme</I> is one of
+
+<DL>
+<DT><TT>file</TT>
+    <DD>a file on your local system
+<DT><TT>ftp</TT>
+    <DD>a file on an anonymous FTP server
+<DT><TT>http</TT>
+    <DD>a file on a World Wide Web server
+<DT><TT>gopher</TT>
+    <DD>a file on a Gopher server
+<DT><TT>WAIS</TT>
+    <DD>a file on a WAIS server 
+<DT><TT>news</TT>
+    <DD>a Usenet newsgroup
+<DT><TT>telnet</TT>
+    <DD>a connection to a Telnet-based service
+</DL>
+
+</P><P>
+The <I>port</I> number can generally be omitted. (That means unless
+someone tells you otherwise, leave it out.) 
+</P><P>
+For example, to include a link to this primer in your document, enter:  
+<PRE>&lt;A HREF="http://www.ncsa.uiuc.edu/General/Internet/WWW/HTMLPrimer.html"&gt;
+NCSA's Beginner's Guide to HTML&lt;/A&gt;
+</PRE>
+
+</P><P>
+This entry makes the text <I>NCSA's Beginner's Guide to HTML</I> a hyperlink
+to this document.
+</P><P>
+There is also a <TT>mailto</TT> scheme, used to hyperlink email
+addresses, but this scheme is unique in that it uses only a colon
+(<TT>:</TT>) instead of <TT>://</TT> between the scheme and the address.
+You can read more about <TT>mailto</TT> <A HREF="#M2">below</A>.
+
+
+</P><P>
+For more information on URLs, refer to:
+
+<UL>
+<LI><A HREF = "http://www.w3.org/hypertext/WWW/Addressing/Addressing.html">
+    <I>WWW Names and Addresses, URIs, URLs, URNs</I></A>
+<LI><A HREF = "/demoweb/url-primer.html">
+    <I>A Beginner's Guide to URLs</I></A>
+</UL>
+
+<H4 ALIGN=LEFT>
+    <A NAME="LTS">Links to Specific Sections</A></H4>
+</P><P>
+Anchors can also be used to move a reader to a <I>particular section</I>
+in a document (either the same or a different document) rather than to
+the top, which is the default. This type of an anchor is commonly called
+a <I>named anchor</I> because to create the links, you insert HTML names
+within the document.
+</P><P>
+This guide is a good example of using named anchors in one document. The
+guide is constructed as one document to make printing easier. But as one
+(long) document, it can be time-consuming to move through when all you
+really want to know about is one bit of information about HTML. Internal
+hyperlinks are used to create a "table of contents" at the top of this
+document. These hyperlinks move you from one location in the document to
+another location in the same document. (Go to the <A HREF="#top">top</A>
+of this document and then click on the <I> Links to Specific
+Sections</I> hyperlink in the table of contents. You will wind up back
+here.)
+</P><P> 
+You can also link to a specific section in another document. That information is
+presented first because understanding that helps you understand linking within one  
+document.
+
+<H4 ALIGN=LEFT>
+    Links Between Sections of Different Documents</H4>
+</P><P>
+Suppose you want to set a link from document A (<TT>documentA.html</TT>)
+to a specific section in another document (<TT>MaineStats.html</TT>).
+</P><P>
+Enter the HTML coding for a link to a named anchor:
+<PRE>     <TT>documentA.html</TT>:
+    
+     In addition to the many state parks, Maine is also home to 
+     &lt;a href="MaineStats.html#ANP"&gt;Acadia National Park&lt;/a&gt;.
+</PRE>
+
+Think of the characters after the hash (#) mark as a tab within the
+<TT>MaineStats.html</TT> file. This tab tells your browser what should
+be displayed at the top of the window when the link is activated. In
+other words, the first line in your browser window should be the Acadia
+National Park heading.
+</P><P>
+Next, create the <I>named anchor</I> (in this example "ANP") in
+<TT>MaineStats.html</TT>:
+
+<PRE>  &lt;H2&gt;&lt;A NAME="ANP"&gt;Acadia National Park&lt;/a&gt;&lt;/H2&gt;
+ </PRE>
+With both of these elements in place, you can bring a reader directly to
+the Acadia reference in <TT>MaineStats.html</TT>.
+</P><P>
+<B>NOTE:</B> You cannot make links to specific sections within a
+different document unless either you have write permission to the coded
+source of that document or that document already contains in-document
+named anchors. For example, you could include named anchors to this
+primer in a document you are writing because there are named anchors in
+this guide (use View Source in your browser to see the coding). But if
+this document did <I>not</I> have named anchors, you could not make a
+link to a specific section because you cannot edit the original file on
+NCSA's server.
+
+
+<H4 ALIGN=LEFT>
+    Links to Specific Sections within the Current Document</H4>
+</P><P>
+The technique is the same except the filename is <I>omitted</I>.    
+
+</P><P>
+For example, to link to the <TT>ANP</TT> anchor from
+within <TT>MaineStats</TT>, enter:
+
+<PRE>  ...More information about
+  &lt;A HREF="#ANP"&gt;Acadia National Park&lt;/a&gt;
+  is available elsewhere in this document.
+    </PRE>
+
+Be sure to include the <TT>&lt;A NAME=&gt;</TT> tag at the place in your
+document where you want the link to jump to (<TT>&lt;A
+NAME="ANP"&gt;Acadia National Park&lt;/a&gt;</TT>).
+</P><P>
+Named anchors are particularly useful when you think readers will print
+a document in its entirety or when you have a lot of short information
+you want to place online in one file.
+
+
+<H4 ALIGN=LEFT>
+    <A NAME="M2">Mailto</A></H4>
+</P><P>
+</P><P>
+You can make it easy for a reader to send electronic mail to a specific
+person or mail alias by including the <TT>mailto</TT> attribute in a hyperlink.
+The format is:
+<PRE>&lt;A HREF="mailto:<I>emailinfo@host</I>"&gt;<I>Name</I>&lt;/a&gt;
+</PRE>
+
+For example, enter:
+<PRE> &lt;A HREF="mailto:<I>pubs@ncsa.uiuc.edu</I>"&gt;
+ <I>NCSA Publications Group</I>&lt;/a&gt;
+</PRE>
+
+to create a mail window that is already configured to open a mail window for the
+<A HREF="mailto:pubs@ncsa.uiuc.edu">NCSA Publications
+Group</A> alias. (You, of course, will enter another mail address!)
+
+
+
+</P><P> 
+<H2>
+    <A NAME="II">Inline Images</A></H2>
+</P><P>
+Most Web browsers can display inline images (that is, images next to
+text) that are in X Bitmap (XBM), GIF, or JPEG format. Other image
+formats are also being incorporated into Web browsers [e.g., the
+Portable Network Graphic (PNG) format]. Each image takes additional time
+to download and slows down the initial display of a document. Carefully
+select your images and the number of images in a document.
+</P><P>
+To include an inline image, enter:
+
+<PRE>    &lt;IMG SRC=<I>ImageName</I>&gt;
+</PRE>
+
+</P><P>
+where <I>ImageName</I> is the URL of the image file.
+</P><P>
+The syntax for <TT>&lt;IMG SRC&gt;</TT> URLs is identical to that used
+in an anchor <TT>HREF</TT>. If the image file is a GIF file, then the
+filename part of <I>ImageName</I> must  end with <TT>.gif</TT>.
+Filenames of X Bitmap images must end with <TT>.xbm</TT>; JPEG image
+files must end with <TT>.jpg</TT> or <TT>.jpeg</TT>; and Portable
+Network Graphic files must end with <TT>.png</TT>.
+
+
+<H4 ALIGN=LEFT>
+    <A NAME="IS">Image Size Attributes</A></H4>
+</P><P>
+You should include two other attributes on <TT>&lt;IMG&gt;</TT> tags to
+tell your browser the size of the images it is downloading with the
+text. The <TT>HEIGHT</TT> and <TT>WIDTH</TT> attributes let your browser
+set aside the appropriate space (in pixels) for the images as it
+downloads the rest of the file. (You can get the pixel size from your
+image-processing software, such as Adobe Photoshop. Some browsers
+will also display the dimensions of an image file in the title bar
+if the image is viewed by itself without an enclosing HTML document.)
+</P><P>
+For example, to include a self portrait image in a file along with the  
+portrait's dimensions, enter:
+
+<PRE>    &lt;IMG SRC=SelfPortrait.gif HEIGHT=100 WIDTH=65&gt;
+</PRE>
+</P><P>
+<B>NOTE:</B> Some browsers use the <TT>HEIGHT</TT> and <TT>WIDTH</TT>
+attributes to stretch or shrink an image to fit into the allotted space
+when the image does not exactly match the attribute numbers. Not all
+browser developers think stretching/shrinking is a good idea, so don't
+plan on your readers having access to this feature. Check your
+dimensions and use the correct ones.
+
+
+
+<H4 ALIGN=LEFT>
+    <A NAME="AI">Aligning Images</A></H4>
+</P><P>
+You have some flexibility when displaying images. You can have images
+separated from text and aligned to the left or right or centered. Or you
+can have an image aligned with text. Try several possibilities to see
+how your information looks best.
+</P><P>
+<B>Aligning Text with an Image</B><BR>
+<IMG SRC = "BarHotlist.gif" ALT = "[HOTLIST]">
+By default the bottom of an image is aligned with the following text, as
+shown in this paragraph. You can align images to the top or center of a
+paragraph using the <TT>ALIGN=</TT> attributes <TT>TOP</TT> and
+<TT>CENTER</TT>.
+</P><P>
+<IMG SRC = "BarHotlist.gif" ALT="[HOTLIST]" ALIGN=TOP> This text is
+aligned with
+the top of the image (<TT>&lt;IMG SRC = "BarHotlist.gif" ALT="[HOTLIST]"
+ALIGN=TOP&gt;</TT>). Notice how the browser aligns only one line and
+then jumps to the bottom of the image for the rest of the text.
+</P><P>
+<IMG SRC = "BarHotlist.gif" ALT = "[HOTLIST]" ALIGN=CENTER> And this text is
+centered on the image (<TT>&lt;IMG SRC = "BarHotlist.gif" ALT="[HOTLIST]"
+ALIGN=CENTER&gt;</TT>). Again, only one line of text is centered; the
+rest is below the image.
+</P><P>
+
+</P><P>
+<B>Images without Text</B>
+<BR>
+To display an image without any associated text (e.g., your
+organization's logo), make it a separate paragraph. Use the paragraph
+<TT>ALIGN=</TT> attribute to center the image or adjust it to the right
+side of the window as shown below:
+
+<PRE>&lt;p ALIGN=CENTER&gt;
+&lt;IMG SRC = "BarHotlist.gif" ALT="[HOTLIST]"&gt;
+&lt;/p&gt;
+</PRE>
+
+which results in:
+
+</P><P ALIGN=CENTER>
+<IMG SRC="BarHotlist.gif" ALT = "[HOTLIST]">
+</P>
+
+The image is centered; this paragraph starts below it and left justified.
+</P><P>
+
+
+
+
+<H4 ALIGN=LEFT>
+    <A NAME="AT2">Alternate Text for Images</A></H4>
+</P><P>
+</P><P>
+Some World Wide Web browsers -- primarily the text-only browsers such as
+<A HREF="http://lynx.browser.org/">Lynx</A> -- cannot display images. Some
+users turn off image loading even if their software can display images
+(especially if they are using a modem or have a slow connection). HTML
+provides a mechanism to tell readers what they are missing on your
+pages if they can't load images. </P><P> The <TT>ALT</TT> attribute lets you
+specify text to be displayed instead of an image. For example:
+
+<PRE>    &lt;IMG SRC="UpArrow.gif" ALT="Up"&gt;
+</PRE>
+
+</P><P>
+where <TT>UpArrow.gif </TT>is the picture of an upward pointing arrow.
+With graphics-capable viewers that have image-loading turned on, you see
+the up arrow graphic. With a text-only browser or if image-loading is turned
+off, the word <I>Up</I> is shown in your window in place of the image.
+</P><P>
+You should try to include alternate text for each image you use in your
+document, which is a courtesy for your readers -- or, for users who
+might be visually impaired, a necessity.
+
+
+
+
+
+<H4 ALIGN=LEFT>
+    <A NAME="IH">Images as Hyperlinks</A></H4>
+</P><P>
+Inline images can be used as hyperlinks just like plain text. 
+The following HTML code:
+
+<PRE>    &lt;A HREF="hotlist.html"&gt;&lt;IMG SRC="BarHotlist.gif" ALT="[HOTLIST]"&gt;&lt;/A&gt;
+</PRE>
+
+</P><P>
+Produces the following result:
+
+</P><P>
+    <A HREF="hotlist.html"><IMG
+        SRC="BarHotlist.gif" ALT="[HOTLIST]"></A>
+
+</P><P>
+(Note that this link doesn't actually go anywhere.)
+The blue border that surrounds the image indicates that it's a clickable 
+hyperlink. You may not always want this border to be displayed, though.
+In this case you can use the BORDER attribute of the IMG tag to make the
+image appear as normal. Adding the BORDER attribute and setting it to zero:
+
+<PRE>    &lt;A HREF="hotlist.html"&gt;&lt;IMG SRC="BarHotlist.gif" BORDER=0 ALT="[HOTLIST]"&gt;&lt;/A&gt;
+</PRE>
+
+</P><P>
+Produces the following result:
+</P><P>
+    <A HREF="hotlist.html"><IMG
+        SRC="BarHotlist.gif" BORDER=0 ALT="[HOTLIST]"></A>
+
+</P><P>
+The BORDER attribute can also be set to non-zero values, whether or
+not the image is used as a hyperlink. In this case, the border will appear
+using the default text color for the web page.
+For instance, if you wanted to give your image a plain black border to help
+it stand out on the page, you might try this:
+
+<PRE>    &lt;IMG SRC="BarHotlist.gif" BORDER=6 ALT="[HOTLIST]"&gt;
+</PRE>
+
+</P><P>
+And get the following result:
+</P><P>
+    <IMG SRC="BarHotlist.gif" BORDER=6 ALT="[HOTLIST]">
+
+
+
+
+
+<H4 ALIGN=LEFT>
+    <A NAME="BG">Background Graphics</A></H4>
+</P><P>
+Newer versions of Web browsers can load an image and use it as a
+background when displaying a page. Some people like background images
+and some don't. In general, if you want to include a background, make
+sure your text can be read easily when displayed on top of the image.
+</P><P>
+Background images can be a texture (linen finished paper, for example)
+or an image of an object (a logo possibly). You create the background
+image as you do any image.
+</P><P>
+However you only have to create a small piece of the image. Using a
+feature called tiling, a browser takes the image and repeats it across
+and down to fill your browser window. In sum you generate one image, and
+the browser replicates it enough times to fill your window. This action
+is automatic when you use the background tag shown below.
+</P><P>
+The tag to include a background image is included in the
+<TT>&lt;BODY&gt;</TT> statement as an attribute:
+
+<PRE>&lt;BODY BACKGROUND="<I>filename</I>.gif"&gt;
+</PRE>
+
+<H4 ALIGN=LEFT>
+    <A NAME="OC">Background Color</A></H4>
+</P><P>
+By default browsers display text in black on a gray background. However,
+you can change both elements if you want. Some HTML authors select a
+background color and coordinate it with a change in the color of the
+text.
+</P><P>
+Always preview changes like this to make sure your pages are readable.
+(For example, many people find red text on a black background difficult
+to read!) In general, try to avoid using high-contrast images or images
+that use the color of your text anywhere within the graphic.
+</P><P>
+You change the color of text, links, visited links, and active links (links 
+that are currently being clicked on) using further attributes of the
+<TT>&lt;BODY&gt;</TT> tag. For example:
+
+<PRE>&lt;BODY BGCOLOR="#000000" TEXT="#FFFFFF" LINK="#9690CC"&gt;
+</PRE>
+This creates a window with a black background (<TT>BGCOLOR</TT>), white text
+(<TT>TEXT</TT>), and silvery hyperlinks (<TT>LINK</TT>).
+</P><P> 
+The six-digit number and letter combinations represent colors by giving
+their RGB (red, green, blue) value. The six digits are actually three
+two-digit numbers in sequence, representing the amount of red, green, or
+blue as a hexadecimal value in the range 00-FF. For example, 000000 is
+black (no color at all), FF0000 is bright red, 0000FF is bright blue,
+and FFFFFF is white (fully saturated with all three colors).
+</P><P>
+These number and letter combinations are generally rather cryptic.
+Fortunately an online resource is available to help you track down the
+combinations that map to specific colors and there is software available
+for you to do this on your workstation:
+
+<UL>
+<LI><A HREF="http://www.hidaho.com/colorcenter/">hIdaho ColorCenter</A><BR>
+</UL>
+
+</P><P> 
+For some basic colors -- typically those in the standard
+sixteen-color Windows 3.1 palette -- you can also use the name of the
+color instead of the corresponding RGB value. For example, "black",
+"red", "blue", and "cyan" are all valid for use in place of RGB values.
+However, while not all browsers will understand all color names, any
+browser that can display colors will understand RGB values, so use
+them whenever possible.
+
+
+<H4 ALIGN=LEFT>
+    <A NAME="EI">External Images, Sounds, and Animations</A></H4>
+</P><P>
+You may want to have an image open as a separate document when a user
+activates a link on either a word or a smaller, inline version of
+the image included in your document. This is called an external
+image, and it is useful if you do not wish to slow down the loading of
+the main document with large inline images.
+
+</P><P>
+To include a reference to an external image, enter: 
+
+<PRE>    &lt;A HREF="<I>MyImage.gif</I>"&gt;link anchor&lt;/A&gt;
+</PRE>
+
+You can also use a smaller image as a link to a larger image. Enter:
+
+<PRE>     &lt;A HREF="<I>LargerImage.gif</I>"&gt;&lt;IMG SRC="<I>SmallImage.gif</I>"&gt;&lt;/A&gt;
+</PRE>
+
+The reader sees the <TT>SmallImage.gif</TT> image and clicks on it to
+open the <TT>LargerImage.gif</TT> file.
+</P><P>
+Use the same syntax for links to external animations and sounds.
+The only difference is the file extension of the linked file. For example,
+
+</P><P>
+<TT>&lt;A HREF="AdamsRib.mov"&gt;link anchor&lt;/A&gt;</TT>
+
+</P><P>
+specifies a link to a QuickTime movie. Some common file types and their
+extensions are:
+</P><P>
+<DL>
+<DT>plain text
+    <DD><TT>.txt</TT>
+<DT>HTML document
+    <DD><TT>.html</TT>
+<DT>GIF image
+    <DD><TT>.gif</TT>
+<DT>TIFF image
+    <DD><TT>.tiff</TT>
+<DT>X Bitmap image
+    <DD><TT>.xbm</TT>
+<DT>JPEG image
+    <DD><TT>.jpg</TT> or <TT>.jpeg</TT>
+<DT>PostScript file
+    <DD><TT>.ps</TT>
+<DT>AIFF sound file
+    <DD><TT>.aiff</TT>
+<DT>AU sound file
+    <DD><TT>.au</TT>
+<DT>WAV sound file
+    <DD><TT>.wav</TT>
+<DT>QuickTime movie
+    <DD><TT>.mov</TT>
+<DT>MPEG movie
+    <DD><TT>.mpeg</TT> or <TT>.mpg</TT>
+</DL>
+
+</P><P>
+Keep in mind your intended audience and their access to software. Most UNIX
+workstations, for instance, cannot view QuickTime movies.
+
+
+
+</P><P> 
+<H2>
+    <A NAME="TA">Tables</A></H2>
+</P><P>
+Before HTML tags for tables were finalized, authors had to carefully
+format their tabular information within <TT>&lt;PRE&gt;</TT> tags,
+counting spaces and previewing their output. Tables are very useful for
+presentation of tabular information as well as a boon to creative HTML
+authors who use the table tags to present their regular Web pages.
+(Check out the <A HREF="http://www.ncsa.uiuc.edu/">NCSA home page</A> for an excellent example of using tables to control page layout.)
+</P><P>
+Think of your tabular information in light of the coding explained
+below. A table has heads where you explain what the columns/rows
+include, rows for information, cells for each item. In the following
+table, the first column contains the header information, each row
+explains an HTML table tag, and each cell contains a paired tag or an
+explanation of the tag's function.
+</P>
+
+<TABLE BORDER=1 WIDTH=450>
+<TR>
+<TH COLSPAN=2>
+    <A NAME="TT">Table Elements</A>
+</P><P>
+</TH>
+</TR>
+<TR>
+<TH>Element</TH>
+<TH>Description</TH>
+</TR>
+
+<TR VALIGN=TOP>
+<TD> <TT>&lt;TABLE&gt;</TT> ... <TT>&lt;/TABLE&gt;</TT></TD>
+<TD>defines a table in HTML.  If the <TT>BORDER</TT> attribute is
+present, your browser displays the table with a border. 
+</TD>
+</TR>
+
+<TR VALIGN=TOP>
+<TD> <TT>&lt;CAPTION&gt;</TT> ... <TT>&lt;/CAPTION&gt;</TT></TD>
+<TD>defines the caption for the title of the table. The default position
+of the title is centered at the top of the table.  The attribute
+<TT>ALIGN=BOTTOM</TT> can be used to position the caption below the
+table. <BR>
+<B>NOTE:</B> Any kind of markup tag can be used in the caption.
+</TD>
+</TR>
+
+<TR VALIGN=TOP>
+<TD><TT>&lt;TR&gt;</TT> ... <TT>&lt;/TR&gt;</TT></TD>
+<TD>specifies a table row within a table.  You may define default
+attributes for the entire row: <TT>ALIGN</TT> (<TT>LEFT</TT>,
+<TT>CENTER</TT>, <TT>RIGHT</TT>) and/or <TT>VALIGN</TT> (<TT>TOP</TT>,
+<TT>MIDDLE</TT>, <TT>BOTTOM</TT>). See Table Attributes at the end of
+this table for more information. 
+</TD>
+</TR>
+
+<TR VALIGN=TOP>
+<TD> <TT>&lt;TH&gt;</TT> ... <TT>&lt;/TH&gt;</TT></TD>
+<TD>defines a table header cell.  By default the text in this cell is
+bold and centered. Table header cells may contain other attributes to
+determine the characteristics of the cell and/or its contents. See Table
+Attributes at the end of this table for more information.
+</TD>
+</TR>
+
+<TR VALIGN=TOP>
+<TD> <TT>&lt;TD&gt;</TT> ... <TT>&lt;/TD&gt;</TT></TD>
+<TD>defines a table data cell. By default the text in this cell is
+aligned left and centered vertically. Table data cells may contain other
+attributes to determine the characteristics of the cell and/or its
+contents. See Table Attributes at the end of this table for more
+information.
+</TD>
+</TR>
+</TABLE>
+
+<P>
+
+<TABLE BORDER=1 WIDTH=450>
+
+<TR><TH COLSPAN=2>
+    <A NAME="TT">Table Attributes</A>
+</TH></TR>
+
+<TR>
+<TD ALIGN=LEFT COLSPAN=2> 
+    <B>NOTE:</B> Attributes defined within <TT>&lt;TH&gt;</TT> ...
+    <TT>&lt;/TH&gt;</TT> or <TT>&lt;TD&gt;</TT> ... <TT>&lt;/TD&gt;</TT>
+    cells override the default alignment set in a <TT>&lt;TR&gt;</TT> ...
+    <TT>&lt;/TR&gt;</TT>.
+</TD>
+</TR>
+
+
+<TR><TH>
+    Attribute
+</TH><TH>
+    Description
+</TH></TR>
+
+<TR VALIGN=TOP><TD>
+    <TT>ALIGN (LEFT, CENTER, RIGHT)</TT>
+</TD><TD>
+    Horizontal alignment of a cell.
+</TD></TR>
+
+<TR VALIGN=TOP><TD>
+    <TT>VALIGN (TOP, MIDDLE, BOTTOM)</TT>
+</TD><TD>
+    Vertical alignment of a cell.
+</TD></TR>
+
+<TR VALIGN=TOP><TD>
+    <TT>COLSPAN=</TT><I>n</I> 
+</TD><TD>
+    The number (<I>n</I>) of columns a cell spans.
+</TD></TR>
+
+<TR VALIGN=TOP><TD>
+    <TT>ROWSPAN=</TT><I>n</I> 
+</TD><TD>
+    The number (<I>n</I>) of rows a cell spans.
+</TD></TR>
+
+<TR VALIGN=TOP><TD>
+    <TT>NOWRAP</TT>  
+</TD><TD>
+    Turn off word wrapping within a cell.
+</TD></TR>
+</TABLE>
+
+
+<font face="arial,helvetica">
+<H4 ALIGN=LEFT>
+    <A NAME="GT">General Table Format</A></H4>
+
+<P>
+The general format of a table looks like this:
+
+<PRE>&lt;TABLE&gt;
+<I>&lt;!-- start of table definition --&gt;</I>
+
+&lt;CAPTION&gt; caption contents &lt;/CAPTION&gt;   
+<I>&lt;!-- caption definition --&gt;</I>
+
+&lt;TR&gt;  
+<I>&lt;!-- start of header row definition --&gt;</I>
+    &lt;TH&gt; first header cell contents &lt;/TH&gt;    
+    &lt;TH&gt; last header cell contents &lt;/TH&gt;    
+&lt;/TR&gt; 
+<I>&lt;!-- end of header row definition --&gt;</I>
+
+&lt;TR&gt;  
+<I>&lt;!-- start of first row definition --&gt;</I>
+    &lt;TD&gt; first row, first cell contents &lt;/TD&gt;
+    &lt;TD&gt; first row, last cell contents &lt;/TD&gt;    
+&lt;/TR&gt; 
+<I>&lt;!-- end of first row definition --&gt;</I>
+
+&lt;TR&gt;  
+<I>&lt;!-- start of last row definition --&gt;</I>
+    &lt;TD&gt; last row, first cell contents &lt;/TD&gt;
+    &lt;TD&gt; last row, last cell contents &lt;/TD&gt;    
+&lt;/TR&gt; 
+<I>&lt;!-- end of last row definition --&gt;</I>
+
+&lt;/TABLE&gt;
+<I>&lt;!-- end of table definition --&gt;</I>
+</PRE>
+
+</P><P>
+You can cut-and-paste the above code into your own HTML documents, adding
+new rows or cells as necessary. The above example looks like
+<A HREF="GenTableFormat.html">this</A> when rendered in a browser.
+
+</P><P>
+The <TT>&lt;TABLE&gt;</TT> and <TT>&lt;/TABLE&gt;</TT> tags <B>must</B>
+surround the entire table definition.  The first item inside the table
+is the <TT>CAPTION</TT>, which is optional. Then you can have any number
+of rows defined by the <TT>&lt;TR&gt;</TT> and <TT>&lt;/TR&gt;</TT>
+tags. Within a row you can have any number of cells defined by the
+<TT>&lt;TD&gt;</TT>...<TT>&lt;/TD&gt;</TT> or
+<TT>&lt;TH&gt;</TT>...<TT>&lt;/TH&gt;</TT> tags. Each row of a table is,
+essentially, formatted independently of the rows above and below it.
+This lets you easily display tables like the one above with a single
+cell, such as Table Attributes, spanning columns of the table.
+
+
+
+<H4 ALIGN=LEFT>
+    <A NAME="TF">Tables for Nontabular Information</A></H4>
+</P><P>
+Some HTML authors use tables to present nontabular information. For
+example, because links can be included in table cells, some authors use
+a table with no borders to create "one" image from separate images.
+Browsers that can display tables properly show the various images
+seamlessly, making the created image seem like an <I>image map</I> (one
+image with hyperlinked quadrants).
+</P><P>
+Using table borders with images can create an impressive display as
+well. Experiment and see what you like.
+
+
+
+
+</P><P> 
+<H2>
+    <A NAME="FF">Fill-out Forms</A></H2>
+</P><P>
+Web forms let a reader return information to a Web server for some
+action. For example, suppose you collect names and email addresses so
+you can email some information to people who request it. For each person
+who enters his or her name and address, you need some information to be
+sent and the respondent's particulars added to a data base.
+</P><P>
+This processing of incoming data is usually handled by a script or
+program written in Perl or another language that manipulates text,
+files, and information. If you cannot write a program or script for your
+incoming information, you need to find someone who can do this for you.
+</P><P>
+The forms themselves are not hard to code. They follow the same
+constructs as other HTML tags. What could be difficult is the program or
+script that takes the information submitted in a form and processes it.
+Because of the need for specialized scripts to handle the incoming form
+information, <A
+HREF="/SDG/Software/Mosaic/Docs/fill-out-forms/overview.html">fill-out
+forms</A> are not discussed in this primer. Check the <A
+HREF="#AR">Additional Online Reference</A> section for more information.
+
+
+
+
+
+</P><P> 
+<H2>
+    <A NAME="TR">Troubleshooting</A></H2>
+</P><P>
+<H4 ALIGN=LEFT>
+    <A NAME="AO">Avoid Overlapping Tags</A></H4>
+</P><P>
+</P><P>
+Consider this example of HTML:
+
+<PRE>    &lt;B&gt;This is an example of &lt;I&gt;overlapping&lt;/B&gt;
+    HTML tags.&lt;/I&gt;
+</PRE>
+
+</P><P>
+The word <I>overlapping</I> is contained within both the
+<TT>&lt;B&gt;</TT> and <TT>&lt;I&gt;</TT> tags. A browser might be
+confused by this coding and might not display it the way you intend. The
+only way to know is to check each popular browser (which is
+time-consuming and impractical).
+</P><P>
+In general, avoid overlapping tags. Look at your tags and try pairing
+them up. Tags (with the obvious exceptions of elements whose end tags
+may be omitted, such as paragraphs) should be paired without an
+intervening tag in between. Look again at the example above. You cannot
+pair the bold tags without another tag in the middle (the first
+definition tag). Try matching your coding up like this to see if you
+have any problem areas that should be fixed before you release your
+files to a server.
+
+<H4 ALIGN=LEFT>
+    <A NAME="OE">Embed Only Anchors and Character Tags</A></H4>
+</P><P>
+HTML protocol allows you to embed links within other HTML tags:
+
+<PRE>    &lt;H1&gt;&lt;A HREF="Destination.html"&gt;My heading&lt;/A&gt;&lt;/H1&gt;
+</PRE>
+
+</P><P>
+<EM>Do not</EM> embed HTML tags within an anchor:
+
+<PRE>    &lt;A HREF="Destination.html"&gt;
+    &lt;H1&gt;My heading&lt;/H1&gt;
+    &lt;/A&gt;
+</PRE>
+
+</P><P>
+Although most browsers currently handle this second example, the
+official HTML specifications do not support this construct and your file
+will probably not work with future browsers. Remember that browsers can
+be forgiving when displaying improperly coded files. But that
+forgiveness may not last to the next version of the software! When in
+doubt, code your files according to the HTML specifications (see <A
+HREF="#FM">For More Information</A> below).
+
+</P><P>
+Character tags modify the appearance of the text within other elements:
+
+<PRE>    &lt;UL&gt;
+    &lt;LI&gt;&lt;B&gt;A bold list item&lt;/B&gt;
+    &lt;LI&gt;&lt;I&gt;An italic list item&lt;/I&gt;
+    &lt;/UL&gt;
+</PRE>
+
+</P><P>
+Avoid embedding other types of HTML element tags. For example, you might
+be tempted to embed a heading within a list in order to make the font
+size larger:
+
+<PRE>    &lt;UL&gt;
+    &lt;LI&gt;&lt;H1&gt;A large heading&lt;/H1&gt;
+    &lt;LI&gt;&lt;H2&gt;Something slightly smaller&lt;/H2&gt;
+    &lt;/UL&gt;
+</PRE>
+
+
+</P><P>
+Although some browsers handle this quite nicely, formatting of such
+coding is unpredictable (because it is undefined). For compatibility
+with all browsers, avoid these kinds of constructs. (The Netscape
+&lt;FONT&gt; tag, which lets you specify how large individual characters
+will be displayed in your window, is not currently part of the official
+HTML specifications.)
+
+</P><P>
+What's the difference between embedding a <TT>&lt;B&gt;</TT> within a
+<TT>&lt;LI&gt;</TT> tag as opposed to embedding a <TT>&lt;H1&gt;</TT>
+within a <TT>&lt;LI&gt;</TT>? Within HTML the semantic meaning of
+<TT>&lt;H1&gt;</TT> is that it's the main heading of a document and that
+it should be followed by the content of the document. Therefore it
+doesn't make sense to find a <TT>&lt;H1&gt;</TT> within a list.
+
+</P><P>
+Character formatting tags also are generally not additive. For example,
+you might expect that:
+
+<PRE>    &lt;B&gt;&lt;I&gt;some text&lt;/I&gt;&lt;/B&gt;
+</PRE>
+
+</P><P>
+would produce bold-italic text. On some browsers it does; other browsers
+interpret only the innermost tag.
+
+
+<H4 ALIGN=LEFT>
+    <A NAME="FS">Do the Final Steps </A></H4>
+</P><P>
+
+<H4 ALIGN=LEFT>
+    Validate Your Code</H4>
+</P><P>
+When you put a document on a Web server, be sure to check the formatting
+and each link (including named anchors). Ideally you will have someone
+else read through and comment on your file(s) before you consider a
+document finished.
+
+</P><P> You can run your coded files through one of several on-line <A
+HREF="http://dir.yahoo.com/Computers_and_Internet/Information_and_Documentation/Data_Formats/HTML/Validation_and_Checkers/">HTML
+validation services</A> that will tell you if your code conforms to
+accepted HTML. If you are not sure your coding conforms to HTML
+specifications, this can be a useful teaching tool. Fortunately the
+service lets you select the level of conformance you want for your files
+(i.e., strict, level 2, level 3). If you want to use some codes that are
+not officially part of the HTML specifications, this latitude is helpful. 
+
+
+<H4 ALIGN=LEFT>
+    Dummy Images</H4>
+</P><P>
+When an <TT>&lt;IMG SRC&gt;</TT> tag points to an image that does not
+exist, a dummy image is substituted by your browser software. When this
+happens during your final review of your files, make sure that the
+referenced image does in fact exist, that the hyperlink has the correct
+information in the URL, and that the file permission is set
+appropriately (world-readable). Then check online again!
+</P><P>
+<H4 ALIGN=LEFT>
+    Update Your Files</H4>
+</P><P>
+If the contents of a file are static (such as a biography of George
+Washington), no updating is probably needed. But for documents that are
+time sensitive or covering a field that changes frequently, <B> remember
+to update your documents!</B>
+</P><P>
+Updating is particularly important when the file contains information
+such as a weekly schedule or a deadline for a program funding
+announcement. Remove out-of-date files or note why something that
+appears dated is still on a server (e.g., the program requirements will
+remain the same for the next cycle so the file is still available as an
+interim reference).
+
+
+<H4 ALIGN=LEFT>
+    Browsers Differ</H4>
+</P><P>
+Web browsers display HTML elements differently. Remember that not all
+codes used in HTML files are interpreted by all browsers. Any code a
+browser does not understand is usually ignored though.
+</P><P>
+You could spend a lot of time making your file "look perfect" using your
+current browser. If you check that file using another browser, it will
+likely display (a little or a lot) differently. Hence these words of
+advice: code your files using correct HTML. Leave the interpreting to
+the browsers and hope for the best.
+
+
+<H4 ALIGN=LEFT>
+    <A NAME="CO">Commenting Your Files</A></H4>
+</P><P>
+You might want to include comments in your HTML files. Comments in HTML
+are like comments in a computer program--the text you enter is not used
+by the browser in any formatting and is not directly viewable by the
+reader just as computer program comments are not used and are not
+viewable. The comments are accessible if a reader views the source file,
+however.
+</P><P>
+Comments such as the name of the person updating a file, the software
+and version used in creating a file, or the date that a minor edit was
+made are the norm.
+</P><P>
+To include a comment, enter:
+<PRE>    &lt;!-- <I>your comments here</I> --&gt;
+</PRE>
+You must include the exclamation mark and the hyphens as shown.     
+
+
+
+
+</P><P> 
+<H2>
+    <A NAME="FM">For More Information</A></H2>
+</P><P>
+This guide is only an <B>introduction</B> to HTML, not a comprehensive
+reference. Below are additional online sources of information. Remember
+to check a bookstore near you for Web and HTML books.
+
+
+<H4 ALIGN=LEFT>
+    <A NAME="SG">Style Guides</A></H4>
+</P><P>
+The following offer advice on how to write "good" HTML:
+
+<UL>
+<LI><A HREF = "http://www.cs.cmu.edu/afs/cs.cmu.edu/Web/People/tilt/cgh/">
+    <I>Composing Good HTML</I></A>
+<LI>
+<A HREF = "http://www.w3.org/hypertext/WWW/Provider/Style/Introduction.html">
+    W3C's style guide for online hypertext</A>
+</UL>
+
+
+<H4 ALIGN=LEFT>
+    <A NAME="OI">Other Introductory Documents</A></H4>
+</P><P>
+These cover similar information as this guide:
+<UL>
+<LI><A HREF = "http://www.ucc.ie/info/net/htmldoc.html">
+    <I>How to Write HTML Files</I></A>
+<LI><A HREF = "http://members.aol.com/htmlguru/about_html.html">
+    <I>Introduction to HTML</I></A>
+<LI><A HREF="http://info.med.yale.edu/caim/manual/">the Yale
+    Center for Advanced Instructional Media</A> pages
+<LI><A HREF = "http://www.cc.ukans.edu/~acs/docs/other/HTML_quick.shtml">
+    <I>The HTML Quick Reference Guide</I></A>,
+    which provides a comprehensive listing of HTML codes
+</UL>
+
+
+<H4 ALIGN=LEFT>
+    <A NAME="AR">Additional Online References</A></H4>
+</P><P>
+<UL>
+<LI><A HREF = "http://www.w3.org/hypertext/WWW/MarkUp/MarkUp.html">
+    Official HTML specification</A>
+<LI><A HREF = "http://www.w3.org/pub/WWW/MarkUp/SGML/">A
+    description of SGML</A>, the Standard Generalized Markup Language
+<LI><A HREF="http://hoohoo.ncsa.uiuc.edu/index.html">NCSA HTTPd server software information</A>
+<LI><A HREF="http://home.netscape.com/assist/net_sites/bg/index.html">Background
+images</A>
+<LI><A HREF="http://www.cc.ukans.edu/~acs/docs/other/forms-intro.shtml">Forms and
+    the essential scripts explained</A>
+<LI><A HREF="http://java.sun.com/">Java</A>, snazzy stuff that is really perking
+    up the Web
+</UL>
+
+<H4 ALIGN=LEFT>
+    <A NAME="TH">Thanks</A></H4>
+</P><P>
+NCSA acknowledges and thanks the many Web users who have commented on
+this guide. Thanks also to the NCSA reviewers and contributors as well
+as the author of the first version of this guide.
+
+
+<!-- MAIN BODY ENDS -->
+
+
+<!--#include virtual="/includes/include-footer.html?webmaster" -->
+   <!--                                             ^^^^^^^^^ -->
+   <!-- This selects the '@ncsa.uiuc.edu' contact email address for this page. -->
+   <!-- The query string should be the email login of the appropriate person, -->
+   <!-- i.e.: mblase, cgeiken, webmaster, SCDwebmaster, etc. -->
+   <!-- Defaults to webmaster if empty. -->
+
+</BODY></HTML>

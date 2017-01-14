@@ -1,0 +1,8 @@
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+  <s:Body>  
+    <delete_tModel generic="2.0" xmlns="urn:uddi-org:api_v2">    
+      <authInfo>MyAuthInformation</authInfo>
+      <tModelKey>MyTModelKey</tModelKey>  
+    </delete_tModel>
+  </s:Body>
+</s:Envelope>

@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>Scope and Lifetime of Variables</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba04_1.htm" OnClick="SyncURL(&quot;chapters/ba04_1.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<a NAME="3ScopeandLifetimeofVariables"></a>
+<p CLASS="heading3OrgHeading1h1">Scope and Lifetime of Variables</p>
+<p CLASS="Textttext">When you declare a variable within a procedure, only code within that procedure can read or change the value of that variable: Its <span CLASS="NewTermntrm">scope</span> is local to that procedure. Sometimes, however, you want to use a variable with a broader scope, one whose value is available to all procedures within the same module, or even to all the procedures in all modules. With Visual Basic, you can specify the scope of a variable when you declare it.</p>
+<a NAME="4ScopeofVariables"></a>
+<p CLASS="heading4OrgHeading2h2">Scope of Variables</p>
+<p CLASS="Textttext">Depending on how you declare a variable, it's either a procedure-level or a module-level variable.</p>
+<!--mstheme--></font><table WIDTH="100%" BORDER="0" CELLPADDING="5" CELLSPACING="0" FRAME="VOID" RULES="THEAD"><thead>
+<tr VALIGN="TOP" BGCOLOR="#DDDDDD">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Scope</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Private</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Public</p></font><!--mstheme--></font></td></tr><tbody>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Procedure-level</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Variables are private to the procedure in which they appear.</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Not applicable. You can't declare public variables within a procedure.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Module-level</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Variables are private to the module <br>in which they appear.</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Variables are available to all modules.</p></font><!--mstheme--></font></td></tr>
+</table><!--mstheme--><font face="book antiqua, times new roman, times">&nbsp;&nbsp;&nbsp;<a NAME="5VariablesUsedWithinaProcedure"></a>
+<p CLASS="heading5OrgHeading3h3">Variables Used Within a Procedure</p>
+<p CLASS="Textttext">Procedure-level variables are recognized only in the procedure in which they're declared. These are also known as <span CLASS="NewTermntrm">local</span> variables. You declare them with the <span CLASS="ElementNameeln">Dim</span> or <span CLASS="ElementNameeln">Static</span> keywords, as follows: </p>
+<p CLASS="CodeTextct">Dim intTemp As Integer<br>Static intPermanent As Integer</p>
+<p CLASS="Textttext">Local variables declared with the <span CLASS="ElementNameeln">Dim</span> keyword exist only as long as the procedure is running. Local variables declared with the <span CLASS="ElementNameeln">Static</span> keyword exist the entire time your application is running. 
+<p CLASS="Textttext">Because of the advantages they provide, consider using local variables for any kind of temporary calculation. For example, you can create a dozen different procedures containing a variable called <span CLASS="CodeTextEmbeddedcte">intTemp</span>. As long as each <span CLASS="CodeTextEmbeddedcte">intTemp</span> is declared as a local variable, each procedure recognizes only its own version of <span CLASS="CodeTextEmbeddedcte">intTemp</span>. Any one procedure can alter the value in its local <span CLASS="CodeTextEmbeddedcte">intTemp</span> without affecting <span CLASS="CodeTextEmbeddedcte">intTemp</span> variables in other procedures.</p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>Implicitly declared variables always have a local scope.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on procedures, see Chapter 2, <a HREF="../chapters/ba02_1.htm" OnClick="SyncURL(&quot;chapters/ba02_1.htm&quot;)">&quot;Introducing Visual Basic.&quot;</a></p>
+<a NAME="5VariablesUsedWithinaModule"></a>
+<p CLASS="heading5OrgHeading3h3">Variables Used Within a Module</p>
+<p CLASS="Textttext">By default, a module-level variable is available to all the procedures in that module, but not to code in other modules. You create module-level variables in form, report, and standard modules by declaring them with the <span CLASS="ElementNameeln">Dim</span> or <span CLASS="ElementNameeln">Private</span> keywords in the Declarations section at the top of the module. For example, use either of the following statements:</p>
+<p CLASS="CodeTextct">Dim intTemp As Integer<br>Private intTemp As Integer</p>
+<p CLASS="Textttext">At the module level, there is no difference between <span CLASS="ElementNameeln">Private</span> and <span CLASS="ElementNameeln">Dim</span>. However, using <span CLASS="ElementNameeln">Private</span> is recommended because it readily contrasts with <span CLASS="ElementNameeln">Public</span> and makes your code easier to read.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on modules, see Chapter 2, <a HREF="../chapters/ba02_1.htm" OnClick="SyncURL(&quot;chapters/ba02_1.htm&quot;)">&quot;Introducing Visual Basic.&quot;</a></p>
+<a NAME="5VariablesUsedbyAllModules"></a>
+<p CLASS="heading5OrgHeading3h3">Variables Used by All Modules</p>
+<p CLASS="Textttext">To make a module-level variable available to other modules, use the <span CLASS="ElementNameeln">Public</span> keyword to declare the variable. (The <span CLASS="ElementNameeln">Public</span> statement has replaced the <span CLASS="ElementNameeln">Global</span> statement used for declaring variables in Microsoft Access version 2.0.) The values in public variables are available to all procedures in all modules in your application. Like all module-level variables, public variables are declared in the Declarations section at the top of the module, as shown in the following example:</p>
+<p CLASS="CodeTextct">Public intX As Integer</p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>You can't declare public variables within a procedure.</p>
+<p CLASS="Textttext">In a form, report, or standard module, if you want to refer to a public variable in a different form or report module, you must qualify the reference by using the name of the form or report, such as <span CLASS="CodeTextEmbeddedcte">Forms!Orders.intX</span>.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on form and report modules, see Chapter 2, <a HREF="../chapters/ba02_1.htm" OnClick="SyncURL(&quot;chapters/ba02_1.htm&quot;)">&quot;Introducing Visual Basic.&quot;</a></p>
+<p CLASS="Textttext">You can declare public variables in any module. Generally speaking, each public variable should be located in the module of which it's a logical member. However, if you have public variables that are used for purely global purposes and are not specifically related to a particular module, you can put them all in one module. This makes the variables easier to find and your code easier to read.</p>
+<a NAME="5ScopeandVariableNames"></a>
+<p CLASS="heading5OrgHeading3h3">Scope and Variable Names</p>
+<p CLASS="Textttext">A variable can't change scope while your code is running. However, you can use the same name for different variables under certain conditions. 
+<p CLASS="Textttext">If public variables in different modules share the same name, it's possible to differentiate between them in code. For example, if a public <span CLASS="ElementNameeln">Integer</span> variable <span CLASS="CodeTextEmbeddedcte">intX</span> is declared in both of the standard modules Module1 and Module2, you can refer to them as <span CLASS="CodeTextEmbeddedcte">Module1.intX</span> and <span CLASS="CodeTextEmbeddedcte">Module2.intX</span> to get the correct values.</p>
+<a NAME="6PublicvsLocalVariables"></a>
+<p CLASS="heading6OrgHeading4h4">Public vs. Local Variables</p>
+<p CLASS="Textttext">You can also have a variable with the same name at a different scope. For example, you could have a public variable named <span CLASS="CodeTextEmbeddedcte">intX</span> and then, within a procedure, declare a local variable named <span CLASS="CodeTextEmbeddedcte">intX</span>. References to the name <span CLASS="CodeTextEmbeddedcte">intX</span> within the procedure would access the local variable, while references to <span CLASS="CodeTextEmbeddedcte">intX</span> outside the procedure would access the public variable. The module-level variable can be accessed from within the procedure by qualifying the variable with the module name.</p>
+<p CLASS="CodeTextct">' This code is in the form module for Form1. Within the Test Sub<br>' procedure, the name intX always refers to the local variable, not<br>' to the variable declared in the Public statement at the top.<br>Public intX As Integer<br>Sub Test()<br>&nbsp;&nbsp;&amp;nbspDim intX As Integer<br>&nbsp;&nbsp;&amp;nbspintX = 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' intX has a value of 2 (even though<br>&nbsp;&nbsp;&amp;nbspMsgBox Forms!Form1.intX&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' MsgBox shows the value of intX in<br>End Sub&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' Form1, which is 1).<br>Private Sub Form_Load()<br>&nbsp;&nbsp;&amp;nbspintX = 1<br>End Sub <br>Private Sub Command1_Click()<br>&nbsp;&nbsp;&amp;nbspTest&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' intX has a value of 2.<br>End Sub</p>
+<p CLASS="Textttext">In general, when variables have the same name but a different scope, the more local variable <span CLASS="NewTermntrm">shadows</span> (is accessed in preference to) less local variables. So, if you also had a private module-level variable named <span CLASS="CodeTextEmbeddedcte">intX</span>, it would shadow the public variable <span CLASS="CodeTextEmbeddedcte">intX</span> within that module (and the local <span CLASS="CodeTextEmbeddedcte">intX</span> would shadow the private module-level <span CLASS="CodeTextEmbeddedcte">intX</span> within that procedure).</p>
+<a NAME="6UsingVariablesandPropertieswiththeSameName"></a>
+<p CLASS="heading6OrgHeading4h4">Using Variables and Properties with the Same Name</p>
+<p CLASS="Textttext">Shadowing rules treat form and report properties and controls, user-defined types, constants, and procedures as module-level variables in the form or report module. Thus, all module-level shadowing rules apply to each of these. You can't have a form or report property or control with the same name as a module-level variable, constant, user-defined type, or procedure because both are in the same scope.
+<p CLASS="Textttext">Within the form or report module, local variables with the same names as controls on the form or report shadow the controls. You need to either qualify the control with a reference to the form or report, or you need to use the <span CLASS="ElementNameeln">Me</span> keyword to set or get its value or any of its properties. The following code shows one way to do this:</p>
+<p CLASS="CodeTextct">Private Sub Form_Click()<br>&nbsp;&nbsp;&amp;nbspDim Text1, Caption<br>&nbsp;&nbsp;&nbsp;' Assume there is also a control on the form called Text1.<br>&nbsp;&nbsp;&amp;nbspText1 = &quot;Variable&quot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' Variable shadows control.<br>&nbsp;&nbsp;&amp;nbspMe.Text1 = &quot;Control&quot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' Must qualify with Me to get control.<br>&nbsp;&nbsp;&amp;nbspText1.Top = 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' This causes an error!<br>&nbsp;&nbsp;&amp;nbspMe.Text1.Top = 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' Must qualify with Me to get control.<br>&nbsp;&nbsp;&amp;nbspCaption = &quot;Orders&quot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' Variable shadows property.<br>&nbsp;&nbsp;&amp;nbspMe.Caption = &quot;Orders&quot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' Must qualify with Me to get form property.<br>End Sub</p>
+<a NAME="6UsingVariablesandProcedureswiththeSameName"></a>
+<p CLASS="heading6OrgHeading4h4">Using Variables and Procedures with the Same Name</p>
+<p CLASS="Textttext">You may also have conflicts with the names of your private module-level and public module-level variables and the names of your procedures. A variable in the module can't have the same name as any procedures or types defined in the module. It can, however, have the same name as public procedures, types, or variables defined in other modules. In this case, when the variable is accessed from another module, it must be qualified with the module name.
+<p CLASS="Textttext">While these shadowing rules are not complex, shadowing can be confusing and lead to subtle problems in your code. To avoid these problems, it's good programming practice to keep the names of your variables distinct from each other. For example, in form or report modules, try to have unique names for properties that are different from names of controls on those forms or reports. This applies to procedure names as well.</p>
+<a NAME="4LifetimeofVariables"></a>
+<p CLASS="heading4OrgHeading2h2">Lifetime of Variables</p>
+<p CLASS="Textttext">In addition to scope, variables also have a <span CLASS="NewTermntrm">lifetime</span><span CLASS="Placeholderp">, which is the time during which a variable retains its value</span>. The values in module-level and public variables are preserved as long as the database is open (unless you reinitialize your code). This is true for form and report module-level variables even if you close the form or report. However, local variables declared with the <span CLASS="ElementNameeln">Dim</span> keyword exist only while the procedure in which they are declared is running. Usually, when a procedure has finished, the values of its local variables are discarded and the memory used by the local variables is reclaimed. The next time the procedure is run, all of its local variables are reinitialized. However, you can make Visual Basic preserve the value of a local variable by making the variable <span CLASS="NewTermntrm">static</span>.</p>
+<a NAME="5StaticVariables"></a>
+<p CLASS="heading5OrgHeading3h3">Static Variables</p>
+<p CLASS="Textttext">To make a local variable in a procedure static, use the <span CLASS="ElementNameeln">Static</span> keyword to declare the variable exactly as you would using the <span CLASS="ElementNameeln">Dim</span> statement.</p>
+<p CLASS="CodeTextct">Static intX As Integer</p>
+<p CLASS="Textttext">For example, the following function calculates a running total by adding a new value to the total of previous values stored in the static variable <span CLASS="CodeTextEmbeddedcte">dblAccumulate</span>.</p>
+<p CLASS="CodeTextct">Function RunningTotal(ByVal dblNum As Double) As Double<br>&nbsp;&nbsp;&amp;nbspStatic dblAccumulate As Double<br>&nbsp;&nbsp;&amp;nbspdblAccumulate = dblAccumulate + dblNum<br>&nbsp;&nbsp;&amp;nbspRunningTotal = dblAccumulate<br>End Function</p>
+<p CLASS="Textttext">If you declare <span CLASS="CodeTextEmbeddedcte">dblAccumulate</span> with the <span CLASS="ElementNameeln">Dim</span> keyword instead of the <span CLASS="ElementNameeln">Static </span>keyword, the previous accumulated values aren't preserved across calls to the function, and the function simply returns the value with which it was called.
+<p CLASS="Textttext">You can produce the same result by declaring <span CLASS="CodeTextEmbeddedcte">dblAccumulate</span> in the Declarations section of the module, making it a module-level variable. However, after you change the scope of a variable in this way, the procedure no longer has exclusive access to that variable. If other procedures access the value of the variable and change it, the running totals would be unreliable.</p>
+<a NAME="5DeclaringAllLocalVariablesasStatic"></a>
+<p CLASS="heading5OrgHeading3h3">Declaring All Local Variables as Static</p>
+<p CLASS="Textttext">To make all local variables in a procedure static, place the <span CLASS="ElementNameeln">Static</span> keyword at the beginning of a procedure declaration, as shown in the following example:</p>
+<p CLASS="CodeTextct">Static Function RunningTotal(ByVal dblNum As Double) As Double</p>
+<p CLASS="Textttext">This makes all the local variables in the procedure static, regardless of whether they are declared with the <span CLASS="ElementNameeln">Static</span> or <span CLASS="ElementNameeln">Dim</span> keywords, or declared implicitly. You can place the <span CLASS="ElementNameeln">Static</span> keyword in front of any <span CLASS="ElementNameeln">Function</span> or <span CLASS="ElementNameeln">Sub</span> procedure heading, including event procedures and those that are also declared as <span CLASS="ElementNameeln">Private</span>.</p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="ba04_3.htm" OnClick="SyncURL(&quot;chapters/ba04_3.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

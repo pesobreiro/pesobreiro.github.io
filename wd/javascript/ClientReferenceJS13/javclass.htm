@@ -1,0 +1,101 @@
+<HTML>
+<HEAD>
+<TITLE>
+</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="javarray.htm">Previous</A>
+ | <A HREF="javobj.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT><BR><BR>
+<HR>
+
+<H1><A NAME="JavaClass"></A>
+<A NAME="1193137">
+ JavaClass
+</A></H1>
+<A NAME="1198169">
+A JavaScript reference to a Java class.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1198162">
+<I>Core object</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1198164">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1198166">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1198168">
+JavaScript 1.1, NES 2.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1198170">
+ Created by
+</A></H4>
+
+<A NAME="1198171">
+A reference to the class name used with the <CODE>Packages</CODE> object:</A></P>
+<PRE><A NAME="1198172">Packages.<I>JavaClass</I></A></PRE><A NAME="1198173">
+where <I>JavaClass</I> is the fully-specified name of the object's Java class. The LiveConnect <CODE>java</CODE>, <CODE>sun</CODE>, and <CODE>netscape</CODE> objects provide shortcuts for commonly used Java packages and also create <CODE>JavaClass</CODE> objects.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1198174">
+ Description
+</A></H4>
+
+<A NAME="1198262">
+A <CODE>JavaClass</CODE> object is a reference to one of the classes in a Java package, such as <CODE>netscape.javascript.JSObject</CODE>. A <CODE>JavaPackage</CODE> object is a reference to a Java package, such as <CODE>netscape.javascript</CODE>. In JavaScript, the <CODE>JavaPackage</CODE> and <CODE>JavaClass</CODE> hierarchy reflect the Java package and class hierarchy.</A></P>
+<A NAME="1198894">
+You must create a wrapper around an instance of <CODE>java.lang.Class</CODE> before you pass it as a parameter to a Java method--<CODE>JavaClass</CODE> objects are not automatically converted to instances of <CODE>java.lang.Class</CODE>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1198422">
+ Property Summary
+</A></H4>
+
+<A NAME="1198285">
+The properties of a <CODE>JavaClass</CODE> object are the static fields of the Java class.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1198220">
+ Method Summary
+</A></H4>
+
+<A NAME="1198221">
+The methods of a <CODE>JavaClass</CODE> object are the static methods of the Java class.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1198180">
+ Examples
+</A></H4>
+
+<A NAME="1198460">
+In the following example, <CODE>x</CODE> is a <CODE>JavaClass</CODE> object referring to <CODE>java.awt.Font</CODE>. Because <CODE>BOLD</CODE> is a static field in the <CODE>Font</CODE> class, it is also a property of the <CODE>JavaClass</CODE> object.</A></P>
+<PRE><A NAME="1198252">x = java.awt.Font<br>myFont = x("helv",x.BOLD,10) // creates a Font object</A></PRE><A NAME="1198351">
+The previous example omits the <CODE>Packages</CODE> keyword and uses the <CODE>java</CODE> synonym because the <CODE>Font</CODE> class is in the <CODE>java</CODE> package.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1198183">
+ See also
+</A></H4>
+
+<A NAME="1198196">
+<A HREF="javarray.htm#1193137"><CODE>JavaArray</CODE></A>, <A HREF="javobj.htm#1193137"><CODE>JavaObject</CODE></A>, <A HREF="javpkg.htm#1193137"><CODE>JavaPackage</CODE></A>, <A HREF="packages.htm#1193137"><CODE>Packages</CODE></A></A></P>
+
+<HR>
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="javarray.htm">Previous</A>
+ | <A HREF="javobj.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT>
+<P ALIGN=right>
+<FONT SIZE=-2><I>Last Updated:  05/28/99  11:59:41</I></FONT>
+<P> <CENTER>Copyright (c) 1999
+<A HREF="http://home.netscape.com/misc/contact_info.html"
+TARGET=_top>Netscape Communications Corporation</A></FONT>
+</CENTER>
+<P>
+</BODY>
+</HTML>
+
+

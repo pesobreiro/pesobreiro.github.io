@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>Canceling Events</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba06_2.htm" OnClick="SyncURL(&quot;chapters/ba06_2.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<a NAME="3CancelingEvents"></a>
+<p CLASS="heading3OrgHeading1h1">Canceling Events</p>
+<p CLASS="Textttext">Under some circumstances, you may want to include code in an event procedure that cancels the associated event. For example, you may want to include code that cancels the Open event in an Open event procedure for a form, preventing the form from opening if certain conditions are not met.
+<p CLASS="Textttext">You can cancel the following events:</p>
+<!--mstheme--></font><table WIDTH="100%" BORDER="0" CELLPADDING="5" CELLSPACING="0" FRAME="VOID" RULES="NONE">
+<tr VALIGN="TOP"><td NOWRAP="NOWRAP"><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="TableTexttt">BeforeDelConfirm</p><!--mstheme--></font></td><td><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="TableTexttt">BeforeUpdate</p><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP"><td NOWRAP="NOWRAP"><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="TableTexttt">Format</p><!--mstheme--></font></td><td><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="TableTexttt">DblClick</p><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP"><td NOWRAP="NOWRAP"><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="TableTexttt">BeforeInsert</p><!--mstheme--></font></td><td><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="TableTexttt">Open</p><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP"><td NOWRAP="NOWRAP"><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="TableTexttt">Delete</p><!--mstheme--></font></td><td><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="TableTexttt">ApplyFilter</p><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP"><td NOWRAP="NOWRAP"><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="TableTexttt">Print</p><!--mstheme--></font></td><td><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="TableTexttt">NoData</p><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP"><td NOWRAP="NOWRAP"><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="TableTexttt">Unload</p><!--mstheme--></font></td><td><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="TableTexttt">KeyPress (only with a macro)</p><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP"><td NOWRAP="NOWRAP"><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="TableTexttt">Exit</p><!--mstheme--></font></td><td><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="TableTexttt">MouseDown (only the right mouse button, and only with a macro)</p><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP"><td NOWRAP="NOWRAP"><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="TableTexttt">Filter</p><!--mstheme--></font></td></tr></table><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="Textttext">You cancel an event by specifying a macro containing the CancelEvent action as the corresponding event property setting or, with the exception of the MouseDown and KeyPress events, by setting an event procedure's Cancel argument to <span CLASS="ElementNameeln">True</span>. For example, to prevent a form from opening, you can:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspCreate a macro that carries out the CancelEvent action, and then specify that macro as the form's <span CLASS="ElementNameeln">OnOpen</span> event property setting.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspAdd code to the form's Open event procedure that sets the procedure's Cancel argument to <span CLASS="ElementNameeln">True</span>.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on the CancelEvent action, search the Help index for &quot;CancelEvent action.&quot;</p>
+<p CLASS="Textttext">You can see an example of canceling an Unload event in the EventHistory form of the Orders sample application. Because the EventHistory form is required by the ShowEvents form, it's important to close the ShowEvents form before closing the EventHistory form. To ensure that the ShowEvents form isn't left open without the EventHistory form, the EventHistory form's Unload event procedure cancels the Unload event if you try to close it when the ShowEvents form is open.</p>
+<p CLASS="CodeTextct">Private Sub Form_Unload (Cancel As Integer)<br>' Reminds you to close the ShowEvents form, ensuring that<br>' it isn't left open without an open EventHistory form.<br>&nbsp;&nbsp;&amp;nbspDim intX As Integer<br>&nbsp;&nbsp;&nbsp;' Loop through the open forms. If the ShowEvents form is found,<br>&nbsp;&nbsp;&nbsp;' display a message and cancel the Unload event.<br>&nbsp;&nbsp;&amp;nbspFor intX = 0 To Forms.Count - 1<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbspIf Forms(intX).Name = &quot;ShowEvents&quot; Then<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbspMsgBox &quot;Please close the ShowEvents form.&quot;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbspCancel = True<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbspExit For<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbspEnd If<br>&nbsp;&nbsp;&amp;nbspNext intX<br>End Sub</p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="ba06_4.htm" OnClick="SyncURL(&quot;chapters/ba06_4.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

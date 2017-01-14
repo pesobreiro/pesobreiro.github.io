@@ -1,0 +1,56 @@
+<HTML>
+<HEAD>
+<TITLE>New Features in this Release
+</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="contents.htm">Previous</A>
+ | <A HREF="preface.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT><BR><BR>
+<HR>
+<CENTER><H2><A NAME="1002836">
+ New Features in this Release</H2>
+</A></CENTER>
+<A NAME="1010490">
+JavaScript version 1.3 provides the following new features and enhancements:</A></P>
+<ul><P><LI><A NAME="1010491">
+<B>ECMA compliance.</B> JavaScript&nbsp;1.3 is fully compatible with ECMA-262. See <A HREF="intro.htm#1013654">"JavaScript and the ECMA Specification" on page&nbsp;28</A>.</A></LI>
+<P><LI><A NAME="1010495">
+<B>Unicode support.</B> The Unicode character set can be used for all known encoding, and you can use the Unicode escape sequence in string literals. See <A HREF="ident.htm#1009568">"Unicode" on page&nbsp;43</A>.</A></LI>
+<P><LI><A NAME="1010505">
+<B>New strict equality operators === and !==.</B> The <CODE>===</CODE> (strict equal) operator returns true if the operands are equal and of the same type. The <CODE>!==</CODE> (strict not equal) operator returns true if the operands are not equal and/or not of the same type. See <A HREF="expr.htm#1010037">"Comparison Operators" on page&nbsp;50</A>.</A></LI>
+<P><LI><A NAME="1010509">
+<B>Changes to the equality operators == and !=.</B> The use of the <CODE>==</CODE> (equal) and <CODE>!=</CODE> (not equal) operators reverts to the JavaScript&nbsp;1.1 implementation. If the two operands are not of the same type, JavaScript attempts to convert the operands to an appropriate type for the comparison. See <A HREF="expr.htm#1010037">"Comparison Operators" on page&nbsp;50</A>.</A></LI>
+<P><LI><A NAME="1010513">
+<B>Changes to the behavior of conditional tests.</B></A></LI>
+<ul>
+</P><LI><A NAME="1010514">
+You should not use simple assignments in a conditional statement; for example, do not specify the condition <CODE>if(x = y)</CODE>. Previous JavaScript versions converted <CODE>if(x = y)</CODE> to <CODE>if(x == y)</CODE>, but 1.3 generates a runtime error. See <A HREF="stmtsov.htm#1008323">"if...else Statement" on page&nbsp;80</A>.</A></LI>
+</P><LI><A NAME="1010518">
+Any object whose value is not <CODE>undefined</CODE> or <CODE>null</CODE>, including a Boolean object whose value is false, evaluates to true when passed to a conditional statement. See <A HREF="stmtsov.htm#1008323">"if...else Statement" on page&nbsp;80</A>.</A></LI>
+</ul>
+<P><LI><A NAME="1010539">
+<B>The JavaScript console.</B> <VAR>The JavaScript console</VAR> is a window that can display all JavaScript error messages. Then, when a JavaScript error occurs, the error message is directed to the JavaScript console and no dialog box appears. See <A HREF="console.htm#1039624">Appendix B, "Displaying Errors with the JavaScript Console."</A></A></LI>
+</ul><A NAME="1010089">
+See the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsref/index.htm" TARGET="_top"><I>Client-Side JavaScript Reference</I></A> for information on additional features.</A></P>
+
+<HR>
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="contents.htm">Previous</A>
+ | <A HREF="preface.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT>
+<P ALIGN=right>
+<FONT SIZE=-2><I>Last Updated:  05/27/99  21:21:16</I></FONT>
+<P> <CENTER>Copyright (c) 1999
+<A HREF="http://home.netscape.com/misc/contact_info.html"
+TARGET=_top>Netscape Communications Corporation</A></FONT>
+</CENTER>
+<P>
+</BODY>
+</HTML>
+
+

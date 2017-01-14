@@ -1,0 +1,64 @@
+<!doctype html public" -//IETF//DTD 	HTML//EN">
+<HTML>
+
+<HEAD>
+<SCRIPT LANGUAGE="JAVASCRIPT">
+<!-- 
+
+function checkbrowse()
+{
+var bn, bv, ver
+bn = navigator.appName;
+bv = parseInt(navigator.appVersion);
+if (bn=="Microsoft Internet Explorer" && bv<"4") ver = "IE3";
+else ver = "NotIE3";
+if (ver=="IE3") top.cont.parts.location.href="part20.htm";
+if (ver=="NotIE3") top.cont.parts.location.href="nav/part20.htm";
+}
+//-->
+</SCRIPT>
+<TITLE>Entire-Project vs. Selected-Project Data Transfer: Import/Export Maps</TITLE>
+<META NAME="GENERATOR" 	CONTENT="Merch. System HTML Development">
+<META NAME="AUTHOR" 	CONTENT="Merch. System HTML Development">
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" OnLoad="checkbrowse();">
+<Font Face ="Verdana, Arial, Helvetica">
+
+<P align=right><SMALL>
+<A HREF="p209826.htm" Target="TOC"><IMG SRC="prev.gif"ALT="Previous page"BORDER=0></A>
+<A HREF="p20981.htm" Target="TOC"><IMG SRC="toc20.gif"ALT="Contents"BORDER=0></A>
+<A HREF="p209828.htm" Target="TOC"><IMG SRC="Next.gif"ALT="Next 
+page"BORDER=0></A></SMALL></P>
+<H2>Entire-Project vs. Selected-Project Data Transfer: Import/Export Maps</H2>
+
+<P>
+You can import or export an entire project or just part of one. Typically, the data from a field in the sent file gets 
+inserted into the field with the same name in the destination file. But sometimes different programs give 
+different names to fields that contain the same information. For example, Microsoft Project’s Task Name field 
+might be called the Task field in a database. To make sure that data in the sent file is inserted into the correct 
+fields in the destination file, you use import/export maps.
+<P>
+An <I>import/export map</I> matches a field in Microsoft Project to its counterpart field in another program, 
+regardless of the name given to the same field in another data format. This enables you to insert data into the 
+correct field in the importing program. For example, if you know that the Task field in a database you want to 
+export to is the counterpart of Microsoft Project’s Task Name field, you can use an import/export map to 
+associate these two fields. You would export the data in the Task Name field to the Task field. In effect, the 
+import/export map says, &quot;Take the data that is in the Microsoft Project Task Name field and insert it into 
+the database’s Task field.&quot;
+<P>
+You use an import/export map when you want to transfer only a portion of the information in a project file, 
+information that must be in one or more tables. You can’t, for instance, use an import/export map to transfer 
+graphics. An import/export map can contain any combination of task, resource, and assignment information 
+and can be filtered to allow only specific tasks, resources, or assignments in the exported file.
+<P>
+You can use a predefined import/export map that comes with Microsoft Project or create a custom import/export 
+map. Whether an import/export map is predefined or customized and regardless of its intended purpose, you 
+can use it to import or export data. For instance, if you create an import/export map to export data to Microsoft 
+Excel, you can use that same import/export map to import data from Microsoft Access.
+<P align = Center > <A HREF="http://www.microsoft.com/misc/cpyright.htm"><EM>&#169;1996-1997 Microsoft Corporation. All rights 
+reserved.</EM></A></P>
+</BODY>
+</FONT>
+</HTML>
+

@@ -1,0 +1,16 @@
+<!--Utilizar o object model para alterar o conteúdo de um documento-->
+<HTML> 
+	<HEAD>
+	<TITLE>Welcome!</TITLE>
+	 <SCRIPT LANGUAGE="Javascript"> 
+	function changeMe() { 
+		document.all.MyHeading.style.color = "green";
+		document.all.MyText.innerText = "Permite realizar alguns efeitos interessantes."; 
+	} 
+	</SCRIPT> 
+	</HEAD>	
+	<BODY onclick="changeMe()"> 
+		<H3 ID=MyHeading>Bem vindo ao DHTML!</H3> 
+		<P ID=MyText>Click em qualquer sítio do documento.</P> 
+	</BODY>
+</HTML> 

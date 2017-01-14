@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>Using the Immediate Pane</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba07_6.htm" OnClick="SyncURL(&quot;chapters/ba07_6.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<a NAME="3UsingtheImmediatePane"></a>
+<p CLASS="heading3OrgHeading1h1">Using the Immediate Pane</p>
+<p CLASS="Textttext">While you are creating and testing Visual Basic code, you may want to run a function or check the value of a control, field, or property. You can do this in the Immediate pane of the Debug window. The Immediate pane is a kind of scratch pad window in which expressions are evaluated immediately.
+<p CLASS="Textttext">Although you can use the Immediate pane to run any Visual Basic command, you'll most commonly use it to:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspTest your <span CLASS="ElementNameeln">Function</span> and <span CLASS="ElementNameeln">Sub</span> procedures.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspDisplay the values of controls and properties.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspEvaluate expressions and display their results.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspDisplay debugging information from within your code.</p>
+<a NAME="4TestingProceduresUsingtheImmediatePane"></a>
+<p CLASS="heading4OrgHeading2h2">Testing Procedures Using the Immediate Pane</p>
+<p CLASS="Textttext">The Immediate pane of the Debug window evaluates a Visual Basic expression or statement, such as a call to a <span CLASS="ElementNameeln">Sub</span> or <span CLASS="ElementNameeln">Function</span> procedure. You can evaluate an expression or a <span CLASS="ElementNameeln">Function</span> procedure by displaying the value it returns in the Immediate pane. You can test the possible effect of a <span CLASS="ElementNameeln">Sub</span> procedure with any given set of arguments by entering it as a statement in the Immediate pane, just as you would in the Module window.
+<p CLASS="Textttext">You can display a value in the Immediate pane by using the <span CLASS="ElementNameeln">Print</span> method of the <span CLASS="ElementNameeln">Debug</span> object. The <span CLASS="ElementNameeln">Debug</span> object represents the Immediate pane in Visual Basic.
+<p CLASS="Textttext">For example, suppose you have a function named DueDate, which takes an argument of type <span CLASS="ElementNameeln">Date</span> and returns the date of the first day of the month following the date that is passed to it:</p>
+<p CLASS="CodeTextct">Public Function DueDate(ByVal AnyDate As Date) As Variant<br>&nbsp;&nbsp;&nbsp;' This function calculates and returns the date of first <br>&nbsp;&nbsp;&nbsp;' day of month that follows the supplied date.<br>&nbsp;&nbsp;&amp;nbspDueDate = DateSerial(Year(AnyDate), Month(AnyDate) + 1, 1)<br>End Function</p>
+<p CLASS="Textttext">You can test the DueDate function by entering the following code in the Immediate pane:</p>
+<p CLASS="CodeTextct">Debug.Print DueDate(#4-12-96#)</p>
+<p CLASS="Textttext">Visual Basic runs the function and displays the result: <span CLASS="CodeTextEmbeddedcte">5/1/96</span>.
+<p CLASS="Textttext">Because the <span CLASS="ElementNameeln">Debug</span> object is the default object in the Immediate pane, you can use the <span CLASS="ElementNameeln">Print</span> method in the Immediate pane without referring to the <span CLASS="ElementNameeln">Debug</span> object. For example, you can test the DueDate function by entering the following statement in the Immediate pane:</p>
+<p CLASS="CodeTextct">Print DueDate(#4-12-96#)</p>
+<p CLASS="Textttext">You can use a question mark (?) as shorthand for the <span CLASS="ElementNameeln">Print</span> method. The question mark means precisely the same thing as <span CLASS="CodeTextEmbeddedcte">Print</span> and can be used in any context where <span CLASS="CodeTextEmbeddedcte">Print </span>is used. For example, you can determine the day of the week for the date returned by the DueDate function by entering the following code in the Immediate pane:</p>
+<p CLASS="CodeTextct">? Weekday(DueDate(#4-12-96#))</p>
+<p CLASS="Textttext">Visual Basic runs the function and displays the result: <span CLASS="CodeTextEmbeddedcte">4</span>. This value indicates that May 1, 1996 is a Wednesday.
+<p CLASS="Textttext">You can test a <span CLASS="ElementNameeln">Sub</span> procedure by entering it and its arguments in the Immediate pane. For example, you can test a procedure named SizeIt by entering the following code in the Immediate pane:</p>
+<p CLASS="CodeTextct">SizeIt 5000, 3000</p>
+<p CLASS="Textttext">You don't need to use the <span CLASS="ElementNameeln">Print</span> method because a <span CLASS="ElementNameeln">Sub</span> procedure doesn't return a value for the Immediate pane to display.</p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>In the Immediate pane, you can call procedures that are currently in scope without qualifying the procedure name. For example, you can call any procedure in the current module, and you can call any public procedure from any other module in the database. However, to run a private procedure in another module, you must qualify the name of the procedure with the name of the module that contains it.  For example, to call a private procedure named AddValues in the Utilities module when the module is not open, you must type<span CLASS="CodeTextEmbeddedcte"> Utilities.AddValues </span>in the Debug window.<span CLASS="CrossRefHeadingcrh"> </span>For information on the scope of procedures and variables, see Chapter 2, <a HREF="../chapters/ba02_1.htm" OnClick="SyncURL(&quot;chapters/ba02_1.htm&quot;)">&quot;Introducing Visual Basic&quot;</a> and Chapter 4, <a HREF="../chapters/ba04_1.htm" OnClick="SyncURL(&quot;chapters/ba04_1.htm&quot;)">&quot;Working with Variables, Data Types, and Constants.&quot;</a></p>
+<p CLASS="Textttext">You can run any built-in function or statement in the Immediate pane. However, a control structure is valid only if it can be completely expressed on one line. Because the <span CLASS="ElementNameeln">For</span> loop in the following example is on one line, it can be run in the Immediate pane.</p>
+<p CLASS="CodeTextct">For intI = 1 To 20 : Print 2 * intI : Next intI</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For information on the <span CLASS="ElementNameeln">Debug</span> object or the <span CLASS="ElementNameeln">Print</span> method, search the Help index for &quot;Debug object&quot; or &quot;Print method.&quot;</p>
+<a NAME="4DisplayingValuesofControlsandProperties"></a>
+<p CLASS="heading4OrgHeading2h2">Displaying Values of Controls and Properties</p>
+<p CLASS="Textttext">You can evaluate any valid expression in the Immediate pane, including expressions involving the values and properties for Microsoft Access objects or Data Access Objects (DAO). For example:</p>
+<p CLASS="CodeTextct">? Forms!SalesReps.RecordSource<br>Employees</p>
+<p CLASS="Textttext">In the preceding example, the first line is the expression to be evaluated. The second line is what is displayed in the Immediate pane<img SRC="../images/Emdash.gif" BORDER="0" VSPACE="0" HSPACE="0" WIDTH="16" HEIGHT="5">the value of the <span CLASS="ElementNameeln">RecordSource</span> property for the open SalesReps form.</p>
+<a NAME="4DisplayingValuesintheImmediatePanefromCode"></a>
+<p CLASS="heading4OrgHeading2h2">Displaying Values in the Immediate Pane from Code</p>
+<p CLASS="Textttext">While you're testing your code, you may want to display the results of expressions in your code as it's running. You can use the<span CLASS="ElementNameeln"> Print</span> method of the <span CLASS="ElementNameeln">Debug</span> object to display the results in the Immediate pane. The syntax for the<span CLASS="ElementNameeln"> Print</span> method of the <span CLASS="ElementNameeln">Debug</span> object is:</p>
+<p CLASS="SyntaxTextsyn"><span CLASS="ElementNameeln">Debug.Print</span> [<span CLASS="NewTermntrm">outputlist</span>]</p>
+<p CLASS="Textttext">In this syntax, you can use the optional <span CLASS="NewTermntrm">outputlist</span> argument to specify an expression or list of expressions to print. For example, you can add the<span CLASS="ElementNameeln"> Print</span> method of the <span CLASS="ElementNameeln">Debug</span> object to the DueDate function as follows:</p>
+<p CLASS="CodeTextct">Public Function DueDate(ByVal AnyDate As Date) As Variant<br>&nbsp;&nbsp;&nbsp;' This function calculates and returns the date of first<br>&nbsp;&nbsp;&nbsp;' day of month that follows the supplied date.<br>&nbsp;&nbsp;&amp;nbspDebug.Print &quot;Year &quot;; Year(AnyDate); &quot;Month &quot;; Month(AnyDate)<br>&nbsp;&nbsp;&amp;nbspDueDate = DateSerial(Year(AnyDate), Month(AnyDate) + 1, 1)<br>End Function</p>
+<p CLASS="Textttext">Now whenever this function is called, it displays the the current year and month in the Immediate pane, as well as the value returned by the DueDate function. For example, you can call this function from the Immediate pane and provide the date 4-12-96 for the AnyDate argument. If you're stepping through the code, as shown in the following illustration, the function prints the value for the year (1996) and the value for the month (4) to the Debug window once the line that contains the <span CLASS="ElementNameeln">Debug.Print</span> statement runs.</p>
+<p CLASS="Arta"><img SRC="..\images\ABAC0705.jpg"></p>
+<p CLASS="Textttext">When you run the next line of code, the function evaluates the expression that determines the date of the first day of the following month. This is the value returned by the DueDate function. When the DueDate function has finished running, this value is also printed to the Debug window. In this case, the return value of the function is 5-1-96.
+<p CLASS="Textttext">Displaying values in the Immediate pane from code has a couple of advantages. First, you don't have to suspend execution to get feedback on how your code is performing. You can view data or other messages as you run your code. Second, the feedback is displayed in a separate area (the Immediate pane), so it doesn't interfere with output you want users to see.
+<p CLASS="Textttext">Once you're sure your code is working correctly, you can remove <span CLASS="ElementNameeln">Debug.Print</span> statements.<span CLASS="ElementNameeln"> </span>Displaying values in the Immediate pane slows your code slightly, so you don't want to leave <span CLASS="ElementNameeln">Debug.Print</span> statements in your code when you don't need to use them. You can also use conditional compilation to specify when to include these statements and when to ignore them during compilation and at run time.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on conditional compilation, see <a HREF="../chapters/ba07_11.htm" OnClick="SyncURL(&quot;chapters/ba07_11.htm&quot;)">&quot;Using Conditional Compilation&quot;</a> later in this chapter.</p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>The Debug window doesn't open automatically when Visual Basic encounters a <span CLASS="ElementNameeln">Debug.Print </span>statement. If you don't have the Debug window open, you won't see the values displayed by the <span CLASS="ElementNameeln">Debug.Print </span>statement. You can open the Debug window quickly by pressing CTRL+G.</p>
+<a NAME="4TipsonUsingtheImmediatePane"></a>
+<p CLASS="heading4OrgHeading2h2">Tips on Using the Immediate Pane</p>
+<p CLASS="Textttext">You can use the following shortcuts in the Immediate pane:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspOnce you've run a statement in the Immediate pane, you can run it again by putting the insertion point anywhere in the statement and pressing ENTER.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspBefore pressing ENTER, you can edit the statement in which the insertion point appears.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspYou can use the mouse or the arrow keys to move the insertion point in the Immediate pane. Press ENTER<span CLASS="KeyNamekn"> </span>only if the insertion point is on a statement you want to run.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspYou can use the PAGE UP and PAGE DOWN keys within the Immediate pane to move through your code one page at a time. Pressing CTRL+ END moves the insertion point to the end of the Immediate pane.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspYou can use the HOME key to move the insertion point to the beginning of the current line and the END key to move the insertion point to the end of the current line.</p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="ba07_8.htm" OnClick="SyncURL(&quot;chapters/ba07_8.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

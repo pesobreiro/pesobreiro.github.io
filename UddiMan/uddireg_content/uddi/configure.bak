@@ -1,0 +1,214 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+<META name="GENERATOR" content="IBM WebSphere Homepage Builder V5.0.1 for Windows">
+<title>Configuring the IBM WebSphere UDDI Registry</title>
+</head>
+
+<body>
+<H3><A href="index.htm#TOC6" name="configure">Configuring the UDDI Registry</A></H3>
+
+<P>You can configure the following aspects of the UDDI Registry:
+<ul>
+<li><a href="#global">Configuring global UDDI properties</a></li>
+<li><a href="#security">Configuring security properties</A></li>
+<li><a href="#guiprops">Configuring the UDDI User Console (GUI) for
+  multiple language encoding support</A></li>
+<li><a href="#soap">Configuring SOAP interface properties</A>
+</ul>
+<P>If you enable WebSphere security then to
+run the publish API servlet of the IBM WebSphere
+UDDI Registry, you also need to configure
+WebSphere to use HTTPS and SSL, as described
+in <a href="configssl.html#configssl">Configuring WebSphere to use HTTPS and SSL</a>
+</p>
+
+<h4><A name="global">Configuring global UDDI properties</A></h4>
+<P>
+To set the following global UDDI properties, 
+edit the properties file <tt>uddi.properties</tt>,
+which is in the properties subdirectory
+of the WebSphere install directory 
+(by default, <tt>&lt;WebSphere-install-dir&gt;\properties\uddi.properties</tt>):
+<ul>
+  <LI>The dbMaxResultCount, which is the limit
+  on the number of rows of information that
+  should be returned on Find requests, and
+  will apply if the request does not specify
+  a maxRows limit itself (or if it specifies
+  a limit which exceeds this value). The initial
+  value for this in uddi.properties is 100.
+  <LI>The default language to be used as the xml:lang
+  when one is not specified. The initial value
+  for this in uddi.properties is en-US. This property must contain one
+  of the valid xml:lang values.
+  <LI>The UDDI site operator name. This is a string
+  which is stored in every registry object,
+  to indicate the operator of the UDDI Registry.
+  The initial value for this in uddi.properties
+  is <tt>www.mycompany.com/uddi</tt>. This property does not have any particular
+  functional use, so its value can be set to
+  any string that you feel is suitable. However,
+  please note that you should set a suitable
+  value to this property <B><U>before</U></B> you first use the UDDI Registry as you must
+  keep it unchanged thereafter.
+  <LI>The maximum number of search keys that can
+  be used on find API requests. The initial
+  value for this in <tt>uddi.properties</tt> is 5.
+  <LI>The getServletURLprefix and getServletname
+  name, used to build up the discovery URL.
+  The initial value for these are <tt>http://localhost:9080/uddisoap</tt>/ and <tt>get</tt>.
+</ul>
+<P>In order for your changes to take effect,
+you must stop and restart the 'UDDI Registry'
+application using the WebSphere Administrative
+Console.</P>
+<H4><A name="pwd">Modifying the database userid and password</A></H4>
+<P>To set the database userid and password that
+will be used to access the UDDI Registry,
+you should alter the user and password values
+in the 'UDDI datasource', which can be edited
+from the WebSphere Administrative Console,
+where it can be found under the UDDI JDBC
+Driver, which is under JDBC Providers under
+Resources. Do not alter the databaseName.</P>
+<h4><A name="security">Configuring security properties</A></h4>
+<P>See <A href="configssl.html#configssl">Configuring WebSphere to use HTTPS and SSL
+</A> for details on configuring security properties.</P>
+<P>
+To run the publish API servlet of the IBM WebSphere UDDI Registry,
+you also need to configure WebSphere to use HTTPS and SSL, as described
+in 
+<a href="configssl.html#configssl">Configuring WebSphere to use HTTPS and SSL</a>
+</p>
+
+<h4><A name="guiprops">Configuring the UDDI User Console (GUI) for
+multiple language encoding support</A></h4>
+<P>If you want to use multiple language encoding
+support in the User Console (GUI), you need
+to set up a second application server with
+UTF-8 encoding enabled. To do this, you should
+perform the following steps (this assumes
+that you have already configured the second
+application server and virtual host port
+numbers - please refer to the WebSphere AE
+Infocenter for information on how to do this).</P>
+<OL>
+  <LI>In the WebSphere Application Server Administrative
+  Console, select the application server
+  to
+  change encoding properties on. (Nodes -&gt;
+  machine name -&gt; Application Servers)
+  <LI>Select the JVM Settings tab.
+  <LI>Scroll down to the 'Systems Properties' frame
+  and click on the '<I>Add</I>' button.
+  <LI>In the '<I>Name</I>' field enter '<B>client.encoding.override</B>' and in the '<I>Value</I>' field enter '<B>UTF-8</B>'. Click the '<I>Apply</I><I><B>' </B></I>button<I><B>.</B></I>
+  <LI>You may need to restart the application server
+  to ensure the settings take effect.
+</OL>
+<P>If you have installed the UDDI Registry application
+on the Default Server (this is where it will
+be installed by the UDDI Registry installation
+procedure) you need to move the UDDI User
+Console (gui.war) module to the UTF-8 enabled
+server. To do this:</P>
+<OL>
+  <LI>Select '<I>Installed Web Modules</I>' under Nodes -&gt; machine name -&gt; Application
+  Servers -&gt; Default Server
+  <LI>Select the '<I>UDDI User Console</I><U>'</U> module and right-click the mouse
+  <LI>Click 'Move...' and then choose the UTF-8
+  enabled server and click the '<I>OK</I>' button
+  <LI>In the '<I>Virtual Host</I>' pulldown list select the virtual host for
+  the UTF-8 enabled server and click the
+  '<I>Apply</I>' button
+</OL>
+<H4><A name="custgui">Customizing the UDDI User Console (GUI)</A></H4>
+<P>The look and feel of the UDDI User Console
+is provided by JSP pages, which can be customized
+by a programmer who is familiar with JSPs.
+The JSP pages are found in the uddi.ear enterprise
+application, which is under the installedApps
+subdirectory of the WebSphere AppServer installation.
+To locate the JSPs, you should expand the
+UDDI_Registry.ear, open the gui.war, and
+they are located under WEB-INF in the pages
+subdirectory. So, on a Windows system which
+has WebSphere installed in the default location,
+the JSP files will be found in &quot;&lt;WebSphere-install-dir&gt;\installedApps\UDDI_Registry.ear\gui.war\WEB-INF\pages&quot;.
+These JSP pages also contain some application
+logic (as opposed to presentation logic)
+which should not be changed.</P>
+<H4><A name="soap">Configuring SOAP interface properties</A></H4>
+
+ <P>You can configure the following SOAP interface properties
+<uL>
+  <LI><I>defaultPoolSize</I> - the number of SOAP parsers with which
+  to initialize the parser pool for the SOAP
+  interface. The can be set independently for
+  the Publish (uddipublish) and Inquiry (uddi)
+  APIs. For example, if you expect more inquiries
+  than publish requests via the SOAP interface,
+  you can set a larger pool size for the Inquiry
+  API. The default initial size for both APIs
+  is 10.
+  <LI>The <I>context root</I> used for the Publish and Inquiry APIs, which
+  forms a part of the URL by which they are
+  accessed. By default this is /uddisoap.
+  <LI>Whether the API is to be secure (via HTTPS)
+  or insecure (via HTTP). The default is
+  to
+  use HTTPS.
+  </uL>
+ <P>To configure the following SOAP interface properties, you can use
+ either of the following methods, as described below:</P>
+  <uL>
+    <LI><a href="#runatt">Running the WebSphere Application Assembly Tool (AAT)</a>
+	(the recommended option, especially for a production environment)
+    <LI><a href="#editdd">Editing the deployment descriptor</a> for the
+    SOAP module in the UDDI application directly.
+    <P>This option is faster and may be the preferred
+  method in a test environment.</P>
+	</li>
+</ul>
+<H4><A name="runatt">Configuring SOAP properties with the AAT</A></H4>
+<p>
+To configure SOAP properties by using the WebSphere Application Assembly tool,
+complete the following steps:
+<UL>
+  <LI>Select <I>Update</I> and click on the Application icon.
+  <LI>Select the <I>uddi.ear</I> file (this is placed, by the UDDI installation,
+  into the UDDI install directory (e.g. C:\WebSphere\UDDIReg\uddi.ear).
+  <LI>Expand the <I>uddi.ear</I>&nbsp;icon on the left hand pane in the AAT.
+  <LI>Expand the <I>Web Modules</I> tree.
+  <LI>Expand the <I>uddi Soap&nbsp;</I>tree.
+  <LI>To change the <I>defaultPoolSize, </I>expand Web Components and then <I>uddipublish</I> (for the publish API) or <I>uddi</I> (for the inquiry API).
+  <UL>
+    <LI>Click on <I>Initialization Parameters</I> which will show the <I>defaultPoolSize</I> parameter in the upper right hand pane.
+    This can be edited in the lower right-hand pane.
+  </UL>
+  <LI>To change the <I>context root</I>, click on <I>UDDI Soap</I> which will display general information about
+  the SOAP module in the lower right hand pane
+  in AAT. The <I>context root</I> can be edited in this pane.
+  <LI>To change the publish API to use HTTP (instead
+  of HTTPS), click on <I>Security Constraints</I> and change the <I>Transport Guarantee</I> from Confidential to none.
+  <LI>Having made any changes above, you must now
+  save them. To do this, click on <I>File -&gt; Save (or Save As)</I> to save your changes.
+  <LI>Redeploy the <I>uddi.ear</I> to WebSphere, by first removing it and reinstalling
+  it via the Administrator's Console.</UL>
+<H4><A href="#TOC14" name="editdd">Configuring SOAP properties in the deployment descriptor</a></H4>
+<p>
+To configure SOAP properties by using the WebSphere Application Assembly tool,
+complete the following steps:
+<oL>
+  <LI>Use Windows Explorer to find the <I>WEB-INF subdirectory</I> of the UDDI-ear application in the installed
+  applications within the WebSphere install
+  directory (e.g. C:\WebSphere\AppServer\installedApps\uddi.ear\soap.war\WEB-INF).
+  <LI>The deployment descriptor for the SOAP module
+  (<I>web.xml) </I>is found in this directory. It can be edited
+  directly to specify the desired settings.
+  <LI>Stop and restart the WebSphere server for
+  the changes to take effect.
+</oL>
+</body>
+</html>

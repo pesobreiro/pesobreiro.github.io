@@ -1,0 +1,266 @@
+<HTML>
+<HEAD>
+<TITLE>
+</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="objintro.htm">Previous</A>
+ | <A HREF="applet.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT><BR><BR>
+<HR>
+
+<H1><A NAME="Anchor"></A>
+<A NAME="1193137">
+ Anchor
+</A></H1>
+<A NAME="1193147">
+A place in a document that is the target of a hypertext link.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193140">
+<I>Client-side object</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193142">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193144">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195906">
+JavaScript 1.0</A></P><P><A NAME="1195913">
+</A></P><P><A NAME="1195928">
+JavaScript 1.2: added <A HREF="anchor.htm#1194892"><CODE>name</CODE></A>, <A HREF="anchor.htm#1195585"><CODE>text</CODE></A>, <A HREF="anchor.htm#1195010"><CODE>x</CODE></A>, and <A HREF="anchor.htm#1195074"><CODE>y</CODE></A> properties</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194283">
+ Created by
+</A></H4>
+
+<A NAME="1194289">
+Using the HTML <CODE><A HREF="http://developer.netscape.com/docs/manuals/htmlguid/index.htm?content=tags7.htm#tags:A" TARGET="_top">A</A></CODE> tag or calling the <A HREF="string.htm#1196382"><CODE>String.anchor</CODE></A> method. The JavaScript runtime engine creates an <CODE>Anchor</CODE> object corresponding to each <CODE>A</CODE> tag in your document that supplies the <CODE>NAME</CODE> attribute. It puts these objects in an array in the <A HREF="document.htm#1193482"><CODE>document.anchors</CODE></A> property. You access an <CODE>Anchor</CODE> object by indexing this array.</A></P>
+<A NAME="1193161">
+To define an anchor with the <A HREF="string.htm#1196382"><CODE>String.anchor</CODE></A> method:</A></P>
+<PRE><A NAME="1193162"><I>theString</I>.anchor(<I>nameAttribute</I>)</A></PRE><A NAME="1193175">
+<VAR>where:</VAR><TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193446">theString</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193451">
+A <A HREF="string.htm#1193137"><CODE>String</CODE></A> object.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193453">nameAttribute</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193455">
+A string.</A></P>
+
+</TABLE>
+</A></P>
+<A NAME="1193176">
+To define an anchor with the <CODE>A</CODE> tag, use standard HTML syntax. If you specify the <CODE>NAME</CODE> attribute, you can use the value of that attribute to index into the <CODE>anchors</CODE> array.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193177">
+ Description
+</A></H4>
+
+<A NAME="1193178">
+If an <CODE>Anchor</CODE> object is also a <CODE>Link</CODE> object, the object has entries in both the <CODE>anchors</CODE> and <CODE>links</CODE> arrays.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194025">
+ Property Summary
+</A></H4>
+
+<A NAME="1194863">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1194676">
+<B>Property
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1194678">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1194683"><A HREF="anchor.htm#1194892"><CODE>name</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1194685">
+A string specifying the anchor's name.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1195186"><A HREF="anchor.htm#1195585"><CODE>text</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1195188">
+A string specifying the text of an anchor.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1195193"><A HREF="anchor.htm#1195010"><CODE>x</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1195195">
+The horizontal position of the anchor's left edge, in pixels, relative to the left edge of the document.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1195200"><A HREF="anchor.htm#1195074"><CODE>y</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1195202">
+The vertical position of the anchor's top edge, in pixels, relative to the top edge of the document.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193181">
+ Method Summary
+</A></H4>
+
+<A NAME="1193849">
+This object inherits the <A HREF="object.htm#1193628"><CODE>watch</CODE></A> and <A HREF="object.htm#1193499"><CODE>unwatch</CODE></A> methods from <A HREF="object.htm#1193136"><CODE>Object</CODE></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193183">
+ Examples
+</A></H4>
+
+<A NAME="1193184">
+<B>Example 1: An anchor.</B> The following example defines an anchor for the text "Welcome to JavaScript":</A></P>
+<PRE><A NAME="1193185">&lt;A NAME="javascript_intro"&gt;&lt;H2&gt;Welcome to JavaScript&lt;/H2&gt;&lt;/A&gt;</A></PRE><A NAME="1193186">
+If the preceding anchor is in a file called <CODE>intro.html</CODE>, a link in another file could define a jump to the anchor as follows:</A></P>
+<PRE><A NAME="1193187">&lt;A HREF="intro.html#javascript_intro"&gt;Introduction&lt;/A&gt;</A></PRE><A NAME="1193188">
+<B>Example 2: anchors array.</B> The following example opens two windows. The first window contains a series of buttons that set <CODE>location.hash</CODE> in the second window to a specific anchor. The second window defines four anchors named "0," "1," "2," and "3." (The anchor names in the document are therefore 0, 1, 2, ... (document.anchors.length-1).) When a button is pressed in the first window, the <CODE>onClick</CODE> event handler verifies that the anchor exists before setting <CODE>window2.location.hash</CODE> to the specified anchor name.</A></P>
+<A NAME="1193189">
+<CODE>link1.html</CODE>, which defines the first window and its buttons, contains the following code:</A></P>
+<PRE><A NAME="1193190">&lt;HTML&gt;<br>&lt;HEAD&gt;<br>&lt;TITLE&gt;Links and Anchors: Window 1&lt;/TITLE&gt;<br>&lt;/HEAD&gt;<br>&lt;BODY&gt;<br>&lt;SCRIPT&gt;<br>window2=open("link2.html","secondLinkWindow",<br>&nbsp;&nbsp;&nbsp;"scrollbars=yes,width=250, height=400")<br>function linkToWindow(num) {<br>&nbsp;&nbsp;&nbsp;if (window2.document.anchors.length &gt; num)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window2.location.hash=num<br>&nbsp;&nbsp;&nbsp;else<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert("Anchor does not exist!")<br>}<br>&lt;/SCRIPT&gt;</A></PRE><PRE><A NAME="1194342">&lt;B&gt;Links and Anchors&lt;/B&gt;<br>&lt;FORM&gt;<br>&lt;P&gt;Click a button to display that anchor in window #2<br>&lt;P&gt;&lt;INPUT TYPE="button" VALUE="0" NAME="link0_button"<br>&nbsp;&nbsp;&nbsp;onClick="linkToWindow(this.value)"&gt;<br>&lt;INPUT TYPE="button" VALUE="1" NAME="link0_button"<br>&nbsp;&nbsp;&nbsp;onClick="linkToWindow(this.value)"&gt;<br>&lt;INPUT TYPE="button" VALUE="2" NAME="link0_button"<br>&nbsp;&nbsp;&nbsp;onClick="linkToWindow(this.value)"&gt;<br>&lt;INPUT TYPE="button" VALUE="3" NAME="link0_button"<br>&nbsp;&nbsp;&nbsp;onClick="linkToWindow(this.value)"&gt;<br>&lt;INPUT TYPE="button" VALUE="4" NAME="link0_button"<br>&nbsp;&nbsp;&nbsp;onClick="linkToWindow(this.value)"&gt;<br>&lt;/FORM&gt;<br>&lt;/BODY&gt;<br>&lt;/HTML&gt;</A></PRE><A NAME="1193191">
+<CODE>link2.html</CODE>, which contains the anchors, contains the following code:</A></P>
+<PRE><A NAME="1193192">&lt;HTML&gt;<br>&lt;HEAD&gt;<br>&lt;TITLE&gt;Links and Anchors: Window 2&lt;/TITLE&gt;<br>&lt;/HEAD&gt;<br>&lt;BODY&gt;<br>&lt;A NAME="0"&gt;&lt;B&gt;Some numbers&lt;/B&gt; (Anchor 0)&lt;/A&gt;<br>&lt;UL&gt;&lt;LI&gt;one<br>&lt;LI&gt;two<br>&lt;LI&gt;three<br>&lt;LI&gt;four&lt;/UL&gt;<br>&lt;P&gt;&lt;A NAME="1"&gt;&lt;B&gt;Some colors&lt;/B&gt; (Anchor 1)&lt;/A&gt;<br>&lt;UL&gt;&lt;LI&gt;red<br>&lt;LI&gt;orange<br>&lt;LI&gt;yellow<br>&lt;LI&gt;green&lt;/UL&gt;<br>&lt;P&gt;&lt;A NAME="2"&gt;&lt;B&gt;Some music types&lt;/B&gt; (Anchor 2)&lt;/A&gt;<br>&lt;UL&gt;&lt;LI&gt;R&amp;B<br>&lt;LI&gt;Jazz<br>&lt;LI&gt;Soul<br>&lt;LI&gt;Reggae<br>&lt;LI&gt;Rock&lt;/UL&gt;<br>&lt;P&gt;&lt;A NAME="3"&gt;&lt;B&gt;Some countries&lt;/B&gt; (Anchor 3)&lt;/A&gt;<br>&lt;UL&gt;&lt;LI&gt;Afghanistan<br>&lt;LI&gt;Brazil<br>&lt;LI&gt;Canada<br>&lt;LI&gt;Finland<br>&lt;LI&gt;India&lt;/UL&gt;<br>&lt;/BODY&gt;<br>&lt;/HTML&gt;</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193196">
+ See also
+</A></H4>
+
+<A NAME="1193200">
+<A HREF="link.htm#1193137"><CODE>Link</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1194892">
+name
+</A></H2>
+
+<A NAME="1194893">
+A string specifying the anchor's name.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194896">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194901">
+<A HREF="anchor.htm#1193137"><CODE>Anchor</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195338">
+<I>Read-only</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195340">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194903">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194905">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194906">
+ Description
+</A></H4>
+
+<A NAME="1194907">
+The <CODE>name</CODE> property reflects the value of the <CODE>NAME</CODE> attribute.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195580">
+ Examples
+</A></H4>
+
+<A NAME="1195581">
+The following example displays the name of the first anchor in a document:</A></P>
+<PRE><A NAME="1195582">alert("The first anchor is " + document.anchors[0].name)</A></PRE>
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1195585">
+text
+</A></H2>
+
+<A NAME="1194968">
+A string specifying the text of an anchor.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194958">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194963">
+<A HREF="anchor.htm#1193137"><CODE>Anchor</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195346">
+<I>Read-only</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195348">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194965">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194967">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194969">
+ Description
+</A></H4>
+
+<A NAME="1194970">
+The <CODE>text</CODE> property specifies the string that appears within the <CODE>A</CODE> tag.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194977">
+ Examples
+</A></H4>
+
+<A NAME="1195593">
+The following example displays the text of the first anchor in a document:</A></P>
+<PRE><A NAME="1195594">alert("The text of the first anchor is " + document.anchors[0].text)</A></PRE>
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1195010">
+x
+</A></H2>
+
+<A NAME="1195023">
+The horizontal position of the anchor's left edge, in pixels, relative to the left edge of the document.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195013">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195018">
+<A HREF="anchor.htm#1193137"><CODE>Anchor</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195354">
+<I>Read-only</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195356">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195020">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195022">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195037">
+ See also
+</A></H4>
+
+<A NAME="1195047">
+<A HREF="anchor.htm#1195074"><CODE>Anchor.y</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1195074">
+y
+</A></H2>
+
+<A NAME="1195087">
+The vertical position of the anchor's top edge, in pixels, relative to the top edge of the document.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195077">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195082">
+<A HREF="anchor.htm#1193137"><CODE>Anchor</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195362">
+<I>Read-only</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195364">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195084">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195086">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195137">
+ See also
+</A></H4>
+
+<A NAME="1195141">
+<A HREF="anchor.htm#1195010"><CODE>Anchor.x</CODE></A></A></P>
+
+<HR>
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="objintro.htm">Previous</A>
+ | <A HREF="applet.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT>
+<P ALIGN=right>
+<FONT SIZE=-2><I>Last Updated:  05/28/99  11:58:58</I></FONT>
+<P> <CENTER>Copyright (c) 1999
+<A HREF="http://home.netscape.com/misc/contact_info.html"
+TARGET=_top>Netscape Communications Corporation</A></FONT>
+</CENTER>
+<P>
+</BODY>
+</HTML>
+
+

@@ -1,0 +1,123 @@
+<HTML>
+<HEAD>
+<TITLE>
+</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="classint.htm">Previous</A>
+ | <A HREF="lcjsobj.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT><BR><BR>
+<HR>
+
+<H1><A NAME="JSException"></A>
+<A NAME="1193143">
+ JSException
+</A></H1>
+<A NAME="1194624">
+The public class <CODE>JSException</CODE> extends <CODE>Exception</CODE>.</A></P>
+<PRE><A NAME="1194625">java.lang.Object<br>&nbsp;&nbsp;&nbsp;|<br>&nbsp;&nbsp;&nbsp;+----java.lang.Throwable<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+----java.lang.Exception<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+----netscape.javascript.JSException</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194181">
+ Description
+</A></H4>
+
+<A NAME="1194182">
+<CODE>JSException</CODE> is an exception which is thrown when JavaScript code returns an error.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193147">
+ Constructor Summary
+</A></H4>
+
+<A NAME="1193148">
+The <CODE>netscape.javascript.JSException</CODE> class has the following constructors:</A></P>
+<A NAME="1193544">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1193151">
+<B>Constructor
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1193153">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193158"><A HREF="lcjsexc.htm#1193164"><CODE>JSException</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1194651">
+Constructs a <CODE>JSException.</CODE> You specify whether the <CODE>JSException</CODE> has a detail message and other information.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+<A NAME="1194110">
+The following sections show the declaration and usage of the constructors.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193164">
+JSException
+</A></H2>
+
+<A NAME="1194716">
+Constructor. Constructs a <CODE>JSException</CODE>. You specify whether the <CODE>JSException</CODE> has a detail message and other information.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193166">
+ Declaration
+</A></H4>
+
+<PRE><A NAME="1194438">1. public JSException()</A></PRE><PRE><A NAME="1194422">2. public JSException(String s)</A></PRE><PRE><A NAME="1194423">3. public JSException(String s,<br>&nbsp;&nbsp;&nbsp;String filename,<br>&nbsp;&nbsp;&nbsp;int lineno,<br>&nbsp;&nbsp;&nbsp;String source,<br>&nbsp;&nbsp;&nbsp;int tokenIndex)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193170">
+ Arguments
+</A></H4>
+
+<A NAME="1193192">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1194467">s</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1194469">
+The detail message.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1194463">filename</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1194465">
+The URL of the file where the error occurred, if possible.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1194459">lineno</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1194461">
+The line number if the file, if possible.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1194455">source</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1194457">
+The string containing the JavaScript code being evaluated.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1194451">tokenIndex</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1194453">
+The index into the source string where the error occurred.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194728">
+ Description
+</A></H4>
+
+<A NAME="1194735">
+A detail message is a string that describes this particular exception.</A></P>
+<A NAME="1194729">
+Each form constructs a <CODE>JSException</CODE> with different information:</A></P>
+<ul><P><LI><A NAME="1194730">
+Form 1 of the declaration constructs a <CODE>JSException</CODE> without a detail message.</A></LI>
+<P><LI><A NAME="1194731">
+Form 2 of the declaration constructs a <CODE>JSException</CODE> with a detail message.</A></LI>
+<P><LI><A NAME="1194732">
+Form 3 of the declaration constructs a <CODE>JSException</CODE> with a detail message and all the other information that usually comes with a JavaScript error.</A></LI>
+</ul>
+<HR>
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="classint.htm">Previous</A>
+ | <A HREF="lcjsobj.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT>
+<P ALIGN=right>
+<FONT SIZE=-2><I>Last Updated:  05/28/99  12:01:19</I></FONT>
+<P> <CENTER>Copyright (c) 1999
+<A HREF="http://home.netscape.com/misc/contact_info.html"
+TARGET=_top>Netscape Communications Corporation</A></FONT>
+</CENTER>
+<P>
+</BODY>
+</HTML>
+
+

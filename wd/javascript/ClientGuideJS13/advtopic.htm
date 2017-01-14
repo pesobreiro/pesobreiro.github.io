@@ -1,0 +1,264 @@
+<HTML>
+<HEAD>
+<TITLE>Additional Topics
+</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="windows.htm">Previous</A>
+ | <A HREF="sec.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT><BR><BR>
+<HR>
+<A NAME="1001595">
+<P></A><CENTER><H2>Chapter 13<BR>
+<A NAME="996824">
+Additional Topics</A></H2></CENTER>
+<A NAME="997436">
+This chapter describes some special concepts and applications that extend the power and flexibility of JavaScript.</A></P>
+<A NAME="1016959">
+This chapter contains the following sections:</A></P>
+<ul><LI><A NAME="1017018">
+<A HREF="advtopic.htm#1004952">Using JavaScript URLs</A>
+</A></LI><LI><A NAME="1017022">
+<A HREF="advtopic.htm#1006105">Using Client-Side Image Maps</A>
+</A></LI><LI><A NAME="1017026">
+<A HREF="advtopic.htm#1006224">Using Server-Side Image Maps</A>
+</A></LI><LI><A NAME="1014408">
+<A HREF="advtopic.htm#1006028">Using the Status Bar</A>
+</A></LI><LI><A NAME="1014413">
+<A HREF="advtopic.htm#1017771">Using Cookies</A>
+</A></LI><LI><A NAME="1014423">
+<A HREF="advtopic.htm#1012507">Determining Installed Plug-ins</A>
+</A></LI></ul>
+<HR><H2><A NAME="Using JavaScript URLs"></A>
+<A NAME="1004952">
+ Using JavaScript URLs
+</A></H2><A NAME="1006101">
+You are probably familiar with the standard types of URLs: <CODE>http:</CODE>, <CODE>ftp:</CODE>, <CODE>file:</CODE>, and so on. With Navigator, you can also use URLs of type <CODE>javascript:</CODE> to execute JavaScript statements instead of loading a document. You simply use a string beginning with <CODE>javascript:</CODE> as the value for the <CODE>HREF</CODE> attribute of anchor tags. For example, you can define the following hyperlink to reload the current page when the user clicks it:</A></P>
+<PRE><A NAME="1006111">&lt;A HREF="javascript:history.go(0)"&gt;Reload Now&lt;/A&gt;</A></PRE><A NAME="1006112">
+In general, you can put any statements or function calls after the <CODE>javascript:</CODE> URL prefix.</A></P>
+<A NAME="1006113">
+You can use JavaScript URLs in many ways to add functionality to your applications. For example, you could increment a counter <CODE>p1</CODE> in a parent frame whenever a user clicks a link, using the following function:</A></P>
+<PRE><A NAME="1006127">function countJumps() {<br>&nbsp;&nbsp;&nbsp;parent.p1++<br>&nbsp;&nbsp;&nbsp;window.location=page1<br>}</A></PRE><A NAME="1007950">
+To call the function, use a JavaScript URL in a standard HTML hyperlink:</A></P>
+<PRE><A NAME="1007937">&lt;A HREF="javascript:countJumps()"&gt;Page 1&lt;/A&gt;</A></PRE><A NAME="1006109">
+This example assumes <CODE>page1</CODE> is a string representing a URL.</A></P>
+<A NAME="1013346">
+If the value of the expression following a <CODE>javascript:</CODE> URL prefix evaluates to undefined, no new document is loaded. If the expression evaluates to a defined type, the value is converted to a string that specifies the source of the document to load.</A></P>
+
+<HR><H2><A NAME="Using Client-Side Image Maps"></A>
+<A NAME="1006105">
+ Using Client-Side Image Maps
+</A></H2><A NAME="1006034">
+A client-side image map is defined with the <CODE>MAP</CODE> tag. You can define areas within the image that are hyperlinks to distinct URLs; the areas can be rectangles, circles, or polygons. </A></P>
+<A NAME="1006168">
+Instead of standard URLs, you can also use JavaScript URLs in client-side image maps, for example,</A></P>
+<PRE><A NAME="1006059">&lt;MAP NAME="buttonbar"&gt;<br>&lt;AREA SHAPE="RECT" COORDS="0,0,16,14" <br>&nbsp;&nbsp;&nbsp;HREF ="javascript:top.close(); window.location = newnav.html"&gt;<br>&lt;AREA SHAPE="RECT" COORDS="0,0,85,46" <br>&nbsp;&nbsp;&nbsp;HREF="contents.html" target="javascript:alert(`Loading <br>&nbsp;&nbsp;&nbsp;Contents.'); top.location = contents.html"&gt;<br>&lt;/MAP&gt;</A></PRE>
+<HR><H2><A NAME="Using Server-Side Image Maps"></A>
+<A NAME="1006224">
+ Using Server-Side Image Maps
+</A></H2><A NAME="1013514">
+Client-side image maps provide functionality to perform most tasks, but standard (sometimes called server-side) image maps provide even more flexibility. You specify a standard image map with the <CODE>ISMAP</CODE> attribute of an <CODE>IMG</CODE> tag that is a hyperlink. For example,</A></P>
+<PRE><A NAME="1006271">&lt;A HREF="img.html"&gt;&lt;IMG SRC="about:logo" BORDER=0 ISMAP&gt;&lt;/A&gt;</A></PRE><A NAME="1006246">
+When you click an image with the <CODE>ISMAP</CODE> attribute, Navigator requests a URL of the form</A></P>
+<PRE><A NAME="1006228">URL?x,y</A></PRE><A NAME="1014987">
+where <CODE>URL</CODE> is the document specified by the value of the <CODE>HREF</CODE> attribute, and <CODE>x</CODE> and <CODE>y</CODE> are the horizontal and vertical coordinates of the mouse pointer (in pixels from the top-left of the image) when you clicked. (The "about:logo" image is built in to Navigator and displays the Netscape logo.)</A></P>
+<A NAME="1008389">
+Traditionally, image-map requests are sent to servers, and a CGI program performs a database lookup function. With client-side JavaScript, however, you can perform the lookup on the client. You can use the <CODE>search</CODE> property of the <CODE>location</CODE> object to parse the <CODE>x</CODE> and <CODE>y</CODE> coordinates and perform an action accordingly. For example, suppose you have a file named <CODE>img.html</CODE> with the following content:</A></P>
+<PRE><A NAME="1006279">&lt;H1&gt;Click on the image&lt;/H1&gt;<br>&lt;P&gt;<br>&lt;A HREF="img.html"&gt;&lt;IMG SRC="about:logo" BORDER=0 ISMAP&gt;&lt;/A&gt;<br>&lt;SCRIPT&gt;<br>str = location.search<br>if (str == "") <br>&nbsp;&nbsp;&nbsp;document.write("&lt;P&gt;No coordinates specified.")<br>else {<br>&nbsp;&nbsp;&nbsp;commaloc = str.indexOf(",") // the location of the comma<br>&nbsp;&nbsp;&nbsp;document.write("&lt;P&gt;The x value is " + str.substring(1, commaloc))<br>&nbsp;&nbsp;&nbsp;document.write("&lt;P&gt;The y value is " + <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str.substring(commaloc+1, str.length))<br>}<br>&lt;/SCRIPT&gt;</A></PRE><A NAME="1006748">
+When you click a part of the image, Navigator reloads the page (because the <CODE>HREF</CODE> attribute specifies the same document), adding the <CODE>x</CODE> and <CODE>y</CODE> coordinates of the mouse click to the URL. The statements in the <CODE>else</CODE> clause then display the <CODE>x</CODE> and <CODE>y</CODE> coordinates. In practice, you could redirect to another page (by setting location) or perform some other action based on the values of <CODE>x</CODE> and <CODE>y</CODE>.</A></P>
+
+<HR><H2><A NAME="Using the Status Bar"></A>
+<A NAME="1006028">
+ Using the Status Bar
+</A></H2><A NAME="1006029">
+You can use two <CODE>window</CODE> properties, <CODE>status</CODE> and <CODE>defaultStatus</CODE>, to display messages in the Navigator status bar at the bottom of the window. Navigator normally uses the status bar to display such messages as "Contacting Host..." and "Document: Done." The <CODE>defaultStatus</CODE> message appears when nothing else is in the status bar. The <CODE>status</CODE> property displays a transient message in the status bar, such as when the user moves the mouse pointer over a link. </A></P>
+<A NAME="1006353">
+You can set these properties to display custom messages. For example, to display a custom message after the document has finished loading, simply set <CODE>defaultStatus</CODE>. For example,</A></P>
+<PRE><A NAME="1006402">defaultStatus = "Some rise, some fall, some climb...to get to Terrapin"</A></PRE>
+<H3><A NAME="Head2;"></A>
+<A NAME="1006409">
+ Creating Hints with onMouseOver and onMouseOut
+</A></H3>
+
+<A NAME="1006423">
+By default, when you move the mouse pointer over a hyperlink, the status bar displays the destination URL of the link. You can set <CODE>status</CODE> in the <CODE>onMouseOut</CODE> and <CODE>onMouseOver</CODE> event handlers of a hyperlink or image area to display hints in the status bar instead. The event handler must return true to set <CODE>status</CODE>. For example, </A></P>
+<PRE><A NAME="1006412">&lt;A HREF="contents.html"<br>&nbsp;&nbsp;&nbsp;onMouseOver="window.status='Click to display contents';return true"&gt;<br>Contents<br>&lt;/A&gt;</A></PRE><A NAME="1017768">
+This example displays the hint "Click to display contents" in the status bar when you move the mouse pointer over the link.</A></P>
+
+<HR><H2><A NAME="Using Cookies"></A>
+<A NAME="1017771">
+ Using Cookies
+</A></H2><A NAME="1017773">
+Netscape <I>cookies</I> are a mechanism for storing persistent data on the client in a file called <CODE>cookies.txt</CODE>. Because HyperText Transport Protocol (HTTP) is a stateless protocol, cookies provide a way to maintain information between client requests. This section discusses basic uses of cookies and illustrates with a simple example. For a complete description of cookies, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsref/index.htm" TARGET="_top"><I>Client-Side JavaScript Reference</I></A>.</A></P>
+<A NAME="1013108">
+Each cookie is a small item of information with an optional expiration date and is added to the cookie file in the following format:</A></P>
+<PRE><A NAME="1013109">name=value;expires=expDate;</A></PRE><A NAME="1013111">
+<CODE>name</CODE> is the name of the datum being stored, and <CODE>value</CODE> is its value. If <CODE>name</CODE> and <CODE>value</CODE> contain any semicolon, comma, or blank (space) characters, you must use the <CODE>escape</CODE> function to encode them and the <CODE>unescape</CODE> function to decode them.</A></P>
+<A NAME="1013117">
+<CODE>expDate</CODE> is the expiration date, in GMT date format:</A></P>
+<PRE><A NAME="1013118">Wdy, DD-Mon-YY HH:MM:SS GMT</A></PRE><A NAME="1013119">
+Although it's slightly different from this format, the date string returned by the <CODE>Date</CODE> method <CODE>toGMTString</CODE> can be used to set cookie expiration dates.</A></P>
+<A NAME="1013122">
+The expiration date is an optional parameter indicating how long to maintain the cookie. If <CODE>expDate</CODE> is not specified, the cookie expires when the user exits the current Navigator session. Navigator maintains and retrieves a cookie only if its expiration date has not yet passed. </A></P>
+<A NAME="1014850">
+For more information on <CODE>escape</CODE> and <CODE>unescape</CODE>, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsref/index.htm" TARGET="_top"><I>Client-Side JavaScript Reference</I></A>.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1013124">
+ Limitations
+</A></H3>
+
+<A NAME="1013125">
+Cookies have these limitations:</A></P>
+<ul><P><LI><A NAME="1013126">
+300 total cookies in the cookie file.</A></LI>
+<P><LI><A NAME="1013127">
+4 Kbytes per cookie, for the sum of both the cookie's name and value. </A></LI>
+<P><LI><A NAME="1013128">
+20 cookies per server or domain (completely specified hosts and domains are treated as separate entities and have a 20-cookie limitation for each, not combined).</A></LI>
+</ul><A NAME="1013129">
+Cookies can be associated with one or more directories. If your files are all in one directory, then you need not worry about this. If your files are in multiple directories, you may need to use an additional path parameter for each cookie. For more information, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsref/index.htm" TARGET="_top"><I>Client-Side JavaScript Reference</I></A>.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1013134">
+ Using Cookies with JavaScript
+</A></H3>
+
+<A NAME="1013135">
+The <CODE>document.cookie</CODE> property is a string that contains all the names and values of Navigator cookies. You can use this property to work with cookies in JavaScript.</A></P>
+<A NAME="1013136">
+Here are some basic things you can do with cookies:</A></P>
+<ul><P><LI><A NAME="1013137">
+Set a cookie value, optionally specifying an expiration date.</A></LI>
+<P><LI><A NAME="1013138">
+Get a cookie value, given the cookie name.</A></LI>
+</ul><A NAME="1014868">
+It is convenient to define functions to perform these tasks. Here, for example, is a function that sets cookie values and expiration:</A></P>
+<PRE><A NAME="1013140">// Sets cookie values. Expiration date is optional<br>//<br>function setCookie(name, value, expire) {<br>&nbsp;&nbsp;&nbsp;document.cookie = name + "=" + escape(value)<br>&nbsp;&nbsp;&nbsp;+ ((expire == null) ? "" : ("; expires=" + expire.toGMTString()))<br>}</A></PRE><A NAME="1013142">
+Notice the use of <CODE>escape</CODE> to encode special characters (semicolons, commas, spaces) in the value string. This function assumes that cookie names do not have any special characters.</A></P>
+<A NAME="1013143">
+The following function returns a cookie value, given the name of the cookie:</A></P>
+<PRE><A NAME="1013144">function getCookie(Name) {<br>&nbsp;&nbsp;&nbsp;var search = Name + "="<br>&nbsp;&nbsp;&nbsp;if (document.cookie.length &gt; 0) { // if there are any cookies<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;offset = document.cookie.indexOf(search) <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (offset != -1) { // if cookie exists <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;offset += search.length <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// set index of beginning of value<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end = document.cookie.indexOf(";", offset) <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// set index of end of cookie value<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (end == -1) <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end = document.cookie.length<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return unescape(document.cookie.substring(offset, end))<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} <br>&nbsp;&nbsp;&nbsp;}<br>}</A></PRE><A NAME="1013146">
+Notice the use of <CODE>unescape</CODE> to decode special characters in the cookie value.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1013148">
+ Using Cookies: an Example
+</A></H3>
+
+<A NAME="1013149">
+Using the cookie functions defined in the previous section, you can create a simple page users can fill in to "register" when they visit your page. If they return to your page within a year, they will see a personal greeting. </A></P>
+<A NAME="1013150">
+You need to define one additional function in the HEAD of the document. This function, <CODE>register</CODE>, creates a cookie with the name <CODE>TheCoolJavaScriptPage</CODE> and the value passed to it as an argument.</A></P>
+<PRE><A NAME="1013151">function register(name) {<br>&nbsp;&nbsp;&nbsp;var today = new Date()<br>&nbsp;&nbsp;&nbsp;var expires = new Date()<br>&nbsp;&nbsp;&nbsp;expires.setTime(today.getTime() + 1000*60*60*24*365)<br>&nbsp;&nbsp;&nbsp;setCookie("TheCoolJavaScriptPage", name, expires)<br>}</A></PRE><A NAME="1013152">
+The BODY of the document uses <CODE>getCookie</CODE> (defined in the previous section) to check whether the cookie for <CODE>TheCoolJavaScriptPage</CODE> exists and displays a greeting if it does. Then there is a form that calls <CODE>register</CODE> to add a cookie. The <CODE>onClick</CODE> event handler also calls <CODE>history.go(0)</CODE> to redraw the page.</A></P>
+<PRE><A NAME="1013154">&lt;BODY&gt;<br>&lt;H1&gt;Register Your Name with the Cookie-Meister&lt;/H1&gt;<br>&lt;P&gt;<br>&lt;SCRIPT&gt;<br>var yourname = getCookie("TheCoolJavaScriptPage") <br>if (yourname != null)<br>&nbsp;&nbsp;&nbsp;document.write("&lt;P&gt;Welcome Back, ", yourname)<br>else<br>&nbsp;&nbsp;&nbsp;document.write("&lt;P&gt;You haven't been here in the last year...")<br>&lt;/SCRIPT&gt;</A></PRE><PRE><A NAME="1013155">&lt;P&gt; Enter your name. When you return to this page within a year, you will be greeted with a personalized greeting. <br>&lt;BR&gt;<br>&lt;FORM onSubmit="return false"&gt;<br>Enter your name: &lt;INPUT TYPE="text" NAME="username" SIZE= 10&gt;&lt;BR&gt;<br>&lt;INPUT TYPE="button" value="Register"<br>&nbsp;&nbsp;&nbsp;onClick="register(this.form.username.value); history.go(0)"&gt;<br>&lt;/FORM&gt;</A></PRE>
+<HR><H2><A NAME="Determining Installed Plug-ins"></A>
+<A NAME="1012507">
+ Determining Installed Plug-ins
+</A></H2><A NAME="1012511">
+You can use JavaScript to determine whether a user has installed a particular plug-in; you can then display embedded plug-in data if the plug-in is installed, or display some alternative information (for example, an image or text) if it is not. You can also determine whether a client is capable of handling a particular MIME (Multipart Internet Mail Extension) type. This section introduces the objects and properties needed for handling plug-ins and MIME types. For more detailed information on these objects and properties, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsref/index.htm" TARGET="_top"><I>Client-Side JavaScript Reference</I></A>.</A></P>
+<A NAME="1008429">
+The <CODE>navigator </CODE>object has two properties for checking installed plug-ins: the <CODE>mimeTypes</CODE> array and the <CODE>plugins</CODE> array.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1008555">
+ mimeTypes Array
+</A></H3>
+
+<A NAME="1008430">
+<CODE>mimeTypes</CODE> is an array of all MIME types supported by the client (either internally, via helper applications, or by plug-ins). Each element of the array is a <CODE>MimeType</CODE> object, which has properties for its type, description, file extensions, and enabled plug-ins.</A></P>
+<A NAME="1008657">
+For example, the following table summarizes the values for displaying JPEG images.</A></P>
+<A NAME="1016898">
+<P><B><A NAME="1008631">
+Table 13.1&nbsp;<CODE>MimeType</CODE> property values for JPEG images</A></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1008635">
+<B>Expression
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1008637">
+<B>Value
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008639">navigator.mimeTypes["image/jpeg"].type</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008641">image/jpeg</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008643">navigator.mimeTypes["image/jpeg"].description</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008645">JPEG Image</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008647">navigator.mimeTypes["image/jpeg"].suffixes</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008649">jpeg, jpg, jpe, jfif, pjpeg, pjp</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008651">navigator.mimeTypes["image/jpeg"].enabledPlugin</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008653">null</A></PRE>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+<A NAME="1008585">
+The following script checks to see whether the client is capable of displaying QuickTime movies.</A></P>
+<PRE><A NAME="1008701">var myMimetype = navigator.mimeTypes["video/quicktime"]<br>if (myMimetype)<br>&nbsp;&nbsp;&nbsp;document.writeln("Click &lt;A HREF='movie.qt'&gt;here&lt;/A&gt; to see a " +<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;myMimetype.description)<br>else<br>&nbsp;&nbsp;&nbsp;document.writeln("Too bad, can't show you any movies.")</A></PRE>
+<H3><A NAME="Head2;"></A>
+<A NAME="1008559">
+ plugins Array
+</A></H3>
+
+<A NAME="1008431">
+<CODE>plugins</CODE> is an array of all plug-ins currently installed on the client. Each element of the array is a <CODE>Plugin</CODE> object, which has properties for its name, file name, and description as well as an array of <CODE>MimeType</CODE> objects for the MIME types supported by that plug-in. The user can obtain a list of installed plug-ins by choosing About Plug-ins from the Help menu. For example, the following table summarizes the values for the LiveAudio plug-in.</A></P>
+<A NAME="1016924">
+<P><B><A NAME="1010596">
+Table 13.2&nbsp;<CODE>Plugin</CODE> property values for the LiveAudio plug-in</A></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1010600">
+<B>Expression
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1010602">
+<B>Value
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010604">navigator.plugins['LiveAudio'].name</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010606">LiveAudio</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010608">navigator.plugins['LiveAudio'].description</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010610">LiveAudio - Netscape Navigator sound playing component</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010612">navigator.plugins['LiveAudio'].filename</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010645">d:\nettools\netscape\nav30\<br>Program\plugins\NPAUDIO.DLL</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010616">navigator.plugins['LiveAudio'].length</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010618">7</A></PRE>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+<A NAME="1010659">
+In <A HREF="advtopic.htm#1010596">Table 13.2</A>, the value of the <CODE>length</CODE> property indicates that <CODE>navigator.plugins['LiveAudio']</CODE> has an array of <CODE>MimeType</CODE> objects containing seven elements. The property values for the second element of this array are as shown in the following table.</A></P>
+<A NAME="1016942">
+<P><B><A NAME="1010667">
+Table 13.3&nbsp;<CODE>MimeType</CODE> values for the LiveAudio plug-in</A></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1010671">
+<B>Expression
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1010673">
+<B>Value
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010675">navigator.plugins['LiveAudio'][1].type</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010677">audio/x-aiff</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010679">navigator.plugins['LiveAudio'][1].description</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010681">AIFF</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010683">navigator.plugins['LiveAudio'][1].suffixes</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010685">aif, aiff</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010687">navigator.plugins['LiveAudio'][1].enabledPlugin.name</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010689">LiveAudio</A></PRE>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+<A NAME="1008571">
+The following script checks to see whether the Shockwave plug-in is installed and displays an embedded Shockwave movie if it is:</A></P>
+<PRE><A NAME="1008572">var myPlugin = navigator.plugins["Shockwave"]<br>if (myPlugin)<br>&nbsp;&nbsp;&nbsp;document.writeln("&lt;EMBED SRC='Movie.dir' HEIGHT=100 WIDTH=100&gt;")<br>else<br>&nbsp;&nbsp;&nbsp;document.writeln("You don't have Shockwave installed!")</A></PRE>
+<HR>
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="windows.htm">Previous</A>
+ | <A HREF="sec.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT>
+<P ALIGN=right>
+<FONT SIZE=-2><I>Last Updated:  05/27/99  21:21:39</I></FONT>
+<P> <CENTER>Copyright (c) 1999
+<A HREF="http://home.netscape.com/misc/contact_info.html"
+TARGET=_top>Netscape Communications Corporation</A></FONT>
+</CENTER>
+<P>
+</BODY>
+</HTML>
+
+

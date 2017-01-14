@@ -1,0 +1,532 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0 Strict Level 2//EN"><HTML>
+<HEAD>
+<!-- This HTML file has been created by texi2html 1.36
+     from html-spec.texi on 18 October 1995 -->
+
+<TITLE>Hypertext Markup Language - 2.0  - HTML as an Application of SGML</TITLE>
+</HEAD>
+<BODY>
+Go to the <A HREF="html-spec_1.html" REL=FIRST>first</A>, <A HREF="html-spec_2.html" REL=PREVIOUS>previous</A>, <A HREF="html-spec_4.html" REL=NEXT>next</A>, <A HREF="html-spec_14.html" REL=LAST>last</A> section, <A HREF="html-spec_toc.html" REL=TOC>table of contents</A>.
+<HR>
+
+
+<H1><A NAME="SEC3" HREF="html-spec_toc.html#SEC3" REL=TOC>HTML as an Application of SGML</A></H1>
+
+<P>
+HTML is an application of ISO 8879:1986 -- Standard
+Generalized <A HREF="html-spec_2.html#GLOSS20" REL=GLOSSARY>Markup</A> Language (SGML).  SGML is a system for defining
+structured document types and <A HREF="html-spec_2.html#GLOSS20" REL=GLOSSARY>markup</A> languages to represent instances
+of those document types<A HREF="html-spec_11.html#BIB14" REL=BIBLIOGRAPHY>[SGML]</A>.  The public text -- <A HREF="html-spec_2.html#GLOSS12" REL=GLOSSARY>DTD</A> and SGML
+declaration -- of the <A HREF="html-spec_2.html#GLOSS18" REL=GLOSSARY>HTML document</A> type definition are provided in
+section <A HREF="html-spec_9.html#SEC9" REL=XREF>HTML Public Text</A>.
+
+</P>
+<P>
+The term <EM>HTML</EM> refers to both the document type defined here and
+the <A HREF="html-spec_2.html#GLOSS20" REL=GLOSSARY>markup</A> language for representing instances of this document type.
+
+</P>
+
+
+
+<H2><A NAME="SEC3.1" HREF="html-spec_toc.html#SEC3.1" REL=TOC>SGML Documents</A></H2>
+<P>
+An <A HREF="html-spec_2.html#GLOSS18" REL=GLOSSARY>HTML document</A> is an <A HREF="html-spec_2.html#GLOSS27" REL=GLOSSARY>SGML document</A>;  that is, a sequence of
+characters organized physically into a set of entities, and logically
+as a hierarchy of elements.
+
+</P>
+<P>
+In the SGML specification, the first production of the SGML syntax
+grammar separates an <A HREF="html-spec_2.html#GLOSS27" REL=GLOSSARY>SGML document</A> into three parts:  an SGML
+declaration, a prologue, and an instance.  For the purposes of this
+specification, the prologue is a <A HREF="html-spec_2.html#GLOSS12" REL=GLOSSARY>DTD</A>.  This <A HREF="html-spec_2.html#GLOSS12" REL=GLOSSARY>DTD</A> describes another
+grammar:  the start symbol is given in the doctype declaration, the
+terminals are data characters and tags, and the productions are
+determined by the <A HREF="html-spec_2.html#GLOSS13" REL=GLOSSARY>element</A> declarations.  The instance <A HREF="html-spec_2.html#GLOSS25" REL=GLOSSARY>must</A> conform to
+the <A HREF="html-spec_2.html#GLOSS12" REL=GLOSSARY>DTD</A>, that is, it <A HREF="html-spec_2.html#GLOSS25" REL=GLOSSARY>must</A> be in the language defined by this grammar.
+
+</P>
+<P>
+The SGML declaration determines the lexicon of the grammar.  It
+specifies the <A HREF="html-spec_2.html#GLOSS11" REL=GLOSSARY>document character set</A>, which determines a
+<A HREF="html-spec_2.html#GLOSS4" REL=GLOSSARY>character</A> repertoire that contains all characters that occur in all
+text entities in the document, and the code positions associated with
+those characters.
+
+</P>
+<P>
+The SGML declaration also specifies the <A HREF="html-spec_2.html#GLOSS31" REL=GLOSSARY>syntax-reference character set</A>
+of the document, and a few other parameters that bind the abstract
+syntax of SGML to a concrete syntax.  This concrete syntax determines
+how the sequence of characters of the document is mapped to a sequence
+of terminals in the grammar of the prologue.
+
+</P>
+<P>
+For example, consider the following document:
+
+</P>
+
+<PRE>
+&#60;!DOCTYPE html PUBLIC "-//IETF//<A HREF="html-spec_2.html#GLOSS12" REL=GLOSSARY>DTD</A> HTML 2.0//EN"&#62;
+&#60;title&#62;Parsing Example&#60;/title&#62;
+&#60;p&#62;Some text. &#60;em&#62;&#38;#42;wow&#38;#42;&#60;/em&#62;&#60;/p&#62;
+</PRE>
+
+<P>
+An HTML <A HREF="html-spec_2.html#GLOSS36" REL=GLOSSARY>user agent</A> <A HREF="html-spec_2.html#GLOSS29" REL=GLOSSARY>should</A> use the SGML declaration that is given in
+section <A HREF="html-spec_9.html#SEC9.5" REL=XREF>SGML Declaration for HTML</A>.  According to its <A HREF="html-spec_2.html#GLOSS11" REL=GLOSSARY>document character set</A>,
+<SAMP>`&#38;#42;'</SAMP> refers to an asterisk <A HREF="html-spec_2.html#GLOSS4" REL=GLOSSARY>character</A>, <SAMP>`*'</SAMP>.
+
+</P>
+<P>
+The instance above is regarded as the following sequence of terminals:
+
+</P>
+
+<OL>
+<LI>
+
+<A HREF="html-spec_2.html#GLOSS30" REL=GLOSSARY>start-tag</A>:  TITLE
+<LI>
+
+data characters:  "Parsing Example"
+<LI>
+
+<A HREF="html-spec_2.html#GLOSS14" REL=GLOSSARY>end-tag</A>:  TITLE
+<LI>
+
+<A HREF="html-spec_2.html#GLOSS30" REL=GLOSSARY>start-tag</A>:  P
+<LI>
+
+data characters "Some text.  "
+<LI>
+
+<A HREF="html-spec_2.html#GLOSS30" REL=GLOSSARY>start-tag</A>:  EM
+<LI>
+
+data characters:  "*wow*"
+<LI>
+
+<A HREF="html-spec_2.html#GLOSS14" REL=GLOSSARY>end-tag</A>:  EM
+<LI>
+
+<A HREF="html-spec_2.html#GLOSS14" REL=GLOSSARY>end-tag</A>:  P
+</OL>
+
+<P>
+The start symbol of the <A HREF="html-spec_2.html#GLOSS12" REL=GLOSSARY>DTD</A> grammar is HTML, and the productions
+are given in the public text identified by <SAMP>`-//IETF//<A HREF="html-spec_2.html#GLOSS12" REL=GLOSSARY>DTD</A> HTML 2.0//EN'</SAMP> (section <A HREF="html-spec_9.html#SEC9.1" REL=XREF>HTML DTD</A>).  The terminals above parse as:
+
+</P>
+
+<PRE>
+   HTML
+    |
+    \-HEAD
+    |  |
+    |  \-TITLE
+    |      |
+    |      \-&#60;TITLE&#62;
+    |      |
+    |      \-"Parsing Example"
+    |      |
+    |      \-&#60;/TITLE&#62;
+    |
+    \-BODY
+      |
+      \-P
+        |
+        \-&#60;P&#62;
+        |
+        \-"Some text. "
+        |
+        \-EM
+        |  |
+        |  \-&#60;EM&#62;
+        |  |
+        |  \-"*wow*"
+        |  |
+        |  \-&#60;/EM&#62;
+        | 
+        \-&#60;/P&#62;
+</PRE>
+
+<P>
+Some of the elements are delimited explicitly by tags, while the
+boundaries of others are inferred.  The <EM>HTML</EM> <A HREF="html-spec_2.html#GLOSS13" REL=GLOSSARY>element</A> contains a
+<EM>HEAD</EM> <A HREF="html-spec_2.html#GLOSS13" REL=GLOSSARY>element</A> and a <EM>BODY</EM> <A HREF="html-spec_2.html#GLOSS13" REL=GLOSSARY>element</A>.  The <EM>HEAD</EM> contains
+<EM>TITLE</EM>, which is explicitly delimited by start- and end-tags.
+
+</P>
+
+
+
+<H2><A NAME="SEC3.2" HREF="html-spec_toc.html#SEC3.2" REL=TOC>HTML Lexical Syntax</A></H2>
+<P>
+SGML specifies an abstract syntax and a reference concrete
+syntax.  Aside from certain quantities and capacities (e.g.  the limit
+on the length of a name), all HTML documents use the reference
+concrete syntax.  In particular, all <A HREF="html-spec_2.html#GLOSS20" REL=GLOSSARY>markup</A> characters are in the
+repertoire of <A HREF="html-spec_11.html#BIB11" REL=BIBLIOGRAPHY>[ISO-646]</A>.  Data characters are drawn from the document
+<A HREF="html-spec_2.html#GLOSS4" REL=GLOSSARY>character</A> set (see section <A HREF="html-spec_6.html#SEC6" REL=XREF>Characters, Words, and Paragraphs</A>).
+
+</P>
+<P>
+A complete discussion of SGML parsing, e.g.  the mapping of a sequence
+of characters to a sequence of tags and data, is left to the SGML
+standard<A HREF="html-spec_11.html#BIB14" REL=BIBLIOGRAPHY>[SGML]</A>.  This section is only a summary.
+
+</P>
+
+
+
+<H3><A NAME="SEC3.2.1" HREF="html-spec_toc.html#SEC3.2.1" REL=TOC>Data Characters</A></H3>
+<P>
+Any sequence of characters that do not constitute <A HREF="html-spec_2.html#GLOSS20" REL=GLOSSARY>markup</A> (see
+9.6 "Delimiter Recognition" of <A HREF="html-spec_11.html#BIB14" REL=BIBLIOGRAPHY>[SGML]</A>) are mapped directly to
+strings of data characters.  Some <A HREF="html-spec_2.html#GLOSS20" REL=GLOSSARY>markup</A> also maps to <A HREF="html-spec_2.html#GLOSS10" REL=GLOSSARY>data character</A>
+strings.  Numeric character references map to single-<A HREF="html-spec_2.html#GLOSS4" REL=GLOSSARY>character</A>
+strings, via the <A HREF="html-spec_2.html#GLOSS11" REL=GLOSSARY>document character set</A>.  Each reference to one of the
+general entities defined in the HTML <A HREF="html-spec_2.html#GLOSS12" REL=GLOSSARY>DTD</A> maps to a
+single-<A HREF="html-spec_2.html#GLOSS4" REL=GLOSSARY>character</A> string.
+
+</P>
+<P>
+For example,
+
+</P>
+
+<PRE>
+abc&#38;lt;def    =&#62; "abc","&#60;","def"
+abc&#38;#60;def   =&#62; "abc","&#60;","def"
+</PRE>
+
+<P>
+The terminating semicolon on <A HREF="html-spec_2.html#GLOSS15" REL=GLOSSARY>entity</A> or numeric character references is
+only necessary when the <A HREF="html-spec_2.html#GLOSS4" REL=GLOSSARY>character</A> following the reference would
+otherwise be recognized as part of the name (see 9.4.5 "Reference End"
+in <A HREF="html-spec_11.html#BIB14" REL=BIBLIOGRAPHY>[SGML]</A>).
+
+</P>
+
+<PRE>
+abc &#38;lt def     =&#62; "abc ","&#60;"," def"
+abc &#38;#60 def    =&#62; "abc ","&#60;"," def"
+</PRE>
+
+<P>
+An ampersand is only recognized as <A HREF="html-spec_2.html#GLOSS20" REL=GLOSSARY>markup</A> when it is followed by a
+letter or a <SAMP>`#'</SAMP> and a digit:
+
+</P>
+
+<PRE>
+abc &#38; lt def    =&#62; "abc &#38; lt def"
+abc &#38;# 60 def    =&#62; "abc &#38;# 60 def"
+</PRE>
+
+<P>
+A useful technique for translating plain text to HTML is to replace
+each '&#60;', '&#38;', and '&#62;' by an <A HREF="html-spec_2.html#GLOSS15" REL=GLOSSARY>entity</A> reference or numeric <A HREF="html-spec_2.html#GLOSS4" REL=GLOSSARY>character</A>
+reference as follows:
+
+</P>
+
+<PRE>
+                 ENTITY      NUMERIC
+       CHARACTER REFERENCE   CHAR REF     CHARACTER DESCRIPTION
+       --------- ----------  -----------  ---------------------
+         &#38;       &#38;amp;       &#38;#38;        Ampersand 
+         &#60;       &#38;lt;        &#38;#60;        Less than
+         &#62;       &#38;gt;        &#38;#62;        Greater than
+</PRE>
+
+<P>
+<A NAME="FOOT5" HREF="html-spec_foot.html#FOOT5" REL=FOOTNOTE>(5)</A>
+
+</P>
+
+
+
+<H3><A NAME="SEC3.2.2" HREF="html-spec_toc.html#SEC3.2.2" REL=TOC>Tags</A></H3>
+<P>
+Tags delimit elements such as headings, paragraphs, lists, <A HREF="html-spec_2.html#GLOSS4" REL=GLOSSARY>character</A>
+highlighting, and links.  Most HTML elements are identified in a
+document as a <A HREF="html-spec_2.html#GLOSS30" REL=GLOSSARY>start-tag</A>, which gives the <A HREF="html-spec_2.html#GLOSS13" REL=GLOSSARY>element</A> name and attributes,
+followed by the content, followed by the end <A HREF="html-spec_2.html#GLOSS32" REL=GLOSSARY>tag</A>.  Start-tags are
+delimited by <SAMP>`&#60;'</SAMP> and <SAMP>`&#62;'</SAMP>;  end tags are delimited by
+<SAMP>`&#60;/'</SAMP> and <SAMP>`&#62;'</SAMP>.  An example is:
+
+</P>
+
+<PRE>
+&#60;H1&#62;This is a Heading&#60;/H1&#62;
+</PRE>
+
+<P>
+Some elements only have a <A HREF="html-spec_2.html#GLOSS30" REL=GLOSSARY>start-tag</A> without an <A HREF="html-spec_2.html#GLOSS14" REL=GLOSSARY>end-tag</A>.  For example,
+to create a line break, use the <SAMP>`&#60;BR&#62;'</SAMP> <A HREF="html-spec_2.html#GLOSS32" REL=GLOSSARY>tag</A>.  Additionally,
+the end tags of some other elements, such as Paragraph
+(<SAMP>`&#60;/P&#62;'</SAMP>), List Item (<SAMP>`&#60;/LI&#62;'</SAMP>), Definition Term
+(<SAMP>`&#60;/DT&#62;'</SAMP>), and Definition Description (<SAMP>`&#60;/DD&#62;'</SAMP>)
+elements, <A HREF="html-spec_2.html#GLOSS21" REL=GLOSSARY>may</A> be omitted.
+
+</P>
+<P>
+The content of an <A HREF="html-spec_2.html#GLOSS13" REL=GLOSSARY>element</A> is a sequence of <A HREF="html-spec_2.html#GLOSS10" REL=GLOSSARY>data character</A> strings and nested 
+elements.  Some elements, such as anchors, cannot be nested.  Anchors 
+and <A HREF="html-spec_2.html#GLOSS4" REL=GLOSSARY>character</A> highlighting <A HREF="html-spec_2.html#GLOSS21" REL=GLOSSARY>may</A> be put inside other constructs.  See
+the HTML <A HREF="html-spec_2.html#GLOSS12" REL=GLOSSARY>DTD</A>, section <A HREF="html-spec_9.html#SEC9.1" REL=XREF>HTML DTD</A> for full details.
+<A NAME="FOOT6" HREF="html-spec_foot.html#FOOT6" REL=FOOTNOTE>(6)</A>
+
+</P>
+
+
+
+<H3><A NAME="SEC3.2.3" HREF="html-spec_toc.html#SEC3.2.3" REL=TOC>Names</A></H3>
+<P>
+A name consists of a letter followed by letters, digits, periods, or
+hyphens.  The length of a name is limited to 72 characters by the
+<SAMP>`NAMELEN'</SAMP> parameter in the SGML declaration for HTML, section <A HREF="html-spec_9.html#SEC9.5" REL=XREF>SGML Declaration for HTML</A>.  <A HREF="html-spec_2.html#GLOSS13" REL=GLOSSARY>Element</A> and attribute names are not case sensitive, but
+<A HREF="html-spec_2.html#GLOSS15" REL=GLOSSARY>entity</A> names are.  For example, <SAMP>`&#60;BLOCKQUOTE&#62;'</SAMP>,
+<SAMP>`&#60;BlockQuote&#62;'</SAMP>, and <SAMP>`&#60;blockquote&#62;'</SAMP> are equivalent,
+whereas <SAMP>`&#38;amp;'</SAMP> is different from <SAMP>`&#38;AMP;'</SAMP>.
+
+</P>
+<P>
+In a <A HREF="html-spec_2.html#GLOSS30" REL=GLOSSARY>start-tag</A>, the <A HREF="html-spec_2.html#GLOSS13" REL=GLOSSARY>element</A> name <A HREF="html-spec_2.html#GLOSS25" REL=GLOSSARY>must</A> immediately follow the <A HREF="html-spec_2.html#GLOSS32" REL=GLOSSARY>tag</A> 
+open delimiter <SAMP>`&#60;'</SAMP>.
+
+</P>
+
+
+
+<H3><A NAME="SEC3.2.4" HREF="html-spec_toc.html#SEC3.2.4" REL=TOC>Attributes</A></H3>
+<P>
+In a <A HREF="html-spec_2.html#GLOSS30" REL=GLOSSARY>start-tag</A>, white space and attributes are allowed between the
+<A HREF="html-spec_2.html#GLOSS13" REL=GLOSSARY>element</A> name and the closing delimiter.  An attribute specification
+typically consists of an attribute name, an equal sign, and a value,
+though some attribute specifications <A HREF="html-spec_2.html#GLOSS21" REL=GLOSSARY>may</A> be just a name token.  White
+space is allowed around the equal sign.
+
+</P>
+<P>
+The value of the attribute <A HREF="html-spec_2.html#GLOSS21" REL=GLOSSARY>may</A> be either:
+
+</P>
+
+<UL>
+<LI>
+
+A string literal, delimited by single quotes or double quotes and
+not containing any occurrences of the delimiting <A HREF="html-spec_2.html#GLOSS4" REL=GLOSSARY>character</A>.
+<A NAME="FOOT7" HREF="html-spec_foot.html#FOOT7" REL=FOOTNOTE>(7)</A>
+
+<LI>
+
+A name token (a sequence of letters, digits, periods, or hyphens).
+Name tokens are not case sensitive.
+<A NAME="FOOT8" HREF="html-spec_foot.html#FOOT8" REL=FOOTNOTE>(8)</A>
+</UL>
+
+<P>
+In this example, <EM>img</EM> is the <A HREF="html-spec_2.html#GLOSS13" REL=GLOSSARY>element</A> name, <EM>src</EM> is the
+attribute name, and <SAMP>`http://host/dir/file.gif'</SAMP> is the
+attribute value:
+
+</P>
+
+<PRE>
+&#60;img src='http://host/dir/file.gif'&#62;
+</PRE>
+
+<P>
+A useful technique for computing an attribute value literal for a
+given string is to replace each quote and white space <A HREF="html-spec_2.html#GLOSS4" REL=GLOSSARY>character</A> by an
+<A HREF="html-spec_2.html#GLOSS15" REL=GLOSSARY>entity</A> reference or <A HREF="html-spec_2.html#GLOSS26" REL=GLOSSARY>numeric character reference</A> as follows:
+
+</P>
+
+<PRE>
+                 ENTITY      NUMERIC
+       CHARACTER REFERENCE   CHAR REF     CHARACTER DESCRIPTION
+       --------- ----------  -----------  ---------------------
+         HT                  &#38;#9;         Tab
+         LF                  &#38;#10;        Line Feed
+         CR                  &#38;#13;        Carriage Return
+         SP                  &#38;#32;        Space
+         "       &#38;quot;      &#38;#34;        Quotation mark 
+         &#38;       &#38;amp;       &#38;#38;        Ampersand 
+</PRE>
+
+<P>
+For example:
+
+</P>
+
+<PRE>
+&#60;IMG SRC="image.jpg" alt="First &#38;quot;real&#38;quot; example"&#62;
+</PRE>
+
+<P>
+The <SAMP>`NAMELEN'</SAMP> parameter in the SGML declaration (section <A HREF="html-spec_9.html#SEC9.5" REL=XREF>SGML Declaration for HTML</A>) limits the length of an attribute value to 1024
+characters.
+
+</P>
+<P>
+Attributes such as ISMAP and COMPACT <A HREF="html-spec_2.html#GLOSS21" REL=GLOSSARY>may</A> be written using a minimized
+syntax (see 7.9.1.2 "Omitted Attribute Name" in <A HREF="html-spec_11.html#BIB14" REL=BIBLIOGRAPHY>[SGML]</A>).  The <A HREF="html-spec_2.html#GLOSS20" REL=GLOSSARY>markup</A>:
+
+</P>
+
+<PRE>
+&#60;UL COMPACT="compact"&#62;
+</PRE>
+
+<P>
+can be written using a minimized syntax:
+
+</P>
+
+<PRE>
+&#60;UL COMPACT&#62;
+</PRE>
+
+<P>
+<A NAME="FOOT9" HREF="html-spec_foot.html#FOOT9" REL=FOOTNOTE>(9)</A>
+
+</P>
+
+
+
+<H3><A NAME="SEC3.2.5" HREF="html-spec_toc.html#SEC3.2.5" REL=TOC>Comments</A></H3>
+<P>
+To include comments in an <A HREF="html-spec_2.html#GLOSS18" REL=GLOSSARY>HTML document</A>, use a comment declaration.  A
+comment declaration consists of <SAMP>`&#60;!'</SAMP> followed by zero or more
+comments followed by <SAMP>`&#62;'</SAMP>.  Each comment starts with <SAMP>`--'</SAMP> and
+includes all text up to and including the next occurrence of
+<SAMP>`--'</SAMP>.  In a comment declaration, white space is allowed after
+each comment, but not before the first comment.  The entire comment
+declaration is ignored.
+<A NAME="FOOT10" HREF="html-spec_foot.html#FOOT10" REL=FOOTNOTE>(10)</A>
+
+</P>
+<P>
+For example:
+
+</P>
+
+<PRE>
+&#60;!DOCTYPE HTML PUBLIC "-//IETF//<A HREF="html-spec_2.html#GLOSS12" REL=GLOSSARY>DTD</A> HTML 2.0//EN"&#62;
+&#60;HEAD&#62;
+&#60;TITLE&#62;HTML Comment Example&#60;/TITLE&#62;
+&#60;!-- Id: html-sgml.sgm,v 1.5 1995/05/26 21:29:50 connolly Exp  --&#62;
+&#60;!-- another -- -- comment --&#62;
+&#60;!&#62;
+&#60;/HEAD&#62;
+&#60;BODY&#62;
+&#60;p&#62; &#60;!- not a comment, just regular old data characters -&#62;
+</PRE>
+
+
+
+<H2><A NAME="SEC3.3" HREF="html-spec_toc.html#SEC3.3" REL=TOC>HTML Public Text Identifiers</A></H2>
+<P>
+To identify information as an <A HREF="html-spec_2.html#GLOSS18" REL=GLOSSARY>HTML document</A> conforming to this
+specification, each document <A HREF="html-spec_2.html#GLOSS25" REL=GLOSSARY>must</A> start with one of the following
+document type declarations.
+
+</P>
+
+<PRE>
+&#60;!DOCTYPE HTML PUBLIC "-//IETF//<A HREF="html-spec_2.html#GLOSS12" REL=GLOSSARY>DTD</A> HTML 2.0//EN"&#62;
+</PRE>
+
+<P>
+This document type declaration refers to the HTML <A HREF="html-spec_2.html#GLOSS12" REL=GLOSSARY>DTD</A> in section <A HREF="html-spec_9.html#SEC9.1" REL=XREF>HTML DTD</A>.
+<A NAME="FOOT11" HREF="html-spec_foot.html#FOOT11" REL=FOOTNOTE>(11)</A>
+
+</P>
+
+<PRE>
+&#60;!DOCTYPE HTML PUBLIC "-//IETF//<A HREF="html-spec_2.html#GLOSS12" REL=GLOSSARY>DTD</A> HTML 2.0 Level 2//EN"&#62;
+</PRE>
+
+<P>
+This document type declaration also refers to the HTML <A HREF="html-spec_2.html#GLOSS12" REL=GLOSSARY>DTD</A> which
+appears in section <A HREF="html-spec_9.html#SEC9.1" REL=XREF>HTML DTD</A>.
+
+</P>
+
+<PRE>
+&#60;!DOCTYPE HTML PUBLIC "-//IETF//<A HREF="html-spec_2.html#GLOSS12" REL=GLOSSARY>DTD</A> HTML 2.0 Level 1//EN"&#62;
+</PRE>
+
+<P>
+This document type declaration refers to the level 1 HTML <A HREF="html-spec_2.html#GLOSS12" REL=GLOSSARY>DTD</A> in
+section <A HREF="html-spec_9.html#SEC9.3" REL=XREF>Level 1 HTML DTD</A>.  Form elements <A HREF="html-spec_2.html#GLOSS25" REL=GLOSSARY>must</A> not occur in level 1
+documents.
+
+</P>
+
+<PRE>
+&#60;!DOCTYPE HTML PUBLIC "-//IETF//<A HREF="html-spec_2.html#GLOSS12" REL=GLOSSARY>DTD</A> HTML 2.0 Strict//EN"&#62;
+&#60;!DOCTYPE HTML PUBLIC "-//IETF//<A HREF="html-spec_2.html#GLOSS12" REL=GLOSSARY>DTD</A> HTML 2.0 Strict Level 1//EN"&#62;
+</PRE>
+
+<P>
+These two document type declarations refer to the HTML <A HREF="html-spec_2.html#GLOSS12" REL=GLOSSARY>DTD</A> in section <A HREF="html-spec_9.html#SEC9.2" REL=XREF>Strict HTML DTD</A> and section <A HREF="html-spec_9.html#SEC9.4" REL=XREF>Strict Level 1 HTML DTD</A>.  They refer to the more
+structurally rigid definition of HTML.
+
+</P>
+<P>
+HTML user agents <A HREF="html-spec_2.html#GLOSS21" REL=GLOSSARY>may</A> support other document types.  In particular,
+they <A HREF="html-spec_2.html#GLOSS21" REL=GLOSSARY>may</A> support other formal public identifiers, or other document
+types altogether.  They <A HREF="html-spec_2.html#GLOSS21" REL=GLOSSARY>may</A> support an internal declaration subset with
+supplemental <A HREF="html-spec_2.html#GLOSS15" REL=GLOSSARY>entity</A>, <A HREF="html-spec_2.html#GLOSS13" REL=GLOSSARY>element</A>, and other <A HREF="html-spec_2.html#GLOSS20" REL=GLOSSARY>markup</A> declarations.
+
+</P>
+
+
+
+<H2><A NAME="SEC3.4" HREF="html-spec_toc.html#SEC3.4" REL=TOC>Example HTML Document</A></H2>
+
+
+<PRE>
+&#60;!DOCTYPE HTML PUBLIC "-//IETF//<A HREF="html-spec_2.html#GLOSS12" REL=GLOSSARY>DTD</A> HTML 2.0//EN"&#62;
+&#60;HTML&#62;
+&#60;!-- Here's a good place to put a comment. --&#62;
+&#60;HEAD&#62;
+&#60;TITLE&#62;Structural Example&#60;/TITLE&#62;
+&#60;/HEAD&#62;&#60;BODY&#62;
+&#60;H1&#62;First Header&#60;/H1&#62;
+&#60;P&#62;This is a paragraph in the example HTML file. Keep in mind 
+that the title does not appear in the document text, but that 
+the header (defined by H1) does.&#60;/P&#62;
+&#60;OL&#62;
+&#60;LI&#62;First item in an ordered list.
+&#60;LI&#62;Second item in an ordered list.
+  &#60;UL COMPACT&#62;
+  &#60;LI&#62; Note that lists can be nested;
+  &#60;LI&#62; Whitespace <A HREF="html-spec_2.html#GLOSS21" REL=GLOSSARY>may</A> be used to assist in reading the 
+       HTML source.
+  &#60;/UL&#62;
+&#60;LI&#62;Third item in an ordered list.
+&#60;/OL&#62;
+&#60;P&#62;This is an additional paragraph. Technically, end tags are 
+not required for paragraphs, although they are allowed. You can 
+include <A HREF="html-spec_2.html#GLOSS4" REL=GLOSSARY>character</A> highlighting in a paragraph. &#60;EM&#62;This sentence 
+of the paragraph is emphasized.&#60;/EM&#62; Note that the &#38;lt;/P&#38;gt; 
+end <A HREF="html-spec_2.html#GLOSS32" REL=GLOSSARY>tag</A> has been omitted.
+&#60;P&#62;
+&#60;IMG SRC ="triangle.xbm" alt="Warning: "&#62;
+Be sure to read these &#60;b&#62;bold instructions&#60;/b&#62;.
+&#60;/BODY&#62;&#60;/HTML&#62;
+</PRE>
+
+<HR>
+Go to the <A HREF="html-spec_1.html" REL=FIRST>first</A>, <A HREF="html-spec_2.html" REL=PREVIOUS>previous</A>, <A HREF="html-spec_4.html" REL=NEXT>next</A>, <A HREF="html-spec_14.html" REL=LAST>last</A> section, <A HREF="html-spec_toc.html" REL=TOC>table of contents</A>.
+</BODY>
+</HTML>

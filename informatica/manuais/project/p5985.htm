@@ -1,0 +1,87 @@
+<!doctype html public" -//IETF//DTD 	HTML//EN">
+<HTML>
+
+<HEAD>
+<SCRIPT LANGUAGE="JAVASCRIPT">
+<!-- 
+
+function checkbrowse()
+{
+var bn, bv, ver
+bn = navigator.appName;
+bv = parseInt(navigator.appVersion);
+if (bn=="Microsoft Internet Explorer" && bv<"4") ver = "IE3";
+else ver = "NotIE3";
+if (ver=="IE3") top.cont.parts.location.href="part05.htm";
+if (ver=="NotIE3") top.cont.parts.location.href="nav/part05.htm";
+}
+//-->
+</SCRIPT>
+<TITLE>Which Task Link Should You Use?</TITLE>
+<META NAME="GENERATOR" 	CONTENT="Merch. System HTML Development">
+<META NAME="AUTHOR" 	CONTENT="Merch. System HTML Development">
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" OnLoad="checkbrowse();">
+<Font Face ="Verdana, Arial, Helvetica">
+
+<P align=right><SMALL>
+<A HREF="p5984.htm" Target="TOC"><IMG SRC="prev.gif"ALT="Previous page"BORDER=0></A>
+<A HREF="p5981.htm" Target="TOC"><IMG SRC="toc05.gif"ALT="Contents"BORDER=0></A>
+<A HREF="p5986.htm" Target="TOC"><IMG SRC="Next.gif"ALT="Next 
+page"BORDER=0></A></SMALL></P>
+<H1>Which Task Link Should You Use?</H1>
+
+<P>
+Your project tasks can depend on each other in a variety of ways. You’ll probably find that in most instances, 
+one task must finish before another task begins. But this is only one type of task dependency. In another type 
+of task dependency, two tasks can start together. For example, if the museum crew already knows where each 
+clock is going to hang on the walls, they can begin attaching descriptive labels below each clock’s space while 
+they are hanging clocks.
+<P>
+After you decide task sequence — you’ve identified the predecessor and successor tasks for each task — you 
+need to decide which type of link to use to connect one task to another. Microsoft Project provides four 
+different types of task links, which are described in the following table. By default, Microsoft Project applies a 
+finish-to-start (FS) link to tasks, but you can choose the type of link that most accurately reflects the 
+dependency between the tasks.
+<P><TABLE CELLPADDING=5 CELLSPACING=0>
+<TR>
+<TH ALIGN=left><B>To indicate</B></TH>  <TH ALIGN=left><B>Use this task link</B></TH>  <TH 
+ALIGN=left><B>Gantt Chart example</B></TH>  
+<TR>
+<TD VALIGN=top><Font Face ="Verdana, Arial, Helvetica">A task starts after its predecessor finishes
+</FONT></TD>  <TD VALIGN=top><Font Face ="Verdana, Arial, Helvetica">Finish-to-start 
+(FS)</FONT></TD>  <TD VALIGN=top><Font Face ="Verdana, Arial, Helvetica"><img 
+src="0504.gif"></FONT></TD><TABLE CELLPADDING=5 CELLSPACING=0 border=5 width=30% align=right>
+<TR>
+<TD VALIGN=top><Font Face ="Verdana, Arial, Helvetica">Finish-to-start (FS) is the task link most 
+frequently used. Start-to-finish (SF) is seldom used.</FONT></TD>  
+</TABLE>  
+<TR>
+<TD VALIGN=top><Font Face ="Verdana, Arial, Helvetica">A task starts when its predecessor starts
+</FONT></TD>  <TD VALIGN=top><Font Face ="Verdana, Arial, Helvetica">Start-to-start 
+(SS)</FONT></TD>  <TD VALIGN=top><Font Face ="Verdana, Arial, Helvetica"><img 
+src="0505.gif"></FONT></TD>  
+<TR>
+<TD VALIGN=top><Font Face ="Verdana, Arial, Helvetica">A task finishes when its predecessor finishes
+</FONT></TD>  <TD VALIGN=top><Font Face ="Verdana, Arial, Helvetica">Finish-to-finish 
+(FF)</FONT></TD>  <TD VALIGN=top><Font Face ="Verdana, Arial, Helvetica"><img 
+src="0506.gif"></FONT></TD>  
+<TR>
+<TD VALIGN=top><Font Face ="Verdana, Arial, Helvetica">A task finishes after its predecessor 
+starts</FONT></TD>  <TD VALIGN=top><Font Face ="Verdana, Arial, Helvetica">Start-to-finish 
+(SF)</FONT></TD>  <TD VALIGN=top><Font Face ="Verdana, Arial, Helvetica"><img 
+src="0507.gif"></FONT></TD>  
+</TABLE>
+<P>
+<P>
+The types of links you choose will affect your project length. Applying FS links between <I>all</I> tasks 
+would probably drag out your project longer than necessary, because most projects involve some tasks that 
+can overlap. One way to shorten your schedule is to look for where you can replace FS links with either SS or 
+FF links.
+<P align = Center > <A HREF="http://www.microsoft.com/misc/cpyright.htm"><EM>&#169;1996-1997 Microsoft Corporation. All rights 
+reserved.</EM></A></P>
+</BODY>
+</FONT>
+</HTML>
+

@@ -1,0 +1,14 @@
+@	SOA	ns1.redes.pt. root.ns1.redes.pt. (
+		000001		; serial number
+		36000		; refresh em 10 horas
+		3600		; retry em 1 hora
+		3600000		; expire em 42 dias
+		360000		; duracao minima de 100 horas
+		)
+		NS	redes.pt.
+
+
+@	IN 	PTR	redes.pt.
+@	IN	A	255.255.255.128
+0	IN	PTR	rede-redes.redes.pt
+50	IN	PTR	ns1.redes.pt.

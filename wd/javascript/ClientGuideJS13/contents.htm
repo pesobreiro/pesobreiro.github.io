@@ -1,0 +1,658 @@
+<HTML>
+<HEAD>
+<TITLE>Client-Side JavaScript Guide
+
+</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<FONT SIZE=-1><A HREF="whatsnew.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT>
+<HR>
+<CENTER><H2><A NAME="161101">
+ Client-Side JavaScript Guide</H2>
+</A></CENTER>
+<A NAME="161102">
+This book explains how to use core and client-side JavaScript for version 1.3. JavaScript is Netscape's cross-platform, object-based scripting language for client and server applications.</A></P>
+<CENTER><H2>
+<A NAME="1858">
+Contents 
+</A>
+</H2></CENTER>
+<A HREF="whatsnew.htm">
+<H4> New Features in this Release </H4>
+</A>
+<A HREF="preface.htm">
+<H4> About this Book </H4>
+</A><dl>
+<A HREF="preface.htm#1004904">
+<dt><dd> New Features in this Release 
+</A><A HREF="preface.htm#1003707">
+<dt><dd> What You Should Already Know 
+</A><A HREF="preface.htm#1009601">
+<dt><dd> JavaScript Versions 
+</A><A HREF="preface.htm#1002114">
+<dt><dd> Where to Find JavaScript Information 
+</A><A HREF="preface.htm#1005560">
+<dt><dd> Document Conventions 
+</A></dl>
+<A HREF="intro.htm">
+<H4>Chapter 1 &nbsp;JavaScript Overview </H4>
+</A><dl>
+<A HREF="intro.htm#1009369">
+<dt><dd> What Is JavaScript? 
+</A><A HREF="intro.htm#1022274">
+<dt><dd> Core, Client-Side, and Server-Side JavaScript 
+</A><dl>
+<A HREF="intro.htm#1022283">
+<DT><DD> Core JavaScript 
+</A><A HREF="intro.htm#1022293">
+<DT><DD> Client-Side JavaScript 
+</A><A HREF="intro.htm#1022316">
+<DT><DD> Server-Side JavaScript 
+</A></dl>
+<A HREF="intro.htm#1012569">
+<dt><dd> JavaScript and Java 
+</A><A HREF="intro.htm#1009909">
+<dt><dd> Debugging JavaScript 
+</A><A HREF="intro.htm#1013886">
+<dt><dd> Visual JavaScript 
+</A><A HREF="intro.htm#1013654">
+<dt><dd> JavaScript and the ECMA Specification 
+</A><dl>
+<A HREF="intro.htm#1013678">
+<DT><DD> Relationship Between JavaScript and ECMA Versions 
+</A><A HREF="intro.htm#1013717">
+<DT><DD> JavaScript Documentation vs. the ECMA Specification 
+</A><A HREF="intro.htm#1013722">
+<DT><DD> JavaScript and ECMA Terminology 
+</A></dl>
+</dl>
+<A HREF="partcore.htm">
+<H3>Part 1   <A HREF="partcore.htm">Core Language Features</A></H3>
+</A>
+<A HREF="ident.htm">
+<H4>Chapter 2 &nbsp;Values, Variables, and Literals </H4>
+</A><dl>
+<A HREF="ident.htm#1008306">
+<dt><dd> Values 
+</A><dl>
+<A HREF="ident.htm#1008319">
+<DT><DD> Data Type Conversion 
+</A></dl>
+<A HREF="ident.htm#1008330">
+<dt><dd> Variables 
+</A><dl>
+<A HREF="ident.htm#1008338">
+<DT><DD> Declaring Variables 
+</A><A HREF="ident.htm#1012659">
+<DT><DD> Evaluating Variables 
+</A><A HREF="ident.htm#1009822">
+<DT><DD> Variable Scope 
+</A></dl>
+<A HREF="ident.htm#1008348">
+<dt><dd> Literals 
+</A><dl>
+<A HREF="ident.htm#1011655">
+<DT><DD> Array Literals 
+</A><A HREF="ident.htm#1012095">
+<DT><DD> Boolean Literals 
+</A><A HREF="ident.htm#1009427">
+<DT><DD> Floating-Point Literals 
+</A><A HREF="ident.htm#1008351">
+<DT><DD> Integers 
+</A><A HREF="ident.htm#1009450">
+<DT><DD> Object Literals 
+</A><A HREF="ident.htm#1008368">
+<DT><DD> String Literals 
+</A></dl>
+<A HREF="ident.htm#1009568">
+<dt><dd> Unicode 
+</A><dl>
+<A HREF="ident.htm#1009571">
+<DT><DD> Unicode Compatibility with ASCII and ISO 
+</A><A HREF="ident.htm#1009576">
+<DT><DD> Unicode Escape Sequences 
+</A><A HREF="ident.htm#1009690">
+<DT><DD> Displaying Characters with Unicode 
+</A></dl>
+</dl>
+<A HREF="expr.htm">
+<H4>Chapter 3 &nbsp;Expressions and Operators </H4>
+</A><dl>
+<A HREF="expr.htm#1010338">
+<dt><dd> Expressions 
+</A><A HREF="expr.htm#1008323">
+<dt><dd> Operators 
+</A><dl>
+<A HREF="expr.htm#1008336">
+<DT><DD> Assignment Operators 
+</A><A HREF="expr.htm#1010037">
+<DT><DD> Comparison Operators 
+</A><A HREF="expr.htm#1008458">
+<DT><DD> Arithmetic Operators 
+</A><A HREF="expr.htm#1008505">
+<DT><DD> Bitwise Operators 
+</A><A HREF="expr.htm#1008622">
+<DT><DD> Logical Operators 
+</A><A HREF="expr.htm#1008684">
+<DT><DD> String Operators 
+</A><A HREF="expr.htm#1008688">
+<DT><DD> Special Operators 
+</A><A HREF="expr.htm#1008750">
+<DT><DD> Operator Precedence 
+</A></dl>
+</dl>
+<A HREF="regexp.htm">
+<H4>Chapter 4 &nbsp;Regular Expressions </H4>
+</A><dl>
+<A HREF="regexp.htm#1008311">
+<dt><dd> Creating a Regular Expression 
+</A><A HREF="regexp.htm#1010689">
+<dt><dd> Writing a Regular Expression Pattern 
+</A><dl>
+<A HREF="regexp.htm#1008325">
+<DT><DD> Using Simple Patterns 
+</A><A HREF="regexp.htm#1008327">
+<DT><DD> Using Special Characters 
+</A><A HREF="regexp.htm#1008498">
+<DT><DD> Using Parentheses 
+</A></dl>
+<A HREF="regexp.htm#1008506">
+<dt><dd> Working with Regular Expressions 
+</A><dl>
+<A HREF="regexp.htm#1008659">
+<DT><DD> Using Parenthesized Substring Matches 
+</A><A HREF="regexp.htm#1008681">
+<DT><DD> Executing a Global Search and Ignoring Case 
+</A></dl>
+<A HREF="regexp.htm#1008694">
+<dt><dd> Examples 
+</A><dl>
+<A HREF="regexp.htm#1008695">
+<DT><DD> Changing the Order in an Input String 
+</A><A HREF="regexp.htm#1008713">
+<DT><DD> Using Special Characters to Verify Input 
+</A></dl>
+</dl>
+<A HREF="stmtsov.htm">
+<H4>Chapter 5 &nbsp;Statements </H4>
+</A><dl>
+<A HREF="stmtsov.htm#1008319">
+<dt><dd> Conditional Statements 
+</A><dl>
+<A HREF="stmtsov.htm#1008323">
+<DT><DD> if...else Statement 
+</A><A HREF="stmtsov.htm#1008329">
+<DT><DD> switch Statement 
+</A></dl>
+<A HREF="stmtsov.htm#1008340">
+<dt><dd> Loop Statements 
+</A><dl>
+<A HREF="stmtsov.htm#1008347">
+<DT><DD> for Statement 
+</A><A HREF="stmtsov.htm#1008359">
+<DT><DD> do...while Statement 
+</A><A HREF="stmtsov.htm#1008366">
+<DT><DD> while Statement 
+</A><A HREF="stmtsov.htm#1010474">
+<DT><DD> label Statement 
+</A><A HREF="stmtsov.htm#1008389">
+<DT><DD> break Statement 
+</A><A HREF="stmtsov.htm#1008402">
+<DT><DD> continue Statement 
+</A></dl>
+<A HREF="stmtsov.htm#1008417">
+<dt><dd> Object Manipulation Statements 
+</A><dl>
+<A HREF="stmtsov.htm#1008452">
+<DT><DD> for...in Statement 
+</A><A HREF="stmtsov.htm#1008460">
+<DT><DD> with Statement 
+</A></dl>
+<A HREF="stmtsov.htm#1008468">
+<dt><dd> Comments 
+</A></dl>
+<A HREF="fcns.htm">
+<H4>Chapter 6 &nbsp;Functions </H4>
+</A><dl>
+<A HREF="fcns.htm#1008305">
+<dt><dd> Defining Functions 
+</A><A HREF="fcns.htm#1008321">
+<dt><dd> Calling Functions 
+</A><A HREF="fcns.htm#1012766">
+<dt><dd> Using the arguments Array 
+</A><A HREF="fcns.htm#1008357">
+<dt><dd> Predefined Functions 
+</A><dl>
+<A HREF="fcns.htm#1008364">
+<DT><DD> eval Function 
+</A><A HREF="fcns.htm#1009925">
+<DT><DD> isFinite Function 
+</A><A HREF="fcns.htm#1008370">
+<DT><DD> isNaN Function 
+</A><A HREF="fcns.htm#1008379">
+<DT><DD> parseInt and parseFloat Functions 
+</A><A HREF="fcns.htm#1008394">
+<DT><DD> Number and String Functions 
+</A><A HREF="fcns.htm#1012712">
+<DT><DD> escape and unescape Functions 
+</A></dl>
+</dl>
+<A HREF="obj.htm">
+<H4>Chapter 7 &nbsp;Working with Objects </H4>
+</A><dl>
+<A HREF="obj.htm#1008312">
+<dt><dd> Objects and Properties 
+</A><A HREF="obj.htm#1008327">
+<dt><dd> Creating New Objects 
+</A><dl>
+<A HREF="obj.htm#1008330">
+<DT><DD> Using Object Initializers 
+</A><A HREF="obj.htm#1008361">
+<DT><DD> Using a Constructor Function 
+</A><A HREF="obj.htm#1008392">
+<DT><DD> Indexing Object Properties 
+</A><A HREF="obj.htm#1008397">
+<DT><DD> Defining Properties for an Object Type 
+</A><A HREF="obj.htm#1008406">
+<DT><DD> Defining Methods 
+</A><A HREF="obj.htm#1008434">
+<DT><DD> Using this for Object References 
+</A><A HREF="obj.htm#1008445">
+<DT><DD> Deleting Objects 
+</A></dl>
+<A HREF="obj.htm#1010352">
+<dt><dd> Predefined Core Objects 
+</A><dl>
+<A HREF="obj.htm#1008453">
+<DT><DD> Array Object 
+</A><A HREF="obj.htm#1008502">
+<DT><DD> Boolean Object 
+</A><A HREF="obj.htm#1008512">
+<DT><DD> Date Object 
+</A><A HREF="obj.htm#1008590">
+<DT><DD> Function Object 
+</A><A HREF="obj.htm#1008620">
+<DT><DD> Math Object 
+</A><A HREF="obj.htm#1008686">
+<DT><DD> Number Object 
+</A><A HREF="obj.htm#1008724">
+<DT><DD> RegExp Object 
+</A><A HREF="obj.htm#1008731">
+<DT><DD> String Object 
+</A></dl>
+</dl>
+<A HREF="obj2.htm">
+<H4>Chapter 8 &nbsp;Details of the Object Model </H4>
+</A><dl>
+<A HREF="obj2.htm#1008342">
+<dt><dd> Class-Based vs. Prototype-Based Languages 
+</A><dl>
+<A HREF="obj2.htm#1011360">
+<DT><DD> Defining a Class 
+</A><A HREF="obj2.htm#1011368">
+<DT><DD> Subclasses and Inheritance 
+</A><A HREF="obj2.htm#1011428">
+<DT><DD> Adding and Removing Properties 
+</A><A HREF="obj2.htm#1011444">
+<DT><DD> Summary of Differences 
+</A></dl>
+<A HREF="obj2.htm#1008388">
+<dt><dd> The Employee Example 
+</A><A HREF="obj2.htm#1008404">
+<dt><dd> Creating the Hierarchy 
+</A><A HREF="obj2.htm#1008465">
+<dt><dd> Object Properties 
+</A><dl>
+<A HREF="obj2.htm#1008468">
+<DT><DD> Inheriting Properties 
+</A><A HREF="obj2.htm#1008483">
+<DT><DD> Adding Properties 
+</A></dl>
+<A HREF="obj2.htm#1008499">
+<dt><dd> More Flexible Constructors 
+</A><A HREF="obj2.htm#1008567">
+<dt><dd> Property Inheritance Revisited 
+</A><dl>
+<A HREF="obj2.htm#1008570">
+<DT><DD> Local versus Inherited Values 
+</A><A HREF="obj2.htm#1008594">
+<DT><DD> Determining Instance Relationships 
+</A><A HREF="obj2.htm#1008610">
+<DT><DD> Global Information in Constructors 
+</A><A HREF="obj2.htm#1008628">
+<DT><DD> No Multiple Inheritance 
+</A></dl>
+</dl>
+<A HREF="partcli.htm">
+<H3>Part 2   <A HREF="partcli.htm">Client-Specific Features</A></H3>
+</A>
+<A HREF="embed.htm">
+<H4>Chapter 9 &nbsp;Embedding JavaScript in HTML </H4>
+</A><dl>
+<A HREF="embed.htm#1013179">
+<dt><dd> Using the SCRIPT Tag 
+</A><dl>
+<A HREF="embed.htm#1013185">
+<DT><DD> Specifying the JavaScript Version 
+</A><A HREF="embed.htm#1013248">
+<DT><DD> Hiding Scripts Within Comment Tags 
+</A><A HREF="embed.htm#1013258">
+<DT><DD> Example: a First Script 
+</A></dl>
+<A HREF="embed.htm#1013277">
+<dt><dd> Specifying a File of JavaScript Code 
+</A><dl>
+<A HREF="embed.htm#1014307">
+<DT><DD> URLs the SRC Attribute Can Specify 
+</A><A HREF="embed.htm#1014321">
+<DT><DD> Requirements for Files Specified by the SRC Attribute 
+</A></dl>
+<A HREF="embed.htm#1013293">
+<dt><dd> Using JavaScript Expressions as HTML Attribute Values 
+</A><A HREF="embed.htm#1013313">
+<dt><dd> Using Quotation Marks 
+</A><A HREF="embed.htm#1013319">
+<dt><dd> Specifying Alternate Content with the NOSCRIPT Tag 
+</A></dl>
+<A HREF="evnt.htm">
+<H4>Chapter 10 &nbsp;Handling Events </H4>
+</A><dl>
+<A HREF="evnt.htm#1009606">
+<dt><dd> Defining an Event Handler 
+</A><dl>
+<A HREF="evnt.htm#1009637">
+<DT><DD> Example: Using an Event Handler 
+</A><A HREF="evnt.htm#1009658">
+<DT><DD> Calling Event Handlers Explicitly 
+</A></dl>
+<A HREF="evnt.htm#1012525">
+<dt><dd> The Event Object 
+</A><A HREF="evnt.htm#1010131">
+<dt><dd> Event Capturing 
+</A><dl>
+<A HREF="evnt.htm#1010535">
+<DT><DD> Enable Event Capturing 
+</A><A HREF="evnt.htm#1010420">
+<DT><DD> Define the Event Handler 
+</A><A HREF="evnt.htm#1010449">
+<DT><DD> Register the Event Handler 
+</A><A HREF="evnt.htm#1010157">
+<DT><DD> A Complete Example 
+</A></dl>
+<A HREF="evnt.htm#1012961">
+<dt><dd> Validating Form Input 
+</A><dl>
+<A HREF="evnt.htm#1012977">
+<DT><DD> Example Validation Functions 
+</A><A HREF="evnt.htm#1012986">
+<DT><DD> Using the Validation Functions 
+</A></dl>
+</dl>
+<A HREF="navobj.htm">
+<H4>Chapter 11 &nbsp;Using Navigator Objects </H4>
+</A><dl>
+<A HREF="navobj.htm#1006931">
+<dt><dd> Navigator Object Hierarchy 
+</A><A HREF="navobj.htm#1006066">
+<dt><dd> Document Properties: an Example 
+</A><A HREF="navobj.htm#1007007">
+<dt><dd> JavaScript Reflection and HTML Layout 
+</A><A HREF="navobj.htm#1009022">
+<dt><dd> Key Navigator Objects 
+</A><dl>
+<A HREF="navobj.htm#1010392">
+<DT><DD> window and Frame Objects 
+</A><A HREF="navobj.htm#1015208">
+<DT><DD> document Object 
+</A><A HREF="navobj.htm#1010137">
+<DT><DD> Form Object 
+</A><A HREF="navobj.htm#1004213">
+<DT><DD> location Object 
+</A><A HREF="navobj.htm#1010406">
+<DT><DD> history Object 
+</A><A HREF="navobj.htm#1011844">
+<DT><DD> navigator Object 
+</A></dl>
+<A HREF="navobj.htm#1017919">
+<dt><dd> Navigator Object Arrays 
+</A><A HREF="navobj.htm#1016546">
+<dt><dd> Using the write Method 
+</A><dl>
+<A HREF="navobj.htm#1016574">
+<DT><DD> Printing Output 
+</A><A HREF="navobj.htm#1016870">
+<DT><DD> Displaying Output 
+</A></dl>
+</dl>
+<A HREF="windows.htm">
+<H4>Chapter 12 &nbsp;Using Windows and Frames </H4>
+</A><dl>
+<A HREF="windows.htm#1012749">
+<dt><dd> Opening and Closing Windows 
+</A><dl>
+<A HREF="windows.htm#1004224">
+<DT><DD> Opening a Window 
+</A><A HREF="windows.htm#1004234">
+<DT><DD> Closing a Window 
+</A></dl>
+<A HREF="windows.htm#1004240">
+<dt><dd> Using Frames 
+</A><dl>
+<A HREF="windows.htm#1004244">
+<DT><DD> Creating a Frame 
+</A><A HREF="windows.htm#1004265">
+<DT><DD> Updating a Frame 
+</A><A HREF="windows.htm#1004272">
+<DT><DD> Referring To and Navigating Among Frames 
+</A><A HREF="windows.htm#1004274">
+<DT><DD> Creating and Updating Frames: an Example 
+</A></dl>
+<A HREF="windows.htm#1004300">
+<dt><dd> Referring to Windows and Frames 
+</A><dl>
+<A HREF="windows.htm#1004302">
+<DT><DD> Referring to Properties, Methods, and Event Handlers 
+</A><A HREF="windows.htm#1004316">
+<DT><DD> Referring to a Window in a Form Submit or Hypertext Link 
+</A></dl>
+<A HREF="windows.htm#1004326">
+<dt><dd> Navigating Among Windows and Frames 
+</A></dl>
+<A HREF="advtopic.htm">
+<H4>Chapter 13 &nbsp;Additional Topics </H4>
+</A><dl>
+<A HREF="advtopic.htm#1004952">
+<dt><dd> Using JavaScript URLs 
+</A><A HREF="advtopic.htm#1006105">
+<dt><dd> Using Client-Side Image Maps 
+</A><A HREF="advtopic.htm#1006224">
+<dt><dd> Using Server-Side Image Maps 
+</A><A HREF="advtopic.htm#1006028">
+<dt><dd> Using the Status Bar 
+</A><dl>
+<A HREF="advtopic.htm#1006409">
+<DT><DD> Creating Hints with onMouseOver and onMouseOut 
+</A></dl>
+<A HREF="advtopic.htm#1017771">
+<dt><dd> Using Cookies 
+</A><dl>
+<A HREF="advtopic.htm#1013124">
+<DT><DD> Limitations 
+</A><A HREF="advtopic.htm#1013134">
+<DT><DD> Using Cookies with JavaScript 
+</A><A HREF="advtopic.htm#1013148">
+<DT><DD> Using Cookies: an Example 
+</A></dl>
+<A HREF="advtopic.htm#1012507">
+<dt><dd> Determining Installed Plug-ins 
+</A><dl>
+<A HREF="advtopic.htm#1008555">
+<DT><DD> mimeTypes Array 
+</A><A HREF="advtopic.htm#1008559">
+<DT><DD> plugins Array 
+</A></dl>
+</dl>
+<A HREF="sec.htm">
+<H4>Chapter 14 &nbsp;JavaScript Security </H4>
+</A><dl>
+<A HREF="sec.htm#1015705">
+<dt><dd> Same Origin Policy 
+</A><dl>
+<A HREF="sec.htm#1023451">
+<DT><DD> Origin Checks and document.domain 
+</A><A HREF="sec.htm#1023386">
+<DT><DD> Origin Checks of Named Forms 
+</A><A HREF="sec.htm#1015801">
+<DT><DD> Origin Checks and SCRIPT Tags that Load Documents 
+</A><A HREF="sec.htm#1015807">
+<DT><DD> Origin Checks and Layers 
+</A><A HREF="sec.htm#1015815">
+<DT><DD> Origin Checks and Java Applets 
+</A></dl>
+<A HREF="sec.htm#1015075">
+<dt><dd> Using Signed Scripts 
+</A><dl>
+<A HREF="sec.htm#1015077">
+<DT><DD> Introduction to Signed Scripts 
+</A><A HREF="sec.htm#1015201">
+<DT><DD> Identifying Signed Scripts 
+</A><A HREF="sec.htm#1015231">
+<DT><DD> Using Expanded Privileges 
+</A><A HREF="sec.htm#1015352">
+<DT><DD> Writing the Script 
+</A><A HREF="sec.htm#1015441">
+<DT><DD> Signing Scripts 
+</A><A HREF="sec.htm#1015471">
+<DT><DD> Troubleshooting Signed Scripts 
+</A></dl>
+<A HREF="sec.htm#1021266">
+<dt><dd> Using Data Tainting 
+</A><dl>
+<A HREF="sec.htm#1020923">
+<DT><DD> How Tainting Works 
+</A><A HREF="sec.htm#1020979">
+<DT><DD> Enabling Tainting 
+</A><A HREF="sec.htm#1020996">
+<DT><DD> Tainting and Untainting Individual Data Elements 
+</A><A HREF="sec.htm#1021011">
+<DT><DD> Tainting that Results from Conditional Statements 
+</A></dl>
+</dl>
+<A HREF="partlc.htm">
+<H3>Part 3   <A HREF="partlc.htm">Working with LiveConnect</A></H3>
+</A>
+<A HREF="lc.htm">
+<H4>Chapter 15 &nbsp;LiveConnect Overview </H4>
+</A><dl>
+<A HREF="lc.htm#1043729">
+<dt><dd> What Is LiveConnect? 
+</A><A HREF="lc.htm#1043773">
+<dt><dd> Enabling LiveConnect 
+</A><A HREF="lc.htm#1043780">
+<dt><dd> The Java Console 
+</A><A HREF="lc.htm#1013074">
+<dt><dd> Working with Wrappers 
+</A><A HREF="lc.htm#1014290">
+<dt><dd> JavaScript to Java Communication 
+</A><dl>
+<A HREF="lc.htm#1029016">
+<DT><DD> The Packages Object 
+</A><A HREF="lc.htm#1029099">
+<DT><DD> Working with Java Arrays 
+</A><A HREF="lc.htm#1029045">
+<DT><DD> Package and Class References 
+</A><A HREF="lc.htm#1029446">
+<DT><DD> Arguments of Type char 
+</A><A HREF="lc.htm#1043848">
+<DT><DD> Controlling Java Applets 
+</A><A HREF="lc.htm#1043898">
+<DT><DD> Controlling Java Plug-ins 
+</A></dl>
+<A HREF="lc.htm#1008480">
+<dt><dd> Java to JavaScript Communication 
+</A><dl>
+<A HREF="lc.htm#1030717">
+<DT><DD> Using the LiveConnect Classes 
+</A><A HREF="lc.htm#1043938">
+<DT><DD> Accessing Client-Side JavaScript 
+</A></dl>
+<A HREF="lc.htm#1037078">
+<dt><dd> Data Type Conversions 
+</A><dl>
+<A HREF="lc.htm#1037090">
+<DT><DD> JavaScript to Java Conversions 
+</A><A HREF="lc.htm#1037422">
+<DT><DD> Java to JavaScript Conversions 
+</A></dl>
+</dl>
+<A HREF="liveaud.htm">
+<H4>Chapter 16 &nbsp;LiveAudio and LiveConnect </H4>
+</A><dl>
+<A HREF="liveaud.htm#1020064">
+<dt><dd> JavaScript Methods for Controlling LiveAudio 
+</A><A HREF="liveaud.htm#1020098">
+<dt><dd> Using the LiveAudio LiveConnect Methods 
+</A></dl>
+<A HREF="partapp.htm">
+<H3>Part 4   <A HREF="partapp.htm">Appendixes</A></H3>
+</A>
+<A HREF="mail.htm">
+<H4>Appendix A &nbsp;Mail Filters </H4>
+</A><dl>
+<A HREF="mail.htm#1040050">
+<dt><dd> Creating the Filter and Adding to Your Rules File 
+</A><A HREF="mail.htm#1040117">
+<dt><dd> News Filters 
+</A><A HREF="mail.htm#1040124">
+<dt><dd> Message Object Reference 
+</A><dl>
+<A HREF="mail.htm#1040130">
+<DT><DD> Mail Messages 
+</A><A HREF="mail.htm#1040164">
+<DT><DD> News Messages 
+</A></dl>
+<A HREF="mail.htm#1040178">
+<dt><dd> Debugging Your Filters 
+</A><A HREF="mail.htm#1040193">
+<dt><dd> A More Complex Example 
+</A></dl>
+<A HREF="console.htm">
+<H4>Appendix B &nbsp;Displaying Errors with the JavaScript Console </H4>
+</A><dl>
+<A HREF="console.htm#1044393">
+<dt><dd> Opening the JavaScript Console 
+</A><A HREF="console.htm#1044397">
+<dt><dd> Evaluating Expressions with the Console 
+</A><A HREF="console.htm#1045065">
+<dt><dd> Displaying Error Messages with the Console 
+</A><dl>
+<A HREF="console.htm#1044916">
+<DT><DD> Setting Preferences for Displaying Errors 
+</A></dl>
+</dl>
+<A HREF="glossary.htm">
+<H4> Glossary </H4>
+</A><A HREF="bklast.htm">
+<H4> Index </H4>
+</A>
+<HR>
+
+<FONT SIZE=-1><A HREF="whatsnew.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT>
+<P ALIGN=right>
+<FONT SIZE=-2><I>Last Updated:  05/27/99  21:21:12</I></FONT>
+<P> <CENTER>Copyright (c) 1999
+<A HREF="http://home.netscape.com/misc/contact_info.html"
+TARGET=_top>Netscape Communications Corporation</A></FONT>
+</CENTER>
+<P>
+</BODY>
+</HTML>
+
+
+

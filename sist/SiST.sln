@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 7.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiST", "SiST.csproj", "{A24C7E6C-F2C2-44B6-8A20-BB7C779BB8AA}"
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		ConfigName.0 = Debug
+		ConfigName.1 = Release
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{A24C7E6C-F2C2-44B6-8A20-BB7C779BB8AA}.Debug.ActiveCfg = Debug|.NET
+		{A24C7E6C-F2C2-44B6-8A20-BB7C779BB8AA}.Debug.Build.0 = Debug|.NET
+		{A24C7E6C-F2C2-44B6-8A20-BB7C779BB8AA}.Release.ActiveCfg = Release|.NET
+		{A24C7E6C-F2C2-44B6-8A20-BB7C779BB8AA}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionItems) = postSolution
+		Item:1 = ..\..\..\Documents and Settings\Administrator\Desktop\SiST.vsd
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

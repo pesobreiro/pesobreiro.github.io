@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0 Strict Level 2//EN"><HTML>
+<HEAD>
+<!-- This HTML file has been created by texi2html 1.36
+     from html-spec.texi on 18 October 1995 -->
+
+<TITLE>Hypertext Markup Language - 2.0  - Characters, Words, and Paragraphs</TITLE>
+</HEAD>
+<BODY>
+Go to the <A HREF="html-spec_1.html" REL=FIRST>first</A>, <A HREF="html-spec_5.html" REL=PREVIOUS>previous</A>, <A HREF="html-spec_7.html" REL=NEXT>next</A>, <A HREF="html-spec_14.html" REL=LAST>last</A> section, <A HREF="html-spec_toc.html" REL=TOC>table of contents</A>.
+<HR>
+
+
+<H1><A NAME="SEC6" HREF="html-spec_toc.html#SEC6" REL=TOC>Characters, Words, and Paragraphs</A></H1>
+<P>
+An HTML <A HREF="html-spec_2.html#GLOSS36" REL=GLOSSARY>user agent</A> <A HREF="html-spec_2.html#GLOSS29" REL=GLOSSARY>should</A> present the body of an <A HREF="html-spec_2.html#GLOSS18" REL=GLOSSARY>HTML document</A> as a
+collection of typeset paragraphs and preformatted text.  Except for
+preformatted elements (<EM>PRE</EM>, <EM>XMP</EM>, <EM>LISTING</EM>,
+<EM>TEXTAREA</EM>), each block structuring <A HREF="html-spec_2.html#GLOSS13" REL=GLOSSARY>element</A> is regarded as a
+paragraph by taking the data characters in its content and the content
+of its descendant elements, concatenating them, and splitting the
+result into words, separated by space, tab, or record end characters
+(and perhaps hyphen characters).  The sequence of words is typeset as a
+paragraph by breaking it into lines.
+
+</P>
+
+
+
+<H2><A NAME="SEC6.1" HREF="html-spec_toc.html#SEC6.1" REL=TOC>The HTML Document Character Set</A></H2>
+<P>
+The <A HREF="html-spec_2.html#GLOSS11" REL=GLOSSARY>document character set</A> specified in section <A HREF="html-spec_9.html#SEC9.5" REL=XREF>SGML Declaration for HTML</A> <A HREF="html-spec_2.html#GLOSS25" REL=GLOSSARY>must</A> be
+supported by HTML user agents.  It includes the graphic characters of
+Latin Alphabet No.  1, or simply Latin-1.  Latin-1 comprises 191
+graphic characters, including the alphabets of most Western European
+languages.
+<A NAME="FOOT24" HREF="html-spec_foot.html#FOOT24" REL=FOOTNOTE>(24)</A>
+<A NAME="FOOT25" HREF="html-spec_foot.html#FOOT25" REL=FOOTNOTE>(25)</A>
+
+</P>
+<P>
+In SGML applications, the use of control characters is limited in
+order to maximize the chance of successful interchange over
+heterogeneous networks and operating systems.  In the <A HREF="html-spec_2.html#GLOSS18" REL=GLOSSARY>HTML document</A>
+<A HREF="html-spec_2.html#GLOSS4" REL=GLOSSARY>character</A> set only three control characters are allowed:  Horizontal
+Tab, Carriage Return, and Line Feed (code positions 9, 13, and 10).
+
+</P>
+<P>
+The HTML <A HREF="html-spec_2.html#GLOSS12" REL=GLOSSARY>DTD</A> references the Added Latin 1 <A HREF="html-spec_2.html#GLOSS15" REL=GLOSSARY>entity</A> set, to allow
+mnemonic representation of selected Latin 1 characters using only the
+widely supported ASCII <A HREF="html-spec_2.html#GLOSS4" REL=GLOSSARY>character</A> repertoire.  For example:
+
+</P>
+
+<PRE>
+Kurt G&#38;ouml;del was a famous logician and mathematician.
+</PRE>
+
+<P>
+See section <A HREF="html-spec_9.html#SEC9.7.2" REL=XREF>ISO Latin 1 Character Entity Set</A> for a table of the "Added Latin 1"
+entities, and section <A HREF="html-spec_13.html#SEC13" REL=XREF>The HTML Coded Character Set</A> for a table of the code
+positions of [ISO 8859-1] and the control characters in the HTML
+<A HREF="html-spec_2.html#GLOSS11" REL=GLOSSARY>document character set</A>.
+
+</P>
+
+<HR>
+Go to the <A HREF="html-spec_1.html" REL=FIRST>first</A>, <A HREF="html-spec_5.html" REL=PREVIOUS>previous</A>, <A HREF="html-spec_7.html" REL=NEXT>next</A>, <A HREF="html-spec_14.html" REL=LAST>last</A> section, <A HREF="html-spec_toc.html" REL=TOC>table of contents</A>.
+</BODY>
+</HTML>

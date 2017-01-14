@@ -1,0 +1,574 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+<META name="GENERATOR" content="IBM WebSphere Homepage Builder V5.0.1 for Windows">
+<title>Configuring, compiling, and running the samples</title>
+<link rel="stylesheet" type="text/css" href="../../wasstyle.css">
+</head>
+
+<body>
+<h3><A href="index.htm#TOC14" name="SEC14">Configuring, compiling, and running the samples</A></h3>
+<p>
+This topic describes how to configure, compile, and run the samples provided
+with the IBM WebSphere UDDI Registry.
+It also provides examples of the output created by the samples.
+
+<ul>
+<li><A href="#SEC32">Configuring the samples</A></li>
+<li><A href="#Samssl">SSL</A></li>
+<li><A href="#SEC33">Setting the classpath</A></li>
+<li><A href="#SEC34">Compiling the samples</A></li>
+<li><A href="#SEC35">Running the samples</A></li>
+<li><A href="#SEC36">Output to the console</A></li>
+</ul>
+
+<H4><A name="SEC32">Configuring the samples</A></H4>
+<P>Each sample has seven fields which need to
+be configured before compilation. These are:<BR></P>
+<DL>
+  <DT><CODE>private static final String host</CODE></DT>
+  <DD><CODE>= &quot;hostname&quot;; </CODE>The host must be the name of the registry
+  host machine,<I> without</I> the prefix &quot;http://&quot;, e.g. &quot;localhost&quot;
+  or &quot;aspidistra.hursley.ibm.com&quot;</DD>
+  <DT><CODE>private static boolean WASSecurityOn</CODE></DT>
+  <DD><CODE>= false; </CODE>If WAS Security is turned on, this should
+  be set to 'true'. Otherwise it should be
+  left as 'false'</DD>
+  <DT><CODE>private static String publishUserName</CODE></DT>
+  <DD><CODE>= &quot;db2admin&quot;;</CODE></DD>
+  <DT><CODE>private static String publishPassword</CODE></DT>
+  <DD><CODE>= &quot;db2admin&quot;; </CODE>Username and password of an authenticated
+  WAS user</DD>
+  <DT><CODE>private static final String trustStoreDirPath
+  =</CODE></DT>
+  <DD><CODE>&quot;c:\\websphere\\appserver\\etc\\&quot;;</CODE> <CODE>On Linux this value should be set, by default,
+  to &quot;/opt/WebSphere/AppServer/etc&quot;</CODE></DD>
+  <DT><CODE>private static final String trustStoreFilename
+  =</CODE></DT>
+  <DD><CODE>&quot;DummyClientTrustFile.jks&quot;; </CODE>trustStoreDirPath + trustStoreFilename must
+  be fully qualified path to WAS's default
+  dummy client trust file. If WAS is running
+  remotely, the easiest way to run the samples
+  is to get a copy of this file and place it
+  in the same directory as the samples</DD>
+  <DT><CODE>private static final String trustStorePassword
+  =</CODE></DT>
+  <DD><CODE>&quot;WebAS&quot;; </CODE>This must be the password of the client trust
+  file above</DD>
+</DL>
+<H4><A name="Samssl">SSL</A></H4>
+<p>If WebSphere Application Server security
+is turned on, the samples must use SSL to
+access the publish API. If security is turned
+off, the samples do not use SSL at all.</P>
+<P>The last three fields are to do with SSL
+certification. Setting the client trust store
+file to be the WebSphere Application Server
+default dummy client trust file allows the
+sample to trust the dummy signed certificate
+that WebSphere Application Server is using
+to serve SSL requests. If WebSphere Application
+Server has not been installed into the default
+directory, or it has been configured to use
+an alternative certificate, these fields
+will need to be configured. A discussion
+of SSL/Java certificates is beyond the scope
+of this sample - if running with alternative
+certificates installed on the server, the
+user must discuss with their server administrator
+the correct method of obtaining the required
+public certificates.</P>
+<H4><A name="SEC33">Setting the classpath</A></H4>
+<P>The java classpath needed to run the SOAP
+sample does not need any extra classes, apart
+from the standard java class libraries, added
+when using the WebSphere JDK. Using the WAS
+JDK, ensure that the file <B>ibmjsse.jar</B> is on the classpath. This jar file is required
+for SSL. </P>
+<P>For the UDDI4J samples, the java classpath
+needed to run the sample must contain, apart
+from the standard java class libraries,<B> xerces.jar</B>, <B>soap.jar</B>, and the <B>uddi4j.ja</B><B>r</B> supplied with the IBM WebSphere UDDI Registry.
+It is essential to use this <B>uddi4j.jar</B> file rather than the one that can be downloaded
+from the UDDI4J website, as this version
+has been configured for use with WebSphere
+Application Server Security.</P>
+<P>The locations for these files, by default,
+are shown below:</P>
+<H5>Windows</H5>
+<TABLE bgcolor="#cccccc">
+  <TBODY>
+    <TR>
+      <TD></TD>
+      <TD>C:\WebSphere\AppServer\java\jre\lib\rt.jar</TD>
+    </TR>
+    <TR>
+      <TD width="24"></TD>
+      <TD width="671">C:\WebSphere\AppServer\java\jre\lib\ext\ibmjsse.jar</TD>
+    </TR>
+    <TR>
+      <TD></TD>
+      <TD width="671">C:\WebSphere\AppServer\lib\xerces.jar</TD>
+    </TR>
+    <TR>
+      <TD></TD>
+      <TD width="671">C:\WebSphere\AppServer\lib\soap.jar</TD>
+    </TR>
+    <TR>
+      <TD></TD>
+      <TD width="671">C:\WebSphere\UDDIReg\uddi4j\uddi4j.jar</TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<H5>Linux</H5>
+<TABLE bgcolor="#cccccc">
+  <TBODY>
+    <TR>
+      <TD></TD>
+      <TD>/opt/WebSphere/AppServer\java\jre\lib\rt.jar</TD>
+    </TR>
+    <TR>
+      <TD width="24"></TD>
+      <TD width="670">/opt/WebSphere/AppServer/java/jre/lib/ext/ibmjsse.jar</TD>
+    </TR>
+    <TR>
+      <TD></TD>
+      <TD width="670">/opt/WebSphere/AppServer/lib/xerces.jar</TD>
+    </TR>
+    <TR>
+      <TD></TD>
+      <TD width="670">/opt/WebSphere/AppServer/lib/soap.jar</TD>
+    </TR>
+    <TR>
+      <TD></TD>
+      <TD width="670">/opt/WebSphere/UDDIReg/uddi4j/iddi4j.jar</TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<h4><A name="SEC34">Compiling the samples</A></h4>
+<P>To compile the samples, make sure you are
+using the WebSphere Application Server JDK.
+This can be done by setting the path <B> before </B>any other path to a JDK, as follows:</P>
+<H5>Windows</H5>
+<TABLE width="715" bgcolor="#cccccc">
+  <TBODY>
+    <TR>
+      <TD width="18"></TD>
+      <TD width="681">C:\WebSphere\AppServer\java\bin</TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<H5>Linux</H5>
+<TABLE width="719" bgcolor="#cccccc">
+  <TBODY>
+    <TR>
+      <TD width="18"></TD>
+      <TD width="685">/opt/WebSphere/AppServer/java/bin</TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<P>Ensure the classpath is set up correctly,
+change to the appropriate directory, and,
+irrespective of operating system, type:</P>
+<H5>Windows example</H5>
+<TABLE width="719" bgcolor="#cccccc">
+  <TBODY>
+    <TR>
+      <TD width="18"></TD>
+      <TD width="685">cd C:\WebSphere\UDDIReg\samples\soap<BR>
+      javac SOAPSample1*.java</TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<P>for the SOAP samples, or, for the UDDI4J
+samples:</P>
+<H5>Linux example</H5>
+<TABLE width="722" bgcolor="#cccccc">
+  <TBODY>
+    <TR>
+      <TD width="18"></TD>
+      <TD width="688">cd /opt/WebSphere/UDDIReg/Samples/soap<BR>
+      javac UDDI4JSample1*.java</TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<H4><A name="SEC35">Running the samples</A></H4>
+<P>Ensure you are using the WebSphere Application
+Server JDK , as above. Ensure the XML files
+containing the UDDI API messages are in the
+same directory as the java class files and
+type</P>
+<TABLE width="727" bgcolor="#cccccc">
+  <TBODY>
+    <TR>
+      <TD width="18"></TD>
+      <TD width="693">java SOAPSample1a<BR>
+      java SOAPSample1b </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<P>and so on. The samples will send output to
+the console.</P>
+<P>For the UDDI4J samples, again ensure you
+are using the WebSphere Application Server
+JDK, as above, and type:</P>
+<TABLE width="732" bgcolor="#cccccc">
+  <TBODY>
+    <TR>
+      <TD width="18"></TD>
+      <TD width="698">java UDDI4JSample1a &lt;WASUsername&gt; &lt;WASPassword&gt;<BR>
+      java UDDI4JSample1b &lt;WASUsername&gt; &lt;WASPassword&gt;</TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<P>and so on, where &lt;WASUsername&gt; and
+&lt;WASPassword&gt; are a valid WebSphere
+Application Server username and password
+pair. Again, the samples will send output
+to the console.</P>
+<H4><A name="SEC36">Output to the console</A></H4>
+<P>All the sample output is sent to the console.
+Below is an example of the output for SOAPSample1a:</P>
+<P><SAMP>java SOAPSample1a<BR>
+<BR>
+GETTING AUTHTOKEN:<BR>
+-----------------<BR>
+<BR>
+Sending the Following Message:<BR>
+<BR>
+&lt;s:Envelope xmlns:s=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;<BR>
+&lt;s:Body&gt; <BR>
+&lt;get_authToken generic=&quot;2.0&quot;
+xmlns=&quot;urn:uddi-org:api_v2&quot; userID=&quot;uddiUse<BR>
+r&quot; cred=&quot;uddiPwd&quot;&gt;&lt;/get_authToken&gt;<BR>
+&lt;/s:Body&gt;<BR>
+&lt;/s:Envelope&gt;<BR>
+<BR>
+<BR>
+Received the following response:<BR>
+<BR>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;
+?&gt;&lt;Envelope xmlns=&quot;http://schemas.xmls<BR>
+oap.org/soap/envelope/&quot;&gt;&lt;Body&gt;&lt;authToken
+generic=&quot;2.0&quot; xmlns=&quot;urn:uddi-org:<BR>
+api_v2&quot; operator=&quot;operator&quot;&gt;&lt;authInfo&gt;uddiUser&lt;/authInfo&gt;&lt;/authToken&gt;&lt;/Body<BR>
+&gt;&lt;/Envelope&gt;<BR>
+<BR>
+authInfo = 'uddiUser'<BR>
+<BR>
+<BR>
+FINDING T-MODEL:<BR>
+----------------<BR>
+<BR>
+Sending the Following Message:<BR>
+<BR>
+&lt;s:Envelope xmlns:s=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;<BR>
+&lt;s:Body&gt; <BR>
+&lt;find_tModel generic=&quot;2.0&quot; xmlns=&quot;urn:uddi-org:api_v2&quot;&gt;
+<BR>
+&lt;name&gt;MyTModel: Mon 17 Dec 2001 at
+15:15:59 GMT&lt;/name&gt; <BR>
+&lt;/find_tModel&gt;<BR>
+&lt;/s:Body&gt;<BR>
+&lt;/s:Envelope&gt;<BR>
+<BR>
+<BR>
+Received the following response:<BR>
+<BR>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;
+?&gt;&lt;Envelope xmlns=&quot;http://schemas.xmls<BR>
+oap.org/soap/envelope/&quot;&gt;&lt;Body&gt;&lt;tModelList
+generic=&quot;2.0&quot; xmlns=&quot;urn:uddi-org<BR>
+:api_v2&quot; operator=&quot;operator&quot;
+truncated=&quot;false&quot;&gt;&lt;tModelInfos&gt;&lt;/tModelInfos&gt;&lt;<BR>
+/tModelList&gt;&lt;/Body&gt;&lt;/Envelope&gt;<BR>
+<BR>
+<BR>
+SAVING T-MODEL:<BR>
+---------------<BR>
+<BR>
+Sending the Following Message:<BR>
+<BR>
+&lt;s:Envelope xmlns:s=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;<BR>
+&lt;s:Body&gt; <BR>
+&lt;save_tModel generic=&quot;2.0&quot; xmlns=&quot;urn:uddi-org:api_v2&quot;&gt;
+<BR>
+&lt;authInfo&gt;uddiUser&lt;/authInfo&gt;<BR>
+&lt;tModel tModelKey=&quot;&quot;&gt;<BR>
+&lt;name&gt;MyTModel: Mon 17 Dec 2001 at
+15:15:59 GMT&lt;/name&gt;<BR>
+&lt;/tModel&gt; <BR>
+&lt;/save_tModel&gt;<BR>
+&lt;/s:Body&gt;<BR>
+&lt;/s:Envelope&gt;<BR>
+<BR>
+<BR>
+Received the following response:<BR>
+<BR>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;
+?&gt;&lt;Envelope xmlns=&quot;http://schemas.xmls<BR>
+oap.org/soap/envelope/&quot;&gt;&lt;Body&gt;&lt;tModelDetail
+generic=&quot;2.0&quot; xmlns=&quot;urn:uddi-o<BR>
+rg:api_v2&quot; operator=&quot;operator&quot;&gt;&lt;tModel
+tModelKey=&quot;UUID:3ED98C61-143E-4271-9<BR>
+C55-0FD618B63136&quot; operator=&quot;operator&quot;
+authorizedName=&quot;uddiUser&quot;&gt;&lt;name&gt;MyTMo<BR>
+del: Mon 17 Dec 2001 at 15:15:59 GMT&lt;/name&gt;&lt;/tModel&gt;&lt;/tModelDetail&gt;&lt;/Body&gt;&lt;<BR>
+/Envelope&gt;<BR>
+<BR>
+tModelKey = 'UUID:3ED98C61-143E-4271-9C55-0FD618B63136'<BR>
+<BR>
+<BR>
+FINDING T-MODEL:<BR>
+----------------<BR>
+<BR>
+Sending the Following Message:<BR>
+<BR>
+&lt;s:Envelope xmlns:s=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;<BR>
+&lt;s:Body&gt; <BR>
+&lt;find_tModel generic=&quot;2.0&quot; xmlns=&quot;urn:uddi-org:api_v2&quot;&gt;
+<BR>
+&lt;name&gt;MyTModel: Mon 17 Dec 2001 at
+15:15:59 GMT&lt;/name&gt; <BR>
+&lt;/find_tModel&gt;<BR>
+&lt;/s:Body&gt;<BR>
+&lt;/s:Envelope&gt;<BR>
+<BR>
+<BR>
+Received the following response:<BR>
+<BR>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;
+?&gt;&lt;Envelope xmlns=&quot;http://schemas.xmls<BR>
+oap.org/soap/envelope/&quot;&gt;&lt;Body&gt;&lt;tModelList
+generic=&quot;2.0&quot; xmlns=&quot;urn:uddi-org<BR>
+:api_v2&quot; operator=&quot;operator&quot;
+truncated=&quot;false&quot;&gt;&lt;tModelInfos&gt;&lt;tModelInfo
+tMo<BR>
+delKey=&quot;UUID:3ED98C61-143E-4271-9C55-0FD618B63136&quot;&gt;&lt;name
+xml:lang=&quot;en&quot;&gt;MyTM<BR>
+odel: Mon 17 Dec 2001 at 15:15:59 GMT&lt;/name&gt;&lt;/tModelInfo&gt;&lt;/tModelInfos&gt;&lt;/tM<BR>
+odelList&gt;&lt;/Body&gt;&lt;/Envelope&gt;<BR>
+<BR>
+<BR>
+DELETING T-MODEL:<BR>
+-----------------<BR>
+<BR>
+Sending the Following Message:<BR>
+<BR>
+&lt;s:Envelope xmlns:s=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;<BR>
+&lt;s:Body&gt; <BR>
+&lt;delete_tModel generic=&quot;2.0&quot;
+xmlns=&quot;urn:uddi-org:api_v2&quot;&gt;
+<BR>
+&lt;authInfo&gt;uddiUser&lt;/authInfo&gt;<BR>
+&lt;tModelKey&gt;UUID:3ED98C61-143E-4271-9C55-0FD618B63136&lt;/tModelKey&gt;
+<BR>
+&lt;/delete_tModel&gt;<BR>
+&lt;/s:Body&gt;<BR>
+&lt;/s:Envelope&gt;<BR>
+<BR>
+<BR>
+Received the following response:<BR>
+<BR>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;
+?&gt;&lt;Envelope xmlns=&quot;http://schemas.xmls<BR>
+oap.org/soap/envelope/&quot;&gt;&lt;Body&gt;&lt;dispositionReport
+generic=&quot;2.0&quot; xmlns=&quot;urn:u<BR>
+ddi-org:api_v2&quot; operator=&quot;operator&quot;&gt;&lt;result
+errno=&quot;0&quot;&gt;&lt;errInfo errCode=&quot;E_s<BR>
+uccess&quot;&gt;E_success (0) Success. &lt;/errInfo&gt;&lt;/result&gt;&lt;/dispositionReport&gt;&lt;/Bod<BR>
+y&gt;&lt;/Envelope&gt;<BR>
+<BR>
+<BR>
+FINDING T-MODEL:<BR>
+----------------<BR>
+<BR>
+Sending the Following Message:<BR>
+<BR>
+&lt;s:Envelope xmlns:s=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;<BR>
+&lt;s:Body&gt; <BR>
+&lt;find_tModel generic=&quot;2.0&quot; xmlns=&quot;urn:uddi-org:api_v2&quot;&gt;
+<BR>
+&lt;name&gt;MyTModel: Mon 17 Dec 2001 at
+15:15:59 GMT&lt;/name&gt; <BR>
+&lt;/find_tModel&gt;<BR>
+&lt;/s:Body&gt;<BR>
+&lt;/s:Envelope&gt;<BR>
+<BR>
+<BR>
+Received the following response:<BR>
+<BR>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;
+?&gt;&lt;Envelope xmlns=&quot;http://schemas.xmls<BR>
+oap.org/soap/envelope/&quot;&gt;&lt;Body&gt;&lt;tModelList
+generic=&quot;2.0&quot; xmlns=&quot;urn:uddi-org<BR>
+:api_v2&quot; operator=&quot;operator&quot;
+truncated=&quot;false&quot;&gt;&lt;tModelInfos&gt;&lt;/tModelInfos&gt;&lt;<BR>
+/tModelList&gt;&lt;/Body&gt;&lt;/Envelope&gt;<BR>
+<BR>
+<BR>
+DISCARDING AUTHTOKEN:<BR>
+--------------------<BR>
+<BR>
+Sending the Following Message:<BR>
+<BR>
+&lt;s:Envelope xmlns:s=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;<BR>
+&lt;s:Body&gt; <BR>
+&lt;discard_authToken generic=&quot;2.0&quot;
+xmlns=&quot;urn:uddi-org:api_v2&quot;&gt;<BR>
+&lt;authInfo&gt;uddiUser&lt;/authInfo&gt;<BR>
+&lt;/discard_authToken&gt;<BR>
+&lt;/s:Body&gt;<BR>
+&lt;/s:Envelope&gt;<BR>
+<BR>
+<BR>
+Received the following response:<BR>
+<BR>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;
+?&gt;&lt;Envelope xmlns=&quot;http://schemas.xmls<BR>
+oap.org/soap/envelope/&quot;&gt;&lt;Body&gt;&lt;dispositionReport
+generic=&quot;2.0&quot; xmlns=&quot;urn:u<BR>
+ddi-org:api_v2&quot; operator=&quot;operator&quot;&gt;&lt;result
+errno=&quot;0&quot;&gt;&lt;errInfo errCode=&quot;E_s<BR>
+uccess&quot;&gt;E_success (0) Success. &lt;/errInfo&gt;&lt;/result&gt;&lt;/dispositionReport&gt;&lt;/Bod<BR>
+y&gt;&lt;/Envelope&gt;<BR>
+</SAMP></P>
+<H4><A name="base4j">Basic UDDI4J SOAP Samples</A></H4>
+<P>The UDDI4J SOAP Samples mirror the set of
+basic java SOAP samples, by performing exactly
+the same sequence of UDDI API calls, but
+this time using UDDI4J instead of basic java
+libraries. See the information on basic java
+SOAP samples above for the descriptions of
+these sequences of UDDI API calls.</P>
+<P>Below is an example of the output for UDDI4JSample1a:<BR>
+<BR><SAMP>java UDDI4JSample1a db2admin db2admin<BR>
+<BR>
+IBM WEBSPHERE UDDI REGISTRY - Supplied Sample
+'UDDI4JSample1a'<BR>
+--------------------------------------------------------------<BR>
+<BR>
+GETTING AUTHTOKEN:<BR>
+-----------------<BR>
+<BR>
+Request body:<BR>
+&lt;get_authToken cred=&quot;uddiPwd&quot;
+generic=&quot;2.0&quot; userID=&quot;uddiUser&quot;
+xmlns=&quot;urn:ud<BR>
+di-org:api_v2&quot;/&gt;<BR>
+<BR>
+Response body:<BR>
+&lt;authToken generic=&quot;2.0&quot; operator=&quot;operator&quot;
+xmlns=&quot;urn:uddi-org:api_v2&quot;&gt;&lt;a<BR>
+uthInfo&gt;uddiUser&lt;/authInfo&gt;&lt;/authToken&gt;<BR>
+<BR>
+authInfo = 'uddiUser'<BR>
+<BR>
+<BR>
+FINDING T-MODEL:<BR>
+----------------<BR>
+<BR>
+Request body:<BR>
+&lt;find_tModel generic=&quot;2.0&quot; xmlns=&quot;urn:uddi-org:api_v2&quot;&gt;&lt;name&gt;MyTModel:
+Mon 17 Dec 2001 at 15:23:20 GMT&lt;/name&gt;&lt;/find_tModel&gt;<BR>
+<BR>
+Response body:<BR>
+&lt;tModelList generic=&quot;2.0&quot; operator=&quot;operator&quot;
+truncated=&quot;false&quot; xmlns=&quot;urn:<BR>
+uddi-org:api_v2&quot;&gt;&lt;tModelInfos/&gt;&lt;/tModelList&gt;<BR>
+<BR>
+Found 0 tModel(s) with name 'MyTModel: Mon
+17 Dec 2001 at 15:23:20 GMT'.<BR>
+<BR>
+<BR>
+SAVING T-MODEL:<BR>
+---------------<BR>
+<BR>
+Request body:<BR>
+&lt;save_tModel generic=&quot;2.0&quot; xmlns=&quot;urn:uddi-org:api_v2&quot;&gt;&lt;authInfo&gt;uddiUser&lt;/<BR>
+authInfo&gt;&lt;tModel tModelKey=&quot;&quot;&gt;&lt;name&gt;MyTModel:
+Mon 17 Dec 2001 at 15:23:20 G<BR>
+MT&lt;/name&gt;&lt;/tModel&gt;&lt;/save_tModel&gt;<BR>
+<BR>
+Response body:<BR>
+&lt;tModelDetail generic=&quot;2.0&quot;
+operator=&quot;operator&quot; xmlns=&quot;urn:uddi-org:api_v2&quot;<BR>
+&gt;&lt;tModel authorizedName=&quot;uddiUser&quot;
+operator=&quot;operator&quot; tModelKey=&quot;UUID:023A<BR>
+188C-3AE4-48DD-AA7A-3F01237F2123&quot;&gt;&lt;name&gt;MyTModel:
+Mon 17 Dec 2001 at 15:23:<BR>
+20 GMT&lt;/name&gt;&lt;/tModel&gt;&lt;/tModelDetail&gt;<BR>
+<BR>
+tModelKey = 'UUID:023A188C-3AE4-48DD-AA7A-3F01237F2123'<BR>
+<BR>
+<BR>
+FINDING T-MODEL:<BR>
+----------------<BR>
+<BR>
+Request body:<BR>
+&lt;find_tModel generic=&quot;2.0&quot; xmlns=&quot;urn:uddi-org:api_v2&quot;&gt;&lt;name&gt;MyTModel:
+Mon 17 Dec 2001 at 15:23:20 GMT&lt;/name&gt;&lt;/find_tModel&gt;<BR>
+<BR>
+Response body:<BR>
+&lt;tModelList generic=&quot;2.0&quot; operator=&quot;operator&quot;
+truncated=&quot;false&quot; xmlns=&quot;urn:<BR>
+uddi-org:api_v2&quot;&gt;&lt;tModelInfos&gt;&lt;tModelInfo
+tModelKey=&quot;UUID:023A188C-3AE4-48D<BR>
+D-AA7A-3F01237F2123&quot;&gt;&lt;name xml:lang=&quot;en&quot;&gt;MyTModel:
+Mon 17 Dec 2001 at 15:23<BR>
+:20 GMT&lt;/name&gt;&lt;/tModelInfo&gt;&lt;/tModelInfos&gt;&lt;/tModelList&gt;<BR>
+<BR>
+Found 1 tModel(s) with name 'MyTModel: Mon
+17 Dec 2001 at 15:23:20 GMT'.<BR>
+<BR>
+<BR>
+DELETING T-MODEL:<BR>
+-----------------<BR>
+<BR>
+Request body:<BR>
+&lt;delete_tModel generic=&quot;2.0&quot;
+xmlns=&quot;urn:uddi-org:api_v2&quot;&gt;&lt;authInfo&gt;uddiUser<BR>
+&lt;/authInfo&gt;&lt;tModelKey&gt;UUID:023A188C-3AE4-48DD-AA7A-3F01237F2123&lt;/tModelKey&gt;&lt;/delete_tModel&gt;<BR>
+<BR>
+Response body:<BR>
+&lt;dispositionReport generic=&quot;2.0&quot;
+operator=&quot;operator&quot; xmlns=&quot;urn:uddi-org:ap<BR>
+i_v2&quot;&gt;&lt;result errno=&quot;0&quot;&gt;&lt;errInfo
+errCode=&quot;E_success&quot;&gt;E_success
+(0) Success. &lt;/errInfo&gt;&lt;/result&gt;&lt;/dispositionReport&gt;<BR>
+<BR>
+Success = true<BR>
+<BR>
+FINDING T-MODEL:<BR>
+----------------<BR>
+<BR>
+Request body:<BR>
+&lt;find_tModel generic=&quot;2.0&quot; xmlns=&quot;urn:uddi-org:api_v2&quot;&gt;&lt;name&gt;MyTModel:
+Mon 17 Dec 2001 at 15:23:20 GMT&lt;/name&gt;&lt;/find_tModel&gt;<BR>
+<BR>
+Response body:<BR>
+&lt;tModelList generic=&quot;2.0&quot; operator=&quot;operator&quot;
+truncated=&quot;false&quot; xmlns=&quot;urn:<BR>
+uddi-org:api_v2&quot;&gt;&lt;tModelInfos/&gt;&lt;/tModelList&gt;<BR>
+<BR>
+Found 0 tModel(s) with name 'MyTModel: Mon
+17 Dec 2001 at 15:23:20 GMT'.<BR>
+<BR>
+<BR>
+DISCARDING AUTHTOKEN:<BR>
+--------------------<BR>
+<BR>
+Request body:<BR>
+&lt;discard_authToken generic=&quot;2.0&quot;xmlns=&quot;urn:uddi-org:api_v2&quot;&gt;&lt;authInfo&gt;uddiU<BR>
+ser&lt;/authInfo&gt;&lt;/discard_authToken&gt;<BR>
+<BR>
+Response body:<BR>
+&lt;dispositionReport generic=&quot;2.0&quot;
+operator=&quot;operator&quot; xmlns=&quot;urn:uddi-org:ap<BR>
+i_v2&quot;&gt;&lt;result errno=&quot;0&quot;&gt;&lt;errInfo
+errCode=&quot;E_success&quot;&gt;E_success
+(0) Success. &lt;/errInfo&gt;&lt;/result&gt;&lt;/dispositionReport&gt;<BR>
+<BR>
+Success = true</SAMP></P>
+</body>
+</html>

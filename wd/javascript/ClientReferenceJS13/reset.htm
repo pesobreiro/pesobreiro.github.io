@@ -1,0 +1,495 @@
+<HTML>
+<HEAD>
+<TITLE>
+</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="regexp.htm">Previous</A>
+ | <A HREF="screen.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT><BR><BR>
+<HR>
+
+<H1><A NAME="Reset"></A>
+<A NAME="1193137">
+ Reset
+</A></H1>
+<A NAME="1193138">
+A reset button on an HTML form. A reset button resets all elements in a form to their defaults.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193141">
+<I>Client-side object</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193143">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193145">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193147">
+JavaScript 1.0</A></P><P><A NAME="1194225">
+</A></P><P><A NAME="1194226">
+JavaScript 1.1: added <CODE>type</CODE> property; added <CODE>onBlur</CODE> and <CODE>onFocus</CODE> event handlers; added <CODE>blur</CODE> and <CODE>focus</CODE> methods</A></P><P><A NAME="1194259">
+</A></P><P><A NAME="1194260">
+JavaScript 1.2: added <CODE>handleEvent</CODE> method</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193148">
+ Created by
+</A></H4>
+
+<A NAME="1193151">
+The HTML <CODE><A HREF="http://developer.netscape.com/docs/manuals/htmlguid/index.htm?content=tags10.htm#tags:INPUT" TARGET="_top">INPUT</A></CODE> tag, with <CODE>"reset"</CODE> as the value of the <CODE>TYPE</CODE> attribute. For a given form, the JavaScript runtime engine creates an appropriate <CODE>Reset</CODE> object and puts it in the <A HREF="form.htm#1193375"><CODE>elements</CODE></A> array of the corresponding <A HREF="form.htm#1197470"><CODE>Form</CODE></A> object. You access a <CODE>Reset</CODE> object by indexing this array. You can index the array either by number or, if supplied, by using the value of the <CODE>NAME</CODE> attribute.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193158">
+ Event handlers
+</A></H4>
+
+<ul><LI><A NAME="1193162">
+<A HREF="handlers.htm#1119670"><CODE>onBlur</CODE></A>
+</A></LI><LI><A NAME="1193166">
+<A HREF="handlers.htm#1119876"><CODE>onClick</CODE></A>
+</A></LI><LI><A NAME="1193170">
+<A HREF="handlers.htm#1120186"><CODE>onFocus</CODE></A>
+</A></LI></ul>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193171">
+ Description
+</A></H4>
+
+<A NAME="1193175">
+A <CODE>Reset</CODE> object on a form looks as follows:<P>
+<IMG SRC="graphics/reset.gif">
+</A></P>
+<A NAME="1193178">
+A <CODE>Reset</CODE> object is a form element and must be defined within a <CODE><A HREF="http://developer.netscape.com/docs/manuals/htmlguid/index.htm?content=tags10.htm#tags:FORM" TARGET="_top">FORM</A></CODE> tag.</A></P>
+<A NAME="1193179">
+The reset button's <CODE>onClick</CODE> event handler cannot prevent a form from being reset; once the button is clicked, the reset cannot be canceled.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193180">
+ Property Summary
+</A></H4>
+
+<A NAME="1193214">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1193183">
+<B>Property
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1193185">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193190"><A HREF="reset.htm#1193275"><CODE>form</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193192">
+Specifies the form containing the <CODE>Reset</CODE> object.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193197"><A HREF="reset.htm#1193302"><CODE>name</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193199">
+Reflects the <CODE>NAME</CODE> attribute.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193204"><A HREF="reset.htm#1193341"><CODE>type</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193206">
+Reflects the <CODE>TYPE</CODE> attribute.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193211"><A HREF="reset.htm#1193363"><CODE>value</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193213">
+Reflects the <CODE>VALUE</CODE> attribute.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193215">
+ Method Summary
+</A></H4>
+
+<A NAME="1198412">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1198381">
+<B>Method
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1198383">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1198388"><A HREF="reset.htm#1193704"><CODE>blur</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1198390">
+Removes focus from the reset button.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1198395"><A HREF="reset.htm#1193734"><CODE>click</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1198397">
+Simulates a mouse-click on the reset button.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1198402"><A HREF="reset.htm#1193755"><CODE>focus</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1198404">
+Gives focus to the reset button.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1198409"><A HREF="reset.htm#1193938"><CODE>handleEvent</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1198411">
+Invokes the handler for the specified event. </A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+<A NAME="1198420">
+In addition, this object inherits the <A HREF="object.htm#1193628"><CODE>watch</CODE></A> and <A HREF="object.htm#1193499"><CODE>unwatch</CODE></A> methods from <A HREF="object.htm#1193136"><CODE>Object</CODE></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193250">
+ Examples
+</A></H4>
+
+<A NAME="1193251">
+<B>Example 1.</B> The following example displays a <CODE>Text</CODE> object with the default value "CA" and a reset button with the text "Clear Form" displayed on its face. If the user types a state abbreviation in the <CODE>Text</CODE> object and then clicks the Clear Form button, the original value of "CA" is restored.</A></P>
+<PRE><A NAME="1193252">&lt;B&gt;State: &lt;/B&gt;&lt;INPUT TYPE="text" NAME="state" VALUE="CA" SIZE="2"&gt;<br>&lt;P&gt;&lt;INPUT TYPE="reset" VALUE="Clear Form"&gt;</A></PRE><A NAME="1193253">
+<B>Example 2.</B> The following example displays two <CODE>Text</CODE> objects, a <CODE>Select</CODE> object, and three radio buttons; all of these objects have default values. The form also has a reset button with the text "Defaults" on its face. If the user changes the value of any of the objects and then clicks the Defaults button, the original values are restored.</A></P>
+<PRE><A NAME="1193254">&lt;HTML&gt;<br>&lt;HEAD&gt;<br>&lt;TITLE&gt;Reset object example&lt;/TITLE&gt;<br>&lt;/HEAD&gt;<br>&lt;BODY&gt;<br>&lt;FORM NAME="form1"&gt;<br>&lt;BR&gt;&lt;B&gt;City: &lt;/B&gt;&lt;INPUT TYPE="text" NAME="city" VALUE="Santa Cruz" SIZE="20"&gt;<br>&lt;B&gt;State: &lt;/B&gt;&lt;INPUT TYPE="text" NAME="state" VALUE="CA" SIZE="2"&gt;<br>&lt;P&gt;&lt;SELECT NAME="colorChoice"&gt;<br>&nbsp;&nbsp;&nbsp;&lt;OPTION SELECTED&gt; Blue<br>&nbsp;&nbsp;&nbsp;&lt;OPTION&gt; Yellow<br>&nbsp;&nbsp;&nbsp;&lt;OPTION&gt; Green<br>&nbsp;&nbsp;&nbsp;&lt;OPTION&gt; Red<br>&lt;/SELECT&gt;</A></PRE><PRE><A NAME="1197815">&lt;P&gt;&lt;INPUT TYPE="radio" NAME="musicChoice" VALUE="soul-and-r&amp;b"<br>&nbsp;&nbsp;&nbsp;CHECKED&gt; Soul and R&amp;B<br>&lt;BR&gt;&lt;INPUT TYPE="radio" NAME="musicChoice" VALUE="jazz"&gt;<br>&nbsp;&nbsp;&nbsp;Jazz<br>&lt;BR&gt;&lt;INPUT TYPE="radio" NAME="musicChoice" VALUE="classical"&gt;<br>&nbsp;&nbsp;&nbsp;Classical<br>&lt;P&gt;&lt;INPUT TYPE="reset" VALUE="Defaults" NAME="reset1"&gt;<br>&lt;/FORM&gt;<br>&lt;/BODY&gt;<br>&lt;/HTML&gt;</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193255">
+ See also
+</A></H4>
+
+<A NAME="1193271">
+<A HREF="button.htm#1193137"><CODE>Button</CODE></A>, <A HREF="form.htm#1197470"><CODE>Form</CODE></A>, <A HREF="handlers.htm#1121007"><CODE>onReset</CODE></A>, <A HREF="form.htm#1194089"><CODE>Form.reset</CODE></A>, <A HREF="submit.htm#1193137"><CODE>Submit</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193704">
+blur
+</A></H2>
+
+<A NAME="1193718">
+Removes focus from the reset button.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193708">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193713">
+<A HREF="reset.htm#1193137"><CODE>Reset</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193715">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193717">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193719">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1193720">blur()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193721">
+ Parameters
+</A></H4>
+
+<A NAME="1193722">
+None</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193723">
+ Examples
+</A></H4>
+
+<A NAME="1193724">
+The following example removes focus from the reset button <CODE>userReset:</CODE></A></P>
+<PRE><A NAME="1193725">userReset.blur()</A></PRE><A NAME="1193726">
+This example assumes that the button is defined as</A></P>
+<PRE><A NAME="1193727">&lt;INPUT TYPE="reset" NAME="userReset"&gt;</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193728">
+ See also
+</A></H4>
+
+<A NAME="1193732">
+<A HREF="reset.htm#1193755"><CODE>Reset.focus</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193734">
+click
+</A></H2>
+
+<A NAME="1193736">
+Simulates a mouse-click on the reset button, but does <I>not</I> trigger an object's <CODE>onClick</CODE> event handler.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193739">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193744">
+<A HREF="reset.htm#1193137"><CODE>Reset</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193746">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193748">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193749">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1193750">click()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193751">
+ Parameters
+</A></H4>
+
+<A NAME="1193752">
+None</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193755">
+focus
+</A></H2>
+
+<A NAME="1193768">
+Navigates to the reset button and gives it focus.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193758">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193763">
+<A HREF="reset.htm#1193137"><CODE>Reset</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193765">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193767">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193769">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1193770">focus()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193771">
+ Parameters
+</A></H4>
+
+<A NAME="1193772">
+None</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193773">
+ See also
+</A></H4>
+
+<A NAME="1193777">
+<A HREF="reset.htm#1193704"><CODE>Reset.blur</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193275">
+form
+</A></H2>
+
+<A NAME="1193292">
+An object reference specifying the form containing the reset button.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193278">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193283">
+<A HREF="reset.htm#1193137"><CODE>Reset</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193285">
+<I>Read-only</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193287">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193289">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193291">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193293">
+ Description
+</A></H4>
+
+<A NAME="1193294">
+Each form element has a <CODE>form</CODE> property that is a reference to the element's parent form. This property is especially useful in event handlers, where you might need to refer to another element on the current form.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193295">
+ See also
+</A></H4>
+
+<A NAME="1193299">
+<A HREF="form.htm#1197470"><CODE>Form</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193938">
+handleEvent
+</A></H2>
+
+<A NAME="1193951">
+Invokes the handler for the specified event. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193941">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193946">
+<A HREF="reset.htm#1193137"><CODE>Reset</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193948">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193950">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193952">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1193953">handleEvent(<I>event</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193954">
+ Parameters
+</A></H4>
+
+<A NAME="1193960">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193957">event</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193959">
+The name of an event for which the specified object has an event handler.</A></P>
+
+</TABLE>
+</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193302">
+name
+</A></H2>
+
+<A NAME="1193315">
+A string specifying the name of the reset button.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193305">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193310">
+<A HREF="reset.htm#1193137"><CODE>Reset</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193312">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193314">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193316">
+ Security
+</A></H4>
+
+<B><A NAME="HeadRunIn;"></A>
+<A NAME="1198345">
+JavaScript 1.1. </A></B><A NAME="1193317">
+This property is tainted by default. For information on data tainting, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193321">
+ Description
+</A></H4>
+
+<A NAME="1193322">
+The value of the <CODE>name</CODE> property initially reflects the value of the <CODE>NAME</CODE> attribute. Changing the <CODE>name</CODE> property overrides this setting.</A></P>
+<A NAME="1193323">
+Do not confuse the <CODE>name</CODE> property with the label displayed on the reset button. The <CODE>value</CODE> property specifies the label for this button. The <CODE>name</CODE> property is not displayed on the screen; it is used to refer programmatically to the button.</A></P>
+<A NAME="1193324">
+If multiple objects on the same form have the same <CODE>NAME</CODE> attribute, an array of the given name is created automatically. Each element in the array represents an individual <CODE>Form</CODE> object. Elements are indexed in source order starting at 0. For example, if two <A HREF="text.htm#1193137"><CODE>Text</CODE></A> elements and a <A HREF="reset.htm#1193137"><CODE>Reset</CODE></A> element on the same form have their <CODE>NAME</CODE> attribute set to <CODE>"myField"</CODE>, an array with the elements <CODE>myField[0]</CODE>, <CODE>myField[1]</CODE>, and <CODE>myField[2]</CODE> is created. You need to be aware of this situation in your code and know whether <CODE>myField</CODE> refers to a single element or to an array of elements.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193331">
+ Examples
+</A></H4>
+
+<A NAME="1193332">
+In the following example, the <CODE>valueGetter</CODE> function uses a <CODE>for</CODE> loop to iterate over the array of elements on the <CODE>valueTest</CODE> form. The <CODE>msgWindow</CODE> window displays the names of all the elements on the form:</A></P>
+<PRE><A NAME="1193333">newWindow=window.open("http://home.netscape.com")</A></PRE><PRE><A NAME="1193334">function valueGetter() {<br>&nbsp;&nbsp;&nbsp;var msgWindow=window.open("")<br>&nbsp;&nbsp;&nbsp;for (var i = 0; i &lt; newWindow.document.valueTest.elements.length; i++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msgWindow.document.write(newWindow.document.valueTest.elements[i].name + "&lt;BR&gt;")<br>&nbsp;&nbsp;&nbsp;}<br>}</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193335">
+ See also
+</A></H4>
+
+<A NAME="1193339">
+<A HREF="reset.htm#1193363"><CODE>Reset.value</CODE></A> </A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193341">
+type
+</A></H2>
+
+<A NAME="1193342">
+For all <CODE>Reset</CODE> objects, the value of the <CODE>type</CODE> property is <CODE>"reset"</CODE>. This property specifies the form element's type.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193345">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193350">
+<A HREF="reset.htm#1193137"><CODE>Reset</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193352">
+<I>Read-only</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193354">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193356">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193358">
+JavaScript 1.1</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193359">
+ Examples
+</A></H4>
+
+<A NAME="1193360">
+The following example writes the value of the <CODE>type</CODE> property for every element on a form.</A></P>
+<PRE><A NAME="1193361">for (var i = 0; i &lt; document.form1.elements.length; i++) {<br>&nbsp;&nbsp;&nbsp;document.writeln("&lt;BR&gt;type is " + document.form1.elements[i].type)<br>}</A></PRE>
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193363">
+value
+</A></H2>
+
+<A NAME="1193380">
+A string that reflects the reset button's <CODE>VALUE</CODE> attribute.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193366">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193371">
+<A HREF="reset.htm#1193137"><CODE>Reset</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193373">
+<I>Read-only</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193375">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193377">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193379">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193381">
+ Security
+</A></H4>
+
+<B><A NAME="HeadRunIn;"></A>
+<A NAME="1198365">
+JavaScript 1.1. </A></B><A NAME="1193382">
+This property is tainted by default. For information on data tainting, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193386">
+ Description
+</A></H4>
+
+<A NAME="1193387">
+This string is displayed on the face of the button. When a <CODE>VALUE</CODE> attribute is not specified in HTML, the <CODE>value</CODE> property is the string <CODE>"Reset"</CODE>.</A></P>
+<A NAME="1193388">
+Do not confuse the <CODE>value</CODE> property with the <CODE>name</CODE> property. The <CODE>name</CODE> property is not displayed on the screen; it is used to refer programmatically to the button.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193389">
+ Examples
+</A></H4>
+
+<A NAME="1193390">
+The following function evaluates the <CODE>value</CODE> property of a group of buttons and displays it in the <CODE>msgWindow</CODE> window:</A></P>
+<PRE><A NAME="1193391">function valueGetter() {<br>&nbsp;&nbsp;&nbsp;var msgWindow=window.open("")<br>&nbsp;&nbsp;&nbsp;msgWindow.document.write("submitButton.value is " +<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.valueTest.submitButton.value + "&lt;BR&gt;")<br>&nbsp;&nbsp;&nbsp;msgWindow.document.write("resetButton.value is " +<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.valueTest.resetButton.value + "&lt;BR&gt;")<br>&nbsp;&nbsp;&nbsp;msgWindow.document.write("helpButton.value is " +<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.valueTest.helpButton.value + "&lt;BR&gt;")<br>&nbsp;&nbsp;&nbsp;msgWindow.document.close()<br>}</A></PRE><A NAME="1193392">
+This example displays the following values:</A></P>
+<PRE><A NAME="1193393">Query Submit<br>Reset<br>Help</A></PRE><A NAME="1193394">
+The previous example assumes the buttons have been defined as follows:</A></P>
+<PRE><A NAME="1193395">&lt;INPUT TYPE="submit" NAME="submitButton"&gt;<br>&lt;INPUT TYPE="reset" NAME="resetButton"&gt;<br>&lt;INPUT TYPE="button" NAME="helpButton" VALUE="Help"&gt;</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193396">
+ See also
+</A></H4>
+
+<A NAME="1193400">
+<A HREF="reset.htm#1193302"><CODE>Reset.name</CODE></A></A></P>
+
+<HR>
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="regexp.htm">Previous</A>
+ | <A HREF="screen.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT>
+<P ALIGN=right>
+<FONT SIZE=-2><I>Last Updated:  05/28/99  12:00:19</I></FONT>
+<P> <CENTER>Copyright (c) 1999
+<A HREF="http://home.netscape.com/misc/contact_info.html"
+TARGET=_top>Netscape Communications Corporation</A></FONT>
+</CENTER>
+<P>
+</BODY>
+</HTML>
+
+

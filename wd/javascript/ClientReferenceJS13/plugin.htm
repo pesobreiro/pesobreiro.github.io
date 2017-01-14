@@ -1,0 +1,295 @@
+<HTML>
+<HEAD>
+<TITLE>
+</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="password.htm">Previous</A>
+ | <A HREF="radio.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT><BR><BR>
+<HR>
+
+<H1><A NAME="Plugin"></A>
+<A NAME="1193137">
+ Plugin
+</A></H1>
+<A NAME="1193147">
+A plug-in module installed on the client.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193140">
+<I>Client-side object</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193142">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193144">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193146">
+JavaScript 1.1</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193148">
+ Created by
+</A></H4>
+
+<A NAME="1193149">
+<CODE>Plugin</CODE> objects are predefined JavaScript objects that you access through the <A HREF="nav.htm#1193425"><CODE>navigator.plugins</CODE></A> array.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193153">
+ Description
+</A></H4>
+
+<A NAME="1193155">
+A <CODE>Plugin</CODE> object is a plug-in installed on the client. A plug-in is a software module that the browser can invoke to display specialized types of embedded data within the browser. The user can obtain a list of installed plug-ins by choosing About Plug-ins from the Help menu.</A></P>
+<A NAME="1193157">
+Each <CODE>Plugin</CODE> object is itself array containing one element for each MIME type supported by the plug-in. Each element of the array is a <CODE>MimeType</CODE> object. For example, the following code displays the <CODE>type</CODE> and <CODE>description</CODE> properties of the first <CODE>Plugin</CODE> object's first <CODE>MimeType</CODE> object.</A></P>
+<PRE><A NAME="1193158">myPlugin=navigator.plugins[0]<br>myMimeType=myPlugin[0]<br>document.writeln('myMimeType.type is ',myMimeType.type,"&lt;BR&gt;")<br>document.writeln('myMimeType.description is ',myMimeType.description)</A></PRE><A NAME="1193159">
+The preceding code displays output similar to the following:</A></P>
+<PRE><A NAME="1193160">myMimeType.type is video/quicktime<br>myMimeType.description is QuickTime for Windows </A></PRE><A NAME="1193162">
+The <CODE>Plugin</CODE> object lets you dynamically determine which plug-ins are installed on the client. You can write scripts to display embedded plug-in data if the appropriate plug-in is installed, or display some alternative information such as images or text if not.</A></P>
+<A NAME="1193163">
+Plug-ins can be platform dependent and configurable, so a <CODE>Plugin</CODE> object's array of <CODE>MimeType</CODE> objects can vary from platform to platform, and from user to user.</A></P>
+<A NAME="1193164">
+Each <CODE>Plugin</CODE> object is an element in the <CODE>plugins</CODE> array.</A></P>
+<A NAME="1193167">
+When you use the <CODE><A HREF="http://developer.netscape.com/docs/manuals/htmlguid/index.htm?content=tags14.htm#tags:EMBED" TARGET="_top">EMBED</A></CODE> tag to generate output from a plug-in application, you are not creating a <CODE>Plugin</CODE> object. Use the <A HREF="document.htm#1193658"><CODE>document.embeds</CODE></A> array to refer to plug-in instances created with <CODE><A HREF="http://developer.netscape.com/docs/manuals/htmlguid/index.htm?content=tags14.htm#tags:EMBED" TARGET="_top">EMBED</A></CODE> tags. See the <A HREF="document.htm#1193658"><CODE>document.embeds</CODE></A> array.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193176">
+ Property Summary
+</A></H4>
+
+<A NAME="1193213">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1193179">
+<B>Property
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1193181">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193186"><A HREF="plugin.htm#1193286"><CODE>description</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193188">
+A description of the plug-in.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193193"><A HREF="plugin.htm#1193306"><CODE>filename</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193195">
+Name of the plug-in file on disk.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193200"><A HREF="plugin.htm#1193332"><CODE>length</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193205">
+Number of elements in the plug-in's array of <A HREF="mimetype.htm#1193137"><CODE>MimeType</CODE></A> objects.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193210"><A HREF="plugin.htm#1193355"><CODE>name</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193212">
+Name of the plug-in.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194190">
+ Method Summary
+</A></H4>
+
+<A NAME="1194335">
+This object inherits the <A HREF="object.htm#1193628"><CODE>watch</CODE></A> and <A HREF="object.htm#1193499"><CODE>unwatch</CODE></A> methods from <A HREF="object.htm#1193136"><CODE>Object</CODE></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194174">
+ Examples
+</A></H4>
+
+<A NAME="1193215">
+<B>Example 1.</B> The user can obtain a list of installed plug-ins by choosing About Plug-ins from the Help menu. To see the code the browser uses for this report, choose About Plug-ins from the Help menu, then choose Page Source from the View menu.</A></P>
+<A NAME="1193216">
+<B>Example 2.</B> The following code assigns shorthand variables for the predefined LiveAudio properties.</A></P>
+<PRE><A NAME="1193217">var myPluginName = navigator.plugins["LiveAudio"].name<br>var myPluginFile = navigator.plugins["LiveAudio"].filename<br>var myPluginDesc = navigator.plugins["LiveAudio"].description</A></PRE><A NAME="1193218">
+<B>Example 3.</B> The following code displays the message "LiveAudio is configured for audio/wav" if the LiveAudio plug-in is installed and is enabled for the <CODE>"audio/wav"</CODE> MIME type:</A></P>
+<PRE><A NAME="1193219">var myPlugin = navigator.plugins["LiveAudio"]<br>var myType = myPlugin["audio/wav"]<br>if (myType &amp;&amp; myType.enabledPlugin == myPlugin)<br>&nbsp;&nbsp;&nbsp;document.writeln("LiveAudio is configured for audio/wav")</A></PRE><A NAME="1193220">
+<B>Example 4.</B> The following expression represents the number of MIME types that Shockwave can display:</A></P>
+<PRE><A NAME="1193221">navigator.plugins["Shockwave"].length</A></PRE><A NAME="1193222">
+<B>Example 5.</B> The following code displays the <CODE>name</CODE>, <CODE>filename</CODE>, <CODE>description</CODE>, and <CODE>length</CODE> properties for each <CODE>Plugin</CODE> object on a client:</A></P>
+<PRE><A NAME="1193223">document.writeln("&lt;TABLE BORDER=1&gt;&lt;TR VALIGN=TOP&gt;",<br>&nbsp;&nbsp;&nbsp;"&lt;TH ALIGN=left&gt;i",<br>&nbsp;&nbsp;&nbsp;"&lt;TH ALIGN=left&gt;name",<br>&nbsp;&nbsp;&nbsp;"&lt;TH ALIGN=left&gt;filename",<br>&nbsp;&nbsp;&nbsp;"&lt;TH ALIGN=left&gt;description",<br>&nbsp;&nbsp;&nbsp;"&lt;TH ALIGN=left&gt;# of types&lt;/TR&gt;")<br>for (i=0; i &lt; navigator.plugins.length; i++) {<br>&nbsp;&nbsp;&nbsp;document.writeln("&lt;TR VALIGN=TOP&gt;&lt;TD&gt;",i,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"&lt;TD&gt;",navigator.plugins[i].name,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"&lt;TD&gt;",navigator.plugins[i].filename,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"&lt;TD&gt;",navigator.plugins[i].description,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"&lt;TD&gt;",navigator.plugins[i].length,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"&lt;/TR&gt;")<br>}<br>document.writeln("&lt;/TABLE&gt;")</A></PRE><A NAME="1193275">
+The preceding example displays output similar to the following:</A></P>
+<A NAME="1193536">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TD VALIGN=baseline ALIGN=left><A NAME="1193226">
+i</A></P>
+<TD VALIGN=baseline ALIGN=left><A NAME="1193228">
+name</A></P>
+<TD VALIGN=baseline ALIGN=left><A NAME="1193230">
+filename</A></P>
+<TD VALIGN=baseline ALIGN=left><A NAME="1193232">
+description</A></P>
+<TD VALIGN=baseline ALIGN=left><A NAME="1193234">
+# of types</A></P>
+
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193236">
+0</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193238">
+QuickTime Plug-In</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193240">
+d:\nettools\netscape\nav30\Program\<br>plugins\NPQTW32.DLL</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193242">
+QuickTime Plug-In for Win32 v.1.0.0</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193244">
+1</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193246">
+1</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193248">
+LiveAudio</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193250">
+d:\nettools\netscape\nav30\Program\<br>plugins\NPAUDIO.DLL</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193252">
+LiveAudio--Netscape Navigator sound playing component</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193254">
+7</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193256">
+2</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193258">
+NPAVI32 Dynamic Link Library</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193260">
+d:\nettools\netscape\nav30\Program\<br>plugins\npavi32.dll</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193262">
+NPAVI32, avi plugin DLL</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193264">
+2</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193266">
+3</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193268">
+Netscape Default Plugin</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193270">
+d:\nettools\netscape\nav30\Program\<br>plugins\npnul32.dll</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193272">
+Null Plugin</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193274">
+1</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193276">
+ See also
+</A></H4>
+
+<A NAME="1193283">
+<A HREF="mimetype.htm#1193137"><CODE>MimeType</CODE></A>, <A HREF="document.htm#1193658"><CODE>document.embeds</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193286">
+description
+</A></H2>
+
+<A NAME="1193287">
+A human-readable description of the plug-in. The text is provided by the plug-in developers. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193290">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193295">
+<A HREF="plugin.htm#1193137"><CODE>Plugin</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193297">
+<I>Read-only</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193299">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193301">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193303">
+JavaScript 1.1</A></P>
+
+</TABLE>
+</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193306">
+filename
+</A></H2>
+
+<A NAME="1193323">
+The name of a plug-in file on disk.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193309">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193314">
+<A HREF="plugin.htm#1193137"><CODE>Plugin</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193316">
+<I>Read-only</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193318">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193320">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193322">
+JavaScript 1.1</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193324">
+ Description
+</A></H4>
+
+<A NAME="1193325">
+The <CODE>filename </CODE>property is the plug-in program's file name and is supplied by the plug-in itself. This name may vary from platform to platform.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193326">
+ Examples
+</A></H4>
+
+<A NAME="1193330">
+See the examples for <A HREF="plugin.htm#1193137"><CODE>Plugin</CODE></A>.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193332">
+length
+</A></H2>
+
+<A NAME="1193352">
+The number of elements in the plug-in's array of <A HREF="mimetype.htm#1193137"><CODE>MimeType</CODE></A> objects. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193338">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193343">
+<A HREF="plugin.htm#1193137"><CODE>Plugin</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193345">
+<I>Read-only</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193347">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193349">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193351">
+JavaScript 1.1</A></P>
+
+</TABLE>
+</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193355">
+name
+</A></H2>
+
+<A NAME="1193372">
+A string specifying the plug-in's name. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193358">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193363">
+<A HREF="plugin.htm#1193137"><CODE>Plugin</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193365">
+<I>Read-only</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193367">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193369">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193371">
+JavaScript 1.1</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193373">
+ Security
+</A></H4>
+
+<B><A NAME="HeadRunIn;"></A>
+<A NAME="1195904">
+JavaScript 1.1. </A></B><A NAME="1193374">
+This property is tainted by default. For information on data tainting, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193378">
+ Description
+</A></H4>
+
+<A NAME="1193379">
+The plug-in's name, supplied by the plug-in itself. Each plug-in should have a name that uniquely identifies it.</A></P>
+
+<HR>
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="password.htm">Previous</A>
+ | <A HREF="radio.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT>
+<P ALIGN=right>
+<FONT SIZE=-2><I>Last Updated:  05/28/99  12:00:11</I></FONT>
+<P> <CENTER>Copyright (c) 1999
+<A HREF="http://home.netscape.com/misc/contact_info.html"
+TARGET=_top>Netscape Communications Corporation</A></FONT>
+</CENTER>
+<P>
+</BODY>
+</HTML>
+
+

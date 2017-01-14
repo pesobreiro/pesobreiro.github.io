@@ -1,0 +1,1020 @@
+<HTML>
+<HEAD>
+<TITLE>Top-Level Properties and Functions
+</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="window.htm">Previous</A>
+ | <A HREF="handlers.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT><BR><BR>
+<HR>
+<A NAME="1003024">
+<P></A><CENTER><H2>Chapter 2<BR>
+<A NAME="1061890">
+Top-Level Properties and Functions</A></H2></CENTER>
+<A NAME="1065959">
+This chapter contains all JavaScript properties and functions not associated with any object. In the ECMA specification, these properties and functions are referred to as properties and methods of the global object.</A></P>
+<A NAME="1063329">
+The following table summarizes the top-level properties.</A></P>
+<A NAME="1066070">
+<P><B><A NAME="1063308">
+Table 2.1&nbsp;Top-level properties</A></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1063312">
+<B>Property
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1063314">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1063319"><A HREF="toplev.htm#1063963"><CODE>Infinity</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1063321">
+A numeric value representing infinity.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1063326"><A HREF="toplev.htm#1064064"><CODE>NaN</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1063328">
+A value representing Not-A-Number.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1094770"><A HREF="toplev.htm#1094680"><CODE>undefined</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1094772">
+The value undefined.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+<A NAME="1063525">
+The following table summarizes the top-level functions.</A></P>
+<A NAME="1066285">
+<P><B><A NAME="1063336">
+Table 2.2&nbsp;Top-level functions</A></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1063340">
+<B>Function
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1063342">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1063389"><A HREF="toplev.htm#1063743"><CODE>escape</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1063391">
+Returns the hexadecimal encoding of an argument in the ISO Latin-1 character set; used to create strings to add to a URL.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1063396"><A HREF="toplev.htm#1063795"><CODE>eval</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1063398">
+Evaluates a string of JavaScript code without reference to a particular object.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1063424"><A HREF="toplev.htm#1063988"><CODE>isFinite</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1063426">
+Evaluates an argument to determine whether it is a finite number.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1063431"><A HREF="toplev.htm#1064024"><CODE>isNaN</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1063433">
+Evaluates an argument to determine if it is not a number.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1063438"><A HREF="toplev.htm#1064092"><CODE>Number</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1063440">
+Converts an object to a number.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1063445"><A HREF="toplev.htm#1064132"><CODE>parseFloat</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1063447">
+Parses a string argument and returns a floating-point number.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1063452"><A HREF="toplev.htm#1064173"><CODE>parseInt</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1063454">
+Parses a string argument and returns an integer.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1063494"><A HREF="toplev.htm#1064506"><CODE>String</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1063496">
+Converts an object to a string.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1063501"><A HREF="toplev.htm#1105929"><CODE>taint</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1063503">
+Adds tainting to a data element or script.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1063508"><A HREF="toplev.htm#1064583"><CODE>unescape</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1063510">
+Returns the ASCII string for the specified hexadecimal encoding value.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1063515"><A HREF="toplev.htm#1105987"><CODE>untaint</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1063517">
+Removes tainting from a data element or script.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<HR><H2><A NAME="escape"></A>
+<A NAME="1063743">
+ escape
+</A></H2><A NAME="1063744">
+Returns the hexadecimal encoding of an argument in the ISO-Latin-1 character set.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1074291">
+<I>Core function</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1074293">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1074295">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1074297">
+JavaScript 1.0, NES 2.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1076813">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1076815">
+ECMA-262 compatible, except for Unicode characters.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1063754">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1063755">escape("<I>string</I>")</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1063756">
+ Parameters
+</A></H4>
+
+<A NAME="1063762">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1063759">string</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1063761">
+A string in the ISO-Latin-1 character set.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1063763">
+ Description
+</A></H4>
+
+<A NAME="1096722">
+<CODE>escape</CODE> is a top-level function and is not associated with any object.</A></P>
+<A NAME="1063764">
+Use the <CODE>escape</CODE> and <A HREF="toplev.htm#1064583"><CODE>unescape</CODE></A> functions to encode and decode (add property values manually) a Uniform Resource Locator (URL), a Uniform Resource Identifier (URI), or a URI-type string.</A></P>
+<A NAME="1063768">
+The <CODE>escape</CODE> function encodes special characters in the specified string and returns the new string. It encodes spaces, punctuation, and any other character that is not an ASCII alphanumeric character, with the exception of these characters:</A></P>
+<PRE><A NAME="1063769">* @ - _ + . /</A></PRE><B><A NAME="HeadRunIn;"></A>
+<A NAME="1100544">
+Unicode. </A></B><A NAME="1063773">
+The <CODE>escape</CODE> and <CODE>unescape</CODE> functions do not use Unicode as specified by the ECMA specification. Instead, they use the Internet Engineering Task Force (IETF) guidelines for escaping characters. Within a URI, characters use US-ASCII characters (ISO-Latin-1 character set). A URI is a sequence of characters from the basic Latin alphabet, digits, and a few special characters (for example, / and @). The escape sequences do not support \uXXXX as in Unicode or %uXXXX as specified by ECMA, but %XX, where XX is a 2-digit hexadecimal number (for example, %7E). In URI, characters are represented in octets, as 8-bit bytes.</A></P>
+<A NAME="1063774">
+To allow the <CODE>escape</CODE> and <CODE>unescape</CODE> functions to work with Web server-supported URLs and URIs, JavaScript does not use Unicode for these functions.</A></P>
+<ul><P><LI><A NAME="1063775">
+<CODE>escape</CODE> returns the hexadecimal encoding of the specified string in the ISO-Latin-1 character set.</A></LI>
+<P><LI><A NAME="1063776">
+<CODE>unescape</CODE> returns the ASCII string, an ISO-Latin-1 character set sequence.</A></LI>
+</ul><A NAME="1063777">
+Unicode-specific escape sequences, %uXXXX, are not supported.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1063778">
+ Examples
+</A></H4>
+
+<A NAME="1063779">
+<B>Example 1.</B> The following example returns <CODE>"%26"</CODE>:</A></P>
+<PRE><A NAME="1063780">escape("&amp;") // returns "%26"</A></PRE><A NAME="1099247">
+<B>Example 2.</B> The following statement returns a string with encoded characters for spaces, commas, and apostrophes.</A></P>
+<PRE><A NAME="1099248">// returns "The_rain.%20In%20Spain%2C%20Ma%92am"<br>escape("The_rain. In Spain, Ma'am")</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1063787">
+ See also
+</A></H4>
+
+<A NAME="1063791">
+<A HREF="toplev.htm#1064583"><CODE>unescape</CODE></A> </A></P>
+
+<HR><H2><A NAME="eval"></A>
+<A NAME="1063795">
+ eval
+</A></H2><A NAME="1063805">
+Evaluates a string of JavaScript code without reference to a particular object.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1063798">
+<I>Core function</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1063800">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1063802">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1092006">
+JavaScript 1.0 </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1074307">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1074309">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1063806">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1063807">eval(<I>string</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1063808">
+ Parameters
+</A></H4>
+
+<A NAME="1063814">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1063811">string</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1063813">
+A string representing a JavaScript expression, statement, or sequence of statements. The expression can include variables and properties of existing objects.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1063815">
+ Description
+</A></H4>
+
+<A NAME="1096773">
+<CODE>eval</CODE> is a top-level function and is not associated with any object.</A></P>
+<A NAME="1063816">
+The argument of the <CODE>eval</CODE> function is a string. If the string represents an expression, <CODE>eval</CODE> evaluates the expression. If the argument represents one or more JavaScript statements, <CODE>eval</CODE> performs the statements. Do not call <CODE>eval</CODE> to evaluate an arithmetic expression; JavaScript evaluates arithmetic expressions automatically.</A></P>
+<A NAME="1063817">
+If you construct an arithmetic expression as a string, you can use <CODE>eval</CODE> to evaluate it at a later time. For example, suppose you have a variable <CODE>x</CODE>. You can postpone evaluation of an expression involving <CODE>x</CODE> by assigning the string value of the expression, say <CODE>"3&nbsp;*&nbsp;x&nbsp;+&nbsp;2"</CODE>, to a variable, and then calling <CODE>eval</CODE> at a later point in your script.</A></P>
+<A NAME="1096008">
+If the argument of <CODE>eval</CODE> is not a string, <CODE>eval</CODE> returns the argument unchanged. In the following example, the <CODE>String</CODE> constructor is specified, and <CODE>eval</CODE> returns a <CODE>String</CODE> object rather than evaluating the string.</A></P>
+<PRE><A NAME="1096002">eval(new String("2+2")) // returns a String object containing "2+2"<br>eval("2+2") &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// returns 4</A></PRE><A NAME="1063818">
+You should not indirectly use the <CODE>eval</CODE> function by invoking it via a name other than <CODE>eval</CODE>. For example, you should not use the following code:</A></P>
+<PRE><A NAME="1063819">var x = 2<br>var y = 4<br>var myEval = eval<br>myEval("x + y")</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1092358">
+ Backward Compatibility
+</A></H4>
+
+<B><A NAME="HeadRunIn;"></A>
+<A NAME="1092607">
+JavaScript 1.1. </A></B><A NAME="1092669">
+<A HREF="object.htm#1194118"><CODE>eval</CODE></A> is also a method of all objects. This method is described for the <A HREF="object.htm#1193136"><CODE>Object</CODE></A> class.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1063827">
+ Examples
+</A></H4>
+
+<A NAME="1063828">
+The following examples display output using <CODE>document.write</CODE>. In server-side JavaScript, you can display the same output by calling the <CODE>write</CODE> function instead of using <CODE>document.write</CODE>.</A></P>
+<A NAME="1063829">
+<B>Example 1.</B> In the following code, both of the statements containing <CODE>eval</CODE> return 42. The first evaluates the string <CODE>"x + y + 1"</CODE>; the second evaluates the string <CODE>"42"</CODE>.</A></P>
+<PRE><A NAME="1095914">var x = 2<br>var y = 39<br>var z = "42"<br>eval("x + y + 1") // returns 42<br>eval(z) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// returns 42</A></PRE><A NAME="1063831">
+<B>Example 2.</B> In the following example, the <CODE>getFieldName(n)</CODE> function returns the name of the specified form element as a string. The first statement assigns the string value of the third form element to the variable <CODE>field</CODE>. The second statement uses <CODE>eval</CODE> to display the value of the form element.</A></P>
+<PRE><A NAME="1063832">var field = getFieldName(3) <br>document.write("The field named ", field, " has value of ", <br>&nbsp;&nbsp;&nbsp;eval(field + ".value"))</A></PRE><A NAME="1063833">
+<B>Example 3.</B> The following example uses <CODE>eval</CODE> to evaluate the string <CODE>str</CODE>. This string consists of JavaScript statements that open an Alert dialog box and assign <CODE>z</CODE> a value of 42 if <CODE>x</CODE> is five, and assigns 0 to <CODE>z</CODE> otherwise. When the second statement is executed, <CODE>eval</CODE> will cause these statements to be performed, and it will also evaluate the set of statements and return the value that is assigned to <CODE>z</CODE>.</A></P>
+<PRE><A NAME="1063834">var str = "if (x == 5) {alert('z is 42'); z = 42;} else z = 0; "<br>document.write("&lt;P&gt;z is ", eval(str))</A></PRE><A NAME="1063835">
+<B>Example 4.</B> In the following example, the <CODE>setValue</CODE> function uses <CODE>eval</CODE> to assign the value of the variable <CODE>newValue</CODE> to the text field <CODE>textObject</CODE>:</A></P>
+<PRE><A NAME="1063836">function setValue (textObject, newValue) {<br>&nbsp;&nbsp;&nbsp;eval ("document.forms[0]." + textObject + ".value") = newValue<br>}</A></PRE><A NAME="1063837">
+<B>Example 5.</B> The following example creates <CODE>breed</CODE> as a property of the object <CODE>myDog</CODE>, and also as a variable. The first write statement uses <CODE>eval('breed')</CODE> without specifying an object; the string <CODE>"breed"</CODE> is evaluated without regard to any object, and the <CODE>write</CODE> method displays <CODE>"Shepherd"</CODE>, which is the value of the <CODE>breed</CODE> variable. The second write statement uses <CODE>myDog.eval('breed')</CODE> which specifies the object <CODE>myDog</CODE>; the string <CODE>"breed"</CODE> is evaluated with regard to the <CODE>myDog</CODE> object, and the <CODE>write</CODE> method displays <CODE>"Lab"</CODE>, which is the value of the <CODE>breed</CODE> property of the <CODE>myDog</CODE> object.</A></P>
+<PRE><A NAME="1063838">function Dog(name,breed,color) {<br>&nbsp;&nbsp;&nbsp;this.name=name<br>&nbsp;&nbsp;&nbsp;this.breed=breed<br>&nbsp;&nbsp;&nbsp;this.color=color<br>}<br>myDog = new Dog("Gabby")<br>myDog.breed="Lab"<br>var breed='Shepherd'<br>document.write("&lt;P&gt;" + eval('breed'))<br>document.write("&lt;BR&gt;" + myDog.eval('breed'))</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1063839">
+ See also
+</A></H4>
+
+<A NAME="1063843">
+<A HREF="object.htm#1194118"><CODE>Object.eval</CODE></A> method</A></P>
+
+<HR><H2><A NAME="Infinity"></A>
+<A NAME="1063963">
+ Infinity
+</A></H2><A NAME="1063973">
+A numeric value representing infinity.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1063966">
+<I>Core property</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1063968">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1063970">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1063972">
+JavaScript 1.3 (In previous versions, <CODE>Infinity</CODE> was defined only as a property of the <CODE>Number</CODE> object)</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1074319">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1074321">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1063974">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1063975">Infinity</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1063976">
+ Description
+</A></H4>
+
+<A NAME="1063977">
+<CODE>Infinity</CODE> is a top-level property and is not associated with any object.</A></P>
+<A NAME="1097265">
+The initial value of <CODE>Infinity</CODE> is <CODE>Number.POSITIVE_INFINITY</CODE>. The value <CODE>Infinity</CODE> (positive infinity) is greater than any other number including itself. This value behaves mathematically like infinity; for example, anything multiplied by <CODE>Infinity</CODE> is <CODE>Infinity</CODE>, and anything divided by <CODE>Infinity</CODE> is 0.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1063978">
+ See also
+</A></H4>
+
+<A NAME="1063985">
+<A HREF="number.htm#1193346"><CODE>Number.NEGATIVE_INFINITY</CODE></A><CODE>,</CODE><A HREF="number.htm#1193380"><CODE>Number.POSITIVE_INFINITY</CODE></A></A></P>
+
+<HR><H2><A NAME="isFinite"></A>
+<A NAME="1063988">
+ isFinite
+</A></H2><A NAME="1063998">
+Evaluates an argument to determine whether it is a finite number.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1063991">
+<I>Core function</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1063993">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1063995">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1063997">
+JavaScript 1.3</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1074336">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1074338">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1063999">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1064000">isFinite(<I>number</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1064001">
+ Parameters
+</A></H4>
+
+<A NAME="1064007">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1064004">number</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1064006">
+The number to evaluate.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1064008">
+ Description
+</A></H4>
+
+<A NAME="1097420">
+<CODE>isFinite</CODE> is a top-level function and is not associated with any object.</A></P>
+<A NAME="1097340">
+You can use this method to determine whether a number is a finite number. The <CODE>isFinite</CODE> method examines the number in its argument. If the argument is <CODE>NaN</CODE>, positive infinity or negative infinity, this method returns <CODE>false</CODE>, otherwise it returns <CODE>true</CODE>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1073394">
+ Examples
+</A></H4>
+
+<A NAME="1073395">
+You can check a client input to determine whether it is a finite number.</A></P>
+<PRE><A NAME="1064013">if(isFinite(ClientInput) == true)<br>{<br>&nbsp;&nbsp;&nbsp;/* take specific steps */<br>}</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1064014">
+ See also
+</A></H4>
+
+<A NAME="1064021">
+<A HREF="number.htm#1193346"><CODE>Number.NEGATIVE_INFINITY</CODE></A><CODE>,</CODE><A HREF="number.htm#1193380"><CODE>Number.POSITIVE_INFINITY</CODE></A></A></P>
+
+<HR><H2><A NAME="isNaN"></A>
+<A NAME="1064024">
+ isNaN
+</A></H2><A NAME="1064034">
+Evaluates an argument to determine if it is not a number.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1064027">
+<I>Core function</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1064029">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1064031">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1064033">
+JavaScript 1.0: Unix only</A></P><P><A NAME="1070173">
+</A></P><P><A NAME="1070174">
+JavaScript 1.1, NES 2.0: all platforms</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1074350">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1074352">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1064035">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1064036">isNaN(<I>testValue</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1064037">
+ Parameters
+</A></H4>
+
+<A NAME="1064043">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1064040">testValue</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1064042">
+The value you want to evaluate.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1064044">
+ Description
+</A></H4>
+
+<A NAME="1097479">
+<CODE>isNaN</CODE> is a top-level function and is not associated with any object.</A></P>
+<A NAME="1064045">
+On platforms that support NaN, the <CODE>parseFloat</CODE> and <CODE>parseInt</CODE> functions return <CODE>NaN</CODE> when they evaluate a value that is not a number. <CODE>isNaN</CODE> returns true if passed <CODE>NaN</CODE>, and false otherwise.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1064047">
+ Examples
+</A></H4>
+
+<A NAME="1064048">
+The following example evaluates <CODE>floatValue</CODE> to determine if it is a number and then calls a procedure accordingly:</A></P>
+<PRE><A NAME="1064049">floatValue=parseFloat(toFloat)</A></PRE><PRE><A NAME="1064050">if (isNaN(floatValue)) {<br>&nbsp;&nbsp;&nbsp;notFloat()<br>} else {<br>&nbsp;&nbsp;&nbsp;isFloat()<br>}</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1064051">
+ See also
+</A></H4>
+
+<A NAME="1064061">
+<A HREF="number.htm#1193302"><CODE>Number.NaN</CODE></A>, <A HREF="toplev.htm#1064132"><CODE>parseFloat</CODE></A>, <A HREF="toplev.htm#1064173"><CODE>parseInt</CODE></A></A></P>
+
+<HR><H2><A NAME="NaN"></A>
+<A NAME="1064064">
+ NaN
+</A></H2><A NAME="1064074">
+A value representing Not-A-Number.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1064067">
+<I>Core property</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1064069">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1064071">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1064073">
+JavaScript 1.3 (In previous versions, <CODE>NaN</CODE> was defined only as a property of the <CODE>Number</CODE> object)</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1074359">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1074361">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1064075">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1064076">NaN</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1064077">
+ Description
+</A></H4>
+
+<A NAME="1064078">
+<CODE>NaN</CODE> is a top-level property and is not associated with any object.</A></P>
+<A NAME="1099595">
+The initial value of <CODE>NaN</CODE> is NaN.</A></P>
+<A NAME="1064079">
+<CODE>NaN</CODE> is always unequal to any other number, including NaN itself; you cannot check for the not-a-number value by comparing to <CODE>Number.NaN</CODE>. Use the <CODE>isNaN</CODE> function instead.</A></P>
+<A NAME="1064080">
+Several JavaScript methods (such as the <CODE>Number</CODE> constructor, <CODE>parseFloat</CODE>, and <CODE>parseInt</CODE>) return <CODE>NaN</CODE> if the value specified in the parameter is not a number.</A></P>
+<A NAME="1064081">
+You might use the <CODE>NaN</CODE> property to indicate an error condition for a function that should return a valid number.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1064082">
+ See also
+</A></H4>
+
+<A NAME="1064089">
+<A HREF="toplev.htm#1064024"><CODE>isNaN</CODE></A>, <A HREF="number.htm#1193302"><CODE>Number.NaN</CODE></A></A></P>
+
+<HR><H2><A NAME="Number"></A>
+<A NAME="1064092">
+ Number
+</A></H2><A NAME="1064102">
+Converts the specified object to a number. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1064095">
+<I>Core function</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1064097">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1064099">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1064101">
+JavaScript 1.2, NES 3.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1074373">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1074375">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1064103">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1064104">Number(<I>obj</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1064105">
+ Parameter
+</A></H4>
+
+<A NAME="1064111">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1064108">obj</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1064110">
+An object</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1064112">
+ Description
+</A></H4>
+
+<A NAME="1097674">
+<CODE>Number</CODE> is a top-level function and is not associated with any object.</A></P>
+<A NAME="1064116">
+When the object is a <A HREF="date.htm#1193137"><CODE>Date</CODE></A> object, <CODE>Number</CODE> returns a value in milliseconds measured from 01 January, 1970 UTC (GMT), positive after this date, negative before. </A></P>
+<A NAME="1064117">
+If <CODE>obj</CODE> is a string that does not contain a well-formed numeric literal, <CODE>Number</CODE> returns NaN.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1064118">
+ Example
+</A></H4>
+
+<A NAME="1064122">
+The following example converts the <A HREF="date.htm#1193137"><CODE>Date</CODE></A> object to a numerical value: </A></P>
+<PRE><A NAME="1073478">d = new Date ("December 17, 1995 03:24:00")<br>alert (Number(d))</A></PRE><A NAME="1064124">
+This displays a dialog box containing "819199440000." </A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1064125">
+ See also
+</A></H4>
+
+<A NAME="1064129">
+<A HREF="number.htm#1193137"><CODE>Number</CODE></A></A></P>
+
+<HR><H2><A NAME="parseFloat"></A>
+<A NAME="1064132">
+ parseFloat
+</A></H2><A NAME="1064143">
+Parses a string argument and returns a floating point number.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1064135">
+<I>Core function</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1064137">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1064139">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1064141">
+JavaScript 1.0: If the first character of the string specified in parseFloat(<CODE>string</CODE>) cannot be converted to a number, returns <CODE>NaN</CODE> on Solaris and Irix and 0 on all other platforms.</A></P><P><A NAME="1070201">
+</A></P><P><A NAME="1064142">
+JavaScript 1.1, NES 2.0: Returns <CODE>NaN</CODE> on all platforms if the first character of the string specified in parseFloat(<CODE>string</CODE>) cannot be converted to a number.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1074386">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1074388">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1064144">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1064145">parseFloat(<I>string</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1064146">
+ Parameters
+</A></H4>
+
+<A NAME="1064152">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1064149">string</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1064151">
+A string that represents the value you want to parse.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1064153">
+ Description
+</A></H4>
+
+<A NAME="1097866">
+<CODE>parseFloat</CODE> is a top-level function and is not associated with any object.</A></P>
+<A NAME="1064155">
+<CODE>parseFloat</CODE> parses its argument, a string, and returns a floating point number. If it encounters a character other than a sign (+ or -), numeral (0-9), a decimal point, or an exponent, it returns the value up to that point and ignores that character and all succeeding characters. Leading and trailing spaces are allowed.</A></P>
+<A NAME="1064156">
+If the first character cannot be converted to a number, <CODE>parseFloat</CODE> returns <CODE>NaN</CODE>.</A></P>
+<A NAME="1064157">
+For arithmetic purposes, the <CODE>NaN</CODE> value is not a number in any radix. You can call the <CODE>isNaN</CODE> function to determine if the result of <CODE>parseFloat</CODE> is <CODE>NaN</CODE>. If <CODE>NaN</CODE> is passed on to arithmetic operations, the operation results will also be <CODE>NaN</CODE>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1064158">
+ Examples
+</A></H4>
+
+<A NAME="1064159">
+The following examples all return 3.14:</A></P>
+<PRE><A NAME="1064160">parseFloat("3.14")<br>parseFloat("314e-2")<br>parseFloat("0.0314E+2")<br>var x = "3.14"<br>parseFloat(x)</A></PRE><A NAME="1064161">
+The following example returns <CODE>NaN</CODE>:</A></P>
+<PRE><A NAME="1064162">parseFloat("FF2")</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1064163">
+ See also
+</A></H4>
+
+<A NAME="1064170">
+<A HREF="toplev.htm#1064024"><CODE>isNaN</CODE></A>, <A HREF="toplev.htm#1064173"><CODE>parseInt</CODE></A> </A></P>
+
+<HR><H2><A NAME="parseInt"></A>
+<A NAME="1064173">
+ parseInt
+</A></H2><A NAME="1064184">
+Parses a string argument and returns an integer of the specified radix or base.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1064176">
+<I>Core function</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1064178">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1064180">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1064182">
+JavaScript 1.0: If the first character of the string specified in parseInt(<CODE>string</CODE>) cannot be converted to a number, returns <CODE>NaN</CODE> on Solaris and Irix and 0 on all other platforms.</A></P><P><A NAME="1070203">
+</A></P><P><A NAME="1064183">
+JavaScript 1.1, LiveWire 2.0: Returns <CODE>NaN</CODE> on all platforms if the first character of the string specified in parseInt(<CODE>string</CODE>) cannot be converted to a number. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1074391">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1074393">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1064185">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1064186">parseInt(<I>string</I>[, <I>radix</I>])</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1064187">
+ Parameters
+</A></H4>
+
+<A NAME="1064197">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1064190">string</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1064192">
+A string that represents the value you want to parse.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1064194">radix</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1064196">
+An integer that represents the radix of the return value.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1064198">
+ Description
+</A></H4>
+
+<A NAME="1097892">
+<CODE>parseInt</CODE> is a top-level function and is not associated with any object.</A></P>
+<A NAME="1064200">
+The <CODE>parseInt</CODE> function parses its first argument, a string, and attempts to return an integer of the specified radix (base). For example, a radix of 10 indicates to convert to a decimal number, 8 octal, 16 hexadecimal, and so on. For radixes above 10, the letters of the alphabet indicate numerals greater than 9. For example, for hexadecimal numbers (base 16), A through F are used.</A></P>
+<A NAME="1064201">
+If <CODE>parseInt</CODE> encounters a character that is not a numeral in the specified radix, it ignores it and all succeeding characters and returns the integer value parsed up to that point. <CODE>parseInt</CODE> truncates numbers to integer values. Leading and trailing spaces are allowed.</A></P>
+<A NAME="1064202">
+If the radix is not specified or is specified as 0, JavaScript assumes the following:</A></P>
+<ul><P><LI><A NAME="1064203">
+If the input <CODE>string</CODE> begins with <CODE>"0x"</CODE>, the radix is 16 (hexadecimal).</A></LI>
+<P><LI><A NAME="1064204">
+If the input <CODE>string</CODE> begins with <CODE>"0"</CODE>, the radix is eight (octal).</A></LI>
+<P><LI><A NAME="1064205">
+If the input <CODE>string</CODE> begins with any other value, the radix is 10 (decimal).</A></LI>
+</ul><A NAME="1064206">
+If the first character cannot be converted to a number, <CODE>parseInt</CODE> returns <CODE>NaN</CODE>.</A></P>
+<A NAME="1064207">
+For arithmetic purposes, the <CODE>NaN</CODE> value is not a number in any radix. You can call the <CODE>isNaN</CODE> function to determine if the result of <CODE>parseInt</CODE> is <CODE>NaN</CODE>. If <CODE>NaN</CODE> is passed on to arithmetic operations, the operation results will also be <CODE>NaN</CODE>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1064208">
+ Examples
+</A></H4>
+
+<A NAME="1064209">
+The following examples all return 15:</A></P>
+<PRE><A NAME="1064210">parseInt("F", 16)<br>parseInt("17", 8)<br>parseInt("15", 10)<br>parseInt(15.99, 10)<br>parseInt("FXX123", 16)<br>parseInt("1111", 2)<br>parseInt("15*3", 10)</A></PRE><A NAME="1064211">
+The following examples all return <CODE>NaN</CODE>:</A></P>
+<PRE><A NAME="1064212">parseInt("Hello", 8)<br>parseInt("0x7", 10)<br>parseInt("FFF", 10)</A></PRE><A NAME="1064213">
+Even though the radix is specified differently, the following examples all return 17 because the input <CODE>string</CODE> begins with <CODE>"0x"</CODE>.</A></P>
+<PRE><A NAME="1064214">parseInt("0x11", 16)<br>parseInt("0x11", 0)<br>parseInt("0x11")</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1064215">
+ See also
+</A></H4>
+
+<A NAME="1064225">
+<A HREF="toplev.htm#1064024"><CODE>isNaN</CODE></A>, <A HREF="toplev.htm#1064132"><CODE>parseFloat</CODE></A>, <A HREF="object.htm#1193540"><CODE>Object.valueOf</CODE></A> </A></P>
+
+<HR><H2><A NAME="String"></A>
+<A NAME="1064506">
+ String
+</A></H2><A NAME="1064516">
+Converts the specified object to a string. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1064509">
+<I>Core function</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1064511">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1064513">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1064515">
+JavaScript 1.2, NES 3.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1074401">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1074403">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1064517">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1064518">String(<I>obj</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1064519">
+ Parameter
+</A></H4>
+
+<A NAME="1064525">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1064522">obj</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1064524">
+An object.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1064526">
+ Description
+</A></H4>
+
+<A NAME="1098314">
+<CODE>String</CODE> is a top-level function and is not associated with any object.</A></P>
+<A NAME="1074554">
+The <CODE>String</CODE> method converts the value of any object into a string; it returns the same value as the <CODE>toString</CODE> method of an individual object.</A></P>
+<A NAME="1074558">
+When the object is a <A HREF="date.htm#1193137"><CODE>Date</CODE></A> object, <CODE>String</CODE> returns a more readable string representation of the date. Its format is: Thu Aug 18 04:37:43 Pacific Daylight Time 1983.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1064531">
+ Example
+</A></H4>
+
+<A NAME="1064535">
+The following example converts the <A HREF="date.htm#1193137"><CODE>Date</CODE></A> object to a readable string. </A></P>
+<PRE><A NAME="1073769">D = new Date (430054663215)<br>alert (String(D))</A></PRE><A NAME="1064537">
+This displays a dialog box containing "Thu Aug 18 04:37:43 GMT-0700 (Pacific Daylight Time) 1983." </A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1064538">
+ See also
+</A></H4>
+
+<A NAME="1064542">
+<A HREF="string.htm#1193137"><CODE>String</CODE></A></A></P>
+
+<HR><H2><A NAME="taint"></A>
+<A NAME="1105929">
+ taint
+</A></H2><A NAME="1105941">
+Adds tainting to a data element or script. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1105932">
+<I>Client-side function</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1105934">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1105936">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1105938">
+JavaScript 1.1</A></P><P><A NAME="1105939">
+</A></P><P><A NAME="1105940">
+JavaScript 1.2: removed</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1105942">
+ Syntax 
+</A></H4>
+
+<PRE><A NAME="1105943">taint([<I>dataElementName</I>])</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1105944">
+ Parameters
+</A></H4>
+
+<A NAME="1105950">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1105947">dataElementName</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1105949">
+The property, variable, function, or object to taint. If omitted, taint is added to the script itself.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1105951">
+ Description 
+</A></H4>
+
+<A NAME="1105952">
+<CODE>taint</CODE> is a top-level function and is not associated with any object.</A></P>
+<A NAME="1105953">
+Tainting prevents other scripts from passing information that should be secure and private, such as directory structures or user session history. JavaScript cannot pass tainted values on to any server without the end user's permission.</A></P>
+<A NAME="1105954">
+Use <CODE>taint</CODE> to mark data that otherwise is not tainted.</A></P>
+<A NAME="1105955">
+In some cases, control flow rather than data flow carries tainted information. In these cases, taint is added to the script's window. You can add taint to the script's window by calling <CODE>taint</CODE> with no arguments. </A></P>
+<A NAME="1105956">
+<CODE>taint</CODE> does not modify its argument; instead, it returns a marked copy of the value, or, for objects, an unmarked reference to the value.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1105957">
+ Examples 
+</A></H4>
+
+<A NAME="1105958">
+The following statement adds taint to a property so that a script cannot send it to another server without the end user's permission:</A></P>
+<PRE><A NAME="1105959">taintedStatus=taint(window.defaultStatus)<br>// taintedStatus now cannot be sent in a URL or form post without<br>// the end user's permission</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1105960">
+ See also 
+</A></H4>
+
+<A NAME="1105967">
+<A HREF="nav.htm#1194117"><CODE>navigator.taintEnabled</CODE></A>, <A HREF="toplev.htm#1105987"><CODE>untaint</CODE></A></A></P>
+
+<HR><H2><A NAME="undefined"></A>
+<A NAME="1094680">
+ undefined
+</A></H2><A NAME="1094748">
+The value undefined.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1094683">
+<I>Core property</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1094685">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1094687">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1094689">
+JavaScript 1.3</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1094691">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1094693">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1094695">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1094696">undefined</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1094697">
+ Description
+</A></H4>
+
+<A NAME="1094698">
+<CODE>undefined</CODE> is a top-level property and is not associated with any object.</A></P>
+<A NAME="1095255">
+A variable that has not been assigned a value is of type undefined. A method or statement also returns <CODE>undefined</CODE> if the variable that is being evaluated does not have an assigned value.</A></P>
+<A NAME="1095290">
+You can use <CODE>undefined</CODE> to determine whether a variable has a value. In the following code, the variable <CODE>x</CODE> is not defined, and the <CODE>if</CODE> statement evaluates to true.</A></P>
+<PRE><A NAME="1095485">var x<br>if(x == undefined) {<br>&nbsp;&nbsp;&nbsp;// these statements execute<br>}</A></PRE><A NAME="1095684">
+<CODE>undefined</CODE> is also a primitive value.</A></P>
+
+<HR><H2><A NAME="unescape"></A>
+<A NAME="1064583">
+ unescape
+</A></H2><A NAME="1064593">
+Returns the ASCII string for the specified hexadecimal encoding value.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1064586">
+<I>Core function</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1064588">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1064590">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1064592">
+JavaScript 1.0, NES 1.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1076836">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1076838">
+ECMA-262 compatible, except for Unicode characters.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1064594">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1064595">unescape(<I>string</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1064596">
+ Parameters
+</A></H4>
+
+<A NAME="1064602">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1064599">string</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1064601">
+A string containing characters in the form <CODE>"%xx"</CODE>, where <CODE>xx</CODE> is a 2-digit hexadecimal number.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1064603">
+ Description
+</A></H4>
+
+<A NAME="1098459">
+<CODE>unescape</CODE> is a top-level function and is not associated with any object.</A></P>
+<A NAME="1064604">
+The string returned by the <CODE>unescape</CODE> function is a series of characters in the ISO-Latin-1 character set.</A></P>
+<A NAME="1064606">
+The <CODE>escape</CODE> and <CODE>unescape</CODE> methods do not use Unicode as specified by the ECMA specification. For information, see the description of <A HREF="toplev.htm#1100544">"Unicode" on page&nbsp;557</A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1064610">
+ Examples
+</A></H4>
+
+<A NAME="1064611">
+The following example returns <CODE>"&amp;"</CODE>:</A></P>
+<PRE><A NAME="1064612">unescape("%26")</A></PRE><A NAME="1064613">
+The following example returns <CODE>"!#"</CODE>:</A></P>
+<PRE><A NAME="1064614">unescape("%21%23")</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1064617">
+ See also
+</A></H4>
+
+<A NAME="1064621">
+<A HREF="toplev.htm#1063743"><CODE>escape</CODE></A></A></P>
+
+<HR><H2><A NAME="untaint"></A>
+<A NAME="1105987">
+ untaint
+</A></H2><A NAME="1105999">
+Removes tainting from a data element or script. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1105990">
+<I>Client-side function</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1105992">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1105994">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1105996">
+JavaScript 1.1</A></P><P><A NAME="1105997">
+</A></P><P><A NAME="1105998">
+JavaScript 1.2: removed</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1106000">
+ Syntax 
+</A></H4>
+
+<PRE><A NAME="1106001">untaint([<I>dataElementName</I>])</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1106002">
+ Parameters
+</A></H4>
+
+<A NAME="1106008">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1106005">dataElementName</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1106007">
+The property, variable, function, or object to remove tainting from. If omitted, taint is removed from the script itself.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1106009">
+ Description 
+</A></H4>
+
+<A NAME="1106010">
+<CODE>untaint</CODE> is a top-level function and is not associated with any object.</A></P>
+<A NAME="1106011">
+Tainting prevents other scripts from passing information that should be secure and private, such as directory structures or user session history. JavaScript cannot pass tainted values on to any server without the end user's permission.</A></P>
+<A NAME="1106012">
+Use <CODE>untaint</CODE> to clear tainting that marks data that should not to be sent by other scripts to different servers.</A></P>
+<A NAME="1106013">
+A script can untaint only data that originated in that script (that is, only data that has the script's taint code or has the identity (null) taint code). If you use <CODE>untaint</CODE> with a data element from another server's script (or any data that you cannot untaint), <CODE>untaint</CODE> returns the data without change or error.</A></P>
+<A NAME="1106014">
+In some cases, control flow rather than data flow carries tainted information. In these cases, taint is added to the script's window. You can remove taint from the script's window by calling <CODE>untaint</CODE> with no arguments, if the window contains taint only from the current window. </A></P>
+<A NAME="1106015">
+<CODE>untaint</CODE> does not modify its argument; instead, it returns an unmarked copy of the value, or, for objects, an unmarked reference to the value.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1106016">
+ Examples 
+</A></H4>
+
+<A NAME="1106017">
+The following statement removes taint from a property so that a script can send it to another server:</A></P>
+<PRE><A NAME="1106018">untaintedStatus=untaint(window.defaultStatus)<br>// untaintedStatus can now be sent in a URL or form post by other<br>// scripts</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1106019">
+ See also 
+</A></H4>
+
+<A NAME="1106026">
+<A HREF="nav.htm#1194117"><CODE>navigator.taintEnabled</CODE></A>, <A HREF="toplev.htm#1105929"><CODE>taint</CODE></A></A></P>
+<A NAME="1103046">
+</A></P>
+
+<HR>
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="window.htm">Previous</A>
+ | <A HREF="handlers.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT>
+<P ALIGN=right>
+<FONT SIZE=-2><I>Last Updated:  05/28/99  12:00:57</I></FONT>
+<P> <CENTER>Copyright (c) 1999
+<A HREF="http://home.netscape.com/misc/contact_info.html"
+TARGET=_top>Netscape Communications Corporation</A></FONT>
+</CENTER>
+<P>
+</BODY>
+</HTML>
+
+

@@ -1,0 +1,567 @@
+<!-- 
+    -------------------------------------------------------------------------
+                OUTLINE STYLE TABLE OF CONTENTS in JAVASCRIPT
+                                Version 2.0
+                    by Danny Goodman (dannyg@dannyg.com)
+                    Analyzed and described at length in
+                             "JavaScript Bible"
+                              by Danny Goodman
+                      (IDG Books ISBN 0-7645-3022-4)
+    
+    This program is Copyright 1996 by Danny Goodman.  You may adapt
+    this outliner for your Web pages, provided these opening credit
+    lines (down to the lower dividing line) are in your outliner HTML document.
+    You may not reprint or redistribute this code without permission from 
+    the author.
+    -------------------------------------------------------------------------
+     21 February 1997  Added intelligence so that clicking on a fully nested
+                       widget icon does not cause the outline to reload. 
+                       
+     24 October 1997   Script speedup for Navigator 4, reduces access to cookie
+
+To find information specific to DevEdge, search for DevEdge.
+-->
+<HTML>
+<HEAD>
+<TITLE>Navigation</TITLE>
+</HEAD>
+
+<SCRIPT LANGUAGE="JavaScript1.1">
+<!-- begin hiding
+// ** BEGIN OUTLINE AUTHOR-ADUSTABLE SPECIFICATIONS **//
+
+// size of horizontal indent per level
+var indentPixels = 20
+
+// art files and sizes for three widget styles
+// (all three widgets must have same height/width)
+var collapsedWidget = "plus.gif"
+var expandedWidget = "minus.gif"
+var endpointWidget = "filler.gif" //was end.gif
+var widgetWidth = 11
+var widgetHeight = 11
+
+// Target for documents loaded when user clicks on a link.
+// Specify your target frame name here.
+var displayTarget = "content"
+
+// Create array object containing outline content and attributes.
+// To adapt outline for your use, modify this table.
+// Start the array with [1], and continue without gaps to your last item.
+// The order of the five parameters:
+//    1. Boolean (true or false) whether _next_ item is indented.
+//    2. String to display in outline entry (including <FONT> or style tags).
+//    3. URL of link for outline entry; Use empty string ("") for no link
+//    4. Integer of indentation level (0 is leftmost margin level)
+//    5. String for status line during onMouseOver (apostrophes require \')
+
+// THIS DEVEDGE DOCUMENT STARTS HERE
+var documentName = "Client-Side JavaScript Guide v1.3";
+var inputArray = new Array(); 
+var arrayIndex = 1; 
+
+inputArray[arrayIndex++] = '1::<FONT SIZE=-1>Table of Contents</FONT>::"contents.htm"';
+inputArray[arrayIndex++] = '1::<FONT SIZE=-1>New Features in this Release</FONT>::"whatsnew.htm"';
+inputArray[arrayIndex++] = '1::<FONT SIZE=-1>About this Book</FONT>::"preface.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>New Features in this Release</FONT>::"preface.htm#1004904"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>What You Should Already Know</FONT>::"preface.htm#1003707"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>JavaScript Versions</FONT>::"preface.htm#1009601"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Where to Find JavaScript Information</FONT>::"preface.htm#1002114"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Document Conventions</FONT>::"preface.htm#1005560"';
+inputArray[arrayIndex++] = '2::<FONT SIZE=-1>1. JavaScript Overview</FONT>::"intro.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>What Is JavaScript?</FONT>::"intro.htm#1009369"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Core, Client-Side, and Server-Side JavaScript</FONT>::"intro.htm#1022274"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Core JavaScript</FONT>::"intro.htm#1022283"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Client-Side JavaScript</FONT>::"intro.htm#1022293"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Server-Side JavaScript</FONT>::"intro.htm#1022316"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>JavaScript and Java</FONT>::"intro.htm#1012569"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Debugging JavaScript</FONT>::"intro.htm#1009909"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Visual JavaScript</FONT>::"intro.htm#1013886"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>JavaScript and the ECMA Specification</FONT>::"intro.htm#1013654"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Relationship Between JavaScript and ECMA Versions</FONT>::"intro.htm#1013678"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>JavaScript Documentation vs. the ECMA Specification</FONT>::"intro.htm#1013717"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>JavaScript and ECMA Terminology</FONT>::"intro.htm#1013722"';
+inputArray[arrayIndex++] = '2::<FONT SIZE=-1></FONT>::""';
+inputArray[arrayIndex++] = '2::<FONT SIZE=-1>PART I. Core Language Features</FONT>::""';
+inputArray[arrayIndex++] = '2::<FONT SIZE=-1>2. Values, Variables, and Literals</FONT>::"ident.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Values</FONT>::"ident.htm#1008306"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Data Type Conversion</FONT>::"ident.htm#1008319"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Variables</FONT>::"ident.htm#1008330"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Declaring Variables</FONT>::"ident.htm#1008338"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Evaluating Variables</FONT>::"ident.htm#1012659"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Variable Scope</FONT>::"ident.htm#1009822"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Literals</FONT>::"ident.htm#1008348"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Array Literals</FONT>::"ident.htm#1011655"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Boolean Literals</FONT>::"ident.htm#1012095"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Floating-Point Literals</FONT>::"ident.htm#1009427"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Integers</FONT>::"ident.htm#1008351"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Object Literals</FONT>::"ident.htm#1009450"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>String Literals</FONT>::"ident.htm#1008368"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Unicode</FONT>::"ident.htm#1009568"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Unicode Compatibility with ASCII and ISO</FONT>::"ident.htm#1009571"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Unicode Escape Sequences</FONT>::"ident.htm#1009576"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Displaying Characters with Unicode</FONT>::"ident.htm#1009690"';
+inputArray[arrayIndex++] = '2::<FONT SIZE=-1>3. Expressions and Operators</FONT>::"expr.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Expressions</FONT>::"expr.htm#1010338"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Operators</FONT>::"expr.htm#1008323"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Assignment Operators</FONT>::"expr.htm#1008336"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Comparison Operators</FONT>::"expr.htm#1010037"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Arithmetic Operators</FONT>::"expr.htm#1008458"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Bitwise Operators</FONT>::"expr.htm#1008505"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Logical Operators</FONT>::"expr.htm#1008622"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>String Operators</FONT>::"expr.htm#1008684"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Special Operators</FONT>::"expr.htm#1008688"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Operator Precedence</FONT>::"expr.htm#1008750"';
+inputArray[arrayIndex++] = '2::<FONT SIZE=-1>4. Regular Expressions</FONT>::"regexp.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Creating a Regular Expression</FONT>::"regexp.htm#1008311"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Writing a Regular Expression Pattern</FONT>::"regexp.htm#1010689"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Using Simple Patterns</FONT>::"regexp.htm#1008325"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Using Special Characters</FONT>::"regexp.htm#1008327"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Using Parentheses</FONT>::"regexp.htm#1008498"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Working with Regular Expressions</FONT>::"regexp.htm#1008506"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Using Parenthesized Substring Matches</FONT>::"regexp.htm#1008659"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Executing a Global Search and Ignoring Case</FONT>::"regexp.htm#1008681"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Examples</FONT>::"regexp.htm#1008694"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Changing the Order in an Input String</FONT>::"regexp.htm#1008695"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Using Special Characters to Verify Input</FONT>::"regexp.htm#1008713"';
+inputArray[arrayIndex++] = '2::<FONT SIZE=-1>5. Statements</FONT>::"stmtsov.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Conditional Statements</FONT>::"stmtsov.htm#1008319"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>if...else Statement</FONT>::"stmtsov.htm#1008323"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>switch Statement</FONT>::"stmtsov.htm#1008329"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Loop Statements</FONT>::"stmtsov.htm#1008340"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>for Statement</FONT>::"stmtsov.htm#1008347"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>do...while Statement</FONT>::"stmtsov.htm#1008359"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>while Statement</FONT>::"stmtsov.htm#1008366"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>label Statement</FONT>::"stmtsov.htm#1010474"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>break Statement</FONT>::"stmtsov.htm#1008389"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>continue Statement</FONT>::"stmtsov.htm#1008402"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Object Manipulation Statements</FONT>::"stmtsov.htm#1008417"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>for...in Statement</FONT>::"stmtsov.htm#1008452"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>with Statement</FONT>::"stmtsov.htm#1008460"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Comments</FONT>::"stmtsov.htm#1008468"';
+inputArray[arrayIndex++] = '2::<FONT SIZE=-1>6. Functions</FONT>::"fcns.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Defining Functions</FONT>::"fcns.htm#1008305"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Calling Functions</FONT>::"fcns.htm#1008321"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Using the arguments Array</FONT>::"fcns.htm#1012766"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Predefined Functions</FONT>::"fcns.htm#1008357"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>eval Function</FONT>::"fcns.htm#1008364"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>isFinite Function</FONT>::"fcns.htm#1009925"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>isNaN Function</FONT>::"fcns.htm#1008370"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>parseInt and parseFloat Functions</FONT>::"fcns.htm#1008379"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Number and String Functions</FONT>::"fcns.htm#1008394"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>escape and unescape Functions</FONT>::"fcns.htm#1012712"';
+inputArray[arrayIndex++] = '2::<FONT SIZE=-1>7. Working with Objects</FONT>::"obj.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Objects and Properties</FONT>::"obj.htm#1008312"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Creating New Objects</FONT>::"obj.htm#1008327"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Using Object Initializers</FONT>::"obj.htm#1008330"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Using a Constructor Function</FONT>::"obj.htm#1008361"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Indexing Object Properties</FONT>::"obj.htm#1008392"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Defining Properties for an Object Type</FONT>::"obj.htm#1008397"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Defining Methods</FONT>::"obj.htm#1008406"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Using this for Object References</FONT>::"obj.htm#1008434"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Deleting Objects</FONT>::"obj.htm#1008445"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Predefined Core Objects</FONT>::"obj.htm#1010352"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Array Object</FONT>::"obj.htm#1008453"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Boolean Object</FONT>::"obj.htm#1008502"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Date Object</FONT>::"obj.htm#1008512"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Function Object</FONT>::"obj.htm#1008590"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Math Object</FONT>::"obj.htm#1008620"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Number Object</FONT>::"obj.htm#1008686"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>RegExp Object</FONT>::"obj.htm#1008724"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>String Object</FONT>::"obj.htm#1008731"';
+inputArray[arrayIndex++] = '2::<FONT SIZE=-1>8. Details of the Object Model</FONT>::"obj2.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Class-Based vs. Prototype-Based Languages</FONT>::"obj2.htm#1008342"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Defining a Class</FONT>::"obj2.htm#1011360"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Subclasses and Inheritance</FONT>::"obj2.htm#1011368"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Adding and Removing Properties</FONT>::"obj2.htm#1011428"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Summary of Differences</FONT>::"obj2.htm#1011444"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>The Employee Example</FONT>::"obj2.htm#1008388"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Creating the Hierarchy</FONT>::"obj2.htm#1008404"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Object Properties</FONT>::"obj2.htm#1008465"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Inheriting Properties</FONT>::"obj2.htm#1008468"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Adding Properties</FONT>::"obj2.htm#1008483"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>More Flexible Constructors</FONT>::"obj2.htm#1008499"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Property Inheritance Revisited</FONT>::"obj2.htm#1008567"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Local versus Inherited Values</FONT>::"obj2.htm#1008570"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Determining Instance Relationships</FONT>::"obj2.htm#1008594"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Global Information in Constructors</FONT>::"obj2.htm#1008610"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>No Multiple Inheritance</FONT>::"obj2.htm#1008628"';
+inputArray[arrayIndex++] = '2::<FONT SIZE=-1></FONT>::""';
+inputArray[arrayIndex++] = '2::<FONT SIZE=-1>PART II. Client-Specific Features</FONT>::""';
+inputArray[arrayIndex++] = '2::<FONT SIZE=-1>9. Embedding JavaScript in HTML</FONT>::"embed.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Using the SCRIPT Tag</FONT>::"embed.htm#1013179"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Specifying the JavaScript Version</FONT>::"embed.htm#1013185"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Hiding Scripts Within Comment Tags</FONT>::"embed.htm#1013248"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Example: a First Script</FONT>::"embed.htm#1013258"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Specifying a File of JavaScript Code</FONT>::"embed.htm#1013277"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>URLs the SRC Attribute Can Specify</FONT>::"embed.htm#1014307"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Requirements for Files Specified by the SRC Attribute</FONT>::"embed.htm#1014321"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Using JavaScript Expressions as HTML Attribute Values</FONT>::"embed.htm#1013293"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Using Quotation Marks</FONT>::"embed.htm#1013313"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Specifying Alternate Content with the NOSCRIPT Tag</FONT>::"embed.htm#1013319"';
+inputArray[arrayIndex++] = '2::<FONT SIZE=-1>10. Handling Events</FONT>::"evnt.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Defining an Event Handler</FONT>::"evnt.htm#1009606"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Example: Using an Event Handler</FONT>::"evnt.htm#1009637"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Calling Event Handlers Explicitly</FONT>::"evnt.htm#1009658"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>The Event Object</FONT>::"evnt.htm#1012525"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Event Capturing</FONT>::"evnt.htm#1010131"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Enable Event Capturing</FONT>::"evnt.htm#1010535"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Define the Event Handler</FONT>::"evnt.htm#1010420"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Register the Event Handler</FONT>::"evnt.htm#1010449"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>A Complete Example</FONT>::"evnt.htm#1010157"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Validating Form Input</FONT>::"evnt.htm#1012961"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Example Validation Functions</FONT>::"evnt.htm#1012977"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Using the Validation Functions</FONT>::"evnt.htm#1012986"';
+inputArray[arrayIndex++] = '2::<FONT SIZE=-1>11. Using Navigator Objects</FONT>::"navobj.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Navigator Object Hierarchy</FONT>::"navobj.htm#1006931"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Document Properties: an Example</FONT>::"navobj.htm#1006066"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>JavaScript Reflection and HTML Layout</FONT>::"navobj.htm#1007007"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Key Navigator Objects</FONT>::"navobj.htm#1009022"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>window and Frame Objects</FONT>::"navobj.htm#1010392"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>document Object</FONT>::"navobj.htm#1015208"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Form Object</FONT>::"navobj.htm#1010137"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>location Object</FONT>::"navobj.htm#1004213"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>history Object</FONT>::"navobj.htm#1010406"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>navigator Object</FONT>::"navobj.htm#1011844"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Navigator Object Arrays</FONT>::"navobj.htm#1017919"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Using the write Method</FONT>::"navobj.htm#1016546"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Printing Output</FONT>::"navobj.htm#1016574"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Displaying Output</FONT>::"navobj.htm#1016870"';
+inputArray[arrayIndex++] = '2::<FONT SIZE=-1>12. Using Windows and Frames</FONT>::"windows.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Opening and Closing Windows</FONT>::"windows.htm#1012749"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Opening a Window</FONT>::"windows.htm#1004224"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Closing a Window</FONT>::"windows.htm#1004234"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Using Frames</FONT>::"windows.htm#1004240"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Creating a Frame</FONT>::"windows.htm#1004244"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Updating a Frame</FONT>::"windows.htm#1004265"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Referring To and Navigating Among Frames</FONT>::"windows.htm#1004272"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Creating and Updating Frames: an Example</FONT>::"windows.htm#1004274"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Referring to Windows and Frames</FONT>::"windows.htm#1004300"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Referring to Properties, Methods, and Event Handlers</FONT>::"windows.htm#1004302"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Referring to a Window in a Form Submit or Hypertext Link</FONT>::"windows.htm#1004316"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Navigating Among Windows and Frames</FONT>::"windows.htm#1004326"';
+inputArray[arrayIndex++] = '2::<FONT SIZE=-1>13. Additional Topics</FONT>::"advtopic.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Using JavaScript URLs</FONT>::"advtopic.htm#1004952"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Using Client-Side Image Maps</FONT>::"advtopic.htm#1006105"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Using Server-Side Image Maps</FONT>::"advtopic.htm#1006224"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Using the Status Bar</FONT>::"advtopic.htm#1006028"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Creating Hints with onMouseOver and onMouseOut</FONT>::"advtopic.htm#1006409"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Using Cookies</FONT>::"advtopic.htm#1017771"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Limitations</FONT>::"advtopic.htm#1013124"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Using Cookies with JavaScript</FONT>::"advtopic.htm#1013134"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Using Cookies: an Example</FONT>::"advtopic.htm#1013148"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Determining Installed Plug-ins</FONT>::"advtopic.htm#1012507"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>mimeTypes Array</FONT>::"advtopic.htm#1008555"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>plugins Array</FONT>::"advtopic.htm#1008559"';
+inputArray[arrayIndex++] = '2::<FONT SIZE=-1>14. JavaScript Security</FONT>::"sec.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Same Origin Policy</FONT>::"sec.htm#1015705"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Origin Checks and document.domain</FONT>::"sec.htm#1023451"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Origin Checks of Named Forms</FONT>::"sec.htm#1023386"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Origin Checks and SCRIPT Tags that Load Documents</FONT>::"sec.htm#1015801"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Origin Checks and Layers</FONT>::"sec.htm#1015807"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Origin Checks and Java Applets</FONT>::"sec.htm#1015815"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Using Signed Scripts</FONT>::"sec.htm#1015075"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Introduction to Signed Scripts</FONT>::"sec.htm#1015077"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Identifying Signed Scripts</FONT>::"sec.htm#1015201"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Using Expanded Privileges</FONT>::"sec.htm#1015231"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Writing the Script</FONT>::"sec.htm#1015352"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Signing Scripts</FONT>::"sec.htm#1015441"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Troubleshooting Signed Scripts</FONT>::"sec.htm#1015471"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Using Data Tainting</FONT>::"sec.htm#1021266"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>How Tainting Works</FONT>::"sec.htm#1020923"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Enabling Tainting</FONT>::"sec.htm#1020979"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Tainting and Untainting Individual Data Elements</FONT>::"sec.htm#1020996"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Tainting that Results from Conditional Statements</FONT>::"sec.htm#1021011"';
+inputArray[arrayIndex++] = '2::<FONT SIZE=-1></FONT>::""';
+inputArray[arrayIndex++] = '2::<FONT SIZE=-1>PART III. Working with LiveConnect</FONT>::""';
+inputArray[arrayIndex++] = '2::<FONT SIZE=-1>15. LiveConnect Overview</FONT>::"lc.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>What Is LiveConnect?</FONT>::"lc.htm#1043729"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Enabling LiveConnect</FONT>::"lc.htm#1043773"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>The Java Console</FONT>::"lc.htm#1043780"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Working with Wrappers</FONT>::"lc.htm#1013074"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>JavaScript to Java Communication</FONT>::"lc.htm#1014290"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>The Packages Object</FONT>::"lc.htm#1029016"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Working with Java Arrays</FONT>::"lc.htm#1029099"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Package and Class References</FONT>::"lc.htm#1029045"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Arguments of Type char</FONT>::"lc.htm#1029446"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Controlling Java Applets</FONT>::"lc.htm#1043848"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Controlling Java Plug-ins</FONT>::"lc.htm#1043898"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Java to JavaScript Communication</FONT>::"lc.htm#1008480"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Using the LiveConnect Classes</FONT>::"lc.htm#1030717"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Accessing Client-Side JavaScript</FONT>::"lc.htm#1043938"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Data Type Conversions</FONT>::"lc.htm#1037078"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>JavaScript to Java Conversions</FONT>::"lc.htm#1037090"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Java to JavaScript Conversions</FONT>::"lc.htm#1037422"';
+inputArray[arrayIndex++] = '2::<FONT SIZE=-1>16. LiveAudio and LiveConnect</FONT>::"liveaud.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>JavaScript Methods for Controlling LiveAudio</FONT>::"liveaud.htm#1020064"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Using the LiveAudio LiveConnect Methods</FONT>::"liveaud.htm#1020098"';
+inputArray[arrayIndex++] = '2::<FONT SIZE=-1></FONT>::""';
+inputArray[arrayIndex++] = '2::<FONT SIZE=-1>PART IV. Appendixes</FONT>::""';
+inputArray[arrayIndex++] = '2::<FONT SIZE=-1>A. Mail Filters</FONT>::"mail.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Creating the Filter and Adding to Your Rules File</FONT>::"mail.htm#1040050"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>News Filters</FONT>::"mail.htm#1040117"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Message Object Reference</FONT>::"mail.htm#1040124"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Mail Messages</FONT>::"mail.htm#1040130"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>News Messages</FONT>::"mail.htm#1040164"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Debugging Your Filters</FONT>::"mail.htm#1040178"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>A More Complex Example</FONT>::"mail.htm#1040193"';
+inputArray[arrayIndex++] = '2::<FONT SIZE=-1>B. Displaying Errors with the JavaScript Console</FONT>::"console.htm"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Opening the JavaScript Console</FONT>::"console.htm#1044393"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Evaluating Expressions with the Console</FONT>::"console.htm#1044397"';
+inputArray[arrayIndex++] = '3::<FONT SIZE=-1>Displaying Error Messages with the Console</FONT>::"console.htm#1045065"';
+inputArray[arrayIndex++] = '4::<FONT SIZE=-1>Setting Preferences for Displaying Errors</FONT>::"console.htm#1044916"';
+inputArray[arrayIndex++] = '2::<FONT SIZE=-1> Glossary</FONT>::"glossary.htm"';
+inputArray[arrayIndex++] = '2::<FONT SIZE=-1> Index</FONT>::"bklast.htm"';
+
+inputArray[arrayIndex++] = 'x';
+
+// THIS DEVEDGE DOCUMENT ENDS HERE
+// ** END AUTHOR-ADJUSTABLE SPECIFICATIONS **//
+
+var db = new Array();
+
+// inputArray[0] is an empty string. The data starts at inputArray[1].
+// Expecting a string with lines of this form:
+// TYPE::TITLE::"URL"
+// where type is 0 (part), 1 (preface, index)), 2 (chapter-level), 
+//               3 (h1), 4 (h2)
+// how to identify document types:
+//   book with parts: if a book has parts, assume it has everything else.
+//   book without parts: as soon as you see a type=2, it's got chapters; 
+//        still look for a part, though
+//   single file document: if you get to the end and never see a type=2, 
+//        then it's a single-file document
+
+// Check to see if the book has parts or chapters. 
+// The answer determines the depth argument.
+
+var hasParts = false;
+var hasChapters = false;
+var thisRecord;
+var inPrefaceyThing = false;
+var i;
+
+// Find out if there are parts in this book. 
+for (i=1; i < inputArray.length-1; i++) {
+  thisRecord = inputArray[i];
+
+  hasParts = (thisRecord[0] == "0");
+  if (hasParts) break;
+
+  hasChapters = hasChapters || (thisRecord.charAt(0) == "2");
+}
+
+var PART, CHAPP, H1, H2;
+// Assign level numbers, based on whether there are any parts.
+if      (hasParts)     {PART = 0; CHAPP = 1; H1 = 2; H2 = 3;}
+else if (hasChapters)  {CHAPP = 0; H1 = 1; H2 = 2;}
+else                   {CHAPP = 0; H1 = 0; H2 = 1;}
+
+//Loop again, fixing entries.
+
+// TYPE::TITLE::"URL"
+// becomes db[i] = new dbRecord(HASCHILD, "TITLE", "URL", DEPTH, "")
+
+var thisType, nextType;
+var thisRecord, nextRecord;
+for (i=1; i < inputArray.length-2; i++) {
+
+  thisRecord = inputArray[i];
+  nextRecord = inputArray[i+1];
+
+  thisType = thisRecord.charAt(0);
+  nextType = nextRecord.charAt(0);
+  if (nextType == "x") {
+    hasChild = false;
+  } else {
+    hasChild = (thisType < nextType);
+  }
+
+  if      (thisType == "0") {depth = PART;  inPrefaceyThing = false;}
+  else if (thisType == "1") {depth = 0;     inPrefaceyThing = true;}
+  else if (thisType == "2") {depth = CHAPP; inPrefaceyThing = false;}
+  else if (thisType == "3") {inPrefaceyThing ? depth = 1 : depth = H1}
+  else                      {inPrefaceyThing ? depth = 2 : depth = H2}
+
+  title = thisRecord.substring(3, thisRecord.lastIndexOf('::'));
+  url   = thisRecord.substring(thisRecord.lastIndexOf('::\"')+ 3, thisRecord.length-1);
+
+  db[i] = new dbRecord(hasChild, title, url, depth, "");
+}
+
+if (nextType != "x") {
+  title = nextRecord.substring(3, nextRecord.lastIndexOf('::'));
+  url   = nextRecord.substring(nextRecord.lastIndexOf('::\"')+ 3, nextRecord.length-1);
+  if      (nextType == "0") depth = PART;
+  else if (nextType == "1") depth = 0;
+  else if (nextType == "2") depth = CHAPP;
+  else if (nextType == "3") {inPrefaceyThing ? depth = 1 : depth = H1}
+  else                      {inPrefaceyThing ? depth = 2 : depth = H2}
+  db[i]   = new dbRecord(false, title, url, depth, "");
+  db[i+1] = new dbRecord(false, "<FONT SIZE=-1>Copyright</FONT>", "copyrt.htm", 0, "");
+} else {
+  db[i] = new dbRecord(false, "<FONT SIZE=-1>Copyright</FONT>", "copyrt.htm", 0,
+ "");
+}
+
+// object constructor for each outline entry
+function dbRecord(mother,display,URL,indent,statusMsg){
+	this.mother = mother   // is this item a parent?
+	this.display = display // text to display
+	this.URL = URL         // link tied to text; if empty string, item appears as straight text
+	this.indent = indent   // how many levels nested?
+	this.statusMsg = statusMsg  // descriptive text for status bar 
+	return this
+}
+
+// pre-load all images into cache
+var fillerImg = new Image(1,1)
+fillerImg.src = "filler.gif"
+var collapsedImg = new Image(widgetWidth,widgetHeight)
+collapsedImg.src = collapsedWidget
+var expandedImg = new Image(widgetWidth,widgetHeight)
+expandedImg.src = expandedWidget
+var endpointImg = new Image(widgetWidth,widgetHeight)
+endpointImg.src = endpointWidget
+
+// ** functions that get and set persistent cookie data **
+// set cookie data
+var mycookie = document.cookie
+function setCurrState(setting) {
+   mycookie = document.cookie = "currState=" + escape(setting)
+}
+// retrieve cookie data
+function getCurrState() {
+   var label = "currState="
+   var labelLen = label.length
+   var cLen = mycookie.length
+   var i = 0
+   while (i < cLen) {
+      var j = i + labelLen
+      if (mycookie.substring(i,j) == label) {
+         var cEnd = mycookie.indexOf(";",j)
+         if (cEnd ==     -1) {
+            cEnd = mycookie.length
+         }
+         return unescape(mycookie.substring(j,cEnd))
+      }
+      i++
+   }
+   return ""
+}
+
+// **function that updates persistent storage of state**
+// toggles an outline mother entry, storing new value in the cookie
+function toggle(n) {
+	if (n != 0) {
+		var newString = ""
+		var currState = getCurrState() // of whole outline
+		var expanded = currState.charAt(n-1) // of clicked item
+		newString += currState.substring(0,n-1)
+		newString += expanded ^ 1 // Bitwise XOR clicked item
+		newString += currState.substring(n,currState.length)
+		setCurrState(newString) // write new state back to cookie
+	}
+}
+
+// **functions used in assembling updated outline**
+// returns the proper GIF file name for each entry's control
+function getGIF(n) {
+	var mom = db[n].mother  // is entry a parent?
+	var expanded = getCurrState().charAt(n-1) // of clicked item
+	if (!mom) {
+		return endpointWidget
+	} else {
+		if (expanded == 1) {
+			return expandedWidget
+		}
+	}
+	return collapsedWidget
+}
+
+// returns the proper status line text based on the icon style
+function getGIFStatus(n) {
+	var mom = db[n].mother  // is entry a parent
+	var expanded = getCurrState().charAt(n-1) // of rolled item
+	if (!mom) {
+		return "No further items"
+	} else {
+		if (expanded == 1) {
+			return "Click to collapse nested items"
+		}
+	}
+	return "Click to expand nested items"
+}
+
+// initialize 'current state' storage field
+if (getCurrState() == "" || getCurrState().length != (db.length-1)) {
+	initState = ""
+	for (i = 1; i < db.length; i++) {
+		initState += "0"
+	}
+	setCurrState(initState)
+}
+
+// end -->
+</SCRIPT>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<SCRIPT LANGUAGE="JavaScript1.1">
+<!-- start
+// build new outline based on the values of the cookie
+// and data points in the outline data array.
+// This fires each time the user clicks on a control,
+// because the HREF for each one reloads the current document.
+var newOutline = ""
+var prevIndentDisplayed = 0
+var showMyDaughter = 0
+// DOCUMENT NAME IS HERE (DEVEDGE INFO WAS PREVIOUSLY HERE ALSO BUT WAS MOVED TO LATER IN FILE)
+document.write("<NOBR><FONT SIZE=-1><B>" + documentName + "</FONT></B></NOBR><BR>")
+// DOCUMENT NAME ENDS HERE
+// cycle through each entry in the outline array
+for (var i = 1; i < db.length; i++) {
+	var theGIF = getGIF(i)				// get the image
+	var theGIFStatus = getGIFStatus(i)  // get the status message
+	var currIndent = db[i].indent		// get the indent level
+	var expanded = getCurrState().charAt(i-1) // current state
+	// display entry only if it meets one of three criteria
+	if (currIndent == 0 || currIndent <= prevIndentDisplayed || (showMyDaughter == 1 && (currIndent - prevIndentDisplayed == 1))) {
+		newOutline += "<NOBR><IMG SRC=\"filler.gif\" HEIGHT = 1 WIDTH =" + (indentPixels * currIndent) + ">"
+		newOutline += "<A HREF=\"javascript:history.go(0)\" onMouseOver=\"window.status=\'" + theGIFStatus + "\';return true;\" onClick=\"toggle(" + i + ");return " + (theGIF != endpointWidget) + "\">"
+		newOutline += "<IMG SRC=\"" + theGIF + "\" HEIGHT=" + widgetHeight + " WIDTH=" + widgetWidth + " BORDER=0></A>"		
+		if (db[i].URL == "" || db[i].URL == null) {
+			newOutline += " " + db[i].display + "</NOBR><BR>"	// no link, just a listed item	
+		} else {
+			newOutline += " <A HREF=\"" + db[i].URL + "\" TARGET=\"" + displayTarget + "\" onMouseOver=\"window.status=\'" + db[i].statusMsg + "\';return true;\">" + db[i].display + "</A></NOBR><BR>"
+		}
+		prevIndentDisplayed = currIndent
+		showMyDaughter = expanded
+		if (db.length > 25) {
+			document.write(newOutline)
+			newOutline = ""
+		}
+	}
+}
+document.write(newOutline)
+document.write("<HR>")
+// DEVEDGE INFORMATION STARTS HERE
+document.write("<FONT SIZE=-1'>");
+document.write("<NOBR><A HREF='http://developer.netscape.com/index.html' TARGET='_top'>DevEdge Home</A></NOBR><BR>")
+document.write("</FONT>")
+document.write("<FONT SIZE=-1>");
+document.write("<NOBR><A HREF='http://developer.netscape.com/library/documentation/index.html'>Documentation</A></NOBR><BR>")
+document.write("</FONT>")
+document.write("<HR>")
+// DEVEDGE INFORMATION ENDS HERE
+document.write("<NOBR><FONT SIZE=-2>If cookies are disabled,</FONT></NOBR><BR>")
+document.write("<NOBR><FONT SIZE=-2>this outline cannot expand.</FONT></NOBR><BR>")
+document.write("<NOBR><FONT SIZE=-2>This frame is resizable.</FONT></NOBR><P>")
+document.write("<NOBR><FONT SIZE=-2>Copyright (c) 1999</NOBR><BR>")
+document.write("<NOBR><A HREF='http://home.netscape.com/misc/contact_info.html'")
+document.write("TARGET=_top>Netscape Communications Corporation</A></FONT></NOBR>")
+
+// end -->
+</SCRIPT> 
+</BODY>
+</HTML>

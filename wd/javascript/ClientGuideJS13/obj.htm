@@ -1,0 +1,615 @@
+<HTML>
+<HEAD>
+<TITLE>Working with Objects
+</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="fcns.htm">Previous</A>
+ | <A HREF="obj2.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT><BR><BR>
+<HR>
+<A NAME="1008298">
+<P></A><CENTER><H2>Chapter 7<BR>
+<A NAME="1008302">
+Working with Objects</A></H2></CENTER>
+<A NAME="1008307">
+JavaScript is designed on a simple object-based paradigm. An object is a construct with properties that are JavaScript variables or other objects. An object also has functions associated with it that are known as the object's <I>methods</I>. In addition to objects that are predefined in the Navigator client and the server, you can define your own objects.</A></P>
+<A NAME="1008309">
+This chapter describes how to use objects, properties, functions, and methods, and how to create your own objects. </A></P>
+<A NAME="1010098">
+This chapter contains the following sections:</A></P>
+<ul><LI><A NAME="1010099">
+<A HREF="obj.htm#1008312">Objects and Properties</A>
+</A></LI><LI><A NAME="1010100">
+<A HREF="obj.htm#1008327">Creating New Objects</A>
+</A></LI><LI><A NAME="1010136">
+<A HREF="obj.htm#1010352">Predefined Core Objects</A>
+</A></LI></ul>
+<HR><H2><A NAME="Objects and Properties"></A>
+<A NAME="1008312">
+ Objects and Properties
+</A></H2><A NAME="1008313">
+A JavaScript object has properties associated with it. You access the properties of an object with a simple notation:</A></P>
+<PRE><A NAME="1008314"><I>objectName</I>.<I>propertyName</I></A></PRE><A NAME="1008316">
+Both the object name and property name are case sensitive. You define a property by assigning it a value. For example, suppose there is an object named <CODE>myCar</CODE> (for now, just assume the object already exists). You can give it properties named <CODE>make</CODE>, <CODE>model</CODE>, and <CODE>year</CODE> as follows:</A></P>
+<PRE><A NAME="1008317">myCar.make = "Ford"<br>myCar.model = "Mustang"<br>myCar.year = 1969;</A></PRE><A NAME="1008319">
+An array is an ordered set of values associated with a single variable name. Properties and arrays in JavaScript are intimately related; in fact, they are different interfaces to the same data structure. So, for example, you could access the properties of the <CODE>myCar</CODE> object as follows:</A></P>
+<PRE><A NAME="1008320">myCar["make"] = "Ford"<br>myCar["model"] = "Mustang"<br>myCar["year"] = 1967</A></PRE><A NAME="1008321">
+This type of array is known as an <I>associative array</I>, because each index element is also associated with a string value. To illustrate how this works, the following function displays the properties of the object when you pass the object and the object's name as arguments to the function:</A></P>
+<PRE><A NAME="1008322">function show_props(obj, obj_name) {<br>&nbsp;&nbsp;&nbsp;var result = ""<br>&nbsp;&nbsp;&nbsp;for (var i in obj)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result += obj_name + "." + i + " = " + obj[i] + "\n"<br>&nbsp;&nbsp;&nbsp;return result<br>}</A></PRE><A NAME="1008323">
+So, the function call <CODE>show_props(myCar, "myCar")</CODE> would return the following:</A></P>
+<PRE><A NAME="1008324">myCar.make = Ford<br>myCar.model = Mustang<br>myCar.year = 1967</A></PRE>
+<HR><H2><A NAME="Creating New Objects"></A>
+<A NAME="1008327">
+ Creating New Objects
+</A></H2><A NAME="1010155">
+JavaScript has a number of predefined objects. In addition, you can create your own objects. In JavaScript&nbsp;1.2, you can create an object using an object initializer. Alternatively, you can first create a constructor function and then instantiate an object using that function and the <CODE>new</CODE> operator.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1008330">
+ Using Object Initializers
+</A></H3>
+
+<A NAME="1016607">
+In addition to creating objects using a constructor function, you can create objects using an object initializer. Using object initializers is sometimes referred to as creating objects with literal notation. "Object initializer" is consistent with the terminology used by C++.</A></P>
+<A NAME="1016611">
+The syntax for an object using an object initializer is:</A></P>
+<PRE><A NAME="1016612">objectName = {property1:value1, property2:value2,..., property<I>N</I>:value<I>N</I>}</A></PRE><A NAME="1008340">
+where <CODE>objectName</CODE> is the name of the new object, each <CODE>property</CODE><I><CODE>I</CODE></I> is an identifier (either a name, a number, or a string literal), and each <CODE>value</CODE><I><CODE>I</CODE></I> is an expression whose value is assigned to the <CODE>property</CODE><I><CODE>I</CODE></I>. The <CODE>objectName</CODE> and assignment is optional. If you do not need to refer to this object elsewhere, you do not need to assign it to a variable.</A></P>
+<A NAME="1008341">
+If an object is created with an object initializer in a top-level script, JavaScript interprets the object each time it evaluates the expression containing the object literal. In addition, an initializer used in a function is created each time the function is called.</A></P>
+<A NAME="1016636">
+The following statement creates an object and assigns it to the variable <CODE>x</CODE> if and only if the expression <CODE>cond</CODE> is true.</A></P>
+<PRE><A NAME="1010172">if (cond) x = {hi:"there"}</A></PRE><A NAME="1008345">
+The following example creates <CODE>myHonda</CODE> with three properties. Note that the <CODE>engine</CODE> property is also an object with its own properties. </A></P>
+<PRE><A NAME="1008346">myHonda = {color:"red",wheels:4,engine:{cylinders:4,size:2.2}}</A></PRE><A NAME="1016639">
+You can also use object initializers to create arrays. See <A HREF="ident.htm#1011655">"Array Literals" on page&nbsp;37</A>.</A></P>
+<B><A NAME="HeadRunIn;"></A>
+<A NAME="1016568">
+JavaScript 1.1 and earlier versions. </A></B><A NAME="1016569">
+You cannot use object initializers. You can create objects only using their constructor functions or using a function supplied by some other object for that purpose. See <A HREF="obj.htm#1008361">"Using a Constructor Function" on page&nbsp;102</A>.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1008361">
+ Using a Constructor Function
+</A></H3>
+
+<A NAME="1008362">
+Alternatively, you can create an object with these two steps:</A></P>
+<OL>
+<P><LI><A NAME="1008363">
+Define the object type by writing a constructor function.</A></LI>
+<P><LI><A NAME="1008365">
+Create an instance of the object with <CODE>new</CODE>.</A></LI>
+</OL>
+<A NAME="1008366">
+To define an object type, create a function for the object type that specifies its name, properties, and methods. For example, suppose you want to create an object type for cars. You want this type of object to be called <CODE>car</CODE>, and you want it to have properties for make, model, year, and color. To do this, you would write the following function:</A></P>
+<PRE><A NAME="1008367">function car(make, model, year) {<br>&nbsp;&nbsp;&nbsp;this.make = make<br>&nbsp;&nbsp;&nbsp;this.model = model<br>&nbsp;&nbsp;&nbsp;this.year = year<br>}</A></PRE><A NAME="1008369">
+Notice the use of <CODE>this</CODE> to assign values to the object's properties based on the values passed to the function.</A></P>
+<A NAME="1008370">
+Now you can create an object called <CODE>mycar</CODE> as follows:</A></P>
+<PRE><A NAME="1008371">mycar = new car("Eagle", "Talon TSi", 1993)</A></PRE><A NAME="1008372">
+This statement creates <CODE>mycar</CODE> and assigns it the specified values for its properties. Then the value of <CODE>mycar.make</CODE> is the string "Eagle", <CODE>mycar.year</CODE> is the integer 1993, and so on.</A></P>
+<A NAME="1008373">
+You can create any number of <CODE>car</CODE> objects by calls to <CODE>new</CODE>. For example,</A></P>
+<PRE><A NAME="1008374">kenscar = new car("Nissan", "300ZX", 1992)<br>vpgscar = new car("Mazda", "Miata", 1990)</A></PRE><A NAME="1008375">
+An object can have a property that is itself another object. For example, suppose you define an object called <CODE>person</CODE> as follows:</A></P>
+<PRE><A NAME="1008376">function person(name, age, sex) {<br>&nbsp;&nbsp;&nbsp;this.name = name<br>&nbsp;&nbsp;&nbsp;this.age = age<br>&nbsp;&nbsp;&nbsp;this.sex = sex<br>}</A></PRE><A NAME="1008377">
+and then instantiate two new <CODE>person</CODE> objects as follows:</A></P>
+<PRE><A NAME="1008378">rand = new person("Rand McKinnon", 33, "M")<br>ken = new person("Ken Jones", 39, "M")</A></PRE><A NAME="1008379">
+Then you can rewrite the definition of <CODE>car</CODE> to include an <CODE>owner</CODE> property that takes a <CODE>person</CODE> object, as follows:</A></P>
+<PRE><A NAME="1008380">function car(make, model, year, owner) {<br>&nbsp;&nbsp;&nbsp;this.make = make<br>&nbsp;&nbsp;&nbsp;this.model = model<br>&nbsp;&nbsp;&nbsp;this.year = year<br>&nbsp;&nbsp;&nbsp;this.owner = owner<br>}</A></PRE><A NAME="1008381">
+To instantiate the new objects, you then use the following:</A></P>
+<PRE><A NAME="1008382">car1 = new car("Eagle", "Talon TSi", 1993, rand)<br>car2 = new car("Nissan", "300ZX", 1992, ken)</A></PRE><A NAME="1008383">
+Notice that instead of passing a literal string or integer value when creating the new objects, the above statements pass the objects <CODE>rand</CODE> and <CODE>ken</CODE> as the arguments for the owners. Then if you want to find out the name of the owner of car2, you can access the following property:</A></P>
+<PRE><A NAME="1008384">car2.owner.name</A></PRE><A NAME="1008386">
+Note that you can always add a property to a previously defined object. For example, the statement</A></P>
+<PRE><A NAME="1008387">car1.color = "black"</A></PRE><A NAME="1008388">
+adds a property <CODE>color</CODE> to car1, and assigns it a value of "black." However, this does not affect any other objects. To add the new property to all objects of the same type, you have to add the property to the definition of the <CODE>car</CODE> object type.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1008392">
+ Indexing Object Properties
+</A></H3>
+
+<A NAME="1008393">
+In JavaScript 1.0, you can refer to an object's properties by their property name or by their ordinal index. In JavaScript 1.1 or later, however, if you initially define a property by its name, you must always refer to it by its name, and if you initially define a property by an index, you must always refer to it by its index.</A></P>
+<A NAME="1008394">
+This applies when you create an object and its properties with a constructor function, as in the above example of the <CODE>Car</CODE> object type, and when you define individual properties explicitly (for example, <CODE>myCar.color = "red"</CODE>). So if you define object properties initially with an index, such as <CODE>myCar[5] = "25 mpg"</CODE>, you can subsequently refer to the property as <CODE>myCar[5]</CODE>.</A></P>
+<A NAME="1008395">
+The exception to this rule is objects reflected from HTML, such as the <CODE>forms</CODE> array. You can always refer to objects in these arrays by either their ordinal number (based on where they appear in the document) or their name (if defined). For example, if the second <CODE>&lt;FORM&gt;</CODE> tag in a document has a <CODE>NAME</CODE> attribute of "myForm", you can refer to the form as <CODE>document.forms[1]</CODE> or <CODE>document.forms["myForm"]</CODE> or <CODE>document.myForm</CODE>.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1008397">
+ Defining Properties for an Object Type
+</A></H3>
+
+<A NAME="1008398">
+You can add a property to a previously defined object type by using the <CODE>prototype</CODE> property. This defines a property that is shared by all objects of the specified type, rather than by just one instance of the object. The following code adds a <CODE>color</CODE> property to all objects of type <CODE>car</CODE>, and then assigns a value to the <CODE>color</CODE> property of the object <CODE>car1</CODE>.</A></P>
+<PRE><A NAME="1008404">Car.prototype.color=null<br>car1.color="black"</A></PRE><A NAME="1009697">
+See the <CODE>prototype</CODE> property of the <CODE>Function</CODE> object in the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsref/index.htm" TARGET="_top"><I>Client-Side JavaScript Reference</I></A> for more information.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1008406">
+ Defining Methods
+</A></H3>
+
+<A NAME="1008407">
+A <I>method</I> is a function associated with an object. You define a method the same way you define a standard function. Then you use the following syntax to associate the function with an existing object:</A></P>
+<PRE><A NAME="1008408">object.methodname = function_name</A></PRE><A NAME="1008409">
+where <CODE>object</CODE> is an existing object, <CODE>methodname</CODE> is the name you are assigning to the method, and <CODE>function_name</CODE> is the name of the function.</A></P>
+<A NAME="1008410">
+You can then call the method in the context of the object as follows:</A></P>
+<PRE><A NAME="1008411">object.methodname(params);</A></PRE><A NAME="1008412">
+You can define methods for an object type by including a method definition in the object constructor function. For example, you could define a function that would format and display the properties of the previously-defined <CODE>car</CODE> objects; for example,</A></P>
+<PRE><A NAME="1008413">function displayCar() {<br>&nbsp;&nbsp;&nbsp;var result = "A Beautiful " + this.year + " " + this.make <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ " " + this.model<br>&nbsp;&nbsp;&nbsp;pretty_print(result)<br>}</A></PRE><A NAME="1008417">
+where <CODE>pretty_print</CODE> is function to display a horizontal rule and a string. Notice the use of <CODE>this</CODE> to refer to the object to which the method belongs.</A></P>
+<A NAME="1008419">
+You can make this function a method of <CODE>car</CODE> by adding the statement</A></P>
+<PRE><A NAME="1008420">this.displayCar = displayCar;</A></PRE><A NAME="1008421">
+to the object definition. So, the full definition of <CODE>car</CODE> would now look like</A></P>
+<PRE><A NAME="1008422">function car(make, model, year, owner) {<br>&nbsp;&nbsp;&nbsp;this.make = make<br>&nbsp;&nbsp;&nbsp;this.model = model<br>&nbsp;&nbsp;&nbsp;this.year = year<br>&nbsp;&nbsp;&nbsp;this.owner = owner<br>&nbsp;&nbsp;&nbsp;this.displayCar = displayCar<br>}</A></PRE><A NAME="1008423">
+Then you can call the <CODE>displayCar</CODE> method for each of the objects as follows:</A></P>
+<PRE><A NAME="1008424">car1.displayCar()<br>car2.displayCar()</A></PRE><A NAME="1008428">
+This produces the output shown in the following figure.</A></P>
+<P><A NAME="1008433">
+<B>Figure 7.1&nbsp;&nbsp;&nbsp;Displaying method output <P>
+<IMG SRC="graphics/obj.gif">
+
+</B></A></P>
+
+
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1008434">
+ Using this for Object References
+</A></H3>
+
+<A NAME="1008436">
+JavaScript has a special keyword, <CODE>this</CODE>, that you can use within a method to refer to the current object. For example, suppose you have a function called <CODE>validate</CODE> that validates an object's <CODE>value</CODE> property, given the object and the high and low values:</A></P>
+<PRE><A NAME="1008437">function validate(obj, lowval, hival) {<br>&nbsp;&nbsp;&nbsp;if ((obj.value &lt; lowval) || (obj.value &gt; hival))<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert("Invalid Value!")<br>}</A></PRE><A NAME="1008438">
+Then, you could call <CODE>validate</CODE> in each form element's <CODE>onChange</CODE> event handler, using <CODE>this</CODE> to pass it the form element, as in the following example:</A></P>
+<PRE><A NAME="1008439">&lt;INPUT TYPE="text" NAME="age" SIZE=3 <br>&nbsp;&nbsp;&nbsp;onChange="validate(this, 18, 99)"&gt;</A></PRE><A NAME="1008440">
+In general, <CODE>this</CODE> refers to the calling object in a method.</A></P>
+<A NAME="1008441">
+When combined with the <CODE>form</CODE> property, <CODE>this</CODE> can refer to the current object's parent form. In the following example, the form <CODE>myForm</CODE> contains a <CODE>Text</CODE> object and a button. When the user clicks the button, the value of the <CODE>Text</CODE> object is set to the form's name. The button's <CODE>onClick</CODE> event handler uses <CODE>this.form</CODE> to refer to the parent form, <CODE>myForm</CODE>.</A></P>
+<PRE><A NAME="1008442">&lt;FORM NAME="myForm"&gt;<br>Form name:&lt;INPUT TYPE="text" NAME="text1" VALUE="Beluga"&gt;<br>&lt;P&gt;<br>&lt;INPUT NAME="button1" TYPE="button" VALUE="Show Form Name"<br>&nbsp;&nbsp;&nbsp;onClick="this.form.text1.value=this.form.name"&gt;<br>&lt;/FORM&gt;</A></PRE>
+<H3><A NAME="Head2;"></A>
+<A NAME="1008445">
+ Deleting Objects
+</A></H3>
+
+<A NAME="1016365">
+You can remove an object by using the <CODE>delete</CODE> operator. The following code shows how to remove an object.</A></P>
+<PRE><A NAME="1016392">myobj=new Number()<br>delete myobj &nbsp;&nbsp;// removes the object and returns true</A></PRE><A NAME="1017136">
+See <A HREF="expr.htm#1008702">"delete" on page&nbsp;57</A> for more information.</A></P>
+<B><A NAME="HeadRunIn;"></A>
+<A NAME="1016376">
+JavaScript 1.1. </A></B><A NAME="1016377">
+You can remove an object by setting its object reference to null (if that is the last reference to the object). JavaScript finalizes the object immediately, as part of the assignment expression.</A></P>
+<B><A NAME="HeadRunIn;"></A>
+<A NAME="1010303">
+JavaScript 1.0. </A></B><A NAME="1010315">
+You cannot remove objects--they exist until you leave the page containing the object.</A></P>
+
+<HR><H2><A NAME="Predefined Core Objects"></A>
+<A NAME="1010352">
+ Predefined Core Objects
+</A></H2><A NAME="1013801">
+This section describes the predefined objects in core JavaScript: <CODE>Array</CODE>, <CODE>Boolean</CODE>, <CODE>Date</CODE>, <CODE>Function</CODE>, <CODE>Math</CODE>, <CODE>Number</CODE>, <CODE>RegExp</CODE>, and <CODE>String</CODE>. The predefined client-side objects are described in <A HREF="navobj.htm#1005423">Chapter 11, "Using Navigator Objects."</A></A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1008453">
+ Array Object
+</A></H3>
+
+<A NAME="1008454">
+JavaScript does not have an explicit array data type. However, you can use the predefined <CODE>Array</CODE> object and its methods to work with arrays in your applications. The <CODE>Array</CODE> object has methods for manipulating arrays in various ways, such as joining, reversing, and sorting them. It has a property for determining the array length and other properties for use with regular expressions.</A></P>
+<A NAME="1016713">
+An <I>array</I> is an ordered set of values that you refer to with a name and an index. For example, you could have an array called <CODE>emp</CODE> that contains employees' names indexed by their employee number. So <CODE>emp[1]</CODE> would be employee number one, <CODE>emp[2]</CODE> employee number two, and so on.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1016718">
+ Creating an Array
+</A></H4>
+
+<A NAME="1016715">
+To create an <CODE>Array</CODE> object:</A></P>
+<PRE><A NAME="1008459">1. arrayObjectName = new Array(element0, element1, ..., element<I>N</I>)<br>2. arrayObjectName = new Array(arrayLength)</A></PRE><A NAME="1008460">
+<CODE>arrayObjectName</CODE> is either the name of a new object or a property of an existing object. When using <CODE>Array</CODE> properties and methods, <CODE>arrayObjectName</CODE> is either the name of an existing <CODE>Array</CODE> object or a property of an existing object.</A></P>
+<A NAME="1008461">
+<CODE>element0, element1, ..., element</CODE><I><CODE>N</CODE></I> is a list of values for the array's elements. When this form is specified, the array is initialized with the specified values as its elements, and the array's <CODE>length</CODE> property is set to the number of arguments.</A></P>
+<A NAME="1009639">
+<CODE>arrayLength</CODE> is the initial length of the array. The following code creates an array of five elements:</A></P>
+<PRE><A NAME="1009640">billingMethod = new Array(5)</A></PRE><A NAME="1016735">
+Array literals are also <CODE>Array</CODE> objects; for example, the following literal is an <CODE>Array</CODE> object. See <A HREF="ident.htm#1011655">"Array Literals" on page&nbsp;37</A> for details on array literals.</A></P>
+<PRE><A NAME="1016774">coffees = ["French Roast", "Columbian", "Kona"]</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1016745">
+ Populating an Array
+</A></H4>
+
+<A NAME="1016746">
+You can populate an array by assigning values to its elements. For example,</A></P>
+<PRE><A NAME="1016747">emp[1] = "Casey Jones"<br>emp[2] = "Phil Lesh"<br>emp[3] = "August West"</A></PRE><A NAME="1016748">
+You can also populate an array when you create it:</A></P>
+<PRE><A NAME="1016749">myArray = new Array("Hello", myVar, 3.14159)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1016756">
+ Referring to Array Elements
+</A></H4>
+
+<A NAME="1016757">
+You refer to an array's elements by using the element's ordinal number. For example, suppose you define the following array:</A></P>
+<PRE><A NAME="1016758">myArray = new Array("Wind","Rain","Fire")</A></PRE><A NAME="1016759">
+You then refer to the first element of the array as <CODE>myArray[0]</CODE> and the second element of the array as <CODE>myArray[1]</CODE>.</A></P>
+<A NAME="1016760">
+The index of the elements begins with zero (0), but the length of array (for example, <CODE>myArray.length</CODE>) reflects the number of elements in the array.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1016725">
+ Array Methods
+</A></H4>
+
+<A NAME="1008467">
+The <CODE>Array</CODE> object has the following methods:</A></P>
+<ul><P><LI><A NAME="1008468">
+<CODE>concat</CODE> joins two arrays and returns a new array. </A></LI>
+<P><LI><A NAME="1008469">
+<CODE>join</CODE> joins all elements of an array into a string.</A></LI>
+<P><LI><A NAME="1008470">
+<CODE>pop</CODE> removes the last element from an array and returns that element.</A></LI>
+<P><LI><A NAME="1008471">
+<CODE>push</CODE> adds one or more elements to the end of an array and returns that last element added.</A></LI>
+<P><LI><A NAME="1008472">
+<CODE>reverse</CODE> transposes the elements of an array: the first array element becomes the last and the last becomes the first.</A></LI>
+<P><LI><A NAME="1008473">
+<CODE>shift</CODE> removes the first element from an array and returns that element</A></LI>
+<P><LI><A NAME="1008474">
+<CODE>slice</CODE> extracts a section of an array and returns a new array.</A></LI>
+<P><LI><A NAME="1008475">
+<CODE>splice</CODE> adds and/or removes elements from an array.</A></LI>
+<P><LI><A NAME="1008476">
+<CODE>sort</CODE> sorts the elements of an array.</A></LI>
+<P><LI><A NAME="1008477">
+<CODE>unshift</CODE> adds one or more elements to the front of an array and returns the new length of the array.</A></LI>
+</ul><A NAME="1008478">
+For example, suppose you define the following array:</A></P>
+<PRE><A NAME="1008479">myArray = new Array("Wind","Rain","Fire")</A></PRE><A NAME="1008480">
+<CODE>myArray.join()</CODE> returns "Wind,Rain,Fire"; <CODE>myArray.reverse</CODE> transposes the array so that <CODE>myArray[0]</CODE> is "Fire", <CODE>myArray[1]</CODE> is "Rain", and <CODE>myArray[2]</CODE> is "Wind". <CODE>myArray.sort</CODE> sorts the array so that <CODE>myArray[0]</CODE> is "Fire", <CODE>myArray[1]</CODE> is "Rain", and <CODE>myArray[2]</CODE> is "Wind".</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1009661">
+ Two-Dimensional Arrays
+</A></H4>
+
+<A NAME="1009662">
+The following code creates a two-dimensional array.</A></P>
+<PRE><A NAME="1008488">a = new Array(4)<br>for (i=0; i &lt; 4; i++) {<br>&nbsp;&nbsp;&nbsp;a[i] = new Array(4)<br>&nbsp;&nbsp;&nbsp;for (j=0; j &lt; 4; j++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a[i][j] = "["+i+","+j+"]"<br>&nbsp;&nbsp;&nbsp;}<br>}</A></PRE><A NAME="1017774">
+The following code displays the array:</A></P>
+<PRE><A NAME="1017775">for (i=0; i &lt; 4; i++) {<br>&nbsp;&nbsp;&nbsp;str = "Row "+i+":"<br>&nbsp;&nbsp;&nbsp;for (j=0; j &lt; 4; j++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str += a[i][j]<br>&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;document.write(str,"&lt;p&gt;")<br>}</A></PRE><A NAME="1017776">
+This example displays the following results:</A></P>
+<PRE><A NAME="1017777">Row 0:[0,0][0,1][0,2][0,3]<br>Row 1:[1,0][1,1][1,2][1,3]<br>Row 2:[2,0][2,1][2,2][2,3]<br>Row 3:[3,0][3,1][3,2][3,3]</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1008496">
+ Arrays and Regular Expressions
+</A></H4>
+
+<A NAME="1008497">
+When an array is the result of a match between a regular expression and a string, the array returns properties and elements that provide information about the match. An array is the return value of <CODE>regexp.exec</CODE>, <CODE>string.match</CODE>, and <CODE>string.replace</CODE>. For information on using arrays with regular expressions, see <A HREF="regexp.htm#1010922">Chapter 4, "Regular Expressions."</A></A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1008502">
+ Boolean Object
+</A></H3>
+
+<A NAME="1008503">
+The <CODE>Boolean</CODE> object is a wrapper around the primitive Boolean data type. Use the following syntax to create a <CODE>Boolean</CODE> object:</A></P>
+<PRE><A NAME="1008505">booleanObjectName = new Boolean(value)</A></PRE><A NAME="1016879">
+Do not confuse the primitive Boolean values true and false with the true and false values of the <CODE>Boolean</CODE> object. Any object whose value is not <CODE>undefined</CODE> or <CODE>null</CODE>, including a <CODE>Boolean</CODE> object whose value is false, evaluates to true when passed to a conditional statement. See <A HREF="stmtsov.htm#1008323">"if...else Statement" on page&nbsp;80</A> for more information.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1008512">
+ Date Object
+</A></H3>
+
+<A NAME="1008514">
+JavaScript does not have a date data type. However, you can use the <CODE>Date</CODE> object and its methods to work with dates and times in your applications. The <CODE>Date</CODE> object has a large number of methods for setting, getting, and manipulating dates. It does not have any properties.</A></P>
+<A NAME="1008515">
+JavaScript handles dates similarly to Java. The two languages have many of the same date methods, and both languages store dates as the number of milliseconds since January 1, 1970, 00:00:00.</A></P>
+<A NAME="1008517">
+The <CODE>Date</CODE> object range is -100,000,000 days to 100,000,000 days relative to 01 January, 1970 UTC.</A></P>
+<A NAME="1008519">
+To create a <CODE>Date</CODE> object:</A></P>
+<PRE><A NAME="1008520">dateObjectName = new Date([parameters])</A></PRE><A NAME="1008521">
+where <CODE>dateObjectName</CODE> is the name of the <CODE>Date</CODE> object being created; it can be a new object or a property of an existing object.</A></P>
+<A NAME="1008522">
+The <CODE>parameters</CODE> in the preceding syntax can be any of the following:</A></P>
+<ul><P><LI><A NAME="1008523">
+Nothing: creates today's date and time. For example, <CODE>today = new Date()</CODE>.</A></LI>
+<P><LI><A NAME="1008524">
+A string representing a date in the following form: "Month day, year hours:minutes:seconds." For example, <CODE>Xmas95 = new Date("December 25, 1995 13:30:00")</CODE>. If you omit hours, minutes, or seconds, the value will be set to zero.</A></LI>
+<P><LI><A NAME="1008525">
+A set of integer values for year, month, and day. For example, <CODE>Xmas95 = new Date(1995,11,25)</CODE>. A set of values for year, month, day, hour, minute, and seconds. For example, <CODE>Xmas95 = new Date(1995,11,25,9,30,0)</CODE>.</A></LI>
+</ul><B><A NAME="HeadRunIn;"></A>
+<A NAME="1017659">
+JavaScript 1.2 and earlier versions. </A></B><A NAME="1017660">
+The <CODE>Date</CODE> object behaves as follows:</A></P>
+<ul><P><LI><A NAME="1017661">
+Dates prior to 1970 are not allowed.</A></LI>
+<P><LI><A NAME="1017662">
+JavaScript depends on platform-specific date facilities and behavior; the behavior of the <CODE>Date</CODE> object varies from platform to platform.</A></LI>
+</ul>
+<H4><A NAME="Head3;"></A>
+<A NAME="1008526">
+ Methods of the Date Object
+</A></H4>
+
+<A NAME="1008527">
+The <CODE>Date</CODE> object methods for handling dates and times fall into these broad categories:</A></P>
+<ul><P><LI><A NAME="1008528">
+"set" methods, for setting date and time values in <CODE>Date</CODE> objects.</A></LI>
+<P><LI><A NAME="1008529">
+"get" methods, for getting date and time values from <CODE>Date</CODE> objects.</A></LI>
+<P><LI><A NAME="1008530">
+"to" methods, for returning string values from <CODE>Date</CODE> objects.</A></LI>
+<P><LI><A NAME="1008531">
+parse and UTC methods, for parsing <CODE>Date</CODE> strings.</A></LI>
+</ul><A NAME="1008532">
+With the "get" and "set" methods you can get and set seconds, minutes, hours, day of the month, day of the week, months, and years separately. There is a <CODE>getDay</CODE> method that returns the day of the week, but no corresponding <CODE>setDay</CODE> method, because the day of the week is set automatically. These methods use integers to represent these values as follows:</A></P>
+<ul><P><LI><A NAME="1008535">
+Seconds and minutes: 0 to 59</A></LI>
+<P><LI><A NAME="1008536">
+Hours: 0 to 23</A></LI>
+<P><LI><A NAME="1008537">
+Day: 0 (Sunday) to 6 (Saturday)</A></LI>
+<P><LI><A NAME="1008538">
+Date: 1 to 31 (day of the month)</A></LI>
+<P><LI><A NAME="1008539">
+Months: 0 (January) to 11 (December)</A></LI>
+<P><LI><A NAME="1008540">
+Year: years since 1900</A></LI>
+</ul><A NAME="1008541">
+For example, suppose you define the following date:</A></P>
+<PRE><A NAME="1008542">Xmas95 = new Date("December 25, 1995")</A></PRE><A NAME="1008543">
+Then <CODE>Xmas95.getMonth()</CODE> returns 11, and <CODE>Xmas95.getFullYear()</CODE> returns 95.</A></P>
+<A NAME="1008546">
+The <CODE>getTime</CODE> and <CODE>setTime</CODE> methods are useful for comparing dates. The <CODE>getTime</CODE> method returns the number of milliseconds since January 1, 1970, 00:00:00 for a <CODE>Date</CODE> object.</A></P>
+<A NAME="1008547">
+For example, the following code displays the number of days left in the current year:</A></P>
+<PRE><A NAME="1008548">today = new Date()<br>endYear = new Date(1995,11,31,23,59,59,999) // Set day and month<br>endYear.setFullYear(today.getFullYear()) // Set year to this year<br>msPerDay = 24 * 60 * 60 * 1000 // Number of milliseconds per day<br>daysLeft = (endYear.getTime() - today.getTime()) / msPerDay<br>daysLeft = Math.round(daysLeft) //returns days left in the year</A></PRE><A NAME="1008549">
+This example creates a <CODE>Date</CODE> object named <CODE>today</CODE> that contains today's date. It then creates a <CODE>Date</CODE> object named <CODE>endYear</CODE> and sets the year to the current year. Then, using the number of milliseconds per day, it computes the number of days between today and <CODE>endYear,</CODE> using <CODE>getTime</CODE> and rounding to a whole number of days.</A></P>
+<A NAME="1008551">
+The<CODE> parse</CODE> method is useful for assigning values from date strings to existing <CODE>Date</CODE> objects. For example, the following code uses <CODE>parse</CODE> and <CODE>setTime</CODE> to assign a date value to the <CODE>IPOdate</CODE> object:</A></P>
+<PRE><A NAME="1008553">IPOdate = new Date()<br>IPOdate.setTime(Date.parse("Aug 9, 1995"))</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1008554">
+ Using the Date Object: an Example
+</A></H4>
+
+<A NAME="1016971">
+In the following example, the function <CODE>JSClock()</CODE> returns the time in the format of a digital clock.</A></P>
+<PRE><A NAME="1016947">function JSClock() {<br>&nbsp;&nbsp;&nbsp;var time = new Date()<br>&nbsp;&nbsp;&nbsp;var hour = time.getHours()<br>&nbsp;&nbsp;&nbsp;var minute = time.getMinutes()<br>&nbsp;&nbsp;&nbsp;var second = time.getSeconds()<br>&nbsp;&nbsp;&nbsp;var temp = "" + ((hour &gt; 12) ? hour - 12 : hour)<br>&nbsp;&nbsp;&nbsp;temp += ((minute &lt; 10) ? ":0" : ":") + minute<br>&nbsp;&nbsp;&nbsp;temp += ((second &lt; 10) ? ":0" : ":") + second<br>&nbsp;&nbsp;&nbsp;temp += (hour &gt;= 12) ? " P.M." : " A.M."<br>&nbsp;&nbsp;&nbsp;return temp<br>}</A></PRE><A NAME="1008571">
+The <CODE>JSClock</CODE> function first creates a new <CODE>Date</CODE> object called <CODE>time</CODE>; since no arguments are given, time is created with the current date and time. Then calls to the <CODE>getHours</CODE>, <CODE>getMinutes</CODE>, and <CODE>getSeconds </CODE>methods assign the value of the current hour, minute and seconds to <CODE>hour</CODE>, <CODE>minute</CODE>, and <CODE>second</CODE>. </A></P>
+<A NAME="1008575">
+The next four statements build a string value based on the time. The first statement creates a variable <CODE>temp</CODE>, assigning it a value using a conditional expression; if <CODE>hour</CODE> is greater than 12, (<CODE>hour</CODE> - 13), otherwise simply <CODE>hour</CODE>.</A></P>
+<A NAME="1008576">
+The next statement appends a <CODE>minute</CODE> value to <CODE>temp</CODE>. If the value of <CODE>minute</CODE> is less than 10, the conditional expression adds a string with a preceding zero; otherwise it adds a string with a demarcating colon. Then a statement appends a seconds value to <CODE>temp</CODE> in the same way.</A></P>
+<A NAME="1008577">
+Finally, a conditional expression appends "PM" to <CODE>temp</CODE> if <CODE>hour</CODE> is 12 or greater; otherwise, it appends "AM" to <CODE>temp</CODE>.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1008590">
+ Function Object
+</A></H3>
+
+<A NAME="1008591">
+The predefined <CODE>Function</CODE> object specifies a string of JavaScript code to be compiled as a function.</A></P>
+<A NAME="1008592">
+To create a <CODE>Function</CODE> object:</A></P>
+<PRE><A NAME="1008593">functionObjectName = new Function ([arg1, arg2, ... argn], functionBody)</A></PRE><A NAME="1008594">
+<CODE>functionObjectName </CODE>is the name of a variable or a property of an existing object. It can also be an object followed by a lowercase event handler name, such as <CODE>window.onerror</CODE>. </A></P>
+<A NAME="1008595">
+<CODE>arg1, arg2, ... argn</CODE> are arguments to be used by the function as formal argument names. Each must be a string that corresponds to a valid JavaScript identifier; for example "x" or "theForm".</A></P>
+<A NAME="1008596">
+<CODE>functionBody</CODE> is a string specifying the JavaScript code to be compiled as the function body.</A></P>
+<A NAME="1008597">
+<CODE>Function</CODE> objects are evaluated each time they are used. This is less efficient than declaring a function and calling it within your code, because declared functions are compiled.</A></P>
+<A NAME="1008598">
+In addition to defining functions as described here, you can also use the <CODE>function</CODE> statement. See the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsref/index.htm" TARGET="_top"><I>Client-Side JavaScript Reference</I></A> for more information.</A></P>
+<A NAME="1008604">
+The following code assigns a function to the variable <CODE>setBGColor</CODE>. This function sets the current document's background color.</A></P>
+<PRE><A NAME="1008605">var setBGColor = new Function("document.bgColor='antiquewhite'")</A></PRE><A NAME="1008606">
+To call the <CODE>Function</CODE> object, you can specify the variable name as if it were a function. The following code executes the function specified by the <CODE>setBGColor</CODE> variable:</A></P>
+<PRE><A NAME="1008607">var colorChoice="antiquewhite"<br>if (colorChoice=="antiquewhite") {setBGColor()}</A></PRE><A NAME="1008608">
+You can assign the function to an event handler in either of the following ways:</A></P>
+<PRE><A NAME="1008609">1. document.form1.colorButton.onclick=setBGColor</A></PRE><PRE><A NAME="1017876">2. &lt;INPUT NAME="colorButton" TYPE="button"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VALUE="Change background color"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;onClick="setBGColor()"&gt;</A></PRE><A NAME="1008610">
+Creating the variable <CODE>setBGColor</CODE> shown above is similar to declaring the following function:</A></P>
+<PRE><A NAME="1008611">function setBGColor() {<br>&nbsp;&nbsp;&nbsp;document.bgColor='antiquewhite'<br>}</A></PRE><A NAME="1017163">
+You can nest a function within a function. The nested (inner) function is private to its containing (outer) function:</A></P>
+<ul><P><LI><A NAME="1017164">
+The inner function can be accessed only from statements in the outer function.</A></LI>
+<P><LI><A NAME="1017165">
+The inner function can use the arguments and variables of the outer function. The outer function cannot use the arguments and variables of the inner function.</A></LI>
+</ul>
+<H3><A NAME="Head2;"></A>
+<A NAME="1008620">
+ Math Object
+</A></H3>
+
+<A NAME="1008621">
+The predefined <CODE>Math</CODE> object has properties and methods for mathematical constants and functions. For example, the <CODE>Math</CODE> object's <CODE>PI</CODE> property has the value of pi (3.141...), which you would use in an application as</A></P>
+<PRE><A NAME="1008623">Math.PI</A></PRE><A NAME="1008624">
+Similarly, standard mathematical functions are methods of <CODE>Math</CODE>. These include trigonometric, logarithmic, exponential, and other functions. For example, if you want to use the trigonometric function sine, you would write</A></P>
+<PRE><A NAME="1008625">Math.sin(1.56)</A></PRE><A NAME="1008626">
+Note that all trigonometric methods of <CODE>Math</CODE> take arguments in radians.</A></P>
+<A NAME="1008680">
+The following table summarizes the <CODE>Math</CODE> object's methods.</A></P>
+<A NAME="1010009">
+<P><B><A NAME="1008633">
+Table 7.1&nbsp;Methods of Math</A></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1008637">
+<B>Method
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1008639">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008641">abs</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008643">
+Absolute value</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008645">sin, cos, tan</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008647">
+Standard trigonometric functions; argument in radians</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008649">acos, asin, atan</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008651">
+Inverse trigonometric functions; return values in radians</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008653">exp, log</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008655">
+Exponential and natural logarithm, base <CODE>e</CODE></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008657">ceil</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008659">
+Returns least integer greater than or equal to argument</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008661">floor</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008663">
+Returns greatest integer less than or equal to argument</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008665">min, max</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008667">
+Returns greater or lesser (respectively) of two arguments</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008669">pow</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008671">
+Exponential; first argument is base, second is exponent</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008673">round</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008675">
+Rounds argument to nearest integer</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008677">sqrt</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008679">
+Square root</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+<A NAME="1008681">
+Unlike many other objects, you never create a <CODE>Math</CODE> object of your own. You always use the predefined <CODE>Math</CODE> object.</A></P>
+<A NAME="1008683">
+It is often convenient to use the <CODE>with</CODE> statement when a section of code uses several math constants and methods, so you don't have to type "Math" repeatedly. For example,</A></P>
+<PRE><A NAME="1008684">with (Math) {<br>&nbsp;&nbsp;&nbsp;a = PI * r*r<br>&nbsp;&nbsp;&nbsp;y = r*sin(theta)<br>&nbsp;&nbsp;&nbsp;x = r*cos(theta)<br>}</A></PRE>
+<H3><A NAME="Head2;"></A>
+<A NAME="1008686">
+ Number Object
+</A></H3>
+
+<A NAME="1008687">
+The <CODE>Number</CODE> object has properties for numerical constants, such as maximum value, not-a-number, and infinity. You cannot change the values of these properties and you use them as follows:</A></P>
+<PRE><A NAME="1008688">biggestNum = Number.MAX_VALUE<br>smallestNum = Number.MIN_VALUE<br>infiniteNum = Number.POSITIVE_INFINITY<br>negInfiniteNum = Number.NEGATIVE_INFINITY<br>notANum = Number.NaN</A></PRE><A NAME="1008689">
+You always refer to a property of the predefined <CODE>Number</CODE> object as shown above, and not as a property of a <CODE>Number</CODE> object you create yourself.</A></P>
+<A NAME="1008723">
+The following table summarizes the <CODE>Number</CODE> object's properties.</A></P>
+<A NAME="1010022">
+<P><B><A NAME="1008696">
+Table 7.2&nbsp;Properties of Number</A></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1008700">
+<B>Method
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1008702">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008704">MAX_VALUE</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008706">
+The largest representable number</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008708">MIN_VALUE</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008710">
+The smallest representable number</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008712">NaN</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008714">
+Special "not a number" value</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008716">NEGATIVE_INFINITY</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008718">
+Special infinite value; returned on overflow</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008720">POSITIVE_INFINITY</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008722">
+Special negative infinite value; returned on overflow</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1008724">
+ RegExp Object
+</A></H3>
+
+<A NAME="1008725">
+The <CODE>RegExp</CODE> object lets you work with regular expressions. It is described in <A HREF="regexp.htm#1010922">Chapter 4, "Regular Expressions."</A></A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1008731">
+ String Object
+</A></H3>
+
+<A NAME="1008732">
+The <CODE>String</CODE> object is a wrapper around the string primitive data type. Do not confuse a string literal with the <CODE>String</CODE> object. For example, the following code creates the string literal <CODE>s1</CODE> and also the <CODE>String</CODE> object <CODE>s2</CODE>:</A></P>
+<PRE><A NAME="1016978">s1 = "foo" //creates a string literal value<br>s2 = new String("foo") //creates a String object</A></PRE><A NAME="1016977">
+You can call any of the methods of the <CODE>String</CODE> object on a string literal value--JavaScript automatically converts the string literal to a temporary <CODE>String</CODE> object, calls the method, then discards the temporary <CODE>String</CODE> object. You can also use the <CODE>String.length</CODE> property with a string literal.</A></P>
+<A NAME="1017005">
+You should use string literals unless you specifically need to use a <CODE>String</CODE> object, because <CODE>String</CODE> objects can have counterintuitive behavior. For example:</A></P>
+<PRE><A NAME="1017017">s1 = "2 + 2" //creates a string literal value<br>s2 = new String("2 + 2")//creates a String object<br>eval(s1) //returns the number 4<br>eval(s2) //returns the string "2 + 2"</A></PRE><A NAME="1017046">
+A <CODE>String</CODE> object has one property, <CODE>length</CODE>, that indicates the number of characters in the string. For example, the following code assigns <CODE>x</CODE> the value 13, because "Hello, World!" has 13 characters:</A></P>
+<PRE><A NAME="1008742">myString = "Hello, World!"<br>x = mystring.length</A></PRE><A NAME="1008744">
+A <CODE>String</CODE> object has two types of methods: those that return a variation on the string itself, such as <CODE>substring</CODE> and <CODE>toUpperCase</CODE>, and those that return an HTML-formatted version of the string, such as <CODE>bold</CODE> and <CODE>link</CODE>.</A></P>
+<A NAME="1008745">
+For example, using the previous example, both <CODE>mystring.toUpperCase()</CODE> and <CODE>"hello, world!".toUpperCase()</CODE> return the string "HELLO, WORLD!".</A></P>
+<A NAME="1008746">
+The <CODE>substring</CODE> method takes two arguments and returns a subset of the string between the two arguments. Using the previous example, <CODE>mystring.substring(4, 9)</CODE> returns the string "o, Wo." See the <CODE>substring</CODE> method of the <CODE>String</CODE> object in the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsref/index.htm" TARGET="_top"><I>Client-Side JavaScript Reference</I></A> for more information.</A></P>
+<A NAME="1008752">
+The <CODE>String</CODE> object also has a number of methods for automatic HTML formatting, such as <CODE>bold</CODE> to create boldface text and <CODE>link</CODE> to create a hyperlink. For example, you could create a hyperlink to a hypothetical URL with the <CODE>link</CODE> method as follows:</A></P>
+<PRE><A NAME="1008753">mystring.link("http://www.helloworld.com")</A></PRE><A NAME="1008815">
+The following table summarizes the methods of <CODE>String</CODE> objects.</A></P>
+<A NAME="1010032">
+<P><B><A NAME="1008760">
+Table 7.3&nbsp;Methods of String</A></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1008764">
+<B>Method
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1008766">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008768">anchor</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008770">
+Creates HTML named anchor</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008772">big, blink, bold,<br>fixed, italics, small,<br>strike, sub, sup</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008774">
+Creates HTML formatted string</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008776">charAt, charCodeAt</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008778">
+Returns the character or character code at the specified position in string</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008780">indexOf, lastIndexOf</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008782">
+Returns the position of specified substring in the string or last position of specified substring, respectively</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008784">link</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008786">
+Creates HTML hyperlink</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008788">concat</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008790">
+Combines the text of two strings and returns a new string</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008792">fromCharCode</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008794">
+Constructs a string from the specified sequence of ISO-Latin-1 codeset values</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008796">split</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008798">
+Splits a <CODE>String</CODE> object into an array of strings by separating the string into substrings </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008800">slice</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008802">
+Extracts a section of an string and returns a new string. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008804">substring, substr</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008806">
+Returns the specified subset of the string, either by specifying the start and end indexes or the start index and a length</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008808">match, replace, search</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008810">
+Used to work with regular expressions</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008812">toLowerCase, toUpperCase</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008814">
+Returns the string in all lowercase or all uppercase, respectively</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<HR>
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="fcns.htm">Previous</A>
+ | <A HREF="obj2.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT>
+<P ALIGN=right>
+<FONT SIZE=-2><I>Last Updated:  05/27/99  21:21:27</I></FONT>
+<P> <CENTER>Copyright (c) 1999
+<A HREF="http://home.netscape.com/misc/contact_info.html"
+TARGET=_top>Netscape Communications Corporation</A></FONT>
+</CENTER>
+<P>
+</BODY>
+</HTML>
+
+

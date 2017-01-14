@@ -1,0 +1,67 @@
+<!doctype html public" -//IETF//DTD 	HTML//EN">
+<HTML>
+
+<HEAD>
+<SCRIPT LANGUAGE="JAVASCRIPT">
+<!-- 
+
+function checkbrowse()
+{
+var bn, bv, ver
+bn = navigator.appName;
+bv = parseInt(navigator.appVersion);
+if (bn=="Microsoft Internet Explorer" && bv<"4") ver = "IE3";
+else ver = "NotIE3";
+if (ver=="IE3") top.cont.parts.location.href="part12.htm";
+if (ver=="NotIE3") top.cont.parts.location.href="nav/part12.htm";
+}
+//-->
+</SCRIPT>
+<TITLE>A Delay You Can Use to Unjam Resources</TITLE>
+<META NAME="GENERATOR" 	CONTENT="Merch. System HTML Development">
+<META NAME="AUTHOR" 	CONTENT="Merch. System HTML Development">
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" OnLoad="checkbrowse();">
+<Font Face ="Verdana, Arial, Helvetica">
+
+<P align=right><SMALL>
+<A HREF="p12984.htm" Target="TOC"><IMG SRC="prev.gif"ALT="Previous page"BORDER=0></A>
+<A HREF="p12981.htm" Target="TOC"><IMG SRC="toc12.gif"ALT="Contents"BORDER=0></A>
+<A HREF="p12986.htm" Target="TOC"><IMG SRC="Next.gif"ALT="Next 
+page"BORDER=0></A></SMALL></P>
+<H2>A Delay You Can Use to Unjam Resources</H2>
+
+<P>
+A resource assigned to tasks that overlap might become overallocated during the overlap period. Tasks that 
+have a start-to-start link and tasks with lead time are two kinds of tasks that can have overlap time.
+<P>
+If one of the tasks can start later without making your schedule unacceptably long, you’re in luck. You can 
+resolve the overallocation by delaying the task.
+<P>
+<I>Delay</I> is an extra amount of time you can add between overlapping tasks to ease scheduling constraints 
+for an overallocated resource. When you add enough delay time to make the second task start after the first 
+task finishes, you fix the problem. The overallocated resource is no longer scheduled to work on both tasks at 
+the same time.
+<P>
+<IMG SRC="1202.GIF" ALT="Image File: 1202">
+<P>
+Delay has the same effect as lag time, but you use each for different purposes. You add lag time between tasks 
+to show when those tasks will actually be accomplished. For example, the exhibit planner might add lag time 
+between painting a wall and hanging clocks on the wall, because the planner knows the paint will take time to 
+dry. You add delay between tasks specifically to resolve a resource overallocation.
+<P>
+Though you can’t see any difference in the Gantt Chart view between lag time and delay — they both increase 
+the gap between task start dates — Microsoft Project tracks each separately. For example, if you add 2 days of 
+lag time between two tasks and then add 1 day of delay, Microsoft Project postpones the start of the second 
+task from 2 days to 3 days, but still shows only 2 days of lag time in the Lag field and 1 day of delay in the 
+Leveling Delay field.
+<P>
+Microsoft Project provides two ways to add delay time to a task. You can add delay to one task at a time or 
+allow Microsoft Project to add delay times to all tasks with overallocated resources all at once.
+<P align = Center > <A HREF="http://www.microsoft.com/misc/cpyright.htm"><EM>&#169;1996-1997 Microsoft Corporation. All rights 
+reserved.</EM></A></P>
+</BODY>
+</FONT>
+</HTML>
+

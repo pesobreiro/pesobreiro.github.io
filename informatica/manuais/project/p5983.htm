@@ -1,0 +1,73 @@
+<!doctype html public" -//IETF//DTD 	HTML//EN">
+<HTML>
+
+<HEAD>
+<SCRIPT LANGUAGE="JAVASCRIPT">
+<!-- 
+
+function checkbrowse()
+{
+var bn, bv, ver
+bn = navigator.appName;
+bv = parseInt(navigator.appVersion);
+if (bn=="Microsoft Internet Explorer" && bv<"4") ver = "IE3";
+else ver = "NotIE3";
+if (ver=="IE3") top.cont.parts.location.href="part05.htm";
+if (ver=="NotIE3") top.cont.parts.location.href="nav/part05.htm";
+}
+//-->
+</SCRIPT>
+<TITLE>The Power of Linking</TITLE>
+<META NAME="GENERATOR" 	CONTENT="Merch. System HTML Development">
+<META NAME="AUTHOR" 	CONTENT="Merch. System HTML Development">
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" OnLoad="checkbrowse();">
+<Font Face ="Verdana, Arial, Helvetica">
+
+<P align=right><SMALL>
+<A HREF="p5982.htm" Target="TOC"><IMG SRC="prev.gif"ALT="Previous page"BORDER=0></A>
+<A HREF="p5981.htm" Target="TOC"><IMG SRC="toc05.gif"ALT="Contents"BORDER=0></A>
+<A HREF="p5984.htm" Target="TOC"><IMG SRC="Next.gif"ALT="Next 
+page"BORDER=0></A></SMALL></P>
+<H1>The Power of Linking</H1>
+
+<P>
+To enable Microsoft Project to start each task at its proper time, you need to <I>link</I> the tasks to each 
+other, based on their start and finish dependencies.
+<P>
+<IMG SRC="0501.GIF" ALT="Image File: 0501">
+<P>
+For example, a clockwork exhibit crew will hang the clocks only after painting the walls. The task of hanging 
+clocks is linked to the task of painting walls, because the start date for hanging clocks can occur only after the 
+finish date for painting walls.
+<P>
+<IMG SRC="0502.GIF" ALT="Image File: 0502">
+<P>
+Once these tasks are linked, Microsoft Project will always schedule the start date for hanging clocks relative to 
+the finish date for painting walls, no matter when these tasks occur. Thus, they avoid being tied (perhaps 
+unrealistically) to a specific date. For example, if the original finish date for painting the walls is February 3, 
+then the start date for hanging the clocks is February 3 or later. If painting the walls gets delayed 5 days later 
+than originally planned, then Microsoft Project automatically gives hanging the clocks a new start date of 
+February 8 or later.
+<P>
+<IMG SRC="0503.GIF" ALT="Image File: 0503">
+<P>
+The power of linking tasks is twofold:
+<UL>
+<LI>You can let Microsoft Project calculate all dates for you: task start and finish dates, as well as the project 
+finish date. You won’t worry about clocks being hung before walls are painted, because linking maintains the 
+proper order of tasks as scheduling changes occur.
+<LI>You can see instantly how changes in the start, finish, and duration of a task affect related tasks and the 
+schedule as a whole.
+</UL>
+<P>
+When necessary, you can exercise even finer control by specifying overlaps and time gaps between tasks. The 
+amount of overlap between two tasks is called <I>lead time</I>. The time gap, or delay, between tasks is called 
+<I>lag time</I>. With Microsoft Project, you can add lead or lag time between any two linked tasks.
+<P align = Center > <A HREF="http://www.microsoft.com/misc/cpyright.htm"><EM>&#169;1996-1997 Microsoft Corporation. All rights 
+reserved.</EM></A></P>
+</BODY>
+</FONT>
+</HTML>
+

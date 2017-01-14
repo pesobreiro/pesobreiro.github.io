@@ -1,0 +1,63 @@
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+<s:Body>
+<save_business generic="2.0" xmlns="urn:uddi-org:api_v2">    
+<authInfo>db2admin</authInfo>
+<businessEntity businessKey="068438BA-1116-4603-A4E3-0E16326512A7">
+    	<categoryBag>
+			<keyedReference keyName="Vendedores de Rua" keyValue="90101504"/>
+			<keyedReference keyName="Personal credit agencies"    keyValue="841416" 
+                      tModelKey="uuid:db77450d-9fa8-45d4-a7bc-04411d14e384"/>
+      <keyedReference keyName="Credit agencies" 
+                      keyValue="8414" 
+                      tModelKey="uuid:db77450d-9fa8-45d4-a7bc-04411d14e384"/>
+      <keyedReference keyName="Netherlands" 
+                      keyValue="NL" 
+                      tModelKey="uuid:4e49a8d6-d5a2-4fc2-93a0-0411d8d19e88"/>
+      <keyedReference keyName="France" 
+                      keyValue="FR" 
+                      tModelKey="uuid:4e49a8d6-d5a2-4fc2-93a0-0411d8d19e88"/>
+      <keyedReference keyName="Belgium" 
+                      keyValue="BE" 
+                      tModelKey="uuid:4e49a8d6-d5a2-4fc2-93a0-0411d8d19e88"/>
+      <keyedReference keyName="Business credit agencies" 
+                      keyValue="841417" 
+                      tModelKey="uuid:db77450d-9fa8-45d4-a7bc-04411d14e384"/>
+      <keyedReference keyName="Luxembourg" 
+                      keyValue="LU" 
+                      tModelKey="uuid:4e49a8d6-d5a2-4fc2-93a0-0411d8d19e88"/>
+      <keyedReference keyName="Germany, Federal Republic of" 
+                      keyValue="DE" 
+                      tModelKey="uuid:4e49a8d6-d5a2-4fc2-93a0-0411d8d19e88"/>
+
+	</categoryBag>
+</businessEntity>
+</save_business>
+</s:Body>
+</s:Envelope>
+
+
+
+
+
+<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+<Body>
+<tModelDetail generic="2.0" xmlns="urn:uddi-org:api_v2" operator="operator" truncated="false">
+<tModel tModelKey="UUID:CD153257-086A-4237-B336-6BDCBDCC6634" operator="www.ibm.com/services/uddi"  authorizedName="0100000M99">
+<name>unspsc-org:unspsc</name>
+<description xml:lang="en">Product Taxonomy: UNSPSC (Version 7.3)</description>
+<overviewDoc>
+<description xml:lang="en">This tModel defines Version 7.3 of the UNSPSC product taxonomy.</description>
+<overviewURL>http://www.uddi.org/taxonomies/Core_Taxonomy_OverviewDoc.htm#UNSPSC7</overviewURL>
+</overviewDoc>
+<categoryBag>
+	<keyedReference tModelKey="UUID:C1ACF26D-9672-4404-9D70-39B756E62AB4" keyName="types"  keyValue="categorization">
+	</keyedReference>
+      <keyedReference keyName="Credit agencies" 
+                      keyValue="8414" 
+                      tModelKey="uuid:db77450d-9fa8-45d4-a7bc-04411d14e384"/>
+</categoryBag>
+</tModel>
+</tModelDetail>
+
+</Body>
+</Envelope>

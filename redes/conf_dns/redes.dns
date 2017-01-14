@@ -1,0 +1,21 @@
+@	SOA	ns1.redes.pt. root.ns1.redes.pt. (
+		000001		; serial number
+		36000		; refresh em 10 horas
+		3600		; retry em 1 hora
+		3600000		; expire em 42 dias
+		360000		; duracao minima de 100 horas
+		)
+; Informacao relativamente ao servidor de DNS
+		IN 	NS	ns1.redes.pt.
+		IN	NS	www.redes.pt.
+
+		IN	A	195.60.168.50
+		IN 	MX	100 mail
+
+localhost	IN	A	127.0.0.1
+
+; subs no redes
+
+ns1		IN	A	195.60.168.50
+www		IN	CNAME	ns1
+mail 		IN 	A	195.60.168.51

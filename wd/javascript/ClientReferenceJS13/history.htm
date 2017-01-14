@@ -1,0 +1,523 @@
+<HTML>
+<HEAD>
+<TITLE>
+</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="hidden.htm">Previous</A>
+ | <A HREF="image.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT><BR><BR>
+<HR>
+
+<H1><A NAME="History"></A>
+<A NAME="1193137">
+ History
+</A></H1>
+<A NAME="1193139">
+Contains an array of information on the URLs that the client has visited within a window. This information is stored in a history list and is accessible through the browser's Go menu.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193142">
+<I>Client-side object</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193144">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193146">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193148">
+JavaScript 1.0</A></P><P><A NAME="1194556">
+</A></P><P><A NAME="1194557">
+JavaScript 1.1: added <CODE>current, next,</CODE> and <CODE>previous</CODE> properties.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193149">
+ Created by
+</A></H4>
+
+<A NAME="1193150">
+<CODE>History</CODE> objects are predefined JavaScript objects that you access through the <CODE>history</CODE> property of a <A HREF="window.htm#1200703"><CODE>window</CODE></A> object.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193154">
+ Description
+</A></H4>
+
+<A NAME="1193155">
+To change a window's current URL without generating a history entry, you can use the <A HREF="location.htm#1194240"><CODE>Location.replace</CODE></A> method. This replaces the current page with a new one without generating a history entry. See <A HREF="location.htm#1194240"><CODE>Location.replace</CODE></A>.</A></P>
+<A NAME="1193165">
+You can refer to the history<CODE> </CODE>entries by using the <A HREF="window.htm#1202367"><CODE>window.history</CODE></A> array. This array contains an entry for each history entry in source order. Each array entry is a string containing a URL. For example, if the history list contains three named entries, these entries are reflected as <CODE>history[0]</CODE>, <CODE>history[1]</CODE>, and <CODE>history[2]</CODE>.</A></P>
+<A NAME="1193166">
+If you access the <CODE>history</CODE> array without specifying an array element, the browser returns a string of HTML which displays a table of URLs, each of which is a link.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193167">
+ Property Summary
+</A></H4>
+
+<A NAME="1193201">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1193170">
+<B>Property
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1193172">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193177"><A HREF="history.htm#1193258"><CODE>current</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193179">
+Specifies the URL of the current history entry.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193184"><A HREF="history.htm#1193301"><CODE>length</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193186">
+Reflects the number of entries in the history list.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193191"><A HREF="history.htm#1195548"><CODE>next</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193193">
+Specifies the URL of the next history entry.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193198"><A HREF="history.htm#1193377"><CODE>previous</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193200">
+Specifies the URL of the previous history entry.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193202">
+ Method Summary
+</A></H4>
+
+<A NAME="1193229">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1193205">
+<B>Method
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1193207">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193212"><A HREF="history.htm#1193841"><CODE>back</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193214">
+Loads the previous URL in the history list.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193219"><A HREF="history.htm#1193937"><CODE>forward</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193221">
+Loads the next URL in the history list.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193226"><A HREF="history.htm#1193970"><CODE>go</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193228">
+Loads a URL from the history list.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+<A NAME="1196324">
+In addition, this object inherits the <A HREF="object.htm#1193628"><CODE>watch</CODE></A> and <A HREF="object.htm#1193499"><CODE>unwatch</CODE></A> methods from <A HREF="object.htm#1193136"><CODE>Object</CODE></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193230">
+ Examples
+</A></H4>
+
+<A NAME="1193231">
+<B>Example 1.</B> The following example goes to the URL the user visited three clicks ago in the current window.</A></P>
+<PRE><A NAME="1193232">history.go(-3)</A></PRE><A NAME="1193233">
+<B>Example 2.</B> You can use the <CODE>history</CODE> object with a specific window or frame. The following example causes <CODE>window2</CODE> to go back one item in its window (or session) history:</A></P>
+<PRE><A NAME="1193234">window2.history.back()</A></PRE><A NAME="1193235">
+<B>Example 3.</B> The following example causes the second frame in a frameset to go back one item:</A></P>
+<PRE><A NAME="1193236">parent.frames[1].history.back()</A></PRE><A NAME="1193237">
+<B>Example 4.</B> The following example causes the frame named <CODE>frame1</CODE> in a frameset to go back one item:</A></P>
+<PRE><A NAME="1193238">parent.frame1.history.back()</A></PRE><A NAME="1193239">
+<B>Example 5.</B> The following example causes the frame named <CODE>frame2</CODE> in <CODE>window2</CODE> to go back one item:</A></P>
+<PRE><A NAME="1193240">window2.frame2.history.back()</A></PRE><A NAME="1193241">
+<B>Example 6.</B> The following code determines whether the first entry in the <CODE>history</CODE> array contains the string <CODE>"NETSCAPE"</CODE>. If it does, the function <CODE>myFunction</CODE> is called.</A></P>
+<PRE><A NAME="1193242">if (history[0].indexOf("NETSCAPE") != -1) {<br>&nbsp;&nbsp;&nbsp;myFunction(history[0])<br>}</A></PRE><A NAME="1193243">
+<B>Example 7.</B> The following example displays the entire history list:</A></P>
+<PRE><A NAME="1193244">document.writeln("&lt;B&gt;history is&lt;/B&gt; " + history)</A></PRE><A NAME="1193245">
+This code displays output similar to the following:</A></P>
+<PRE><A NAME="1193246"><B>history is<br></B>Welcome to Netscape http://home.netscape.com/<br>Sun Microsystems http://www.sun.com/<br>Royal Airways http://www.supernet.net/~dugbrown/</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193247">
+ See also
+</A></H4>
+
+<A NAME="1193254">
+<A HREF="location.htm#1193137"><CODE>Location</CODE></A>, <A HREF="location.htm#1194240"><CODE>Location.replace</CODE></A> </A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193841">
+back
+</A></H2>
+
+<A NAME="1193854">
+Loads the previous URL in the history list.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193844">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193849">
+<A HREF="history.htm#1193137"><CODE>History</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193851">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193853">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193855">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1193856">back()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193857">
+ Parameters
+</A></H4>
+
+<A NAME="1193858">
+None</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193859">
+ Description
+</A></H4>
+
+<A NAME="1193860">
+This method performs the same action as a user choosing the Back button in the browser. The <CODE>back</CODE> method is the same as <CODE>history.go(-1)</CODE>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193861">
+ Examples
+</A></H4>
+
+<A NAME="1193862">
+The following custom buttons perform the same operation as the browser's Back button:</A></P>
+<PRE><A NAME="1193863">&lt;P&gt;&lt;INPUT TYPE="button" VALUE="&lt; Go Back"<br>&nbsp;&nbsp;&nbsp;onClick="history.back()"&gt;<br>&lt;P&gt;&lt;INPUT TYPE="button" VALUE="&gt; Go Back"<br>&nbsp;&nbsp;&nbsp;onClick="myWindow.back()"&gt;</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193864">
+ See also
+</A></H4>
+
+<A NAME="1193871">
+<A HREF="history.htm#1193937"><CODE>History.forward</CODE></A>, <A HREF="history.htm#1193970"><CODE>History.go</CODE></A> </A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193258">
+current
+</A></H2>
+
+<A NAME="1193275">
+A string specifying the complete URL of the current history entry.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193261">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193266">
+<A HREF="history.htm#1193137"><CODE>History</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193268">
+<I>Read-only</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193270">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193272">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193274">
+JavaScript 1.1</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193276">
+ Security
+</A></H4>
+
+<A NAME="1199744">
+Getting the value of this property requires the <CODE>UniversalBrowserRead</CODE> privilege. It has no value if you do not have this privilege. For information on security, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+<B><A NAME="HeadRunIn;"></A>
+<A NAME="1199988">
+JavaScript 1.1. </A></B><A NAME="1193277">
+This property is tainted by default. It has no value of data tainting is disabled. For information on data tainting, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193289">
+ Examples
+</A></H4>
+
+<A NAME="1193290">
+The following example determines whether <CODE>history.current</CODE> contains the string <CODE>"netscape.com"</CODE>. If it does, the function <CODE>myFunction</CODE> is called.</A></P>
+<PRE><A NAME="1193291">if (history.current.indexOf("netscape.com") != -1) {<br>&nbsp;&nbsp;&nbsp;myFunction(history.current)<br>}</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193292">
+ See also
+</A></H4>
+
+<A NAME="1193299">
+<A HREF="history.htm#1195548"><CODE>History.next</CODE></A>, <A HREF="history.htm#1193377"><CODE>History.previous</CODE></A> </A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193937">
+forward
+</A></H2>
+
+<A NAME="1193950">
+Loads the next URL in the history list.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193940">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193945">
+<A HREF="history.htm#1193137"><CODE>History</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193947">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193949">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193951">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1193952">forward()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193953">
+ Parameters
+</A></H4>
+
+<A NAME="1193954">
+None</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193955">
+ Description
+</A></H4>
+
+<A NAME="1193956">
+This method performs the same action as a user choosing the Forward button in the browser. The <CODE>forward</CODE> method is the same as <CODE>history.go(1)</CODE>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193957">
+ Examples
+</A></H4>
+
+<A NAME="1193958">
+The following custom buttons perform the same operation as the browser's Forward button:</A></P>
+<PRE><A NAME="1193959">&lt;P&gt;&lt;INPUT TYPE="button" VALUE="&lt; Forward"<br>&nbsp;&nbsp;&nbsp;onClick="history.forward()"&gt;<br>&lt;P&gt;&lt;INPUT TYPE="button" VALUE="&gt; Forward"<br>&nbsp;&nbsp;&nbsp;onClick="myWindow.forward()"&gt;</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193960">
+ See also
+</A></H4>
+
+<A NAME="1193967">
+<A HREF="history.htm#1193841"><CODE>History.back</CODE></A>, <A HREF="history.htm#1193970"><CODE>History.go</CODE></A> </A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193970">
+go
+</A></H2>
+
+<A NAME="1193983">
+Loads a URL from the history list.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193973">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193978">
+<A HREF="history.htm#1193137"><CODE>History</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193980">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193982">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193984">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1193985">go(<I>delta</I>)<br>go(<I>location</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193986">
+ Parameters
+</A></H4>
+
+<A NAME="1193996">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193989">delta</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193991">
+An integer representing a relative position in the history list.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193993">location</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193995">
+A string representing all or part of a URL in the history list.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193997">
+ Description
+</A></H4>
+
+<A NAME="1193998">
+The <CODE>go</CODE> method navigates to the location in the history list determined by the specified parameter. </A></P>
+<A NAME="1193999">
+If the <CODE>delta</CODE> argument is 0, the browser reloads the current page. If it is an integer greater than 0, the <CODE>go</CODE> method loads the URL that is that number of entries forward in the history list; otherwise, it loads the URL that is that number of entries backward in the history list. </A></P>
+<A NAME="1194000">
+The <CODE>location</CODE> argument is a string. Use <CODE>location</CODE> to load the nearest history entry whose URL contains <CODE>location</CODE> as a substring. Matching the URL to the <CODE>location</CODE> parameter is case-insensitive. Each section of a URL contains different information. See <I><A HREF="location.htm#1193137"></I><CODE>Location</CODE><I></A></I> for a description of the URL components.</A></P>
+<A NAME="1194004">
+The <CODE>go</CODE> method creates a new entry in the history list. To load a URL without creating an entry in the history list, use <A HREF="location.htm#1194240"><CODE>Location.replace</CODE></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194008">
+ Examples
+</A></H4>
+
+<A NAME="1194009">
+The following button navigates to the nearest history entry that contains the string <CODE>"home.netscape.com"</CODE>:</A></P>
+<PRE><A NAME="1194010">&lt;P&gt;&lt;INPUT TYPE="button" VALUE="Go"<br>&nbsp;&nbsp;&nbsp;onClick="history.go('home.netscape.com')"&gt;</A></PRE><A NAME="1194011">
+The following button navigates to the URL that is three entries backward in the history list:</A></P>
+<PRE><A NAME="1194012">&lt;P&gt;&lt;INPUT TYPE="button" VALUE="Go"<br>&nbsp;&nbsp;&nbsp;onClick="history.go(-3)"&gt;</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194013">
+ See also
+</A></H4>
+
+<A NAME="1194023">
+<A HREF="history.htm#1193841"><CODE>History.back</CODE></A>, <A HREF="history.htm#1193937"><CODE>History.forward</CODE></A>, <A HREF="location.htm#1194198"><CODE>Location.reload</CODE></A>, <A HREF="location.htm#1194240"><CODE>Location.replace</CODE></A> </A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193301">
+length
+</A></H2>
+
+<A NAME="1193319">
+The number of elements in the <CODE>history</CODE> array. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193305">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193310">
+<A HREF="history.htm#1193137"><CODE>History</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193312">
+<I>Read-only</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193314">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193316">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193318">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193320">
+ Security
+</A></H4>
+
+<A NAME="1195538">
+Getting the value of this property requires the <CODE>UniversalBrowserRead</CODE> privilege. For information on security, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1195548">
+next
+</A></H2>
+
+<A NAME="1195565">
+A string specifying the complete URL of the next history entry.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195551">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195556">
+<A HREF="history.htm#1193137"><CODE>History</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195558">
+<I>Read-only</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195560">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195562">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195564">
+JavaScript 1.1</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193349">
+ Security
+</A></H4>
+
+<A NAME="1199802">
+Getting the value of this property requires the <CODE>UniversalBrowserRead</CODE> privilege. It has no value if you do not have this privilege. For information on security, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+<B><A NAME="HeadRunIn;"></A>
+<A NAME="1199948">
+JavaScript 1.1. </A></B><A NAME="1193350">
+This property is tainted by default. It has no value if data tainting is disabled. For information on data tainting, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193362">
+ Description
+</A></H4>
+
+<A NAME="1200335">
+The <CODE>next</CODE> property reflects the URL that would be used if the user chose Forward from the Go menu.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193364">
+ Examples
+</A></H4>
+
+<A NAME="1193365">
+The following example determines whether <CODE>history.next</CODE> contains the string <CODE>"NETSCAPE.COM"</CODE>. If it does, the function <CODE>myFunction</CODE> is called.</A></P>
+<PRE><A NAME="1193366">if (history.next.indexOf("NETSCAPE.COM") != -1) {<br>&nbsp;&nbsp;&nbsp;myFunction(history.next)<br>}</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193367">
+ See also
+</A></H4>
+
+<A NAME="1193374">
+<A HREF="history.htm#1193258"><CODE>History.current</CODE></A>, <A HREF="history.htm#1193377"><CODE>History.previous</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193377">
+previous
+</A></H2>
+
+<A NAME="1193394">
+A string specifying the complete URL of the previous history entry.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193380">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193385">
+<A HREF="history.htm#1193137"><CODE>History</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193387">
+<I>Read-only</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193389">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193391">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193393">
+JavaScript 1.1</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193395">
+ Security
+</A></H4>
+
+<A NAME="1199822">
+Getting the value of this property requires the <CODE>UniversalBrowserRead</CODE> privilege. It has no value if you do not have this privilege. For information on security, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+<B><A NAME="HeadRunIn;"></A>
+<A NAME="1199964">
+JavaScript 1.1. </A></B><A NAME="1193396">
+This property is tainted by default. It has no value of data tainting is disabled. For information on data tainting, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193408">
+ Description
+</A></H4>
+
+<A NAME="1193409">
+The <CODE>previous</CODE> property reflects the URL that would be used if the user chose Back from the Go menu.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193410">
+ Examples
+</A></H4>
+
+<A NAME="1193411">
+The following example determines whether <CODE>history.previous</CODE> contains the string <CODE>"NETSCAPE.COM"</CODE>. If it does, the function <CODE>myFunction</CODE> is called.</A></P>
+<PRE><A NAME="1193412">if (history.previous.indexOf("NETSCAPE.COM") != -1) {<br>&nbsp;&nbsp;&nbsp;myFunction(history.previous)<br>}</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193413">
+ See also
+</A></H4>
+
+<A NAME="1193420">
+<A HREF="history.htm#1193258"><CODE>History.current</CODE></A>, <A HREF="history.htm#1195548"><CODE>History.next</CODE></A></A></P>
+
+<HR>
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="hidden.htm">Previous</A>
+ | <A HREF="image.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT>
+<P ALIGN=right>
+<FONT SIZE=-2><I>Last Updated:  05/28/99  11:59:35</I></FONT>
+<P> <CENTER>Copyright (c) 1999
+<A HREF="http://home.netscape.com/misc/contact_info.html"
+TARGET=_top>Netscape Communications Corporation</A></FONT>
+</CENTER>
+<P>
+</BODY>
+</HTML>
+
+

@@ -1,0 +1,252 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--
+ Generated: Mon Jun 03 13:06:16 EDT 2002 jfouffa.w3.org
+ -->
+<html lang='en-US' xml:lang="en-US" xmlns=
+"http://www.w3.org/1999/xhtml">
+<head>
+<title>Document Object Model (DOM) Level 2 HTML
+Specification</title>
+<link rel='stylesheet' type='text/css' href='./spec.css' />
+<link rel='stylesheet' type='text/css' href='W3C-CR.css' />
+<link rel='next' href='expanded-toc.html' />
+<link rel='contents' href='Overview.html#contents' />
+<link rel='copyright' href='copyright-notice.html' />
+<link rel='glossary' href='glossary.html' />
+<link rel='Start' href='Overview.html' />
+<link rel='index' href='def-index.html' />
+<link rel='author' href='mailto:www-dom@w3.org' />
+<link rel='help' href='http://www.w3.org/DOM/' />
+<link rel='alternate' href=
+'http://www.w3.org/TR/2002/CR-DOM-Level-2-HTML-20020605/DOM2-HTML.ps'
+ title='PostScript file' type='application/postscript' />
+<link rel='alternate' href=
+'http://www.w3.org/TR/2002/CR-DOM-Level-2-HTML-20020605/DOM2-HTML.pdf'
+ title='PDF file' type='application/pdf' />
+<link rel='alternate' href=
+'http://www.w3.org/TR/2002/CR-DOM-Level-2-HTML-20020605/DOM2-HTML.txt'
+ title='plain text' type='text/plain' />
+<link rel='alternate' href=
+'http://www.w3.org/TR/2002/CR-DOM-Level-2-HTML-20020605/DOM2-HTML.zip'
+ title='ZIP file' type='application/zip' />
+<link rel='alternate' href=
+'http://www.w3.org/TR/2002/CR-DOM-Level-2-HTML-20020605/DOM2-HTML.html'
+ title='single HTML file' type='text/html' />
+</head>
+<body>
+<div class='navbar' align='center'><a accesskey='n' href=
+'expanded-toc.html'>next</a> &nbsp; <a accesskey='c' href=
+'Overview.html#contents'>contents</a> &nbsp; <a accesskey='i' href=
+'def-index.html'>index</a> 
+
+<hr title='Navigation area separator' />
+</div>
+
+<div class='head'>
+<p><a href='http://www.w3.org/'><img height='48' width='72' alt=
+'W3C' src='./images/w3c_home.gif' /></a></p>
+
+<h1 id='title'>Document Object Model (DOM) Level 2 HTML
+Specification</h1>
+
+<h2 id='version'>Version 1.0</h2>
+
+<!-- CR-DOM-Level-2-HTML-20020605
+ -->
+<h2 id='W3C-doctype'>W3C Candidate Recommendation 05 June 2002</h2>
+
+<dl>
+<dt>This version:</dt>
+
+<dd><a href=
+'http://www.w3.org/TR/2002/CR-DOM-Level-2-HTML-20020605'>http://www.w3.org/TR/2002/CR-DOM-Level-2-HTML-20020605</a></dd>
+
+<dt>Latest version:</dt>
+
+<dd><a href=
+'http://www.w3.org/TR/DOM-Level-2-HTML'>http://www.w3.org/TR/DOM-Level-2-HTML</a></dd>
+
+<dt>Previous version:</dt>
+
+<dd><a href=
+'http://www.w3.org/TR/2001/WD-DOM-Level-2-HTML-20011210/'>http://www.w3.org/TR/2001/WD-DOM-Level-2-HTML-20011210</a></dd>
+</dl>
+
+<dl>
+<dt>Editors:</dt>
+
+<dd>Johnny Stenback, <i>Netscape</i></dd>
+
+<dd>Arnaud Le Hors, <i>W3C team contact until October 1999, then
+IBM</i></dd>
+
+<dd>Philippe Le H&eacute;garet, <i>W3C</i></dd>
+
+<dd>Chris Wilson, <i>Microsoft Corp. (for DOM Level 1 after January
+1998)</i></dd>
+
+<dd>Ian Jacobs, <i>W3C (for DOM Level 1)</i></dd>
+
+<dd>Mike Champion, <i>ArborText (for DOM Level 1)</i></dd>
+
+<dd>Scott Isaacs, <i>Microsoft Corp. (for DOM Level 1 until January
+1998)</i></dd>
+
+<dd>Vidur Apparao, <i>Netscape Communications Corp. (for DOM Level
+1)</i></dd>
+</dl>
+
+<p>This document is also available in these non-normative formats:
+<a href=
+'http://www.w3.org/TR/2002/CR-DOM-Level-2-HTML-20020605/DOM2-HTML.ps'>
+PostScript file</a>, <a href=
+'http://www.w3.org/TR/2002/CR-DOM-Level-2-HTML-20020605/DOM2-HTML.pdf'>
+PDF file</a>, <a href=
+'http://www.w3.org/TR/2002/CR-DOM-Level-2-HTML-20020605/DOM2-HTML.txt'>
+plain text</a>, <a href=
+'http://www.w3.org/TR/2002/CR-DOM-Level-2-HTML-20020605/DOM2-HTML.zip'>
+ZIP file</a>, and <a href=
+'http://www.w3.org/TR/2002/CR-DOM-Level-2-HTML-20020605/DOM2-HTML.html'>
+single HTML file</a>.</p>
+
+<p class='copyright'><a href=
+'http://www.w3.org/Consortium/Legal/ipr-notice-20000612#Copyright'>Copyright</a>
+&copy;2002 <a href='http://www.w3.org/'><abbr title=
+'World Wide Web Consortium'>W3C</abbr></a><sup>&reg;</sup> (<a
+href='http://www.lcs.mit.edu/'><abbr title=
+'Massachusetts Institute of Technology'>MIT</abbr></a>, <a href=
+'http://www.inria.fr/'><abbr lang='fr' xml:lang="fr" title=
+'Institut National de Recherche en Informatique et Automatique'>INRIA</abbr></a>,
+<a href='http://www.keio.ac.jp/'>Keio</a>), All Rights Reserved.
+W3C <a href=
+'http://www.w3.org/Consortium/Legal/ipr-notice-20000612#Legal_Disclaimer'>
+liability</a>, <a href=
+'http://www.w3.org/Consortium/Legal/ipr-notice-20000612#W3C_Trademarks'>
+trademark</a>, <a href=
+'http://www.w3.org/Consortium/Legal/copyright-documents-19990405'>document
+use</a> and <a href=
+'http://www.w3.org/Consortium/Legal/copyright-software-19980720'>software
+licensing</a> rules apply.</p>
+</div>
+
+<hr title='separator from header' />
+<h2 id='abstract'>Abstract</h2>
+
+<div class='abstract'>
+<p>This specification defines the Document Object Model Level 2
+HTML, a platform- and language-neutral interface that allows
+programs and scripts to dynamically access and update the content
+and structure of [<a class='noxref' href=
+'references.html#HTML40'>HTML 4.01</a>] and [<a class='noxref'
+href='references.html#XHTML10'>XHTML 1.0</a>] documents. The
+Document Object Model Level 2 HTML builds on the Document Object
+Model Level 2 Core [<a class='noxref' href=
+'references.html#DOMCore'>DOM Level 2 Core</a>] and is not backward
+compatible with DOM Level 1 HTML [<a class='noxref' href=
+'references.html#DOM-Level-1'>DOM Level 1</a>].</p>
+</div>
+
+<h2 id='status'>Status of this document</h2>
+
+<div class='status'>
+<p><em>This section describes the status of this document at the
+time of its publication. Other documents may supersede this
+document. The latest status of this document series is maintained
+at the W3C.</em></p>
+
+<p>This is the 05 June 2002 W3C Candidate Recommendation of "DOM
+Level 2 HTML". W3C publishes a technical report as a Candidate
+Recommendation to indicate that the document is believed to be
+stable, and to encourage implementation by the developer community.
+Candidate Recommendation status is described in <a href=
+'http://www.w3.org/Consortium/Process-20010719/tr.html#RecsCR'>section
+5.2.3 of the Process Document</a>.</p>
+
+<p>The DOM Working Group expects to request that the Director
+advance this specification to Proposed Recommendation after the DOM
+Working Group documents two interoperable implementations of at
+least one normative binding. The two implementations must be
+produced by different organizations. The review period ends on 1
+July 2002. Please send review comments before the review period
+ends to <a href='mailto:www-dom@w3.org'>www-dom@w3.org</a> (<a
+href=
+'http://lists.w3.org/Archives/Public/www-dom/'>archive</a>).</p>
+
+<p>Publication as a Candidate Recommendation does not imply
+endorsement by the W3C Membership. This is a draft document and may
+be updated, replaced or obsoleted by other documents at any time.
+It is inappropriate to cite this document as other than "work in
+progress."</p>
+
+<p>Some changes from DOM Level 1 HTML are incompatible with that
+specification but represent more accurately the state of deployed
+software. Therefore, this specification renders the DOM Level 1
+HTML Recommendation obsolete. W3C strongly suggests that developers
+and authors conform to DOM Level 2 HTML instead.</p>
+
+<p>Patent disclosures relevant to this specification may be found
+on the <a href='http://www.w3.org/2002/05/29-DOM-IPR'>Working
+Group's public patent disclosure page</a>.</p>
+
+<p>This document has been produced as part of the <a href=
+'http://www.w3.org/DOM/Activity.html'>W3C DOM Activity</a>. The
+authors of this document are the DOM Working Group
+participants.</p>
+
+<p>A list of <a href='http://www.w3.org/TR/'>current W3C
+Recommendations and other technical documents</a> can be found at
+http://www.w3.org/TR.</p>
+</div>
+
+<h2 id='table-of-contents'><a id="contents" name='contents'>Table
+of contents</a></h2>
+
+<ul class='toc'>
+<li class='tocline2'><a class='tocxref' href=
+'expanded-toc.html'>Expanded Table of Contents</a></li>
+
+<li class='tocline2'><a class='tocxref' href=
+'copyright-notice.html'>Copyright Notice</a></li>
+</ul>
+
+<ul class='toc'>
+<li class='tocline2'><a class='tocxref' href='html.html'>1.
+Document Object Model HTML</a></li>
+</ul>
+
+<ul class='toc'>
+<li class='tocline2'><a class='tocxref' href=
+'changes.html'>Appendix A: Changes</a></li>
+
+<li class='tocline2'><a class='tocxref' href=
+'idl-definitions.html'>Appendix B: IDL Definitions</a></li>
+
+<li class='tocline2'><a class='tocxref' href=
+'java-binding.html'>Appendix C: Java Language Binding</a></li>
+
+<li class='tocline2'><a class='tocxref' href=
+'ecma-script-binding.html'>Appendix D: ECMAScript Language
+Binding</a></li>
+
+<li class='tocline2'><a class='tocxref' href=
+'acknowledgements.html'>Appendix E: Acknowledgements</a></li>
+
+<li class='tocline2'><a class='tocxref' href=
+'glossary.html'>Glossary</a></li>
+
+<li class='tocline2'><a class='tocxref' href=
+'references.html'>References</a></li>
+
+<li class='tocline2'><a class='tocxref' href=
+'def-index.html'>Index</a></li>
+</ul>
+
+<div class='navbar' align='center'>
+<hr title='Navigation area separator' />
+<a accesskey='n' href='expanded-toc.html'>next</a> &nbsp; <a
+accesskey='c' href='Overview.html#contents'>contents</a> &nbsp; <a
+accesskey='i' href='def-index.html'>index</a></div>
+</body>
+</html>
+

@@ -1,0 +1,11 @@
+Passos para a instalação do exchange server 2000:
+	1º Instalar um servidor com o windows 2000
+	2º Adicionar os servicos SMTP e NNTP ao IIS
+	3º Instalar o Active Directory
+	4º Preparar dominio para o Exchange Server:
+		4.1 - Correr o \setup\i386\setup /forestprep 
+		4.2 - \setup\i386\setup /domainprep
+	5º Arrancar com a instalação do exchange:
+		- Correr o Launch.exe
+				
+	

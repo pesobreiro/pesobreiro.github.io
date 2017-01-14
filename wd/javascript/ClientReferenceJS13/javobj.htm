@@ -1,0 +1,124 @@
+<HTML>
+<HEAD>
+<TITLE>
+</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="javclass.htm">Previous</A>
+ | <A HREF="javpkg.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT><BR><BR>
+<HR>
+
+<H1><A NAME="JavaObject"></A>
+<A NAME="1193137">
+ JavaObject
+</A></H1>
+<A NAME="1193151">
+The type of a wrapped Java object accessed from within JavaScript code.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193140">
+<I>Core object</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193142">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193144">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193146">
+JavaScript 1.1, NES 2.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193152">
+ Created by
+</A></H4>
+
+<A NAME="1193153">
+Any Java method which returns an object type. In addition, you can explicitly construct a <CODE>JavaObject</CODE> using the object's Java constructor with the <CODE>Packages</CODE> keyword:</A></P>
+<PRE><A NAME="1196676">new Packages.<I>JavaClass</I>(<I>parameterList</I>)</A></PRE><A NAME="1196829">
+where <I>JavaClass</I> is the fully-specified name of the object's Java class.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1196800">
+ Parameters
+</A></H4>
+
+<A NAME="1196814">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1196803">parameterList</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1196805">
+An optional list of parameters, specified by the constructor in the Java class.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193162">
+ Description
+</A></H4>
+
+<A NAME="1198206">
+The <CODE>JavaObject</CODE> object is an instance of a Java class that is created in or passed to JavaScript. <CODE>JavaObject</CODE> is a wrapper for the instance; all references to the class instance are made through the <CODE>JavaObject</CODE>.</A></P>
+<A NAME="1198350">
+Any Java data brought into JavaScript is converted to JavaScript data types. When the <CODE>JavaObject</CODE> is passed back to Java, it is unwrapped and can be used by Java code. See the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A> for more information about data type conversions.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1197132">
+ Property Summary
+</A></H4>
+
+<A NAME="1197133">
+Inherits public data members from the Java class of which it is an instance as properties. It also inherits public data members from any superclass as properties.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1197134">
+ Method Summary
+</A></H4>
+
+<A NAME="1196956">
+Inherits public methods from the Java class of which it is an instance. The <CODE>JavaObject</CODE> also inherits methods from <CODE>java.lang.Object</CODE> and any other superclass.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193209">
+ Examples
+</A></H4>
+
+<A NAME="1194739">
+<B>Example 1.</B> Instantiating a Java object in JavaScript.</A></P>
+<A NAME="1197104">
+The following code creates the <CODE>JavaObject</CODE> <CODE>theString</CODE>, which is an instance of the class <CODE>java.lang.String</CODE>:</A></P>
+<PRE><A NAME="1198136">var theString = new Packages.java.lang.String("Hello, world")</A></PRE><A NAME="1197777">
+Because the <CODE>String</CODE> class is in the <CODE>java</CODE> package, you can also use the <CODE>java</CODE> synonym and omit the <CODE>Packages</CODE> keyword when you instantiate the class:</A></P>
+<PRE><A NAME="1198172">var theString = new java.lang.String("Hello, world")</A></PRE><A NAME="1198220">
+<B>Example 2.</B> Accessing methods of a Java object.</A></P>
+<A NAME="1198240">
+Because the <CODE>JavaObject</CODE> <CODE>theString</CODE> is an instance of <CODE>java.lang.String</CODE>, it inherits all the public methods of <CODE>java.lang.String</CODE>. The following example uses the <CODE>startsWith</CODE> method to check whether <CODE>theString</CODE> begins with "Hello".</A></P>
+<PRE><A NAME="1198234">var theString = new java.lang.String("Hello, world")<br>theString.startsWith("Hello") // returns true</A></PRE><A NAME="1198295">
+<B>Example 3.</B> Accessing inherited methods.</A></P>
+<A NAME="1198170">
+Because <CODE>getClass</CODE> is a method of <CODE>Object</CODE>, and <CODE>java.lang.String</CODE> extends <CODE>Object</CODE>, the <CODE>String</CODE> class inherits the <CODE>getClass</CODE> method. Consequently, <CODE>getClass</CODE> is also a method of the <CODE>JavaObject</CODE> which instantiates <CODE>String</CODE> in JavaScript.</A></P>
+<PRE><A NAME="1198279">var theString = new java.lang.String("Hello, world")<br>theString.getClass() // returns java.lang.String</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1198406">
+ See also
+</A></H4>
+
+<A NAME="1198277">
+<A HREF="javarray.htm#1193137"><CODE>JavaArray</CODE></A>, <A HREF="javclass.htm#1193137"><CODE>JavaClass</CODE></A>, <A HREF="javpkg.htm#1193137"><CODE>JavaPackage</CODE></A>, <A HREF="packages.htm#1193137"><CODE>Packages</CODE></A></A></P>
+
+<HR>
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="javclass.htm">Previous</A>
+ | <A HREF="javpkg.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT>
+<P ALIGN=right>
+<FONT SIZE=-2><I>Last Updated:  05/28/99  11:59:41</I></FONT>
+<P> <CENTER>Copyright (c) 1999
+<A HREF="http://home.netscape.com/misc/contact_info.html"
+TARGET=_top>Netscape Communications Corporation</A></FONT>
+</CENTER>
+<P>
+</BODY>
+</HTML>
+
+

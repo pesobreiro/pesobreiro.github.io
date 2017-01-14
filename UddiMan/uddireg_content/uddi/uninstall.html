@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<META name="GENERATOR" content="IBM WebSphere Homepage Builder V5.0.1 for Windows">
+<title>Uninstalling the IBM WebSphere UDDI Registry</title>
+<link rel="stylesheet" type="text/css" href="../../wasstyle.css">
+</head>
+
+<body>
+<H3><A href="index.htm#TOC5" name="uninstall">Uninstalling the UDDI Registry</A></H3>
+<p>This topic describes how to remove the UDDI
+Registry application (uddi.ear) from WebSphere
+and how to uninstall the IBM WebSphere UDDI
+Registry:<OL>
+  <li>To remove the UDDI Registry application from
+  WebSphere, complete the following steps:
+  <OL>
+    <LI>Start the WebSphere Administrative Console
+    (the WebSphere Admin Server will need to
+    be running for you to do this; you can start
+    it from a command line with the command <TT>net start &quot;IBM WS Admin Server 4.0&quot;</TT>).
+    <LI>Expand the tree view in the left-hand pane
+    to display 'Enterprise Applications', and
+    further expand that to display 'UDDI Registry'.
+    <LI>Right click on 'UDDI Registry' and select
+    Stop to stop the application. Click 'OK'
+    when this completes.
+    <LI>Right click again on 'UDDI Registry' and
+    select Remove to remove the application.
+    Say 'no' when asked whether you want to export
+    the binding information, and then 'yes' when
+    asked if you want to remove the UDDI Registry
+    and the objects it contains. Click 'OK' when
+    the remove completes.
+    <LI>If you are removing the UDDI Registry application
+    from WebSphere Application Server single-server
+    edition for Developers (AEd), please refer
+    to the section on &quot;Uninstalling applications
+    with the Web Console&quot; in the InfoCenter
+    for AEd. Please note that for AEd, you must
+    also delete the directory corresponding to
+    the application from the installedApps directory
+    of the WebSphere AppServer.
+  </OL>
+  </li>
+  <li>To uninstall the IBM WebSphere UDDI Registry
+  files, you must first remove the UDDI Registry
+  application from WebSphere, and then use
+  the <B>Add/Remove Programs</B> function of the Windows Control Panel, or
+  using rpm -e IBMWebSphere-UDDI on Linux.
+  <P>If the uninstall procedure is unable to remove
+  all of the directories for the IBM WebSphere
+  UDDI Registry, you should delete the target
+  directory under which you installed the UDDI
+  Registry (by default this is <TT>C:/WebSphere/UDDIReg</TT>) and all its subdirectories. If the install
+  directory has for some reason been deleted
+  without using Add/Remove Programs to uninstall
+  the IBM WebSphere UDDI Registry, then you
+  may need to manually delete its key from
+  the Windows registry.<BR>
+  </P>
+  </li>
+</OL>
+</body>
+</html>

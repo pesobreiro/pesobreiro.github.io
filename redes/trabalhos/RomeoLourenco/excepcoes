@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>excepcoes</name>
+    </assembly>
+    <members>
+        <member name="T:excepcoes">
+            <summary>
+             Isto e um exemplo de uma classe para trabalhar com excepcoes
+            </summary>
+        </member>
+        <member name="M:excepcoes.Main">
+            <summary>
+            	Ponto de entrada da aplicacao
+            </summary>	
+        </member>
+    </members>
+</doc>

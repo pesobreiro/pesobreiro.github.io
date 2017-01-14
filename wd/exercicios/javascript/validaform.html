@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+	<title>Untitled</title>
+	<script>
+		function validaIdade(idade){
+			if(idade>90){
+				alert('Valor incorrecto');
+				document.frmMinhaForm.txtIdade.focus();
+			}		
+			else {
+				alert('valor correcto');
+				document.frmMinhaForm.txtFormula.focus();
+			}
+		}
+		function calculaResultado(formula){
+			resultado = eval(formula);
+			alert('O resultado é:' + resultado);
+		}
+		function saltaParaNome(){
+			document.frmMinhaForm.txtFormula.focus();
+		}
+
+	</script>
+</head>
+<body>
+<form name="frmMinhaForm">
+	Idade:
+	<input type="Text" size="2" maxlength="2" name="txtIdade"  onblur="validaIdade(txtIdade.value)"><br>
+	Formula:
+	<input type="Text" size="40" maxlength="100" name="txtFormula" onblur="calculaResultado(txtFormula.value)">
+	<input type="button" value="Vai para a formula" onclick="saltaParaNome()">
+</form>
+</body>
+</html>

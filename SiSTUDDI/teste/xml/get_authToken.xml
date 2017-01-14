@@ -1,0 +1,5 @@
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+  <s:Body>  
+    <get_authToken generic="2.0" xmlns="urn:uddi-org:api_v2" userID="uddiUser" cred="uddiPwd"></get_authToken>
+  </s:Body>
+</s:Envelope>

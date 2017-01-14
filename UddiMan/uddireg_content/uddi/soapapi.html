@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<META name="GENERATOR" content="IBM WebSphere Homepage Builder V5.0.1 for Windows">
+<TITLE></title>
+<link rel="stylesheet" type="text/css" href="../../wasstyle.css">
+</HEAD>
+<BODY>
+<H2><A name='soapapi'>The SOAP Application Programming Interface</A></H2>
+<P>Access to the SOAP API will by default be
+available at <BR><A href="http://localhost:9080/uddisoap/inquiryapi" target="_new">http://localhost:9080/uddisoap/inquiryapi</A> or <BR>
+<A href="https://localhost:9443/uddisoap/publishapi" target="_new">https://localhost:9443/uddisoap/publishapi</A><BR>
+Where 'localhost' is the address by which
+your WebSphere server is known. If security
+is enabled on your WebSphere server, the
+publishapi will also be protected by basic-authentication.
+By default, when security is enabled, the
+publishapi is restricted to HTTPS, this is
+to ensure the confidentiality and security
+of your data whilst in transit to UDDI. If
+you do not wish to use SSL, when security
+is enabled, you will have to modify the jar
+file using AAT to remove the CONFIDENTIAL
+restriction placed upon the publish URLs.
+For more information about this topic, see
+the section on <A name="runatt" href="configure.html#runatt">Configuring SOAP properties with the AAT</A>
+If you normally access your WebSphere server
+via a web server, you will need to ensure
+the plugin configuration for the WebSphere
+plugin on the web server has been updated
+since installing UDDI. This will then allow
+access to the UDDI SOAP API through the URLs
+<BR>
+<A href="http://localhost/uddisoap/inquiryapi" target="_new">http://localhost/uddisoap/inquiryapi </A> or <BR> <A href="https://localhost/uddisoap/publishapi" target="_new">https://localhost/uddisoap/publishapi</A><BR>
+Where 'localhost' is the address by which
+your web server is accessed. Note that if
+you plan on accessing UDDI via a web server
+in this manner, that the samples will require
+modification to inform them of the SSL certificates
+used by your web server, so that the samples
+can make SSL connections to the web server.
+It is beyond the scope of this document to
+cover the many variants available on web
+server/WebSphere/java SSL configurations.<BR>
+<BR>
+<H3><A name='usesoap'>Using the SOAP API</A></H3>
+<P>To use the SOAP API construct a properly
+formed UDDI message within the body of a
+SOAP request, and send it using HTTP POST
+to the URL of the API which the request relates
+to. The response will be returned within
+the body of the HTTP reply. Although the
+samples are written in Java, you may use
+other programming languages to create your
+SOAP client, providing you still send requests
+compliant to the SOAP specification. Valid
+UDDI requests should conform to the UDDI
+schema, and be as detailed within the UDDI
+standard documentation available from <BR>
+<A href="http://www.uddi.org/" target="_new">http://www.uddi.org/</A> </P>
+<P>For more information on using the SOAP API,
+refer to <A href="api.html#api">&quot;The application programming interface&quot;</A> section within this InfoCenter.</P>
+<H3><A name="handlesoap">Handling Errors as a User of the SOAP API</A></H3>
+<P>When using the SOAP API there are three main
+categories that may cause an error to be
+returned:- </P>
+<UL>
+  <LI>An invalid/incorrect request being sent to
+  the SOAP API. eg. Incorrectly formed XML,
+  Badly formed UDDI requests, Non-schema compliant
+  requests.
+  <LI>Invalid business logic within a SOAP API
+  request. eg. Attempting to delete a business
+  that does not exist.
+  <LI>Problems occurring while processing a valid
+  request. eg. Server connection to database
+  failure.
+</UL>
+<P>In each of these cases, an error will be
+returned to the client that made the request,
+which will attempt to explain further what
+the problem was. In the first case, where
+the problem lies with the XML of the request,
+the following section may be of assistance.</P>
+<H3><A name='undersoap'>Understanding SOAP parsing errors.</A></H3>
+<P>If an error occurs parsing SOAP input, UDDI
+error code E_fatalError (10500) will be returned.
+Following this, where applicable, will be
+a message. Provided below are further explanations
+on some of these Messages. This is not a
+complete list of possible error explanations,
+but is intended to give a flavor of the errors,
+and their meanings.</P>
+<P>Message: Element type 'fred' must be declared.<BR>
+Explanation: Element 'fred' was found within
+the supplied XML, yet is not recognized as
+a valid element from the UDDI schema. Check
+that you have not made a typing error within
+your XML.<BR>
+<BR>
+Message: Attribute 'fred' must be declared
+for element type &amp;quot;barney&amp;quot;.<BR>
+Explanation: Attribute 'fred' was found declared
+on element &amp;quot;barney&amp;quot;, yet
+according to UDDI schema is not a valid attribute
+for element 'barney'. Check that you have
+not made a typing error within your XML.<BR>
+<BR>
+Message: The content of element type 'fred'
+must match '(##any:uri=urn:uddi-org:api_v2)'.<BR>
+Explanation: The content of element 'fred'
+was found to be an element from the UDDI
+schema, which is not supposed to be a child
+element of 'fred'. Ensure the child elements
+of 'fred' are compliant to the UDDI schema.<BR>
+<BR>
+Message: Element fred not allowed as a child
+in barney<BR>
+Explanation: The content of element 'barney'
+was found to be 'fred' from the UDDI schema,
+yet 'fred' is not supposed to be a child
+element of 'barney'. Ensure the child elements
+of 'barney' are compliant to the UDDI schema.<BR>
+<BR>
+Message: Attribute 'fred' is required and
+must be specified for element type 'barney'.<BR>
+Explanation: Attribute 'fred' was not present
+on element 'barney', yet according to UDDI
+schema 'fred' is a required attribute for
+element 'barney'. Check that you have not
+made a typing error within your XML.<BR>
+
+</BODY>
+</HTML>

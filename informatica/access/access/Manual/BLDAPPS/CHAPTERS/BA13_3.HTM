@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>Using the Performance Analyzer</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba13_2.htm" OnClick="SyncURL(&quot;chapters/ba13_2.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<a NAME="3UsingthePerformanceAnalyzer"></a>
+<p CLASS="heading3OrgHeading1h1">Using the Performance Analyzer</p>
+<p CLASS="Textttext">You use the Performance Analyzer to improve the performance of your application by optimizing either your entire database or a single object in your database. Depending on the level of optimization you choose, the Performance Analyzer can do something as simple as adding an index to a field, or it can perform complex operations such as converting an OLE object on a form to an image.</p>
+<p CLASS="heading9ListProcedureHeadinglproch"><span CLASS="ProcedureIconproci"><img SRC="../images/bluetri.jpg" ALIGN="LEFT" WIDTH="9" HEIGHT="17">&nbsp;&nbsp;&nbsp;</span>To use the Performance Analyzer</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">1</span>&nbsp;&nbsp;&amp;nbspOpen the database you want to optimize.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">2</span>&nbsp;&nbsp;&amp;nbspOn the <span CLASS="ElementNameeln">Tools</span> menu, point to <span CLASS="ElementNameeln">Analyze</span>, and then click <span CLASS="ElementNameeln">Performance</span>.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">3</span>&nbsp;&nbsp;&amp;nbspIn the <span CLASS="ElementNameeln">Object Type</span> list, click the type of database object you want to optimize. </p>
+<p CLASS="ListTipText1ltpt"><span CLASS="TipHeadingtph">Tip&nbsp;&nbsp;&nbsp;</span><span CLASS="Xref">To view a list of all database objects at once, click <span CLASS="ElementNameeln">All</span> in the <span CLASS="ElementNameeln">Object Type</span> list.</span></p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">4</span>&nbsp;&nbsp;&amp;nbspIn the <span CLASS="ElementNameeln">Object Name</span> list, select the database objects you want to optimize. </p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">5</span>&nbsp;&nbsp;&amp;nbspRepeat steps 3 and 4 until you've selected all the objects you want to optimize, and then click <span CLASS="ElementNameeln">OK</span>.</p>
+<p CLASS="ListText1lt1">In the dialog box that appears, the <span CLASS="ElementNameeln">Analysis Results</span> box displays a list of three kinds of optimizations: Recommendations, Suggestions, and Ideas. When you click an item in the list, the <span CLASS="ElementNameeln">Analysis Notes</span> box displays information about the proposed optimization. Suggestion optimizations have potential tradeoffs that you should consider before performing them. To view a description of the tradeoffs, click a Suggestion optimization in the <span CLASS="ElementNameeln">Analysis Results</span> box, and then read the information in the <span CLASS="ElementNameeln">Analysis Notes</span> box.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">6</span>&nbsp;&nbsp;&amp;nbspMicrosoft Access can perform Recommendation and Suggestion optimizations for you. In the <span CLASS="ElementNameeln">Analysis Results</span> box, click each of the Recommendation or Suggestion optimizations you want performed, and then click <span CLASS="ElementNameeln">Optimize</span>.</p>
+ 
+<p CLASS="ListText1lt1">You must perform Idea optimizations yourself. To perform an Idea optimization, click that optimization, and then follow the instructions in the <span CLASS="ElementNameeln">Analysis Notes</span> box.
+<p CLASS="ListText1lt1"></p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="ba13_4.htm" OnClick="SyncURL(&quot;chapters/ba13_4.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

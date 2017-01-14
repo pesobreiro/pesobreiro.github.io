@@ -1,0 +1,20 @@
+ Volume in drive D is Dados
+ Volume Serial Number is ACB5-8C7E
+
+ Directory of D:\Documentos\cursos\hardware e redes\pagina\ppt\hardware
+
+03-12-2002  18:51            1.170.909 Arquitectura.pdf
+03-12-2002  18:42            4.601.975 AssemblagemCaixa.pdf
+03-12-2002  18:43            2.686.690 discosrigidos.pdf
+03-12-2002  22:07            1.342.917 discosrigidos_little.pdf
+03-12-2002  18:41            1.370.110 evolucaoComputador.pdf
+03-12-2002  18:48            5.562.534 FuncionamentoComputador.pdf
+03-12-2002  18:45            2.357.777 instalacaodiscos.pdf
+03-12-2002  18:49              510.569 IntroducaoRedes.pdf
+03-12-2002  18:44            2.126.736 memoria.pdf
+03-12-2002  18:52            4.242.079 MotherBoard.pdf
+03-12-2002  18:49              134.928 PassosCriarParticao.pdf
+03-12-2002  18:45              946.048 resolucaoProblemas.pdf
+03-12-2002  18:46              706.161 SistemasNumeracao.pdf
+              13 File(s)     27.759.433 bytes
+               0 Dir(s)   2.823.290.880 bytes free

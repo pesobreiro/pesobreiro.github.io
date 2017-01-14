@@ -1,0 +1,47 @@
+<html>
+<head>
+<style>
+.Item {
+   cursor: hand;
+   font-family: verdana; 
+   font-size: 20;
+   font-style: normal;
+   background-color: red;
+   color: white
+ }
+.Highlight {
+   cursor: hand; 
+   font-family: verdana;
+   font-size: 20;
+   font-style: italic;
+   background-color: white;
+   color: red
+ }
+</style>
+</head>
+<body>
+<div id=Rollover onmouseover="rollon()" onmouseout="rolloff()">
+<font style="font-family: verdana; font-size: 30;"> Efeitos Rollover</font><br>
+<span class=Item>Item1</span>
+<span class=Item>Item2</span>
+<span class=Item>Item3</span>
+<span class=Item>Item4</span>
+<span class=Item>Item5</span>
+<span class=Item>Item6</span>
+<span class=Item>Item7</span>
+</div>
+
+<script>
+function rollon() {
+  if (window.event.srcElement.className == "Item") {
+     window.event.srcElement.className = "Highlight";
+  }
+}
+
+function rolloff() {
+  if (window.event.srcElement.className == "Highlight") {
+     window.event.srcElement.className = "Item";
+  }
+}
+</script>
+</body>

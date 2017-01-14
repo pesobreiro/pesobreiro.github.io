@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>Constants</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba04_4.htm" OnClick="SyncURL(&quot;chapters/ba04_4.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<a NAME="3Constants"></a>
+<p CLASS="heading3OrgHeading1h1">Constants</p>
+<p CLASS="Textttext">Your code may contain unchanging values that appear over and over. Or your code may depend on certain numbers that are difficult to remember<img SRC="../images/Emdash.gif" BORDER="0" VSPACE="0" HSPACE="0" WIDTH="16" HEIGHT="5">numbers that, in and of themselves, have no obvious meaning. 
+<p CLASS="Textttext">In these cases you can greatly improve the readability of your code<img SRC="../images/Emdash.gif" BORDER="0" VSPACE="0" HSPACE="0" WIDTH="16" HEIGHT="5">and make it easier to maintain<img SRC="../images/Emdash.gif" BORDER="0" VSPACE="0" HSPACE="0" WIDTH="16" HEIGHT="5">by using <span CLASS="NewTermntrm">constants</span>. A constant is a meaningful name that takes the place of a number or string that doesn't change. You can't modify a constant or assign a new value to it as you can to a variable. Constants have one of two sources:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&nbsp;<span CLASS="NewTermntrm">Intrinsic</span> or <span CLASS="NewTermntrm">system-defined</span> constants are provided by applications. Microsoft Access, Visual Basic, and Data Access Objects (DAO) constants are all available in Microsoft Access, along with intrinsic constants from other applications that provide object libraries. </p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&nbsp;<span CLASS="NewTermntrm">Symbolic</span> or <span CLASS="NewTermntrm">user-defined</span> constants are declared by using the <span CLASS="ElementNameeln">Const</span> statement. </p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on intrinsic constants, see <a HREF="../chapters/ba04_5.htm#4IntrinsicConstants" OnClick="SyncURL(&quot;chapters/ba04_5.htm&quot;)">&quot;Intrinsic Constants&quot;</a> later in this chapter. For more information on user-defined constants, see the following section, <a HREF="../chapters/ba04_5.htm#4CreatingYourOwnConstants" OnClick="SyncURL(&quot;chapters/ba04_5.htm&quot;)">&quot;Creating Your Own Constants.&quot;</a></p>
+<a NAME="4CreatingYourOwnConstants"></a>
+<p CLASS="heading4OrgHeading2h2">Creating Your Own Constants</p>
+<p CLASS="Textttext">You use the <span CLASS="ElementNameeln">Const</span> statement to create your own symbolic constants. The syntax for the <span CLASS="ElementNameeln">Const</span> statement is:</p>
+<p CLASS="SyntaxTextsyn">[<span CLASS="ElementNameeln">Public</span> | <span CLASS="ElementNameeln">Private</span>]<span CLASS="ElementNameeln"> Const</span> <span CLASS="NewTermntrm">constantname</span> [<span CLASS="ElementNameeln">As</span> <span CLASS="NewTermntrm">type</span>] <span CLASS="ElementNameeln">=</span> <span CLASS="NewTermntrm">expression</span></p>
+<p CLASS="Textttext">The argument <span CLASS="NewTermntrm">constantname</span> is a valid symbolic name (the rules are the same as the rules for creating variable names), and <span CLASS="NewTermntrm">expression</span> is composed of numeric or string constants and operators (you can't use function calls in <span CLASS="NewTermntrm">expression</span>).
+<p CLASS="Textttext">A <span CLASS="ElementNameeln">Const</span> statement can represent a mathematical or date/time quantity. For example:</p>
+<p CLASS="CodeTextct">Const conPi = 3.14159265358979<br>Public Const conMaxPlanets = 9<br>Const conReleaseDate = #1/1/95#</p>
+<p CLASS="Textttext">You can also use the <span CLASS="ElementNameeln">Const</span> statement to define string constants:</p>
+<p CLASS="CodeTextct">Public Const conVersion = &quot;07.10.A&quot;<br>Const conCodeName = &quot;Enigma&quot;</p>
+<p CLASS="Textttext">You can place more than one constant declaration on a single line, if you separate them with commas:</p>
+<p CLASS="CodeTextct">Public Const conPi = 3.14, conMaxPlanets = 9, conWorldPop = 6E+09</p>
+<p CLASS="Textttext">The expression on the right side of the equal sign (=) is often a number or literal string, but it can also be an expression that results in a number or string as long as the expression doesn't contain calls to functions. You can even define constants in terms of previously defined constants:</p>
+<p CLASS="CodeTextct">Const conPi2 = conPi * 2</p>
+<p CLASS="Textttext">After you define constants, you can place them in your code to make it much more readable, as shown in the following example:</p>
+<p CLASS="CodeTextct">Static SolarSystem(1 To conMaxPlanets)<br>If lngNumPeople &gt; conWorldPop Then Exit Function</p>
+<a NAME="5DefiningtheScopeofUserDefinedConstants"></a>
+<p CLASS="heading5OrgHeading3h3">Defining the Scope of User-Defined Constants</p>
+<p CLASS="Textttext">A <span CLASS="ElementNameeln">Const</span> statement has scope just as a variable declaration does, and the same rules apply:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspTo create a constant that's available only within a procedure, declare it within that procedure.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspTo create a constant that's available to all procedures within a module, but not to any procedure outside that module, declare the constant in the Declarations section of the module.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspTo create a constant that's available throughout the application, declare the constant in the Declarations section of a standard module and place the <span CLASS="ElementNameeln">Public</span> keyword before <span CLASS="ElementNameeln">Const</span>. Public constants cannot be declared in a form or report module.</p>
+<a NAME="5AvoidingCircularReferences"></a>
+<p CLASS="heading5OrgHeading3h3">Avoiding Circular References</p>
+<p CLASS="Textttext">It's important to be aware of one possible complication when you're using public constants: Because constants can be defined in terms of other constants, you must be careful not to set up a circular reference between two or more constants. A circular reference occurs when you have two or more public constants, each defined in terms of the other, as in the following example:</p>
+<p CLASS="CodeTextct">' In Module 1.<br>Public Const conA = conB * 2<br>' In Module 2.<br>Public Const conB = conA / 2</p>
+<p CLASS="Textttext">If you create a circular reference, Visual Basic generates an error when it compiles your code. You can't compile your code until you resolve the circular reference. To avoid creating a circular reference, restrict all your public constants to a single module or, at most, to a small number of modules.</p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>You can't define a public constant in a form or report module, only in a standard module. You can, however, declare a private constant in a form or report module.</p>
+<a NAME="4IntrinsicConstants"></a>
+<p CLASS="heading4OrgHeading2h2">Intrinsic Constants</p>
+<p CLASS="Textttext">In addition to the constants you declare with the <span CLASS="ElementNameeln">Const</span> statement, Microsoft Access automatically declares a number of <span CLASS="Placeholderp">intrinsic constants</span>. These constants are available in all modules.
+<p CLASS="Textttext">Because you can't disable intrinsic constants, the constants you create can't have the same names as the intrinsic constants. Also, you can't redeclare or set intrinsic constants to different values.</p>
+<p CLASS="ImportantTextit"><span CLASS="ImportantHeadingih">Important&nbsp;&nbsp;&nbsp;</span>Because the values represented by the intrinsic constants may change in future versions of Microsoft Access, you should use the constants instead of their actual values.</p>
+<p CLASS="Textttext">You can use intrinsic constants wherever you can use user-defined constants, including in expressions. The following example shows how you might use the intrinsic constant <span CLASS="ElementNameeln">vbCurrency</span> to determine whether <span CLASS="CodeTextEmbeddedcte">varTest</span> is a <span CLASS="ElementNameeln">Variant</span> of <span CLASS="ElementNameeln">VarType</span> 6 (<span CLASS="ElementNameeln">Currency</span>).</p>
+<p CLASS="CodeTextct">If VarType(varTest) = vbCurrency Then<br>&nbsp;&nbsp;&amp;nbspDebug.Print &quot;varTest contains Currency data.&quot;<br>Else<br>&nbsp;&nbsp;&amp;nbspDebug.Print &quot;varTest does not contain Currency data.&quot;<br>End If</p>
+<p CLASS="Textttext">The intrinsic constants for Microsoft Access, as well as those for the Visual Basic for Applications and Data Access Objects (DAO) libraries, are listed in the Object Browser. Other applications that provide object libraries, such as Microsoft Excel and Microsoft Project, also provide a list of constants you can use with their objects, methods, and properties. To see these constants, click the appropriate object library in the <span CLASS="ElementNameeln">Project/Library</span> box of the Object Browser, and then click <span CLASS="ElementNameeln">Constants</span> in the <span CLASS="ElementNameeln">Classes</span> box. </p>
+<p CLASS="ImportantTextit"><span CLASS="ImportantHeadingih">Important&nbsp;&nbsp;&nbsp;</span>In order for constants from other applications to appear in the Object Browser, you must set a reference to the application's object library. Open a module, and then in the <span CLASS="ElementNameeln">References</span> dialog box (<span CLASS="ElementNameeln">Tools</span> menu), select the check box for the object library you want to set a reference for.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on using the Object Browser, see Chapter 5, <a HREF="../chapters/ba05_1.htm" OnClick="SyncURL(&quot;chapters/ba05_1.htm&quot;)">&quot;Working with Objects and Collections.&quot;</a></p>
+<p CLASS="Textttext">Intrinsic constant names are in a mixed-case format, with a two-character prefix indicating the object library that defines the constant. Constants from Microsoft Access are prefaced with &quot;ac&quot;; for example, <span CLASS="ElementNameeln">acDataErrContinue</span>. Constants from the VBA object library are prefaced with &quot;vb&quot; ; for example, <span CLASS="ElementNameeln">vbTileHorizontal</span>. Constants from the DAO object library are prefaced with &quot;db&quot; ;  for example, <span CLASS="ElementNameeln">dbRelationUnique</span>. All of these intrinsic constants are available in Microsoft Access without having to be declared.</p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>In Microsoft Access versions 2.0 and earlier, constant names appeared in all capital letters with underscores<img SRC="../images/Emdash.gif" BORDER="0" VSPACE="0" HSPACE="0" WIDTH="16" HEIGHT="5">for example, A_REFRESH. Microsoft Access 97 supports intrinsic constants from these early versions. To see them, click the <span CLASS="ElementNameeln">Access</span> object library in the <span CLASS="ElementNameeln">Project/Library</span> box of the Object Browser, and then click <span CLASS="ElementNameeln">OldConstants</span> in the <span CLASS="ElementNameeln">Classes</span> box.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For a list of intrinsic constants and more information about them, search the Help index for &quot;intrinsic constants.&quot; </p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="ba04_6.htm" OnClick="SyncURL(&quot;chapters/ba04_6.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

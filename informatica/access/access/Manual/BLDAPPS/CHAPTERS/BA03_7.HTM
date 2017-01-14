@@ -1,0 +1,172 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>Using the Tab Control to Organize Forms</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba03_6.htm" OnClick="SyncURL(&quot;chapters/ba03_6.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<a NAME="3UsingtheTabControltoOrganizeForms"></a>
+<p CLASS="heading3OrgHeading1h1">Using the Tab Control to Organize Forms</p>
+<p CLASS="Textttext">You can use a <span CLASS="NewTermntrm">tab control</span> to present several pages of information on a single form. A tab control is useful when your form contains information that can be sorted into two or more categories. For example, the Employees form in the Northwind sample application uses a tab control to display two pages of information about employees.</p>
+<p CLASS="Arta"><img SRC="..\images\ABAC0324.jpg"></p>
+<p CLASS="Textttext">The tab control provides a user interface similar to Windows tabbed dialog boxes. Users switch between pages by clicking the corresponding tab on the top of the page. </p>
+<a NAME="4AddingaTabControltoaForm"></a>
+<p CLASS="heading4OrgHeading2h2">Adding a Tab Control to a Form</p>
+<p CLASS="Textttext">You add a tab control to a form in much the same way as you add other controls, except that each page on a tab control contains other controls. A tab control can't contain other tab controls, but it's possible to have two or more separate tab controls on a form.</p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>When you add a tab control to a form, Microsoft Access assigns default values to the <span CLASS="ElementNameeln">Name</span> property for each page: Page1 and Page2. Each page in a tab control is treated as a separate control on the form, and every control must have a unique value for its <span CLASS="ElementNameeln">Name</span> property. For this reason, if you add a second tab control to a form, Microsoft Access won't assign Page1 as the default value for the <span CLASS="ElementNameeln">Name</span> property of the first page in the second tab control, or allow you to change the value to Page1. For the same reason, no other control on the same form can have its <span CLASS="ElementNameeln">Name</span> property set to Page1. However, you can use the same text on more than one page's tab by setting the page's <span CLASS="ElementNameeln">Caption</span> property.</p>
+<p CLASS="heading9ListProcedureHeadinglproch"><span CLASS="ProcedureIconproci"><img SRC="../images/bluetri.jpg" ALIGN="LEFT" WIDTH="9" HEIGHT="17"></span>&nbsp;&nbsp;&amp;nbspTo add a tab control to a form</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">1</span>&nbsp;&nbsp;&amp;nbspOpen a form in Design view.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">2</span>&nbsp;&nbsp;&nbsp;<img SRC="..\images\TABCNTRL.gif">&amp;nbspIn the toolbox, click the <span CLASS="ElementNameeln">Tab Control</span> tool and then click the form where you want to place the control.</p>
+<p CLASS="ListText1lt1">Microsoft Access adds a tab control with two pages. The Page1 tab is on top.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">3</span>&nbsp;&nbsp;&amp;nbspAdd controls to Page1 of the tab control by clicking a tool in the toolbox, and then click on Page1 where you want to place the control. You can add any type of control except another tab control.</p>
+<p CLASS="ListNoteText1lnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span><span CLASS="Xref">You can also copy controls from another part of a form or from another page and paste them onto a tab control page. However, you can't drag controls from another part of a form or from another page.</span></p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">4</span>&nbsp;&nbsp;&amp;nbspTo add controls to Page2, click the Page2 tab, and then use the toolbox to add the controls.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">5</span>&nbsp;&nbsp;&amp;nbspUse the following table for other tasks you may want to perform.</p>
+<!--mstheme--></font><table WIDTH="100%" BORDER="0" CELLPADDING="5" CELLSPACING="0" FRAME="VOID" RULES="THEAD"><thead>
+<tr VALIGN="TOP" BGCOLOR="#DDDDDD"><td BGCOLOR="#FFFFFF" WIDTH="5"><!--mstheme--><font face="book antiqua, times new roman, times">&nbsp;&nbsp;<!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">To</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Do this</p></font><!--mstheme--></font></td></tr><tbody>
+<tr VALIGN="TOP"><td BGCOLOR="#FFFFFF" WIDTH="5"><!--mstheme--><font face="book antiqua, times new roman, times">&nbsp;&nbsp;<!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Change the name of a tab</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Right-click the tab whose name you want to change, click <span CLASS="ElementNameeln">Properties</span> on the shortcut menu, and then specify a new name in the <span CLASS="ElementNameeln">Caption</span> property. If you don't specify a name in the <span CLASS="ElementNameeln">Caption</span> property, Microsoft Access uses the text in the <span CLASS="ElementNameeln">Name</span> property.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP"><td BGCOLOR="#FFFFFF" WIDTH="5"><!--mstheme--><font face="book antiqua, times new roman, times">&nbsp;&nbsp;<!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Add or delete pages, or change the page order of tabs</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Right-click the tab, and then click <span CLASS="ElementNameeln">Insert Page</span>, <span CLASS="ElementNameeln">Delete Page</span>, or <span CLASS="ElementNameeln">Page Order</span> on the shortcut menu.
+<p CLASS="TableTexttt">You can also insert a page by copying and pasting an existing page. This copies the entire page, including the controls on it. You can also delete a page by clicking the page, and then pressing DELETE.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP"><td BGCOLOR="#FFFFFF" WIDTH="5"><!--mstheme--><font face="book antiqua, times new roman, times">&nbsp;&nbsp;<!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Change the tab order of controls on a page</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Right-click the page and click <span CLASS="ElementNameeln">Tab Order</span> on the shortcut menu.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP"><td BGCOLOR="#FFFFFF" WIDTH="5"><!--mstheme--><font face="book antiqua, times new roman, times">&nbsp;&nbsp;<!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Change the font name, font size, or font style (weight, italic, and/or underline) of all pages</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Right-click the border of the tab control, click <span CLASS="ElementNameeln">Properties</span> on the shortcut menu, and then set the appropriate properties. The property settings you select apply to the fonts on all pages of the tab control.</p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>The font color is determined by the <span CLASS="ElementNameeln">Color</span> setting for <span CLASS="ElementNameeln">3D Objects</span> specified on the <span CLASS="ElementNameeln">Appearance</span> tab of the <span CLASS="ElementNameeln">Display Properties</span> dialog box, which is available from Windows Control Panel.</p></font><!--mstheme--></font></td></tr>
+</table><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">6</span>&nbsp;&nbsp;&amp;nbspSize the tab control as appropriate. Click each tab to make sure all the controls fit well within each tab.</p>
+<p CLASS="ListNoteText1lnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span><span CLASS="Xref">Microsoft Access won't crop controls when you size the tab control. You may need to move controls before you make the tab control smaller.</span></p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">7</span>&nbsp;&nbsp;&amp;nbspSwitch to Form view and test the tab control.</p>
+<a NAME="5AdditionalTabControlandTabControlPageProperties"></a>
+<p CLASS="heading5OrgHeading3h3">Additional Tab Control and Tab Control Page Properties</p>
+<p CLASS="Textttext">You can further customize how a tab control and its pages look and work by setting their properties. Tab control properties affect the way the tab control as a whole looks and works, and in many cases apply to all the pages within the control. For example, you can set the <span CLASS="ElementNameeln">TabFixedHeight</span> and <span CLASS="ElementNameeln">TabFixedWidth</span> properties to set the size of all tabs on a tab control. You can set most tab control properties in the tab control property sheet; however, some properties can only be set or referenced by using Visual Basic. To display the tab control property sheet, right-click the border of the tab control and click <span CLASS="ElementNameeln">Properties</span> on the shortcut menu. </p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For information on tab control properties that are only available by using Visual Basic, see <a HREF="../chapters/ba03_7.htm#4ReferringtoTabControlObjectsinVisualBasic" OnClick="SyncURL(&quot;chapters/ba03_7.htm&quot;)">&quot;Referring to Tab Control Objects in Visual Basic&quot;</a> later in this section.</p>
+<p CLASS="Textttext">The following table lists the most commonly used tab control properties. For information on other properties, press F1 when the insertion point is in the property box.</p>
+<!--mstheme--></font><table WIDTH="100%" BORDER="0" CELLPADDING="5" CELLSPACING="0" FRAME="VOID" RULES="THEAD"><thead>
+<tr VALIGN="TOP" BGCOLOR="#DDDDDD">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Tab control property</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Description</p></font><!--mstheme--></font></td></tr><tbody>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">MultiRow</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Specifies whether a tab control can have more than one row of tabs. If the <span CLASS="ElementNameeln">MultiRow</span> property is set to No, Microsoft Access truncates the tabs if they exceed the width of the tab control and adds a scroll bar. The default setting is No.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">BackStyle</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Specifies whether the pages in the tab control are transparent. When set to Normal, the color of pages is determined by the <span CLASS="ElementNameeln">3D Objects </span>color specified on the <span CLASS="ElementNameeln">Appearance</span> tab of the <span CLASS="ElementNameeln">Display Properties </span>dialog box, which is available from Windows Control Panel. When set to Transparent, the color of pages is determined by the <span CLASS="ElementNameeln">BackColor</span> property of the detail section and the <span CLASS="ElementNameeln">Picture</span> property of the form (if any) showing through them. The tabs in a tab control are always solid and use the <span CLASS="ElementNameeln">3D Objects</span> color set in the Windows Control Panel. The default setting is Normal.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Style</span>&nbsp;&nbsp;&nbsp;</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Specifies what to display at the top of the tab control. You can display tabs, command buttons (in the same positions as tabs), or nothing. The default setting is Tabs.
+<p CLASS="TableTexttt">You may want to display nothing if you want to use command buttons on the form outside the tab control to determine which page has the focus. To do this, set the tab control's <span CLASS="ElementNameeln">Style</span> property to None. Then add an event procedure to the button's OnClick event that sets the tab control's <span CLASS="ElementNameeln">Value</span> property to the page you want to display.</p>
+<p CLASS="TableCrossRefTexttcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For information on how to do this, see <a HREF="../chapters/ba03_7.htm#5ReferringtoandChangingtheCurrentPage" OnClick="SyncURL(&quot;chapters/ba03_7.htm&quot;)">&quot;Referring to and Changing the Current Page&quot;</a> later in this section.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">TabFixedHeight</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Specifies the height of tabs in inches. When set to 0, each tab is tall enough to fit its contents. The minimum height is .05 inches. The default setting is 0.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">TabFixedWidth</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Specifies the width of tabs in inches. When set to 0, each tab is wide enough to fit its contents and, if there is more than one row of tabs, the width of each tab is increased so that each row of tabs spans the width of the tab control. If the setting is greater than 0, all tabs have an identical width as specified by this property. The minimum width is 0.5 inches. The default setting is 0.</p></font><!--mstheme--></font></td></tr>
+</table><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="Textttext">In addition to the properties that apply to the tab control as a whole, there are also properties that apply to individual pages. Tab control page properties affect the way a page looks and works. All tab control page properties can be set in the page property sheet. To display the page property sheet, right-click the tab, and then click <span CLASS="ElementNameeln">Properties</span> on the shortcut menu.
+<p CLASS="Textttext">The following table lists the most commonly used tab control page properties. For information on other properties, press F1 when the insertion point is in the property box.</p>
+<!--mstheme--></font><table WIDTH="100%" BORDER="0" CELLPADDING="5" CELLSPACING="0" FRAME="VOID" RULES="THEAD"><thead>
+<tr VALIGN="TOP" BGCOLOR="#DDDDDD">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Tab control page property</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Description</p></font><!--mstheme--></font></td></tr><tbody>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Name</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Specifies the name of the page. Use this name when referring to a tab control page in Visual Basic. The default name is Page1 for the first page, Page2 for the second page, and so on.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Caption</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Specifies the display text that appears on a tab. If you don't specify a name in the <span CLASS="ElementNameeln">Caption</span> property, Microsoft Access uses the text in the <span CLASS="ElementNameeln">Name</span> property.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Picture</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Use to add a graphic to a tab. The graphic is displayed to the left of the tab name specified in the <span CLASS="ElementNameeln">Caption </span>property. If you want to display only a picture and no name, enter a space in the <span CLASS="ElementNameeln">Caption</span> property.</p></font><!--mstheme--></font></td></tr>
+</table><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="Textttext">If you're going to use a tab control in a custom dialog box, you may want to set additional properties so that your form looks and works like a Windows dialog box.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on making a form look and work like a dialog box, see <a HREF="../chapters/ba03_3.htm" OnClick="SyncURL(&quot;chapters/ba03_3.htm&quot;)">&quot;Using Pop-up Forms and Dialog Boxes&quot;</a> earlier in this chapter.</p>
+<a NAME="4ReferringtoTabControlObjectsinVisualBasic"></a>
+<p CLASS="heading4OrgHeading2h2">Referring to Tab Control Objects in Visual Basic</p>
+<p CLASS="Textttext">In most ways, a tab control works like other controls on a form and can be referred to as a member of a form's <span CLASS="ElementNameeln">Controls</span> collection. For example, to refer to a tab control named TabControl1 on a form named Form1, you can use the following expression:</p>
+<p CLASS="CodeTextct">Form1.Controls!TabControl1</p>
+<p CLASS="Textttext">However, because the <span CLASS="ElementNameeln">Controls</span> collection is the default collection of the <span CLASS="ElementNameeln">Form</span> object, you don't have to explicitly refer to the <span CLASS="ElementNameeln">Controls</span> collection. That is, you can omit the reference to the <span CLASS="ElementNameeln">Controls</span> collection from the expression, like this:</p>
+<p CLASS="CodeTextct">Form1!TabControl1</p>
+<a NAME="5ReferringtothePagesCollection"></a>
+<p CLASS="heading5OrgHeading3h3">Referring to the Pages Collection</p>
+<p CLASS="Textttext">A tab control contains one or more pages. Each page in a tab control is referenced as a member of the tab control's <span CLASS="ElementNameeln">Pages</span> collection. Each page in the <span CLASS="ElementNameeln">Pages</span> collection can be referred to by either its <span CLASS="ElementNameeln">PageIndex</span> property setting (which reflects the page's position in the collection starting with 0), or by the page's <span CLASS="ElementNameeln">Name</span> property setting. There is no default collection for the <span CLASS="ElementNameeln">TabControl</span> object, so when referring to items in the <span CLASS="ElementNameeln">Pages</span> collection by their index value, or to properties of the <span CLASS="ElementNameeln">Pages</span> collection, you must explicitly refer to the <span CLASS="ElementNameeln">Pages</span> collection.
+<p CLASS="Textttext">For example, to change the value of the <span CLASS="ElementNameeln">Caption</span> property for the first page of a tab control named TabControl1 by referring to its index value in the <span CLASS="ElementNameeln">Pages </span>collection, you can use the following statement:</p>
+<p CLASS="CodeTextct">TabControl1.Pages(0).Caption = &quot;First Page&quot;</p>
+<p CLASS="Textttext">Because each page is a member of the form's <span CLASS="ElementNameeln">Controls</span> collection, you can refer to a page solely by its <span CLASS="ElementNameeln">Name</span> property without referring to the tab control's name or its <span CLASS="ElementNameeln">Pages</span> collection. For example, to change the value of the <span CLASS="ElementNameeln">Caption</span> property of a page with its <span CLASS="ElementNameeln">Name</span> property set to Page1, use the following statement:</p>
+<p CLASS="CodeTextct">Page1.Caption = &quot;First Page&quot;</p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>If a user or code changes a page's <span CLASS="ElementNameeln">PageIndex</span> property, the reference to the page's index and the page's position in the page order change. In this case, if you want to maintain an absolute reference to a page, refer to the page's <span CLASS="ElementNameeln">Name</span> property.</p>
+<p CLASS="Textttext">The <span CLASS="ElementNameeln">Pages</span> collection has one property, <span CLASS="ElementNameeln">Count</span>, that returns the number of pages in a tab control. Note that this property is not a property of the tab control itself, but of its <span CLASS="ElementNameeln">Pages</span> collection, so you must explicitly refer to the collection. For example, to determine the number of pages in TabControl1, use the following statement:</p>
+<p CLASS="CodeTextct">TabControl1.Pages.Count</p>
+<a NAME="5ReferringtoandChangingtheCurrentPage"></a>
+<p CLASS="heading5OrgHeading3h3">Referring to and Changing the Current Page</p>
+<p CLASS="Textttext">A tab control's default property is <span CLASS="ElementNameeln">Value</span>, which returns an integer that identifies the current page: 0 for the first page, 1 for the second page, and so on. The <span CLASS="ElementNameeln">Value</span> property is only available in Visual Basic code or in expressions. By reading the <span CLASS="ElementNameeln">Value</span> property at run time, you can determine which page is currently on top. For example, the following statement returns the value for the current page of TabControl1:</p>
+<p CLASS="CodeTextct">TabControl1.Value</p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>Because the <span CLASS="ElementNameeln">Value</span> property is the default property for a tab control, you don't have to refer to it explicitly. For this reason, you could omit <span CLASS="CodeTextEmbeddedcte">.Value</span> from the preceding example.</p>
+<p CLASS="Textttext">Setting a tab control's <span CLASS="ElementNameeln">Value</span> property at run time changes the focus to the specified page, making it the current page. For example, the following statement moves the focus to the third page of TabControl1:</p>
+<p CLASS="CodeTextct">TabControl1 = 2</p>
+<p CLASS="Textttext">This is useful if you set a tab control's <span CLASS="ElementNameeln">Style</span> property to None (which displays no tabs) and want to use command buttons on the form to determine which page has the focus. To use a command button to display a page, add an event procedure to the button's OnClick event that sets the tab control's <span CLASS="ElementNameeln">Value</span> property to the integer that identifies the appropriate page.
+<p CLASS="Textttext">By using the <span CLASS="ElementNameeln">Value</span> property with the <span CLASS="ElementNameeln">Pages</span> collection, you can set properties at run time for the page that is on top. For example, you can hide the current page and all of its controls by setting the page's <span CLASS="ElementNameeln">Visible</span> property to <span CLASS="ElementNameeln">False</span>. The following statement hides the current page of TabControl1:</p>
+<p CLASS="CodeTextct">TabControl1.Pages(TabControl1).Visible = False</p>
+<p CLASS="Textttext">Each page in a tab control also has a <span CLASS="ElementNameeln">PageIndex</span> property that specifies the position of a page within the <span CLASS="ElementNameeln">Pages</span> collection using the same numbering sequence as the tab control's <span CLASS="ElementNameeln">Value</span> property: 0 for the first page, 1 for the second page, and so on. Setting the value of a page's <span CLASS="ElementNameeln">PageIndex</span> property changes the order in which pages appear in the tab control. For example, if you wanted to make a page named Page1 the second page, you'd use the following statement:</p>
+<p CLASS="CodeTextct">Page1.PageIndex = 1</p>
+<p CLASS="Textttext">The <span CLASS="ElementNameeln">PageIndex</span> property is more typically set at design time in a page's property sheet. You can also set the page order by right-clicking the border of a tab control and then clicking <span CLASS="ElementNameeln">Page Order</span> on the shortcut menu.</p>
+<a NAME="5ReferringtoControlsonaTabControlPage"></a>
+<p CLASS="heading5OrgHeading3h3">Referring to Controls on a Tab Control Page</p>
+<p CLASS="Textttext">The controls you place on a tab control page are part of the same collection as all controls on the form. For this reason, each control on a tab control page must have a name that's unique with respect to all other controls on the same form. You can refer to controls on a tab control page by using the same syntax used for controls on a form without a tab control. For example, a fully qualified reference to the HomePhone text box on the Personal Info tab of the Employees form in the Northwind sample application would read as follows.</p>
+<p CLASS="CodeTextct">Forms!Employees!HomePhone</p>
+<p CLASS="Textttext">Because each control on a form has its own <span CLASS="ElementNameeln">Controls</span> collection, you can also refer to the controls on a tab control as members of its <span CLASS="ElementNameeln">Controls</span> collection. For example, the following code <span CLASS="NewTermntrm">enumerates</span> (lists) all the controls on the tab control of the Employees form in the Northwind sample application. Because the EmployeeName text box in the header section of the form is not a member of this collection, it isn't listed.</p>
+<p CLASS="CodeTextct">Sub ListTabControlControls()<br>&nbsp;&nbsp;&nbsp;' Declare object variables.<br>&nbsp;&nbsp;&amp;nbspDim tabCtl As TabControl, ctl As Control<br>&nbsp;&nbsp;&nbsp;' Return reference to tab control on Employees form.<br>&nbsp;&nbsp;&amp;nbspSet tabCtl = Forms!Employees!TabCtl0<br>&nbsp;&nbsp;&nbsp;' List all controls on the tab control in the Debug window.<br>&nbsp;&nbsp;&amp;nbspFor Each ctl In tabCtl<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbspDebug.Print ctl.Name<br>&nbsp;&nbsp;&amp;nbspNext ctl<br>End Sub</p>
+<p CLASS="Textttext">Additionally, each page on a tab control has its own <span CLASS="ElementNameeln">Controls</span> collection. By using a page's <span CLASS="ElementNameeln">Controls</span> collection, you can refer to controls on each page. The following code enumerates the controls for each page of the tab control on the Employees form in the Northwind sample application.</p>
+<p CLASS="CodeTextct">Sub ListPageControls()<br>&nbsp;&nbsp;&nbsp;' Declare object variables.<br>&nbsp;&nbsp;&amp;nbspDim tabCtl As TabControl, pg As Page, ctl As Control, intPageNum As Integer<br>&nbsp;&nbsp;&nbsp;' Return reference to tab control on Employees form.<br>&nbsp;&nbsp;&amp;nbspSet tabCtl = Forms!Employees!TabCtl0<br>&nbsp;&nbsp;&nbsp;' List all controls for each page on the tab control in the Debug window.<br>&nbsp;&nbsp;&amp;nbspFor Each pg In tabCtl.Pages<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbspintPageNum = intPageNum + 1<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbspDebug.Print &quot;Page &quot; &amp; intPageNum &amp; &quot; Controls:&quot;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbspFor Each ctl In pg.Controls<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbspDebug.Print ctl.Name<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbspNext ctl<br>&nbsp;&nbsp;&amp;nbspDebug.Print<br>&nbsp;&nbsp;&amp;nbspNext pg<br>End Sub</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on referring to objects, see <a HREF="../chapters/ba01_5.htm#4ReferringtoObjectsandTheirValues" OnClick="SyncURL(&quot;chapters/ba01_5.htm&quot;)">&quot;Referring to Objects and Their Values&quot;</a> in Chapter 1, &quot;Creating an Application.&quot; For more information on working with objects and collections in Visual Basic, see Chapter 5, <a HREF="../chapters/ba05_1.htm" OnClick="SyncURL(&quot;chapters/ba05_1.htm&quot;)">&quot;Working with Objects and Collections.&quot;</a></p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="ba03_8.htm" OnClick="SyncURL(&quot;chapters/ba03_8.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

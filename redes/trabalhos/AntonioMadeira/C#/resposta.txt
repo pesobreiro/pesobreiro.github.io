@@ -1,0 +1,226 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+	<title>Programa??o de p?ginas para a Internet</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+<h1	align="center">Programa??o de p?ginas para a Internet</h1>
+<h2 align="center">P?gina principal</h2>
+
+<h2>Benvindo(a)</h2>
+<p>Este curso tem como objectivo o desenvolvimento de compet?ncias para a cria??o de p?ginas para a Internet</p>
+
+<h2>Actividades</h2>
+<div align="center">
+  <table border="1" cellspacing="1" width="75%">
+    <tr> 
+      <th>Dia</th>
+      <th>Actividade</th>
+      <th>Apresenta??es</th>
+    </tr>
+    <tr> 
+      <td>1</td>
+      <td>Apresenta??o. Introdu??o ?s redes. Modelo Osi. Protocolo TCP/IP e alguns 
+        exerc?cios pr?ticos</td>
+      <td><a href="apresentacoes/IntroRedes_e_TCPIP.pdf">.pdf</a></td>
+    </tr>
+    <tr> 
+      <td>2</td>
+      <td>Evolu??o da Internet. Browsers. Introdu??o HTML</td>
+      <td><a href="apresentacoes/IntroInternet.pdf">.pdf</a></td>
+    </tr>
+    <tr> 
+      <td>3</td>
+      <td>HTML. Formata??o. Defini??es Globais, Cabe?a, Corpo, Texto, Blocos, 
+        ...</td>
+      <td rowspan="3"> <a href="apresentacoes/html.pdf">.pdf</a><br> </td>
+    </tr>
+    <tr> 
+      <td>4</td>
+      <td>Tabelas e Formul?rios</td>
+    </tr>
+    <tr> 
+      <td>5</td>
+      <td>Frames e Style Sheets</td>
+    </tr>
+    <tr> 
+      <td>6</td>
+      <td>Exerc?cio <a href="exercicios/site/equipas.html">pr?tico</a> e constru??o 
+        de CSS's</td>
+      <td><a href="apresentacoes/pdf.ppt">.ppt</a></td>
+    </tr>
+    <tr> 
+      <td>7</td>
+      <td>E ao s?timo dia... <a href="apresentacoes/javascript.pdf">Javascript</a></td>
+      <td rowspan="4"><a href="apresentacoes/javascript.pdf">.pdf</a></td>
+    </tr>
+    <tr> 
+      <td>8</td>
+      <td>Fun??es, Fun??es pr?-definidas, Objectos, Arrays e a realiza??o de um 
+        exerc?cio pr?tico para controlar os valores introduzidos num FORM</td>
+    </tr>
+    <tr> 
+      <td>9</td>
+      <td>Event Handler, Navigator Objects e <a href="exercicios/site/javascript.html">constru??o</a> 
+        de uma p?gina com diversos elementos em javascript.</td>
+    </tr>
+    <tr> 
+      <td>10</td>
+      <td>Continua??o da aula anterior.</td>
+    </tr>
+    <tr> 
+      <td>11</td>
+      <td>Introdu??o ao Dynamic HTML(DHTML).</td>
+      <td rowspan="2"><a href="apresentacoes/dhtml.pdf">.pdf</a></td>
+    </tr>
+    <tr> 
+      <td>12</td>
+      <td>Object Model. DOM. Altera??o e adi??o de conte?do din?micamente. Exerc?cios 
+        Pr?ticos.</td>
+    </tr>
+    <tr> 
+      <td>13</td>
+      <td>Introdu??o ao Macromedia Flash. Timelines, Frames, Keyframes e Frames 
+        Sequences. Utiliza??o de Symbols e Cria??o Movie Clips</td>
+      <td rowspan="2"><a href="apresentacoes/flash.pdf">.pdf</a></td>
+    </tr>
+    <tr> 
+      <td>14</td>
+      <td>Introdu??o ao ActionScript. ClipEvents e MovieClips. <a href="flash/bug.html">Exerc&iacute;cio 
+        Pr&aacute;tico</a></td>
+    </tr>
+    <tr> 
+      <td>15</td>
+      <td>Introdu??o &agrave;s ASP's. Alguns Exemplos</td>
+      <td rowspan="3"><a href="apresentacoes/asp.pdf">.pdf</a></td>
+    </tr>
+    <tr> 
+      <td>16</td>
+      <td>Utiliza&ccedil;&atilde;o de FORMS, Sessions e Cookies</td>
+    </tr>
+    <tr> 
+      <td>17</td>
+      <td>ActiveX Data Objects. Liga&ccedil;&otilde;es a Bases de Dados. Conex&otilde;es 
+        DSN-Less e Conex&otilde;es DSN.</td>
+    </tr>
+    <tr> 
+      <td>18</td>
+      <td>Conceitos Fundamentais Bases de Dados. Constru&ccedil;&atilde;o de Bases 
+        de Dados. Tabelas. Tipos de Dados e Comandos b&aacute;sicos SQL(Select, 
+        Update, Delete e Insert).</td>
+      <td><a href="apresentacoes/BasesDados.pdf">.pdf</a></td>
+    </tr>
+    <tr> 
+      <td>19</td>
+      <td>Constru&ccedil;&atilde;o de uma Base de Dados em Access e exemplifica&ccedil;&atilde;o 
+        de selec&ccedil;&otilde;es, inser&ccedil;&otilde;es, actualiza&ccedil;&otilde;es 
+        e elimina&ccedil;&otilde;es de dados utilizando SQL, via ODBC.</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr> 
+      <td>20</td>
+      <td>Desenvolvimento do projecto</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr> 
+      <td>21</td>
+      <td>Algumas no??es sobre o tratamento gr?fico de imagens, utiliza??o do 
+        Fireworks para a constru??o de Menus e continua??o do desenvolvimento 
+        do projecto</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr> 
+      <td>22</td>
+      <td rowspan="4">Desenvolvimento do Projecto</td>
+      <td rowspan="4"><a href="trabalho/trabalhos.html">Projecto</a></td>
+    </tr>
+    <tr> 
+      <td>23</td>
+    </tr>
+    <tr> 
+      <td>24</td>
+    </tr>
+    <tr> 
+      <td>25</td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td>Introdu&ccedil;&atilde;o &agrave; .NET Framework, entrega dos trabalhos, 
+        considera&ccedil;&otilde;es finais e conclus&atilde;o do curso.</td>
+	  <td><a href="apresentacoes/dotnet.pdf">.pdf</a></td>		
+    </tr>
+  </table>
+</div>
+<br><hr>
+<h2>Exerc?cios</h2>
+<div align="center">
+  <table border="1" cellspacing="1" width="75%">
+    <tr> 
+      <td>HTML</td>
+      <td><a href="exercicios/html/index.html">Exemplos</a></td>
+    </tr>
+    <tr> 
+      <td>CSS</td>
+      <td><a href="exercicios/css/index.html">Exemplos</a></td>
+    </tr>
+    <tr> 
+      <td>Javascript</td>
+      <td><a href="exercicios/javascript/index.html">Exemplos</a></td>
+    </tr>
+    <tr> 
+      <td>DHTML</td>
+      <td><a href="exercicios/dhtml/index.html">Exemplos</a></td>
+    </tr>
+    <tr> 
+      <td>Flash</td>
+      <td><a href="exercicios/flash/index.html">Exemplos</a></td>
+    </tr>
+    <tr> 
+      <td>ASP</td>
+      <td><a href="asp/index.html">Exemplos</a></td>
+    </tr>
+
+  </table>
+</div>  
+<br>
+<hr>
+<h2>Documenta??o</h2>
+<p>Uma das primeiras vers?es da <a href="html/spec_html2.0/HTML-TimBernersLess.htm">especifica??o HTML</a>, desenvolvida por TIM-Berners LEE e um guia sobre a Internet<a href="http://www.cs.indiana.edu/docproject/zen/zen-1.0_toc.html"> <i>Zen and the Art of the Internet</i></a>.</p>
+<p>Para ler e consultar, a especifica??o html4.01 em formato <a href="html/spec_html4.01/cover.html">html</a> e para download em ficheiro <a href="html\html.zip">zip</a>.</p>
+<p>A especifica??o para Style Sheets em formato <a href="css/css2/cover.html">html</a> 
+  e para download em ficheiro <a href="css\css2.zip">zip</a>.</p>
+<p>A especifica&ccedil;&atilde;o Document Object Model 
+  (DOM) em formato <a href="dom/dom2-html/Overview.html">html</a> e para download em ficheiro <a href="dom/DOM2-HTML.zip">zip</a>.</p>
+<p>Para aprender Javascript aconselha-se a leitura da <a href="javascript/ClientGuideJS13/index.htm">especifica??o </a> e da <a href="javascript/ClientReferenceJS13/index.htm">refer?ncia</a>. Para download em ficheiro zip, a <a href="javascript/ClientGuideJS13.zip">especifica??o</a> e a <a href="javascript/ClientReferenceJS13.zip">refer?ncia</a>.</p>
+<p>A documenta??o fornecida pela microsoft para o desenvolvimento 
+  na Internet, englobando VBSCRIPT, JSCRIPT, HTML, CSS, 
+  DHTML e Object Model, pode ser obtida <a href="inetsdk/inetsdk.zip">aqui</a>.</p>
+<p>Para o estudo do ActionScript aconselha-se a leitura 
+  dos tutoriais inclu&iacute;dos no Help do Macromedia 
+  Flash. Recursos e Tutoriais sobre o ActionScript podem 
+  ser obtidos <a href="http://www.actionscripts.org">aqui</a>.</p>
+<p>Como introdu&ccedil;&atilde;o &agrave;s Active Server Pages aconselha-se a 
+  leitura do tutorial sobre ASP's em <a href="http://www.w3schools.com">www.w3schools.com</a>.</p>
+<p>Um bom tutorial sobre ADO pode ser obtido <a href="http://www.wdvl.com/Authoring/DB/ADO/">aqui</a>.</p>
+<p>Para o desenvolvimento de ASP's no Windows 95 e 98, recomenda-se a instala&ccedil;&atilde;o 
+  do <a href="asp/PWS.zip">PWS</a>(Personal Web Server).</p>
+<hr>
+<h2>Avalia??o</h2>
+<p>Trabalho pr?tico dever&aacute; ser desenvolvido em grupos de dois elementos e no seu desenvolvimento dever? ser utilizado:</p>
+<ul>
+	<li>Html (Obviamente)</li>
+	<li>Cascade Style Sheets</li>
+	<li>Javascript</li>	
+	<li>Flash</li>
+	<li>Active Server Pages</li>
+</ul>
+<p>Os temas e os grupos podem ser visualizados <a href="trabalho/trabalhos.html">aqui</a></p>
+<p></p>
+
+<hr>
+
+</body>
+</html>

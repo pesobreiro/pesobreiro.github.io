@@ -1,0 +1,193 @@
+<HTML>
+<HEAD>
+<TITLE>
+</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="java.htm">Previous</A>
+ | <A HREF="javclass.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT><BR><BR>
+<HR>
+
+<H1><A NAME="JavaArray"></A>
+<A NAME="1193137">
+ JavaArray
+</A></H1>
+<A NAME="1193151">
+A wrapped Java array accessed from within JavaScript code is a member of the type <CODE>JavaArray</CODE>.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193140">
+<I>Core object</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193142">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193144">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193146">
+JavaScript 1.1, NES 2.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193152">
+ Created by
+</A></H4>
+
+<A NAME="1193153">
+Any Java method which returns an array. In addition, you can create a <CODE>JavaArray</CODE> with an arbitrary data type using the <CODE>newInstance</CODE> method of the <CODE>Array</CODE> class:</A></P>
+<PRE><A NAME="1200452">public static Object newInstance(Class componentType,<br>&nbsp;&nbsp;&nbsp;int length)<br>&nbsp;&nbsp;&nbsp;throws NegativeArraySizeException</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193162">
+ Description
+</A></H4>
+
+<A NAME="1198224">
+The <CODE>JavaArray</CODE> object is an instance of a Java array that is created in or passed to JavaScript. <CODE>JavaArray</CODE> is a wrapper for the instance; all references to the array instance are made through the <CODE>JavaArray</CODE>.</A></P>
+<A NAME="1201330">
+You must specify a class object, such as one returned by <CODE>java.lang.Object.forName</CODE>, for the <CODE>componentType</CODE> parameter of <CODE>newInstance</CODE> when you use this method to create an array. You cannot use a <CODE>JavaClass</CODE> object for the <CODE>componentType</CODE> parameter.</A></P>
+<A NAME="1200750">
+Use zero-based indexes to access the elements in a <CODE>JavaArray</CODE> object, just as you do to access elements in an array in Java. For example:</A></P>
+<PRE><A NAME="1200760">var javaString = new java.lang.String("Hello world!");<br>var byteArray  = javaString.getBytes();<br>byteArray[0] // returns 72<br>byteArray[1] // returns 101</A></PRE><A NAME="1200981">
+Any Java data brought into JavaScript is converted to JavaScript data types. When the <CODE>JavaArray</CODE> is passed back to Java, the array is unwrapped and can be used by Java code. See the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A> for more information about data type conversions.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1199292">
+ Property Summary&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</A></H4>
+
+<A NAME="1199333">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1199295">
+<B>Property
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1199297">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1199323"><A HREF="javarray.htm#1198970"><CODE>length</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1199325">
+The number of elements in the Java array represented by <CODE>JavaArray</CODE>.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1199230">
+ Method Summary
+</A></H4>
+
+<A NAME="1199244">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1199233">
+<B>Method
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1199235">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1199241"><A HREF="javarray.htm#1198884"><CODE>toString</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1199619">
+Returns a string identifying the object as a <CODE>JavaArray</CODE>.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193209">
+ Examples
+</A></H4>
+
+<A NAME="1198266">
+<B>Example 1.</B> Instantiating a <CODE>JavaArray</CODE> in JavaScript.</A></P>
+<A NAME="1200128">
+In this example, the <CODE>JavaArray</CODE> <CODE>byteArray</CODE> is created by the <CODE>java.lang.String.getBytes</CODE> method, which returns an array.</A></P>
+<PRE><A NAME="1200102">var javaString = new java.lang.String("Hello world!");<br>var byteArray  = javaString.getBytes();</A></PRE><A NAME="1200089">
+<B>Example 2.</B> Instantiating a <CODE>JavaArray</CODE> in JavaScript with the <CODE>newInstance</CODE> method.</A></P>
+<A NAME="1198403">
+Use a class object returned by <CODE>java.lang.Class.forName</CODE> as the argument for the <CODE>newInstance</CODE> method, as shown in the following code:</A></P>
+<PRE><A NAME="1198387">var dataType = java.lang.Class.forName("java.lang.String")<br>var dogs = java.lang.reflect.Array.newInstance(dataType, 5)</A></PRE>
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1198970">
+length
+</A></H2>
+
+<A NAME="1198971">
+The number of elements in the Java array represented by the <CODE>JavaArray</CODE> object.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1198974">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1198979">
+<A HREF="javarray.htm#1193137"><CODE>JavaArray</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1198981">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1198983">
+JavaScript 1.1, NES 2.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1198988">
+ Description
+</A></H4>
+
+<A NAME="1199785">
+Unlike <CODE>Array.length</CODE>, <CODE>JavaArray.length</CODE> is a read-only property. You cannot change the value of the <CODE>JavaArray.length</CODE> property because Java arrays have a fixed number of elements.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1199908">
+ See also
+</A></H4>
+
+<A NAME="1199909">
+<A HREF="array.htm#1193439"><CODE>Array.length</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1198884">
+toString
+</A></H2>
+
+<A NAME="1198901">
+Returns a string representation of the JavaArray.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1198887">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1198892">
+<A HREF="javarray.htm#1193137"><CODE>JavaArray</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1198894">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1198896">
+JavaScript 1.1, NES 2.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1198904">
+ Parameters
+</A></H4>
+
+<A NAME="1199692">
+None</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1199693">
+ Description
+</A></H4>
+
+<A NAME="1199719">
+The <CODE>toString</CODE> method is inherited from the <CODE>Object</CODE> object and returns the following value:</A></P>
+<PRE><A NAME="1199720">[object JavaArray]</A></PRE>
+<HR>
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="java.htm">Previous</A>
+ | <A HREF="javclass.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT>
+<P ALIGN=right>
+<FONT SIZE=-2><I>Last Updated:  05/28/99  11:59:40</I></FONT>
+<P> <CENTER>Copyright (c) 1999
+<A HREF="http://home.netscape.com/misc/contact_info.html"
+TARGET=_top>Netscape Communications Corporation</A></FONT>
+</CENTER>
+<P>
+</BODY>
+</HTML>
+
+

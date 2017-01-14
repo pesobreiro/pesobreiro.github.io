@@ -1,0 +1,410 @@
+<HTML>
+<HEAD>
+<TITLE>Regular Expressions
+</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="expr.htm">Previous</A>
+ | <A HREF="stmtsov.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT><BR><BR>
+<HR>
+<A NAME="1008298">
+<P></A><CENTER><H2>Chapter 4<BR>
+<A NAME="1010922">
+Regular Expressions</A></H2></CENTER>
+<A NAME="1012348">
+Regular expressions are patterns used to match character combinations in strings. In JavaScript, regular expressions are also objects. These patterns are used with the exec and test methods of RegExp, and with the match, replace, search, and split methods of String. This chapter describes JavaScript regular expressions.</A></P>
+<B><A NAME="HeadRunIn;"></A>
+<A NAME="1012350">
+JavaScript 1.1 and earlier. </A></B><A NAME="1012351">
+Regular expressions are not available in JavaScript&nbsp;1.1 and earlier.</A></P>
+<A NAME="1009793">
+This chapter contains the following sections:</A></P>
+<ul><LI><A NAME="1009794">
+<A HREF="regexp.htm#1008311">Creating a Regular Expression</A>
+</A></LI><LI><A NAME="1009795">
+<A HREF="regexp.htm#1010689">Writing a Regular Expression Pattern</A>
+</A></LI><LI><A NAME="1009885">
+<A HREF="regexp.htm#1008506">Working with Regular Expressions</A>
+</A></LI><LI><A NAME="1009891">
+<A HREF="regexp.htm#1008694">Examples</A>
+</A></LI></ul>
+<HR><H2><A NAME="Creating a Regular Expression"></A>
+<A NAME="1008311">
+ Creating a Regular Expression
+</A></H2><A NAME="1008312">
+You construct a regular expression in one of two ways:</A></P>
+<ul><P><LI><A NAME="1008313">
+Using an object initializer, as follows:</A></LI>
+<PRE><A NAME="1008314">re = /ab+c/</A></PRE></P><A NAME="1008315">
+Object initializers provide compilation of the regular expression when the script is evaluated. When the regular expression will remain constant, use this for better performance. Object initializers are discussed in <A HREF="obj.htm#1008330">"Using Object Initializers" on page&nbsp;101</A>.</A><P><P><LI><A NAME="1008316">
+Calling the constructor function of the <CODE>RegExp</CODE> object, as follows:</A></LI>
+<PRE><A NAME="1008317">re = new RegExp("ab+c")</A></PRE></P><A NAME="1010687">
+Using the constructor function provides runtime compilation of the regular expression. Use the constructor function when you know the regular expression pattern will be changing, or you don't know the pattern and are getting it from another source, such as user input. Once you have a defined regular expression, if the regular expression is used throughout the script, and if its source changes, you can use the <CODE>compile</CODE> method to compile a new regular expression for efficient reuse.</A><P></ul>
+<HR><H2><A NAME="Writing a Regular Expression Pattern"></A>
+<A NAME="1010689">
+ Writing a Regular Expression Pattern
+</A></H2><A NAME="1010690">
+A regular expression pattern is composed of simple characters, such as <CODE>/abc/</CODE>, or a combination of simple and special characters, such as <CODE>/ab*c/</CODE> or <CODE>/Chapter&nbsp;(\d+)\.\d*/</CODE>. The last example includes parentheses which are used as a memory device. The match made with this part of the pattern is remembered for later use, as described in <A HREF="regexp.htm#1008659">"Using Parenthesized Substring Matches" on page&nbsp;73</A>.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1008325">
+ Using Simple Patterns
+</A></H3>
+
+<A NAME="1008326">
+Simple patterns are constructed of characters for which you want to find a direct match. For example, the pattern <CODE>/abc/</CODE> matches character combinations in strings only when exactly the characters 'abc' occur together and in that order. Such a match would succeed in the strings "Hi, do you know your abc's?" and "The latest airplane designs evolved from slabcraft." In both cases the match is with the substring 'abc'. There is no match in the string "Grab crab" because it does not contain the substring 'abc'.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1008327">
+ Using Special Characters
+</A></H3>
+
+<A NAME="1008328">
+When the search for a match requires something more than a direct match, such as finding one or more b's, or finding whitespace, the pattern includes special characters. For example, the pattern <CODE>/ab*c/</CODE> matches any character combination in which a single 'a' is followed by zero or more 'b's (<CODE>*</CODE> means 0 or more occurrences of the preceding character) and then immediately followed by 'c'. In the string "cbbabbbbcdebc," the pattern matches the substring 'abbbbc'.</A></P>
+<A NAME="1008332">
+The following table provides a complete list and description of the special characters that can be used in regular expressions.</A></P>
+<A NAME="1009645">
+<P><B><A NAME="1008339">
+Table 4.1&nbsp;Special characters in regular expressions. &nbsp;</A></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1008343">
+<B>Character
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1008345">
+<B>Meaning
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008347">\</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008349">
+Either of the following:</A></P><ul></P><LI><A NAME="1010071">
+For characters that are usually treated literally, indicates that the next character is special and not to be interpreted literally.</A></ul><ul></P><A NAME="1008350">
+For example, <CODE>/b/</CODE> matches the character 'b'. By placing a backslash in front of b, that is by using <CODE>/\b/</CODE>, the character becomes special to mean match a word boundary.</A></ul><ul></P><LI><A NAME="1010006">
+For characters that are usually treated specially, indicates that the next character is not special and should be interpreted literally.</A></ul><ul></P><A NAME="1010007">
+For example, <CODE>*</CODE> is a special character that means 0 or more occurrences of the preceding character should be matched; for example, <CODE>/a*/</CODE> means match 0 or more a's<CODE>.</CODE> To match <CODE>*</CODE> literally, precede the it with a backslash; for example, <CODE>/a\*/</CODE> matches 'a*'.</A></ul>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008355">^</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008357">
+Matches beginning of input or line.</A></P><P><A NAME="1010069">
+</A></P><P><A NAME="1010070">
+For example, <CODE>/^A/</CODE> does not match the 'A' in "an A," but does match it in "An A."</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008360">$</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008362">
+Matches end of input or line.</A></P><P><A NAME="1010068">
+</A></P><P><A NAME="1008363">
+For example, <CODE>/t$/</CODE> does not match the 't' in "eater", but does match it in "eat"</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008365">*</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008367">
+Matches the preceding character 0 or more times.</A></P><P><A NAME="1010078">
+</A></P><P><A NAME="1008368">
+For example, <CODE>/bo*/</CODE> matches 'boooo' in "A ghost booooed" and 'b' in "A bird warbled", but nothing in "A goat grunted".</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008370">+</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008372">
+Matches the preceding character 1 or more times. Equivalent to <CODE>{1,}</CODE>.</A></P><P><A NAME="1010079">
+</A></P><P><A NAME="1008373">
+For example, <CODE>/a+/</CODE> matches the 'a' in "candy" and all the a's in "caaaaaaandy."</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008375">?</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008377">
+Matches the preceding character 0 or 1 time.</A></P><P><A NAME="1010080">
+</A></P><P><A NAME="1008378">
+For example, <CODE>/e?le?/</CODE> matches the 'el' in "angel" and the 'le' in "angle."</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008380">.</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008382">
+(The decimal point) matches any single character except the newline character.</A></P><P><A NAME="1010085">
+</A></P><P><A NAME="1008383">
+For example, <CODE>/.n/</CODE> matches 'an' and 'on' in "nay, an apple is on the tree", but not 'nay'.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008385">(x)</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008387">
+Matches 'x' and remembers the match.</A></P><P><A NAME="1010086">
+</A></P><P><A NAME="1008388">
+For example, <CODE>/(foo)/</CODE> matches and remembers 'foo' in "foo bar." The matched substring can be recalled from the resulting array's elements <CODE>[1]</CODE>, ..., <CODE>[n]</CODE>, or from the predefined <CODE>RegExp</CODE> object's properties <CODE>$1</CODE><I>, ..., </I><CODE>$9</CODE>.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008390">x|y</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008392">
+Matches either 'x' or 'y'.</A></P><P><A NAME="1010087">
+</A></P><P><A NAME="1008393">
+For example, <CODE>/green|red/</CODE> matches 'green' in "green apple" and 'red' in "red apple."</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008395">{n}</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008397">
+Where <CODE>n</CODE> is a positive integer. Matches exactly <CODE>n</CODE> occurrences of the preceding character.</A></P><P><A NAME="1010088">
+</A></P><P><A NAME="1008398">
+For example, <CODE>/a{2}/</CODE> doesn't match the 'a' in "candy," but it matches all of the a's in "caandy," and the first two a's in "caaandy."</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008400">{n,}</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008402">
+Where <CODE>n</CODE> is a positive integer. Matches at least <CODE>n</CODE> occurrences of the preceding character.</A></P><P><A NAME="1010089">
+</A></P><P><A NAME="1008403">
+For example, <CODE>/a{2,}</CODE> doesn't match the 'a' in "candy", but matches all of the a's in "caandy" and in "caaaaaaandy."</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008405">{n,m}</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008407">
+Where <CODE>n</CODE> and <CODE>m</CODE> are positive integers. Matches at least <CODE>n</CODE> and at most <CODE>m</CODE> occurrences of the preceding character.</A></P><P><A NAME="1010090">
+</A></P><P><A NAME="1008408">
+For example, <CODE>/a{1,3}/</CODE> matches nothing in "cndy", the 'a' in "candy," the first two a's in "caandy," and the first three a's in "caaaaaaandy" Notice that when matching "caaaaaaandy", the match is "aaa", even though the original string had more a's in it.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008410">[xyz]</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008412">
+A character set. Matches any one of the enclosed characters. You can specify a range of characters by using a hyphen.</A></P><P><A NAME="1010091">
+</A></P><P><A NAME="1008413">
+For example, <CODE>[abcd]</CODE> is the same as <CODE>[a-d]</CODE>. They match the 'b' in "brisket" and the 'c' in "ache"<CODE>.</CODE></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008415">[^xyz]</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008417">
+A negated or complemented character set. That is, it matches anything that is not enclosed in the brackets. You can specify a range of characters by using a hyphen.</A></P><P><A NAME="1010092">
+</A></P><P><A NAME="1008418">
+For example, <CODE>[^abc]</CODE> is the same as <CODE>[^a-c]</CODE>. They initially match 'r' in "brisket" and 'h' in "chop."</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008420">[\b]</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008422">
+Matches a backspace. (Not to be confused with <CODE>\b</CODE>.)</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008424">\b</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008426">
+Matches a word boundary, such as a space or a newline character. (Not to be confused with <CODE>[\b]</CODE>.)</A></P><P><A NAME="1010093">
+</A></P><P><A NAME="1008427">
+For example, <CODE>/\bn\w/</CODE> matches the 'no' in "noonday";<CODE>/\wy\b/</CODE> matches the 'ly' in "possibly yesterday."</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008429">\B</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008431">
+Matches a non-word boundary.</A></P><P><A NAME="1010094">
+</A></P><P><A NAME="1008432">
+For example, <CODE>/\w\Bn/</CODE> matches 'on' in "noonday", and <CODE>/y\B\w/</CODE> matches 'ye' in "possibly yesterday."</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008434">\c<I>X</I></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008436">
+Where <I>X</I> is a control character. Matches a control character in a string.</A></P><P><A NAME="1010095">
+</A></P><P><A NAME="1008437">
+For example, <CODE>/\cM/</CODE> matches control-M in a string.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008439">\d</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008441">
+Matches a digit character. Equivalent to <CODE>[0-9]</CODE>.</A></P><P><A NAME="1010115">
+</A></P><P><A NAME="1008442">
+For example, <CODE>/\d/</CODE> or <CODE>/[0-9]/</CODE> matches '2' in "B2 is the suite number."</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008444">\D</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008446">
+Matches any non-digit character. Equivalent to <CODE>[^0-9]</CODE>.</A></P><P><A NAME="1010116">
+</A></P><P><A NAME="1008447">
+For example, <CODE>/\D/</CODE> or <CODE>/[^0-9]/</CODE> matches 'B' in "B2 is the suite number."</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008449">\f</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008451">
+Matches a form-feed.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008453">\n</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008455">
+Matches a linefeed.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008457">\r</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008459">
+Matches a carriage return.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008461">\s</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008463">
+Matches a single white space character, including space, tab, form feed, line feed. Equivalent to <CODE>[ \f\n\r\t\v]</CODE>.</A></P><P><A NAME="1010117">
+</A></P><P><A NAME="1008464">
+For example, <CODE>/\s\w*/</CODE> matches ' bar' in "foo bar."</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008466">\S</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008468">
+Matches a single character other than white space. Equivalent to <CODE>[^ \f\n\r\t\v]</CODE>.</A></P><P><A NAME="1010120">
+</A></P><P><A NAME="1008469">
+For example, <CODE>/\S\w*/</CODE> matches 'foo' in "foo bar."</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008471">\t</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008473">
+Matches a tab</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008475">\v</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008477">
+Matches a vertical tab.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008479">\w</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008481">
+Matches any alphanumeric character including the underscore. Equivalent to <CODE>[A-Za-z0-9_]</CODE>.</A></P><P><A NAME="1010121">
+</A></P><P><A NAME="1008482">
+For example, <CODE>/\w/</CODE> matches 'a' in "apple," '5' in "$5.28," and '3' in "3D."</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008484">\W </A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008486">
+Matches any non-word character. Equivalent to <CODE>[^A-Za-z0-9_]</CODE>.</A></P><P><A NAME="1010122">
+</A></P><P><A NAME="1008487">
+For example, <CODE>/\W/</CODE> or <CODE>/[^$A-Za-z0-9_]/</CODE> matches '%' in "50%."</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008489">\<I>n</I></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008491">
+Where <I>n</I> is a positive integer. A back reference to the last substring matching the <I>n</I> parenthetical in the regular expression (counting left parentheses).</A></P><P><A NAME="1010123">
+</A></P><P><A NAME="1008492">
+For example, <CODE>/apple(,)\sorange\1/</CODE> matches 'apple, orange,' in "apple, orange, cherry, peach." A more complete example follows this table.</A></P><P><A NAME="1010133">
+</A></P><P><A NAME="1008493">
+<B>Note:</B> If the number of left parentheses is less than the number specified in \<I>n</I>, the \<I>n</I> is taken as an octal escape as described in the next row.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1008495">\o<I>octal<br></I>\x<I>hex</I></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008497">
+Where <CODE>\o</CODE><I><CODE>octal</CODE></I> is an octal escape value or <CODE>\x</CODE><I><CODE>hex</CODE></I> is a hexadecimal escape value. Allows you to embed ASCII codes into regular expressions.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1008498">
+ Using Parentheses
+</A></H3>
+
+<A NAME="1008499">
+Parentheses around any part of the regular expression pattern cause that part of the matched substring to be remembered. Once remembered, the substring can be recalled for other use, as described in <A HREF="regexp.htm#1008659">"Using Parenthesized Substring Matches" on page&nbsp;73</A>.</A></P>
+<A NAME="1008503">
+For example, the pattern <CODE>/Chapter&nbsp;(\d+)\.\d*/</CODE> illustrates additional escaped and special characters and indicates that part of the pattern should be remembered. It matches precisely the characters 'Chapter ' followed by one or more numeric characters (<CODE>\d</CODE> means any numeric character and <CODE>+</CODE> means 1 or more times), followed by a decimal point (which in itself is a special character; preceding the decimal point with \ means the pattern must look for the literal character '.'), followed by any numeric character 0 or more times (<CODE>\d</CODE> means numeric character, <CODE>*</CODE> means 0 or more times). In addition, parentheses are used to remember the first matched numeric characters.</A></P>
+<A NAME="1008504">
+This pattern is found in "Open Chapter 4.3, paragraph 6" and '4' is remembered. The pattern is not found in "Chapter 3 and 4", because that string does not have a period after the '3'.</A></P>
+
+<HR><H2><A NAME="Working with Regular Expressions"></A>
+<A NAME="1008506">
+ Working with Regular Expressions
+</A></H2><A NAME="1008507">
+Regular expressions are used with the <CODE>RegExp</CODE> methods <CODE>test</CODE> and <CODE>exec</CODE> and with the <CODE>String</CODE> methods <CODE>match</CODE>, <CODE>replace</CODE>, <CODE>search</CODE>, and <CODE>split</CODE>.These methods are explained in detail in the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsref/index.htm" TARGET="_top"><I>Client-Side JavaScript Reference</I></A>.</A></P>
+<A NAME="1012481">
+<P><B><A NAME="1012488">
+Table 4.2&nbsp;Methods that use regular expressions</A></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1012492">
+<B>Method
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1012494">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1012526">exec</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1012528">
+A <CODE>RegExp</CODE> method that executes a search for a match in a string. It returns an array of information. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1012530">test</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1012532">
+A <CODE>RegExp</CODE> method that tests for a match in a string. It returns true or false.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1012534">match</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1012536">
+A <CODE>String</CODE> method that executes a search for a match in a string. It returns an array of information or null on a mismatch.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1012538">search</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1012540">
+A <CODE>String</CODE> method that tests for a match in a string. It returns the index of the match, or -1 if the search fails.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1012572">replace</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1012574">
+A <CODE>String</CODE> method that executes a search for a match in a string, and replaces the matched substring with a replacement substring.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1012568">split</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1012570">
+A <CODE>String</CODE> method that uses a regular expression or a fixed string to break a string into an array of substrings.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+<A NAME="1008538">
+When you want to know whether a pattern is found in a string, use the <CODE>test</CODE> or <CODE>search</CODE> method; for more information (but slower execution) use the <CODE>exec</CODE> or <CODE>match</CODE> methods. If you use <CODE>exec</CODE> or <CODE>match</CODE> and if the match succeeds, these methods return an array and update properties of the associated regular expression object and also of the predefined regular expression object, <CODE>RegExp</CODE>. If the match fails, the <CODE>exec</CODE> method returns <CODE>null</CODE> (which converts to <CODE>false</CODE>).</A></P>
+<A NAME="1008539">
+In the following example, the script uses the <CODE>exec</CODE> method to find a match in a string.</A></P>
+<PRE><A NAME="1008540">&lt;SCRIPT LANGUAGE="JavaScript1.2"&gt;<br>myRe=/d(b+)d/g;<br>myArray = myRe.exec("cdbbdbsbz");<br>&lt;/SCRIPT&gt;</A></PRE><A NAME="1008541">
+If you do not need to access the properties of the regular expression, an alternative way of creating <CODE>myArray</CODE> is with this script:</A></P>
+<PRE><A NAME="1008542">&lt;SCRIPT LANGUAGE="JavaScript1.2"&gt;<br>myArray = /d(b+)d/g.exec("cdbbdbsbz");<br>&lt;/SCRIPT&gt;</A></PRE><A NAME="1008543">
+If you want to be able to recompile the regular expression, yet another alternative is this script:</A></P>
+<PRE><A NAME="1008544">&lt;SCRIPT LANGUAGE="JavaScript1.2"&gt;<br>myRe= new RegExp ("d(b+)d", "g:);<br>myArray = myRe.exec("cdbbdbsbz");<br>&lt;/SCRIPT&gt;</A></PRE><A NAME="1009660">
+With these scripts, the match succeeds and returns the array and updates the properties shown in the following table.</A></P>
+<A NAME="1009763">
+<P><B><A NAME="1009670">
+Table 4.3&nbsp;Results of regular expression execution. &nbsp;</A></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1009678">
+<B>Object
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1009680">
+<B>Property or 
+index
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1009682">
+<B>Description
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1009684">
+<B>In this example
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left COLSPAN=1 ROWSPAN=4><PRE><A NAME="1009686">myArray</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1009688"></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1009690">
+The matched string and all remembered substrings</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1009692">
+<CODE>["dbbd", "bb"]</CODE></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1009696">index</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1009698">
+The 0-based index of the match in the input string</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1009700">
+<CODE>1</CODE></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1009704">input</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1009706">
+The original string</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1009708">
+<CODE>"cdbbdbsbz"</CODE></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1009712">[0]</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1009714">
+The last matched characters</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1009716">
+<CODE>"dbbd"</CODE></A></P>
+<TR><TD VALIGN=baseline ALIGN=left COLSPAN=1 ROWSPAN=2><PRE><A NAME="1009718">myRe</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1009720">lastIndex</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1009722">
+The index at which to start the next match. (This property is set only if the regular expression uses the <CODE>g</CODE> option, described in <A HREF="regexp.htm#1008681">"Executing a Global Search and Ignoring Case" on page&nbsp;74</A>.)</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1009727">
+<CODE>5</CODE></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1009731">source</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1009733">
+The text of the pattern</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1009735">
+<CODE>"d(b+)d"</CODE></A></P>
+<TR><TD VALIGN=baseline ALIGN=left COLSPAN=1 ROWSPAN=3><PRE><A NAME="1009737">RegExp</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1009739">lastMatch</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1009741">
+The last matched characters</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1009743">
+<CODE>"dbbd"</CODE></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1009747">leftContext</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1009749">
+The substring preceding the most recent match</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1009751">
+<CODE>"c"</CODE></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1009755">rightContext</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1009757">
+The substring following the most recent match</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1009759">
+<CODE>"bsbz"</CODE></A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+<A NAME="1009760">
+<CODE>RegExp.leftContext</CODE> and <CODE>RegExp.rightContext</CODE> can be computed from the other values. <CODE>RegExp.leftContext</CODE> is equivalent to:</A></P>
+<PRE><A NAME="1008646">myArray.input.substring(0, myArray.index)</A></PRE><A NAME="1008647">
+and <CODE>RegExp.rightContext</CODE> is equivalent to:</A></P>
+<PRE><A NAME="1008648">myArray.input.substring(myArray.index + myArray[0].length)</A></PRE><A NAME="1008649">
+As shown in the second form of this example, you can use the a regular expression created with an object initializer without assigning it to a variable. If you do, however, every occurrence is a new regular expression. For this reason, if you use this form without assigning it to a variable, you cannot subsequently access the properties of that regular expression. For example, assume you have this script:</A></P>
+<PRE><A NAME="1008650">&lt;SCRIPT LANGUAGE="JavaScript1.2"&gt;<br>myRe=/d(b+)d/g;<br>myArray = myRe.exec("cdbbdbsbz");<br>document.writeln("The value of lastIndex is " + myRe.lastIndex);<br>&lt;/SCRIPT&gt;</A></PRE><A NAME="1008651">
+This script displays:</A></P>
+<P><A NAME="1008652">
+The value of lastIndex is 5
+</P></A>
+
+<A NAME="1008653">
+However, if you have this script:</A></P>
+<PRE><A NAME="1008654">&lt;SCRIPT LANGUAGE="JavaScript1.2"&gt;<br>myArray = /d(b+)d/g.exec("cdbbdbsbz");<br>document.writeln("The value of lastIndex is " + /d(b+)d/g.lastIndex);<br>&lt;/SCRIPT&gt;</A></PRE><A NAME="1008655">
+It displays:</A></P>
+<P><A NAME="1008656">
+The value of lastIndex is 0
+</P></A>
+
+<A NAME="1008657">
+The occurrences of <CODE>/d(b+)d/g</CODE> in the two statements are different regular expression objects and hence have different values for their <CODE>lastIndex</CODE> property. If you need to access the properties of a regular expression created with an object initializer, you should first assign it to a variable.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1008659">
+ Using Parenthesized Substring Matches
+</A></H3>
+
+<A NAME="1008660">
+Including parentheses in a regular expression pattern causes the corresponding submatch to be remembered. For example, <CODE>/a(b)c/</CODE> matches the characters 'abc' and remembers 'b'. To recall these parenthesized substring matches, use the <CODE>RegExp</CODE> properties <CODE>$1</CODE>, ..., <CODE>$9</CODE> or the <CODE>Array</CODE> elements <CODE>[1]</CODE>, ..., <CODE>[n]</CODE>.</A></P>
+<A NAME="1008661">
+The number of possible parenthesized substrings is unlimited. The predefined <CODE>RegExp</CODE> object holds up to the last nine and the returned array holds all that were found. The following examples illustrate how to use parenthesized substring matches.</A></P>
+<B><A NAME="HeadRunIn;"></A>
+<A NAME="1008662">
+Example 1. </A></B><A NAME="1008663">
+The following script uses the <CODE>replace</CODE> method to switch the words in the string. For the replacement text, the script uses the values of the <CODE>$1</CODE> and <CODE>$2</CODE> properties.</A></P>
+<PRE><A NAME="1008664">&lt;SCRIPT LANGUAGE="JavaScript1.2"&gt;<br>re = /(\w+)\s(\w+)/;<br>str = "John Smith";<br>newstr = str.replace(re, "$2, $1");<br>document.write(newstr)<br>&lt;/SCRIPT&gt;</A></PRE><A NAME="1008665">
+This prints "Smith, John".</A></P>
+<B><A NAME="HeadRunIn;"></A>
+<A NAME="1008666">
+Example 2. </A></B><A NAME="1008667">
+In the following example, <CODE>RegExp.input</CODE> is set by the Change event. In the <CODE>getInfo</CODE> function, the <CODE>exec</CODE> method uses the value of <CODE>RegExp.input</CODE> as its argument. Note that <CODE>RegExp</CODE> must be prepended to its <CODE>$</CODE> properties (because they appear outside the replacement string). (Example 3 is a more efficient, though possibly more cryptic, way to accomplish the same thing.)</A></P>
+<PRE><A NAME="1008668">&lt;HTML&gt;</A></PRE><PRE><A NAME="1008669">&lt;SCRIPT LANGUAGE="JavaScript1.2"&gt;<br>function getInfo(){<br>&nbsp;&nbsp;&nbsp;re = /(\w+)\s(\d+)/<br>&nbsp;&nbsp;&nbsp;re.exec();<br>&nbsp;&nbsp;&nbsp;window.alert(RegExp.$1 + ", your age is " + RegExp.$2);<br>}<br>&lt;/SCRIPT&gt;</A></PRE><PRE><A NAME="1008670">Enter your first name and your age, and then press Enter.</A></PRE><PRE><A NAME="1008671">&lt;FORM&gt;<br>&lt;INPUT TYPE="text" NAME="NameAge" onChange="getInfo(this);"&gt;<br>&lt;/FORM&gt;</A></PRE><PRE><A NAME="1008672">&lt;/HTML&gt;</A></PRE><B><A NAME="HeadRunIn;"></A>
+<A NAME="1008673">
+Example 3. </A></B><A NAME="1008674">
+The following example is similar to Example 2. Instead of using the <CODE>RegExp.$1</CODE> and <CODE>RegExp.$2</CODE>, this example creates an array and uses <CODE>a[1]</CODE> and <CODE>a[2]</CODE>. It also uses the shortcut notation for using the <CODE>exec</CODE> method.</A></P>
+<PRE><A NAME="1008675">&lt;HTML&gt;</A></PRE><PRE><A NAME="1008676">&lt;SCRIPT LANGUAGE="JavaScript1.2"&gt;<br>function getInfo(){<br>&nbsp;&nbsp;&nbsp;a = /(\w+)\s(\d+)/();<br>&nbsp;&nbsp;&nbsp;window.alert(a[1] + ", your age is " + a[2]);<br>}<br>&lt;/SCRIPT&gt;</A></PRE><PRE><A NAME="1008677">Enter your first name and your age, and then press Enter.</A></PRE><PRE><A NAME="1008678">&lt;FORM&gt;<br>&lt;INPUT TYPE="text" NAME="NameAge" onChange="getInfo(this);"&gt;<br>&lt;/FORM&gt;</A></PRE><PRE><A NAME="1008679">&lt;/HTML&gt;</A></PRE>
+<H3><A NAME="Head2;"></A>
+<A NAME="1008681">
+ Executing a Global Search and Ignoring Case
+</A></H3>
+
+<A NAME="1008682">
+Regular expressions have two optional flags that allow for global and case insensitive searching. To indicate a global search, use the <CODE>g</CODE> flag. To indicate a case insensitive search, use the <CODE>i</CODE> flag. These flags can be used separately or together in either order, and are included as part of the regular expression.</A></P>
+<A NAME="1008683">
+To include a flag with the regular expression, use this syntax:</A></P>
+<PRE><A NAME="1008684">re = /pattern/[g|i|gi]<br>re = new RegExp("pattern", ['g'|'i'|'gi'])</A></PRE><A NAME="1008685">
+Note that the flags, <CODE>i</CODE> and <CODE>g</CODE>, are an integral part of a regular expression. They cannot be added or removed later.</A></P>
+<A NAME="1008686">
+For example, <CODE>re&nbsp;=&nbsp;/\w+\s/g</CODE> creates a regular expression that looks for one or more characters followed by a space, and it looks for this combination throughout the string.</A></P>
+<PRE><A NAME="1008687">&lt;SCRIPT LANGUAGE="JavaScript1.2"&gt;<br>re = /\w+\s/g;<br>str = "fee fi fo fum";<br>myArray = str.match(re);<br>document.write(myArray);<br>&lt;/SCRIPT&gt;</A></PRE><A NAME="1008688">
+This displays ["fee ", "fi ", "fo "]. In this example, you could replace the line:</A></P>
+<PRE><A NAME="1008689">re = /\w+\s/g;</A></PRE><A NAME="1008690">
+with:</A></P>
+<PRE><A NAME="1008691">re = new RegExp("\\w+\\s", "g");</A></PRE><A NAME="1008692">
+and get the same result.</A></P>
+
+<HR><H2><A NAME="Examples"></A>
+<A NAME="1008694">
+ Examples
+</A></H2><A NAME="1010172">
+The following examples show some uses of regular expressions.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1008695">
+ Changing the Order in an Input String
+</A></H3>
+
+<A NAME="1008696">
+The following example illustrates the formation of regular expressions and the use of <CODE>string.split()</CODE> and <CODE>string.replace()</CODE>. It cleans a roughly formatted input string containing names (first name first) separated by blanks, tabs and exactly one semicolon. Finally, it reverses the name order (last name first) and sorts the list.</A></P>
+<PRE><A NAME="1008699">&lt;SCRIPT LANGUAGE="JavaScript1.2"&gt;</A></PRE><PRE><A NAME="1008700">// The name string contains multiple spaces and tabs,<br>// and may have multiple spaces between first and last names.<br>names = new String ( "Harry Trump ;Fred Barney; Helen Rigby ;\<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Bill Abel ;Chris Hand ")</A></PRE><PRE><A NAME="1008701">document.write ("---------- Original String" + "&lt;BR&gt;" + "&lt;BR&gt;")<br>document.write (names + "&lt;BR&gt;" + "&lt;BR&gt;")</A></PRE><PRE><A NAME="1008702">// Prepare two regular expression patterns and array storage.<br>// Split the string into array elements.</A></PRE><PRE><A NAME="1008703">// pattern: possible white space then semicolon then possible white space<br>pattern = /\s*;\s*/</A></PRE><PRE><A NAME="1008704">// Break the string into pieces separated by the pattern above and<br>// and store the pieces in an array called nameList<br>nameList = names.split (pattern)</A></PRE><PRE><A NAME="1008705">// new pattern: one or more characters then spaces then characters.<br>// Use parentheses to "memorize" portions of the pattern.<br>// The memorized portions are referred to later.<br>pattern = /(\w+)\s+(\w+)/</A></PRE><PRE><A NAME="1008706">// New array for holding names being processed.<br>bySurnameList = new Array;</A></PRE><PRE><A NAME="1008707">// Display the name array and populate the new array<br>// with comma-separated names, last first.<br>//<br>// The replace method removes anything matching the pattern<br>// and replaces it with the memorized string--second memorized portion<br>// followed by comma space followed by first memorized portion.<br>// <br>// The variables $1 and $2 refer to the portions<br>// memorized while matching the pattern.</A></PRE><PRE><A NAME="1008708">document.write ("---------- After Split by Regular Expression" + "&lt;BR&gt;")<br>for ( i = 0; i &lt; nameList.length; i++) {<br>&nbsp;&nbsp;&nbsp;document.write (nameList[i] + "&lt;BR&gt;")<br>&nbsp;&nbsp;&nbsp;bySurnameList[i] = nameList[i].replace (pattern, "$2, $1")<br>}</A></PRE><PRE><A NAME="1008709">// Display the new array.<br>document.write ("---------- Names Reversed" + "&lt;BR&gt;")<br>for ( i = 0; i &lt; bySurnameList.length; i++) {<br>&nbsp;&nbsp;&nbsp;document.write (bySurnameList[i] + "&lt;BR&gt;")<br>}</A></PRE><PRE><A NAME="1008710">// Sort by last name, then display the sorted array.<br>bySurnameList.sort()<br>document.write ("---------- Sorted" + "&lt;BR&gt;")<br>for ( i = 0; i &lt; bySurnameList.length; i++) {<br>&nbsp;&nbsp;&nbsp;document.write (bySurnameList[i] + "&lt;BR&gt;")<br>}</A></PRE><PRE><A NAME="1008711">document.write ("---------- End" + "&lt;BR&gt;")</A></PRE><PRE><A NAME="1008712">&lt;/SCRIPT&gt;</A></PRE>
+<H3><A NAME="Head2;"></A>
+<A NAME="1008713">
+ Using Special Characters to Verify Input
+</A></H3>
+
+<A NAME="1008714">
+In the following example, a user enters a phone number. When the user presses Enter, the script checks the validity of the number. If the number is valid (matches the character sequence specified by the regular expression), the script posts a window thanking the user and confirming the number. If the number is invalid, the script posts a window informing the user that the phone number is not valid.</A></P>
+<A NAME="1008715">
+The regular expression looks for zero or one open parenthesis <CODE>\(?</CODE>, followed by three digits <CODE>\d{3}</CODE>, followed by zero or one close parenthesis <CODE>\)?</CODE>, followed by one dash, forward slash, or decimal point and when found, remember the character <CODE>([-\/\.])</CODE>, followed by three digits <CODE>\d{3}</CODE>, followed by the remembered match of a dash, forward slash, or decimal point <CODE>\1</CODE>, followed by four digits <CODE>\d{4}</CODE>.</A></P>
+<A NAME="1008716">
+The Change event activated when the user presses Enter sets the value of <CODE>RegExp.input</CODE>.</A></P>
+<PRE><A NAME="1008717">&lt;HTML&gt;<br>&lt;SCRIPT LANGUAGE = "JavaScript1.2"&gt;</A></PRE><PRE><A NAME="1008718">re = /\(?\d{3}\)?([-\/\.])\d{3}\1\d{4}/</A></PRE><PRE><A NAME="1008719">function testInfo() {<br>&nbsp;&nbsp;&nbsp;OK = re.exec()<br>&nbsp;&nbsp;&nbsp;if (!OK)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window.alert (RegExp.input + <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" isn't a phone number with area code!")<br>&nbsp;&nbsp;&nbsp;else<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window.alert ("Thanks, your phone number is " + OK[0])<br>}</A></PRE><PRE><A NAME="1008720">&lt;/SCRIPT&gt;</A></PRE><PRE><A NAME="1008721">Enter your phone number (with area code) and then press Enter.<br>&lt;FORM&gt; <br>&lt;INPUT TYPE="text" NAME="Phone" onChange="testInfo(this);"&gt;<br>&lt;/FORM&gt;</A></PRE><PRE><A NAME="1008722">&lt;/HTML&gt;</A></PRE>
+<HR>
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="expr.htm">Previous</A>
+ | <A HREF="stmtsov.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT>
+<P ALIGN=right>
+<FONT SIZE=-2><I>Last Updated:  05/27/99  21:21:24</I></FONT>
+<P> <CENTER>Copyright (c) 1999
+<A HREF="http://home.netscape.com/misc/contact_info.html"
+TARGET=_top>Netscape Communications Corporation</A></FONT>
+</CENTER>
+<P>
+</BODY>
+</HTML>
+
+

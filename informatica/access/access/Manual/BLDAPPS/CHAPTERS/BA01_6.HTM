@@ -1,0 +1,443 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>Command Bars: Menu Bars, Toolbars, and Shortcut Menus</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba01_5.htm" OnClick="SyncURL(&quot;chapters/ba01_5.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<a NAME="3CommandBarsMenuBarsToolbarsandShortcutMenus"></a>
+<p CLASS="heading3OrgHeading1h1">Command Bars: Menu Bars, Toolbars, and Shortcut Menus</p>
+<p CLASS="Textttext">In Microsoft Access 97, the internal workings of menu bars, shortcut menus, and toolbars have been unified into a single object called a <span CLASS="NewTermntrm">command bar.</span> Because they share the same underlying technology, you have more flexibility when you customize existing Microsoft Access menu bars, toolbars, and shortcut menus, and when you create new ones for your application.
+<p CLASS="Textttext">Menu bars and toolbars are two ways to present commands on command bars: a menu bar typically presents drop-down menus of commands as text, and a toolbar typically presents commands as buttons. A shortcut menu is a subset of a menu bar, presenting one menu of commands when a user right-clicks most objects and controls in Microsoft Access. You can create new shortcut menus and associate them with the forms, reports, or controls in your application.</p>
+<p CLASS="Arta"><img SRC="..\images\ABAC0116.jpg"></p>
+<p CLASS="Textttext">Because menu bars, toolbars, and shortcut menus share the same internal workings, you can use most of the same controls on all three. For example, in addition to their typical controls, a top-level menu bar can use buttons, a drop-down menu can use combo box controls, and a toolbar can use drop-down menu buttons that display text-only commands. In this respect, command bars can be too flexible. Avoid confusing the users of your application by putting menu bar and toolbar controls in unusual locations or configurations. Instead, model your custom command bars after the ones used in Microsoft Access.
+<p CLASS="Textttext">The simplest way to work with command bars is by using the <span CLASS="ElementNameeln">Customize</span> dialog box (<span CLASS="ElementNameeln">View</span> menu,<span CLASS="ElementNameeln"> Toolbars</span> submenu). You can use the <span CLASS="ElementNameeln">Customize</span> dialog box to customize existing command bars or to create new ones. New command bars can contain existing commands or new commands that run the event procedures or macros you define.
+<p CLASS="Textttext">By default, users can customize command bars. Users can also make menu bars and toolbars free-standing by dragging them into the work area, or they can dock them to the sides or the bottom of the work area. In addition, users can resize or hide menu bars and toolbars. You can prevent users from customizing all command bars in your application in the <span CLASS="ElementNameeln">Startup</span> dialog box (<span CLASS="ElementNameeln">Tools</span> menu). You can prevent users from customizing, moving, or resizing an individual menu bar or toolbar by setting options in the <span CLASS="ElementNameeln">Toolbar Properties</span> dialog box, which is available from the <span CLASS="ElementNameeln">Customize</span> dialog box.
+<p CLASS="Textttext">You can also use the objects, methods, and properties of the <span CLASS="ElementNameeln">CommandBars</span> collection in Visual Basic code to create and work with command bars.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information, see <a HREF="../chapters/ba01_6.htm#4WorkingwithCommandBarsinCode" OnClick="SyncURL(&quot;chapters/ba01_6.htm&quot;)">&quot;Working with Command Bars in Code&quot;</a> later in this chapter.</p>
+<p CLASS="Textttext">Changes to existing command bars are always stored in the Windows Registry in the <span CLASS="ElementNameeln">\HKEY_CURRENT_USER\Software\Microsoft\Office\8.0\Access\Settings \CommandBars</span> key. When you create a new command bar, it is saved in a system table in the current database and is only available in that database. However, if you create an add-in database and store new command bars in it, they are available from any installation of Microsoft Access that has the add-in installed.
+<p CLASS="Textttext">Once you have customized an existing menu bar or toolbar, or created a new one, you can attach it to a form or report by specifying it in the <span CLASS="ElementNameeln">MenuBar</span> or <span CLASS="ElementNameeln">Toolbar</span> property for the form or report. To attach a shortcut menu to a form, report, or control, specify it in the <span CLASS="ElementNameeln">ShortcutMenuBar</span> property for the form, report, or control. You can also specify a global menu bar or a global shortcut menu to be available throughout your application by using the <span CLASS="ElementNameeln">Startup</span> dialog box (<span CLASS="ElementNameeln">Tools</span> menu).</p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>Previous versions of Microsoft Access use the AddMenu and DoMenuItem actions in macros to create custom menu bars and shortcut menus and to carry out standard Microsoft Access menu commands. If you convert a database created in a previous version of Microsoft Access to Microsoft Access 97, the macros that contain the AddMenu and DoMenuItem actions will still run; however, Microsoft Access 97 converts DoMenuItem actions in the macros to the new RunCommand action. For more information on the RunCommand action, search the Help index for &quot;RunCommand action.&quot;
+<p CLASS="NoteTextnt">Although these menu bar macros created with a previous version of Microsoft Access will run from the forms, reports, or controls they are attached to, they won't be available in the <span CLASS="ElementNameeln">Customize</span> dialog box. However, you can create a Microsoft Access 97-style menu bar or shortcut menu from a menu bar macro created in a previous version of Microsoft Access. For more information on how to do this, search the Help index for &quot;macros, using to work with menus.&quot;</p>
+<a NAME="4CreatingNewMenuBarsToolbarsandShortcutMenus"></a>
+<p CLASS="heading4OrgHeading2h2">Creating New Menu Bars, Toolbars, and Shortcut Menus</p>
+<p CLASS="Textttext">You create all command bars, whether they are menu bars, toolbars, or shortcut menus, by using the <span CLASS="ElementNameeln">Customize</span> dialog box (<span CLASS="ElementNameeln">View</span> menu, <span CLASS="ElementNameeln">Toolbars</span> submenu). You create the different kinds of command bars by setting their properties and, if necessary, by setting properties for the commands within them to control how they appear and behave. The following procedures show how to create new menu bars, toolbars, and shortcut menus.</p>
+<a NAME="5CreatingNewCommandBarsandSettingTheirProperties"></a>
+<p CLASS="heading5OrgHeading3h3">Creating New Command Bars and Setting Their Properties</p>
+<p CLASS="Textttext">The first step in creating a new menu bar, toolbar, or shortcut menu is to create and name an empty command bar, set its type, and set other properties that control how it can be used.</p>
+<p CLASS="heading9ListProcedureHeadinglproch"><span CLASS="ProcedureIconproci"><img SRC="../images/bluetri.jpg" ALIGN="LEFT" WIDTH="9" HEIGHT="17">&nbsp;&nbsp;&nbsp;</span>To create an empty command bar and set its properties</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">1</span>&nbsp;&nbsp;&amp;nbspOn the <span CLASS="ElementNameeln">View</span> menu, point to <span CLASS="ElementNameeln">Toolbars</span>, and then click <span CLASS="ElementNameeln">Customize</span>.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">2</span>&nbsp;&nbsp;&amp;nbspOn the <span CLASS="ElementNameeln">Toolbars</span> tab, click <span CLASS="ElementNameeln">New</span>.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">3</span>&nbsp;&nbsp;&amp;nbspIn the <span CLASS="ElementNameeln">Toolbar Name</span> box, type a name for the new command bar, and then click <span CLASS="ElementNameeln">OK</span>.</p>
+<p CLASS="ListText1lt1">Microsoft Access creates an empty, floating command bar, which you can specify to be a toolbar, menu bar, or shortcut menu.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">4</span>&nbsp;&nbsp;&amp;nbspIn the <span CLASS="ElementNameeln">Customize</span> dialog box, click <span CLASS="ElementNameeln">Properties</span> to display the <span CLASS="ElementNameeln">Toolbar Properties</span> dialog box. </p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">5</span>&nbsp;&nbsp;&amp;nbspIn the <span CLASS="ElementNameeln">Type</span> box, click the kind of command bar you want to create: </p>
+<p CLASS="ListBulletedItem2lb2"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspTo create a menu bar, click <span CLASS="ElementNameeln">Menu Bar</span>.</p>
+<p CLASS="ListBulletedItem2lb2"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspTo create a toolbar, click <span CLASS="ElementNameeln">Toolbar</span>.</p>
+<p CLASS="ListBulletedItem2lb2"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspTo create a shortcut menu, click <span CLASS="ElementNameeln">Popup</span>.</p>
+<p CLASS="ListNoteText1lnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span><span CLASS="Xref">The Popup setting of the <span CLASS="ElementNameeln">Type</span> property is used for a shortcut menu because in the command bar object model, menus (on both menu bars and toolbars), submenus, and shortcut menus are all of this type. However, if a command bar has its <span CLASS="ElementNameeln">Type</span> property set to Popup, the <span CLASS="ElementNameeln">Customize</span> dialog box user interface only allows you to work with it as a shortcut menu. Additionally, as soon as you set a new command bar's <span CLASS="ElementNameeln">Type</span> property to Popup, it disappears because a shortcut menu can't display as free-standing. To add commands to your custom shortcut menu, you must display it. For more information, see <a HREF="../chapters/ba01_6.htm#5AddingMenusandSubmenustoCommandBars" OnClick="SyncURL(&quot;chapters/ba01_6.htm&quot;)">&quot;Adding Menus and Submenus to Command Bars&quot;</a> later in this chapter.</span></p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">6</span>&nbsp;&nbsp;&amp;nbspIf you are creating a menu bar or toolbar, in the <span CLASS="ElementNameeln">Docking</span> box, click the kind of docking you want to allow. These settings don't apply to shortcut menus.</p>
+<!--mstheme--></font><table WIDTH="100%" BORDER="0" CELLPADDING="5" CELLSPACING="0" FRAME="VOID" RULES="THEAD"><thead>
+<tr VALIGN="TOP" BGCOLOR="#DDDDDD"><td BGCOLOR="#FFFFFF" WIDTH="5"><!--mstheme--><font face="book antiqua, times new roman, times">&nbsp;&nbsp;<!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">To</p></font><!--mstheme--></font></td>
+<td WIDTH="155"><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Click</p></font><!--mstheme--></font></td></tr><tbody>
+<tr VALIGN="TOP"><td BGCOLOR="#FFFFFF" WIDTH="5"><!--mstheme--><font face="book antiqua, times new roman, times">&nbsp;&nbsp;<!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Allow users to dock the menu bar or toolbar both horizontally and vertically</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Allow Any</span></p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP"><td BGCOLOR="#FFFFFF" WIDTH="5"><!--mstheme--><font face="book antiqua, times new roman, times">&nbsp;&nbsp;<!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Prevent users from changing how the menu bar or toolbar is docked</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Can't Change</span></p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP"><td BGCOLOR="#FFFFFF" WIDTH="5"><!--mstheme--><font face="book antiqua, times new roman, times">&nbsp;&nbsp;<!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Allow users to dock the menu bar or toolbar horizontally only</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">No Vertical</span></p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP"><td BGCOLOR="#FFFFFF" WIDTH="5"><!--mstheme--><font face="book antiqua, times new roman, times">&nbsp;&nbsp;<!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Allow users to dock the menu bar or toolbar vertically only</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">No Horizontal</span></p></font><!--mstheme--></font></td></tr>
+</table><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">7</span>&nbsp;&nbsp;&amp;nbspClear the following check boxes whose default behavior you want to change. </p>
+<!--mstheme--></font><table WIDTH="100%" BORDER="0" CELLPADDING="5" CELLSPACING="0" FRAME="VOID" RULES="THEAD"><thead>
+<tr VALIGN="TOP" BGCOLOR="#DDDDDD"><td BGCOLOR="#FFFFFF" WIDTH="5"><!--mstheme--><font face="book antiqua, times new roman, times">&nbsp;&nbsp;<!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">To</p></font><!--mstheme--></font></td>
+<td NOWRAP WIDTH="155"><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Clear this check box</p></font><!--mstheme--></font></td></tr><tbody>
+<tr VALIGN="TOP"><td BGCOLOR="#FFFFFF" WIDTH="5"><!--mstheme--><font face="book antiqua, times new roman, times">&nbsp;&nbsp;<!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Prevent users from making changes to the command bar by using the <span CLASS="ElementNameeln">Customize</span> dialog box</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Allow Customizing</span></p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP"><td BGCOLOR="#FFFFFF" WIDTH="5"><!--mstheme--><font face="book antiqua, times new roman, times">&nbsp;&nbsp;<!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Prevent the new command bar from appearing on the <span CLASS="ElementNameeln">Toolbars</span> submenu (<span CLASS="ElementNameeln">View</span> menu)</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Show On Toolbars Menu</span></p></font><!--mstheme--></font></td></tr>
+</table><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">8</span>&nbsp;&nbsp;&amp;nbspIf you are creating a menu bar or toolbar, clear any of the following check boxes whose default behavior you want to change. These settings don't apply to shortcut menus.</p>
+<!--mstheme--></font><table WIDTH="100%" BORDER="0" CELLPADDING="5" CELLSPACING="0" FRAME="VOID" RULES="THEAD"><thead>
+<tr VALIGN="TOP" BGCOLOR="#DDDDDD"><td BGCOLOR="#FFFFFF" WIDTH="5"><!--mstheme--><font face="book antiqua, times new roman, times">&nbsp;&nbsp;<!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">To</p></font><!--mstheme--></font></td>
+<td NOWRAP WIDTH="155"><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Clear this check box</p></font><!--mstheme--></font></td></tr><tbody>
+<tr VALIGN="TOP"><td BGCOLOR="#FFFFFF" WIDTH="5"><!--mstheme--><font face="book antiqua, times new roman, times">&nbsp;&nbsp;<!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Prevent users from changing how a menu bar or toolbar is docked</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Allow Moving</span></p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP"><td BGCOLOR="#FFFFFF" WIDTH="5"><!--mstheme--><font face="book antiqua, times new roman, times">&nbsp;&nbsp;<!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Prevent users from showing or hiding the menu bar or toolbar</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Allow Showing/Hiding</span></p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP"><td BGCOLOR="#FFFFFF" WIDTH="5"><!--mstheme--><font face="book antiqua, times new roman, times">&nbsp;&nbsp;<!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Prevent users from resizing the menu bar or toolbar</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Allow Resizing</span></p></font><!--mstheme--></font></td></tr>
+</table><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">9</span>&nbsp;&nbsp;&amp;nbspWhen you are finished specifying properties for the new command bar, click <span CLASS="ElementNameeln">Close</span>. To continue working with your new command bar, leave the <span CLASS="ElementNameeln">Customize</span> dialog box open.</p>
+<p CLASS="Textttext">At this point, you have an empty command bar of the type you specified in step 5. If you created a menu bar, you need to add menus to it and then add commands to those menus. If you created a shortcut menu, you need to add commands to it. If you created a toolbar, you need to add buttons or other controls to it.</p>
+<a NAME="5AddingMenusandSubmenustoCommandBars"></a>
+<p CLASS="heading5OrgHeading3h3">Adding Menus and Submenus to Command Bars</p>
+<p CLASS="Textttext">If you are creating a menu bar, you must add and name top-level menus, and then add commands to those menus. If you want an additional menu to open from a menu command, you can add a submenu to it. You can also add menus and submenus to toolbars, and submenus to shortcut menus. </p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>In previous versions of Microsoft Access, you had to add a single top-level menu to create a shortcut menu. This is not necessary in Microsoft Access 97.</p>
+<p CLASS="heading9ListProcedureHeadinglproch"><span CLASS="ProcedureIconproci"><img SRC="../images/bluetri.jpg" ALIGN="LEFT" WIDTH="9" HEIGHT="17">&nbsp;&nbsp;&nbsp;</span>To add a menu or submenu to a command bar</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">1</span>&nbsp;&nbsp;&amp;nbspIf the <span CLASS="ElementNameeln">Customize</span> dialog box isn't open, point to <span CLASS="ElementNameeln">Toolbars</span> on the <span CLASS="ElementNameeln">View</span> menu, and then click <span CLASS="ElementNameeln">Customize</span>.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">2</span>&nbsp;&nbsp;&amp;nbspIf the menu bar, toolbar, or shortcut menu you want to work with isn't displayed, open it.</p>
+<p CLASS="ListNoteText1lnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span><span CLASS="Xref">To display a custom shortcut menu, select the <span CLASS="ElementNameeln">Shortcut Menu</span> check box in the <span CLASS="ElementNameeln">Toolbars</span> list of the <span CLASS="ElementNameeln">Customize</span> dialog box. On the <span CLASS="ElementNameeln">Shortcut Menu</span> toolbar, click <span CLASS="ElementNameeln">Custom</span> and then click the name of your custom shortcut menu.</span></p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">3</span>&nbsp;&nbsp;&amp;nbspIn the <span CLASS="ElementNameeln">Customize</span> dialog box, click the <span CLASS="ElementNameeln">Commands</span> tab.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">4</span>&nbsp;&nbsp;&amp;nbspIn the <span CLASS="ElementNameeln">Categories</span> box, click <span CLASS="ElementNameeln">New Menu</span>.</p>
+<p CLASS="ListText1lt1"><span CLASS="ElementNameeln">New Menu</span> appears in the <span CLASS="ElementNameeln">Commands</span> box.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">5</span>&nbsp;&nbsp;&amp;nbspDrag <span CLASS="ElementNameeln">New Menu</span> from the <span CLASS="ElementNameeln">Commands</span> box to your menu bar or toolbar:</p>
+<p CLASS="ListBulletedItem2lb2"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspTo create a top-level menu, drag <span CLASS="ElementNameeln">New Menu</span> to the top row of your menu bar or toolbar.</p>
+<p CLASS="ListBulletedItem2lb2"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspTo create a submenu, you must have an existing top-level menu, or you must be adding a new menu to a shortcut menu. Drag and hold <span CLASS="ElementNameeln">New Menu</span> over a top-level menu (or shortcut menu) until it drops down, then drag <span CLASS="ElementNameeln">New Menu</span> to the location you want and release the mouse.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">6</span>&nbsp;&nbsp;&amp;nbspRight-click <span CLASS="ElementNameeln">New Menu</span> on your menu or toolbar, and then type the name for your menu in the <span CLASS="ElementNameeln">Name</span> box.</p>
+<p CLASS="TipIcontpi">
+<p CLASS="ListTipText1ltpt"><span CLASS="TipHeadingtph">Tip&nbsp;&nbsp;&nbsp;</span><span CLASS="Xref">You can create an access key for your menu names so that users can access your menus with the keyboard. To do so, type an ampersand (&amp;) in front of the letter you want to use. For example, to use F as the access key for a menu named File, type <span CLASS="ElementNameeln">&amp;File</span>. The F in your menu name is underlined and users can open the menu by pressing ALT+F.</span></p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">7</span>&nbsp;&nbsp;&amp;nbspTo further customize your new menu or submenu, set other properties in the <span CLASS="ElementNameeln">Control Properties</span> dialog box. To display the <span CLASS="ElementNameeln">Control Properties</span> dialog box, right-click the new menu or submenu, and then click <span CLASS="ElementNameeln">Properties</span>.</p>
+<p CLASS="ListText1lt1"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span><span CLASS="Xref">For more information on the settings in the <span CLASS="ElementNameeln">Control Properties</span> dialog box, see <a HREF="../chapters/ba01_6.htm#5SettingPropertiesforCommandBarControls" OnClick="SyncURL(&quot;chapters/ba01_6.htm&quot;)">&quot;Setting Properties for Command Bar Controls&quot;</a> later this chapter.</span></p>
+<p CLASS="Textttext">Once you have added all the menus and submenus to your command bar, you have the basic framework to contain the commands that you want to be available. If you are creating a menu bar, you have top-level menus and perhaps some submenus. If you are creating a toolbar, you may have added top-level menu buttons and possibly submenus within them. If you are creating a shortcut menu, you may have added submenus. The next step is to add commands to your menus and submenus, or buttons that carry out commands to your toolbar.</p>
+<a NAME="5AddingExistingMenuCommandsButtonsandOtherControlstoCommandBars"></a>
+<p CLASS="heading5OrgHeading3h3">Adding Existing Menu Commands, Buttons, and Other Controls to Command Bars</p>
+<p CLASS="Textttext">By using the <span CLASS="ElementNameeln">Customize </span>dialog box, you can add any existing Microsoft Access menu command, toolbar button, or other control to your new command bar. This includes all standard Microsoft Access menu commands and toolbar buttons, as well as drop-down combo box controls, such as the <span CLASS="ElementNameeln">Font</span> box, and special formatting controls, such as the <span CLASS="ElementNameeln">Fill/Back Color</span> and <span CLASS="ElementNameeln">Special Effect</span> controls.</p>
+<p CLASS="heading9ListProcedureHeadinglproch"><span CLASS="ProcedureIconproci"><img SRC="../images/bluetri.jpg" ALIGN="LEFT" WIDTH="9" HEIGHT="17">&nbsp;&nbsp;&nbsp;</span>To add an existing Microsoft Access menu command, button, or other control</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">1</span>&nbsp;&nbsp;&amp;nbspIf the <span CLASS="ElementNameeln">Customize</span> dialog box isn't open, point to <span CLASS="ElementNameeln">Toolbars</span> on the <span CLASS="ElementNameeln">View</span> menu, and then click <span CLASS="ElementNameeln">Customize</span>.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">2</span>&nbsp;&nbsp;&amp;nbspIf the menu bar, toolbar, or shortcut menu you want to work with isn't displayed, open it.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">3</span>&nbsp;&nbsp;&amp;nbspIn the <span CLASS="ElementNameeln">Customize</span> dialog box, click the <span CLASS="ElementNameeln">Commands</span> tab.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">4</span>&nbsp;&nbsp;&amp;nbspIn the <span CLASS="ElementNameeln">Categories</span> box, click the category that contains the menu command, button, or other control you want to add to your command bar. For example, to add a command that appears on the <span CLASS="ElementNameeln">File</span> menu, click <span CLASS="ElementNameeln">File</span>. To add an entire menu of commands at once, click <span CLASS="ElementNameeln">Built-in Menus</span>.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">5</span>&nbsp;&nbsp;&amp;nbspDrag the menu, menu command, button, or other control you want from the <span CLASS="ElementNameeln">Commands</span> box to the appropriate location on your command bar.</p>
+<p CLASS="ListText1lt1">To add the command or control to a menu or submenu, drag it and hold the mouse over the menu or submenu name until it drops down, and then drag the command or control where you want it on the menu or submenu and release the mouse.</p>
+<p CLASS="ListNoteText1lnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span><span CLASS="Xref">If you place the command or control in the wrong location, you can drag it to the correct location.</span></p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">6</span>&nbsp;&nbsp;&amp;nbspTo further customize your command bar, you can change the images that appear on toolbar buttons and next to menu commands, and you can set other properties that determine how your menu commands, buttons, and other controls appear and work. To display a menu of customization options, right-click the menu command, button, or control.</p>
+<p CLASS="ListText1lt1"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span><span CLASS="Xref">For more information, see <a HREF="../chapters/ba01_6.htm#5WorkingwithButtonImagesonCommandBars" OnClick="SyncURL(&quot;chapters/ba01_6.htm&quot;)">&quot;Working with Button Images on Command Bars&quot;</a> and <a HREF="../chapters/ba01_6.htm#5SettingPropertiesforCommandBarControls" OnClick="SyncURL(&quot;chapters/ba01_6.htm&quot;)">&quot;Setting Properties for Command Bar Controls&quot;</a> later in this chapter.</span></p>
+<a NAME="5AddingCustomMenuCommandsandButtonstoCommandBars"></a>
+<p CLASS="heading5OrgHeading3h3">Adding Custom Menu Commands and Buttons to Command Bars</p>
+<p CLASS="Textttext">There are three ways to add menu commands and buttons that perform custom actions to a command bar. You can:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspAdd a menu command or button that opens a table, query, form, or report.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspCreate a macro and then add a menu command or button to run the macro.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspCreate a Visual Basic <span CLASS="ElementNameeln">Function</span> procedure, and then add an existing menu command or button and customize it to run the <span CLASS="ElementNameeln">Function</span> procedure.</p>
+<a NAME="6CreatingaCommandorButtonThatOpensaDatabaseObject"></a>
+<p CLASS="heading6OrgHeading4h4">Creating a Command or Button That Opens a Database Object</p>
+<p CLASS="Textttext">To create a command or button that opens a table, query, form, or report, drag the name of the database object from the appropriate category in the <span CLASS="ElementNameeln">Customize</span> dialog box to your command bar.
+<p CLASS="Textttext">This method is equivalent to opening the object from the Database window; you can't specify additional parameters such as the mode in which Microsoft Access opens the object, and you can't perform other actions when opening the object. If you want to specify additional parameters or perform a series of actions when opening an object, you must create a macro or a Visual Basic <span CLASS="ElementNameeln">Function</span> procedure and add it to your menu or toolbar, as described later in this section.</p>
+<p CLASS="heading9ListProcedureHeadinglproch"><span CLASS="ProcedureIconproci"><img SRC="../images/bluetri.jpg" ALIGN="LEFT" WIDTH="9" HEIGHT="17">&nbsp;&nbsp;&nbsp;</span>To add a custom command or button that opens a database object</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">1</span>&nbsp;&nbsp;&amp;nbspIf the <span CLASS="ElementNameeln">Customize</span> dialog box isn't open, point to <span CLASS="ElementNameeln">Toolbars</span> on the <span CLASS="ElementNameeln">View</span> menu, and then click <span CLASS="ElementNameeln">Customize</span>.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">2</span>&nbsp;&nbsp;&amp;nbspIf the menu bar, toolbar, or shortcut menu you want to work with isn't displayed, open it.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">3</span>&nbsp;&nbsp;&amp;nbspIn the <span CLASS="ElementNameeln">Customize</span> dialog box, click the <span CLASS="ElementNameeln">Commands</span> tab.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">4</span>&nbsp;&nbsp;&amp;nbspIn the <span CLASS="ElementNameeln">Categories</span> box, click the category for the type of object you want to open: <span CLASS="ElementNameeln">All Tables</span>, <span CLASS="ElementNameeln">All Queries</span>, <span CLASS="ElementNameeln">All Forms</span>, or <span CLASS="ElementNameeln">All Reports</span>.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">5</span>&nbsp;&nbsp;&amp;nbspDrag the object you want to open from the <span CLASS="ElementNameeln">Commands</span> box to the appropriate location on your command bar.</p>
+<p CLASS="ListText1lt1">To add the command that opens the object to a menu or submenu, drag it and hold the mouse over the menu or submenu name until it drops down, and then drag the command where you want it on the menu or submenu and release the mouse.</p>
+<p CLASS="ListNoteText1lnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span><span CLASS="Xref">If you place the command in the wrong location, you can drag it to the correct location.</span></p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">6</span>&nbsp;&nbsp;&amp;nbspTo further customize your command bar, you can change the images that appear on toolbar buttons and next to menu commands, and you can set other properties that determine how your menu commands and buttons appear and work. To display a menu of customization options, right-click the menu command or button.</p>
+<p CLASS="ListText1lt1"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span><span CLASS="Xref">For more information, see <a HREF="../chapters/ba01_6.htm#5WorkingwithButtonImagesonCommandBars" OnClick="SyncURL(&quot;chapters/ba01_6.htm&quot;)">&quot;Working with Button Images on Command Bars&quot;</a> and <a HREF="../chapters/ba01_6.htm#5SettingPropertiesforCommandBarControls" OnClick="SyncURL(&quot;chapters/ba01_6.htm&quot;)">&quot;Setting Properties for Command Bar Controls&quot;</a> later in this chapter.</span></p>
+<a NAME="6CreatingaCommandorButtonThatRunsaMacro"></a>
+<p CLASS="heading6OrgHeading4h4">Creating a Command or Button That Runs a Macro</p>
+<p CLASS="Textttext">To create a command or button that runs a macro, create the macro, and then drag its name from the <span CLASS="ElementNameeln">Customize</span> dialog box to your command bar. For example, you can create a macro that uses the OpenForm action to open a form and set the Data Mode argument to Add. Add the macro to a menu, and when a user clicks the custom command, Microsoft Access runs the macro, opening a blank form ready to add a new record.</p>
+<p CLASS="heading9ListProcedureHeadinglproch"><span CLASS="ProcedureIconproci"><img SRC="../images/bluetri.jpg" ALIGN="LEFT" WIDTH="9" HEIGHT="17">&nbsp;&nbsp;&nbsp;</span>To add a custom command or button that runs a macro</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">1</span>&nbsp;&nbsp;&amp;nbspCreate a macro that performs the action you want.</p>
+<p CLASS="ListText1lt1"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span><span CLASS="Xref">For information on creating macros, search the Help index for &quot;macros, creating.&quot;</span></p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">2</span>&nbsp;&nbsp;&amp;nbspIf the <span CLASS="ElementNameeln">Customize</span> dialog box isn't open, point to <span CLASS="ElementNameeln">Toolbars</span> on the <span CLASS="ElementNameeln">View</span> menu, and then click <span CLASS="ElementNameeln">Customize</span>.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">3</span>&nbsp;&nbsp;&amp;nbspIf the menu bar, toolbar, or shortcut menu you want to work with isn't displayed, open it.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">4</span>&nbsp;&nbsp;&amp;nbspIn the <span CLASS="ElementNameeln">Customize</span> dialog box, click the <span CLASS="ElementNameeln">Commands</span> tab.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">5</span>&nbsp;&nbsp;&amp;nbspIn the <span CLASS="ElementNameeln">Categories</span> box, click <span CLASS="ElementNameeln">All Macros</span>.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">6</span>&nbsp;&nbsp;&amp;nbspDrag the macro you want to run from the <span CLASS="ElementNameeln">Commands</span> box to the appropriate location on your command bar.</p>
+<p CLASS="ListText1lt1">To add a command that runs the macro to a menu or submenu, drag it and hold the mouse over the menu or submenu name until it drops down, and then drag the command or control where you want it on the menu or submenu and release the mouse.</p>
+<p CLASS="ListNoteText1lnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span><span CLASS="Xref">If you place the command in the wrong location, you can drag it to the correct location.</span></p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">7</span>&nbsp;&nbsp;&amp;nbspTo further customize your command bar, you can change the images that appear on toolbar buttons and next to menu commands, and you can set other properties that determine how your menu commands and buttons appear and work. To display a menu of customization options, right-click the menu command or button.</p>
+<p CLASS="ListText1lt1"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span><span CLASS="Xref">For more information, see <a HREF="../chapters/ba01_6.htm#5WorkingwithButtonImagesonCommandBars" OnClick="SyncURL(&quot;chapters/ba01_6.htm&quot;)">&quot;Working with Button Images on Command Bars&quot;</a> and <a HREF="../chapters/ba01_6.htm#5SettingPropertiesforCommandBarControls" OnClick="SyncURL(&quot;chapters/ba01_6.htm&quot;)">&quot;Setting Properties for Command Bar Controls&quot;</a> later in this chapter.</span></p>
+<a NAME="6CreatingaCommandorButtonThatRunsaVisualBasicFunctionProcedure"></a>
+<p CLASS="heading6OrgHeading4h4">Creating a Command or Button That Runs a Visual Basic Function Procedure</p>
+<p CLASS="Textttext">For the greatest flexibility, you can create a Visual Basic <span CLASS="ElementNameeln">Function</span> procedure and run it from a menu command or toolbar button. To do so, add the <b>Custom</b> command to your command bar, and then customize it to run your <span CLASS="ElementNameeln">Function</span> procedure.</p>
+<p CLASS="ImportantTextit"><span CLASS="ImportantHeadingih">Important&nbsp;&nbsp;&nbsp;</span>You can run only Visual Basic <span CLASS="ElementNameeln">Function</span> procedures from a command bar, not <span CLASS="ElementNameeln">Sub</span> procedures.</p>
+<p CLASS="heading9ListProcedureHeadinglproch"><span CLASS="ProcedureIconproci"><img SRC="../images/bluetri.jpg" ALIGN="LEFT" WIDTH="9" HEIGHT="17">&nbsp;&nbsp;&nbsp;</span>To add a custom command or button that runs a Visual Basic Function procedure</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">1</span>&nbsp;&nbsp;&amp;nbspCreate a Visual Basic <span CLASS="ElementNameeln">Function</span> procedure that performs the action you want.</p>
+<p CLASS="ListText1lt1"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span><span CLASS="Xref">For information on creating <span CLASS="ElementNameeln">Function</span> procedures, search the Help index for &quot;Visual Basic code, Function procedures.&quot;</span></p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">2</span>&nbsp;&nbsp;&amp;nbspIf the <span CLASS="ElementNameeln">Customize</span> dialog box isn't open, point to <span CLASS="ElementNameeln">Toolbars</span> on the <span CLASS="ElementNameeln">View</span> menu, and then click <span CLASS="ElementNameeln">Customize</span>.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">3</span>&nbsp;&nbsp;&amp;nbspIf the menu bar, toolbar, or shortcut menu you want to work with isn't displayed, open it.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">4</span>&nbsp;&nbsp;&amp;nbspIn the <span CLASS="ElementNameeln">Customize</span> dialog box, click the <span CLASS="ElementNameeln">Commands</span> tab.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">5</span>&nbsp;&nbsp;&amp;nbspIn the <span CLASS="ElementNameeln">Categories</span> box, click <b>File</b> and then drag the <b>Custom</b> command from the <span CLASS="ElementNameeln">Commands</span> box to your command bar.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">6</span>&nbsp;&nbsp;&amp;nbspRight-click the new command on your menu or toolbar, and then click <span CLASS="ElementNameeln">Properties</span>.</p>
+<p CLASS="ListText1lt1">Microsoft Access displays the <span CLASS="ElementNameeln">Control Properties</span> dialog box.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">7</span>&nbsp;&nbsp;&amp;nbspIn the <span CLASS="ElementNameeln">Caption</span> box, delete the current name, and type the new name for your command.</p>
+<p CLASS="TipIcontpi">
+<p CLASS="ListTipText1ltpt"><span CLASS="TipHeadingtph">Tip&nbsp;&nbsp;&nbsp;</span><span CLASS="Xref">You can create an access key for your command so that users can access it with the keyboard. To do so, type an ampersand (&amp;) in front of the letter you want to use. For example, to use I as the access key for a Print Invoice command, type <span CLASS="ElementNameeln">Print &amp;Invoice</span>. The I in your command name is underlined and users can carry out the command by pressing ALT+I.</span></p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">8</span>&nbsp;&nbsp;&amp;nbspIn the <span CLASS="ElementNameeln">On Action</span> box, type an expression to run your Visual Basic <span CLASS="ElementNameeln">Function</span> procedure. The expression must use the following syntax: =<span CLASS="NewTermntrm">functionname</span>(). For example, to run a function named PrintInvoice, you'd type <span CLASS="ElementNameeln">=PrintInvoice()</span>.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">9</span>&nbsp;&nbsp;&amp;nbspTo further customize your command bar, you can change the images that appear on toolbar buttons and next to menu commands, and you can set other properties that determine how your menu commands and buttons appear and work. To display a menu of customization options, right-click the menu command or button.</p>
+<p CLASS="ListText1lt1"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span><span CLASS="Xref">For more information, see <a HREF="../chapters/ba01_6.htm#5WorkingwithButtonImagesonCommandBars" OnClick="SyncURL(&quot;chapters/ba01_6.htm&quot;)">&quot;Working with Button Images on Command Bars&quot;</a> and <a HREF="../chapters/ba01_6.htm#5SettingPropertiesforCommandBarControls" OnClick="SyncURL(&quot;chapters/ba01_6.htm&quot;)">&quot;Setting Properties for Command Bar Controls&quot;</a> later in this chapter.</span></p>
+<a NAME="5WorkingwithButtonImagesonCommandBars"></a>
+<p CLASS="heading5OrgHeading3h3">Working with Button Images on Command Bars</p>
+<p CLASS="Textttext">Most Microsoft Access command bar controls have a button image that is displayed when the control is on a toolbar, and sometimes appears next to the control when it's on a menu. You can customize these button images by:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspChanging the image to one of a set of predefined images.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspCopying a control's image and pasting it into another control.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspCopying an image from a graphics program and pasting it into another control.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspEditing the image by using the <span CLASS="ElementNameeln">Button Editor </span>dialog box.</p>
+<p CLASS="Textttext">Whether a control appears with a button image, text, or both is determined by the setting of the control's <span CLASS="ElementNameeln">Style</span> property and by whether the control is on a toolbar or a menu. The following table describes how the <span CLASS="ElementNameeln">Style </span>property works.</p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>A control's <span CLASS="ElementNameeln">Caption</span> property text is identical to the text in the <span CLASS="ElementNameeln">Name</span> box on the shortcut menu that appears when you right-click a control while the <span CLASS="ElementNameeln">Customize</span> dialog box is open.</p>
+<!--mstheme--></font><table WIDTH="100%" BORDER="0" CELLPADDING="5" CELLSPACING="0" FRAME="VOID" RULES="THEAD"><thead>
+<tr VALIGN="TOP" BGCOLOR="#DDDDDD">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Style property setting</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">What appears on a menu</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">What appears on a toolbar</p></font><!--mstheme--></font></td></tr><tbody>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Default Style</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Button image and <span CLASS="ElementNameeln">Caption</span> property text</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Button image only</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Text Only (In Menus)</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Caption</span> property text only</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Button image only</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Text Only (Always)</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Caption</span> property text only </p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Caption</span> property text only </p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Image And Text</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Button image and <span CLASS="ElementNameeln">Caption</span> property text</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Button image and <span CLASS="ElementNameeln">Caption</span> property text</p></font><!--mstheme--></font></td></tr>
+</table><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>By default, some Microsoft Access command bar controls don't have a button image associated with them and won't display an image regardless of the <span CLASS="ElementNameeln">Style</span> property setting. However, you can add an image by using one of the methods described in the following procedure. Also, some Microsoft Access command bar controls have their <span CLASS="ElementNameeln">Style</span> property set to Text Only (In Menus) by default so that they don't display their image on menus. If you want to display the image on menus, set the <span CLASS="ElementNameeln">Style</span> property to Default Style.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For information on setting the <span CLASS="ElementNameeln">Style</span> property and other command bar control properties, see <a HREF="../chapters/ba01_6.htm#5SettingPropertiesforCommandBarControls" OnClick="SyncURL(&quot;chapters/ba01_6.htm&quot;)">&quot;Setting Properties for Command Bar Controls&quot;</a> later in this chapter.</p>
+<p CLASS="heading9ListProcedureHeadinglproch"><span CLASS="ProcedureIconproci"><img SRC="../images/bluetri.jpg" ALIGN="LEFT" WIDTH="9" HEIGHT="17">&nbsp;&nbsp;&nbsp;</span>To customize a button image on a command bar control</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">1</span>&nbsp;&nbsp;&amp;nbspIf the <span CLASS="ElementNameeln">Customize</span> dialog box isn't open, point to <span CLASS="ElementNameeln">Toolbars</span> on the <span CLASS="ElementNameeln">View</span> menu, and then click <span CLASS="ElementNameeln">Customize</span>.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">2</span>&nbsp;&nbsp;&amp;nbspIf the menu bar, toolbar, or shortcut menu that contains the control you want to work with isn't displayed, open it.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">3</span>&nbsp;&nbsp;&amp;nbspDo one of the following.</p>
+<!--mstheme--></font><table WIDTH="100%" BORDER="0" CELLPADDING="5" CELLSPACING="0" FRAME="VOID" RULES="THEAD"><thead>
+<tr VALIGN="TOP" BGCOLOR="#DDDDDD"><td BGCOLOR="#FFFFFF" WIDTH="5"><!--mstheme--><font face="book antiqua, times new roman, times">&nbsp;&nbsp;<!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">To</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Do this</p></font><!--mstheme--></font></td></tr><tbody>
+<tr VALIGN="TOP"><td BGCOLOR="#FFFFFF" WIDTH="5"><!--mstheme--><font face="book antiqua, times new roman, times">&nbsp;&nbsp;<!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Use a predefined button image</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Right-click the control, point to <span CLASS="ElementNameeln">Change Button Image</span>, and then click the image you want.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP"><td BGCOLOR="#FFFFFF" WIDTH="5"><!--mstheme--><font face="book antiqua, times new roman, times">&nbsp;&nbsp;<!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Copy and paste another control's button image</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Right-click the control that has the image you want to use, and then click <span CLASS="ElementNameeln">Copy Button Image</span>. Right-click the control whose image you are customizing, and then click <span CLASS="ElementNameeln">Paste Button Image</span>. </p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP"><td BGCOLOR="#FFFFFF" WIDTH="5"><!--mstheme--><font face="book antiqua, times new roman, times">&nbsp;&nbsp;<!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Copy and paste an image from a graphics program</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Open the image you want to copy in a graphics program. Select and copy the image (preferably a 16 x 16 pixel image or portion). Switch back to Microsoft Access. Right-click the control, and then click <span CLASS="ElementNameeln">Paste Button Image</span>.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP"><td BGCOLOR="#FFFFFF" WIDTH="5"><!--mstheme--><font face="book antiqua, times new roman, times">&nbsp;&nbsp;<!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Edit the control's current button image</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Right-click the control, and then click <span CLASS="ElementNameeln">Edit Button Image</span>. In the <span CLASS="ElementNameeln">Button Editor</span> dialog box, you can change the color and shape of the image, adjust the image's position on the control, and preview your changes to the image. When you have finished editing the button image, click <span CLASS="ElementNameeln">OK</span>.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP"><td BGCOLOR="#FFFFFF" WIDTH="5"><!--mstheme--><font face="book antiqua, times new roman, times">&nbsp;&nbsp;<!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Reset a control to use its original button image</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Right-click the control and then click <span CLASS="ElementNameeln">Reset Button Image</span>.</p></font><!--mstheme--></font></td></tr>
+</table><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">4</span>&nbsp;&nbsp;&amp;nbspWhen you have finished working with the button image, click <span CLASS="ElementNameeln">Close</span>.</p>
+<a NAME="5SettingPropertiesforCommandBarControls"></a>
+<p CLASS="heading5OrgHeading3h3">Setting Properties for Command Bar Controls</p>
+<p CLASS="Textttext">Microsoft Access provides some additional menu and control properties that you can use to further customize menus, menu commands, and toolbar buttons. You set each of these properties in the <span CLASS="ElementNameeln">Control Properties</span> dialog box.</p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>Depending on the kind of control you're working with, some properties will not be available.</p>
+<p CLASS="heading9ListProcedureHeadinglproch"><span CLASS="ProcedureIconproci"><img SRC="../images/bluetri.jpg" ALIGN="LEFT" WIDTH="9" HEIGHT="17">&nbsp;&nbsp;&nbsp;</span>To set control properties for a menu, a menu command, or a toolbar button</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">1</span>&nbsp;&nbsp;&amp;nbspIf the <span CLASS="ElementNameeln">Customize</span> dialog box isn't open, point to <span CLASS="ElementNameeln">Toolbars</span> on the <span CLASS="ElementNameeln">View</span> menu, and then click <span CLASS="ElementNameeln">Customize</span>.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">2</span>&nbsp;&nbsp;&amp;nbspIf the menu bar, toolbar, or shortcut menu that contains the control you want to work with isn't displayed, open it.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">3</span>&nbsp;&nbsp;&amp;nbspRight-click the control, and then click <span CLASS="ElementNameeln">Properties</span>.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">4</span>&nbsp;&nbsp;&amp;nbspIn the <span CLASS="ElementNameeln">Control Properties</span> dialog box, set the properties you want. The following table describes each property.</p>
+<!--mstheme--></font><table WIDTH="100%" BORDER="0" CELLPADDING="5" CELLSPACING="0" FRAME="VOID" RULES="THEAD"><thead>
+<tr VALIGN="TOP" BGCOLOR="#DDDDDD"><td BGCOLOR="#FFFFFF" WIDTH="5"><!--mstheme--><font face="book antiqua, times new roman, times">&nbsp;&nbsp;<!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Property</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Description</p></font><!--mstheme--></font></td></tr><tbody>
+<tr VALIGN="TOP"><td BGCOLOR="#FFFFFF" WIDTH="5"><!--mstheme--><font face="book antiqua, times new roman, times">&nbsp;&nbsp;<!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Caption</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">The name that is displayed for the command. This is identical to the text entered in the <span CLASS="ElementNameeln">Name</span> box on a menu or control's shortcut menu. </p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP"><td BGCOLOR="#FFFFFF" WIDTH="5"><!--mstheme--><font face="book antiqua, times new roman, times">&nbsp;&nbsp;<!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Shortcut Text</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">The text that is displayed next to a menu command and that indicates its shortcut key; for example, CTRL+P.
+<p CLASS="TableTexttt">This property only creates display text to prompt the user. To define the shortcut key, you must create an AutoKeys macro as described in <a HREF="../chapters/ba01_8.htm" OnClick="SyncURL(&quot;chapters/ba01_8.htm&quot;)">&quot;Making Key Assignments&quot;</a> later in this chapter.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP"><td BGCOLOR="#FFFFFF" WIDTH="5"><!--mstheme--><font face="book antiqua, times new roman, times">&nbsp;&nbsp;<!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">ToolTip</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">The text of the ToolTip that appears when a user rests the pointer on the control. If this setting is blank, Microsoft Access uses the text from the <span CLASS="ElementNameeln">Caption</span> property as the ToolTip.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP"><td BGCOLOR="#FFFFFF" WIDTH="5"><!--mstheme--><font face="book antiqua, times new roman, times">&nbsp;&nbsp;<!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">On Action</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">The name of a macro or Visual Basic <span CLASS="ElementNameeln">Function</span> procedure that runs when a user clicks the control. When using a <span CLASS="ElementNameeln">Function</span> procedure, you must enter the name of procedure as an expression, using the syntax <span CLASS="ElementNameeln">=</span><span CLASS="NewTermntrm">functionname</span><span CLASS="ElementNameeln">()</span>.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP"><td BGCOLOR="#FFFFFF" WIDTH="5"><!--mstheme--><font face="book antiqua, times new roman, times">&nbsp;&nbsp;<!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Style</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Controls how a command is displayed. The <span CLASS="ElementNameeln">Style</span> property settings are also available from a control's shortcut menu.
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For information on the <span CLASS="ElementNameeln">Style</span> property, see <a HREF="../chapters/ba01_6.htm#5WorkingwithButtonImagesonCommandBars" OnClick="SyncURL(&quot;chapters/ba01_6.htm&quot;)">&quot;Working with Button Images on Command Bars&quot;</a> earlier in this chapter.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP"><td BGCOLOR="#FFFFFF" WIDTH="5"><!--mstheme--><font face="book antiqua, times new roman, times">&nbsp;&nbsp;<!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Help File</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">The help file that contains the What's This Tip topic specified by the <span CLASS="ElementNameeln">Help ContextID</span> property.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP"><td BGCOLOR="#FFFFFF" WIDTH="5"><!--mstheme--><font face="book antiqua, times new roman, times">&nbsp;&nbsp;<!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Help ContextID</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">The context ID of the topic to display as a What's This Tip for this command.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP"><td BGCOLOR="#FFFFFF" WIDTH="5"><!--mstheme--><font face="book antiqua, times new roman, times">&nbsp;&nbsp;<!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Parameter</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">An optional string associated with the control that your application can reference or set. For example, the Visual Basic <span CLASS="ElementNameeln">Function</span> procedure specified in the <span CLASS="ElementNameeln">On Action</span> property can refer to the <span CLASS="ElementNameeln">Parameter</span> property to determine how it works, or the <span CLASS="ElementNameeln">Parameter</span> property can be used to store information about the control, much like the <span CLASS="ElementNameeln">Tag</span> property. The <span CLASS="ElementNameeln">Parameter</span> property isn't generally used by built-in menu and toolbar controls. However, the <span CLASS="ElementNameeln">Parameter</span> property for a menu command or toolbar button used to add an ActiveX control is set to the ActiveX control's <span CLASS="NewTermntrm">class identifier(CLSID)</span>, which is the Registry value that uniquely identifies that control. If you delete or modify the CLSID, the command or button won't work. Similarly, the <span CLASS="ElementNameeln">Parameter</span> property for a menu command or toolbar button used to open a particular database object is set to the name of the object.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP"><td BGCOLOR="#FFFFFF" WIDTH="5"><!--mstheme--><font face="book antiqua, times new roman, times">&nbsp;&nbsp;<!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Tag</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">An optional string that can be used later in event procedures. </p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP"><td BGCOLOR="#FFFFFF" WIDTH="5"><!--mstheme--><font face="book antiqua, times new roman, times">&nbsp;&nbsp;<!--mstheme--></font></td><td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Begin A Group</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Select this check box to indicate the beginning of a group of controls. On menus, a separator bar appears above a command that has this property set. On toolbars, a vertical separator bar appears in front of the command. If you resize a floating toolbar and the entire group of controls doesn't fit on the current line, the whole group is bumped to a new line.</p><!--mstheme--></font></td></font></tr>
+</table><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="Textttext">You can also set and read each of the properties in Visual Basic code. Most of the corresponding Visual Basic property names are the same as those listed in the preceding table, although the words are concatenated; for example, <span CLASS="ElementNameeln">ShortcutText</span> property. There are two exceptions: the Visual Basic properties that correspond to the <span CLASS="ElementNameeln">ToolTip</span> and <span CLASS="ElementNameeln">Begin A Group</span> properties in the <span CLASS="ElementNameeln">Control Properties </span>dialog box are <span CLASS="ElementNameeln">ToolTipText</span> and <span CLASS="ElementNameeln">BeginGroup</span>.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on creating and customizing command bars, search the Help index for &quot;toolbars&quot; or &quot;menus.&quot;</p>
+<a NAME="4ImportingCustomCommandBars"></a>
+<p CLASS="heading4OrgHeading2h2">Importing Custom Command Bars</p>
+<p CLASS="Textttext">If you want to use the custom command bars from one application in another application, you can import them. You cannot import a single custom command bar; you must import all the custom command bars in an application. However, Microsoft Access doesn't import command bars that have the same name as existing command bars.</p>
+<p CLASS="heading9ListProcedureHeadinglproch"><span CLASS="ProcedureIconproci"><img SRC="../images/bluetri.jpg" ALIGN="LEFT" WIDTH="9" HEIGHT="17">&nbsp;&nbsp;&nbsp;</span>To import all custom command bars from another application</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">1</span>&nbsp;&nbsp;&amp;nbspOpen the application into which you want to import the custom command bars.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">2</span>&nbsp;&nbsp;&amp;nbspOn the <span CLASS="ElementNameeln">File</span> menu, point to<span CLASS="ElementNameeln"> Get External Data</span>, and then click <span CLASS="ElementNameeln">Import</span>.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">3</span>&nbsp;&nbsp;&amp;nbspIn the <span CLASS="ElementNameeln">Import</span> dialog box, select the application that contains the command bars you want to import, and then click <span CLASS="ElementNameeln">Import</span>.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">4</span>&nbsp;&nbsp;&amp;nbspIn the <span CLASS="ElementNameeln">Import Objects</span> dialog box, click <span CLASS="ElementNameeln">Options</span>.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">5</span>&nbsp;&nbsp;&amp;nbspSelect the <span CLASS="ElementNameeln">Menus And Toolbars</span> check box, and then click <span CLASS="ElementNameeln">OK</span>.</p>
+<a NAME="4UsingCustomMenuBarsandShortcutMenus"></a>
+<p CLASS="heading4OrgHeading2h2">Using Custom Menu Bars and Shortcut Menus</p>
+<p CLASS="Textttext">You can use custom menu bars and shortcut menus in your application in three ways:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&nbsp;<span CLASS="ElementNameeln">Attached to a form or report&nbsp;&nbsp;&nbsp;</span>Microsoft Access displays your custom menu bar whenever you open the form or display the report in Print Preview.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&nbsp;<span CLASS="ElementNameeln">As a shortcut menu attached to a form, a control on a form, or a report&nbsp;&nbsp;&nbsp;</span>Microsoft Access displays your custom menu whenever you right-click the form, control, or report it's attached to.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&nbsp;<span CLASS="ElementNameeln">As your application's global menu bar&nbsp;&nbsp;&nbsp;</span>Microsoft Access displays your custom menu bar in all windows, except in forms or reports that have their own custom menu bar. (A form or report's custom menu bar overrides a global custom menu bar.)</p>
+<a NAME="5AttachingaCustomMenuBartoaFormorReport"></a>
+<p CLASS="heading5OrgHeading3h3">Attaching a Custom Menu Bar to a Form or Report</p>
+<p CLASS="Textttext">The easiest way to create a menu bar that's attached to a form or report is to create a new menu bar and then specify that menu bar in the form or report's <span CLASS="ElementNameeln">MenuBar</span> property, so Microsoft Access displays the menu bar whenever the form or report is active.</p>
+<p CLASS="heading9ListProcedureHeadinglproch"><span CLASS="ProcedureIconproci"><img SRC="../images/bluetri.jpg" ALIGN="LEFT" WIDTH="9" HEIGHT="17">&nbsp;&nbsp;&nbsp;</span>To attach a custom menu bar to a form or report</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">1</span>&nbsp;&nbsp;&amp;nbspCreate a custom menu bar as described earlier in this chapter.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">2</span>&nbsp;&nbsp;&amp;nbspOpen the form or report in Design view.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">3</span>&nbsp;&nbsp;&nbsp;<img SRC="..\images\PROPERTY.gif">&amp;nbspOn the toolbar, click <span CLASS="ElementNameeln">Properties</span>.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">4</span>&nbsp;&nbsp;&amp;nbspIn the<span CLASS="ElementNameeln"> MenuBar</span> property box, enter the name of the menu bar you created in step 1.</p>
+<p CLASS="Textttext">You can attach the same menu bar to more than one form or report.</p>
+<a NAME="5AttachingaCustomShortcutMenutoaFormaControlonaFormoraReport"></a>
+<p CLASS="heading5OrgHeading3h3">Attaching a Custom Shortcut Menu to a Form, a Control on a Form, or a Report</p>
+<p CLASS="Textttext">You can attach custom shortcut menus to a form, a control on a form, or a report. After you create the shortcut menu, set the <span CLASS="ElementNameeln">ShortcutMenuBar</span> property for the form, control, or report to the name of the shortcut menu. Microsoft Access displays the custom shortcut menu whenever a user right-clicks the form, control, or report.</p>
+<p CLASS="heading9ListProcedureHeadinglproch"><span CLASS="ProcedureIconproci"><img SRC="../images/bluetri.jpg" ALIGN="LEFT" WIDTH="9" HEIGHT="17">&nbsp;&nbsp;&nbsp;</span>To attach a custom shortcut menu to a form, a control on a form, or a report</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">1</span>&nbsp;&nbsp;&amp;nbspCreate a custom shortcut menu as described earlier in this chapter.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">2</span>&nbsp;&nbsp;&amp;nbspOpen the form or report in Design view.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">3</span>&nbsp;&nbsp;&amp;nbspClick the form, control, or report to which you want to attach a custom shortcut menu.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">4</span>&nbsp;&nbsp;&nbsp;<img SRC="..\images\PROPERTY.gif">&amp;nbspOn the toolbar, click <span CLASS="ElementNameeln">Properties</span>.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">5</span>&nbsp;&nbsp;&amp;nbspIn the<span CLASS="ElementNameeln"> ShortcutMenuBar</span> property box, enter the name of the shortcut menu you created in step 1.</p>
+<p CLASS="Textttext">You can attach the same shortcut menu to more than one form, control, or report.</p>
+<a NAME="5SpecifyingaGlobalMenuBarorShortcutMenu"></a>
+<p CLASS="heading5OrgHeading3h3">Specifying a Global Menu Bar or Shortcut Menu</p>
+<p CLASS="Textttext">You can specify a menu bar to use throughout your application by using the <span CLASS="ElementNameeln">Startup</span> dialog box.</p>
+<p CLASS="heading9ListProcedureHeadinglproch"><span CLASS="ProcedureIconproci"><img SRC="../images/bluetri.jpg" ALIGN="LEFT" WIDTH="9" HEIGHT="17">&nbsp;&nbsp;&nbsp;</span>To specify a global menu bar to display when your application starts</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">1</span>&nbsp;&nbsp;&amp;nbspCreate a custom menu bar as described earlier in this chapter.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">2</span>&nbsp;&nbsp;&amp;nbspOn the <span CLASS="ElementNameeln">Tools</span> menu, click <span CLASS="ElementNameeln">Startup</span>.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">3</span>&nbsp;&nbsp;&amp;nbspIn the <span CLASS="ElementNameeln">Menu Bar</span> box, enter the name of the menu you created in step 1.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">4</span>&nbsp;&nbsp;&amp;nbspClick <span CLASS="ElementNameeln">OK</span>.</p>
+<p CLASS="ListText1lt1">The next time you start your application, Microsoft Access displays your custom menu bar instead of the default menu bar.</p>
+<p CLASS="Textttext">You can change the global menu bar while your application is running, without having to restart your computer. To do so, set the <span CLASS="ElementNameeln">MenuBar </span>property of the <span CLASS="ElementNameeln">Application</span> object to the name of the menu bar.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on specifying global menu bars in Visual Basic, search the Help index for &quot;MenuBar property.&quot;</p>
+<a NAME="4UsingCustomToolbars"></a>
+<p CLASS="heading4OrgHeading2h2">Using Custom Toolbars</p>
+<p CLASS="Textttext">You can use one or more custom toolbars in an application. Create the toolbars you want, and then use the appropriate method to display your custom toolbars:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspIf your application has only one custom toolbar, simply use the <span CLASS="ElementNameeln">Toolbars</span> command (<span CLASS="ElementNameeln">View</span> menu) to display it and it will appear each time your application starts.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspIf your application has different custom toolbars for different forms or reports, you can specify a toolbar for each form or report in the form or report's <span CLASS="ElementNameeln">Toolbar</span> property.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspIf you need to work with more than one custom toolbar for a form or report, or if you want to hide or show Microsoft Access built-in toolbars, you can use the <span CLASS="ElementNameeln">Visible</span> property of the <span CLASS="ElementNameeln">CommandBar</span> object in Visual Basic code or the <span CLASS="ElementNameeln">ShowToolbar</span> action in macros to hide and show the toolbars.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspIf you want your application to display only custom toolbars, you can hide all built-in toolbars by clicking the <span CLASS="ElementNameeln">Startup</span> command (<span CLASS="ElementNameeln">Tools</span> menu) and clearing the <span CLASS="ElementNameeln">Allow Built-in Toolbars</span> check box.</p>
+<p CLASS="heading6OrgHeading4h4"><img SRC="../images/example.gif" WIDTH="73" HEIGHT="21"><!--example space-->&nbsp;&nbsp;<a NAME="XAttachingaCustomToolbartoaForm"></a>Attaching a Custom Toolbar to a Form</p>
+<p CLASS="Textttext">When using the Orders application, Northwind sales representatives want to click a button on the toolbar to print the invoice for the current order. You can create a custom toolbar for the Orders form with a button that prints invoices, and use the custom toolbar instead of the built-in toolbar.
+<p CLASS="Textttext"><span CLASS="ElementNameeln">Step One: Create the custom toolbar&nbsp;&nbsp;&nbsp;</span>Create a custom toolbar for the Orders form that includes a button that runs the PrintInvoice macro, as well as any other commands you want to provide, such as the <span CLASS="ElementNameeln">Cut</span>, <span CLASS="ElementNameeln">Copy</span>, and <span CLASS="ElementNameeln">Paste</span> commands in the <span CLASS="ElementNameeln">Edit</span> category of the <span CLASS="ElementNameeln">Customize</span> dialog box (<span CLASS="ElementNameeln">View</span> menu, <span CLASS="ElementNameeln">Toolbars</span> submenu). Name this toolbar Orders Form Toolbar.</p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>The custom toolbar attached to the Orders form in the Orders sample application includes a Design View button. You can use this button to easily switch between Form view and Design view while you're looking at the sample application. However, if you don't want users to switch to Design view in your own application, don't put the Design View button on your custom toolbars.</p>
+<p CLASS="Textttext"><span CLASS="ElementNameeln">Step Two: Set the form's Toolbar property to the name of the custom toolbar&nbsp;&nbsp;&nbsp;</span>Open the Orders form in Design view, open the property sheet for the form, and then enter <span CLASS="ElementNameeln">Orders Form Toolbar</span> in the <span CLASS="ElementNameeln">Toolbar </span>property box.</p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>There is no need to create event procedures for the Activate and Deactivate events of the form to show and hide toolbars as was required in previous versions of Microsoft Access. Setting the <span CLASS="ElementNameeln">Toolbar</span> property to a custom toolbar automatically hides the built-in Form View toolbar when your form is opened, and hides your custom toolbar when a user closes the form or switches to another form.</p>
+<a NAME="5PreventingUsersfromCustomizingYourApplicationsCommandBars"></a>
+<p CLASS="heading5OrgHeading3h3">Preventing Users from Customizing Your Application's Command Bars</p>
+<p CLASS="Textttext">You can control whether users can add or remove commands on all of the menus and toolbars in your application.</p>
+<p CLASS="heading9ListProcedureHeadinglproch"><span CLASS="ProcedureIconproci"><img SRC="../images/bluetri.jpg" ALIGN="LEFT" WIDTH="9" HEIGHT="17">&nbsp;&nbsp;&nbsp;</span>To prevent users from customizing all command bars in an application</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">1</span>&nbsp;&nbsp;&amp;nbspOn the <span CLASS="ElementNameeln">Tools</span> menu, click <span CLASS="ElementNameeln">Startup</span>.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">2</span>&nbsp;&nbsp;&amp;nbspIn the <span CLASS="ElementNameeln">Startup</span> dialog box, clear the <span CLASS="ElementNameeln">Allow Toolbar/Menu Changes</span> check box.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">3</span>&nbsp;&nbsp;&amp;nbspClick <span CLASS="ElementNameeln">OK</span>.</p>
+<p CLASS="ListText1lt1">The next time your application starts, users won't be able to add or delete menu or toolbar commands. However, users will still be able to move and resize toolbars.</p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>If you want to prevent users from customizing an individual command bar, you can clear the <span CLASS="ElementNameeln">Allow Customizing</span> check box in the <span CLASS="ElementNameeln">Toolbar Properties</span> dialog box. For more information, see <a HREF="../chapters/ba01_6.htm#5CreatingNewCommandBarsandSettingTheirProperties" OnClick="SyncURL(&quot;chapters/ba01_6.htm&quot;)">&quot;Creating New Command Bars and Setting Their Properties&quot;</a> earlier in this chapter.</p>
+<a NAME="4WorkingwithCommandBarsinCode"></a>
+<p CLASS="heading4OrgHeading2h2">Working with Command Bars in Code</p>
+<p CLASS="Textttext">You can work with menu bars, toolbars, and shortcut menus in Visual Basic code by using the properties and methods of the <span CLASS="ElementNameeln">CommandBars</span> collection and the objects associated with it. In the command bars object model, each menu is a <span CLASS="ElementNameeln">CommandBar</span> object. This is true of menus and submenus on all three types of command bars. For example, to refer to the <span CLASS="ElementNameeln">Tools</span> menu on the standard menu bar, use the following statement:</p>
+<p CLASS="CodeTextct">CommandBars!Tools</p>
+<p CLASS="Textttext">The following code uses the <span CLASS="ElementNameeln">Add</span> method and several command bar control properties to add a new, hidden Print Invoice command to the bottom of the <span CLASS="ElementNameeln">Tools</span> menu.</p>
+<p CLASS="CodeTextct">Private Sub AddInvoiceCommand()<br>&nbsp;&nbsp;&amp;nbspDim cb As CommandBar, ctl As CommandBarControl<br>&nbsp;&nbsp;&nbsp;' Set a reference to the Tools menu.<br>&nbsp;&nbsp;&amp;nbspSet cb = CommandBars!Tools<br>&nbsp;&nbsp;&nbsp;' Create new CommandBarControl object on the Tools menu<br>&nbsp;&nbsp;&nbsp;' and set a reference to it.<br>&nbsp;&nbsp;&amp;nbspSet ctl = cb.Controls.Add(Type:=msoControlButton)<br>&nbsp;&nbsp;&nbsp;' Set properties of the new command.<br>&nbsp;&nbsp;&amp;nbspWith ctl<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.BeginGroup = True <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.Caption = &quot;Pri&amp;nt Invoice&quot;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.FaceID = 0<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.OnAction = &quot;=PrintInvoice()&quot;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.Visible = False<br>&nbsp;&nbsp;&amp;nbspEnd With<br>End Sub</p>
+<p CLASS="Textttext">You refer to a command bar control by name within a command bar's <span CLASS="ElementNameeln">Controls</span> collection. You must use the exact case and characters specified for the command's <span CLASS="ElementNameeln">Caption</span> property, but you can omit the ampersand (&amp;) that designates the command's access key. For example, to use the <span CLASS="ElementNameeln">Execute</span> method to carry out the <span CLASS="ElementNameeln">Options</span> command on the <span CLASS="ElementNameeln">Tools</span> menu, you use the following statement:</p>
+<p CLASS="CodeTextct">CommandBars!Tools.Controls![Options...].Execute</p>
+<p CLASS="Textttext">To refer to a command on a submenu, you refer to the submenu as a member of the <span CLASS="ElementNameeln">Controls</span> collection of the menu that contains it. For example, to use the <span CLASS="ElementNameeln">Execute</span> method to carry out the <span CLASS="ElementNameeln">Add-in Manager</span> command on the <span CLASS="ElementNameeln">Add-ins</span> submenu, which is on the <span CLASS="ElementNameeln">Tools</span> menu, you use the following statement:</p>
+<p CLASS="CodeTextct">CommandBars!Tools.Controls![Add-ins].Controls![Add-in Manager].Execute</p>
+<p CLASS="Textttext">The following code makes the hidden Print Invoice command created with the AddInvoiceCommand <span CLASS="ElementNameeln">Sub</span> procedure visible.</p>
+<p CLASS="CodeTextct">Private Sub ShowInvoiceCommand()<br>&nbsp;&nbsp;&amp;nbspDim cb As CommandBar, ctl As CommandBarControl<br>&nbsp;&nbsp;&nbsp;' Set a reference to the Tools menu.<br>&nbsp;&nbsp;&amp;nbspSet cb = CommandBars!Tools<br>&nbsp;&nbsp;&nbsp;' Set a reference to the control.<br>&nbsp;&nbsp;&amp;nbspSet ctl = cb.Controls![Print Invoice]<br>&nbsp;&nbsp;&nbsp;' Make the control visible.<br>&nbsp;&nbsp;&amp;nbspctl.Visible = True<br>End Sub</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For information on how to write and use Visual Basic functions, see Chapter 2, <a HREF="../chapters/ba02_1.htm" OnClick="SyncURL(&quot;chapters/ba02_1.htm&quot;)">&quot;Introducing Visual Basic.&quot;</a> For more information on using Visual Basic to work with command bars, see <a HREF="../chapters/ba05_1.htm#5MicrosoftOfficeObjects" OnClick="SyncURL(&quot;chapters/ba05_1.htm&quot;)">&quot;Microsoft Office Objects&quot;</a> and <a HREF="../chapters/ba05_2.htm#5WorkingwithCommandBarObjects" OnClick="SyncURL(&quot;chapters/ba05_2.htm&quot;)">&quot;Working with CommandBar Objects&quot;</a> in Chapter 5, &quot;Working with Objects and Collections,&quot; or search the Help index for &quot;command bars.&quot; For information on command bar control properties, see <a HREF="../chapters/ba01_6.htm#5SettingPropertiesforCommandBarControls" OnClick="SyncURL(&quot;chapters/ba01_6.htm&quot;)">&quot;Setting Properties for Command Bar Controls&quot;</a> earlier in this chapter.</p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="ba01_7.htm" OnClick="SyncURL(&quot;chapters/ba01_7.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

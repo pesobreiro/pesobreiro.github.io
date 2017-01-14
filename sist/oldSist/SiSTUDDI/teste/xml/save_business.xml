@@ -1,0 +1,10 @@
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+  <s:Body>  
+    <save_business generic="2.0" xmlns="urn:uddi-org:api_v2">    
+      <authInfo>MyAuthInformation</authInfo>
+      <businessEntity businessKey="">
+        <name>MyBusiness</name>
+      </businessEntity>  
+    </save_business>
+  </s:Body>
+</s:Envelope>

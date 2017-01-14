@@ -1,0 +1,30 @@
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+  <s:Body>
+    <save_service xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:uddi-org:api_v2" generic="2.0">
+      <authInfo>db2admin</authInfo>
+      <businessService serviceKey="" businessKey="1507862B-0758-4CB9-83F8-256324230951">
+        <name>Servico binding</name>
+        <bindingTemplates>
+		<bindingTemplate bindingKey="">	
+	      		<description xml:lang="en">The address to which you should send the name and address </description>
+        		<accessPoint URLType="mailto">mailto:DCAmail@democredit.bar</accessPoint>
+        		<tModelInstanceDetails>
+          		<tModelInstanceInfo tModelKey="uuid:93335d49-3efb-48a0-acea-ea102b60ddc6">
+            			<description xml:lang="en">The smtp protocol is used</description>	
+				<instanceDetails>
+              			<overviewDoc>
+                			<description xml:lang="en">Describes how to use this service</description>
+                			<overviewURL>http://www.creditdemo.bar/DCAmail/howto</overviewURL>
+              			</overviewDoc>
+            			</instanceDetails>
+          		</tModelInstanceInfo>
+          		<tModelInstanceInfo tModelKey="uuid:25ddf051-c164-11d5-85a6-801eef208714">
+            			<description xml:lang="en">The namespace in which our credit numbers are used.</description>
+          		</tModelInstanceInfo>
+        		</tModelInstanceDetails>
+		</bindingTemplate>
+        </bindingTemplates>
+      </businessService>
+    </save_service>
+  </s:Body>
+</s:Envelope>

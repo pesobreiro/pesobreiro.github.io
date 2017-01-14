@@ -1,0 +1,290 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0047)http://w3.fmh.utl.pt/doc/HOWTO/DNS-HOWTO-3.html -->
+<HTML><HEAD><TITLE>DNS HOWTO: A caching only name server.</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2713.1100" name=GENERATOR><LINK 
+href="DNS-HOWTO-4.html" rel=next><LINK href="DNS-HOWTO-2.html" 
+rel=previous><LINK href="DNS-HOWTO.html#toc3" rel=contents></HEAD>
+<BODY><A href="http://w3.fmh.utl.pt/doc/HOWTO/DNS-HOWTO-4.html"><IMG alt=Next 
+src="DNS HOWTO A caching only name server_ficheiros/next.gif"></A> <A 
+href="http://w3.fmh.utl.pt/doc/HOWTO/DNS-HOWTO-2.html"><IMG alt=Previous 
+src="DNS HOWTO A caching only name server_ficheiros/prev.gif"></A> <A 
+href="http://w3.fmh.utl.pt/doc/HOWTO/DNS-HOWTO.html#toc3"><IMG alt=Contents 
+src="DNS HOWTO A caching only name server_ficheiros/toc.gif"></A> 
+<HR>
+
+<H2><A name=caching></A><A name=s3>3. A caching only name server.</A></H2>
+<P><B>A first stab at DNS config, very useful for dialup users.</B> 
+<P>
+<P>A caching only name server will find the answer to name queries and remember 
+the answer the next time you need it. This will shorten the waiting time the 
+next time significantly, esp. if you're on a slow connection. 
+<P>
+<P>First you need a file called <CODE>/etc/named.conf</CODE>. This is read when 
+named starts. For now it should simply contain: 
+<P>
+<HR>
+<PRE>// Config file for caching only name server
+
+options {
+        directory "/var/named";
+
+        // Uncommenting this might help if you have to go through a
+        // firewall and things are not working out:
+
+        // query-source address * port 53;
+};
+
+zone "." {
+        type hint;
+        file "root.hints";
+};
+
+zone "0.0.127.in-addr.arpa" {
+        type master;
+        file "pz/127.0.0";
+};
+</PRE>
+<HR>
+
+<P>
+<P>The `<CODE>directory</CODE>' line tells named where to look for files. All 
+files named subsequently will be relative to this. Thus <CODE>pz</CODE> is a 
+directory under <CODE>/var/named</CODE>, i.e., <CODE>/var/named/pz</CODE>. 
+<CODE>/var/named</CODE> is the right directory according to the <EM>Linux File 
+system Standard</EM>. 
+<P>
+<P>The file named <CODE>/var/named/root.hints</CODE> is named in this. 
+<CODE>/var/named/root.hints</CODE> should contain this: 
+<P>
+<HR>
+<PRE> .                      6D IN NS        G.ROOT-SERVERS.NET.
+ .                      6D IN NS        J.ROOT-SERVERS.NET.
+ .                      6D IN NS        K.ROOT-SERVERS.NET.
+ .                      6D IN NS        L.ROOT-SERVERS.NET.
+ .                      6D IN NS        M.ROOT-SERVERS.NET.
+ .                      6D IN NS        A.ROOT-SERVERS.NET.
+ .                      6D IN NS        H.ROOT-SERVERS.NET.
+ .                      6D IN NS        B.ROOT-SERVERS.NET.
+ .                      6D IN NS        C.ROOT-SERVERS.NET.
+ .                      6D IN NS        D.ROOT-SERVERS.NET.
+ .                      6D IN NS        E.ROOT-SERVERS.NET.
+ .                      6D IN NS        I.ROOT-SERVERS.NET.
+ .                      6D IN NS        F.ROOT-SERVERS.NET.
+
+G.ROOT-SERVERS.NET.     5w6d16h IN A    192.112.36.4
+J.ROOT-SERVERS.NET.     5w6d16h IN A    198.41.0.10
+K.ROOT-SERVERS.NET.     5w6d16h IN A    193.0.14.129
+L.ROOT-SERVERS.NET.     5w6d16h IN A    198.32.64.12
+M.ROOT-SERVERS.NET.     5w6d16h IN A    202.12.27.33
+A.ROOT-SERVERS.NET.     5w6d16h IN A    198.41.0.4
+H.ROOT-SERVERS.NET.     5w6d16h IN A    128.63.2.53
+B.ROOT-SERVERS.NET.     5w6d16h IN A    128.9.0.107
+C.ROOT-SERVERS.NET.     5w6d16h IN A    192.33.4.12
+D.ROOT-SERVERS.NET.     5w6d16h IN A    128.8.10.90
+E.ROOT-SERVERS.NET.     5w6d16h IN A    192.203.230.10
+I.ROOT-SERVERS.NET.     5w6d16h IN A    192.36.148.17
+F.ROOT-SERVERS.NET.     5w6d16h IN A    192.5.5.241
+</PRE>
+<HR>
+
+<P>
+<P><B>VERY IMPORTANT:</B> In some versions of this document the file contents 
+listed here will have a couple of spaces or a tab before the first non blank 
+character. These are not supposed to be in the file. <B>Delete any leading 
+space</B> in the files you cut and paste from this HOWTO. 
+<P>
+<P><B>Remember what I said about leading spaces!</B> 
+<P>
+<P>The file describes the root name servers in the world. This changes over time 
+and <EM>must</EM> be maintained. See the <A 
+href="http://w3.fmh.utl.pt/doc/HOWTO/DNS-HOWTO-6.html#maint">maintenance 
+section</A> for how to keep it up to date. 
+<P>The next line in <CODE>named.conf</CODE> is the <CODE>primary</CODE> line. I 
+will explain its use in a later chapter, for now just make this a file named 
+<CODE>127.0.0</CODE> in the subdirectory <CODE>pz</CODE>: 
+<P>
+<HR>
+<PRE>@               IN      SOA     ns.linux.bogus. hostmaster.linux.bogus. (
+                                1       ; Serial
+                                8H      ; Refresh
+                                2H      ; Retry
+                                1W      ; Expire
+                                1D)     ; Minimum TTL
+                        NS      ns.linux.bogus.
+1                       PTR     localhost.
+</PRE>
+<HR>
+
+<P>
+<P>Next, you need a <CODE>/etc/resolv.conf</CODE> looking something like this: 
+<P>
+<HR>
+<PRE>search subdomain.your-domain.edu your-domain.edu
+nameserver 127.0.0.1
+</PRE>
+<HR>
+
+<P>
+<P>The `<CODE>search</CODE>' line specifies what domains should be searched for 
+any host names you want to connect to. The `<CODE>nameserver</CODE>' line 
+specifies the address of your nameserver at, in this case your own machine since 
+that is where your named runs (127.0.0.1 is right, no matter if your machine has 
+an other address too). If you want to list several name servers put in one 
+`<CODE>nameserver</CODE>' line for each. (Note: Named never reads this file, the 
+resolver that uses named does.) 
+<P>
+<P>To illustrate what this file does: If a client tries to look up 
+<CODE>foo</CODE>, then <CODE>foo.subdomain.your-domain.edu</CODE> is tried 
+first, then <CODE>foo.your-fomain.edu</CODE>, finally <CODE>foo</CODE>. If a 
+client tries to look up <CODE>sunsite.unc.edu</CODE>, 
+<CODE>sunsite.unc.edu.subdomain.your-domain.edu</CODE> is tried first (yes, it's 
+silly, but that's the way it works) , then 
+<CODE>sunsite.unc.edu.your-domain.edu</CODE>, and finally 
+<CODE>sunsite.unc.edu</CODE>. You may not want to put in too many domains in the 
+search line, it takes time to search them all. 
+<P>
+<P>The example assumes you belong in the domain 
+<CODE>subdomain.your-domain.edu</CODE>, your machine then, is probably called 
+<CODE>your-machine.subdomain.your-domain.edu</CODE>. The search line should not 
+contain your TLD (Top Level Domain, `<CODE>edu</CODE>' in this case). If you 
+frequently need to connect to hosts in another domain you can add that domain to 
+the search line like this: 
+<P>
+<HR>
+<PRE>search subdomain.your-domain.edu your-domain.edu other-domain.com
+</PRE>
+<HR>
+
+<P>and so on. Obviously you need to put real domain names in instead. Please 
+note the lack of periods at the end of the domain names. 
+<P>
+<P>Next, depending on your libc version you either need to fix 
+<CODE>/etc/nsswitch.conf</CODE> or <CODE>/etc/host.conf</CODE>. If you already 
+have <CODE>nsswitch.conf</CODE> that's what we'll fix, if not, we'll fix 
+<CODE>host.conf</CODE>. 
+<P>
+<P><B>/etc/nsswitch.conf</B> 
+<P>
+<P>This is a long file specifying where to get different kinds of data types, 
+from what file or database. It usually contains helpful comments at the top, 
+which you should consider reading, now. After that find the line starting with 
+`<CODE>hosts:</CODE>', it should read 
+<P>
+<HR>
+<PRE>hosts:      files dns
+</PRE>
+<HR>
+
+<P>If there is no line starting with `<CODE>hosts:</CODE>' then put in the one 
+above. It says that programs should first look in the <CODE>/etc/hosts</CODE> 
+file, then check DNS according to <CODE>resolv.conf</CODE>. 
+<P>
+<P><B>/etc/host.conf</B> 
+<P>
+<P>It probably contains several lines, one should starting with 
+<CODE>order</CODE> and it should look like this: 
+<P>
+<HR>
+<PRE>order hosts,bind
+</PRE>
+<HR>
+
+<P>
+<P>If there is no `<CODE>order</CODE>' line you should stick one in. It tells 
+the host name resolving routines to first look in <CODE>/etc/hosts</CODE>, then 
+ask the name server (which you in <CODE>resolv.conf</CODE> said is at 127.0.0.1) 
+These two latest files are documented in the resolv(8) man page (do `<CODE>man 8 
+resolv</CODE>') in most Linux distributions. That man page is IMHO readable, and 
+everyone, especially DNS admins, should read it. Do it now, if you say to 
+yourself "I'll do it later" you'll never get around to it. 
+<P>
+<H2><A name=ss3.1>3.1 Starting named</A> </H2>
+<P>After all this it's time to start named. If you're using a dialup connection 
+connect first. Type `<CODE>ndc start</CODE>', and press return, no options. If 
+that back-fires try `<CODE>/usr/sbin/ndc start</CODE>' instead. If that 
+back-fires see the <A 
+href="http://w3.fmh.utl.pt/doc/HOWTO/DNS-HOWTO-8.html#qanda">QnA</A> section. 
+Now you can test your setup. If you view your syslog message file (usually 
+called <CODE>/var/adm/messages</CODE>, but another directory to look in is 
+<CODE>/var/log</CODE> and another file to look in is <CODE>syslog</CODE>) while 
+starting named (do <CODE>tail -f /var/log/messages</CODE>) you should see 
+something like: 
+<P>
+<P>(the lines ending in \ continues on the next line) 
+<P>
+<BLOCKQUOTE><CODE><PRE>Feb 15 01:26:17 roke named[6091]: starting.  named 8.1.1 Sat Feb 14 \
+  00:18:20 MET 1998 ^Ijanl@roke.uio.no:/var/tmp/bind-8.1.1/src/bin/named
+Feb 15 01:26:17 roke named[6091]: cache zone "" (IN) loaded (serial 0)
+Feb 15 01:26:17 roke named[6091]: master zone "0.0.127.in-addr.arpa" \
+  (IN) loaded (serial 1)
+Feb 15 01:26:17 roke named[6091]: listening [127.0.0.1].53 (lo)
+Feb 15 01:26:17 roke named[6091]: listening [129.240.230.92].53 (ippp0)
+Feb 15 01:26:17 roke named[6091]: Forwarding source address is [0.0.0.0].1040
+Feb 15 01:26:17 roke named[6092]: Ready to answer queries.
+</PRE></CODE></BLOCKQUOTE>
+<P>
+<P>If there are any messages about errors then there is a mistake. Named will 
+name the file it is in (one of named.conf and root.hints I hope :-) Kill named 
+and go back and check the file. 
+<P>
+<P>Now it's time to start nslookup to examine your handy-work. 
+<P>
+<BLOCKQUOTE><CODE><PRE>$ nslookup
+Default Server:  localhost
+Address:  127.0.0.1
+
+&gt;
+</PRE></CODE></BLOCKQUOTE>
+<P>
+<P>If that's what you get it's working. We hope. Anything else, go back and 
+check everything. Each time you change the <CODE>named.conf</CODE> file you need 
+to restart named using the <CODE>ndc restart</CODE> command. 
+<P>
+<P>Now you can enter a query. Try looking up some machine close to you. 
+<CODE>pat.uio.no</CODE> is close to me, at the University of Oslo: 
+<P>
+<BLOCKQUOTE><CODE><PRE>&gt; pat.uio.no
+Server:  localhost
+Address:  127.0.0.1
+
+Name:    pat.uio.no
+Address:  129.240.130.16
+</PRE></CODE></BLOCKQUOTE>
+<P>
+<P>nslookup now asked your named to look for the machine 
+<CODE>pat.uio.no</CODE>. It then contacted one of the name server machines named 
+in your <CODE>root.hints</CODE> file, and asked its way from there. It might 
+take tiny while before you get the result as it searches all the domains you 
+named in <CODE>/etc/resolv.conf</CODE>. 
+<P>
+<P>If you ask the same again you get this: 
+<P>
+<BLOCKQUOTE><CODE><PRE>&gt; pat.uio.no
+Server:  localhost
+Address:  127.0.0.1
+
+Non-authoritative answer:
+Name:    pat.uio.no
+Address:  129.240.2.50
+</PRE></CODE></BLOCKQUOTE>
+<P>
+<P>Note the `<CODE>Non-authoritative answer:</CODE>' line we got this time 
+around. That means that named did not go out on the network to ask this time, it 
+instead looked in it's cache and found it there. But the cached information 
+<EM>might</EM> be out of date (stale). So you are informed of this (very slight) 
+danger by it saying `<CODE>Non-authorative answer:</CODE>'. When 
+<CODE>nslookup</CODE> says this the second time you ask for a host it's a sure 
+sign that named caches the information and that it's working. You exit 
+<CODE>nslookup</CODE> by giving the command `<CODE>exit</CODE>'. 
+<P>
+<P>Now you know how to set up a caching named. Take a beer, milk, or whatever 
+you prefer to celebrate it. 
+<P>
+<HR>
+<A href="http://w3.fmh.utl.pt/doc/HOWTO/DNS-HOWTO-4.html"><IMG alt=Next 
+src="DNS HOWTO A caching only name server_ficheiros/next.gif"></A> <A 
+href="http://w3.fmh.utl.pt/doc/HOWTO/DNS-HOWTO-2.html"><IMG alt=Previous 
+src="DNS HOWTO A caching only name server_ficheiros/prev.gif"></A> <A 
+href="http://w3.fmh.utl.pt/doc/HOWTO/DNS-HOWTO.html#toc3"><IMG alt=Contents 
+src="DNS HOWTO A caching only name server_ficheiros/toc.gif"></A> </BODY></HTML>

@@ -1,0 +1,85 @@
+<!doctype html public" -//IETF//DTD 	HTML//EN">
+<HTML>
+
+<HEAD>
+<SCRIPT LANGUAGE="JAVASCRIPT">
+<!-- 
+
+function checkbrowse()
+{
+var bn, bv, ver
+bn = navigator.appName;
+bv = parseInt(navigator.appVersion);
+if (bn=="Microsoft Internet Explorer" && bv<"4") ver = "IE3";
+else ver = "NotIE3";
+if (ver=="IE3") top.cont.parts.location.href="part19.htm";
+if (ver=="NotIE3") top.cont.parts.location.href="nav/part19.htm";
+}
+//-->
+</SCRIPT>
+<TITLE>Install a Web Server</TITLE>
+<META NAME="GENERATOR" 	CONTENT="Merch. System HTML Development">
+<META NAME="AUTHOR" 	CONTENT="Merch. System HTML Development">
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" OnLoad="checkbrowse();">
+<Font Face ="Verdana, Arial, Helvetica">
+
+<P align=right><SMALL>
+<A HREF="p199810.htm" Target="TOC"><IMG SRC="prev.gif"ALT="Previous page"BORDER=0></A>
+<A HREF="p19981.htm" Target="TOC"><IMG SRC="toc19.gif"ALT="Contents"BORDER=0></A>
+<A HREF="p199812.htm" Target="TOC"><IMG SRC="Next.gif"ALT="Next 
+page"BORDER=0></A></SMALL></P>
+<H3>Install a Web Server</H3>
+
+<P>
+To make it easier to set up a workgroup that uses your organization’s intranet or the World Wide Web, 
+Microsoft Project comes with Microsoft Personal Web Server for Windows 95 (which is included on the 
+Microsoft Project for Windows CD only, not on disk).
+<P>
+The web server can reside on any computer. For convenience, you might want to install it on your computer. 
+Remember, though, the computer that has the web server will need to be running any time a workgroup member 
+needs to use the TeamInbox. That computer also needs to be connected to the Internet if workgroup members 
+use the Internet to access the web server.
+<P>
+There is no need to install a web server if one of your workgroup computers is running Windows NT Server 4.0 
+or later. By default, Windows NT Server 4.0 has an activated web server, the Internet Information Server (IIS). 
+The URL for the web server incorporates the network identification of the computer on which the web server 
+resides. For instance, if the computer has its network identification set to be WorkgroupManager, then the 
+URL for the web server on that computer would be as follows:
+<P>
+http://workgroupmanager/
+<P>
+If the web server is running Windows 95, you can install Microsoft Personal Web Server.
+<P>
+<B><B><IMG SRC="bluetri.gif">	To install a web server</B></B>
+<OL><LI>Install Microsoft Personal Web Server from the Microsoft Project CD.
+<LI>When you have finished installing the web server, click the <B>Start</B> button, point to 
+<B>Settings</B>, and then click <B>Control Panel.</B>
+<LI>Double-click <B>Personal Web Server</B>.
+<LI>Click the <B>Administration</B> tab, and then click <B>Administration</B>.
+<BR>Your web browser opens to a settings file that has been newly installed to your computer.
+<LI>Scroll down if necessary, and then click <B>WWW Administration</B>.
+<LI>Click the <B>Directories</B> tab.
+<LI>For the directory C:\WebShare\wwwroot, click <B>Edit</B> in the <B>Action</B> column.
+<LI>Scroll down if necessary, and then select the <B>Execute</B> check box in the <B>Access</B> section.
+</OL>
+</BOTTOM>
+<P>
+<B><B><IMG SRC="bluetri.gif">	To share out the web server folder for others to access</B></B>
+<OL>
+<LI>In <B>Windows Explorer</B> (not the Internet Explorer), click the <B>Webshare</B> folder.
+<LI>On the <B>File</B> menu, click <B>Properties</B>, and then click the <B>Sharing</B> tab.
+<LI>Click <B>Shared As</B>, and then click <B>Add</B>.
+<LI>In the <B>Name</B> list, hold down ctrl, and then click the name of each workgroup member who will be 
+receiving workgroup messages.
+<LI>Click <B>Full Access</B>, and then click <B>OK</B>.
+<LI>Click <B>Web Sharing</B>, and then select the <B>Share folder for HTTP</B>, <B>Read Only</B>, and 
+<B>Execute Scripts</B> check boxes.
+</OL>
+<P align = Center > <A HREF="http://www.microsoft.com/misc/cpyright.htm"><EM>&#169;1996-1997 Microsoft Corporation. All rights 
+reserved.</EM></A></P>
+</BODY>
+</FONT>
+</HTML>
+

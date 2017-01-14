@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>Guidelines for Complex Error Handling</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba08_4.htm" OnClick="SyncURL(&quot;chapters/ba08_4.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<a NAME="3GuidelinesforComplexErrorHandling"></a>
+<p CLASS="heading3OrgHeading1h1">Guidelines for Complex Error Handling</p>
+<p CLASS="Textttext">When you create large applications that use multiple modules, the error-handling code can get quite complex. Keep these guidelines in mind:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspReduce code size by writing a few procedures that your error-handling code can call to handle common error situations. For example, you may want to write a procedure to handle file-related and disk-related errors that you call whenever you read or write to a disk file.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspUse the <span CLASS="ElementNameeln">Raise</span> method of the <span CLASS="ElementNameeln">Err</span> object in all error-handling code to handle cases in which no code in the error-handling routine deals with the specific current error. This enables your application to try to correct the error in other error-handling routines along the calls list. It also ensures that Visual Basic displays an error message if an error occurs that your code doesn't handle. This helps you uncover the errors you aren't handling adequately when you test your code.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspUse the <span CLASS="ElementNameeln">Clear</span> method if you need to explicitly clear the <span CLASS="ElementNameeln">Err</span> object after handling an error. This is necessary when using inline error handling with the <span CLASS="ElementNameeln">On Error Resume Next</span> statement. Visual Basic calls the <span CLASS="ElementNameeln">Clear</span> method automatically whenever it runs any type of <span CLASS="ElementNameeln">Resume</span> statement, <span CLASS="ElementNameeln">Exit Sub</span>,<span CLASS="ElementNameeln"> Exit Function</span>,<span CLASS="ElementNameeln"> Exit Property</span>, or any <span CLASS="ElementNameeln">On Error</span> statement.</p>
+<p CLASS="ListText1lt1"><span CLASS="CrossRefHeadingcrh">See Also</span>&nbsp;&nbsp;&nbsp;<span CLASS="Xref">For more information on inline error handling, see <a HREF="../chapters/ba08_7.htm" OnClick="SyncURL(&quot;chapters/ba08_7.htm&quot;)">&quot;Inline Error Handling&quot;</a> later in this chapter.</span></span></p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspIf you don't use the <span CLASS="ElementNameeln">Raise</span> method, you can write fail-safe error-handling code that all your error handlers can call as a last resort. For example, such code may try to close forms and save a user's data.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspIf you don't want a previous procedure to trap the error, use the <span CLASS="ElementNameeln">Stop</span> statement in the error-handling code to force your application to close. By using the <span CLASS="ElementNameeln">Stop</span> statement, you can examine the context of the error while refining your code. Be sure to remove these<span CLASS="ElementNameeln"> Stop</span> statements before you distribute your application to users.</p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="ba08_6.htm" OnClick="SyncURL(&quot;chapters/ba08_6.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

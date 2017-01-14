@@ -1,0 +1,1290 @@
+<HTML>
+<HEAD>
+<TITLE>
+</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="javpkg.htm">Previous</A>
+ | <A HREF="link.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT><BR><BR>
+<HR>
+
+<H1><A NAME="Layer"></A>
+<A NAME="1193137">
+ Layer
+</A></H1>
+<A NAME="1193139">
+Corresponds to a layer in an HTML page and provides a means for manipulating that layer. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193142">
+<I>Client-side object</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193144">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193146">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193148">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193149">
+ Created by
+</A></H4>
+
+<A NAME="1193154">
+The HTML <CODE><A HREF="http://developer.netscape.com/docs/manuals/htmlguid/index.htm?content=tags12.htm#tags:LAYER" TARGET="_top">LAYER</A></CODE> or <CODE><A HREF="http://developer.netscape.com/docs/manuals/htmlguid/index.htm?content=tags12.htm#tags:ILAYER" TARGET="_top">ILAYER</A></CODE> tag, or using cascading style sheet syntax. The JavaScript runtime engine creates a <CODE>Layer</CODE> object corresponding to each layer in your document. It puts these objects in an array in the <A HREF="document.htm#1193842"><CODE>document.layers</CODE></A> property. You access a <CODE>Layer</CODE> object by indexing this array.</A></P>
+<A NAME="1193158">
+To define a layer, use standard HTML syntax. If you specify the <CODE>ID</CODE> attribute, you can use the value of that attribute to index into the <CODE>layers</CODE> array.</A></P>
+<A NAME="1205432">
+For a complete description of layers, see <I><A HREF="http://developer.netscape.com/docs/manuals/communicator/dynhtml/index.htm" TARGET="_top">Dynamic HTML in Netscape Communicator</A>.</I></A></P>
+<A NAME="1193165">
+Some <CODE>layer</CODE> properties can be directly modified by assignment; for example, "<CODE>mylayer.visibility = hide</CODE>". A layer object also has methods that can affect these properties.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193166">
+ Event handlers
+</A></H4>
+
+<ul><LI><A NAME="1193170">
+<A HREF="handlers.htm#1120822"><CODE>onMouseOver</CODE></A>
+</A></LI><LI><A NAME="1193174">
+<A HREF="handlers.htm#1120757"><CODE>onMouseOut</CODE></A> 
+</A></LI><LI><A NAME="1193178">
+<A HREF="handlers.htm#1120545"><CODE>onLoad</CODE></A> 
+</A></LI><LI><A NAME="1193182">
+<A HREF="handlers.htm#1120186"><CODE>onFocus</CODE></A> 
+</A></LI><LI><A NAME="1193186">
+<A HREF="handlers.htm#1119670"><CODE>onBlur</CODE></A>
+</A></LI></ul>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193188">
+ Property Summary
+</A></H4>
+
+<A NAME="1193345">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1193191">
+<B>Property
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1193193">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193198"><A HREF="layer.htm#1193453"><CODE>above</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193200">
+The <CODE>layer</CODE> object above this one in z-order, among all layers in the document or the enclosing window object if this layer is topmost. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193205"><A HREF="layer.htm#1193472"><CODE>background</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193207">
+The image to use as the background for the layer's canvas.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193212"><A HREF="layer.htm#1193491"><CODE>bgColor</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193214">
+The color to use as a solid background color for the layer's canvas.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193219"><A HREF="layer.htm#1196115"><CODE>below</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193221">
+The <CODE>layer</CODE> object below this one in z-order, among all layers in the document or null if this layer is at the bottom. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193226"><A HREF="layer.htm#1193545"><CODE>clip.bottom</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193228">
+The bottom edge of the clipping rectangle (the part of the layer that is visible.)</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193233"><A HREF="layer.htm#1193560"><CODE>clip.height</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193235">
+The height of the clipping rectangle (the part of the layer that is visible.)</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193240"><A HREF="layer.htm#1193575"><CODE>clip.left</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193242">
+The left edge of the clipping rectangle (the part of the layer that is visible.)</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193247"><A HREF="layer.htm#1193590"><CODE>clip.right</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193249">
+The right edge of the clipping rectangle (the part of the layer that is visible.)</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193254"><A HREF="layer.htm#1193605"><CODE>clip.top</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193256">
+The top edge of the clipping rectangle (the part of the layer that is visible.)</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193261"><A HREF="layer.htm#1193620"><CODE>clip.width</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193263">
+The width of the clipping rectangle (the part of the layer that is visible.)</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193268"><A HREF="layer.htm#1193635"><CODE>document</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193270">
+The layer's associated document.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193275"><A HREF="layer.htm#1193656"><CODE>left</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193277">
+The horizontal position of the layer's left edge, in pixels, relative to the origin of its parent layer. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193282"><A HREF="layer.htm#1193672"><CODE>name</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193284">
+A string specifying the name assigned to the layer through the <CODE>ID</CODE> attribute in the <CODE>LAYER </CODE>tag. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193289"><A HREF="layer.htm#1193691"><CODE>pageX</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193291">
+The horizontal position of the layer, in pixels, relative to the page.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193293"><A HREF="layer.htm#1193706"><CODE>pageY</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193295">
+The vertical position of the layer, in pixels, relative to the page. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193300"><A HREF="layer.htm#1193721"><CODE>parentLayer</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193302">
+The <CODE>layer</CODE> object that contains this layer, or the enclosing <CODE>window</CODE> object if this layer is not nested in another layer. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193307"><A HREF="layer.htm#1193740"><CODE>siblingAbove</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193309">
+The <CODE>layer</CODE> object above this one in z-order, among all layers that share the same parent layer, or null if the layer has no sibling above. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193314"><A HREF="layer.htm#1193759"><CODE>siblingBelow</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193316">
+The <CODE>layer</CODE> object below this one in z-order, among all layers that share the same parent layer, or null if layer is at the bottom.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193321"><A HREF="layer.htm#1193779"><CODE>src</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193323">
+A string specifying the URL of the layer's content.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193328"><A HREF="layer.htm#1209440"><CODE>top</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193330">
+The vertical position of the layer's top edge, in pixels, relative to the origin of its parent layer.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193335"><A HREF="layer.htm#1193826"><CODE>visibility</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193337">
+Whether or not the layer is visible.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1209947"><A HREF="layer.htm#1209301"><CODE>window</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1209949">
+The <A HREF="window.htm#1200703"><CODE>window</CODE></A> or <A HREF="frame.htm#1193137"><CODE>Frame</CODE></A> object that contains the layer, regardless of whether the layer is nested within another layer.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1210137"><A HREF="layer.htm#1209566"><CODE>x</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1210139">
+A convenience synonym for <A HREF="layer.htm#1193656"><CODE>Layer.left</CODE></A>.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1210141"><A HREF="layer.htm#1209602"><CODE>y</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1210143">
+A convenience synonym for <A HREF="layer.htm#1209440"><CODE>Layer.top</CODE></A>.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193342"><A HREF="layer.htm#1193843"><CODE>zIndex</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193344">
+The relative z-order of this layer with respect to its siblings.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193347">
+ Method Summary
+</A></H4>
+
+<A NAME="1193437">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1193350">
+<B>Method
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1193352">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193357"><A HREF="layer.htm#1194781"><CODE>captureEvents</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193359">
+Sets the window or document to capture all events of the specified type.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193364"><A HREF="layer.htm#1195096"><CODE>handleEvent</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193366">
+Invokes the handler for the specified event.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193371"><A HREF="layer.htm#1195408"><CODE>load</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193373">
+Changes the source of a layer to the contents of the specified file, and simultaneously changes the width at which the layer's HTML contents will be wrapped.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193378"><A HREF="layer.htm#1195436"><CODE>moveAbove</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193380">
+Stacks this layer above the layer specified in the argument, without changing either layer's horizontal or vertical position. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193385"><A HREF="layer.htm#1195460"><CODE>moveBelow</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193387">
+Stacks this layer below the specified layer, without changing either layer's horizontal or vertical position. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193392"><A HREF="layer.htm#1195484"><CODE>moveBy</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193394">
+Changes the layer position by applying the specified deltas, measured in pixels.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193399"><A HREF="layer.htm#1195513"><CODE>moveTo</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193401">
+Moves the top-left corner of the window to the specified screen coordinates. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193406"><A HREF="layer.htm#1195555"><CODE>moveToAbsolute</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193408">
+Changes the layer position to the specified pixel coordinates within the page (instead of the containing layer.)</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193413"><A HREF="layer.htm#1195750"><CODE>releaseEvents</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193415">
+Sets the layer to release captured events of the specified type, sending the event to objects further along the event hierarchy.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193420"><A HREF="layer.htm#1195779"><CODE>resizeBy</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193422">
+Resizes the layer by the specified height and width values (in pixels). </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193427"><A HREF="layer.htm#1195809"><CODE>resizeTo</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193429">
+Resizes the layer to have the specified height and width values (in pixels). </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193434"><A HREF="layer.htm#1195841"><CODE>routeEvent</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193436">
+Passes a captured event along the normal event hierarchy.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+<A NAME="1202499">
+In addition, this object inherits the <A HREF="object.htm#1193628"><CODE>watch</CODE></A> and <A HREF="object.htm#1193499"><CODE>unwatch</CODE></A> methods from <A HREF="object.htm#1193136"><CODE>Object</CODE></A>.</A></P>
+<BLOCKQUOTE><B>NOTE: </B><A NAME="1193439">
+Just as in the case of a document, if you want to define mouse click response 
+for a layer, you must capture <A HREF="handlers.htm#1120635"><CODE>onMouseDown</CODE></A> and <A HREF="handlers.htm#1120892"><CODE>onMouseUp</CODE></A> events at the 
+level of the layer and process them as you want. 
+</A>
+</BLOCKQUOTE>
+<A NAME="1193449">
+For details about capturing events, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+<A NAME="1193450">
+If an event occurs in a point where multiple layers overlap, the topmost layer gets the event, even if it is transparent. However, if a layer is hidden, it does not get events.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193453">
+above
+</A></H2>
+
+<A NAME="1193454">
+The <CODE>layer</CODE> object above this one in z-order, among all layers in the document or the enclosing window object if this layer is topmost. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193457">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193462">
+<A HREF="layer.htm#1193137"><CODE>Layer</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193464">
+<I>Read-only</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193466">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193468">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193470">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193472">
+background
+</A></H2>
+
+<A NAME="1193473">
+The image to use as the background for the layer's canvas (which is the part of the layer within the clip rectangle).<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193476">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193481">
+<A HREF="layer.htm#1193137"><CODE>Layer</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193483">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193485">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193486">
+ Description
+</A></H4>
+
+<A NAME="1193487">
+Each layer has a background property, whose value is an image object, whose <CODE>src</CODE> attribute is a URL that indicates the image to use to provide a tiled backdrop. The value is null if the layer has no backdrop. For example:</A></P>
+<PRE><A NAME="1193488">layer.background.src = "fishbg.gif";</A></PRE>
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1196115">
+below
+</A></H2>
+
+<A NAME="1196116">
+The <CODE>layer</CODE> object below this one in z-order, among all layers in the document or null if this layer is at the bottom. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1196119">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1196124">
+<A HREF="layer.htm#1193137"><CODE>Layer</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1196126">
+<I>Read-only</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1196128">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1196130">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1196132">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193491">
+bgColor
+</A></H2>
+
+<A NAME="1193493">
+A string specifying the color to use as a solid background color for the layer's canvas (the part of the layer within the clip rectangle). <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193496">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193501">
+<A HREF="layer.htm#1193137"><CODE>Layer</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193503">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193505">
+JavaScript 1.2</A></P>
+
+</TABLE>
+ </A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193506">
+ Description
+</A></H4>
+
+<A NAME="1193507">
+The <CODE>bgColor</CODE> property is expressed as a hexadecimal RGB triplet or as a string literal (see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>). This property is the JavaScript reflection of the <CODE>BGCOLOR</CODE> attribute of the <CODE>BODY</CODE> tag.</A></P>
+<A NAME="1193513">
+You can set the <CODE>bgColor</CODE> property at any time.</A></P>
+<A NAME="1193514">
+If you express the color as a hexadecimal RGB triplet, you must use the format <CODE>rrggbb</CODE>. For example, the hexadecimal RGB values for salmon are <CODE>red=FA</CODE>, <CODE>green=80</CODE>, and <CODE>blue=72</CODE>, so the RGB triplet for salmon is <CODE>"FA8072"</CODE>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193515">
+ Examples
+</A></H4>
+
+<A NAME="1193516">
+The following example sets the background color of the <CODE>myLayer</CODE> layer's canvas to aqua using a string literal:</A></P>
+<PRE><A NAME="1193517">myLayer.bgColor="aqua"</A></PRE><A NAME="1193518">
+The following example sets the background color of the <CODE>myLayer</CODE> layer's canvas to aqua using a hexadecimal triplet:</A></P>
+<PRE><A NAME="1193519">myLayer.bgColor="00FFFF"</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193520">
+ See also
+</A></H4>
+
+<A NAME="1193524">
+<A HREF="layer.htm#1193491"><CODE>Layer.bgColor</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1194781">
+captureEvents
+</A></H2>
+
+<A NAME="1194794">
+Sets the window or document to capture all events of the specified type. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194784">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194789">
+<A HREF="layer.htm#1193137"><CODE>Layer</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194791">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194793">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194795">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1194796">captureEvents(<I>eventType</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194797">
+ Parameters
+</A></H4>
+
+<A NAME="1194806">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1194800">eventType</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1194805">
+Type of event to be captured. Available event types are listed in the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194807">
+ Description
+</A></H4>
+
+<A NAME="1194808">
+When a window with frames wants to capture events in pages loaded from different locations (servers), you need to use <CODE>captureEvents</CODE> in a signed script and precede it with <CODE>enableExternalCapture</CODE>. For more information and an example, see <CODE>enableExternalCapture</CODE>. </A></P>
+<A NAME="1194809">
+<CODE>captureEvents</CODE> works in tandem with <CODE>releaseEvents</CODE>, <CODE>routeEvent</CODE>, and <CODE>handleEvent</CODE>. For information on handling events, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193545">
+clip.bottom
+</A></H2>
+
+<A NAME="1193546">
+The bottom edge of the clipping rectangle (the part of the layer that is visible.) Any part of a layer that is outside the clipping rectangle is not displayed. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193549">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193554">
+<A HREF="layer.htm#1193137"><CODE>Layer</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193556">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193558">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193560">
+clip.height
+</A></H2>
+
+<A NAME="1193561">
+The height of the clipping rectangle (the part of the layer that is visible.) Any part of a layer that is outside the clipping rectangle is not displayed. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193564">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193569">
+<A HREF="layer.htm#1193137"><CODE>Layer</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193571">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193573">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193575">
+clip.left
+</A></H2>
+
+<A NAME="1193576">
+The left edge of the clipping rectangle (the part of the layer that is visible.) Any part of a layer that is outside the clipping rectangle is not displayed. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193579">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193584">
+<A HREF="layer.htm#1193137"><CODE>Layer</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193586">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193588">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193590">
+clip.right
+</A></H2>
+
+<A NAME="1193591">
+The right edge of the clipping rectangle (the part of the layer that is visible.) Any part of a layer that is outside the clipping rectangle is not displayed. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193594">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193599">
+<A HREF="layer.htm#1193137"><CODE>Layer</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193601">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193603">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193605">
+clip.top
+</A></H2>
+
+<A NAME="1193606">
+The top edge of the clipping rectangle (the part of the layer that is visible.) Any part of a layer that is outside the clipping rectangle is not displayed. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193609">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193614">
+<A HREF="layer.htm#1193137"><CODE>Layer</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193616">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193618">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193620">
+clip.width
+</A></H2>
+
+<A NAME="1193621">
+The width of the clipping rectangle (the part of the layer that is visible.) Any part of a layer that is outside the clipping rectangle is not displayed. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193624">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193629">
+<A HREF="layer.htm#1193137"><CODE>Layer</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193631">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193633">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193635">
+document
+</A></H2>
+
+<A NAME="1193652">
+The layer's associated document.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193638">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193643">
+<A HREF="layer.htm#1193137"><CODE>Layer</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193645">
+<I>Read-only</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193647">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193649">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193651">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193653">
+ Description
+</A></H4>
+
+<A NAME="1193654">
+Each <CODE>layer</CODE> object contains its own <CODE>document</CODE> object. This object can be used to access the images, applets, embeds, links, anchors and layers that are contained within the layer. Methods of the <CODE>document</CODE> object can also be invoked to change the contents of the layer.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1195096">
+handleEvent
+</A></H2>
+
+<A NAME="1195109">
+Invokes the handler for the specified event. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195099">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195104">
+<A HREF="layer.htm#1193137"><CODE>Layer</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195106">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195108">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195110">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1195111">handleEvent(<I>event</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1195112">
+ Parameters
+</A></H4>
+
+<A NAME="1195118">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1195115">event</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1195117">
+Name of an event for which the specified object has an event handler.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195119">
+ Description
+</A></H4>
+
+<A NAME="1195120">
+<CODE>handleEvent</CODE> works in tandem with <CODE>captureEvents</CODE>, <CODE>releaseEvents</CODE>, and <CODE>routeEvent</CODE>. For information on handling events, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193656">
+left
+</A></H2>
+
+<A NAME="1193657">
+The horizontal position of the layer's left edge, in pixels, relative to the origin of its parent layer. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193660">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193665">
+<A HREF="layer.htm#1193137"><CODE>Layer</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193667">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193669">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+<A NAME="1209690">
+The <A HREF="layer.htm#1209566"><CODE>Layer.x</CODE></A> property is a convenience synonym for the <CODE>left</CODE> property.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1209691">
+ See also
+</A></H4>
+
+<A NAME="1209695">
+<A HREF="layer.htm#1209440"><CODE>Layer.top</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1195408">
+load
+</A></H2>
+
+<A NAME="1195409">
+Changes the source of a layer to the contents of the specified file and simultaneously changes the width at which the layer's HTML contents are wrapped. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195412">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195417">
+<A HREF="layer.htm#1193137"><CODE>Layer</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195419">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195421">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195422">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1195423">load(<I>sourcestring</I>, <I>width</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1195424">
+ Parameters
+</A></H4>
+
+<A NAME="1195434">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1195427">sourcestring</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1195429">
+A string indicating the external file name.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1195431">width</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1195433">
+The width of the layer as a pixel value.</A></P>
+
+</TABLE>
+</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1195436">
+moveAbove
+</A></H2>
+
+<A NAME="1195437">
+Stacks this layer above the layer specified in the argument, without changing either layer's horizontal or vertical position. After re-stacking, both layers will share the same parent layer. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195440">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195445">
+<A HREF="layer.htm#1193137"><CODE>Layer</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195447">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195449">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195450">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1195451">moveAbove(<I>aLayer</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1195452">
+ Parameters
+</A></H4>
+
+<A NAME="1195458">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1195455">aLayer</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1195457">
+The layer above which to move the current layer.</A></P>
+
+</TABLE>
+</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1195460">
+moveBelow
+</A></H2>
+
+<A NAME="1195461">
+Stacks this layer below the specified layer, without changing either layer's horizontal or vertical position. After re-stacking, both layers will share the same parent layer. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195464">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195469">
+<A HREF="layer.htm#1193137"><CODE>Layer</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195471">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195473">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195474">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1195475">moveBelow(<I>aLayer</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1195476">
+ Parameters
+</A></H4>
+
+<A NAME="1195482">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1195479">aLayer</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1195481">
+The layer below which to move the current layer.</A></P>
+
+</TABLE>
+</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1195484">
+moveBy
+</A></H2>
+
+<A NAME="1195497">
+Changes the layer position by applying the specified deltas, measured in pixels.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195487">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195492">
+<A HREF="layer.htm#1193137"><CODE>Layer</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195494">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195496">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195498">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1195499">moveBy(<I>horizontal</I>, <I>vertical</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1195500">
+ Parameters
+</A></H4>
+
+<A NAME="1195510">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1195503">horizontal</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1195505">
+The number of pixels by which to move the layer horizontally.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1195507">vertical</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1195509">
+The number of pixels by which to move the layer vertically.</A></P>
+
+</TABLE>
+</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1195513">
+moveTo
+</A></H2>
+
+<A NAME="1195526">
+Moves the top-left corner of the window to the specified screen coordinates.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195516">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195521">
+<A HREF="layer.htm#1193137"><CODE>Layer</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195523">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195525">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195527">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1195528">moveTo(<I>x-coordinate</I>, <I>y-coordinate</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1195529">
+ Parameters
+</A></H4>
+
+<A NAME="1195539">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1195532">x-coordinate</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1195534">
+An integer representing the top edge of the window in screen coordinates.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1195536">y-coordinate</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1195538">
+An integer representing the left edge of the window in screen coordinates.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195540">
+ Security
+</A></H4>
+
+<A NAME="1196404">
+To move a window offscreen, call the <CODE>moveTo</CODE> method in a signed script. For information on security, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195547">
+ Description
+</A></H4>
+
+<A NAME="1195548">
+Changes the layer position to the specified pixel coordinates within the containing layer. For ILayers, moves the layer relative to the natural inflow position of the layer.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195549">
+ See also
+</A></H4>
+
+<A NAME="1195553">
+<A HREF="layer.htm#1195484"><CODE>Layer.moveBy</CODE></A> </A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1195555">
+moveToAbsolute
+</A></H2>
+
+<A NAME="1195556">
+Changes the layer position to the specified pixel coordinates within the page (instead of the containing layer.)<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195559">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195564">
+<A HREF="layer.htm#1193137"><CODE>Layer</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195566">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195568">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195569">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1195570">moveToAbsolute(<I>x</I>, <I>y</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1195571">
+ Parameters
+</A></H4>
+
+<A NAME="1195581">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1195574">x</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1195576">
+An integer representing the top edge of the window in pixel coordinates.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1195578">y</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1195580">
+An integer representing the left edge of the window in pixel coordinates.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195582">
+ Description
+</A></H4>
+
+<A NAME="1195589">
+This method is equivalent to setting both the <A HREF="layer.htm#1193691"><CODE>pageX</CODE></A> and <A HREF="layer.htm#1193706"><CODE>pageY</CODE></A> properties of the <CODE>layer</CODE> object.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193672">
+name
+</A></H2>
+
+<A NAME="1193673">
+A string specifying the name assigned to the layer through the <CODE>ID</CODE> attribute in the <CODE>LAYER</CODE> tag. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193676">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193681">
+<A HREF="layer.htm#1193137"><CODE>Layer</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193683">
+<I>Read-only</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193685">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193687">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193689">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193691">
+pageX
+</A></H2>
+
+<A NAME="1193704">
+The horizontal position of the layer, in pixels, relative to the page. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193694">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193699">
+<A HREF="layer.htm#1193137"><CODE>Layer</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193701">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193703">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193706">
+pageY
+</A></H2>
+
+<A NAME="1193719">
+The vertical position of the layer, in pixels, relative to the page. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193709">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193714">
+<A HREF="layer.htm#1193137"><CODE>Layer</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193716">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193718">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193721">
+parentLayer
+</A></H2>
+
+<A NAME="1193722">
+The <CODE>layer</CODE> object that contains this layer, or the enclosing <CODE>window</CODE> object if this layer is not nested in another layer. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193725">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193730">
+<A HREF="layer.htm#1193137"><CODE>Layer</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193732">
+<I>Read-only</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193734">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193736">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193738">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1195750">
+releaseEvents
+</A></H2>
+
+<A NAME="1195751">
+Sets the window or document to release captured events of the specified type, sending the event to objects further along the event hierarchy. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195754">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195759">
+<A HREF="layer.htm#1193137"><CODE>Layer</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195761">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195763">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195764">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1195765">releaseEvents(<I>eventType</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1195766">
+ Parameters
+</A></H4>
+
+<A NAME="1195772">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1195769">eventType</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1195771">
+Type of event to be captured. </A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195773">
+ Description
+</A></H4>
+
+<A NAME="1195774">
+If the original target of the event is a window, the window receives the event even if it is set to release that type of event. <CODE>releaseEvents</CODE> works in tandem with <CODE>captureEvents</CODE>, <CODE>routeEvent</CODE>, and <CODE>handleEvent</CODE>. For more information, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1195779">
+resizeBy
+</A></H2>
+
+<A NAME="1195792">
+Resizes the layer by the specified height and width values (in pixels).<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195782">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195787">
+<A HREF="layer.htm#1193137"><CODE>Layer</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195789">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195791">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195793">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1195794">resizeBy(<I>width</I>, <I>height</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1195795">
+ Parameters
+</A></H4>
+
+<A NAME="1195805">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1195798">width</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1195800">
+The number of pixels by which to resize the layer horizontally.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1195802">height</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1195804">
+The number of pixels by which to resize the layer vertically.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195806">
+ Description
+</A></H4>
+
+<A NAME="1195807">
+This does not layout any HTML contained in the layer again. Instead, the layer contents may be clipped by the new boundaries of the layer. This method has the same effect as adding <CODE>width</CODE> and <CODE>height</CODE> to <CODE>clip.width</CODE> and <CODE>clip.height</CODE>.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1195809">
+resizeTo
+</A></H2>
+
+<A NAME="1195822">
+Resizes the layer to have the specified height and width values (in pixels).<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195812">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195817">
+<A HREF="layer.htm#1193137"><CODE>Layer</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195819">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195821">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195823">
+ Description
+</A></H4>
+
+<A NAME="1195824">
+This does not layout any HTML contained in the layer again. Instead, the layer contents may be clipped by the new boundaries of the layer.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195825">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1195826">resizeTo(<I>width</I>, <I>height</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1195827">
+ Parameters
+</A></H4>
+
+<A NAME="1195837">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1195830">width</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1195832">
+An integer representing the layer's width in pixels.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1195834">height</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1195836">
+An integer representing the layer's height in pixels.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195838">
+ Description
+</A></H4>
+
+<A NAME="1195839">
+This method has the same effect setting <CODE>clip.width</CODE> and <CODE>clip.height</CODE>.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1195841">
+routeEvent
+</A></H2>
+
+<A NAME="1195854">
+Passes a captured event along the normal event hierarchy. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195844">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195849">
+<A HREF="layer.htm#1193137"><CODE>Layer</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1195851">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1195853">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195855">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1195856">routeEvent(<I>event</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1195857">
+ Parameters
+</A></H4>
+
+<A NAME="1195863">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1195860">event</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1195862">
+The event to route.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1195864">
+ Description
+</A></H4>
+
+<A NAME="1195865">
+If a sub-object (document or layer) is also capturing the event, the event is sent to that object. Otherwise, it is sent to its original target. </A></P>
+<A NAME="1195866">
+<CODE>routeEvent</CODE> works in tandem with <CODE>captureEvents</CODE>, <CODE>releaseEvents</CODE>, and <CODE>handleEvent</CODE>. For more information, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193740">
+siblingAbove
+</A></H2>
+
+<A NAME="1193741">
+The layer object above this one in z-order, among all layers that share the same parent layer or null if the layer has no sibling above.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193744">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193749">
+<A HREF="layer.htm#1193137"><CODE>Layer</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193751">
+<I>Read-only</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193753">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193755">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193757">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193759">
+siblingBelow
+</A></H2>
+
+<A NAME="1193760">
+The <CODE>layer</CODE> object below this one in z-order, among all layers that share the same parent layer or null if layer is at the bottom.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193763">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193768">
+<A HREF="layer.htm#1193137"><CODE>Layer</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193770">
+<I>Read-only</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193772">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193774">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193776">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193779">
+src
+</A></H2>
+
+<A NAME="1193781">
+A URL string specifying the source of the layer's content. Corresponds to the <CODE>SRC</CODE> attribute.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193784">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193789">
+<A HREF="layer.htm#1193137"><CODE>Layer</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193791">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193793">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1209440">
+top
+</A></H2>
+
+<A NAME="1209441">
+The vertical position of the layer's left edge, in pixels, relative to the origin of its parent layer. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1209444">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1209449">
+<A HREF="layer.htm#1193137"><CODE>Layer</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1209451">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1209453">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+<A NAME="1209516">
+The <A HREF="layer.htm#1209602"><CODE>Layer.y</CODE></A> property is a convenience synonym for the <CODE>top</CODE> property.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1209545">
+ See also
+</A></H4>
+
+<A NAME="1209520">
+<A HREF="layer.htm#1193656"><CODE>Layer.left</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193826">
+visibility
+</A></H2>
+
+<A NAME="1193839">
+Whether or not the layer is visible. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193829">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193834">
+<A HREF="layer.htm#1193137"><CODE>Layer</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193836">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193838">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193840">
+ Description
+</A></H4>
+
+<A NAME="1193841">
+A value of <CODE>show</CODE> means show the layer; <CODE>hide</CODE> means hide the layer; <CODE>inherit</CODE> means inherit the visibility of the parent layer.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1209301">
+window
+</A></H2>
+
+<A NAME="1209302">
+The <A HREF="window.htm#1200703"><CODE>window</CODE></A> or <A HREF="frame.htm#1193137"><CODE>Frame</CODE></A> object that contains the layer, regardless of whether the layer is nested within another layer.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1209337">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1209342">
+<A HREF="layer.htm#1193137"><CODE>Layer</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1209344">
+<I>Read-only</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1209346">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1209348">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1209350">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1209566">
+x
+</A></H2>
+
+<A NAME="1209567">
+The horizontal position of the layer's left edge, in pixels, relative to the origin of its parent layer. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1209570">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1209575">
+<A HREF="layer.htm#1193137"><CODE>Layer</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1209577">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1209579">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+<A NAME="1209580">
+The <CODE>x</CODE> property is a convenience synonym for the <A HREF="layer.htm#1193656"><CODE>Layer.left</CODE></A> property.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1209581">
+ See also
+</A></H4>
+
+<A NAME="1209585">
+<A HREF="layer.htm#1209602"><CODE>Layer.y</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1209602">
+y
+</A></H2>
+
+<A NAME="1209603">
+The vertical position of the layer's left edge, in pixels, relative to the origin of its parent layer. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1209606">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1209611">
+<A HREF="layer.htm#1193137"><CODE>Layer</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1209613">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1209615">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+<A NAME="1209616">
+The <CODE>y</CODE> property is a convenience synonym for the <A HREF="layer.htm#1209440"><CODE>Layer.top</CODE></A> property.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1209617">
+ See also
+</A></H4>
+
+<A NAME="1209621">
+<A HREF="layer.htm#1209566"><CODE>Layer.x</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193843">
+zIndex
+</A></H2>
+
+<A NAME="1193856">
+The relative z-order of this layer with respect to its siblings. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193846">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193851">
+<A HREF="layer.htm#1193137"><CODE>Layer</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193853">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193855">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193857">
+ Description
+</A></H4>
+
+<A NAME="1193858">
+Sibling layers with lower numbered z-indexes are stacked underneath this layer. The value of <CODE>zIndex</CODE> must be 0 or a positive integer.</A></P>
+
+<HR>
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="javpkg.htm">Previous</A>
+ | <A HREF="link.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT>
+<P ALIGN=right>
+<FONT SIZE=-2><I>Last Updated:  05/28/99  11:59:42</I></FONT>
+<P> <CENTER>Copyright (c) 1999
+<A HREF="http://home.netscape.com/misc/contact_info.html"
+TARGET=_top>Netscape Communications Corporation</A></FONT>
+</CENTER>
+<P>
+</BODY>
+</HTML>
+
+

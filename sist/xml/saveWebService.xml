@@ -1,0 +1,94 @@
+<s:Envelope xmlns:s='http://schemas.xmlsoap.org/soap/envelope/'>
+<s:Body>
+<save_business xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:uddi-org:api_v2" generic="2.0">
+  <authInfo>db2admin</authInfo>
+  <businessEntity businessKey="068438BA-1116-4603-A4E3-0E16326512A7">
+    <discoveryURLs>
+      <discoveryURL useType="businessEntity">http://localhost:9080/uddisoap/get?businessKey=068438BA-1116-4603-A4E3-0E16326512A7</discoveryURL>
+    </discoveryURLs>
+    <name>Hotel Faria</name>
+    <description>Um ganda hotel</description>
+    <contacts>
+      <contact useType="programador">
+        <personName>xicozinho</personName>
+      </contact>
+    </contacts>
+    <businessServices>
+      <businessService serviceKey="20670221-2D01-41D5-AAE5-03F834593A78" businessKey="068438BA-1116-4603-A4E3-0E16326512A7">
+        <name>Servico XPTO</name>
+        <bindingTemplates>
+          <bindingTemplate bindingKey="2BF30799-09FB-439B-ADF9-0A6D0B830216" serviceKey="20670221-2D01-41D5-AAE5-03F834593A78">
+            <description>O endereco para o envio da informacao</description>
+            <accessPoint URLType="mailto">mailto:DCAmail@democredit.bar</accessPoint>
+            <tModelInstanceDetails>
+              <tModelInstanceInfo tModelKey="UUID:93335D49-3EFB-48A0-ACEA-EA102B60DDC6">
+                <description>Utilizacao do protocolo HTTP</description>
+                <instanceDetails>
+                  <overviewDoc>
+                    <description>Descricao de como utilizar este servico</description>
+                    <overviewURL>http://localhost/DCAmail/howto</overviewURL>
+                  </overviewDoc>
+                </instanceDetails>
+              </tModelInstanceInfo>
+              <tModelInstanceInfo tModelKey="UUID:25DDF051-C164-11D5-85A6-801EEF208714">
+                <description>The namespace in which our credit numbers are used</description>
+              </tModelInstanceInfo>
+            </tModelInstanceDetails>
+          </bindingTemplate>
+        </bindingTemplates>
+      </businessService>
+      <businessService serviceKey="01C42D71-39DF-4E91-950B-3FFB37B60D90" businessKey="068438BA-1116-4603-A4E3-0E16326512A7">
+        <name>Servico XPTO</name>
+        <bindingTemplates>
+          <bindingTemplate bindingKey="22CD1966-3494-485C-A8A1-031E14360F01" serviceKey="01C42D71-39DF-4E91-950B-3FFB37B60D90">
+            <description>O endereco para o envio da informacao</description>
+            <accessPoint URLType="mailto">mailto:DCAmail@democredit.bar</accessPoint>
+            <tModelInstanceDetails>
+              <tModelInstanceInfo tModelKey="UUID:93335D49-3EFB-48A0-ACEA-EA102B60DDC6">
+                <description>Utilizacao do protocolo HTTP</description>
+                <instanceDetails>
+                  <overviewDoc>
+                    <description>Descricao de como utilizar este servico</description>
+                    <overviewURL>http://localhost/DCAmail/howto</overviewURL>
+                  </overviewDoc>
+                </instanceDetails>
+              </tModelInstanceInfo>
+              <tModelInstanceInfo tModelKey="UUID:25DDF051-C164-11D5-85A6-801EEF208714">
+                <description>The namespace in which our credit numbers are used</description>
+              </tModelInstanceInfo>
+            </tModelInstanceDetails>
+          </bindingTemplate>
+        </bindingTemplates>
+      </businessService>
+      <businessService serviceKey="" businessKey="068438BA-1116-4603-A4E3-0E16326512A7">
+        <name>1111</name>
+        <description>1111</description>
+        <bindingTemplates>
+          <bindingTemplate bindingKey="" serviceKey="">
+            <description>11111111111111111</description>
+            <accessPoint URLType="http">11111111111111111111</accessPoint>
+            <tModelInstanceDetails>
+              <tModelInstanceInfo tModelKey="UUID:8609C81E-EE1F-4D5A-B202-3EB13AD01823">
+                <description>Utilizacao do protocolo HTTP</description>
+              </tModelInstanceInfo>
+            </tModelInstanceDetails>
+          </bindingTemplate>
+        </bindingTemplates>
+      </businessService>
+    </businessServices>
+    <categoryBag>
+      <keyedReference tModelKey="UUID:DB77450D-9FA8-45D4-A7BC-04411D14E384" keyName="Restaurantes" keyValue="uuid:db77450d-9fa8-45d4-a7bc-04411d14e384" />
+      <keyedReference tModelKey="UUID:DB77450D-9FA8-45D4-A7BC-04411D14E384" keyName="Comida rápida" keyValue="uuid:db77450d-9fa8-45d4-a7bc-04411d14e384" />
+      <keyedReference tModelKey="UUID:DB77450D-9FA8-45D4-A7BC-04411D14E384" keyName="Bares" keyValue="uuid:db77450d-9fa8-45d4-a7bc-04411d14e384" />
+      <keyedReference tModelKey="UUID:DB77450D-9FA8-45D4-A7BC-04411D14E384" keyName="Restaurantes" keyValue="uuid:db77450d-9fa8-45d4-a7bc-04411d14e384" />
+      <keyedReference tModelKey="UUID:CD153257-086A-4237-B336-6BDCBDCC6634" keyName="Restaurantes" keyValue="90101501" />
+      <keyedReference tModelKey="UUID:CD153257-086A-4237-B336-6BDCBDCC6634" keyName="Restaurantes" keyValue="90101501" />
+      <keyedReference tModelKey="UUID:CD153257-086A-4237-B336-6BDCBDCC6634" keyName="Bares" keyValue="90101502" />
+      <keyedReference tModelKey="UUID:DB77450D-9FA8-45D4-A7BC-04411D14E384" keyName="Restaurantes" keyValue="90101501" />
+      <keyedReference tModelKey="UUID:DB77450D-9FA8-45D4-A7BC-04411D14E384" keyName="Restaurantes" keyValue="90101501" />
+      <keyedReference tModelKey="UUID:DB77450D-9FA8-45D4-A7BC-04411D14E384" keyName="Discotecas" keyValue="90152002" />
+    </categoryBag>
+  </businessEntity>
+</save_business>
+</s:Body>
+</s:Envelope>

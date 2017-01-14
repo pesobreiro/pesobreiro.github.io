@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>CHAPTER 19</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba18_10.htm" OnClick="SyncURL(&quot;chapters/ba18_10.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<p CLASS="heading2ChapterNumberAppendixLetterchn">CHAPTER&nbsp; 19</p>
+<p CLASS="ChapterAppendixTitlecht">Developing Client/Server Applications</p>
+<p CLASS="ChapterSummaryTextchsum">Although you can use Microsoft Access on its own to develop multiuser applications, you may need the added power and security of a <span CLASS="NewTermntrm">client/server application</span>. In a client/server application, you store your data in remote tables on a database server instead of in local tables in Microsoft Access. The Microsoft Access application (the client) sends queries and updates to the server and retrieves the data it needs. Using a database server has many advantages, but client/server environments can use a great deal of computer and network resources. This chapter describes techniques for creating client/server applications and offers tips for optimizing performance.</p>
+<a NAME="3TheClientServerEnvironment"></a>
+<p CLASS="heading3OrgHeading1h1">The Client/Server Environment</p>
+<p CLASS="Textttext">In a client/server environment, processing tasks are divided between an application on a client computer system, and a database on a server. The client and the server are linked by a network. The client makes requests for services provided by the server. These services may include querying a database, printing a document, or backing up data. The client performs operations on the data that is returned by the server and interacts with the user.
+<p CLASS="Textttext">There are several advantages to a client/server environment. Instead of sending the whole database back and forth across the network, network traffic is limited to queries from the client to the server and responses from the server to the client. Also, the data on the server can be accessed from multiple client applications. The server is responsible for maintaining data integrity and security at a centralized location.</p>
+<p CLASS="ImportantTextit"><span CLASS="ImportantHeadingih">Important&nbsp;&nbsp;&nbsp;</span>Before you can use Microsoft Access with a server, you must install the appropriate Open Database Connectivity (ODBC) drivers. If you clicked <span CLASS="ElementNameeln">Typical</span> when you installed Microsoft Access, you don't have these drivers installed. For information on how to install drivers, search the Help index for &quot;installing drivers.&quot;
+<p CLASS="ImportantTextit">Additionally, you must use the ODBC Manager to set up an ODBC data source for each remote database to which you want to connect. To start the ODBC Manager, double-click 32bit ODBC<span CLASS="ElementNameeln"> </span>in Windows Control Panel.</p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>Some database server documentation refers to records as <span CLASS="NewTermntrm">rows</span> and to fields as <span CLASS="NewTermntrm">columns</span>. This chapter uses the terms <span CLASS="NewTermntrm">records</span> and <span CLASS="NewTermntrm">fields</span>.</p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="ba19_2.htm" OnClick="SyncURL(&quot;chapters/ba19_2.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

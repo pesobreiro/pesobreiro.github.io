@@ -1,0 +1,31 @@
+Microsoft Visual Studio Solution File, Format Version 7.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiSTUDDI", "http://localhost/SiSTUDDI/SiSTUDDI.csproj", "{1A39611F-8917-4121-970F-E830B66E2A28}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "teste", "teste\teste.csproj", "{13517898-CE1F-4FBF-8818-55D41230B95E}"
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		ConfigName.0 = Debug
+		ConfigName.1 = Release
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{1A39611F-8917-4121-970F-E830B66E2A28}.Debug.ActiveCfg = Debug|.NET
+		{1A39611F-8917-4121-970F-E830B66E2A28}.Debug.Build.0 = Debug|.NET
+		{1A39611F-8917-4121-970F-E830B66E2A28}.Release.ActiveCfg = Release|.NET
+		{1A39611F-8917-4121-970F-E830B66E2A28}.Release.Build.0 = Release|.NET
+		{13517898-CE1F-4FBF-8818-55D41230B95E}.Debug.ActiveCfg = Debug|.NET
+		{13517898-CE1F-4FBF-8818-55D41230B95E}.Debug.Build.0 = Debug|.NET
+		{13517898-CE1F-4FBF-8818-55D41230B95E}.Release.ActiveCfg = Release|.NET
+		{13517898-CE1F-4FBF-8818-55D41230B95E}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionItems) = postSolution
+		Item:1 = ..\..\..\Desktop\SiSTUDDI.vsd
+		Item:2 = ..\..\..\tese\docs\tese\prototipo\uml.vsd
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

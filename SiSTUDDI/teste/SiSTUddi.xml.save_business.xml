@@ -1,0 +1,36 @@
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+<s:Body>
+<save_business generic="2.0" xmlns="urn:uddi-org:api_v2">    
+<authInfo>db2admin</authInfo>
+<businessEntity businessKey="068438BA-1116-4603-A4E3-0E16326512A7">
+    	<categoryBag>
+			<keyedReference keyName="Vendedores de Rua" keyValue="90101504"/>
+			<keyedReference keyName="Personal credit agencies"    keyValue="841416" 
+                      tModelKey="uuid:db77450d-9fa8-45d4-a7bc-04411d14e384"/>
+      <keyedReference keyName="Credit agencies" 
+                      keyValue="8414" 
+                      tModelKey="uuid:db77450d-9fa8-45d4-a7bc-04411d14e384"/>
+      <keyedReference keyName="Netherlands" 
+                      keyValue="NL" 
+                      tModelKey="uuid:4e49a8d6-d5a2-4fc2-93a0-0411d8d19e88"/>
+      <keyedReference keyName="France" 
+                      keyValue="FR" 
+                      tModelKey="uuid:4e49a8d6-d5a2-4fc2-93a0-0411d8d19e88"/>
+      <keyedReference keyName="Belgium" 
+                      keyValue="BE" 
+                      tModelKey="uuid:4e49a8d6-d5a2-4fc2-93a0-0411d8d19e88"/>
+      <keyedReference keyName="Business credit agencies" 
+                      keyValue="841417" 
+                      tModelKey="uuid:db77450d-9fa8-45d4-a7bc-04411d14e384"/>
+      <keyedReference keyName="Luxembourg" 
+                      keyValue="LU" 
+                      tModelKey="uuid:4e49a8d6-d5a2-4fc2-93a0-0411d8d19e88"/>
+      <keyedReference keyName="Germany, Federal Republic of" 
+                      keyValue="DE" 
+                      tModelKey="uuid:4e49a8d6-d5a2-4fc2-93a0-0411d8d19e88"/>
+
+	</categoryBag>
+</businessEntity>
+</save_business>
+</s:Body>
+</s:Envelope>

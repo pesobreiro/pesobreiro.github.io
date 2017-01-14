@@ -1,0 +1,93 @@
+<!doctype html public" -//IETF//DTD 	HTML//EN">
+<HTML>
+
+<HEAD>
+<SCRIPT LANGUAGE="JAVASCRIPT">
+<!-- 
+
+function checkbrowse()
+{
+var bn, bv, ver
+bn = navigator.appName;
+bv = parseInt(navigator.appVersion);
+if (bn=="Microsoft Internet Explorer" && bv<"4") ver = "IE3";
+else ver = "NotIE3";
+if (ver=="IE3") top.cont.parts.location.href="part21.htm";
+if (ver=="NotIE3") top.cont.parts.location.href="nav/part21.htm";
+}
+//-->
+</SCRIPT>
+<TITLE>Link Tasks Between Projects</TITLE>
+<META NAME="GENERATOR" 	CONTENT="Merch. System HTML Development">
+<META NAME="AUTHOR" 	CONTENT="Merch. System HTML Development">
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" OnLoad="checkbrowse();">
+<Font Face ="Verdana, Arial, Helvetica">
+
+<P align=right><SMALL>
+<A HREF="p21987.htm" Target="TOC"><IMG SRC="prev.gif"ALT="Previous page"BORDER=0></A>
+<A HREF="p21981.htm" Target="TOC"><IMG SRC="toc21.gif"ALT="Contents"BORDER=0></A>
+<A HREF="p21989.htm" Target="TOC"><IMG SRC="Next.gif"ALT="Next 
+page"BORDER=0></A></SMALL></P>
+<H1>Link Tasks Between Projects</H1>
+
+<P>
+Often when you manage several projects, some of them may be related, with the start and finish dates of tasks 
+in one project depending on the start and finish dates of tasks in another. For example, if the inserted projects 
+in a consolidated file represent project phases, perhaps the first task of one phase can’t begin until the last task 
+of the preceding phase ends.
+<P>
+Projects within a consolidated file aren’t the only ones that can have dependencies. There can be 
+dependencies between two or more stand-alone projects. For instance, you might want to ensure that a 
+resource assigned to tasks in two different projects wouldn’t have to work on both projects at the same time. 
+You’d want to make sure that one task didn’t start until the other is finished.
+<P>
+To show dependencies between projects in the same consolidated project file or between different project files, 
+you can link tasks between projects. The links between projects work the same way as links do between tasks 
+within the same project.
+<P>
+<IMG SRC="2105.GIF" ALT="Image File: 2105">
+<P>
+By default, the following procedure establishes a finish-to-start dependency between tasks. After you’ve 
+linked the tasks, however, you can change the link to a start-to-start, finish-to-finish, or start-to-finish link. 
+(You can also specify lead and lag time.) For information about linking tasks, see <A 
+HREF="p5981.htm">Chapter 5, &quot;Getting Tasks Done in the Right Order, at the Right Time.&quot;</A>
+<P>
+<B><B><IMG SRC="bluetri.gif">	To link tasks between projects</B></B>
+<OL><LI>Open both projects.
+<LI>On the <B>Window</B> menu, click <B>New Window</B>.
+<LI>Hold down <font size=-1>CTRL</font>, click the projects that contain the tasks you want to link, and then click <B>OK</B>.
+<LI>On the <B>View Bar</B>, click <B>Gantt Chart</B> <IMG SRC="GANT.gif">.
+<LI>Position the pointer over the Gantt bar for the predecessor task and drag to the successor task in the other 
+project.
+<BR>A finish-to-start task dependency is created. If the tasks you linked are not in a consolidated project, an 
+external predecessor task is added to the project containing the successor task and an external successor task 
+is added to the project containing the predecessor task.
+</OL>
+</BOTTOM>
+<P>
+You can link tasks between individual (unconsolidated) projects by typing &quot;<I>project 
+name\ID</I>&quot; in the predecessor field (where <I>project name</I> is the file name of the project 
+containing the task you want to link to and <I>ID</I> is the ID of the task you want to link to).
+<P>
+If the start or finish date of an entire project is dependent on the start or finish date of another entire project, 
+and not just of a task within the project, you can link one project to another.
+<P>
+<B><B><IMG SRC="bluetri.gif">	To link two projects</B></B>
+<OL>
+<LI>Open both projects.
+<LI>On the <B>Window</B> menu, click <B>New Window</B>.
+<LI>Hold down <font size=-1>CTRL</font>, click the projects you want to link, and then click <B>OK</B>.
+<LI>On the <B>View Bar</B>, click <B>Gantt Chart</B> <IMG SRC="GANT.gif">.
+<LI>Position the pointer over the Gantt bar for the project summary task, and then drag to the summary task 
+bar of the successor project.
+<BR>A finish-to-start task dependency is created. You can change this to a different type of task dependency.
+</OL>
+</BOTTOM>
+<P align = Center > <A HREF="http://www.microsoft.com/misc/cpyright.htm"><EM>&#169;1996-1997 Microsoft Corporation. All rights 
+reserved.</EM></A></P>
+</BODY>
+</FONT>
+</HTML>
+

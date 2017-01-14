@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<META name="GENERATOR" content="IBM WebSphere Homepage Builder V5.0.1 for Windows">
+<title>Backing up and restoring the UDDI Registry</title>
+</head>
+
+<body>
+<H3><A href="index.htm#TOC5" name="backup">Backing up and restoring the UDDI Registry
+database</A></H3>
+<P>If you want to protect the data in your UDDI
+Registry database, you can backup and restore
+the database using the facilities of the
+database product. For example, by using the
+export and import functions of the DB2 Control
+Center.</P>
+<P>The UDDI Registry database is called UDDI20,
+and the tables which should be backed up
+up are:</P>
+<UL>
+  <LI>ADDRESS
+  <LI>ADDRLINE
+  <LI>BSERVICE
+  <LI>BTEMPLATE
+  <LI>BUSINESS
+  <LI>CATEGORY
+  <LI>CATEGORYBAG
+  <LI>CONTACT
+  <LI>DESCR
+  <LI>DISCOVERYURL
+  <LI>EMAIL
+  <LI>EXTCATEGORY
+  <LI>IDENTIFIERBAG
+  <LI>INSTANCEDETAIL
+  <LI>NAMEELEMENT
+  <LI>OVERVIEWDOC
+  <LI>PHONE
+  <LI>PUBLISHERASSERTION
+  <LI>SERVICEPROJECTION
+  <LI>TMODEL
+  <LI>VALIDATIONCACHE
+  <LI>VALIDATIONSERVICES
+</UL>
+</body>
+</html>

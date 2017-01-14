@@ -1,0 +1,771 @@
+<HTML>
+<HEAD>
+<TITLE>
+</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="layer.htm">Previous</A>
+ | <A HREF="location.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT><BR><BR>
+<HR>
+
+<H1><A NAME="Link"></A>
+<A NAME="1193137">
+ Link
+</A></H1>
+<A NAME="1193138">
+A piece of text, an image, or an area of an image identified as a hypertext link. When the user clicks the link text, image, or area, the link hypertext reference is loaded into its target window. <A HREF="area.htm#1193137"><CODE>Area</CODE></A> objects are a type of <A HREF="link.htm#1193137"><CODE>Link</CODE></A> object.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left COLSPAN=2 ROWSPAN=1><P><A NAME="1193147">
+<I>Client-side object</I></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193151">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193153">
+JavaScript 1.0</A></P><P><A NAME="1194564">
+</A></P><P><A NAME="1194565">
+JavaScript 1.1: added <CODE>onMouseOut</CODE> event handler; added <CODE>Area</CODE> objects; <CODE>links</CODE> array contains areas created with <CODE>&lt;AREA HREF="..."&gt;</CODE></A></P><P><A NAME="1194570">
+</A></P><P><A NAME="1194571">
+JavaScript 1.2: added <A HREF="link.htm#1202727"><CODE>x</CODE></A> and <A HREF="link.htm#1202752"><CODE>y</CODE></A> properties; added <CODE>handleEvent</CODE> method</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193154">
+ Created by
+</A></H4>
+
+<A NAME="1199177">
+By using the HTML <CODE><A HREF="http://developer.netscape.com/docs/manuals/htmlguid/index.htm?content=tags7.htm#tags:A" TARGET="_top">A</A></CODE> or <CODE><A HREF="http://developer.netscape.com/docs/manuals/htmlguid/index.htm?content=tags8.htm#tags:AREA" TARGET="_top">AREA</A></CODE> tag or by a call to the <A HREF="string.htm#1198070"><CODE>String.link</CODE></A> method. The JavaScript runtime engine creates a <CODE>Link</CODE> object corresponding to each <CODE>A</CODE> and <CODE>AREA</CODE> tag in your document that supplies the <CODE>HREF</CODE> attribute. It puts these objects as an array in the <A HREF="document.htm#1193918"><CODE>document.links</CODE></A> property. You access a <CODE>Link</CODE> object by indexing this array.</A></P>
+<A NAME="1202675">
+To define a link with the <CODE>A</CODE> or <CODE>AREA</CODE> tag, use standard HTML syntax with the addition of JavaScript event handlers.</A></P>
+<A NAME="1199185">
+To define a link with the <A HREF="string.htm#1198070"><CODE>String.link</CODE></A> method:</A></P>
+<PRE><A NAME="1199186"><I>theString</I>.link(<I>hrefAttribute</I>)</A></PRE><A NAME="1193183">
+where:<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193173">theString</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193178">
+A <A HREF="string.htm#1193137"><CODE>String</CODE></A> object.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193180">hrefAttribute</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193182">
+Any string that specifies the <CODE>HREF</CODE> attribute of the <CODE>A</CODE> tag; it should be a valid URL (relative or absolute).</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193191">
+ Event handlers
+</A></H4>
+
+<A NAME="1193192">
+<CODE>Area</CODE> objects have the following event handlers:</A></P>
+<ul><LI><A NAME="1193196">
+<A HREF="handlers.htm#1119971"><CODE>onDblClick</CODE></A>
+</A></LI><LI><A NAME="1193200">
+<A HREF="handlers.htm#1120757"><CODE>onMouseOut</CODE></A>
+</A></LI><LI><A NAME="1193204">
+<A HREF="handlers.htm#1120822"><CODE>onMouseOver</CODE></A>
+</A></LI></ul><A NAME="1193205">
+<CODE>Link</CODE> objects have the following event handlers:</A></P>
+<ul><LI><A NAME="1193209">
+<A HREF="handlers.htm#1119876"><CODE>onClick</CODE></A>
+</A></LI><LI><A NAME="1193213">
+<A HREF="handlers.htm#1119971"><CODE>onDblClick</CODE></A>
+</A></LI><LI><A NAME="1193217">
+<A HREF="handlers.htm#1120313"><CODE>onKeyDown</CODE></A>
+</A></LI><LI><A NAME="1193221">
+<A HREF="handlers.htm#1120393"><CODE>onKeyPress</CODE></A>
+</A></LI><LI><A NAME="1193225">
+<A HREF="handlers.htm#1120473"><CODE>onKeyUp</CODE></A>
+</A></LI><LI><A NAME="1193229">
+<A HREF="handlers.htm#1120635"><CODE>onMouseDown</CODE></A>
+</A></LI><LI><A NAME="1193233">
+<A HREF="handlers.htm#1120757"><CODE>onMouseOut</CODE></A>
+</A></LI><LI><A NAME="1193237">
+<A HREF="handlers.htm#1120892"><CODE>onMouseUp</CODE></A>
+</A></LI><LI><A NAME="1193241">
+<A HREF="handlers.htm#1120822"><CODE>onMouseOver</CODE></A>
+</A></LI></ul>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193242">
+ Description
+</A></H4>
+
+<A NAME="1193243">
+Each <CODE>Link</CODE> object is a <CODE>location</CODE> object and has the same properties as a <CODE>location</CODE> object.</A></P>
+<A NAME="1193244">
+If a <CODE>Link</CODE> object is also an <CODE>Anchor</CODE> object, the object has entries in both the <CODE>anchors</CODE> and <CODE>links</CODE> arrays.</A></P>
+<A NAME="1193245">
+When a user clicks a <CODE>Link</CODE> object and navigates to the destination document (specified by <CODE>HREF="locationOrURL"</CODE>), the destination document's <CODE>referrer</CODE> property contains the URL of the source document. Evaluate the <CODE>referrer</CODE> property from the destination document.</A></P>
+<A NAME="1193246">
+You can use a <CODE>Link</CODE> object to execute a JavaScript function rather than link to a hypertext reference by specifying the <CODE>javascript:</CODE> URL protocol for the link's <CODE>HREF</CODE> attribute. You might want to do this if the link surrounds an <CODE>Image</CODE> object and you want to execute JavaScript code when the image is clicked. Or you might want to use a link instead of a button to execute JavaScript code.</A></P>
+<A NAME="1193247">
+For example, when a user clicks the following links, the <CODE>slower</CODE> and <CODE>faster</CODE> functions execute:</A></P>
+<PRE><A NAME="1193248">&lt;A HREF="javascript:slower()"&gt;Slower&lt;/A&gt;<br>&lt;A HREF="javascript:faster()"&gt;Faster&lt;/A&gt;</A></PRE><A NAME="1193250">
+You can use a <CODE>Link</CODE> object to do nothing rather than link to a hypertext reference by specifying the <CODE>javascript:void(0)</CODE> URL protocol for the link's <CODE>HREF</CODE> attribute. You might want to do this if the link surrounds an <CODE>Image</CODE> object and you want to use the link's event handlers with the image. When a user clicks the following link or image, nothing happens:</A></P>
+<PRE><A NAME="1193251">&lt;A HREF="javascript:void(0)"&gt;Click here to do nothing&lt;/A&gt;</A></PRE><PRE><A NAME="1193252">&lt;A HREF="javascript:void(0)"&gt;<br>&nbsp;&nbsp;&nbsp;&lt;IMG SRC="images\globe.gif" ALIGN="top" HEIGHT="50" WIDTH="50"&gt;<br>&lt;/A&gt;</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193254">
+ Property Summary
+</A></H4>
+
+<A NAME="1193330">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1193257">
+<B>Property
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1193259">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193264"><A HREF="link.htm#1193376"><CODE>hash</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193266">
+Specifies an anchor name in the URL.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193271"><A HREF="link.htm#1193433"><CODE>host</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193273">
+Specifies the host and domain name, or IP address, of a network host.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193278"><A HREF="link.htm#1193483"><CODE>hostname</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193280">
+Specifies the <CODE>host:port</CODE> portion of the URL.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193285"><A HREF="link.htm#1193533"><CODE>href</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193287">
+Specifies the entire URL.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193292"><A HREF="link.htm#1193583"><CODE>pathname</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193294">
+Specifies the URL-path portion of the URL.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193299"><A HREF="link.htm#1193633"><CODE>port</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193301">
+Specifies the communications port that the server uses.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193306"><A HREF="link.htm#1193683"><CODE>protocol</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193308">
+Specifies the beginning of the URL, including the colon.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193313"><A HREF="link.htm#1193733"><CODE>search</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193315">
+Specifies a query string.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193320"><A HREF="link.htm#1193785"><CODE>target</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193322">
+Reflects the <CODE>TARGET</CODE> attribute.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193327"><A HREF="link.htm#1193812"><CODE>text</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193329">
+A string containing the content of the corresponding <CODE>A</CODE> tag.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1202820"><A HREF="link.htm#1202727"><CODE>x</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1202822">
+The horizontal position of the link's left edge, in pixels, relative to the left edge of the document.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1202816"><A HREF="link.htm#1202752"><CODE>y</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1202818">
+The vertical position of the link's top edge, in pixels, relative to the top edge of the document.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193331">
+ Method Summary
+</A></H4>
+
+<A NAME="1193344">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1193334">
+<B>Method
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1193336">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193341"><A HREF="link.htm#1194046"><CODE>handleEvent</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193343">
+Invokes the handler for the specified event.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+<A NAME="1196777">
+In addition, this object inherits the <A HREF="object.htm#1193628"><CODE>watch</CODE></A> and <A HREF="object.htm#1193499"><CODE>unwatch</CODE></A> methods from <A HREF="object.htm#1193136"><CODE>Object</CODE></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193345">
+ Examples
+</A></H4>
+
+<A NAME="1193346">
+<B>Example 1.</B> The following example creates a hypertext link to an anchor named <CODE>javascript_intro</CODE>:</A></P>
+<PRE><A NAME="1193347">&lt;A HREF="#javascript_intro"&gt;Introduction to JavaScript&lt;/A&gt;</A></PRE><A NAME="1193348">
+<B>Example 2.</B> The following example creates a hypertext link to an anchor named <CODE>numbers</CODE> in the file <CODE>doc3.html</CODE> in the window <CODE>window2</CODE>. If <CODE>window2</CODE> does not exist, it is created.</A></P>
+<PRE><A NAME="1193349">&lt;LI&gt;&lt;A HREF=doc3.html#numbers TARGET="window2"&gt;Numbers&lt;/A&gt;</A></PRE><A NAME="1193350">
+<B>Example 3.</B> The following example takes the user back <CODE>x</CODE> entries in the history list:</A></P>
+<PRE><A NAME="1193351">&lt;A HREF="javascript:history.go(-1 * x)"&gt;Click here&lt;/A&gt;</A></PRE><A NAME="1193352">
+<B>Example 4.</B> The following example creates a hypertext link to a URL. The user can use the set of radio buttons to choose between three URLs. The link's <CODE>onClick</CODE> event handler sets the URL (the link's <CODE>href</CODE> property) based on the selected radio button. The link also has an <CODE>onMouseOver</CODE> event handler that changes the window's <CODE>status</CODE> property. As the example shows, you must return true to set the <CODE>window.status</CODE> property in the <CODE>onMouseOver</CODE> event handler.</A></P>
+<PRE><A NAME="1193353">&lt;SCRIPT&gt;<br>var destHREF="http://home.netscape.com/"<br>&lt;/SCRIPT&gt;<br>&lt;FORM NAME="form1"&gt;<br>&lt;B&gt;Choose a destination from the following list, then click "Click me" below.&lt;/B&gt;<br>&lt;BR&gt;&lt;INPUT TYPE="radio" NAME="destination" VALUE="netscape"<br>&nbsp;&nbsp;&nbsp;onClick="destHREF='http://home.netscape.com/'"&gt; Netscape home page<br>&lt;BR&gt;&lt;INPUT TYPE="radio" NAME="destination" VALUE="sun"<br>&nbsp;&nbsp;&nbsp;onClick="destHREF='http://www.sun.com/'"&gt; Sun home page<br>&lt;BR&gt;&lt;INPUT TYPE="radio" NAME="destination" VALUE="rfc1867"<br>&nbsp;&nbsp;&nbsp;onClick="destHREF='http://www.ics.uci.edu/pub/ietf/html/rfc1867.txt'"&gt; RFC 1867<br>&lt;P&gt;&lt;A HREF=""<br>&nbsp;&nbsp;&nbsp;onMouseOver="window.status='Click this if you dare!'; return true"<br>&nbsp;&nbsp;&nbsp;onClick="this.href=destHREF"&gt;<br>&nbsp;&nbsp;&nbsp;&lt;B&gt;Click me&lt;/B&gt;&lt;/A&gt;<br>&lt;/FORM&gt;</A></PRE><A NAME="1193354">
+<B>Example 5: links array.</B> In the following example, the <CODE>linkGetter</CODE> function uses the <CODE>links</CODE> array to display the value of each link in the current document. The example also defines several links and a button for running <CODE>linkGetter.</CODE></A></P>
+<PRE><A NAME="1193355">function linkGetter() {<br>&nbsp;&nbsp;&nbsp;msgWindow=window.open("","msg","width=400,height=400")<br>&nbsp;&nbsp;&nbsp;msgWindow.document.write("links.length is " +<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.links.length + "&lt;BR&gt;")<br>&nbsp;&nbsp;&nbsp;for (var i = 0; i &lt; document.links.length; i++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msgWindow.document.write(document.links[i] + "&lt;BR&gt;")<br>&nbsp;&nbsp;&nbsp;}<br>}</A></PRE><PRE><A NAME="1193356">&lt;A HREF="http://home.netscape.com"&gt;Netscape Home Page&lt;/A&gt;<br>&lt;A HREF="http://www.catalog.com/fwcfc/"&gt;China Adoptions&lt;/A&gt;<br>&lt;A HREF="http://www.supernet.net/~dugbrown/"&gt;Bad Dog Chronicles&lt;/A&gt;<br>&lt;A HREF="http://www.best.com/~doghouse/homecnt.shtml"&gt;Lab Rescue&lt;/A&gt;<br>&lt;P&gt;<br>&lt;INPUT TYPE="button" VALUE="Display links"<br>&nbsp;&nbsp;&nbsp;onClick="linkGetter()"&gt;</A></PRE><A NAME="1193357">
+<B>Example 6: Refer to Area object with links array.</B> The following code refers to the <CODE>href</CODE> property of the first <CODE>Area </CODE>object shown in Example 1.</A></P>
+<PRE><A NAME="1193358">document.links[0].href</A></PRE><A NAME="1193359">
+<B>Example 7: Area object with onMouseOver and onMouseOut event handlers.</B> The following example displays an image, <CODE>globe.gif</CODE>. The image uses an image map that defines areas for the top half and the bottom half of the image. The <CODE>onMouseOver</CODE> and <CODE>onMouseOut</CODE> event handlers display different status bar messages depending on whether the mouse passes over or leaves the top half or bottom half of the image. The <CODE>HREF</CODE> attribute is required when using the <CODE>onMouseOver</CODE> and <CODE>onMouseOut</CODE> event handlers, but in this example the image does not need a hypertext link, so the <CODE>HREF</CODE> attribute executes <CODE>javascript:void(0)</CODE>, which does nothing.</A></P>
+<PRE><A NAME="1193360">&lt;MAP NAME="worldMap"&gt;<br>&nbsp;&nbsp;&nbsp;&lt;AREA NAME="topWorld" COORDS="0,0,50,25" HREF="javascript:void(0)"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;onMouseOver="self.status='You are on top of the world';return true"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;onMouseOut="self.status='You have left the top of the world';return true"&gt;<br>&nbsp;&nbsp;&nbsp;&lt;AREA NAME="bottomWorld" COORDS="0,25,50,50" HREF="javascript:void(0)"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;onMouseOver="self.status='You are on the bottom of the world';return true"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;onMouseOut="self.status='You have left the bottom of the world';return true"&gt;<br>&lt;/MAP&gt;<br>&lt;IMG SRC="images\globe.gif" ALIGN="top" HEIGHT="50" WIDTH="50" USEMAP="#worldMap"&gt;</A></PRE><A NAME="1193361">
+<B>Example 8: Simulate an Area object's onClick using the HREF attribute.</B> The following example uses an <CODE>Area</CODE> object's HREF attribute to execute a JavaScript function. The image displayed, <CODE>colors.gif</CODE>, shows two sample colors. The top half of the image is the color antiquewhite, and the bottom half is white. When the user clicks the top or bottom half of the image, the function <CODE>setBGColor</CODE> changes the document's background color to the color shown in the image.</A></P>
+<PRE><A NAME="1193362">&lt;SCRIPT&gt;<br>function setBGColor(theColor) {<br>&nbsp;&nbsp;&nbsp;document.bgColor=theColor<br>}<br>&lt;/SCRIPT&gt;<br>Click the color you want for this document's background color<br>&lt;MAP NAME="colorMap"&gt;<br>&nbsp;&nbsp;&nbsp;&lt;AREA NAME="topColor" COORDS="0,0,50,25" HREF="javascript:setBGColor('antiquewhite')"&gt;<br>&nbsp;&nbsp;&nbsp;&lt;AREA NAME="bottomColor" COORDS="0,25,50,50" HREF="javascript:setBGColor('white')"&gt;<br>&lt;/MAP&gt;<br>&lt;IMG SRC="images\colors.gif" ALIGN="top" HEIGHT="50" WIDTH="50" USEMAP="#colorMap"&gt;</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193363">
+ See also
+</A></H4>
+
+<A NAME="1193373">
+<A HREF="anchor.htm#1193137"><CODE>Anchor</CODE></A>, <A HREF="image.htm#1193137"><CODE>Image</CODE></A>, <A HREF="string.htm#1198070"><CODE>link</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1194046">
+handleEvent
+</A></H2>
+
+<A NAME="1194059">
+Invokes the handler for the specified event. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194049">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194054">
+<A HREF="link.htm#1193137"><CODE>Link</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194056">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194058">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194060">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1194061">handleEvent(<I>event</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194062">
+ Parameters
+</A></H4>
+
+<A NAME="1194068">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1194065">event</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1194067">
+The name of an event for which the specified object has an event handler.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194069">
+ Description
+</A></H4>
+
+<A NAME="1194072">
+For information on handling events, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193376">
+hash
+</A></H2>
+
+<A NAME="1193378">
+A string beginning with a hash mark (#) that specifies an anchor name in the URL.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193381">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193386">
+<A HREF="link.htm#1193137"><CODE>Link</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193388">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193390">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193391">
+ Security
+</A></H4>
+
+<B><A NAME="HeadRunIn;"></A>
+<A NAME="1202587">
+JavaScript 1.1. </A></B><A NAME="1193392">
+This property is tainted by default. For information on data tainting, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193396">
+ Description
+</A></H4>
+
+<A NAME="1193397">
+The <CODE>hash</CODE> property specifies a portion of the URL. This property applies to HTTP URLs only.</A></P>
+<A NAME="1193398">
+Be careful using this property. Assume <CODE>document.links[0]</CODE> contains:</A></P>
+<PRE><A NAME="1193399">http://royalairways.com/fish.htm#angel</A></PRE><A NAME="1193400">
+Then <CODE>document.links[0].hash</CODE> returns <CODE>#angel</CODE>. Assume you have this code:</A></P>
+<PRE><A NAME="1193401">hash = document.links[0].hash;<br>document.links[0].hash = hash;</A></PRE><A NAME="1193402">
+Now, document.links[0].hash returns <CODE>##angel</CODE>.</A></P>
+<A NAME="1193403">
+This behavior may change in a future release.</A></P>
+<A NAME="1193404">
+You can set the <CODE>hash</CODE> property at any time, although it is safer to set the <CODE>href</CODE> property to change a location. If the hash that you specify cannot be found in the current location, you get an error.</A></P>
+<A NAME="1193405">
+Setting the <CODE>hash</CODE> property navigates to the named anchor without reloading the document. This differs from the way a document is loaded when other <CODE>link</CODE> properties are set.</A></P>
+<A NAME="1193407">
+See RFC 1738 (<CODE><A HREF="http://www.cis.ohio-state.edu/htbin/rfc/rfc1738.html" TARGET="_top">http://www.cis.ohio-state.edu/htbin/rfc/rfc1738.html</A></CODE>) for complete information about the hash.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193409">
+ See also
+</A></H4>
+
+<A NAME="1193425">
+<A HREF="link.htm#1193433"><CODE>Link.host</CODE></A>, <A HREF="link.htm#1193483"><CODE>Link.hostname</CODE></A>, <A HREF="link.htm#1193533"><CODE>Link.href</CODE></A>, <A HREF="link.htm#1193583"><CODE>Link.pathname</CODE></A>, <A HREF="link.htm#1193633"><CODE>Link.port</CODE></A>, <A HREF="link.htm#1193683"><CODE>Link.protocol</CODE></A>, <A HREF="link.htm#1193733"><CODE>Link.search</CODE></A> </A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193433">
+host
+</A></H2>
+
+<A NAME="1193446">
+A string specifying the server name, subdomain, and domain name.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193436">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193441">
+<A HREF="link.htm#1193137"><CODE>Link</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193443">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193445">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193447">
+ Security
+</A></H4>
+
+<B><A NAME="HeadRunIn;"></A>
+<A NAME="1202595">
+JavaScript 1.1. </A></B><A NAME="1193448">
+This property is tainted by default. For information on data tainting, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193452">
+ Description
+</A></H4>
+
+<A NAME="1193453">
+The <CODE>host</CODE> property specifies a portion of a URL. The <CODE>host</CODE> property is a substring of the <CODE>hostname</CODE> property. The <CODE>hostname</CODE> property is the concatenation of the <CODE>host</CODE> and <CODE>port</CODE> properties, separated by a colon. When the <CODE>port</CODE> property is null, the <CODE>host</CODE> property is the same as the <CODE>hostname</CODE> property.</A></P>
+<A NAME="1193454">
+You can set the <CODE>host</CODE> property at any time, although it is safer to set the <CODE>href</CODE> property to change a location. If the host that you specify cannot be found in the current location, you get an error.</A></P>
+<A NAME="1193456">
+See Section 3.1 of RFC 1738 (<CODE><A HREF="http://www.cis.ohio-state.edu/htbin/rfc/rfc1738.html" TARGET="_top">http://www.cis.ohio-state.edu/htbin/rfc/rfc1738.html</A></CODE>) for complete information about the hostname and port.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193458">
+ See also
+</A></H4>
+
+<A NAME="1193474">
+<A HREF="link.htm#1193376"><CODE>Link.hash</CODE></A>, <A HREF="link.htm#1193483"><CODE>Link.hostname</CODE></A>, <A HREF="link.htm#1193533"><CODE>Link.href</CODE></A>, <A HREF="link.htm#1193583"><CODE>Link.pathname</CODE></A>, <A HREF="link.htm#1193633"><CODE>Link.port</CODE></A>, <A HREF="link.htm#1193683"><CODE>Link.protocol</CODE></A>, <A HREF="link.htm#1193733"><CODE>Link.search</CODE></A> </A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193483">
+hostname
+</A></H2>
+
+<A NAME="1193484">
+A string containing the full hostname of the server, including the server name, subdomain, domain, and port number.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193487">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193492">
+<A HREF="link.htm#1193137"><CODE>Link</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193494">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193496">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193497">
+ Security
+</A></H4>
+
+<B><A NAME="HeadRunIn;"></A>
+<A NAME="1202519">
+JavaScript 1.1. </A></B><A NAME="1193498">
+This property is tainted by default. For information on data tainting, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193502">
+ Description
+</A></H4>
+
+<A NAME="1193503">
+The <CODE>hostname</CODE> property specifies a portion of a URL. The <CODE>hostname</CODE> property is the concatenation of the <CODE>host</CODE> and <CODE>port</CODE> properties, separated by a colon. When the <CODE>port</CODE> property is 80 (the default), the <CODE>host</CODE> property is the same as the <CODE>hostname</CODE> property.</A></P>
+<A NAME="1193504">
+You can set the <CODE>hostname</CODE> property at any time, although it is safer to set the <CODE>href</CODE> property to change a location. If the hostname that you specify cannot be found in the current location, you get an error.</A></P>
+<A NAME="1193506">
+See Section 3.1 of RFC 1738 (<CODE><A HREF="http://www.cis.ohio-state.edu/htbin/rfc/rfc1738.html" TARGET="_top">http://www.cis.ohio-state.edu/htbin/rfc/rfc1738.html</A></CODE>) for complete information about the hostname.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193508">
+ See also
+</A></H4>
+
+<A NAME="1193524">
+<A HREF="link.htm#1193433"><CODE>Link.host</CODE></A>, <A HREF="link.htm#1193376"><CODE>Link.hash</CODE></A>, <A HREF="link.htm#1193533"><CODE>Link.href</CODE></A>, <A HREF="link.htm#1193583"><CODE>Link.pathname</CODE></A>, <A HREF="link.htm#1193633"><CODE>Link.port</CODE></A>, <A HREF="link.htm#1193683"><CODE>Link.protocol</CODE></A>, <A HREF="link.htm#1193733"><CODE>Link.search</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193533">
+href
+</A></H2>
+
+<A NAME="1193546">
+A string specifying the entire URL.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193536">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193541">
+<A HREF="link.htm#1193137"><CODE>Link</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193543">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193545">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193547">
+ Security
+</A></H4>
+
+<B><A NAME="HeadRunIn;"></A>
+<A NAME="1202535">
+JavaScript 1.1. </A></B><A NAME="1193548">
+This property is tainted by default. For information on data tainting, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193552">
+ Description
+</A></H4>
+
+<A NAME="1193553">
+The <CODE>href</CODE> property specifies the entire URL. Other <CODE>link</CODE> object properties are substrings of the <CODE>href</CODE> property.</A></P>
+<A NAME="1193554">
+You can set the <CODE>href</CODE> property at any time.</A></P>
+<A NAME="1193556">
+See RFC 1738 (<CODE><A HREF="http://www.cis.ohio-state.edu/htbin/rfc/rfc1738.html" TARGET="_top">http://www.cis.ohio-state.edu/htbin/rfc/rfc1738.html</A></CODE>) for complete information about the URL.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193558">
+ See also
+</A></H4>
+
+<A NAME="1193574">
+<A HREF="link.htm#1193376"><CODE>Link.hash</CODE></A>, <A HREF="link.htm#1193433"><CODE>Link.host</CODE></A>, <A HREF="link.htm#1193483"><CODE>Link.hostname</CODE></A>, <A HREF="link.htm#1193583"><CODE>Link.pathname</CODE></A>, <A HREF="link.htm#1193633"><CODE>Link.port</CODE></A>, <A HREF="link.htm#1193683"><CODE>Link.protocol</CODE></A>, <A HREF="link.htm#1193733"><CODE>Link.search</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193583">
+pathname
+</A></H2>
+
+<A NAME="1193596">
+A string specifying the URL-path portion of the URL.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193586">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193591">
+<A HREF="link.htm#1193137"><CODE>Link</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193593">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193595">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193597">
+ Security
+</A></H4>
+
+<B><A NAME="HeadRunIn;"></A>
+<A NAME="1202547">
+JavaScript 1.1. </A></B><A NAME="1193598">
+This property is tainted by default. For information on data tainting, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193602">
+ Description
+</A></H4>
+
+<A NAME="1193603">
+The <CODE>pathname</CODE> property specifies a portion of the URL. The pathname supplies the details of how the specified resource can be accessed.</A></P>
+<A NAME="1193604">
+You can set the <CODE>pathname</CODE> property at any time, although it is safer to set the <CODE>href</CODE> property to change a location. If the pathname that you specify cannot be found in the current location, you get an error.</A></P>
+<A NAME="1193606">
+See Section 3.1 of RFC 1738 (<CODE><A HREF="http://www.cis.ohio-state.edu/htbin/rfc/rfc1738.html" TARGET="_top">http://www.cis.ohio-state.edu/htbin/rfc/rfc1738.html</CODE></A>) for complete information about the pathname.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193608">
+ See also
+</A></H4>
+
+<A NAME="1193624">
+<A HREF="link.htm#1193433"><CODE>Link.host</CODE></A>, <A HREF="link.htm#1193483"><CODE>Link.hostname</CODE></A>, <A HREF="link.htm#1193376"><CODE>Link.hash</CODE></A>, <A HREF="link.htm#1193533"><CODE>Link.href</CODE></A>, <A HREF="link.htm#1193633"><CODE>Link.port</CODE></A>, <A HREF="link.htm#1193683"><CODE>Link.protocol</CODE></A>, <A HREF="link.htm#1193733"><CODE>Link.search</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193633">
+port
+</A></H2>
+
+<A NAME="1193646">
+A string specifying the communications port that the server uses.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193636">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193641">
+<A HREF="link.htm#1193137"><CODE>Link</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193643">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193645">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193647">
+ Security
+</A></H4>
+
+<B><A NAME="HeadRunIn;"></A>
+<A NAME="1202555">
+JavaScript 1.1. </A></B><A NAME="1193648">
+This property is tainted by default. For information on data tainting, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193652">
+ Description
+</A></H4>
+
+<A NAME="1193653">
+The <CODE>port</CODE> property specifies a portion of the URL. The <CODE>port</CODE> property is a substring of the <CODE>hostname</CODE> property. The <CODE>hostname</CODE> property is the concatenation of the <CODE>host</CODE> and <CODE>port</CODE> properties, separated by a colon. When the <CODE>port</CODE> property is 80 (the default), the <CODE>host</CODE> property is the same as the <CODE>hostname</CODE> property.</A></P>
+<A NAME="1193654">
+You can set the <CODE>port</CODE> property at any time, although it is safer to set the <CODE>href</CODE> property to change a location. If the port that you specify cannot be found in the current location, you will get an error. If the <CODE>port</CODE> property is not specified, it defaults to 80 on the server.</A></P>
+<A NAME="1193656">
+See Section 3.1 of RFC 1738 (<CODE><A HREF="http://www.cis.ohio-state.edu/htbin/rfc/rfc1738.html" TARGET="_top">http://www.cis.ohio-state.edu/htbin/rfc/rfc1738.html</CODE></A>) for complete information about the port.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193658">
+ See also
+</A></H4>
+
+<A NAME="1193674">
+<A HREF="link.htm#1193433"><CODE>Link.host</CODE></A>, <A HREF="link.htm#1193483"><CODE>Link.hostname</CODE></A>, <A HREF="link.htm#1193376"><CODE>Link.hash</CODE></A>, <A HREF="link.htm#1193533"><CODE>Link.href</CODE></A>, <A HREF="link.htm#1193583"><CODE>Link.pathname</CODE></A>, <A HREF="link.htm#1193683"><CODE>Link.protocol</CODE></A>, <A HREF="link.htm#1193733"><CODE>Link.search</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193683">
+protocol
+</A></H2>
+
+<A NAME="1193684">
+A string specifying the beginning of the URL, up to and including the first colon.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193687">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193692">
+<A HREF="link.htm#1193137"><CODE>Link</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193694">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193696">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193697">
+ Security
+</A></H4>
+
+<B><A NAME="HeadRunIn;"></A>
+<A NAME="1202563">
+JavaScript 1.1. </A></B><A NAME="1193698">
+This property is tainted by default. For information on data tainting, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193702">
+ Description
+</A></H4>
+
+<A NAME="1193703">
+The <CODE>protocol</CODE> property specifies a portion of the URL. The protocol indicates the access method of the URL. For example, the value <CODE>"http:"</CODE> specifies HyperText Transfer Protocol, and the value <CODE>"javascript:"</CODE> specifies JavaScript code.</A></P>
+<A NAME="1193704">
+You can set the <CODE>protocol</CODE> property at any time, although it is safer to set the <CODE>href</CODE> property to change a location. If the protocol that you specify cannot be found in the current location, you get an error.</A></P>
+<A NAME="1193705">
+The <CODE>protocol</CODE> property represents the scheme name of the URL. See Section 2.1 of RFC 1738 (<CODE><A HREF="http://www.cis.ohio-state.edu/htbin/rfc/rfc1738.html" TARGET="_top">http://www.cis.ohio-state.edu/htbin/rfc/rfc1738.html</CODE></A>) for complete information about the protocol.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193708">
+ See also
+</A></H4>
+
+<A NAME="1193724">
+<A HREF="link.htm#1193433"><CODE>Link.host</CODE></A>, <A HREF="link.htm#1193483"><CODE>Link.hostname</CODE></A>, <A HREF="link.htm#1193376"><CODE>Link.hash</CODE></A>, <A HREF="link.htm#1193533"><CODE>Link.href</CODE></A>, <A HREF="link.htm#1193583"><CODE>Link.pathname</CODE></A>, <A HREF="link.htm#1193633"><CODE>Link.port</CODE></A>, <A HREF="link.htm#1193733"><CODE>Link.search</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193733">
+search
+</A></H2>
+
+<A NAME="1193734">
+A string beginning with a question mark that specifies any query information in the URL.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193737">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193742">
+<A HREF="link.htm#1193137"><CODE>Link</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193744">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193746">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193747">
+ Security
+</A></H4>
+
+<B><A NAME="HeadRunIn;"></A>
+<A NAME="1202579">
+JavaScript 1.1. </A></B><A NAME="1193748">
+This property is tainted by default. For information on data tainting, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193752">
+ Description
+</A></H4>
+
+<A NAME="1193753">
+The <CODE>search</CODE> property specifies a portion of the URL. This property applies to http URLs only.</A></P>
+<A NAME="1193754">
+The <CODE>search</CODE> property contains variable and value pairs; each pair is separated by an ampersand. For example, two pairs in a search string could look like the following:</A></P>
+<PRE><A NAME="1193755">?x=7&amp;y=5</A></PRE><A NAME="1193756">
+You can set the <CODE>search</CODE> property at any time, although it is safer to set the <CODE>href</CODE> property to change a location. If the search that you specify cannot be found in the current location, you get an error.</A></P>
+<A NAME="1193758">
+See Section 3.3 of RFC 1738 (<CODE><A HREF="http://www.cis.ohio-state.edu/htbin/rfc/rfc1738.htm" TARGET="_top">http://www.cis.ohio-state.edu/htbin/rfc/rfc1738.html</A></CODE>) for complete information about the search.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193760">
+ See also
+</A></H4>
+
+<A NAME="1193776">
+<A HREF="link.htm#1193433"><CODE>Link.host</CODE></A>, <A HREF="link.htm#1193483"><CODE>Link.hostname</CODE></A>, <A HREF="link.htm#1193376"><CODE>Link.hash</CODE></A>, <A HREF="link.htm#1193533"><CODE>Link.href</CODE></A>, <A HREF="link.htm#1193583"><CODE>Link.pathname</CODE></A>, <A HREF="link.htm#1193633"><CODE>Link.port</CODE></A>, <A HREF="link.htm#1193683"><CODE>Link.protocol</CODE></A> </A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193785">
+target
+</A></H2>
+
+<A NAME="1193786">
+A string specifying the name of the window that displays the content of a clicked hypertext link.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193789">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193794">
+<A HREF="link.htm#1193137"><CODE>Link</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193796">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193798">
+JavaScript 1.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193799">
+ Description
+</A></H4>
+
+<A NAME="1193800">
+The <CODE>target</CODE> property initially reflects the <CODE>TARGET</CODE> attribute of the<CODE> A</CODE> or <CODE>AREA</CODE> tags; however, setting <CODE>target</CODE> overrides this attribute.</A></P>
+<A NAME="1193801">
+You can set <CODE>target</CODE> using a string, if the string represents a window name. The <CODE>target</CODE> property cannot be assigned the value of a JavaScript expression or variable.</A></P>
+<A NAME="1193802">
+You can set the <CODE>target</CODE> property at any time.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193803">
+ Examples
+</A></H4>
+
+<A NAME="1193804">
+The following example specifies that responses to the <CODE>musicInfo</CODE> form are displayed in the <CODE>msgWindow</CODE> window:</A></P>
+<PRE><A NAME="1193805">document.musicInfo.target="msgWindow"</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193806">
+ See also
+</A></H4>
+
+<A NAME="1193810">
+<A HREF="form.htm#1197470"><CODE>Form</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193812">
+text
+</A></H2>
+
+<A NAME="1193825">
+A string containing the content of the corresponding <CODE>A</CODE> tag.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193815">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193820">
+<A HREF="link.htm#1193137"><CODE>Link</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193822">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193824">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1202727">
+x
+</A></H2>
+
+<A NAME="1202728">
+The horizontal position of the link's left edge, in pixels, relative to the left edge of the document.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202731">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202736">
+<A HREF="link.htm#1193137"><CODE>Link</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202738">
+<I>Read-only</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202740">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202742">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202744">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202745">
+ See also
+</A></H4>
+
+<A NAME="1202749">
+<A HREF="link.htm#1202752"><CODE>Link.y</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1202752">
+y
+</A></H2>
+
+<A NAME="1202753">
+The vertical position of the link's top edge, in pixels, relative to the top edge of the document.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202756">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202761">
+<A HREF="link.htm#1193137"><CODE>Link</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202763">
+<I>Read-only</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202765">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1202767">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1202769">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202770">
+ See also
+</A></H4>
+
+<A NAME="1202774">
+<A HREF="link.htm#1202727"><CODE>Link.x</CODE></A></A></P>
+
+<HR>
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="layer.htm">Previous</A>
+ | <A HREF="location.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT>
+<P ALIGN=right>
+<FONT SIZE=-2><I>Last Updated:  05/28/99  11:59:47</I></FONT>
+<P> <CENTER>Copyright (c) 1999
+<A HREF="http://home.netscape.com/misc/contact_info.html"
+TARGET=_top>Netscape Communications Corporation</A></FONT>
+</CENTER>
+<P>
+</BODY>
+</HTML>
+
+

@@ -1,0 +1,14 @@
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+  <s:Body>  
+    <save_binding generic="2.0" xmlns="urn:uddi-org:api_v2">    
+      <authInfo>MyAuthInformation</authInfo>
+      <bindingTemplate bindingKey="" serviceKey="myServiceKey">
+        <accessPoint URLType="http">MyAccessPointURL</accessPoint>
+        <tModelInstanceDetails>
+          <tModelInstanceInfo tModelKey="MyTModelKey">
+          </tModelInstanceInfo>
+        </tModelInstanceDetails>
+      </bindingTemplate>  
+    </save_binding>
+  </s:Body>
+</s:Envelope>

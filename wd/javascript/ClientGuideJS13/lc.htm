@@ -1,0 +1,825 @@
+<HTML>
+<HEAD>
+<TITLE>LiveConnect Overview
+</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="partlc.htm">Previous</A>
+ | <A HREF="liveaud.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT><BR><BR>
+<HR>
+<A NAME="1008298">
+<P></A><CENTER><H2>Chapter 15<BR>
+<A NAME="1008305">
+LiveConnect Overview</A></H2></CENTER>
+<A NAME="1021579">
+This chapter describes using LiveConnect technology to let Java and JavaScript code communicate with each other. The chapter assumes you are familiar with Java programming.</A></P>
+<A NAME="1015012">
+This chapter contains the following sections:</A></P>
+<ul><LI><A NAME="1043715">
+<A HREF="lc.htm#1043729">What Is LiveConnect?</A>
+</A></LI><LI><A NAME="1043719">
+<A HREF="lc.htm#1043773">Enabling LiveConnect</A>
+</A></LI><LI><A NAME="1043723">
+<A HREF="lc.htm#1043780">The Java Console</A>
+</A></LI><LI><A NAME="1039521">
+<A HREF="lc.htm#1013074">Working with Wrappers</A>
+</A></LI><LI><A NAME="1015024">
+<A HREF="lc.htm#1014290">JavaScript to Java Communication</A>
+</A></LI><LI><A NAME="1015028">
+<A HREF="lc.htm#1008480">Java to JavaScript Communication</A>
+</A></LI><LI><A NAME="1037588">
+<A HREF="lc.htm#1037078">Data Type Conversions</A>
+</A></LI></ul><A NAME="1021561">
+For additional information on using LiveConnect, see the <A HREF="http://developer.netscape.com/docs/technote/index.html" TARGET="_top">JavaScript technical notes</A> on the DevEdge site.</A></P>
+
+<HR><H2><A NAME="What Is LiveConnect?"></A>
+<A NAME="1043729">
+ What Is LiveConnect?
+</A></H2><A NAME="1043731">
+In the Navigator browser, LiveConnect lets you perform the following tasks:</A></P>
+<ul><P><LI><A NAME="1043732">
+Use JavaScript to access Java variables, methods, classes, and packages directly.</A></LI>
+<P><LI><A NAME="1043733">
+Control Java applets or plug-ins with JavaScript.</A></LI>
+<P><LI><A NAME="1043734">
+Use Java code to access JavaScript methods and properties.</A></LI>
+</ul>
+<HR><H2><A NAME="Enabling LiveConnect"></A>
+<A NAME="1043773">
+ Enabling LiveConnect
+</A></H2><A NAME="1043774">
+LiveConnect is enabled by default in Navigator 1.1 and later. For LiveConnect to work, both Java and JavaScript must be enabled. To confirm they are enabled, choose Preferences from the Edit menu and display the Advanced section.</A></P>
+<ul><P><LI><A NAME="1043775">
+Make sure Enable Java is checked.</A></LI>
+<P><LI><A NAME="1043776">
+Make sure Enable JavaScript is checked.</A></LI>
+</ul><A NAME="1043777">
+To disable either Java or JavaScript, uncheck the checkboxes; if you do this, LiveConnect will not work.</A></P>
+
+<HR><H2><A NAME="The Java Console"></A>
+<A NAME="1043780">
+ The Java Console
+</A></H2><A NAME="1043781">
+The Java Console is a Navigator window that displays Java messages. When you use the class variables <CODE>out</CODE> or <CODE>err</CODE> in <CODE>java.lang.System</CODE> to output a message, the message appears in the Console. To display the Java Console, choose Java Console from the Communicator menu.</A></P>
+<A NAME="1043782">
+You can use the Java Console to present messages to users, or to trace the values of variables at different places in a program's execution.</A></P>
+<A NAME="1043783">
+For example, the following Java code displays the message "Hello, world!" in the Java Console:</A></P>
+<PRE><A NAME="1043784">public void init() {<br>&nbsp;&nbsp;&nbsp;System.out.println("Hello, world!")<br>}</A></PRE><A NAME="1043785">
+You can use the Java Console to present messages to users, or to trace the values of variables at different places in a program's execution. Note that most users probably do not display the Java Console.</A></P>
+
+<HR><H2><A NAME="Working with Wrappers"></A>
+<A NAME="1013074">
+ Working with Wrappers
+</A></H2><A NAME="1036886">
+In JavaScript, a <I>wrapper</I> is an object of the target language data type that encloses an object of the source language. On the JavaScript side, you can use a wrapper object to access methods and fields of the Java object; calling a method or accessing a property on the wrapper results in a call on the Java object. On the Java side, JavaScript objects are wrapped in an instance of the class <CODE>netscape.javascript.JSObject</CODE> and passed to Java.</A></P>
+<A NAME="1036887">
+When a JavaScript object is sent to Java, the runtime engine creates a Java wrapper of type <CODE>JSObject</CODE>; when a <CODE>JSObject</CODE> is sent from Java to JavaScript, the runtime engine unwraps it to its original JavaScript object type. The <CODE>JSObject</CODE> class provides an interface for invoking JavaScript methods and examining JavaScript properties.</A></P>
+
+<HR><H2><A NAME="JavaScript to Java Communication"></A>
+<A NAME="1014290">
+ JavaScript to Java Communication
+</A></H2><A NAME="1028815">
+When you refer to a Java package or class, or work with a Java object or array, you use one of the special LiveConnect objects. All JavaScript access to Java takes place with these objects, which are summarized in the following table.</A></P>
+<A NAME="1040657">
+<P><B><A NAME="1040692">
+Table 15.1&nbsp;The LiveConnect Objects</A></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1040696">
+<B>Object
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1040698">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1040738">
+<CODE>JavaArray</CODE></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1040740">
+A wrapped Java array, accessed from within JavaScript code.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1040743">
+<CODE>JavaClass</CODE></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1040745">
+A JavaScript reference to a Java class.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1040748">
+<CODE>JavaObject</CODE></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1040750">
+A wrapped Java object, accessed from within JavaScript code.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1040753">
+<CODE>JavaPackage</CODE></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1040755">
+A JavaScript reference to a Java package.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+<BLOCKQUOTE><B>NOTE: </B><A NAME="1037474">
+Because Java is a strongly typed language and JavaScript is weakly typed, the 
+JavaScript runtime engine converts argument values into the appropriate data 
+types for the other language when you use LiveConnect. See <A HREF="lc.htm#1037078">"Data Type 
+Conversions" on page&nbsp;263</A> for complete information.
+</A>
+</BLOCKQUOTE>
+<A NAME="1037469">
+In some ways, the existence of the LiveConnect objects is transparent, because you interact with Java in a fairly intuitive way. For example, you can create a Java <CODE>String</CODE> object and assign it to the JavaScript variable <CODE>myString</CODE> by using the <CODE>new</CODE> operator with the Java constructor, as follows:</A></P>
+<PRE><A NAME="1028973">var myString = new java.lang.String("Hello world")</A></PRE><A NAME="1028974">
+In the previous example, the variable <CODE>myString</CODE> is a <CODE>JavaObject</CODE> because it holds an instance of the Java object <CODE>String</CODE>. As a <CODE>JavaObject</CODE>, <CODE>myString</CODE> has access to the public instance methods of <CODE>java.lang.String</CODE> and its superclass, <CODE>java.lang.Object</CODE>. These Java methods are available in JavaScript as methods of the <CODE>JavaObject</CODE>, and you can call them as follows:</A></P>
+<PRE><A NAME="1029015">myString.length() // returns 11</A></PRE>
+<H3><A NAME="Head2;"></A>
+<A NAME="1029016">
+ The Packages Object
+</A></H3>
+
+<A NAME="1029407">
+If a Java class is not part of the <CODE>java</CODE>, <CODE>sun</CODE>, or <CODE>netscape</CODE> packages, you access it with the <CODE>Packages</CODE> object. For example, suppose the Redwood corporation uses a Java package called <CODE>redwood </CODE>to contain various Java classes that it implements. To create an instance of the <CODE>HelloWorld</CODE> class in <CODE>redwood</CODE>, you access the constructor of the class as follows:</A></P>
+<PRE><A NAME="1029053">var red = new Packages.redwood.HelloWorld()</A></PRE><A NAME="1029400">
+You can also access classes in the default package (that is, classes that don't explicitly name a package). For example, if the HelloWorld class is directly in the <CODE>CLASSPATH</CODE> and not in a package, you can access it as follows:</A></P>
+<PRE><A NAME="1029401">var red = new Packages.HelloWorld()</A></PRE><A NAME="1034409">
+The LiveConnect <CODE>java</CODE>, <CODE>sun</CODE>, and <CODE>netscape</CODE> objects provide shortcuts for commonly used Java packages. For example, you can use the following:</A></P>
+<PRE><A NAME="1034421">var myString = new java.lang.String("Hello world")</A></PRE><A NAME="1034419">
+instead of the longer version:</A></P>
+<PRE><A NAME="1034430">var myString = new Packages.java.lang.String("Hello world")</A></PRE>
+<H3><A NAME="Head2;"></A>
+<A NAME="1029099">
+ Working with Java Arrays
+</A></H3>
+
+<A NAME="1029044">
+When any Java method creates an array and you reference that array in JavaScript, you are working with a <CODE>JavaArray</CODE>. For example, the following code creates the <CODE>JavaArray</CODE> <CODE>x</CODE> with ten elements of type int:</A></P>
+<PRE><A NAME="1029457">theInt = java.lang.Class.forName("java.lang.Integer")<br>x = java.lang.reflect.Array.newInstance(theInt, 10)</A></PRE><A NAME="1029463">
+Like the JavaScript <CODE>Array</CODE> object, <CODE>JavaArray</CODE> has a <CODE>length</CODE> property which returns the number of elements in the array. Unlike <CODE>Array.length</CODE>, <CODE>JavaArray.length</CODE> is a read-only property, because the number of elements in a Java array are fixed at the time of creation.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1029045">
+ Package and Class References
+</A></H3>
+
+<A NAME="1029104">
+Simple references to Java packages and classes from JavaScript create the <CODE>JavaPackage</CODE> and <CODE>JavaClass</CODE> objects. In the earlier example about the Redwood corporation, for example, the reference <CODE>Packages.redwood</CODE> is a <CODE>JavaPackage</CODE> object. Similarly, a reference such as <CODE>java.lang.String</CODE> is a <CODE>JavaClass</CODE> object.</A></P>
+<A NAME="1029184">
+Most of the time, you don't have to worry about the <CODE>JavaPackage</CODE> and <CODE>JavaClass</CODE> objects--you just work with Java packages and classes, and LiveConnect creates these objects transparently.</A></P>
+<A NAME="1034541">
+<CODE>JavaClass</CODE> objects are not automatically converted to instances of <CODE>java.lang.Class</CODE> when you pass them as parameters to Java methods--you must create a wrapper around an instance of <CODE>java.lang.Class</CODE>. In the following example, the <CODE>forName</CODE> method creates a wrapper object <CODE>theClass</CODE>, which is then passed to the <CODE>newInstance</CODE> method to create an array.</A></P>
+<PRE><A NAME="1029248">theClass = java.lang.Class.forName("java.lang.String")<br>theArray = java.lang.reflect.Array.newInstance(theClass, 5)</A></PRE>
+<H3><A NAME="Head2;"></A>
+<A NAME="1029446">
+ Arguments of Type char
+</A></H3>
+
+<A NAME="1044261">
+You cannot pass a one-character string to a Java method which requires an argument of type <CODE>char</CODE>. You must pass such methods an integer which corresponds to the Unicode value of the character. For example, the following code assigns the value "H" to the variable <CODE>c</CODE>:</A></P>
+<PRE><A NAME="1044258">c = new java.lang.Character(72)</A></PRE>
+<H3><A NAME="Head2;"></A>
+<A NAME="1043848">
+ Controlling Java Applets
+</A></H3>
+
+<A NAME="1043849">
+You can use JavaScript to control the behavior of a Java applet without knowing much about the internal construction of the applet. All public variables, methods, and properties of an applet are available for JavaScript access. For example, you can use buttons on an HTML form to start and stop a Java applet that appears elsewhere in the document.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1043851">
+ Referring to Applets
+</A></H4>
+
+<A NAME="1043852">
+Each applet in a document is reflected in JavaScript as <CODE>document.appletName</CODE>, where <CODE>appletName</CODE> is the value of the <CODE>NAME</CODE> attribute of the <CODE>&lt;APPLET&gt;</CODE> tag. The <CODE>applets</CODE> array also contains all the applets in a page; you can refer to elements of the array through the applet name (as in an associative array) or by the ordinal number of the applet on the page (starting from zero).</A></P>
+<A NAME="1043853">
+For example, consider the basic "Hello World" applet in Java:</A></P>
+<PRE><A NAME="1043854">import java.applet.Applet;<br>import java.awt.Graphics;</A></PRE><PRE><A NAME="1043855">public class HelloWorld extends Applet {<br>&nbsp;&nbsp;&nbsp;public void paint(Graphics g) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;g.drawString("Hello world!", 50, 25);<br>&nbsp;&nbsp;&nbsp;}<br>}</A></PRE><A NAME="1043856">
+The following HTML runs and displays the applet, and names it "HelloWorld" (with the <CODE>NAME</CODE> attribute):</A></P>
+<PRE><A NAME="1043857">&lt;APPLET CODE="HelloWorld.class" NAME="HelloWorld" WIDTH=150 HEIGHT=25&gt;<br>&lt;/APPLET&gt;</A></PRE><A NAME="1043858">
+If this is the first applet in the document (topmost on the page), you can refer to it in JavaScript in any of the following ways:</A></P>
+<PRE><A NAME="1043859">document.HelloWorld<br>document.applets["HelloWorld"]<br>document.applets[0]</A></PRE><A NAME="1043860">
+The <CODE>applets</CODE> array has a <CODE>length</CODE> property, <CODE>document.applets.length</CODE>, that indicates the number of applets in the document.</A></P>
+<A NAME="1043861">
+All public variables declared in an applet, and its ancestor classes and packages are available in JavaScript. Static methods and properties declared in an applet are available to JavaScript as methods and properties of the <CODE>Applet</CODE> object. You can get and set property values, and you can call methods that return string, numeric, and boolean values.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1043863">
+ Example 1: Hello World
+</A></H4>
+
+<A NAME="1043864">
+For example, you can modify the HelloWorld applet shown above, making the following changes:</A></P>
+<ul><P><LI><A NAME="1043865">
+Override its <CODE>init</CODE> method so that it declares and initializes a string called <CODE>myString</CODE>.</A></LI>
+<P><LI><A NAME="1043866">
+Define a <CODE>setString</CODE> method that accepts a string argument, assigns it to <CODE>myString</CODE>, and calls the <CODE>repaint</CODE> method. (The <CODE>paint</CODE> and <CODE>repaint</CODE> methods are inherited from <CODE>java.awt.Component</CODE>).</A></LI>
+</ul><A NAME="1043867">
+The Java source code then looks as follows:</A></P>
+<PRE><A NAME="1043868">import java.applet.Applet;<br>import java.awt.Graphics;</A></PRE><PRE><A NAME="1043869">public class HelloWorld extends Applet {<br>&nbsp;&nbsp;&nbsp;String myString;</A></PRE><PRE><A NAME="1043870">&nbsp;&nbsp;&nbsp;public void init() {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;myString = new String("Hello, world!");<br>&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;public void paint(Graphics g) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;g.drawString(myString, 25, 20);<br>&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;public void setString(String aString) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;myString = aString;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;repaint();<br>&nbsp;&nbsp;&nbsp;}<br>}</A></PRE><A NAME="1043871">
+Making the message string a variable allows you to modify it from JavaScript. Now modify the HTML file as follows:</A></P>
+<ul><P><LI><A NAME="1043872">
+Add a form with a button and a text field.</A></LI>
+<P><LI><A NAME="1043873">
+Make the <CODE>onClick</CODE> event handler for the button call the <CODE>setString</CODE> method of HelloWorld with the string from the text field as its argument.</A></LI>
+</ul><A NAME="1043874">
+The HTML file now looks like this:</A></P>
+<PRE><A NAME="1043875">&lt;APPLET CODE="HelloWorld1.class" NAME="Hello" WIDTH=150 HEIGHT=25&gt;<br>&lt;/APPLET&gt;</A></PRE><PRE><A NAME="1043876">&lt;FORM NAME="form1"&gt;<br>&lt;INPUT TYPE="button" VALUE="Set String"<br>&nbsp;&nbsp;&nbsp;onClick="document.HelloWorld.setString(document.form1.str.value)"&gt;<br>&lt;BR&gt;<br>&lt;INPUT TYPE="text" SIZE="20" NAME="str"&gt;<br>&lt;/FORM&gt;</A></PRE><A NAME="1043877">
+When you compile the HelloWorld applet, and load the HTML page into Navigator, you initially see "Hello, World!" displayed in the gray applet panel. However, you can now change it by entering text in the text field and clicking on the button. This demonstrates controlling an applet from JavaScript.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1043879">
+ Example 2: Flashing Color Text Applet
+</A></H4>
+
+<A NAME="1043880">
+As another slightly more complex example, consider an applet that displays text that flashes in different colors. A text field lets you enter new text to flash and a push button changes the flashing text to your new value. This applet is shown in <A HREF="lc.htm#1043888">Figure 15.1</A>.</A></P>
+<P><A NAME="1043888">
+<B>Figure 15.1&nbsp;&nbsp;&nbsp;Flashing text applet<P>
+<IMG SRC="graphics/flash.gif">
+
+</B></A></P>
+
+
+<A NAME="1043889">
+The HTML source for this example is as follows:</A></P>
+<PRE><A NAME="1043890">&lt;APPLET CODE="colors.class" WIDTH=500 HEIGHT=60 NAME="colorApp"&gt;<br>&lt;/APPLET&gt;</A></PRE><PRE><A NAME="1043891">&lt;FORM NAME=colorText&gt;<br>&lt;P&gt;Enter new text for the flashing display:</A></PRE><PRE><A NAME="1043892">&lt;INPUT TYPE="text"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NAME="textBox"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; LENGTH=50&gt;</A></PRE><PRE><A NAME="1043893">&lt;P&gt;Click the button to change the display:<br>&lt;INPUT TYPE="button"<br>&nbsp;&nbsp;&nbsp;VALUE="Change Text"<br>&nbsp;&nbsp;&nbsp;onClick="document.colorApp.setString(document.colorText.textBox.value)"&gt;</A></PRE><PRE><A NAME="1043894">&lt;/FORM&gt;</A></PRE><A NAME="1043895">
+This applet uses the public method <CODE>setString</CODE> to specify the text for the flashing string that appears. In the HTML form, the <CODE>onClick</CODE> event handler of the button lets a user change the "Hello, world!" string that the applet initially displays by calling the <CODE>setString</CODE> method.</A></P>
+<A NAME="1043896">
+In this code, <CODE>colorText</CODE> is the name of the HTML form and <CODE>textBox</CODE> is the name of the text field. The event handler passes the value that a user enters in the text field to the <CODE>setString</CODE> method in the Java applet.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1043898">
+ Controlling Java Plug-ins
+</A></H3>
+
+<A NAME="1043899">
+Each plug-in in a document is reflected in JavaScript as an element in the <CODE>embeds</CODE> array. For example, the following HTML code includes an AVI plug-in in a document:</A></P>
+<PRE><A NAME="1043900">&lt;EMBED SRC=myavi.avi NAME="myEmbed" WIDTH=320 HEIGHT=200&gt;</A></PRE><A NAME="1043901">
+If this HTML defines the first plug-in in a document, you can access it in any of the following ways:</A></P>
+<PRE><A NAME="1043902">document.embeds[0]<br>document.embeds["myEmbed"]<br>document.myEmbed</A></PRE><A NAME="1043903">
+If the plug-in is associated with the Java class <CODE>netscape.plugin.Plugin</CODE>, you can access its static variables and methods the way you access an applet's variables and methods.</A></P>
+<A NAME="1043904">
+The <CODE>embeds</CODE> array has a <CODE>length</CODE> property, <CODE>document.embeds.length</CODE>, that indicates the number of plug-ins embedded in the document.</A></P>
+<A NAME="1043910">
+The <A HREF="http://developer.netscape.com/docs/manuals/communicator/plugin/index.htm" TARGET="_top"><I>Plug-in Guide</I></A> contains information on:</A></P>
+<ul><P><LI><A NAME="1043911">
+Calling Java methods from plug-ins</A></LI>
+<P><LI><A NAME="1043912">
+Calling a plug-in's native methods from Java</A></LI>
+</ul>
+<HR><H2><A NAME="Java to JavaScript Communication"></A>
+<A NAME="1008480">
+ Java to JavaScript Communication
+</A></H2><A NAME="1030429">
+If you want to use JavaScript objects in Java, you must import the <CODE>netscape.javascript</CODE> package into your Java file. This package defines the following classes:</A></P>
+<ul><P><LI><A NAME="1030342">
+<CODE>netscape.javascript.JSObject</CODE> allows Java code to access JavaScript methods and properties.</A></LI>
+<P><LI><A NAME="1030343">
+<CODE>netscape.javascript.JSException</CODE> allows Java code to handle JavaScript errors.</A></LI>
+<P><LI><A NAME="1043918">
+<CODE>netscape.plugin.Plugin</CODE> allows client-side JavaScript and applets to manipulate a plug-in.</A></LI>
+</ul><A NAME="1030345">
+Starting with JavaScript 1.2, these classes are delivered in a .jar file; in previous versions of JavaScript, these classes are delivered in a .zip file. See the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsref/index.htm" TARGET="_top"><I>Client-Side JavaScript Reference</I></A> for more information about these classes.</A></P>
+<A NAME="1030361">
+To access the LiveConnect classes, place the .jar or .zip file in the <CODE>CLASSPATH</CODE> of the JDK compiler in either of the following ways:</A></P>
+<ul><P><LI><A NAME="1030362">
+Create a <CODE>CLASSPATH</CODE> environment variable to specify the path and name of .jar or .zip file.</A></LI>
+<P><LI><A NAME="1030363">
+Specify the location of .jar or .zip file when you compile by using the <CODE>-classpath</CODE> command line parameter.</A></LI>
+</ul><A NAME="1030364">
+For example, in Navigator 4. 0 for Windows NT, the classes are delivered in the <CODE>java40.jar</CODE> file in the <CODE>Program\Java\Classes</CODE> directory beneath the Navigator directory. You can specify an environment variable in Windows NT by double-clicking the System icon in the Control Panel and creating a user environment variable called <CODE>CLASSPATH</CODE> with a value similar to the following:</A></P>
+<PRE><A NAME="1030365">D:\Navigator\Program\Java\Classes\java40.jar</A></PRE><A NAME="1030366">
+See the Sun JDK documentation for more information about <CODE>CLASSPATH</CODE>.</A></P>
+<BLOCKQUOTE><B>NOTE: </B><A NAME="1037486">
+Because Java is a strongly typed language and JavaScript is weakly typed, the 
+JavaScript runtime engine converts argument values into the appropriate data 
+types for the other language when you use LiveConnect. See <A HREF="lc.htm#1037078">"Data Type 
+Conversions" on page&nbsp;263</A> for complete information.
+</A>
+</BLOCKQUOTE>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1030717">
+ Using the LiveConnect Classes
+</A></H3>
+
+<A NAME="1030718">
+All JavaScript objects appear within Java code as instances of <CODE>netscape.javascript.JSObject</CODE>. When you call a method in your Java code, you can pass it a JavaScript object as one of its argument. To do so, you must define the corresponding formal parameter of the method to be of type <CODE>JSObject</CODE>.</A></P>
+<A NAME="1032274">
+Also, any time you use JavaScript objects in your Java code, you should put the call to the JavaScript object inside a <CODE>try...catch</CODE> statement which handles exceptions of type <CODE>netscape.javascript.JSException</CODE>. This allows your Java code to handle errors in JavaScript code execution which appear in Java as exceptions of type <CODE>JSException</CODE>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1032291">
+ Accessing JavaScript with JSObject
+</A></H4>
+
+<A NAME="1031091">
+For example, suppose you are working with the Java class called <CODE>JavaDog</CODE>. As shown in the following code, the <CODE>JavaDog</CODE> constructor takes the JavaScript object <CODE>jsDog</CODE>, which is defined as type <CODE>JSObject</CODE>, as an argument:</A></P>
+<PRE><A NAME="1031092">import netscape.javascript.*;<br><br>public class JavaDog<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;public String dogBreed;<br>&nbsp;&nbsp;&nbsp;&nbsp;public String dogColor;<br>&nbsp;&nbsp;&nbsp;&nbsp;public String dogSex;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;// define the class constructor<br>&nbsp;&nbsp;&nbsp;&nbsp;public JavaDog(JSObject jsDog)<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// use try...catch to handle JSExceptions here<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.dogBreed = (String)jsDog.getMember("breed");<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.dogColor = (String)jsDog.getMember("color");<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.dogSex = (String)jsDog.getMember("sex");<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}</A></PRE><A NAME="1031093">
+Notice that the <CODE>getMember</CODE> method of <CODE>JSObject</CODE> is used to access the properties of the JavaScript object. The previous example uses <CODE>getMember</CODE> to assign the value of the JavaScript property <CODE>jsDog.breed</CODE> to the Java data member <CODE>JavaDog.dogBreed</CODE>.</A></P>
+<BLOCKQUOTE><B>NOTE: </B><A NAME="1034585">
+A more realistic example would place the call to <CODE>getMember</CODE> inside a 
+<CODE>try...catch</CODE> statement to handle errors of type <CODE>JSException</CODE>. See 
+<A HREF="lc.htm#1032268">"Handling JavaScript Exceptions in Java" on page&nbsp;259</A> for more information.
+</A>
+</BLOCKQUOTE>
+<A NAME="1030728">
+To get a better sense of how <CODE>getMember</CODE> works, look at the definition of the custom JavaScript object <CODE>Dog</CODE>:</A></P>
+<PRE><A NAME="1030740">function Dog(breed,color,sex) {<br>&nbsp;&nbsp;&nbsp;this.breed = breed<br>&nbsp;&nbsp;&nbsp;this.color = color<br>&nbsp;&nbsp;&nbsp;this.sex = sex<br>}</A></PRE><A NAME="1030731">
+You can create a JavaScript instance of <CODE>Dog</CODE> called <CODE>gabby</CODE> as follows:</A></P>
+<PRE><A NAME="1030787">gabby = new Dog("lab","chocolate","female")</A></PRE><A NAME="1030729">
+If you evaluate <CODE>gabby.color</CODE>, you can see that it has the value "chocolate". Now suppose you create an instance of <CODE>JavaDog</CODE> in your JavaScript code by passing the <CODE>gabby</CODE> object to the constructor as follows:</A></P>
+<PRE><A NAME="1031134">javaDog = new Packages.JavaDog(gabby)</A></PRE><A NAME="1030809">
+If you evaluate <CODE>javaDog.dogColor</CODE>, you can see that it also has the value "chocolate", because the <CODE>getMember</CODE> method in the Java constructor assigns <CODE>dogColor</CODE> the value of <CODE>gabby.color</CODE>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1032268">
+ Handling JavaScript Exceptions in Java
+</A></H4>
+
+<A NAME="1035833">
+When JavaScript code called from Java fails at run time, it throws an exception. If you are calling the JavaScript code from Java, you can catch this exception in a <CODE>try...catch</CODE> statement. The JavaScript exception is available to your Java code as an instance of <CODE>netscape.javascript</CODE>.<CODE>JSException.</CODE> <CODE>JSException</CODE> is a Java wrapper around any exception type thrown by JavaScript, similar to the way that instances of <CODE>JSObject</CODE> are wrappers for JavaScript objects.</A></P>
+<A NAME="1044400">
+Use <CODE>JSException</CODE> when you are evaluating JavaScript code in Java. If the JavaScript code is not evaluated, either due to a JavaScript compilation error or to some other error that occurs at run time, the JavaScript interpreter generates an error message that is converted into an instance of <CODE>JSException</CODE>.</A></P>
+<A NAME="1037664">
+For example, you can use a <CODE>try...catch</CODE> statement such as the following to handle LiveConnect exceptions:</A></P>
+<PRE><A NAME="1037674">try {<br>&nbsp;&nbsp;&nbsp;global.eval("foo.bar = 999;");<br>} catch (Exception e) {<br>&nbsp;&nbsp;&nbsp;if (e instanceof JSException) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jsCodeFailed()";<br>&nbsp;&nbsp;&nbsp;} else {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;otherCodeFailed();<br>&nbsp;&nbsp;&nbsp;}<br>}</A></PRE><A NAME="1037731">
+In this example, the <CODE>eval</CODE> statement fails if <CODE>foo</CODE> is not defined. The <CODE>catch</CODE> block executes the <CODE>jsCodeFailed</CODE> method if the <CODE>eval</CODE> statement in the <CODE>try</CODE> block throws a <CODE>JSException</CODE>; the <CODE>otherCodeFailed</CODE> method executes if the <CODE>try</CODE> block throws any other error.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1043938">
+ Accessing Client-Side JavaScript
+</A></H3>
+
+<A NAME="1043939">
+Now let's look specifically at using Java to access client-side JavaScript. The author of an HTML page must permit an applet to access JavaScript by specifying the <CODE>MAYSCRIPT</CODE> attribute of the <CODE>&lt;APPLET&gt;</CODE> tag. This prevents an applet from accessing JavaScript on a page without the knowledge of the page author. Attempting to access JavaScript from an applet that does not have the <CODE>MAYSCRIPT</CODE> attribute generates an exception. The <CODE>MAYSCRIPT</CODE> tag is needed only for Java to access JavaScript; it is not needed for JavaScript to access Java.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1043941">
+ Getting a Handle for the JavaScript Window
+</A></H4>
+
+<A NAME="1043942">
+Before you can access JavaScript in Navigator, you must get a handle for the Navigator window. Use the <CODE>getWindow</CODE> method in the class <CODE>netscape.javascript.JSObject</CODE> to get a window handle, passing it the <CODE>Applet</CODE> object.</A></P>
+<A NAME="1043943">
+For example, if <CODE>win</CODE> is a previously-declared variable of type <CODE>JSObject</CODE>, the following Java code assigns a window handle to <CODE>win</CODE>:</A></P>
+<PRE><A NAME="1043944">public class myApplet extends Applet {<br>&nbsp;&nbsp;&nbsp;public void init() {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JSObject win = JSObject.getWindow(this);<br>&nbsp;&nbsp;&nbsp;}<br>}</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1043946">
+ Accessing JavaScript Objects and Properties
+</A></H4>
+
+<A NAME="1043947">
+The <CODE>getMember</CODE> method in the class <CODE>netscape.javascript.JSObject</CODE> lets you access JavaScript objects and properties. Call <CODE>getWindow</CODE> to get a handle for the JavaScript window, then call <CODE>getMember</CODE> to access each JavaScript object in a containership path in turn. Notice that JavaScript objects appear as instances of the class <CODE>netscape.javascript.JSObject</CODE> in Java.</A></P>
+<A NAME="1043948">
+For example, the following Java code allows you to access the JavaScript object <CODE>document.testForm</CODE> through the variable <CODE>myForm</CODE>:</A></P>
+<PRE><A NAME="1043949">public void init() {<br>&nbsp;&nbsp;&nbsp;win = JSObject.getWindow(this);<br>&nbsp;&nbsp;&nbsp;myForm=win.eval("document.testForm")<br>}</A></PRE><A NAME="1043950">
+Note that you could use the following lines in place of <CODE>myForm=win.eval("document.testForm")</CODE>:</A></P>
+<PRE><A NAME="1043951">JSObject doc = (JSObject) win.getMember("document");<br>JSObject myForm = (JSObject) doc.getMember("testForm");</A></PRE><A NAME="1043952">
+If the JavaScript object <CODE>document.testForm.jazz</CODE> is a checkbox, the following Java code allows you to access its <CODE>checked</CODE> property:</A></P>
+<PRE><A NAME="1043953">public void init() {<br>&nbsp;&nbsp;&nbsp;win = JSObject.getWindow(this);<br>&nbsp;&nbsp;&nbsp;JSObject doc = (JSObject) win.getMember("document");<br>&nbsp;&nbsp;&nbsp;JSObject myForm = (JSObject) doc.getMember("testForm");<br>&nbsp;&nbsp;&nbsp;JSObject check = (JSObject) myForm.getMember("jazz");<br>&nbsp;&nbsp;&nbsp;Boolean isChecked = (Boolean) check.getMember("checked");<br>}</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1043955">
+ Calling JavaScript Methods
+</A></H4>
+
+<A NAME="1043956">
+The <CODE>eval</CODE> method in the class <CODE>netscape.javascript.JSObject</CODE> let you evaluate an arbitrary JavaScript expression. Use <CODE>getWindow</CODE> to get a handle for the JavaScript window, then use <CODE>eval</CODE> to access a JavaScript method.</A></P>
+<A NAME="1043957">
+Use the following syntax to call JavaScript methods:</A></P>
+<PRE><A NAME="1043958">JSObject.getWindow().eval("expression")</A></PRE><A NAME="1043959">
+<CODE>expression</CODE> is a JavaScript expression that evaluates to a JavaScript method call.</A></P>
+<A NAME="1043960">
+For example, the following Java code uses <CODE>eval</CODE> to call the JavaScript <CODE>alert</CODE> method when a <CODE>MouseUp</CODE> event occurs:</A></P>
+<PRE><A NAME="1043961">public void init() {<br>&nbsp;&nbsp;&nbsp;JSObject win = JSObject.getWindow(this);<br>}</A></PRE><PRE><A NAME="1043962">public boolean mouseUp(Event e, int x, int y) {<br>&nbsp;&nbsp;&nbsp;win.eval("alert(\"Hello world!\");");<br>&nbsp;&nbsp;&nbsp;return true;<br>}</A></PRE><A NAME="1043963">
+Another way to call JavaScript methods is with the <CODE>call</CODE> method of <CODE>JSObject</CODE>. Use the following to call a JavaScript method from Java when you want to pass Java objects as arguments:</A></P>
+<PRE><A NAME="1043964">JSObject.call(methodName, argArray)</A></PRE><A NAME="1043965">
+where <CODE>argArray</CODE> is an Array of Java objects used to pass arguments to the JavaScript method.</A></P>
+<A NAME="1043966">
+If you want to pass primitive values to a JavaScript method, you must use the Java object wrappers (such as <CODE>Integer</CODE>, <CODE>Float</CODE>, and <CODE>Boolean</CODE>), and then populate an <CODE>Array</CODE> with such objects.</A></P>
+<H5><A NAME="Head4;"></A>
+<A NAME="1043968">
+ Example: Hello World
+</A></H5>
+
+<A NAME="1043969">
+Returning to the HelloWorld example, modify the <CODE>paint</CODE> method in the Java code so that it calls the JavaScript <CODE>alert</CODE> method (with the message "Painting!") as follows:</A></P>
+<PRE><A NAME="1043970">public void paint(Graphics g) {<br>&nbsp;&nbsp;&nbsp;g.drawString(myString, 25, 20);<br>&nbsp;&nbsp;&nbsp;JSObject win = JSObject.getWindow(this);<br>&nbsp;&nbsp;&nbsp;String args[] = {"Painting!"};<br>&nbsp;&nbsp;&nbsp;win.call("alert", args);<br>}</A></PRE><A NAME="1043971">
+Then add the <CODE>MAYSCRIPT</CODE> attribute to the <CODE>&lt;APPLET&gt;</CODE> tag in the HTML page, recompile the applet, and try it. Each time the applet is painted (when it is initialized, when you enter a new text value, and when the page is reloaded) a JavaScript alert box is displayed. This is a simple illustration of calling JavaScript from Java.</A></P>
+<A NAME="1043972">
+This same effect could be achieved with the following:</A></P>
+<PRE><A NAME="1043973">public void paint(Graphics g) {<br>&nbsp;&nbsp;&nbsp;g.drawString(myString, 25, 20);<br>&nbsp;&nbsp;&nbsp;JSObject win = JSObject.getWindow(this);<br>&nbsp;&nbsp;&nbsp;win.eval("alert('Painting')");<br>}</A></PRE><BLOCKQUOTE><B>NOTE: </B><A NAME="1043975">
+You may have to reload the HTML page by choosing Open Page from the File 
+menu instead of clicking the Reload button, to ensure that the applet is re-
+initialized.
+</A>
+</BLOCKQUOTE>
+<H5><A NAME="Head4;"></A>
+<A NAME="1043977">
+ Calling User-Defined Functions
+</A></H5>
+
+<A NAME="1043978">
+You can also call user-defined functions from a Java applet. For example, add the following function to the <CODE>&lt;HEAD&gt;</CODE> of the HTML page with the HelloWorld applet:</A></P>
+<PRE><A NAME="1043979">&lt;SCRIPT&gt;<br>function test() {<br>&nbsp;&nbsp;&nbsp;alert("You are using " + navigator.appName + " " + <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;navigator.appVersion)<br>}<br>&lt;/SCRIPT&gt;</A></PRE><A NAME="1043980">
+This simple function displays an alert dialog box containing the name and version of the client software being used. Then modify the <CODE>init</CODE> method in your Java code similarly to how you modified <CODE>paint</CODE>:</A></P>
+<PRE><A NAME="1043981">public void init() {<br>&nbsp;&nbsp;&nbsp;myString = new String("Hello, world!")<br>&nbsp;&nbsp;&nbsp;JSObject win = JSObject.getWindow(this)<br>&nbsp;&nbsp;&nbsp;String args2[] = {""}<br>&nbsp;&nbsp;&nbsp;win.call("test", args2)<br>}</A></PRE><A NAME="1043982">
+Notice that <CODE>args2</CODE> is declared as an array with no elements, even though the method does not take any arguments. When you recompile the applet and reload the HTML page (and re-initialize the applet), a JavaScript alert dialog box will display the version of Navigator you are running. This is a simple illustration of calling a user-defined function from Java.</A></P>
+
+<HR><H2><A NAME="Data Type Conversions"></A>
+<A NAME="1037078">
+ Data Type Conversions
+</A></H2><A NAME="1037079">
+Because Java is a strongly typed language and JavaScript is weakly typed, the JavaScript runtime engine converts argument values into the appropriate data types for the other language when you use LiveConnect. These conversions are described in the following sections:</A></P>
+<ul><LI><A NAME="1037083">
+<A HREF="lc.htm#1037090">JavaScript to Java Conversions</A>
+</A></LI><LI><A NAME="1037087">
+<A HREF="lc.htm#1037422">Java to JavaScript Conversions</A>
+</A></LI></ul>
+<H3><A NAME="Head2;"></A>
+<A NAME="1037090">
+ JavaScript to Java Conversions
+</A></H3>
+
+<A NAME="1037091">
+When you call a Java method and pass it parameters from JavaScript, the data types of the parameters you pass in are converted according to the rules described in the following sections:</A></P>
+<ul><LI><A NAME="1037095">
+<A HREF="lc.htm#1037125">Number Values</A>
+</A></LI><LI><A NAME="1037099">
+<A HREF="lc.htm#1037169">Boolean Values</A>
+</A></LI><LI><A NAME="1037103">
+<A HREF="lc.htm#1037205">String Values</A>
+</A></LI><LI><A NAME="1037107">
+<A HREF="lc.htm#1037248">Undefined Values</A>
+</A></LI><LI><A NAME="1037111">
+<A HREF="lc.htm#1037281">Null Values</A>
+</A></LI><LI><A NAME="1037115">
+<A HREF="lc.htm#1037309">JavaArray and JavaObject objects</A>
+</A></LI><LI><A NAME="1037119">
+<A HREF="lc.htm#1037349">JavaClass objects</A>
+</A></LI><LI><A NAME="1037123">
+<A HREF="lc.htm#1037380">Other JavaScript objects</A>
+</A></LI></ul><A NAME="1037595">
+The return values of methods of <CODE>netscape.javascript.JSObject</CODE> are always converted to instances of <CODE>java.lang.Object</CODE>. The rules for converting these return values are also described in these sections.</A></P>
+<A NAME="1037627">
+For example, if <CODE>JSObject.eval</CODE> returns a JavaScript number, you can find the rules for converting this number to an instance of <CODE>java.lang.Object</CODE> in <A HREF="lc.htm#1037125">"Number Values" on page&nbsp;264</A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1037125">
+ Number Values
+</A></H4>
+
+<A NAME="1037126">
+When you pass JavaScript number types as parameters to Java methods, Java converts the values according to the rules described in the following table:</A></P>
+<A NAME="1037166">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1037129">
+<B>Java parameter type
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1037131">
+<B>Conversion rules
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1037133">
+double</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1037135">
+The exact value is transferred to Java without rounding and without a loss of magnitude or sign.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1037137">
+<CODE>lava.lang.Double<br>java.lang.Object</CODE></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1037140">
+A new instance of <CODE>java.lang.Double</CODE> is created, and the exact value is transferred to Java without rounding and without a loss of magnitude or sign.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1037142">
+float</A></P><TD VALIGN=baseline ALIGN=left><ul></P><LI><A NAME="1037144">
+Values are rounded to float precision.</A></P><LI><A NAME="1037145">
+Values which are unrepresentably large or small are rounded to +infinity or -infinity.</A></ul>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1037147">
+byte<br>char<br>int<br>long<br>short</A></P><TD VALIGN=baseline ALIGN=left><ul></P><LI><A NAME="1037153">
+Values are rounded using round-to-negative-infinity mode.</A></P><LI><A NAME="1037154">
+Values which are unrepresentably large or small result in a run-time error.</A></P><LI><A NAME="1037155">
+<CODE>NaN</CODE> values are converted to zero.</A></ul>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1037157">
+<CODE>java.lang.String</CODE></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1037159">
+Values are converted to strings. For example,</A></P><ul></P><LI><A NAME="1037160">
+237 becomes "237"</A></ul>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1037162">
+boolean</A></P><TD VALIGN=baseline ALIGN=left><ul></P><LI><A NAME="1037164">
+0 and <CODE>NaN</CODE> values are converted to false.</A></P><LI><A NAME="1037165">
+Other values are converted to true.</A></ul>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+<A NAME="1037167">
+When a JavaScript number is passed as a parameter to a Java method which expects an instance of <CODE>java.lang.String</CODE>, the number is converted to a string. Use the == operator to compare the result of this conversion with other string values.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1037169">
+ Boolean Values
+</A></H4>
+
+<A NAME="1037170">
+When you pass JavaScript Boolean types as parameters to Java methods, Java converts the values according to the rules described in the following table:</A></P>
+<A NAME="1037202">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1037173">
+<B>Java parameter type
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1037175">
+<B>Conversion rules
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1037177">
+boolean</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1037179">
+All values are converted directly to the Java equivalents.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1037181">
+<CODE>lava.lang.Boolean<br>java.lang.Object</CODE></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1037184">
+A new instance of <CODE>java.lang.Boolean</CODE> is created. Each parameter creates a new instance, not one instance with the same primitive value.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1037525">
+<CODE>java.lang.String</CODE></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1037527">
+Values are converted to strings. For example:</A></P><ul></P><LI><A NAME="1037528">
+true becomes "true"</A></P><LI><A NAME="1037529">
+false becomes "false"</A></ul>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1037186">
+byte<br>char<br>double<br>float<br>int<br>long<br>short</A></P><TD VALIGN=baseline ALIGN=left><ul></P><LI><A NAME="1037194">
+true becomes 1</A></P><LI><A NAME="1037195">
+false becomes 0</A></ul>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+<A NAME="1037203">
+When a JavaScript Boolean is passed as a parameter to a Java method which expects an instance of <CODE>java.lang.String</CODE>, the Boolean is converted to a string. Use the == operator to compare the result of this conversion with other string values.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1037205">
+ String Values
+</A></H4>
+
+<A NAME="1037206">
+When you pass JavaScript string types as parameters to Java methods, Java converts the values according to the rules described in the following table:</A></P>
+<A NAME="1037246">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1037209">
+<B>Java parameter type
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1037211">
+<B>Conversion rules
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1037534">
+<CODE>lava.lang.String<br>java.lang.Object</CODE></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1037540">
+A JavaScript string is converted to an instance of <CODE>java.lang.String</CODE> with an ASCII value.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1037546">
+byte<br>double<br>float<br>int<br>long<br>short</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1037553">
+All values are converted to numbers as described in <A HREF="http://developer.netscape.com/docs/javascript/e262-pdf.pdf" TARGET="_top">ECMA-262</A>.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1037559">
+char</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1037565">
+All values are converted to numbers.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1037213">
+boolean</A></P><TD VALIGN=baseline ALIGN=left><ul></P><LI><A NAME="1037215">
+The empty string becomes false.</A></P><LI><A NAME="1037216">
+All other values become true.</A></ul>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1037248">
+ Undefined Values
+</A></H4>
+
+<A NAME="1037249">
+When you pass undefined JavaScript values as parameters to Java methods, Java converts the values according to the rules described in the following table:</A></P>
+<A NAME="1037277">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1037252">
+<B>Java parameter type
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1037254">
+<B>Conversion rules
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1037507">
+<CODE>lava.lang.String<br>java.lang.Object</CODE></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1037510">
+The value is converted to an instance of java.lang.String whose value is the string "undefined".</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1037256">
+boolean</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1037258">
+The value becomes false.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1037516">
+double<br>float</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1037519">
+The value becomes <CODE>NaN</CODE>.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1037265">
+byte<br>char<br>int<br>long<br>short</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1037271">
+The value becomes 0.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+<A NAME="1037278">
+The undefined value conversion is possible in JavaScript 1.3 only. Earlier versions of JavaScript do not support undefined values.</A></P>
+<A NAME="1037279">
+When a JavaScript undefined value is passed as a parameter to a Java method which expects an instance of <CODE>java.lang.String</CODE>, the undefined value is converted to a string. Use the == operator to compare the result of this conversion with other string values.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1037281">
+ Null Values
+</A></H4>
+
+<A NAME="1037282">
+When you pass null JavaScript values as parameters to Java methods, Java converts the values according to the rules described in the following table:</A></P>
+<A NAME="1037307">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1037285">
+<B>Java parameter type
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1037287">
+<B>Conversion rules
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1037568">
+Any class<br>Any interface type</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1037571">
+The value becomes null.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1042434">
+byte<br>char<br>double<br>float<br>int<br>long<br>short</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1037581">
+The value becomes 0.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1037289">
+boolean</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1037291">
+The value becomes false.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1037309">
+ JavaArray and JavaObject objects
+</A></H4>
+
+<A NAME="1037310">
+In most situations, when you pass a JavaScript <CODE>JavaArray</CODE> or <CODE>JavaObject</CODE> as a parameter to a Java method, Java simply unwraps the object; in a few situations, the object is coerced into another data type according to the rules described in the following table:</A></P>
+<A NAME="1037345">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1037313">
+<B>Java parameter type
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1037315">
+<B>Conversion rules
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1037317">
+Any interface or class that is assignment-compatible with the unwrapped object.</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1037319">
+The object is unwrapped.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1037321">
+<CODE>java.lang.String</CODE></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1037323">
+The object is unwrapped, the <CODE>toString</CODE> method of the unwrapped Java object is called, and the result is returned as a new instance of <CODE>java.lang.String</CODE>.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1037325">
+byte<br>char<br>double<br>float<br>int<br>long<br>short</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1037333">
+The object is unwrapped, and either of the following situations occur:</A></P><ul></P><LI><A NAME="1037334">
+If the unwrapped Java object has a <CODE>doubleValue</CODE> method, the <CODE>JavaArray</CODE> or <CODE>JavaObject</CODE> is converted to the value returned by this method.</A></P><LI><A NAME="1037335">
+If the unwrapped Java object does not have a <CODE>doubleValue</CODE> method, an error occurs.</A></ul>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1037337">
+boolean</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1037339">
+The object is unwrapped and either of the following situations occur:</A></P><ul></P><LI><A NAME="1037340">
+If the object is null, it is converted to false.</A></P><LI><A NAME="1037341">
+If the object has any other value, it is converted to true.</A></ul><P><A NAME="1037342">
+</A></P><P><A NAME="1040810">
+In JavaScript 1.2 and earlier versions, the object is unwrapped and either of the following situations occur:</A></P><ul></P><LI><A NAME="1037343">
+If the unwrapped object has a booleanValue method, the source object is converted to the return value.</A></P><LI><A NAME="1037344">
+If the object does not have a booleanValue method, the conversion fails.</A></ul>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+<A NAME="1037346">
+An interface or class is assignment-compatible with an unwrapped object if the unwrapped object is an instance of the Java parameter type. That is, the following statement must return true:</A></P>
+<PRE><A NAME="1037347"><I>unwrappedObject</I> instanceof <I>parameterType</I></A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1037349">
+ JavaClass objects
+</A></H4>
+
+<A NAME="1037350">
+When you pass a JavaScript <CODE>JavaClass</CODE> object as a parameter to a Java method, Java converts the object according to the rules described in the following table:</A></P>
+<A NAME="1037378">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1037353">
+<B>Java parameter type
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1037355">
+<B>Conversion rules
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1037357">
+<CODE>java.lang.Class</CODE></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1037359">
+The object is unwrapped.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1037361">
+<CODE>java.lang.JSObject<br>java.lang.Object</CODE></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1037364">
+The <CODE>JavaClass</CODE> object is wrapped in a new instance of <CODE>java.lang.JSObject</CODE>.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1037366">
+<CODE>java.lang.String</CODE></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1037368">
+The object is unwrapped, the <CODE>toString</CODE> method of the unwrapped Java object is called, and the result is returned as a new instance of <CODE>java.lang.String</CODE>.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1037370">
+boolean</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1037372">
+The object is unwrapped and either of the following situations occur:</A></P><ul></P><LI><A NAME="1037373">
+If the object is null, it is converted to false.</A></P><LI><A NAME="1037374">
+If the object has any other value, it is converted to true.</A></ul><P><A NAME="1037375">
+</A></P><P><A NAME="1040812">
+In JavaScript 1.2 and earlier versions, the object is unwrapped and either of the following situations occur:</A></P><ul></P><LI><A NAME="1037376">
+If the unwrapped object has a booleanValue method, the source object is converted to the return value.</A></P><LI><A NAME="1037377">
+If the object does not have a booleanValue method, the conversion fails.</A></ul>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1037380">
+ Other JavaScript objects
+</A></H4>
+
+<A NAME="1037381">
+When you pass any other JavaScript object as a parameter to a Java method, Java converts the object according to the rules described in the following table:</A></P>
+<A NAME="1037419">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1037384">
+<B>Java parameter type
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1037386">
+<B>Conversion rules
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1037388">
+<CODE>java.lang.JSObject<br>java.lang.Object</CODE></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1037391">
+The object is wrapped in a new instance of <CODE>java.lang.JSObject</CODE>.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1037393">
+<CODE>java.lang.String</CODE></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1037395">
+The object is unwrapped, the <CODE>toString</CODE> method of the unwrapped Java object is called, and the result is returned as a new instance of <CODE>java.lang.String</CODE>.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1037397">
+byte<br>char<br>double<br>float<br>int<br>long<br>short</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1037405">
+The object is converted to a value using the logic of the <CODE>ToPrimitive</CODE> operator described in <A HREF="http://developer.netscape.com/docs/javascript/e262-pdf.pdf" TARGET="_top">ECMA-262</A>. The <I>PreferredType</I> hint used with this operator is Number.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1037411">
+boolean</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1037413">
+The object is unwrapped and either of the following situations occur:</A></P><ul></P><LI><A NAME="1037414">
+If the object is null, it is converted to false.</A></P><LI><A NAME="1037415">
+If the object has any other value, it is converted to true.</A></ul><P><A NAME="1037416">
+</A></P><P><A NAME="1040814">
+In JavaScript 1.2 and earlier versions, the object is unwrapped and either of the following situations occur:</A></P><ul></P><LI><A NAME="1037417">
+If the unwrapped object has a booleanValue method, the source object is converted to the return value.</A></P><LI><A NAME="1037418">
+If the object does not have a booleanValue method, the conversion fails.</A></ul>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1037422">
+ Java to JavaScript Conversions
+</A></H3>
+
+<A NAME="1037423">
+Values passed from Java to JavaScript are converted as follows:</A></P>
+<ul><P><LI><A NAME="1037424">
+Java byte, char, short, int, long, float, and double are converted to JavaScript numbers.</A></LI>
+<P><LI><A NAME="1037425">
+A Java boolean is converted to a JavaScript boolean.</A></LI>
+<P><LI><A NAME="1037426">
+An object of class <CODE>netscape.javascript.JSObject</CODE> is converted to the original JavaScript object.</A></LI>
+<P><LI><A NAME="1037427">
+Java arrays are converted to a JavaScript pseudo-Array object; this object behaves just like a JavaScript <CODE>Array</CODE> object: you can access it with the syntax <CODE>arrayName[index]</CODE> (where <CODE>index</CODE> is an integer), and determine its length with <CODE>arrayName.length</CODE>.</A></LI>
+<P><LI><A NAME="1037428">
+A Java object of any other class is converted to a JavaScript wrapper, which can be used to access methods and fields of the Java object:</A></LI>
+<ul>
+</P><LI><A NAME="1037430">
+<CODE></CODE>Converting this wrapper to a string calls the <CODE>toString</CODE> method on the original object.</A></LI>
+</P><LI><A NAME="1037432">
+<CODE></CODE>Converting to a number calls the <CODE>doubleValue</CODE> method, if possible, and fails otherwise.</A></LI>
+</P><LI><A NAME="1037460">
+<CODE></CODE>Converting to a boolean in JavaScript 1.3 returns false if the object is null, and true otherwise.</A></LI>
+</P><LI><A NAME="1037434">
+<CODE></CODE>Converting to a boolean in JavaScript 1.2 and earlier versions calls the <CODE>booleanValue</CODE> method, if possible, and fails otherwise.</A></LI>
+<P><A NAME="1037436">
+Note that instances of java.lang.Double and java.lang.Integer are converted 
+to JavaScript objects, not to JavaScript numbers. Similarly, instances of 
+java.lang.String are also converted to JavaScript objects, not to JavaScript 
+strings.
+</P></A>
+
+</ul>
+</ul><A NAME="1037437">
+Java <CODE>String</CODE> objects also correspond to JavaScript wrappers. If you call a JavaScript method that requires a JavaScript string and pass it this wrapper, you'll get an error. Instead, convert the wrapper to a JavaScript string by appending the empty string to it, as shown here:</A></P>
+<PRE><A NAME="1037438">var JavaString = JavaObj.methodThatReturnsAString();<br>var JavaScriptString = JavaString + "";</A></PRE>
+<HR>
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="partlc.htm">Previous</A>
+ | <A HREF="liveaud.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT>
+<P ALIGN=right>
+<FONT SIZE=-2><I>Last Updated:  05/27/99  21:21:44</I></FONT>
+<P> <CENTER>Copyright (c) 1999
+<A HREF="http://home.netscape.com/misc/contact_info.html"
+TARGET=_top>Netscape Communications Corporation</A></FONT>
+</CENTER>
+<P>
+</BODY>
+</HTML>
+
+

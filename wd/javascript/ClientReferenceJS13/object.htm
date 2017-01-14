@@ -1,0 +1,614 @@
+<HTML>
+<HEAD>
+<TITLE>
+</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="number.htm">Previous</A>
+ | <A HREF="option.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT><BR><BR>
+<HR>
+
+<H1><A NAME="Object"></A>
+<A NAME="1193136">
+ Object
+</A></H1>
+<A NAME="1193137">
+<CODE>Object</CODE> is the primitive JavaScript object type. All JavaScript objects are descended from <CODE>Object</CODE>. That is, all JavaScript objects have the methods defined for <CODE>Object</CODE>. <TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left COLSPAN=2 ROWSPAN=1><P><A NAME="1193140">
+<I>Core object</I></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193144">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193146">
+JavaScript 1.0: <CODE>toString</CODE> method</A></P><P><A NAME="1195549">
+</A></P><P><A NAME="1195550">
+JavaScript 1.1, NES 2.0: added <CODE>eval</CODE> and <CODE>valueOf</CODE> methods; <CODE>constructor</CODE> property</A></P><P><A NAME="1195551">
+</A></P><P><A NAME="1195552">
+JavaScript 1.2: deprecated <A HREF="object.htm#1194118"><CODE>eval</CODE></A> method</A></P><P><A NAME="1193150">
+</A></P><P><A NAME="1195553">
+JavaScript 1.3: added <A HREF="object.htm#1193320"><CODE>toSource</CODE></A> method</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1196451">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1196453">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193151">
+ Created by
+</A></H4>
+
+<A NAME="1193152">
+The <CODE>Object</CODE> constructor:</A></P>
+<PRE><A NAME="1193153">new Object()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193154">
+ Parameters
+</A></H4>
+
+<A NAME="1193155">
+None</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193156">
+ Property Summary
+</A></H4>
+
+<A NAME="1193176">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1193159">
+<B>Property
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1193161">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193166"><A HREF="object.htm#1193229"><CODE>constructor</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193168">
+Specifies the function that creates an object's prototype.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193173"><A HREF="object.htm#1193255"><CODE>prototype</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193175">
+Allows the addition of properties to all objects.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193177">
+ Method Summary
+</A></H4>
+
+<A NAME="1193225">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1193180">
+<B>Method
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1193182">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193187"><A HREF="object.htm#1194118"><CODE>eval</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193189">
+Deprecated. Evaluates a string of JavaScript code in the context of the specified object.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193194"><A HREF="object.htm#1193320"><CODE>toSource</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193196">
+Returns an object literal representing the specified object; you can use this value to create a new object.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193201"><A HREF="object.htm#1193350"><CODE>toString</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193203">
+Returns a string representing the specified object.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193208"><A HREF="object.htm#1193499"><CODE>unwatch</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193210">
+Removes a watchpoint from a property of the object.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193215"><A HREF="object.htm#1193540"><CODE>valueOf</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193217">
+Returns the primitive value of the specified object.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193222"><A HREF="object.htm#1193628"><CODE>watch</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193224">
+Adds a watchpoint to a property of the object.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193229">
+constructor
+</A></H2>
+
+<A NAME="1193230">
+Specifies the function that creates an object's prototype. Note that the value of this property is a reference to the function itself, not a string containing the function's name.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193233">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193238">
+<A HREF="object.htm#1193136"><CODE>Object</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193240">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193242">
+JavaScript 1.1, NES 2.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1196460">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1196462">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193243">
+ Description
+</A></H4>
+
+<A NAME="1193244">
+All objects inherit a <CODE>constructor</CODE> property from their <CODE>prototype</CODE>:</A></P>
+<PRE><A NAME="1193245">o = new Object  // or o = {} in JavaScript 1.2<br>o.constructor == Object<br>a = new Array   // or a = [] in JavaScript 1.2<br>a.constructor == Array<br>n = new Number(3)<br>n.constructor == Number</A></PRE><A NAME="1193246">
+Even though you cannot construct most HTML objects, you can do comparisons. For example,</A></P>
+<PRE><A NAME="1193247">document.constructor == Document<br>document.form3.constructor == Form</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193248">
+ Examples
+</A></H4>
+
+<A NAME="1193249">
+The following example creates a prototype, <CODE>Tree</CODE>, and an object of that type, <CODE>theTree</CODE>. The example then displays the <CODE>constructor</CODE> property for the object <CODE>theTree</CODE>.</A></P>
+<PRE><A NAME="1193250">function Tree(name) {<br>&nbsp;&nbsp;&nbsp;this.name=name<br>}<br>theTree = new Tree("Redwood")<br>document.writeln("&lt;B&gt;theTree.constructor is&lt;/B&gt; " +<br>&nbsp;&nbsp;&nbsp;theTree.constructor + "&lt;P&gt;")</A></PRE><A NAME="1193251">
+This example displays the following output:</A></P>
+<PRE><A NAME="1193252">theTree.constructor is function Tree(name) { this.name = name; }</A></PRE>
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1194118">
+eval
+</A></H2>
+
+<A NAME="1194131">
+Deprecated. Evaluates a string of JavaScript code in the context of an object.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194121">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194126">
+<A HREF="object.htm#1193136"><CODE>Object</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1194128">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1194130">
+JavaScript 1.1, NES 2.0</A></P><P><A NAME="1195556">
+</A></P><P><A NAME="1195557">
+JavaScript 1.2, NES 3.0: deprecated as method of objects; retained as top-level function</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194132">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1194133">eval(<I>string</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1194134">
+ Parameters
+</A></H4>
+
+<A NAME="1194140">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1194137">string</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1194139">
+Any string representing a JavaScript expression, statement, or sequence of statements. The expression can include variables and properties of existing objects.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194141">
+ Description
+</A></H4>
+
+<A NAME="1194142">
+<CODE>eval</CODE> as a method of Object and every object derived from Object is deprecated. Use the top-level <A HREF="toplev.htm#1063795"><CODE>eval</CODE></A> function.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1202533">
+ Backward Compatibility
+</A></H4>
+
+<B><A NAME="HeadRunIn;"></A>
+<A NAME="1202534">
+JavaScript 1.1. </A></B><A NAME="1202544">
+<CODE>eval</CODE> is a method of Object and every object derived from Object.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1194155">
+ See also
+</A></H4>
+
+<A NAME="1194159">
+<A HREF="toplev.htm#1063795"><CODE>eval</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193255">
+prototype
+</A></H2>
+
+<A NAME="1193256">
+Represents the prototype for this class. You can use the prototype to add properties or methods to all instances of a class. For more information, see <A HREF="function.htm#1193426"><CODE>Function.prototype</CODE></A>.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193262">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193267">
+<A HREF="object.htm#1193136"><CODE>Object</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193269">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193271">
+JavaScript 1.1</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1196486">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1196488">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193320">
+toSource
+</A></H2>
+
+<A NAME="1193322">
+Returns a string representing the source code of the object.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193325">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193330">
+<A HREF="object.htm#1193136"><CODE>Object</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193332">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193334">
+JavaScript 1.3</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193335">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1193336">toSource()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193337">
+ Parameters
+</A></H4>
+
+<A NAME="1193338">
+None</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193339">
+ Description
+</A></H4>
+
+<A NAME="1204221">
+The <CODE>toSource</CODE> method returns the following values:</A></P>
+<ul><P><LI><A NAME="1204304">
+For the built-in <CODE>Object</CODE> object, <CODE>toSource</CODE> returns the following string indicating that the source code is not available:</A></LI>
+<PRE><A NAME="1204317">&nbsp;&nbsp;&nbsp;function Object() {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[native code]<br>&nbsp;&nbsp;&nbsp;}</A></PRE><P><LI><A NAME="1204308">
+For instances of <CODE>Object</CODE>, <CODE>toSource</CODE> returns a string representing the source code.</A></LI>
+<P><LI><A NAME="1204331">
+For custom objects, <CODE>toSource</CODE> returns the JavaScript source that defines the object as a string.</A></LI>
+</ul><A NAME="1204183">
+This method is usually called internally by JavaScript and not explicitly in code. You can call <CODE>toSource</CODE> while debugging to examine the contents of an object.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193340">
+ Examples
+</A></H4>
+
+<A NAME="1204772">
+The following code defines the <CODE>Dog</CODE> object type and creates <CODE>theDog,</CODE> an object of type <CODE>Dog</CODE>:</A></P>
+<PRE><A NAME="1204688">function Dog(name,breed,color,sex) {<br>&nbsp;&nbsp;&nbsp;this.name=name<br>&nbsp;&nbsp;&nbsp;this.breed=breed<br>&nbsp;&nbsp;&nbsp;this.color=color<br>&nbsp;&nbsp;&nbsp;this.sex=sex<br>}<br>theDog = new Dog("Gabby","Lab","chocolate","girl")</A></PRE><A NAME="1204667">
+Calling the <CODE>toSource</CODE> method of <CODE>theDog</CODE> displays the JavaScript source that defines the object:</A></P>
+<PRE><A NAME="1204789">theDog.toSource()<br>//returns "{name:"Gabby", breed:"Lab", color:"chocolate", sex:"girl"}</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193343">
+ See also
+</A></H4>
+
+<A NAME="1193347">
+<A HREF="object.htm#1193350"><CODE>Object.toString</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193350">
+toString
+</A></H2>
+
+<A NAME="1193363">
+Returns a string representing the specified object.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193353">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193358">
+<A HREF="object.htm#1193136"><CODE>Object</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193360">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193362">
+JavaScript 1.0</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1196496">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1196498">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1203456">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1203457">toString()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1206397">
+ Security
+</A></H4>
+
+<A NAME="1206404">
+JavaScript 1.1: This method is tainted by default for the following objects: <A HREF="button.htm#1193137"><CODE>Button</CODE></A>, <A HREF="checkbox.htm#1193137"><CODE>Checkbox</CODE></A>, <A HREF="fileup.htm#1193137"><CODE>FileUpload</CODE></A>, <A HREF="hidden.htm#1193138"><CODE>Hidden</CODE></A>, <A HREF="history.htm#1193137"><CODE>History</CODE></A>, <A HREF="link.htm#1193137"><CODE>Link</CODE></A>, <A HREF="location.htm#1193137"><CODE>Location</CODE></A>, <A HREF="password.htm#1193137"><CODE>Password</CODE></A>, <A HREF="radio.htm#1193137"><CODE>Radio</CODE></A>, <A HREF="reset.htm#1193137"><CODE>Reset</CODE></A>, <A HREF="select.htm#1193137"><CODE>Select</CODE></A>, <A HREF="submit.htm#1193137"><CODE>Submit</CODE></A>, <A HREF="text.htm#1193137"><CODE>Text</CODE></A>, and <A HREF="textarea.htm#1193137"><CODE>Textarea</CODE></A>. For information on data tainting, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193421">
+ Description
+</A></H4>
+
+<A NAME="1193422">
+Every object has a <CODE>toString</CODE> method that is automatically called when it is to be represented as a text value or when an object is referred to in a string concatenation. For example, the following examples require <CODE>theDog</CODE> to be represented as a string:</A></P>
+<PRE><A NAME="1193423">document.write(theDog)<br>document.write("The dog is " + theDog)</A></PRE><A NAME="1200394">
+By default, the <CODE>toString</CODE> method is inherited by every object descended from <CODE>Object</CODE>. You can override this method for custom objects that you create. If you do not override <CODE>toString</CODE> in a custom object, <CODE>toString</CODE> returns <CODE>[object </CODE><I><CODE>type</CODE></I><CODE>]</CODE>, where <I><CODE>type</CODE></I> is the object type or the name of the constructor function that created the object.</A></P>
+<A NAME="1203849">
+For example:</A></P>
+<PRE><A NAME="1203854">var o = new Object()<br>o.toString // returns [object Object]</A></PRE><B><A NAME="HeadRunIn;"></A>
+<A NAME="1193426">
+Built-in toString methods. </A></B><A NAME="1203699">
+Every built-in core JavaScript object overrides the <CODE>toString</CODE> method of <CODE>Object</CODE> to return an appropriate value. JavaScript calls this method whenever it needs to convert an object to a string.</A></P>
+<A NAME="1206454">
+Some built-in client-side and server-side JavaScript objects do not override the toString method of Object. For example, for an <CODE>Image</CODE> object named <CODE>sealife</CODE> defined as shown below, <CODE>sealife.toString()</CODE> returns <CODE>[object Image]</CODE>.</A></P>
+<PRE><A NAME="1206455">&lt;IMG NAME="sealife" SRC="images\seaotter.gif" ALIGN="left" VSPACE="10"&gt;</A></PRE><B><A NAME="HeadRunIn;"></A>
+<A NAME="1193453">
+Overriding the default toString method. </A></B><A NAME="1193454">
+You can create a function to be called in place of the default <CODE>toString</CODE> method. The <CODE>toString</CODE> method takes no arguments and should return a string. The <CODE>toString</CODE> method you create can be any value you want, but it will be most useful if it carries information about the object.</A></P>
+<A NAME="1193455">
+The following code defines the <CODE>Dog</CODE> object type and creates <CODE>theDog,</CODE> an object of type <CODE>Dog</CODE>:</A></P>
+<PRE><A NAME="1193456">function Dog(name,breed,color,sex) {<br>&nbsp;&nbsp;&nbsp;this.name=name<br>&nbsp;&nbsp;&nbsp;this.breed=breed<br>&nbsp;&nbsp;&nbsp;this.color=color<br>&nbsp;&nbsp;&nbsp;this.sex=sex<br>}</A></PRE><PRE><A NAME="1193457">theDog = new Dog("Gabby","Lab","chocolate","girl")</A></PRE><A NAME="1193458">
+If you call the <CODE>toString</CODE> method on this custom object, it returns the default value inherited from <CODE>Object</CODE>:</A></P>
+<PRE><A NAME="1203749">theDog.toString() //returns [object Object]</A></PRE><A NAME="1203735">
+The following code creates <CODE>dogToString,</CODE> the function that will be used to override the default <CODE>toString</CODE> method. This function generates a string containing each property, of the form <CODE>"property = value;"</CODE>.</A></P>
+<PRE><A NAME="1193459">function dogToString() {<br>&nbsp;&nbsp;&nbsp;var ret = "Dog " + this.name + " is [\n"<br>&nbsp;&nbsp;&nbsp;for (var prop in this)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ret += "  " + prop + " is " + this[prop] + ";\n"<br>&nbsp;&nbsp;&nbsp;return ret + "]"<br>}</A></PRE><A NAME="1193460">
+The following code assigns the user-defined function to the object's <CODE>toString</CODE> method:</A></P>
+<PRE><A NAME="1193461">Dog.prototype.toString = dogToString</A></PRE><A NAME="1193462">
+With the preceding code in place, any time <CODE>theDog</CODE> is used in a string context, JavaScript automatically calls the <CODE>dogToString</CODE> function, which returns the following string:</A></P>
+<PRE><A NAME="1203804">Dog Gabby is [<br>&nbsp;&nbsp;name is Gabby;<br>&nbsp;&nbsp;breed is Lab;<br>&nbsp;&nbsp;color is chocolate;<br>&nbsp;&nbsp;sex is girl;<br>]</A></PRE><A NAME="1203805">
+An object's <CODE>toString</CODE> method is usually invoked by JavaScript, but you can invoke it yourself as follows:</A></P>
+<PRE><A NAME="1193465">var dogString = theDog.toString()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193466">
+ Backward Compatibility
+</A></H4>
+
+<B><A NAME="HeadRunIn;"></A>
+<A NAME="1193467">
+JavaScript 1.2. </A></B><A NAME="1193468">
+The behavior of the <CODE>toString</CODE> method depends on whether you specify <CODE>LANGUAGE="JavaScript1.2"</CODE> in the <CODE>&lt;SCRIPT&gt;</CODE> tag:</A></P>
+<ul><P><LI><A NAME="1193469">
+If you specify <CODE>LANGUAGE="JavaScript1.2"</CODE> in the <CODE>&lt;SCRIPT&gt;</CODE> tag, the <CODE>toString</CODE> method returns an object literal.</A></LI>
+<P><LI><A NAME="1193470">
+If you do not specify <CODE>LANGUAGE="JavaScript1.2"</CODE> in the <CODE>&lt;SCRIPT&gt;</CODE> tag, the <CODE>toString</CODE> method returns <CODE>[object </CODE><I><CODE>type</CODE></I><CODE>]</CODE>, as with other JavaScript versions.</A></LI>
+</ul>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193471">
+ Examples
+</A></H4>
+
+<A NAME="1193472">
+<B>Example 1: The location object.</B> The following example prints the string equivalent of the current location.</A></P>
+<PRE><A NAME="1193473">document.write("location.toString() is " + location.toString() + "&lt;BR&gt;")</A></PRE><A NAME="1193474">
+The output is as follows:</A></P>
+<PRE><A NAME="1195036">location.toString() is file:///C|/TEMP/myprog.html</A></PRE><A NAME="1195040">
+<B>Example 2: Object with no string value.</B> Assume you have an <CODE>Image</CODE> object named <CODE>sealife</CODE> defined as follows:</A></P>
+<PRE><A NAME="1193480">&lt;IMG NAME="sealife" SRC="images\seaotter.gif" ALIGN="left" VSPACE="10"&gt;</A></PRE><A NAME="1193484">
+Because the <CODE>Image</CODE> object itself has no special <CODE>toString</CODE> method, <CODE>sealife.toString()</CODE> returns the following:</A></P>
+<PRE><A NAME="1193485">[object Image]</A></PRE><A NAME="1193486">
+<B>Example 3: The radix parameter.</B> The following example prints the string equivalents of the numbers 0 through 9 in decimal and binary.</A></P>
+<PRE><A NAME="1193487">for (x = 0; x &lt; 10; x++) {<br>&nbsp;&nbsp;&nbsp;document.write("Decimal: ", x.toString(10), " Binary: ",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x.toString(2), "&lt;BR&gt;")<br>}</A></PRE><A NAME="1193488">
+The preceding example produces the following output:</A></P>
+<PRE><A NAME="1193489">Decimal: 0 Binary: 0<br>Decimal: 1 Binary: 1<br>Decimal: 2 Binary: 10<br>Decimal: 3 Binary: 11<br>Decimal: 4 Binary: 100<br>Decimal: 5 Binary: 101<br>Decimal: 6 Binary: 110<br>Decimal: 7 Binary: 111<br>Decimal: 8 Binary: 1000<br>Decimal: 9 Binary: 1001</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193490">
+ See also
+</A></H4>
+
+<A NAME="1193497">
+<A HREF="object.htm#1193320"><CODE>Object.toSource</CODE></A>, <A HREF="object.htm#1193540"><CODE>Object.valueOf</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193499">
+unwatch
+</A></H2>
+
+<A NAME="1193516">
+Removes a watchpoint set with the <A HREF="object.htm#1193628"><CODE>watch</CODE></A> method.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193506">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193511">
+<A HREF="object.htm#1193136"><CODE>Object</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193513">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193515">
+JavaScript 1.2, NES 3.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193517">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1193518">unwatch(<I>prop</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193519">
+ Parameters
+</A></H4>
+
+<A NAME="1193525">
+<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193522">
+<CODE>prop</CODE></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193524">
+The name of a property of the object.</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193526">
+ Description
+</A></H4>
+
+<A NAME="1193527">
+The JavaScript debugger has functionality similar to that provided by this method, as well as other debugging options. For information on the debugger, see <I><A HREF="http://developer.netscape.com/docs/manuals/jsdebug/index.htm" TARGET="_top">Getting Started with Netscape JavaScript Debugger</A></I>.</A></P>
+<A NAME="1200644">
+By default, this method is inherited by every object descended from <CODE>Object</CODE>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193533">
+ Example
+</A></H4>
+
+<A NAME="1193537">
+See <A HREF="object.htm#1193628"><CODE>watch</CODE></A>.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193540">
+valueOf
+</A></H2>
+
+<A NAME="1193553">
+Returns the primitive value of the specified object.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193543">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193548">
+<A HREF="object.htm#1193136"><CODE>Object</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193550">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193552">
+JavaScript 1.1</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1196506">
+<I>ECMA version</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1196508">
+ECMA-262</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193554">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1193555">valueOf()</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193556">
+ Parameters
+</A></H4>
+
+<A NAME="1193557">
+None</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1200569">
+ Description
+</A></H4>
+
+<A NAME="1204828">
+JavaScript calls the <CODE>valueOf</CODE> method to convert an object to a primitive value. You rarely need to invoke the <CODE>valueOf</CODE> method yourself; JavaScript automatically invokes it when encountering an object where a primitive value is expected.</A></P>
+<A NAME="1198170">
+By default, the <CODE>valueOf</CODE> method is inherited by every object descended from <CODE>Object</CODE>. Every built-in core object overrides this method to return an appropriate value. If an object has no primitive value, <CODE>valueOf</CODE> returns the object itself, which is displayed as:</A></P>
+<PRE><A NAME="1198203">[object Object]</A></PRE><A NAME="1198132">
+You can use <CODE>valueOf</CODE> within your own code to convert a built-in object into a primitive value. When you create a custom object, you can override <A HREF="object.htm#1193540"><CODE>Object.valueOf</CODE></A> to call a custom method instead of the default <CODE>Object</CODE> method.</A></P>
+<B><A NAME="HeadRunIn;"></A>
+<A NAME="1193605">
+Overriding valueOf for custom objects. </A></B><A NAME="1198049">
+You can create a function to be called in place of the default <CODE>valueOf</CODE> method. Your function must take no arguments.</A></P>
+<A NAME="1193606">
+Suppose you have an object type <CODE>myNumberType</CODE> and you want to create a <CODE>valueOf</CODE> method for it. The following code assigns a user-defined function to the object's <CODE>valueOf</CODE> method:</A></P>
+<PRE><A NAME="1193607">myNumberType.prototype.valueOf = new Function(functionText)</A></PRE><A NAME="1193608">
+With the preceding code in place, any time an object of type <CODE>myNumberType</CODE> is used in a context where it is to be represented as a primitive value, JavaScript automatically calls the function defined in the preceding code.</A></P>
+<A NAME="1193609">
+An object's <CODE>valueOf</CODE> method is usually invoked by JavaScript, but you can invoke it yourself as follows:</A></P>
+<PRE><A NAME="1193610">myNumber.valueOf()</A></PRE><BLOCKQUOTE><B>NOTE: </B><A NAME="1193615">
+Objects in string contexts convert via the <A HREF="object.htm#1193350"><CODE>toString</CODE></A> method, which is different 
+from <CODE>String</CODE> objects converting to string primitives using <CODE>valueOf</CODE>. All string 
+objects have a string conversion, if only <CODE>"[object </CODE><I><CODE>type</CODE></I><CODE>]"</CODE>. But many objects 
+do not convert to number, boolean, or function.
+</A>
+</BLOCKQUOTE>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193619">
+ See also
+</A></H4>
+
+<A NAME="1193626">
+<A HREF="toplev.htm#1064173"><CODE>parseInt</CODE></A>, <A HREF="object.htm#1193350"><CODE>Object.toString</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1193628">
+watch
+</A></H2>
+
+<A NAME="1193630">
+Watches for a property to be assigned a value and runs a function when that occurs.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193633">
+<I>Method of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193638">
+<A HREF="object.htm#1193136"><CODE>Object</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193640">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193642">
+JavaScript 1.2, NES 3.0</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193643">
+ Syntax
+</A></H4>
+
+<PRE><A NAME="1193644">watch(<I>prop</I>, <I>handler</I>)</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1193645">
+ Parameters
+</A></H4>
+
+<A NAME="1193655">
+<CODE><TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193648">
+<CODE>prop</CODE></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193650">
+The name of a property of the object.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193652">
+<CODE>handler</CODE></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193654">
+A function to call.</A></P>
+
+</TABLE>
+</CODE></A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193656">
+ Description
+</A></H4>
+
+<A NAME="1193657">
+Watches for assignment to a property named <CODE>prop</CODE> in this object, calling <CODE>handler(prop, oldval, newval)</CODE> whenever <CODE>prop</CODE> is set and storing the return value in that property. A watchpoint can filter (or nullify) the value assignment, by returning a modified <CODE>newval</CODE> (or <CODE>oldval</CODE>).</A></P>
+<A NAME="1193658">
+If you delete a property for which a watchpoint has been set, that watchpoint does not disappear. If you later recreate the property, the watchpoint is still in effect. </A></P>
+<A NAME="1200696">
+To remove a watchpoint, use the <A HREF="object.htm#1193499"><CODE>unwatch</CODE></A> method. By default, the <CODE>watch</CODE> method is inherited by every object descended from <CODE>Object</CODE>.</A></P>
+<A NAME="1193663">
+The JavaScript debugger has functionality similar to that provided by this method, as well as other debugging options. For information on the debugger, see <I><A HREF="http://developer.netscape.com/docs/manuals/jsdebug/index.htm" TARGET="_top">Getting Started with Netscape JavaScript Debugger</A></I>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193669">
+ Example
+</A></H4>
+
+<PRE><A NAME="1193670">&lt;script language="JavaScript1.2"&gt;<br>o = {p:1}<br>o.watch("p",<br>&nbsp;&nbsp;&nbsp;function (id,oldval,newval) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.writeln("o." + id + " changed from " <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ oldval + " to " + newval)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return newval<br>&nbsp;&nbsp;&nbsp;})</A></PRE><PRE><A NAME="1193671">o.p = 2<br>o.p = 3<br>delete o.p<br>o.p = 4</A></PRE><PRE><A NAME="1193672">o.unwatch('p')<br>o.p = 5</A></PRE><PRE><A NAME="1193673">&lt;/script&gt;</A></PRE><A NAME="1193674">
+This script displays the following:</A></P>
+<A NAME="1193675">
+o.p changed from 1 to 2<br>o.p changed from 2 to 3<br>o.p changed from 3 to 4</A></P>
+
+<HR>
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="number.htm">Previous</A>
+ | <A HREF="option.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT>
+<P ALIGN=right>
+<FONT SIZE=-2><I>Last Updated:  05/28/99  12:00:04</I></FONT>
+<P> <CENTER>Copyright (c) 1999
+<A HREF="http://home.netscape.com/misc/contact_info.html"
+TARGET=_top>Netscape Communications Corporation</A></FONT>
+</CENTER>
+<P>
+</BODY>
+</HTML>
+
+

@@ -1,0 +1,29 @@
+<!--Utilizar o object model para alterar o conteúdo de um documento e inserir novos elementos-->
+<HTML>
+<HEAD><TITLE>Bem vindo!</TITLE>
+<SCRIPT LANGUAGE="JScript">
+function changeMe() {
+
+    document.all.MyText.align = "center";
+	//Inserir o texto html
+    document.body.insertAdjacentHTML("BeforeEnd", "<P ALIGN=\"center\">Just give it a try!</P>");
+}
+
+function AddText(){
+	var descricao = "Adicionar mais informação ao documento ....";
+	document.all.myData.insertAdjacentText("BeforeEnd", descricao);
+
+}	
+</SCRIPT>
+<BODY>
+<H3 ID='MyHeading'>Bem vindo ao Dynamic HTML!</H3>
+<TABLE border="1">
+	<TR>
+		<TD onclick="AddText()">Mais informações acerca de Webdesign...</TD>
+	</TR>
+	<TR>
+		<TD id='myData'></TD>
+	</TR>
+</TABLE>
+</BODY>
+</HTML>

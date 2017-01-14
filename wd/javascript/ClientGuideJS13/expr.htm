@@ -1,0 +1,599 @@
+<HTML>
+<HEAD>
+<TITLE>Expressions and Operators
+</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="ident.htm">Previous</A>
+ | <A HREF="regexp.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT><BR><BR>
+<HR>
+<A NAME="1008298">
+<P></A><CENTER><H2>Chapter 3<BR>
+<A NAME="1008302">
+Expressions and Operators</A></H2></CENTER>
+<A NAME="1008304">
+This chapter describes JavaScript expressions and operators, including assignment, comparison, arithmetic, bitwise, logical, string, and special operators.</A></P>
+<A NAME="1010253">
+This chapter contains the following sections:</A></P>
+<ul><LI><A NAME="1010258">
+<A HREF="expr.htm#1010338">Expressions</A>
+</A></LI><LI><A NAME="1010265">
+<A HREF="expr.htm#1008323">Operators</A>
+</A></LI></ul>
+<HR><H2><A NAME="Expressions"></A>
+<A NAME="1010338">
+ Expressions
+</A></H2><A NAME="1008309">
+An <I>expression</I> is any valid set of literals, variables, operators, and expressions that evaluates to a single value; the value can be a number, a string, or a logical value.</A></P>
+<A NAME="1008310">
+Conceptually, there are two types of expressions: those that assign a value to a variable, and those that simply have a value. For example, the expression <CODE>x&nbsp;=&nbsp;7</CODE> is an expression that assigns x the value seven. This expression itself evaluates to seven. Such expressions use <I>assignment operators.</I> On the other hand, the expression <CODE>3&nbsp;+&nbsp;4</CODE> simply evaluates to seven; it does not perform an assignment. The operators used in such expressions are referred to simply as <I>operators</I>.</A></P>
+<A NAME="1008314">
+JavaScript has the following types of expressions:</A></P>
+<ul><LI><A NAME="1008315">
+Arithmetic: evaluates to a number, for example 3.14159
+</A></LI><LI><A NAME="1008316">
+String: evaluates to a character string, for example, "Fred" or "234"
+</A></LI><LI><A NAME="1008317">
+Logical: evaluates to true or false
+</A></LI></ul>
+<HR><H2><A NAME="Operators"></A>
+<A NAME="1008323">
+ Operators
+</A></H2><A NAME="1010776">
+JavaScript has the following types of operators. This section describes the operators and contains information about operator precedence.</A></P>
+<ul><LI><A NAME="1011543">
+<A HREF="expr.htm#1008336">Assignment Operators</A>
+</A></LI><LI><A NAME="1011550">
+<A HREF="expr.htm#1010037">Comparison Operators</A>
+</A></LI><LI><A NAME="1011556">
+<A HREF="expr.htm#1008458">Arithmetic Operators</A>
+</A></LI><LI><A NAME="1011557">
+<A HREF="expr.htm#1008505">Bitwise Operators</A>
+</A></LI><LI><A NAME="1011558">
+<A HREF="expr.htm#1008622">Logical Operators</A>
+</A></LI><LI><A NAME="1011598">
+<A HREF="expr.htm#1008684">String Operators</A>
+</A></LI><LI><A NAME="1011599">
+<A HREF="expr.htm#1008688">Special Operators</A>
+</A></LI></ul><A NAME="1008325">
+JavaScript has both <I>binary</I> and <I>unary</I> operators. A binary operator requires two operands, one before the operator and one after the operator:</A></P>
+<PRE><A NAME="1008326"><I>operand1</I> <I>operator</I> <I>operand2</I></A></PRE><A NAME="1008327">
+For example, <CODE>3+4</CODE> or <CODE>x*y</CODE>.</A></P>
+<A NAME="1008328">
+A unary operator requires a single operand, either before or after the operator:</A></P>
+<PRE><A NAME="1008329"><I>operator</I> <I>operand</I></A></PRE><A NAME="1008330">
+or</A></P>
+<PRE><A NAME="1008331"><I>operand</I> <I>operator</I></A></PRE><A NAME="1008332">
+For example, <CODE>x++</CODE> or <CODE>++x</CODE>.</A></P>
+<A NAME="1008333">
+In addition, JavaScript has one ternary operator, the conditional operator. A ternary operator requires three operands.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1008336">
+ Assignment Operators
+</A></H3>
+
+<A NAME="1008337">
+An assignment operator assigns a value to its left operand based on the value of its right operand. The basic assignment operator is equal (=), which assigns the value of its right operand to its left operand. That is, x = y assigns the value of y to x.</A></P>
+<A NAME="1009977">
+The other assignment operators are shorthand for standard operations, as shown in the following table.</A></P>
+<A NAME="1010046">
+<P><B><A NAME="1009984">
+Table 3.1&nbsp;Assignment operators</A></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1009988">
+<B>Shorthand operator 
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1009990">
+<B>Meaning
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1011831">x += y</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1009994">x = x + y</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1011834">x -= y</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1009998">x = x - y</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1011837">x *= y</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010002">x = x * y</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1011840">x /= y</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010006">x = x / y</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1011843">x %= y</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010010">x = x % y</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1011846">x &lt;&lt;= y</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010014">x = x &lt;&lt; y</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1011849">x &gt;&gt;= y</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010018">x = x &gt;&gt; y</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1011852">x &gt;&gt;&gt;= y</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010022">x = x &gt;&gt;&gt; y</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1011855">x &amp;= y</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010026">x = x &amp; y</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1011858">x ^= y</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010030">x = x ^ y</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1011861">x |= y</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1010034">x = x | y</A></PRE>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1010037">
+ Comparison Operators
+</A></H3>
+
+<A NAME="1008399">
+A comparison operator compares its operands and returns a logical value based on whether the comparison is true. The operands can be numerical or string values. Strings are compared based on standard lexicographical ordering, using Unicode values. The following table describes the comparison operators.</A></P>
+<A NAME="1010078">
+<P><B><A NAME="1008406">
+Table 3.2&nbsp;Comparison operators</A></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1008412">
+<B>Operator
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1008414">
+<B>Description
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1008419">
+<B>Examples returning true<A HREF="#1008418"><SUP>1</SUP></A>
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1011887">
+Equal (<CODE>==</CODE>)</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1009671">
+Returns true if the operands are equal. If the two operands are not of the same type, JavaScript attempts to convert the operands to an appropriate type for the comparison.</A></P><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1009673">3 == var1<br>"3" == var1<br>3 == '3'</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1011890">
+Not equal (<CODE>!=</CODE>)</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1009677">
+Returns true if the operands are not equal. If the two operands are not of the same type, JavaScript attempts to convert the operands to an appropriate type for the comparison.</A></P><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1009679">var1 != 4<br>var2 != "3"</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1011893">
+Strict equal (<CODE>===</CODE>)</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1009683">
+Returns true if the operands are equal and of the same type.</A></P><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1009685">3 === var1</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1011896">
+Strict not equal (<CODE>!==</CODE>)</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1009689">
+Returns true if the operands are not equal and/or not of the same type.</A></P><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1009691">var1 !== "3"<br>3 !== '3'</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1011899">
+Greater than (<CODE>&gt;</CODE>)</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1009695">
+Returns true if the left operand is greater than the right operand.</A></P><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1009697">var2 &gt; var1</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1011901">
+Greater than or equal (<CODE>&gt;=</CODE>)</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1009701">
+Returns true if the left operand is greater than or equal to the right operand.</A></P><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1009703">var2 &gt;= var1<br>var1 &gt;= 3</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1011905">
+Less than (<CODE>&lt;</CODE>)</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1009707">
+Returns true if the left operand is less than the right operand.</A></P><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1009709">var1 &lt; var2</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1011908">
+Less than or equal (<CODE>&lt;=</CODE>)</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1009713">
+Returns true if the left operand is less than or equal to the right operand.</A></P><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1009715">var1 &lt;= var2<br>var2 &lt;= 5</A></PRE>
+
+</TABLE>
+<TABLE>
+<TR><TD><SUP>1</SUP></A><FONT SIZE=2>
+<A NAME="1008418">
+These examples assume that <CODE>var1</CODE> has been assigned the value 3 and <CODE>var2</CODE> has been assigned the value 4.
+
+</FONT>
+</A>
+</TABLE>
+</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1008458">
+ Arithmetic Operators
+</A></H3>
+
+<A NAME="1008459">
+Arithmetic operators take numerical values (either literals or variables) as their operands and return a single numerical value. The standard arithmetic operators are addition (+), subtraction (-), multiplication (*), and division (/). These operators work as they do in most other programming languages, except the / operator returns a floating-point division in JavaScript, not a truncated division as it does in languages such as C or Java. For example:</A></P>
+<PRE><A NAME="1012547">1/2 //returns 0.5 in JavaScript<br>1/2 //returns 0 in Java</A></PRE><A NAME="1008502">
+In addition, JavaScript provides the arithmetic operators listed in the following table.</A></P>
+<A NAME="1010137">
+<P><B><A NAME="1008466">
+Table 3.3&nbsp;Arithmetic Operators</A></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1008472">
+<B>Operator
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1008474">
+<B>Description
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1008476">
+<B>Example
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1008478">
+<CODE>%<br></CODE>(Modulus)</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1008480">
+Binary operator. Returns the integer remainder of dividing the two operands.</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1008482">
+ 12 % 5 returns 2.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1008484">
+<CODE>++</CODE> <br>(Increment)</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1008486">
+Unary operator. Adds one to its operand. If used as a prefix operator (<CODE>++x</CODE>), returns the value of its operand after adding one; if used as a postfix operator (<CODE>x++</CODE>), returns the value of its operand before adding one.</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1008488">
+If <CODE>x</CODE> is 3, then <CODE>++x</CODE> sets <CODE>x</CODE> to 4 and returns 4, whereas <CODE>x++</CODE> sets <CODE>x</CODE> to 4 and returns 3.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1008490">
+<CODE>--</CODE> <br>(Decrement)</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1008492">
+Unary operator. Subtracts one to its operand. The return value is analogous to that for the increment operator.</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1008494">
+If <CODE>x</CODE> is 3, then <CODE>--x</CODE> sets <CODE>x</CODE> to 2 and returns 2, whereas <CODE>x++</CODE> sets <CODE>x</CODE> to 2 and returns 3.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1008496">
+<CODE>-</CODE> <br>(Unary negation)</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1008498">
+Unary operator. Returns the negation of its operand.</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1008500">
+If <CODE>x</CODE> is 3, then <CODE>-x</CODE> returns -3.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1008505">
+ Bitwise Operators
+</A></H3>
+
+<A NAME="1008506">
+Bitwise operators treat their operands as a set of 32 bits (zeros and ones), rather than as decimal, hexadecimal, or octal numbers. For example, the decimal number nine has a binary representation of 1001. Bitwise operators perform their operations on such binary representations, but they return standard JavaScript numerical values.</A></P>
+<A NAME="1008566">
+The following table summarizes JavaScript's bitwise operators.</A></P>
+<A NAME="1010164">
+<P><B><A NAME="1008509">
+Table 3.4&nbsp;Bitwise operators</A></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1008515">
+<B>Operator
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1008517">
+<B>Usage
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1008519">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1011933">
+Bitwise AND</A></P><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1011953"><I>a</I> &amp; <I>b</I></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008526">
+Returns a one in each bit position for which the corresponding bits of both operands are ones.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1011936">
+Bitwise OR</A></P><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1011955"><I>a</I> | <I>b</I></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008533">
+Returns a one in each bit position for which the corresponding bits of either or both operands are ones.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1011939">
+Bitwise XOR</A></P><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1011957"><I>a</I> ^ <I>b</I></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1012591">
+Returns a one in each bit position for which the corresponding bits of either but not both operands are ones.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1011942">
+Bitwise NOT</A></P><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1011959">~ <I>a</I></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008547">
+Inverts the bits of its operand.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1011945">
+Left shift</A></P><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1011961"><I>a</I> &lt;&lt; <I>b</I></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008553">
+Shifts <CODE>a</CODE> in binary representation <CODE>b</CODE> bits to left, shifting in zeros from the right.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1011947">
+Sign-propagating right shift</A></P><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1011963"><I>a</I> &gt;&gt; <I>b</I></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008559">
+Shifts <CODE>a</CODE> in binary representation <CODE>b</CODE> bits to right, discarding bits shifted off.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1011951">
+Zero-fill right shift</A></P><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1011965"><I>a</I> &gt;&gt;&gt; <I>b</I></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1008565">
+Shifts <CODE>a</CODE> in binary representation <CODE>b</CODE> bits to the right, discarding bits shifted off, and shifting in zeros from the left.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1008568">
+ Bitwise Logical Operators
+</A></H4>
+
+<A NAME="1008569">
+Conceptually, the bitwise logical operators work as follows:</A></P>
+<ul><P><LI><A NAME="1008570">
+The operands are converted to thirty-two-bit integers and expressed by a series of bits (zeros and ones).</A></LI>
+<P><LI><A NAME="1008571">
+Each bit in the first operand is paired with the corresponding bit in the second operand: first bit to first bit, second bit to second bit, and so on.</A></LI>
+<P><LI><A NAME="1008572">
+The operator is applied to each pair of bits, and the result is constructed bitwise.</A></LI>
+</ul><A NAME="1008573">
+For example, the binary representation of nine is 1001, and the binary representation of fifteen is 1111. So, when the bitwise operators are applied to these values, the results are as follows:</A></P>
+<ul><P><LI><A NAME="1008574">
+15 &amp; 9 yields 9 (1111 &amp; 1001 = 1001)</A></LI>
+<P><LI><A NAME="1008575">
+15 | 9 yields 15 (1111 | 1001 = 1111)</A></LI>
+<P><LI><A NAME="1008576">
+15 ^ 9 yields 6 (1111 ^ 1001 = 0110)</A></LI>
+</ul>
+<H4><A NAME="Head3;"></A>
+<A NAME="1008578">
+ Bitwise Shift Operators
+</A></H4>
+
+<A NAME="1008579">
+The bitwise shift operators take two operands: the first is a quantity to be shifted, and the second specifies the number of bit positions by which the first operand is to be shifted. The direction of the shift operation is controlled by the operator used.</A></P>
+<A NAME="1008580">
+Shift operators convert their operands to thirty-two-bit integers and return a result of the same type as the left operator.</A></P>
+<A NAME="1008619">
+The shift operators are listed in the following table.</A></P>
+<A NAME="1010171">
+<P><B><A NAME="1008587">
+Table 3.5&nbsp;Bitwise shift operators</A></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1008593">
+<B>Operator
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1008595">
+<B>Description
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1008597">
+<B>Example
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1008600">
+<CODE>&lt;&lt;</CODE> <br>(Left shift)</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1008602">
+This operator shifts the first operand the specified number of bits to the left. Excess bits shifted off to the left are discarded. Zero bits are shifted in from the right.</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1008604">
+<CODE>9&lt;&lt;2</CODE> yields 36, because 1001 shifted 2 bits to the left becomes 100100, which is 36.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1008606">
+<CODE>&gt;&gt;</CODE> <br>(Sign-propagating right shift)</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1008609">
+This operator shifts the first operand the specified number of bits to the right. Excess bits shifted off to the right are discarded. Copies of the leftmost bit are shifted in from the left.</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1008611">
+9&gt;&gt;2 yields 2, because 1001 shifted 2 bits to the right becomes 10, which is 2. Likewise, -9&gt;&gt;2 yields -3, because the sign is preserved.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1008613">
+<CODE>&gt;&gt;&gt;</CODE> <br>(Zero-fill right shift)</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1008615">
+This operator shifts the first operand the specified number of bits to the right. Excess bits shifted off to the right are discarded. Zero bits are shifted in from the left.</A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1008617">
+19&gt;&gt;&gt;2 yields 4, because 10011 shifted 2 bits to the right becomes 100, which is 4. For non-negative numbers, zero-fill right shift and sign-propagating right shift yield the same result.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1008622">
+ Logical Operators
+</A></H3>
+
+<A NAME="1008623">
+Logical operators are typically used with Boolean (logical) values; when they are, they return a Boolean value. However, the &amp;&amp; and || operators actually return the value of one of the specified operands, so if these operators are used with non-Boolean values, they may return a non-Boolean value. The logical operators are described in the following table.</A></P>
+<A NAME="1010198">
+<P><B><A NAME="1012818">
+Table 3.6&nbsp;Logical operators</A></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1012824">
+<B>Operator
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1012826">
+<B>Usage
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1012828">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1012831">
+&amp;&amp;</A></P><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1012833">expr1 &amp;&amp; expr2</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1012877">
+(Logical AND) Returns <CODE>expr1</CODE> if it can be converted to false; otherwise, returns <CODE>expr2</CODE>. Thus, when used with Boolean values, &amp;&amp; returns true if both operands are true; otherwise, returns false.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1012840">
+||</A></P><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1012842">expr1 || expr2</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1012879">
+(Logical OR) Returns <CODE>expr1</CODE> if it can be converted to true; otherwise, returns <CODE>expr2</CODE>. Thus, when used with Boolean values, || returns true if either operand is true; if both are false, returns false.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1012849">
+! </A></P><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1012851">!expr</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1012881">
+(Logical NOT) Returns false if its single operand can be converted to true; otherwise, returns true.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+<A NAME="1012872">
+Examples of expressions that can be converted to false are those that evaluate to null, 0, the empty string (""), or undefined.</A></P>
+<A NAME="1012887">
+The following code shows examples of the &amp;&amp; (logical AND) operator.</A></P>
+<PRE><A NAME="1012888">a1=true &amp;&amp; true &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// t &amp;&amp; t returns true<br>a2=true &amp;&amp; false &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// t &amp;&amp; f returns false<br>a3=false &amp;&amp; true &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// f &amp;&amp; t returns false<br>a4=false &amp;&amp; (3 == 4) &nbsp;// f &amp;&amp; f returns false<br>a5="Cat" &amp;&amp; "Dog" &nbsp;&nbsp;&nbsp;&nbsp;// t &amp;&amp; t returns Dog<br>a6=false &amp;&amp; "Cat" &nbsp;&nbsp;&nbsp;&nbsp;// f &amp;&amp; t returns false<br>a7="Cat" &amp;&amp; false &nbsp;&nbsp;&nbsp;&nbsp;// t &amp;&amp; f returns false</A></PRE><A NAME="1012889">
+The following code shows examples of the || (logical OR) operator.</A></P>
+<PRE><A NAME="1012890">o1=true || true &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// t || t returns true<br>o2=false || true &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// f || t returns true<br>o3=true || false &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// t || f returns true<br>o4=false || (3 == 4) &nbsp;// f || f returns false<br>o5="Cat" || "Dog" &nbsp;&nbsp;&nbsp;&nbsp;// t || t returns Cat<br>o6=false || "Cat" &nbsp;&nbsp;&nbsp;&nbsp;// f || t returns Cat<br>o7="Cat" || false &nbsp;&nbsp;&nbsp;&nbsp;// t || f returns Cat</A></PRE><A NAME="1012891">
+The following code shows examples of the ! (logical NOT) operator.</A></P>
+<PRE><A NAME="1012892">n1=!true &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// !t returns false<br>n2=!false &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// !f returns true<br>n3=!"Cat" &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// !t returns false</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1008676">
+ Short-Circuit Evaluation
+</A></H4>
+
+<A NAME="1008677">
+As logical expressions are evaluated left to right, they are tested for possible "short-circuit" evaluation using the following rules:</A></P>
+<ul><P><LI><A NAME="1008678">
+<CODE>false</CODE> &amp;&amp; <I>anything</I> is short-circuit evaluated to false.</A></LI>
+<P><LI><A NAME="1008679">
+<CODE>true</CODE> || <I>anything</I> is short-circuit evaluated to true.</A></LI>
+</ul><A NAME="1008680">
+The rules of logic guarantee that these evaluations are always correct. Note that the <I>anything</I> part of the above expressions is not evaluated, so any side effects of doing so do not take effect.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1008684">
+ String Operators
+</A></H3>
+
+<A NAME="1008685">
+In addition to the comparison operators, which can be used on string values, the concatenation operator (+) concatenates two string values together, returning another string that is the union of the two operand strings. For example, <CODE>"my&nbsp;"&nbsp;+&nbsp;"string"</CODE> returns the string <CODE>"my&nbsp;string"</CODE>.</A></P>
+<A NAME="1008686">
+The shorthand assignment operator += can also be used to concatenate strings. For example, if the variable <CODE>mystring</CODE> has the value "alpha," then the expression <CODE>mystring&nbsp;+=&nbsp;"bet"</CODE> evaluates to "alphabet" and assigns this value to <CODE>mystring</CODE>.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1008688">
+ Special Operators
+</A></H3>
+
+<A NAME="1012006">
+JavaScript provides the following special operators:</A></P>
+<ul><LI><A NAME="1012007">
+<A HREF="expr.htm#1008690">conditional operator</A>
+</A></LI><LI><A NAME="1012015">
+<A HREF="expr.htm#1008698">comma operator</A>
+</A></LI><LI><A NAME="1012016">
+<A HREF="expr.htm#1008702">delete</A>
+</A></LI><LI><A NAME="1012155">
+<A HREF="expr.htm#1010464">new</A>
+</A></LI><LI><A NAME="1012034">
+<A HREF="expr.htm#1010302">this</A>
+</A></LI><LI><A NAME="1012051">
+<A HREF="expr.htm#1008719">typeof</A>
+</A></LI><LI><A NAME="1012052">
+<A HREF="expr.htm#1012081">void</A>
+</A></LI></ul>
+<H4><A NAME="Head3;"></A>
+<A NAME="1008690">
+ conditional operator
+</A></H4>
+
+<A NAME="1008691">
+The conditional operator is the only JavaScript operator that takes three operands. The operator can have one of two values based on a condition. The syntax is:</A></P>
+<PRE><A NAME="1008693"><I>condition</I> ? <I>val1</I> : <I>val2</I></A></PRE><A NAME="1008694">
+If <CODE>condition</CODE> is true, the operator has the value of <CODE>val1</CODE>. Otherwise it has the value of <CODE>val2</CODE>. You can use the conditional operator anywhere you would use a standard operator.</A></P>
+<A NAME="1008695">
+For example,</A></P>
+<PRE><A NAME="1008696">status = (age &gt;= 18) ? "adult" : "minor"</A></PRE><A NAME="1008697">
+This statement assigns the value "adult" to the variable <CODE>status</CODE> if <CODE>age</CODE> is eighteen or more. Otherwise, it assigns the value "minor" to <CODE>status</CODE>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1008698">
+ comma operator
+</A></H4>
+
+<A NAME="1008699">
+The comma operator (<CODE>,</CODE>) simply evaluates both of its operands and returns the value of the second operand. This operator is primarily used inside a <CODE>for</CODE> loop, to allow multiple variables to be updated each time through the loop.</A></P>
+<A NAME="1008700">
+For example, if <CODE>a</CODE> is a 2-dimensional array with 10 elements on a side, the following code uses the comma operator to increment two variables at once. The code prints the values of the diagonal elements in the array:</A></P>
+<PRE><A NAME="1008701">for (var i=0, j=9; i &lt;= 9; i++, j--)<br>&nbsp;&nbsp;&nbsp;document.writeln("a["+i+","+j+"]= " + a[i,j])</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1008702">
+ delete
+</A></H4>
+
+<A NAME="1008703">
+The delete operator deletes an object, an object's property, or an element at a specified index in an array. Its syntax is:</A></P>
+<PRE><A NAME="1012179">delete <I>objectName<br></I>delete <I>objectName</I>.<I>property<br></I>delete <I>objectName</I>[<I>index</I>]<br>delete <I>property</I> // legal only within a with statement</A></PRE><A NAME="1010461">
+where <CODE>objectName</CODE> is the name of an object, <CODE>property</CODE> is an existing property, and <CODE>index</CODE> is an integer representing the location of an element in an array.</A></P>
+<A NAME="1012192">
+The fourth form is legal only within a <CODE>with</CODE> statement, to delete a property from an object.</A></P>
+<A NAME="1012193">
+You can use the <CODE>delete</CODE> operator to delete variables declared implicitly but not those declared with the <CODE>var</CODE> statement.</A></P>
+<A NAME="1012221">
+If the <CODE>delete</CODE> operator succeeds, it sets the property or element to <CODE>undefined. The delete</CODE> operator returns true if the operation is possible; it returns false if the operation is not possible.</A></P>
+<PRE><A NAME="1012222">x=42<br>var y= 43<br>myobj=new Number()<br>myobj.h=4 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// create property h<br>delete x &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// returns true (can delete if declared implicitly)<br>delete y &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// returns false (cannot delete if declared with var)<br>delete Math.PI // returns false (cannot delete predefined properties)<br>delete myobj.h // returns true (can delete user-defined properties)<br>delete myobj &nbsp;&nbsp;// returns true (can delete user-defined object)</A></PRE><H5><A NAME="Head4;"></A>
+<A NAME="1012230">
+ Deleting array elements
+</A></H5>
+
+<A NAME="1012231">
+When you delete an array element, the array length is not affected. For example, if you delete a[3], a[4] is still a[4] and a[3] is undefined.</A></P>
+<A NAME="1012232">
+When the <CODE>delete</CODE> operator removes an array element, that element is no longer in the array. In the following example, trees[3] is removed with <CODE>delete</CODE>.</A></P>
+<PRE><A NAME="1012233">trees=new Array("redwood","bay","cedar","oak","maple")<br>delete trees[3]<br>if (3 in trees) {<br>&nbsp;&nbsp;&nbsp;// this does not get executed<br>}</A></PRE><A NAME="1012234">
+If you want an array element to exist but have an undefined value, use the <CODE>undefined</CODE> keyword instead of the <CODE>delete</CODE> operator. In the following example, trees[3] is assigned the value undefined, but the array element still exists:</A></P>
+<PRE><A NAME="1012235">trees=new Array("redwood","bay","cedar","oak","maple")<br>trees[3]=undefined<br>if (3 in trees) {<br>&nbsp;&nbsp;&nbsp;// this gets executed<br>}</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1010464">
+ new
+</A></H4>
+
+<A NAME="1010465">
+You can use the <CODE>new</CODE> operator to create an instance of a user-defined object type or of one of the predefined object types <CODE>Array</CODE>, <CODE>Boolean</CODE>, <CODE>Date</CODE>, <CODE>Function</CODE>, <CODE>Image</CODE>, <CODE>Number</CODE>, <CODE>Object</CODE>, <CODE>Option</CODE>, <CODE>RegExp</CODE>, or <CODE>String</CODE>. On the server, you can also use it with <CODE>DbPool</CODE>, <CODE>Lock</CODE>, <CODE>File</CODE>, or <CODE>SendMail</CODE>. Use <CODE>new</CODE> as follows:</A></P>
+<PRE><A NAME="1008710"><I>objectName</I> = new <I>objectType</I> ( <I>param1</I> [,<I>param2</I>] ...[,<I>paramN</I>] )</A></PRE><A NAME="1010290">
+You can also create objects using object initializers, as described in <A HREF="obj.htm#1008330">"Using Object Initializers" on page&nbsp;101</A>.</A></P>
+<A NAME="1009819">
+See <CODE>new</CODE> in the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsref/index.htm" TARGET="_top"><I>Client-Side JavaScript Reference</I></A> for more information.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1010302">
+ this
+</A></H4>
+
+<A NAME="1010303">
+Use the <CODE>this</CODE> keyword to refer to the current object. In general, <CODE>this</CODE> refers to the calling object in a method. Use <CODE>this</CODE> as follows:</A></P>
+<PRE><A NAME="1010304">this[.<I>propertyName</I>]</A></PRE><A NAME="1010305">
+<B>Example 1.</B> Suppose a function called <CODE>validate</CODE> validates an object's <CODE>value</CODE> property, given the object and the high and low values:</A></P>
+<PRE><A NAME="1010306">function validate(obj, lowval, hival) {<br>&nbsp;&nbsp;&nbsp;if ((obj.value &lt; lowval) || (obj.value &gt; hival))<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert("Invalid Value!")<br>}</A></PRE><A NAME="1010307">
+You could call <CODE>validate</CODE> in each form element's <CODE>onChange</CODE> event handler, using <CODE>this</CODE> to pass it the form element, as in the following example:</A></P>
+<PRE><A NAME="1010308">&lt;B&gt;Enter a number between 18 and 99:&lt;/B&gt;<br>&lt;INPUT TYPE = "text" NAME = "age" SIZE = 3<br>&nbsp;&nbsp;&nbsp;onChange="validate(this, 18, 99)"&gt;</A></PRE><A NAME="1010309">
+<B>Example 2.</B> When combined with the <CODE>form</CODE> property, <CODE>this</CODE> can refer to the current object's parent form. In the following example, the form <CODE>myForm</CODE> contains a <CODE>Text</CODE> object and a button. When the user clicks the button, the value of the <CODE>Text</CODE> object is set to the form's name. The button's <CODE>onClick</CODE> event handler uses <CODE>this.form</CODE> to refer to the parent form, <CODE>myForm</CODE>.</A></P>
+<PRE><A NAME="1010310">&lt;FORM NAME="myForm"&gt;<br>Form name:&lt;INPUT TYPE="text" NAME="text1" VALUE="Beluga"&gt;<br>&lt;P&gt;<br>&lt;INPUT NAME="button1" TYPE="button" VALUE="Show Form Name"<br>&nbsp;&nbsp;&nbsp;onClick="this.form.text1.value=this.form.name"&gt;<br>&lt;/FORM&gt;</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1008719">
+ typeof
+</A></H4>
+
+<A NAME="1008720">
+The <CODE>typeof</CODE> operator is used in either of the following ways:</A></P>
+<PRE><A NAME="1008721">1. typeof <I>operand<br></I>2. typeof (<I>operand</I>)</A></PRE><A NAME="1008722">
+The <CODE>typeof</CODE> operator returns a string indicating the type of the unevaluated operand. <CODE>operand</CODE> is the string, variable, keyword, or object for which the type is to be returned. The parentheses are optional.</A></P>
+<A NAME="1008723">
+Suppose you define the following variables:</A></P>
+<PRE><A NAME="1008724">var myFun = new Function("5+2")<br>var shape="round"<br>var size=1<br>var today=new Date()</A></PRE><A NAME="1008725">
+The <CODE>typeof</CODE> operator returns the following results for these variables:</A></P>
+<PRE><A NAME="1008726">typeof myFun is object<br>typeof shape is string<br>typeof size is number<br>typeof today is object<br>typeof dontExist is undefined</A></PRE><A NAME="1008727">
+For the keywords <CODE>true</CODE> and <CODE>null</CODE>, the <CODE>typeof</CODE> operator returns the following results:</A></P>
+<PRE><A NAME="1008728">typeof true is boolean<br>typeof null is object</A></PRE><A NAME="1008729">
+For a number or string, the <CODE>typeof</CODE> operator returns the following results:</A></P>
+<PRE><A NAME="1008730">typeof 62 is number<br>typeof 'Hello world' is string</A></PRE><A NAME="1008731">
+For property values, the <CODE>typeof</CODE> operator returns the type of value the property contains:</A></P>
+<PRE><A NAME="1008732">typeof document.lastModified is string<br>typeof window.length is number<br>typeof Math.LN2 is number</A></PRE><A NAME="1008733">
+For methods and functions, the <CODE>typeof</CODE> operator returns results as follows:</A></P>
+<PRE><A NAME="1008734">typeof blur is function<br>typeof eval is function<br>typeof parseInt is function<br>typeof shape.split is function</A></PRE><A NAME="1008735">
+For predefined objects, the <CODE>typeof</CODE> operator returns results as follows:</A></P>
+<PRE><A NAME="1012078">typeof Date is function<br>typeof Function is function<br>typeof Math is function<br>typeof Option is function<br>typeof String is function</A></PRE>
+<H4><A NAME="Head3;"></A>
+<A NAME="1012081">
+ void
+</A></H4>
+
+<A NAME="1012082">
+The void operator is used in either of the following ways:</A></P>
+<PRE><A NAME="1008741">1. void (<I>expression</I>)<br>2. void <I>expression</I></A></PRE><A NAME="1008742">
+The void operator specifies an expression to be evaluated without returning a value. <CODE>expression</CODE> is a JavaScript expression to evaluate. The parentheses surrounding the expression are optional, but it is good style to use them.</A></P>
+<A NAME="1008743">
+You can use the <CODE>void</CODE> operator to specify an expression as a hypertext link. The expression is evaluated but is not loaded in place of the current document.</A></P>
+<A NAME="1008744">
+The following code creates a hypertext link that does nothing when the user clicks it. When the user clicks the link, <CODE>void(0)</CODE> evaluates to 0, but that has no effect in JavaScript.</A></P>
+<PRE><A NAME="1008745">&lt;A HREF="javascript:void(0)"&gt;Click here to do nothing&lt;/A&gt;</A></PRE><A NAME="1008746">
+The following code creates a hypertext link that submits a form when the user clicks it.</A></P>
+<PRE><A NAME="1008747">&lt;A HREF="javascript:void(document.form.submit())"&gt;<br>Click here to submit&lt;/A&gt;</A></PRE>
+<H3><A NAME="Head2;"></A>
+<A NAME="1008750">
+ Operator Precedence
+</A></H3>
+
+<A NAME="1008751">
+The <I>precedence</I> of operators determines the order they are applied when evaluating an expression. You can override operator precedence by using parentheses.</A></P>
+<A NAME="1008825">
+The following table describes the precedence of operators, from lowest to highest.</A></P>
+<A NAME="1010207">
+<P><B><A NAME="1012364">
+Table 3.7&nbsp;Operator precedence &nbsp;</A></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1012368">
+<B>Operator type
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1012370">
+<B>Individual operators
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1012465">
+comma</A></P><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1012467">,</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1012372">
+assignment</A></P><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1012374">= += -= *= /= %= &lt;&lt;= &gt;&gt;= &gt;&gt;&gt;= &amp;= ^= |=</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1012376">
+conditional</A></P><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1012378">?:</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1012380">
+logical-or</A></P><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1012382">||</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1012384">
+logical-and</A></P><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1012386">&amp;&amp;</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1012388">
+bitwise-or</A></P><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1012390">|</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1012392">
+bitwise-xor</A></P><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1012394">^</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1012396">
+bitwise-and</A></P><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1012398">&amp;</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1012400">
+equality</A></P><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1012402">== !=</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1012404">
+relational</A></P><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1012406">&lt; &lt;= &gt; &gt;=</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1012408">
+bitwise shift</A></P><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1012410">&lt;&lt; &gt;&gt; &gt;&gt;&gt;</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1012412">
+addition/subtraction</A></P><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1012414">+ -</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1012416">
+multiply/divide</A></P><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1012418">* / %</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1012420">
+negation/increment</A></P><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1012422">! ~ - + ++ -- typeof void delete</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1012471">
+call</A></P><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1012473">()</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1012441">
+create instance</A></P><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1012443">new</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1012424">
+member</A></P><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1012426">. []</A></PRE>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<HR>
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="ident.htm">Previous</A>
+ | <A HREF="regexp.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT>
+<P ALIGN=right>
+<FONT SIZE=-2><I>Last Updated:  05/27/99  21:21:21</I></FONT>
+<P> <CENTER>Copyright (c) 1999
+<A HREF="http://home.netscape.com/misc/contact_info.html"
+TARGET=_top>Netscape Communications Corporation</A></FONT>
+</CENTER>
+<P>
+</BODY>
+</HTML>
+
+

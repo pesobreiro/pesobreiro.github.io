@@ -1,0 +1,79 @@
+<!doctype html public" -//IETF//DTD 	HTML//EN">
+<HTML>
+
+<HEAD>
+<SCRIPT LANGUAGE="JAVASCRIPT">
+<!-- 
+
+function checkbrowse()
+{
+var bn, bv, ver
+bn = navigator.appName;
+bv = parseInt(navigator.appVersion);
+if (bn=="Microsoft Internet Explorer" && bv<"4") ver = "IE3";
+else ver = "NotIE3";
+if (ver=="IE3") top.cont.parts.location.href="part11.htm";
+if (ver=="NotIE3") top.cont.parts.location.href="nav/part11.htm";
+}
+//-->
+</SCRIPT>
+<TITLE>Change the Constraint Type</TITLE>
+<META NAME="GENERATOR" 	CONTENT="Merch. System HTML Development">
+<META NAME="AUTHOR" 	CONTENT="Merch. System HTML Development">
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" OnLoad="checkbrowse();">
+<Font Face ="Verdana, Arial, Helvetica">
+
+<P align=right><SMALL>
+<A HREF="p119818.htm" Target="TOC"><IMG SRC="prev.gif"ALT="Previous page"BORDER=0></A>
+<A HREF="p11981.htm" Target="TOC"><IMG SRC="toc11.gif"ALT="Contents"BORDER=0></A>
+<A HREF="p119820.htm" Target="TOC"><IMG SRC="Next.gif"ALT="Next 
+page"BORDER=0></A></SMALL></P>
+<H2>Change the Constraint Type</H2>
+
+<P>
+Using constraints, you can control the start or finish date of important tasks. Microsoft Project automatically 
+assigns the As Soon As Possible constraint when you enter a task. You should set other constraints only 
+when necessary, such as when a client or contract requires that a task begin or end by a specific date.
+<P>
+Task constraints can help you create a more accurate schedule using detailed information. But constraints can 
+also limit your schedule’s flexibility. If there’s a scheduling conflict between a constraint and a task 
+dependency, Microsoft Project may schedule the task according to the constraint.
+<P>
+At various stages in your project, you may want to check the constraints on tasks in your schedule, 
+particularly the tasks on the critical path, to make sure they remain necessary. Any constraint that requires you 
+to enter a date should be applied carefully. Microsoft Project may recalculate the start and finish dates of a task 
+with a flexible constraint, such as the Start No Earlier Than constraint. But fixed-date constraints, such as the 
+Must Start On constraint, prevent Microsoft Project from recalculating the start and finish dates if the schedule 
+changes. Fixed-date constraints also limit your ability to level overallocated resources.
+<P>
+For more information about why you should use constraints cautiously, see <A HREF="p6981.htm">Chapter 
+6, &quot;Tying Tasks to Specific Dates.&quot;</A>
+<P>
+<B><B><img src="bluetri.gif">	To examine constraints on tasks</B></B>
+<OL>
+<LI>On the <B>View Bar</B>, click <B>Gantt Chart</B> <img src="gant.gif">.
+<LI>On the <B>View</B> menu, point to <B>Table</B>, and then click <B>More Tables</B>.
+<LI>In the <B>Tables</B> list, click <B>Constraint Dates</B>, and then click <B>Apply</B>.
+<LI>Scroll to the right to view the <B>Constraint Type</B> and <B>Constraint Date</B> fields.
+</OL>
+</BOTTOM>
+<P>If a task must start or finish in relation to a specific date, you can change its constraint from the default 
+(As Soon As Possible) or change it back to As Soon As Possible.
+<P>
+<B><B><img src="bluetri.gif">	To change a constraint</B></B>
+<OL><LI>On the <B>View Bar</B>, click <B>Gantt Chart</B> <img src="gant.gif">.
+<LI>In the <B>Task Name</B> field, select the task for which you want to change the constraint, and then 
+click <B>Task Information</B> <img src="resi.gif">.
+<LI>Click the <B>Advanced</B> tab, and then click a constraint in the <B>Type</B> box.
+<LI>If the constraint requires a date, enter a constraint date in the <B>Date</B> box.
+<BR>If you don’t enter a date, Microsoft Project uses the current date as the constraint date.
+<BR>Microsoft Project recalculates the start and finish dates of all tasks affected by the change.
+</OL>
+<P align = Center > <A HREF="http://www.microsoft.com/misc/cpyright.htm"><EM>&#169;1996-1997 Microsoft Corporation. All rights 
+reserved.</EM></A></P>
+</BODY>
+</FONT>
+</HTML>
+

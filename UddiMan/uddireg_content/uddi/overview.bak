@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<META name="GENERATOR" content="IBM WebSphere Homepage Builder V5.0.1 for Windows">
+<TITLE>An overview of the IBM UDDI Registry</TITLE>
+</HEAD>
+<BODY>
+<H2><A name="TOC2" name="SEC2">An overview of IBM UDDI Registries</A></H2>
+<P>The Universal Description, Discovery and
+Integration (UDDI) specification defines
+a way to publish and discover information
+about Web Services. The term 'Web service'
+describes specific business functionality
+exposed by a company, usually through an
+Internet connection, to allow another company,
+or its subsidiaries, or software program
+to use the service.</p>
+<H3><A name="ubr">Universal Business Registries (IBM UBR)</A></H3>
+<p>The IBM Universal Business Registry is one
+of a group of web-based registries that expose
+information about a business or other entity
+and its technical interfaces (or APIs). These
+registries are run by multiple Operator Sites,
+and can be used by anyone who wants to make
+information available about one or more businesses
+or entities, as well as anyone that wants
+to find that information. Although there
+are Universal Business Registries (sometimes
+referred to as 'public UDDI registries')
+hosted worldwide, including one hosted by
+IBM, enterprises may wish to host their own
+internal registries behind their firewall
+to better manage their internal implementation
+of Web Services.</p>
+<p>
+For more detailed information about UDDI
+in general visit <A href="http:\\www.uddi.org" target="_new"><I>http:\\www.uddi.org</I></A></p>
+<H3><A name="wur">IBM WebSphere UDDI Registries</A></H3>
+<p>The IBM WebSphere UDDI Registry is a directory
+for Web Services that is implemented using
+the UDDI specifications. In contrast with
+the IBM UBR this is a product offering for
+companies or industries to implement.</p>
+<p>A critical component of IBM's dynamic e-business
+infrastructure, IBM WebSphere UDDI Registry
+solves the problem of discovery of technical
+components for an enterprise and its partners
+by:<UL>
+  <LI>Providing control, flexibility and confidentiality
+  so that an enterprise can protect its e-business
+  investments
+  <LI>Increasing efficiency by making it easier
+  to identify technical assets
+  <LI>Leveraging existing infrastructures
+</UL>
+<P>
+For example, the IBM WebSphere UDDI Registry
+could be used in the following way within
+a large enterprise:
+<br>
+<br>
+A company has a legacy application that provides
+phone numbers and HR information of employees.
+This is turned into a Web Service and published
+to the registry. A developer in the same
+company needs to write an application for
+a procurement function that also needs to
+provide HR information to the supplier. The
+application should allow the supplier to
+have access to the employee account codes
+once the employee provides his name or serial
+number. Before Web Services, the developer
+had three choices:<OL>
+  <LI>Would not have known about the similar application
+  <LI>Knew about it but could not reuse due to
+  technical barriers
+  <LI>Knew about it and reused only after significant
+  time and negotiation
+</OL>
+<P>With UDDI, the developer can search for the
+&quot;web service&quot; and reuse the existing
+technical component in his new application
+for the supplier in a matter of minutes.
+The developer saves time and gets the application
+up and running sooner than he would have
+otherwise -- increasing efficiency and saving
+the company time and money.
+The IBM WebSphere UDDI Registry is the first
+version 2 standard-compliant UDDI registry
+for private enterprise work. The IBM WebSphere
+UDDI Registry:
+<UL>
+  <LI>Supports the public UDDI V2.0 standard
+  <LI>Leverages the proven, reliable WebSphere
+  Application Server technology
+  <LI>Uses a relational database, such as DB2,
+  for its persistent store.
+</UL>
+</BODY>
+</HTML>

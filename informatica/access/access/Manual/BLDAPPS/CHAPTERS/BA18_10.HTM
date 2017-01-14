@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>Troubleshooting Tips</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba18_9.htm" OnClick="SyncURL(&quot;chapters/ba18_9.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<a NAME="3TroubleshootingTips"></a>
+<p CLASS="heading3OrgHeading1h1">Troubleshooting Tips</p>
+<p CLASS="Textttext">This section discusses common problems you may encounter when connecting to external data sources.</p>
+<a NAME="4ResolvingConnectionProblems"></a>
+<p CLASS="heading4OrgHeading2h2">Resolving Connection Problems<span CLASS="DetailLabeldet"></span></p>
+<p CLASS="Textttext">If your application cannot connect to the external data source, you can check for the following:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspMake sure you can access the external table through Windows Explorer or File Manager. If the table is stored on a network share, for example, check that you have sufficient permissions to access that share.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspCheck that the external table is accessible through its native application. For example, if you're trying to open a Microsoft Excel worksheet, check that you can open the worksheet in Microsoft Excel.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspCheck the code that establishes the connection to the external table carefully to make sure that it follows the guidelines given in <a HREF="../chapters/ba18_3.htm#4SpecifyingConnectionInformation" OnClick="SyncURL(&quot;chapters/ba18_3.htm&quot;)">&quot;Specifying Connection Information&quot;</a> earlier in this chapter.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspIf you were able to connect to the external table through your application before but you can't now, check that the table is still in its original location. If the table is linked to your Microsoft Access database and it has been moved, you need to refresh the link before you can access the table.</p>
+<p CLASS="ListText1lt1"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span><span CLASS="Xref">For more information, see <a HREF="../chapters/ba18_3.htm#4MaintainingLinkstoExternalTables" OnClick="SyncURL(&quot;chapters/ba18_3.htm&quot;)">&quot;Maintaining Links to External Tables&quot;</a> earlier in this chapter.</span></p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspIf you receive the message &quot;Unable to find installable ISAM,&quot; check the source database type specified in your code against those in the table in <a HREF="../chapters/ba18_3.htm#6SpecifyingSourceDatabaseTypes" OnClick="SyncURL(&quot;chapters/ba18_3.htm&quot;)">&quot;Specifying Source Database Types&quot;</a> earlier in this chapter. (Remember that <span CLASS="CodeTextEmbeddedcte">Excel 7.0</span> isn't a valid source database type; use <span CLASS="CodeTextEmbeddedcte">Excel 5.0</span> instead.)</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspIf the source database type matches one of the values in the table in &quot;Specifying Source Database Types,&quot; check that the installable ISAM driver resides in the folder specified in the Windows Registry in the <span CLASS="ElementNameeln">\HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Jet\3.5\Engines</span> key.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspIf you are supplying arguments to a case-sensitive data source, check that the arguments are of the correct form and case.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspMake sure the system on which the external data source resides has sufficient disk space.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspIf you are trying to access the table by using Visual Basic code, try to import the table by pointing to <span CLASS="ElementNameeln">Get External Data</span> on the <span CLASS="ElementNameeln">File</span> menu and clicking <span CLASS="ElementNameeln">Import</span>. Check the properties that are set in Design view of the imported table and compare them to the connection string that you are using in your code.</p>
+<a NAME="4UnderstandingTemporarySpaceNeeds"></a>
+<p CLASS="heading4OrgHeading2h2">Understanding Temporary Space Needs<span CLASS="DetailLabeldet"></span></p>
+<p CLASS="Textttext">Microsoft Access creates temporary indexes on your local computer when you run a query. This occurs even when the data is located in an external data source and in a different file format. These indexes can be as small as a few kilobytes or as large as several megabytes, depending on the data source.
+<p CLASS="Textttext">You should make sure users of your application have sufficient resources to accommodate these temporary space needs. All users should have a subfolder named Temp in their Windows folder, and enough disk space to store the indexes that Microsoft Access may create.</p>
+<p CLASS="ImportantTextit"><span CLASS="ImportantHeadingih">Important&nbsp;&nbsp;&nbsp;</span>If users don't have the disk space necessary to store temporary indexes, your application may behave unpredictably.</p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="ba19_1.htm" OnClick="SyncURL(&quot;chapters/ba19_1.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

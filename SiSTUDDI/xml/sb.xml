@@ -1,0 +1,23 @@
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+  <s:Body>
+    <save_business xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:uddi-org:api_v2" generic="2.0">
+      <authInfo>db2admin</authInfo>
+      <businessEntity businessKey="068438BA-1116-4603-A4E3-0E16326512A7">
+        <discoveryURLs>
+          <discoveryURL useType="businessEntity">http://localhost:9080/uddisoap/get?businessKey=068438BA-1116-4603-A4E3-0E16326512A7</discoveryURL>
+        </discoveryURLs>
+        <name>Hotel Faria</name>
+        <description>Um ganda hotel</description>
+        <contacts>
+          <contact useType="programador">
+            <personName>xicozinho</personName>
+          </contact>
+        </contacts>
+        <businessServices />
+        <categoryBag>
+          <keyedReference tModelKey="uuid:db77450d-9fa8-45d4-a7bc-04411d14e384" keyName="90101504                        " keyValue="uuid:db77450d-9fa8-45d4-a7bc-04411d14e384" />
+        </categoryBag>
+      </businessEntity>
+    </save_business>
+  </s:Body>
+</s:Envelope>

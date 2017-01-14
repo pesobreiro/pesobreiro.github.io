@@ -1,0 +1,1 @@
+Para usar os hiperlinks existentes no primeiro ficheiro deve extrair os ficheiros de word para uma directoria no seu disco

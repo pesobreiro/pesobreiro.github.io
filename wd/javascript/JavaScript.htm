@@ -1,0 +1,893 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0059)http://www.techelp.com.br/files/guias/guias_javascript.html -->
+<HTML><HEAD><TITLE>JavaScript</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="Microsoft FrontPage 4.0" name=GENERATOR></HEAD>
+<BODY>
+<TABLE width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD width="100%"><B><FONT class=tit face=Verdana color=#000000 
+      size=3>JavaScript</FONT></B> 
+      <P><font class="tit" face="Verdana" size="2"><b>Introdução</b></font></P>
+      <P><FONT face=Verdana size=2><FONT class=tx>A World Wide Web nos seus 
+      primórdios baseava-se em texto - a primeira versão da 
+      especificação da linguagem HTML não tinha capacidade de incluir 
+      imagens gráficas em uma página.&nbsp;<BR>Os Sites da Web actuais podem incluir uma variedade de 
+      recursos: imagens gráficas, sons animações, vídeos e muitas outras. As 
+      linguagens de Script da Web como JavaScript, são uma das maneiras mais 
+      fáceis de sofisticar uma página da Web interagir com usuários de novas 
+      maneiras.<BR><BR></FONT><FONT class=tit>O que é um Script?</FONT><BR><FONT 
+      class=tx>Podemos comparar um Script a uma receita de bolo, onde são 
+      descritas, passo a passo, várias instruções para que ao final, o bolo 
+      esteja pronto.<BR><BR>Um Script Web fornece o mesmo tipo de instruções 
+      para o navegador. Um script em linguagem JavaScript pode variar de uma 
+      única linha para um aplicativo em escala completa. Em qualquer um desses 
+      casos o script é executado sempre dentro do navegador ou em outros 
+      aplicativos de JavaScript permitidos.<BR><BR></FONT><FONT 
+      class=tit>Introdução a JavaScript</FONT><BR><FONT class=tx>O JavaScript 
+      foi desenvolvido pela Netscape Communications Corporation (<A 
+      target=_blank 
+      href="http://www.netscape.com/">http://www.netscape.com/</A>), os 
+      criadores do popular Navegador da Web Netscape Navigator. JavaScript foi a 
+      primeira linguagem de script da Web a ser introduzida e é, de longe, a 
+      mais popular. JavaScript é quase tão fácil de aprender como HTML e pode 
+      ser incluído diretamente em documentos de HTML.<BR><BR><B>Eis algumas das 
+      coisas que você pode fazer utilizando JavaScript:</B><BR><BR>· Adicionar 
+      mensagens que rolam na tela;<BR>· Validar os conteúdos de um 
+      formulário;<BR>· Exibir mensagens aos usuários;<BR>· Fazer animações de 
+      imagens e efeitos com o mouse;<BR>· Detectar versões de navegadores e dos 
+      plug-ins instalados nos computadores dos usuários.<BR><BR>Isso é apenas 
+      uma amostra do que pode ser feito com JavaScript, vamos ao longo deste 
+      tutorial, aprender os mais variados recursos e aplicações de 
+      JavaScript.<BR><BR></FONT><FONT class=tit>Existe diferença entre 
+      JavaScript e Java?</FONT><BR><FONT class=tx>Antes de continuarmos 
+      aprendendo JavaScript, não podemos deixar de falar em Java. Java é uma 
+      linguagem de programação desenvolvida pela Sun Microsystems, que pode ser 
+      utilizada para criar miniaplicativos ou programas que executam dentro de 
+      uma página da Web.<BR><BR>Embora os nomes sejam bem parecidos, a 
+      semelhança entre as duas para por aí. Java e JavaScript são linguagens 
+      completamente diferentes. Veja abaixo algumas destas diferenças:<BR>· 
+      Miniaplicativos Java são compilados em arquivos de classe para serem 
+      utilizados em uma página da Web;<BR>· JavaScript utiliza comandos simples 
+      de texto, que podem ser incluídos no próprio documento de HTML;<BR>· 
+      Miniaplicativos Java geralmente são exibidos em uma caixa dentro do 
+      documento de Web;<BR>· Scripts em linguagem JavaScript podem afetar 
+      qualquer parte do próprio documento da Web.<BR><BR>Enquanto o JavaScript é 
+      mais adequado para aplicativos simples e para adicionar recursos 
+      interativos a páginas da Web, o Java pode ser utilizado para aplicativos 
+      incrivelmente complexos.</FONT><BR><BR><FONT class=tit>O primeiro 
+      JavaScript</FONT><BR><FONT class=tx>Não podemos falar em JavaScript sem 
+      antes revermos alguns conceitos básicos de HTML. Veja abaixo um documento 
+      de HTML 
+      simples:<BR><BR>&lt;HTML&gt;<BR>&lt;HEAD&gt;<BR>&lt;TITLE&gt;Documento 
+      simples de HTML&lt;/TITLE&gt;<BR>&lt;/HEAD&gt;<BR>&lt;H1&gt;Seja bem vindo 
+      a minha página!&lt;/H1&gt;<BR>&lt;P&gt;Seja bem vindo a minha página, ela 
+      ainda está em construção mas em breve vai estar 
+      pronta.&lt;/P&gt;<BR>&lt;/BODY&gt;<BR>&lt;/HTML&gt;<BR><BR>Esse documento 
+      consiste em um cabeçalho dentro das tags e do corpo da página dentro das 
+      tags &lt;BODY&gt;. Para adicionar JavaScript em uma página, você utilizará 
+      uma tag semelhante: &lt;SCRIPT&gt;.<BR><BR>A tag &lt;SCRIPT&gt; diz ao 
+      navegador para começar tratando o texto como um script e a tag 
+      &lt;/SCRIPT&gt; retorna ao HTML normal. Na maioria dos casos não podemos 
+      usar utilizar instruções JavaScript exceto dentro das tags &lt;SCRIPT&gt;. 
+      A exceção são os manipuladores de eventos, que aprenderemos mais 
+      adiante.<BR><BR>Utilizando a tag &lt;SCRIPT&gt;, podemos adicionar um 
+      script curto (nesse caso somente uma linha) ao documento da Web, como 
+      mostrado na listagem a 
+      seguir:<BR><BR>&lt;HTML&gt;<BR>&lt;HEAD&gt;<BR>&lt;TITLE&gt;Documento 
+      simples de HTML&lt;/TITLE&gt;<BR>&lt;/HEAD&gt;<BR>&lt;H1&gt;Seja bem vindo 
+      a minha página!&lt;/H1&gt;<BR>&lt;P&gt;Seja bem vindo a minha página, ela 
+      ainda está em construção mas em breve vai estar pronta.<BR>A última vez 
+      que esta página foi alterada foi em:&lt;/P&gt;<BR>&lt;SCRIPT&gt; 
+      LANGUAGE="JavaScript"&gt;<BR>document.write(document.lastModified);<BR>&lt;/SCRIPT&gt;<BR>&lt;/BODY&gt;<BR>&lt;/HTML&gt;<BR><BR>Observação: 
+      Não se preocupe ainda em entender a sintaxe ou a disposição dos comandos 
+      por ora, apenas foque onde e como funciona o script.<BR><BR>A instrução 
+      document.write, que aprenderemos em detalhes mais adiante, envia saída 
+      como parte do documento da Web. Neste caso, exibe a data de modificação do 
+      documento.</FONT><BR><BR><FONT class=tit>Onde colocar o Script na minha 
+      página?</FONT><BR><FONT class=tx>No exemplo acima, colocamos o script 
+      dentro do corpo do documento de HTML. Mas, de fato, há quatro lugares 
+      diferentes onde podemos utilizar scripts:<BR><BR>· No corpo da página. 
+      Nesse caso, a saída do script é exibida como parte do documento de HTML 
+      quando o navegador carrega a página;<BR><BR>· No cabeçalho da página, 
+      entre as tags . Os scripts no cabeçalho não são executados imediatamente, 
+      mas podem ser referidos por outros scripts. O cabeçalho é freqüentemente 
+      utilizado por funções - grupos de instruções em JavaScript que podem ser 
+      utilizadas como um grupo.<BR><BR>· Dentro de uma tag HTML. Isso é 
+      denominado handler de evento e permite que o script trabalhe com elementos 
+      HTML. Os handlers de eventos são o primeiro tipo de script onde não 
+      precisamos utilizar a tag &lt;SCRIPT&gt;. Aprenderemos a trabalhar com 
+      handlers brevemente nesta série de tutoriais.<BR><BR>· Em um arquivo com a 
+      extensão .js em separado, contendo os scripts a serem utilizados. Este 
+      recurso pode ser incluído especificando um arquivo na tag &lt;SCRIPT&gt;. 
+      Este recurso foi disponibilizado no Netscape Navigator 3.0 ou superiores e 
+      no Internet Explorer 4.0 ou superiores.<BR><BR></FONT><FONT 
+      class=tit>Ferramentas de JavaScript</FONT><BR><FONT class=tx>Ao contrário 
+      de muitas outras linguagens de programação, para editarmos um script em 
+      JavaScript, não precisamos de um software especial, já que os scripts de 
+      JavaScript são armazenados em arquivos de texto simples.<BR><BR>Quero 
+      deixar claro que a escolha de um editor deve ser sua! Eu apenas posso dar 
+      algumas dicas para aqueles que ainda não têm seu editor preferido, a 
+      propósito, se você ainda não dispões de recursos para adquirir um desses 
+      editores, um editor simples e eficiente que você poderá usar é o Acessório 
+      Bloco de Notas, que vem incluído no Windows.<BR><BR>Para computadores 
+      Windows, eis alguns editores recomendados:<BR><BR><B>HomeSite</B> - Um 
+      editor de HTML excelente que inclui suporte JavaScript. Informações na Web 
+      em <A target=_blank 
+      href="http://www.allaire.com/">http://www.allaire.com/</A>.<BR><BR><B>Microsoft 
+      FrontPage 2000</B> - Editor Visual de HTML da Microsoft. O componente 
+      Script Builder permite facilmente criar scripts simples. Informações na 
+      Web em <A target=_blank 
+      href="http://www.microsoft.com/">http://www.microsoft.com/</A>.<BR><BR><B>NetObjects 
+      ScriptBuilder</B> - Um editor orientado a script que simplifica o processo 
+      de escrever scripts. Informações na Web em <A target=_blank 
+      href="http://www.netobjects.com/">http://www.netobjects.com/</A>.</FONT><BR><BR><FONT 
+      class=tit>Script: Contagem Regressiva</FONT><BR><FONT class=tx>A seguir, 
+      vamos escrever um script que faz uma contagem regressiva tomando como base 
+      a data de hoje, comparando-a com uma data qualquer (pode ser o dia de seu 
+      aniversário).<BR><BR><FONT class=tit>Iniciando o Script</FONT><BR>Para 
+      começar a criar o script, abra seu editor de texto favorito e digite as 
+      tags &lt;SCRIPT&gt; de início e fim:<BR><BR>&lt;SCRIPT 
+      LANGUAGE="JavaScript1.1"&gt; &lt;/SCRIPT&gt;<BR><BR>Já que o nosso script 
+      utilizará alguns recursos que não estavam disponíveis no JavaScript 1.0, 
+      especificamos JavaScript 1.1 na tag &lt;SCRIPT&gt;.<BR><BR><FONT 
+      class=tit>Armazenando dados em variáveis</FONT><BR>Para armazenar o 
+      script, utilizaremos duas variáveis, uma para armazenar a data atual e a 
+      outra, para armazenar a data que utilizaremos para fazer a contagem 
+      regressiva.<BR><BR>Não se preocupe em entender muito sobre variáveis 
+      ainda, vamos estudá-las a fundo posteriormente, procure apenas entender 
+      que variáveis são como contêineres que armazenam algumas 
+      informações.<BR><BR>Adicione logo abaixo das tags &lt;SCRIPT&gt; as 
+      seguintes linhas de comando:<BR><BR><B>Observação:</B> O JavaScript é uma 
+      linguagem sensível a caixa das letras, isso quer dizer que, "DataHoje" é 
+      diferente de "datahoje" que também é diferente de "DATAHOJE".<BR><BR>Hoje 
+      = new Date();<BR>Futuro = new Date("Dec 31 2000 00:00:00");<BR><BR>Cada 
+      uma das instruções acima atribui um valor (uma data) as variáveis Hoje e 
+      Futuro. Elas utilizam o objeto embutido Date do JavaScript, que permite 
+      tratar datas convenientemente.<BR><BR><FONT class=tit>Calculando o 
+      Resultado</FONT><BR>O JavaScript armazena datas em milissegundos, sendo 
+      assim, temos duas variáveis contendo números de milissegundo. Para 
+      calcular o tempo restante até a data futura, simplesmente subtraímos da 
+      data futura a data de hoje:<BR><BR>Futuro - Hoje;<BR><BR>O resultado dessa 
+      instrução seria o número de milissegundos até a data futura. Para 
+      facilitar a visualização, podemos converter o valor para segundos, 
+      inserindo a seguinte instrução:<BR><BR>Segundos = (Futuro - Hoje) / 
+      1000;<BR><BR>Essa instrução diz ao computador para criar uma terceira 
+      variável denominada Segundos. Para calcular esse número, divida o número 
+      de milissegundos por 1.000.<BR><BR><FONT class=tit>Criando uma Saída no 
+      Navegador</FONT><BR>Agora que já temos o resultado do cálculo armazenado 
+      na variável Segundos, podemos mostrá-la na tela do navegador. O JavaScript 
+      inclui diversas maneiras de exibir as informações e uma das mais simples é 
+      a instrução document.write.<BR>A instrução document.write exibe texto, 
+      número ou qualquer coisa que você queira jogar na tela. Já que nosso 
+      script será utilizado dentro de uma página na Web, a saída será exibida 
+      como parte da página:<BR><BR>document.write("Faltam:" + Segundos + " 
+      segundos");<BR><BR>Essa instrução resultará na saída na tela do Navegador 
+      algo como: "Faltam: 43822561.39 segundos". Embora às vezes precisamos de 
+      precisão quando lidamos com números, em nosso script este tipo de exibição 
+      não é muito atraente. O JavaScript inclui um recurso que arrendondará os 
+      números. Tudo que precisamos fazer é tomar o número na função Math.round. 
+      Para adicionar este recurso ao nosso exemplo, insira uma linha antes da 
+      instrução document.write e digite essa linha:<BR><BR>Segundos = 
+      Math.round(Segundos);<BR><BR>Essa instrução diz ao computador para colocar 
+      o valor da variável Segundos na função Math.round e armazenar o resultado 
+      do número arredondado de volta em Segundos. Vejamos a seguir, a listagem 
+      completa do nosso exemplo já incluído em um documento 
+      HTML:<BR><BR>&lt;HTML&gt;<BR>&lt;HEAD&gt;<BR>&lt;TITLE&gt;Contagem 
+      Regressiva&lt;/TITLE&gt;<BR>&lt;/HEAD&gt;<BR>&lt;BODY&gt;<BR>&lt;H1&gt;Contagem 
+      Regressiva.&lt;/H1&gt;<BR>&lt;HR&gt;<BR>&lt;SCRIPT 
+      LANGUAGE="JavaScript1.1"&gt;<BR>Hoje = new Date();<BR>Futuro = new 
+      Date("Dec 31 2000 00:00:00");<BR>Segundos = (Futuro - Hoje) / 
+      1000;<BR>Segundos = Math.round(Segundos);<BR>document.write("Faltam:" + 
+      Segundos + " 
+      segundos");<BR>&lt;/SCRIPT&gt;<BR>&lt;/BODY&gt;<BR>&lt;/HTML&gt;<BR><BR>Confira 
+      agora sua digitação com a listagem acima e teste seu script.<BR><BR><FONT 
+      class=tit>Caminhando Sozinho</FONT><BR>Já que você aprendeu como fazer seu 
+      primeiro script, modifique-o e implemente-o para que você possa aprender 
+      ainda mais. Como sugestão, você poderia mostrar os valores em minutos, 
+      horas e dias. Vale lembrar que os minutos são os segundos divididos por 
+      sessenta, as horas os minutos divididos por 60 e os dias são as horas 
+      divididas por 24.<BR><BR><FONT class=tit>O que vem a seguir</FONT><BR>No 
+      próximo módulo, continuaremos nosso aprendizado. Nós abordaremos os 
+      seguintes itens:<BR>· Utilizando funções;<BR>· Utilizando objetos com o 
+      JavaScript;<BR>· Respondendo a um evento;<BR>· Alternativas do JavaScript 
+      para navegadores mais antigos.<BR><BR>Vejo você no próximo módulo. Até 
+      lá!!<BR><BR><FONT class=tit>Sites sobre JavaScript</FONT><BR><A 
+      target=_blank 
+      href="http://developer.netscape.com/library/documentation/javascript.html">http://developer.netscape.com/library/documentation/javascript.html</A> 
+      Site da Netscape destinado aos desenvolvedores em JavaScript, (em 
+      inglês).<BR><BR>Fabrício Costa (<A 
+      href="mailto:tutorialjscript@ig.com.br">tutorialjscript@ig.com.br</A>) é 
+      Gerente de Desenvolvimento da <A target=_blank 
+      href="http://www.mpmsoft.com.br/">MPMSoft</A>.</FONT> </FONT></P>
+      <TABLE>
+        <TBODY>
+        <TR vAlign=top align=middle>
+          <TD>
+            <TABLE cellSpacing=0 cellPadding=3 width="100%" border=0>
+              <TBODY>
+              <TR bgColor=#013b60>
+                <TD bgColor=#000080><FONT face=Verdana size=2><B><FONT 
+                  color=#ffffff>JavaScript - Módulo 2: Utilizando 
+                  funções</FONT></B><FONT face=Verdana 
+                  color=#ffffff><BR></FONT></FONT></TD></TR></TBODY></TABLE></TD></TR>
+        <TR>
+          <TD><FONT face=Verdana size=2><BR><FONT class=tx>No módulo de 
+            introdução, vimos as diferenças existentes entre as linguagens Java 
+            e JavaScript, além de algumas básicas variações que esta versátil 
+            linguagem pode nos oferecer.<BR><BR>Até agora, os nossos scripts 
+            eram simples listas de instruções. O navegador inicia com a primeira 
+            instrução depois da tag &lt;SCRIPT&gt; e segue cada instrução na 
+            ordem até alcançar a tag &lt;/SCRIPT&gt; de fechamento (ou encontrar 
+            um erro). Embora essa maneira de criação de um script não seja 
+            errada, poderia ficar muito confuso o entendimento de um script mais 
+            extenso escrito desta forma. Para tornar mais fácil para 
+            organizarmos um script, o JavaScript suporta 
+            funções.<BR><BR><BR><FONT class=tit><B>Afinal, o que é uma 
+            Função?</B></FONT><BR><BR>As funções são grupos de instruções de 
+            JavaScript que podem ser tratadas como uma unidade única. A fim de 
+            utilizar uma função, devemos primeiro definí-la. Uma simples 
+            definição de função:<BR><BR><FONT class=azul>function 
+            BemVindo()<BR>{<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert("Seja 
+            bem vindo a minha página!");<BR>}</FONT><BR><BR>Este pequeno exemplo 
+            define uma função que exibe uma mensagem de alerta para o usuário, 
+            neste caso, uma saudação. Uma definição de uma função, 
+            obrigatoriamente inicia-se com a palavra-chave * function. O nome da 
+            função é BemVindo. Note os parênteses depois do nome da função. Como 
+            veremos mais a frente, o espaço entre eles não estará sempre 
+            vazio.<BR><BR>Depois de definida a função, usamos as chaves para 
+            delimitar o corpo da função, sendo assim, todas as instruções 
+            referentes a esta função, deverão estar entre as 
+            chaves.<BR><BR>Agora, sobre os parênteses, a função atual, sempre 
+            exibirá a mesma mensagem, embora isso evite um pouco de digitação, 
+            ela realmente não fornece muito benefício.<BR><BR>Para tornarmos ela 
+            mais útil, podemos adicionar parâmetros também conhecidos como 
+            argumentos. Estes são variáveis que são recebidas pela função toda 
+            vez que ela é chamada. Por exemplo, podemos adicionar um parâmetro 
+            chamado "NomeDoUsuario" que diz para a função o nome da pessoa a 
+            saudar. Segue como ela ficará:<BR><BR><FONT class=azul>function 
+            BemVindo(NomeDoUsuario)<BR>{<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert("Seja 
+            bem vindo a minha página, " + 
+            NomeDoUsuario);<BR>}</FONT><BR><BR>Naturalmente, para utilizar essa 
+            função devemos incluí-la em um documento de HTML. Como já vimos 
+            anteriormente o melhor lugar para uma definição de função é dentro 
+            da seção do documento, já que as instruções desta seção são 
+            executadas primeiro, fazendo assim com que a função seja definida 
+            antes de ser utilizada.<BR><BR>A listagem a seguir mostra a função 
+            já embutida na seção de cabeçalho de um documento de 
+            HTML:<BR><BR><FONT 
+            class=azul>&lt;HTML&gt;<BR>&lt;HEAD&gt;<BR>&lt;TITLE&gt;Utilizando 
+            Funções&lt;/TITLE&gt;<BR>&lt;/HEAD&gt;<BR>&lt;SCRIPT 
+            LANGUAGE="JavaScript"&gt;<BR>function 
+            BemVindo(NomeDoUsuario)<BR>{<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert("Seja 
+            bem vindo a minha página, " + 
+            NomeDoUsuario);<BR>}<BR>&lt;/SCRIPT&gt;<BR>&lt;BODY&gt;<BR>Exemplo 
+            de inserção de Função em um documento de 
+            HTML<BR>&lt;/BODY&gt;<BR>&lt;/HTML&gt;</FONT><BR><BR><BR><FONT 
+            class=tit>Chamando uma Função</FONT><BR><BR>Apesar de nossa função 
+            estar prontinha e funcionando, ela ainda precisa ser chamada de 
+            algum outro ponto do documento de HTML. Para chamar uma função, 
+            utilize o nome da função como uma instrução em um script. Precisamos 
+            incluir os parênteses e os valores para os parâmetros da função. Por 
+            exemplo, eis uma instrução que chama a função 
+            BemVindo:<BR><BR>BemVindo("José da Silva");<BR><BR>A seguir, segue a 
+            listagem completa do nosso exemplo, note que iremos chamar a função 
+            duas vezes para saudar duas pessoas diferentes:<BR><BR><FONT 
+            class=azul>&lt;HTML&gt;<BR>&lt;HEAD&gt;<BR>&lt;TITLE&gt;Utilizando 
+            Funções&lt;/TITLE&gt;<BR>&lt;/HEAD&gt;<BR>&lt;SCRIPT 
+            LANGUAGE="JavaScript"&gt;<BR>function 
+            BemVindo(NomeDoUsuario)<BR>{<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert("Seja 
+            bem vindo a minha página, " + 
+            NomeDoUsuario);<BR>}<BR>&lt;/SCRIPT&gt;<BR>&lt;BODY&gt;<BR>&lt;H1&gt;Utilizando 
+            Funções&lt;/H1&gt;<BR>&lt;P&gt;Neste momento você vai ser saudado 
+            duas vezes!&lt;P&gt;<BR>&lt;SCRIPT 
+            LANGUAGE="JavaScript"&gt;<BR>BemVindo("Maria 
+            Chiquinha");<BR>BemVindo("João");<BR>&lt;/SCRIPT&gt;<BR>&lt;/BODY&gt;<BR>&lt;/HTML&gt;</FONT><BR><BR>Essa 
+            listagem inclui um segundo conjunto de tags &lt;SCRIPT&lt; no corpo 
+            da página. O segundo script inclui duas chamadas de função para a 
+            função "BemVindo", cada uma com um nome diferente. Agora que o nosso 
+            exemplo já está completo e funcional, tente carregá-lo em um 
+            Navegador.<BR><BR><BR><FONT class=tit>Retornando um 
+            Valor</FONT><BR><BR>Embora a função que acabamos de criar exiba 
+            apenas uma mensagem para o usuário, as funções também podem retornar 
+            um valor para o script que a chamou. Isso permite utilizar funções 
+            para calcular valores. Como um exemplo, iremos criar uma função que 
+            calcula a média entre quatro valores.<BR><BR>A nossa função deve 
+            iniciar com a palavra-chave function, o nome da função e os 
+            parâmetros que ela aceita. Utilizaremos os nomes de variável Valor1, 
+            Valor2, Valor3, Valor4 para os quatro números cuja média queremos 
+            calcular:<BR><BR><FONT class=azul>function Media(Valor1, Valor2, 
+            Valor3, Valor4)<BR>{<BR>}</FONT><BR><BR>A seguir, nossa função 
+            deverá calcular a média dos quatro números. Vamos fazer isso somando 
+            os números, depois dividindo pelo número de números (neste caso, 4). 
+            Eis a próxima linha da nossa função:<BR><BR><FONT class=azul>Media = 
+            (Valor1 + Valor2 + Valor3 + Valor4) / 4;</FONT><BR><BR>Essa 
+            instrução cria uma variável chamada "Media" e calcula o resultado 
+            adicionando os quatro números, depois dividindo-os por 
+            4.<BR><BR>Para enviar esse resultado de volta ao script que chamou a 
+            função, você utiliza a palavra-chave return. Eis a última linha da 
+            nossa função:<BR><BR><FONT class=azul>return Media;</FONT><BR><BR>A 
+            seguir, segue o código completo de nossa função Media:<BR><BR><FONT 
+            class=azul>&lt;SCRIPT LANGUAGE="JavaScript"&gt;<BR>function 
+            Media(Valor1, Valor2, Valor3, Valor4)<BR>{<BR>Media = (Valor1 + 
+            Valor2 + Valor3 + Valor4) / 4;<BR>return 
+            Media;<BR>}</FONT><BR><BR>Para utilizar essa função em um script, 
+            você pode utilizar uma variável com a chamada de função. Por 
+            exemplo, a instrução a seguir faz médias dos números 3, 4, 5 e 6 e 
+            armazena o resultado em uma variável chamada 
+            ValorMedia:<BR><BR><FONT class=azul>ValorMedia = Media(3, 4, 5, 
+            6);</FONT><BR><BR><BR><B><FONT class=tit>Entendendo 
+            Objetos</FONT></B><BR><BR>No Módulo 1, aprendemos que variáveis são 
+            contêineres que podem armazenar um número, uma string de texto ou 
+            outro valor. O JavaScript também suporta objetos. Como variáveis, os 
+            objetos podem armazenar dados - e inclusive armazenar dois ou mais 
+            itens ao mesmo tempo.<BR><BR>Cada item de um objeto é chamado de 
+            propriedade do objeto. Por exemplo, podemos utilizar um objeto para 
+            armazenar informações referentes a uma pessoa, como em uma agenda de 
+            telefones. As propriedades de cada objeto pessoa podem incluir um 
+            nome, um telefone, um endereço, além de outras informações. O 
+            JavaScript utiliza pontos para separar os nomes de objeto e os nomes 
+            de propriedade. Por exemplo, para um objeto de uma pessoa chamada 
+            João, as propriedades podem incluir João. Endereço e João. 
+            Telefone.<BR><BR>Os objetos também podem incluir métodos. Estes são 
+            funções que trabalham com os dados do objeto. Por exemplo, nosso 
+            objeto de pessoa para a agenda de telefones pode incluir um método 
+            display() para exibir as informações da pessoa. Na terminologia de 
+            JavaScript, a instrução João. Display() exibiria os detalhes de 
+            João.<BR><BR>Não se preocupe se todos esses novos conceitos lhe 
+            parecem um pouco confusos, ainda iremos explorar objetos em muito 
+            mais detalhe no decorrer deste tutorial. Por enquanto, precisamos 
+            apenas saber os princípios básicos. O JavaScript suporta três tipos 
+            de <B>objetos</B>:<BR><BR>- <B>Objetos embutidos ou predefinidos 
+            (built-in)</B>. São objetos construídos dentro da linguagem 
+            JavaScript. Já encontramos dois desses, Date e Math, no primeiro 
+            Módulo. Alguns outros objetos embutidos incluem Array e String, que 
+            ainda iremos explorar mais adiante;<BR><BR>- <B>Objetos Browser</B>. 
+            São objetos que representam vários componentes do navegador e o 
+            documento de HTML. Por exemplo, a função alert() que utilizamos 
+            anteriormente neste Módulo é realmente um método do objeto 
+            window.<BR><BR>- <B>Objetos Personalizados ou criados pelo próprio 
+            Programador</B>. Por exemplo, podemos criar um objeto de pessoa, 
+            como nos exemplos desta seção.<BR><BR>Vale lembrar que iremos ver 
+            mais a frente cada um destes tipos de objetos mais 
+            detalhadamente.<BR><BR><BR><B><FONT class=tit>Tratando 
+            Eventos</FONT></B><BR><BR>Como foi citado no Módulo 1, nem todos os 
+            scripts estão localizados dentro das tags &lt;SCRIPT&gt;. Podemos 
+            também utilizar scripts como handlers de evento. Embora possa 
+            parecer um termo de programação complexo, significa exatamente o que 
+            diz: handlers ("manipuladores") de eventos são scripts que tratam 
+            eventos.<BR><BR>Na vida real um evento nada mais é do um 
+            acontecimento, por exemplo: Consulta ao dentista, visita inesperada 
+            de parentes ou um encontro.<BR><BR>Se os eventos são agendados ou 
+            não, você provavelmente tem maneiras normais de tratá-los. Seus 
+            handlers de evento podem incluir coisas como "Quando a consulta do 
+            dentista chegar, ligar desmarcando-a" ou ainda "Quando parentes 
+            fizerem uma visita inesperada, desligar as luzes e fingir que não 
+            tem ninguém em casa".<BR><BR>Os handlers no JavaScript são 
+            semelhantes: eles dizem ao navegador o que fazer quando algo 
+            ocorrer, eles incluem eventos como "Quando o botão do mouse der um 
+            clique" e "Quando essa página terminar de carregar". Lembrando que 
+            eles são parte muito útil no JavaScript. Os handlers de evento estão 
+            associados com objetos particulares do navegador e especificamos o 
+            handler na tag que define o objeto. Por exemplo, links de imagens e 
+            texto têm um evento, onMouseOver, que acontece quando o ponteiro do 
+            mouse move-se sobre o objeto. Eis uma tag típica de imagem HTML com 
+            um handler de evento:<BR><BR><FONT class=azul>&lt;IMG 
+            SRC="botão.gif" onMouseOver="highlight()"</FONT><BR><BR>Podemos 
+            especificar o handler de evento como um atributo para tag de HTML e 
+            incluir a instrução de JavaScript para tratar o evento dentro das 
+            aspas. Isso é uma utilização ideal para funções, já que nomes de 
+            função são curtos e diretos e podem referir-se a uma série inteira 
+            de instruções.<BR><BR><BR><FONT class=tit><B>Ocultando scripts de 
+            Navegadores mais antigos</B></FONT><BR><BR>Apesar de toda evolução 
+            no mundo da internet, muitos usuários ainda estão utilizando 
+            navegadores que não suportam JavaScript. Além disso, muitas pessoas 
+            têm suporte para JavaScript desativado em seus navegadores, seja por 
+            preocupações com segurança, seja para evitar mensagens que rolam na 
+            tela.<BR><BR>Já que navegadores mais antigos não entendem a tag 
+            &lt;SCRIPT&gt;, eles não se comportarão muito bem quando encontrarem 
+            um script em uma página da Web. Para evitar isso, podemos incluir o 
+            script dentro de um tag de comentário de HTML. Isso diz aos 
+            navegadores mais antigos para ignorar o script completamente. Os 
+            comentários em HTML começam com a tag &lt;!-e terminam com a tag 
+            --&gt;. A seguir, segue um exemplo simples de como isso funciona na 
+            prática:<BR><BR><FONT class=azul>&lt;SCRIPT 
+            LANGUAGE="JavaScript"&gt;<BR>&lt;!-<BR>document.write("Seu browser 
+            suporta JavaScript");<BR>// 
+            --&gt;<BR>&lt;/SCRIPT&gt;</FONT><BR><BR>Esse script inclui as tags 
+            de comentário de HTML de início e fim. As duas barras (//) na última 
+            linha são um comentário de Java Script; o que evita que o comentário 
+            de HTML seja detectado como um erro de JavaScript.<BR><BR><BR><FONT 
+            class=tit><B>Suportando navegadores 
+            não-JavaScript</B></FONT><BR><BR>Podemos ainda, além de ocultar 
+            nossos scripts de navegadores mais antigos, exibir algo particular 
+            para estes navegadores. A tag &lt;NOSCRIPT&gt;, suportada em 
+            JavaScript 1.1 ou superior, fornece uma solução conveniente. Essa 
+            tag diz aos navegadores compatíveis com JavaScript para ignorar tudo 
+            entre as tags &lt;NOSCRIPT&gt; de início e fim; então podemos 
+            incluir conteúdo de HTML para o navegador não-JavaScript dentro das 
+            tags. A seguir segue um exemplo suportando navegadores 
+            não-JavaScript:<BR><BR><FONT class=azul>&lt;NOSCRIPT&gt;<BR>Seu 
+            browser não suporta JavaScript. Por favor &lt;A 
+            href="naoscript.html"&gt;clique aqui&lt;/A&gt; para ver uma versão 
+            sem JavaScript desta 
+            página.<BR>&lt;NOSCRIPT&gt;</FONT><BR><BR><BR><FONT 
+            class=tit><B>Utilizando Comentários em 
+            JavaScript:</B></FONT><BR><BR>Até agora utilizamos comentários de 
+            HTML para ocultar nosso scripts de navegadores. O JavaScript também 
+            inclui seus próprios tipos de comentários. Embora esses não ocultem 
+            o JavaScript dos navegadores, eles são úteis para determinados fins: 
+            incluir comentários em nossos scripts. Exemplos:<BR><BR><FONT 
+            class=azul>//isto é um comentário.</FONT><BR><BR>Ou:<BR><BR><FONT 
+            class=azul>a = a + 1; // adiciona 1 ao valor de a.</FONT><BR><BR>Ou 
+            ainda:<BR><BR><FONT class=azul>/*Este script inclui uma variedade de 
+            recursos,<BR>incluindo este comentário. */</FONT><BR><BR><BR><FONT 
+            class=tit><B>Caminhando Sozinho</B></FONT><BR><BR>Agora que você já 
+            aprendeu vários outros recursos do JavaScript, utilize-os para 
+            implementar os exemplos dados neste módulo:<BR><BR>- Modifique a 
+            função BemVindo para aceitar dois parâmetros, NomeDoUsuario1 e 
+            NomeDoUsuario2 e incluir os dois nomes em um único diálogo de 
+            saudação.<BR><BR>- Adicione a função Media para o cabeçalho de um 
+            documento de HTML simples. Adicione uma chamada de função que 
+            utiliza a instrução alert para exibir a media e verificar se o 
+            resultado é concreto.<BR><BR>- Adicione comentários do JavaScript em 
+            seus scripts a fim de detalha-los para facilitar entendimentos 
+            futuros.<BR><BR><BR><FONT class=tit><B>O que vem a 
+            seguir:</B></FONT><BR><BR>No próximo módulo, abordaremos os 
+            seguintes itens: - Atribuição e declaração de variáveis; - Variáveis 
+            locais e globais; - Tipos de dados do JavaScript; - Conversão de 
+            tipos diferentes de variáveis.<BR><BR>Bom estudo e até o próximo 
+            Módulo! Abraços.</FONT> </FONT>
+            <TABLE>
+              <TBODY>
+              <TR vAlign=top align=middle>
+                <TD>
+                  <TABLE cellSpacing=0 cellPadding=3 width="100%" border=0>
+                    <TBODY>
+                    <TR bgColor=#013b60>
+                      <TD bgColor=#000080><FONT face=Verdana size=2><B><FONT 
+                        color=#ffffff>JavaScript - Módulo 3 : Trabalhando com 
+                        variáveis</FONT></B><FONT face=Verdana 
+                        color=#ffffff><BR></FONT></FONT></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD><FONT face=Verdana size=2><BR><FONT class=tx>Como já 
+                  falamos anteriormente, variáveis são contêineres identificados 
+                  que podem armazenar dados. Por exemplo, um número, uma string 
+                  de texto, um objeto. Já sabemos também que cada variável 
+                  precisa ter um nome. Há regras específicas que devemos seguir 
+                  quando escolhemos o nome de uma variável:<BR><BR>- Os nomes de 
+                  variável podem incluir letras do alfabeto, tanto letras 
+                  minúsculas como maiúsculas, também podem incluir os dígitos de 
+                  0 a 9 e o caractere sublinhado (_);<BR><BR>- Não podem incluir 
+                  espaços nem quaisquer outros caracteres de pontuação;<BR><BR>- 
+                  O primeiro caractere do nome deve, obrigatoriamente ser uma 
+                  letra ou um sublinhado;<BR><BR>- Letras maiúsculas e 
+                  minúsculas são diferenciadas, portanto, TotalGeral, totalgeral 
+                  e TOTALGERAL são nomes de variáveis distintos;<BR><BR>- Não 
+                  existe limite no JavaScript para o comprimento dos nomes de 
+                  variáveis, eles não devem ser muito curtos, mas também não 
+                  devem ser muito longos de modo que consigamos digitar o mesmo 
+                  nome duas vezes.<BR><BR>Baseando-se nestas regras, os nomes 
+                  abaixo são exemplos de nomes de variáveis 
+                  válidos:<BR><BR>TotalDeAlunos<BR>DataDoSistema<BR>Contador<BR>Auxiliar<BR><BR>Note 
+                  que eu costumo colocar sempre a primeira letra de cada palavra 
+                  em maiúscula e as demais minúsculas, isso é apenas uma 
+                  convenção minha, se você a achar interessante, nada impede que 
+                  a use.<BR><BR><B>Variáveis Locais e Globais</B><BR><BR>O 
+                  JavaScript inclui a palavra-chave var, que pode ser utilizada 
+                  para declarar uma variável. Podemos omitir var em muitos 
+                  casos; a variável ainda é declarada na primeira vez que 
+                  atribuímos um valor a ela.<BR><BR>Para entender onde declarar 
+                  uma variável precisamos entender o conceito de escopo. O 
+                  escopo de uma variável é a área do script em que a variável 
+                  pode ser utilizada. Existem dois tipos de variáveis:<BR><BR>- 
+                  Variáveis globais: têm o script inteiro (e outros scripts no 
+                  mesmo documento de HTML) como seu escopo. Podem ser utilizadas 
+                  em qualquer lugar, mesmo dentro das funções.<BR><BR>- 
+                  Variáveis locais: têm uma única função com seu escopo. Elas 
+                  podem ser utilizadas somente dentro da função em que foram 
+                  criadas.<BR><BR>Para criarmos uma variável global, a 
+                  declaramos no script principal, fora de quaisquer funções. 
+                  Podemos utilizar a palavra-chave var para declarar a variável, 
+                  como nesse exemplo:<BR><BR><FONT class=azul>var NomeDoUsuario 
+                  = "Joãozinho";</FONT><BR><BR>Essa instrução declara uma 
+                  variável chamada NomeDoUsuario e atribui um valor de 
+                  Joãozinho. Se essa instrução for utilizada fora de funções, 
+                  ela cria uma variável global. A palavra-chave <B>var</B> é 
+                  opcional nesse caso, então essa instrução é equivalente à 
+                  anterior:<BR><BR><FONT class=azul>NomeDoUsuario = 
+                  "Joãozinho";</FONT><BR><BR>Podemos estão concluir o 
+                  seguinte:<BR><BR>Uma variável local pertence a uma função 
+                  particular. Qualquer variável que declaramos em uma função é 
+                  uma variável local. Por exemplo, as variáveis na lista de 
+                  parâmetro de uma função são variáveis locais.<BR><BR>Para nos 
+                  certificarmos de estamos criando uma variável local dentro de 
+                  uma função, podemos utilizar a palavra-chave <B>var</B>. Isso 
+                  força o JavaScript a criar uma variável local, mesmo se 
+                  existir uma variável global como o mesmo nome.<BR><BR>Pode 
+                  parecer ainda meio confuso essa idéia de variáveis locais e 
+                  globais, mas não se preocupe, iremos explorar durante todo o 
+                  nosso estudo esse tipo de recurso. Para começar segue abaixo a 
+                  listagem de um exemplo utilizando variáveis locais e 
+                  globais:<BR><BR><FONT 
+                  class=azul>&lt;HTML&gt;<BR>&lt;HEAD&gt;<BR>&lt;TITLE&gt;Usando 
+                  Variáveis Globais e Locais&lt;/TITLE&gt;<BR>&lt;SCRIPT 
+                  LANGUAGE="JavaScript"&gt;<BR>&lt;!--<BR>var Nome1 = 
+                  "Maria";<BR>var Nome2 = "Francisco";<BR><BR>function 
+                  BemVindo(NomeDoUsuario)<BR>{<BR>alert ("Seja Bem-vindo, " + 
+                  NomeDoUsuario);<BR>var Nome2 = 
+                  "Joaquim";<BR>}<BR>//--&gt;<BR>&lt;/SCRIPT&gt;<BR>&lt;/HEAD&gt;<BR>&lt;BODY&gt;<BR>&lt;H1&gt;Exemplo 
+                  de uso de Variáveis Globais e 
+                  Locais&lt;/H1&gt;<BR>&lt;P&gt;Prepare-se para ser 
+                  saudado!&lt;/P&gt;<BR>&lt;SCRIPT 
+                  LANGUAGE="JavaScript"&gt;<BR>&lt;!--<BR>BemVindo(Nome1);<BR>BemVindo(Nome2);<BR>//--&gt;<BR>&lt;/script&gt;<BR>&lt;/BODY&gt;<BR>&lt;/HTML&gt;<BR><BR></FONT>A 
+                  listagem acima utiliza as seguintes variáveis:<BR><BR>- Nome1 
+                  e Nome2 são variáveis globais definidas no cabeçalho;<BR><BR>- 
+                  NomeDoUsuario é uma variável local criada na lista de 
+                  parâmetros da função BemVindo();<BR><BR>- Atenção: a função 
+                  BemVindo() cria uma variável local denominada Nome2. Já que a 
+                  palavra-chave var é utilizada, isso não afeta a variável 
+                  global Nome2. (se afetasse o nome da segunda saudação 
+                  mudaria).<BR><BR>Note que as variáveis globais são declaradas 
+                  dentro do cabeçalho do documento de HTML. Na realidade, 
+                  podemos declarar variáveis em qualquer script no documento, no 
+                  entanto, o cabeçalho é o lugar mais indicado pelo fato de ele 
+                  ser o primeiro a ser executado em um documento de HTML, não 
+                  existindo assim o risco de usarmos uma variável antes de a 
+                  declararmos.<BR><BR><B>Atribuindo valores a 
+                  variáveis</B><BR><BR>Mesmo que ainda não soubéssemos disso, já 
+                  atribuímos valores a variáveis várias vezes, vamos ver a 
+                  seguir alguns exemplos:<BR><BR>A instrução a seguir atribuir o 
+                  valor 40 à variável Linhas:<BR><BR><FONT class=azul>Linhas = 
+                  40;</FONT><BR><BR>Podemos utilizar qualquer expressão à 
+                  direita do sinal de igual, incluindo outras variáveis. A 
+                  instrução a seguir adiciona 1 a variável Linhas:<BR><BR><FONT 
+                  class=azul>Linhas = Linhas + 1;</FONT><BR><BR>Como incrementar 
+                  ou decrementar variáveis é bem comum, o JavaScript inclui dois 
+                  tipos de abreviação para essa sintaxe. A primeira utiliza o 
+                  operador +=:<BR><BR><FONT class=azul>Linhas += 
+                  1;</FONT><BR><BR>Da mesma forma, podemos subtrair um número de 
+                  uma variável utilizando o operador -=:<BR><BR><FONT 
+                  class=azul>Linhas -= 1;</FONT><BR><BR>Ainda temos outra opção 
+                  para este tipo de atribuição, podemos utilizar os operadores 
+                  de incremento do JavaScript, ++ e --. A instrução a seguir 
+                  adiciona um valor a Linhas:<BR><BR><FONT class=azul>Linhas 
+                  ++;</FONT><BR><BR>Da mesma forma, a instrução a seguir subtrai 
+                  um valor de Linhas:<BR><BR><FONT class=azul>Linha 
+                  --;</FONT><BR><BR>Podemos também utilizar o operador ++ ou - 
+                  antes do nome de uma variável, mas neste caso o resultado será 
+                  diferente. Se o operador de incremento está depois do nome da 
+                  variável, o incremento ou decremento acontece depois de a 
+                  expressão atual ser avaliada. Se o operador está antes do nome 
+                  da variável, o incremento ou decremento acontece antes de a 
+                  expressão atual ser avaliada. As seguintes instruções têm 
+                  efeitos diferentes:<BR><BR><FONT 
+                  class=azul>alert(Linhas++);</FONT> <FONT 
+                  class=azul>alert(++Linhas);</FONT><BR><BR>A primeira instrução 
+                  exibe um alerta com o valor 40 e então incrementa Linhas para 
+                  41. A segunda instrução primeiro incrementa Linhas para 41, 
+                  depois exibe um alerta com o valor 41.<BR><BR><B>Tipos de 
+                  dados no JavaScript</B><BR><BR>O JavaScript não exige que 
+                  declaremos o tipo de dado de cada variável, mas para o nosso 
+                  próprio bem, é muito importante conhecermos os tipos de dados 
+                  que ele pode tratar. Estes são os tipos de dados básicos do 
+                  JavaScript:<BR><BR>- <B>Número:</B> como 3, 25, 4,3542. O 
+                  JavaScript suporta tanto números inteiros como pontos 
+                  flutuantes;<BR><BR>- <B>Valores Booleanos ou Lógicos:</B> 
+                  Estes podem ter um de dois valores: <B>verdadeiro ou 
+                  falso</B>.<BR><BR>- <B>Strings:</B> Como "Maria tinha um 
+                  carneirinho". Estas consistem em um ou mais caracteres de 
+                  texto.<BR><BR>- <B>Valor Nulo:</B> representado pela 
+                  palavra-chave <B>null</B>. Esse é o valor indefinido de uma 
+                  variável.<BR><BR>Embora o JavaScript monitore o tipo de dados 
+                  atualmente armazenado em cada variável, ele não impede você de 
+                  alterar os tipos intermediários. Por exemplo, suponha que você 
+                  declarou uma variável atribuindo-lhe um valor:<BR><BR><FONT 
+                  class=azul>Total = 31;</FONT><BR><BR>Essa instrução declara 
+                  uma variável chamada Total e lhe atribui o valor 31. Essa é 
+                  uma variável numérica. Agora suponha que você alterou o valor 
+                  Total:<BR><BR><FONT class=azul>Total = 
+                  "Salgadinho";</FONT><BR><BR>Isso atribui um valor de string à 
+                  soma. JavaScript não exibirá um erro quando essa instrução for 
+                  executada; ela é perfeitamente válida, embora provavelmente 
+                  não seja útil.<BR><BR><B>Conversão de valores</B><BR><BR>O 
+                  JavaScript trata conversões entre tipos de dados sempre que 
+                  pode. Por exemplo, quando utilizamos instruções desse 
+                  tipo:<BR><BR><FONT class=azul>document.write("Total de Alunos: 
+                  " + Total);</FONT><BR><BR>Essa instrução imprime uma mensagem 
+                  como "Total de Alunos: 38". Neste caso o interpretador de 
+                  JavaScript automaticamente converteu o conteúdo da variável 
+                  Total para string para que ele pudesse ser mostrado na 
+                  página.<BR><BR>Isso funciona igualmente bem com valores de 
+                  ponto flutuante e booleanos. Entretanto, há algumas situações 
+                  onde não funcionará. Por exemplo, a seguinte instrução 
+                  funcionará bem se o valor de Total for numérico, por exemplo, 
+                  40:<BR><BR><FONT class=azul>Media = Total / 
+                  3;</FONT><BR><BR>Entretanto, a variável Total também pode 
+                  conter uma string; nesse caso, a instrução acima resultaria um 
+                  erro.<BR><BR>Em algumas situações, podemos terminar com uma 
+                  string contendo um número e precisaríamos convertê-la em uma 
+                  variável numérica regular. O JavaScript inclui duas funções 
+                  para esse propósito:<BR><BR>- parseInt() - Converte uma string 
+                  em um número inteiro;<BR><BR>- parseFloat() - Converte uma 
+                  string em um número de ponto flutuante.<BR><BR>Por exemplo, a 
+                  instrução seguinte converte uma string em um valor 
+                  inteiro:<BR><BR><FONT class=azul>MinhaString = "30 
+                  carneirinhos tinha Maria";<BR>MeuNumero = 
+                  parseInt(MinhaString);</FONT><BR><BR>Depois que essas 
+                  instruções forem executadas, a variável MeuNumero armazenará o 
+                  valor 30. A parte não numérica da string é 
+                  ignorada.<BR><BR><B>Armazenando Dados do Usuário em 
+                  variáveis</B><BR><BR>Uma utilização comum de variáveis é 
+                  armazenar as informações que vêm do usuário. Como um exemplo, 
+                  agora iremos criar um script que solicita informações ao 
+                  usuário e cria um documento de HTML contendo essas 
+                  informações.<BR><BR>Primeiramente solicitaremos um primeiro 
+                  nome, um sobrenome e um título para a página:<BR><BR><FONT 
+                  class=azul>PrimeiroNome = prompt("Digite o seu primeiro 
+                  Nome:");<BR>Sobrenome = prompt("Digite o seu 
+                  sobrenome:");<BR>TituloPagina = prompt("Digite um Título para 
+                  a Página:");</FONT><BR><BR>Agora podemos utilizar o conteúdo 
+                  das variáveis para personalizar o documento de 
+                  HTML:<BR><BR><FONT class=azul>document.write("&lt;h1&gt;" + 
+                  TituloPagina + 
+                  "&lt;/h1&gt;");<BR>document.write("&lt;h2&gt;Usuário: " + 
+                  PrimeiroNome + " " + Sobrenome + 
+                  "&lt;/h2&gt;"</FONT><BR><BR>Para completar esse script basta 
+                  agora adicionarmos as tags &lt;SCRIPT&gt; normais e uma 
+                  estrutura básica de HTML, como mostra a listagem a 
+                  seguir:<BR><BR><FONT 
+                  class=azul>&lt;HTML&gt;<BR>&lt;HEAD&gt;<BR>&lt;TITLE&gt; 
+                  Personalizando uma Página 
+                  &lt;/TITLE&gt;<BR>&lt;/HEAD&gt;<BR>&lt;BODY&gt;<BR>&lt;SCRIPT 
+                  LANGUAGE="JavaScript"&gt;<BR>&lt;!--<BR>PrimeiroNome = 
+                  prompt("Digite o seu primeiro Nome:");<BR>Sobrenome = 
+                  prompt("Digite o seu sobrenome:");<BR>TituloPagina = 
+                  prompt("Digite um Título para a 
+                  Página:");<BR><BR><BR>document.write("&lt;h1&gt;" + 
+                  TituloPagina + 
+                  "&lt;/h1&gt;");<BR>document.write("&lt;h2&gt;Usuário: " + 
+                  PrimeiroNome + " " + Sobrenome + 
+                  "&lt;/h2&gt;");<BR><BR><BR>//--&gt;<BR>&lt;/script&gt;<BR>&lt;P&gt;Obrigado 
+                  por visitar minha 
+                  Página.&lt;/P&gt;<BR>&lt;/BODY&gt;<BR>&lt;/HTML&gt;<BR></FONT><BR><B>Caminhando 
+                  sozinho</B><BR><BR>A título de extensão, você poderia unir 
+                  esse script com o script de contagem regressiva que criamos no 
+                  módulo 1, ao invés do usuário digitar o título da Página, ele 
+                  poderia digitar uma Data qualquer para que fosse calculado a 
+                  contagem regressiva.<BR><BR>O que vem a seguir:<BR><BR>No 
+                  próximo módulo, abordaremos os seguintes itens:<BR><BR>- 
+                  Objeto String;<BR>- Criando e utilizando objetos String;<BR>- 
+                  Propriedades e métodos do Objeto String;<BR>- Criando e 
+                  utilizando Arrays;<BR>- Trabalhando com arrays de string;<BR>- 
+                  Usando strings para criar mensagens que rolam na 
+                  Tela.<BR><BR>Sucesso a todos e até lá!</FONT> </FONT>
+                  <TABLE>
+                    <TBODY>
+                    <TR vAlign=top align=middle>
+                      <TD>
+                        <TABLE cellSpacing=0 cellPadding=3 width="100%" 
+border=0>
+                          <TBODY>
+                          <TR bgColor=#013b60>
+                            <TD bgColor=#000080><FONT face=Verdana 
+                              size=2><B><FONT color=#ffffff>JavaScript - Módulo 
+                              4: Utilizando Objetos String</FONT></B><FONT 
+                              face=Verdana 
+                          color=#ffffff><BR></FONT></FONT></TD></TR></TBODY></TABLE></TD></TR>
+                    <TR>
+                      <TD><FONT face=Verdana size=2><BR><FONT class=tx>Toda 
+                        <B>string</B> no JavaScript é armazenada como um objeto 
+                        String, normalmente não precisamos nos preocupar com 
+                        isso, mas sim aproveitar os recursos que o objeto string 
+                        nos proporciona.<BR>Existem duas maneiras de se criar um 
+                        objeto String. A primeira nós já a utilizamos nos 
+                        módulos anteriores, enquanto a segunda, utiliza a 
+                        sintaxe oficial de objetos:<BR><BR><FONT 
+                        color=#0000ff>Teste = "Isto é apenas um teste";<BR>Teste 
+                        = new String("Isto é apenas um teste");<BR></FONT><BR>As 
+                        duas instruções acima são semelhantes, embora a segunda 
+                        seja a maneira original de se declarar um novo 
+                        objeto.<BR><BR><FONT class=tit>Calculando o Comprimento 
+                        da String</FONT><BR><BR>Em algumas situações, veremos 
+                        que irá ser muito útil sabermos quantos caracteres uma 
+                        variável de string armazena. Podemos obter facilmente 
+                        esta informação, utilizando a propriedade length dos 
+                        objetos String.<BR>Por exemplo, Teste.length refere-se 
+                        ao comprimento da string Teste.<BR>Eis um exemplo dessa 
+                        propriedade:<BR><BR><FONT color=#0000ff>Teste = "Isto é 
+                        um 
+                        teste";<BR>document.write(Teste.length);</FONT><BR><BR><FONT 
+                        class=tit>Convertendo 
+                        Maiúsculas/Minúsculas</FONT><BR><BR>Dois métodos do 
+                        objeto String permitem converter todo o conteúdo de uma 
+                        string em letras maiúsculas ou em letras 
+                        minúsculas:<BR><BR>&nbsp;&nbsp;&nbsp;- toUpperCase() 
+                        Converte todos os caracteres na string em 
+                        letras<BR>&nbsp;&nbsp;&nbsp;&nbsp; 
+                        maiúsculas;<BR>&nbsp;&nbsp;&nbsp;- toLowerCase() 
+                        Converte todos os caracteres na string em 
+                        letras<BR>&nbsp;&nbsp;&nbsp;&nbsp; 
+                        minúsculas.<BR><BR>Por exemplo, a seguinte instrução 
+                        exibe o valor da variável de string Teste em letras 
+                        minúsculas:<BR><BR><FONT 
+                        color=#0000ff>document.write(Teste.toLowerCase());</FONT><BR><BR>Note 
+                        que essa instrução NÃO altera o valor da variável Teste. 
+                        Esses métodos retornam a versão de letras maiúsculas ou 
+                        minúsculas da string, mas eles não alteram a própria 
+                        string. Se quisermos alterar o valor da string, podemos 
+                        fazê-lo da seguinte maneira:<BR><BR><FONT 
+                        color=#0000ff>Teste = 
+                        Teste.toLowerCase();</FONT><BR><BR><FONT 
+                        class=tit>Trabalhando com 
+                        Substrings</FONT><BR><BR>Trabalhamos até aqui, 
+                        utilizando apenas as strings inteiras, mas na maioria 
+                        das vezes também nos é necessário saber o conteúdo de 
+                        partes separadas de uma string, para isso o JavaScript 
+                        nos permite manusear partes de uma string através do 
+                        método substring().<BR>O método substring() retorna uma 
+                        string consistindo em uma parte da string original entre 
+                        dois valores de índice, que devemos especificar entre 
+                        parênteses. Por exemplo, a seguinte instrução exibe o 
+                        quarto, o quinto e o sexto caracteres da string 
+                        Teste:<BR><BR><FONT 
+                        color=#0000ff>document.write(Teste.substring(3,6);</FONT><BR><BR>A 
+                        esse ponto, você provavelmente está se perguntando de 
+                        onde vêm o 3 e o 6. Há três coisas que você precisa 
+                        entender sobre os parâmetros de índice:<BR>- A indexação 
+                        inicia com 0 para o primeiro caractere da string, então 
+                        o quarto caractere é realmente o 3.<BR><BR>- O segundo 
+                        índice é não inclusivo. Um segundo índice de 6 inclui 
+                        até o índice 5 (o sexto caractere).<BR>- Podemos 
+                        especificar os índices em qualquer forma, mas o 
+                        JavaScript assumirá sempre que o índice menor é o 
+                        primeiro índice.<BR><BR>Como outro exemplo, suponhamos 
+                        que temos uma string chamada Alfabeto:<BR><BR><FONT 
+                        color=#0000ff>Alfabeto = 
+                        "ABCDEFGHIJKLMNOPQRTUVWXYZ";</FONT><BR><BR>Os seguintes 
+                        são exemplos do método substring() utilizando essa 
+                        string:<BR><BR>·&nbsp; Alfabeto.substring(0,4) retorna 
+                        ABCD;<BR>·&nbsp; Alfabeto.substring(10,12) retorna 
+                        KL;<BR>·&nbsp; Alfabeto.substring(12,10) também retorna 
+                        KL. Porque é menor 10, é utilizado como o primeiro 
+                        índice;<BR>·&nbsp; Alfabeto.substring(6,7) retorna 
+                        G;<BR>·&nbsp; Alfabeto.substring(24,26) retorna 
+                        YZ;<BR>·&nbsp; Alfabeto.substring(0,26) retorna o 
+                        alfabeto inteiro;<BR>·&nbsp; Alfabeto.substring(6,6) 
+                        retorna o valor nulo, uma string vazia. Isso é 
+                        verdadeiro sempre que os dois valores de índice são os 
+                        mesmos.<BR><BR>Outro método interessante é o 
+                        <B>charAt</B>, que é uma maneira fácil de se pegar um 
+                        único caractere de uma string. Devemos apenas 
+                        especificar o índice do caractere entre parênteses, 
+                        lembrando que o primeiro caractere corresponde ao índice 
+                        0:<BR><BR>·&nbsp;&nbsp; Alfabeto.charAt(0) retorna 
+                        A;<BR>·&nbsp;&nbsp; Alfabeto.charAt(12) retorna 
+                        M;<BR>·&nbsp;&nbsp; Alfabeto.charAt(25) retorna 
+                        Z;<BR>·&nbsp;&nbsp; Alfabeto.charAt(27) retorna uma 
+                        string vazia porque não há nenhum Alfabeto nessa 
+                        posição.<BR><BR>Quanto à localização de substrings 
+                        dentro de uma string, o objeto String ainda possui os 
+                        seguintes métodos:<BR><B>IndexOf </B>- utilizado para 
+                        localizar uma string dentro de outra 
+                        string:<BR><BR><FONT color=#0000ff>Resultado = 
+                        Alfabeto.indexOf("JKL");</FONT><BR><BR>O valor retornado 
+                        na variável Resultado é um índice na string, semelhante 
+                        ao primeiro índice no método substring. O primeiro 
+                        caractere da string tem índice 0.<BR>Podemos ainda 
+                        especificar um índice opcional, a fim de indicarmos um 
+                        ponto de partida dentro da string para que seja iniciada 
+                        a busca. Por exemplo, a instrução abaixo procura a 
+                        palavra "VACA" na string Alfabeto, iniciando com o 11o. 
+                        caractere:<BR><BR><FONT color=#0000ff>Resultado = 
+                        Alfabeto.indexOf("VACA", 10);</FONT><BR><BR>Um outro 
+                        método, o <B>lastIndexOf()</B>, trabalha da mesma 
+                        maneira, só que ele retorna a última ocorrência da 
+                        string. Ele pesquisa a string para trás, iniciando com o 
+                        último caractere:<BR><BR><FONT color=#0000ff>Resultado = 
+                        alfabeto.LastIndexOf("VACA", 10);</FONT><BR><BR><FONT 
+                        class=tit>Arrays Numéricos</FONT><BR><BR>Um 
+                        <B>array</B>, ao contrário de outros tipos de dados no 
+                        JavaScript, deve obrigatoriamente ser declarado antes de 
+                        ser utilizado. A instrução abaixo cria um array com 10 
+                        elementos:<BR><BR><FONT color=#0000ff>Notas = new 
+                        Array(10);</FONT><BR><BR>Para atribuírmos valores a este 
+                        array, utilizamos parênteses e um índice:<BR><BR><FONT 
+                        color=#0000ff>Notas[0] = 7;<BR>Notas[1] = 7;<BR>Notas[2] 
+                        = 3;<BR>Notas[3] = 8;<BR>Notas[4] = 9;<BR>Notas[5] = 
+                        5;<BR>Notas[6] = 6;<BR>Notas[7] = 6;<BR>Notas[8] = 
+                        4;<BR>Notas[9] = 10;</FONT><BR><BR>Assim como as 
+                        strings, os arrays têm a propriedade length, que informa 
+                        o número de elementos no array, normalmente o mesmo 
+                        número que utilizamos ao criar o array.<BR>Podemos ainda 
+                        acessar o valor de array, referenciando apenas o nome e 
+                        o seu índice:<BR><BR><FONT color=#0000ff>MostraNotas = 
+                        "Notas obtidas: " + Notas[0] + "," + Notas[1] + "," + 
+                        Notas[2];<BR>document.write(MostraNotas);</FONT><BR><BR><FONT 
+                        class=tit>Arrays de String</FONT><BR><BR>O método de 
+                        criação e utilização de um array de strings é bem 
+                        semelhante ao de um array numérico:<BR><BR><FONT 
+                        color=#0000ff>Nomes = new Array(3); //aqui o array foi 
+                        criado<BR>Nomes[0] = "José"; //daqui em diante, foi 
+                        atribuído valores<BR>Nomes[1] = "Maria";<BR>Nomes[2] = 
+                        "João";</FONT><BR><BR>Podemos ainda usar os métodos de 
+                        string apresentados mais acima também em um array de 
+                        strings.<BR><BR><FONT class=tit>Dividindo uma 
+                        String</FONT><BR><BR>O JavaScript ainda possui um método 
+                        chamado split, que divide uma string em suas partes 
+                        componentes. Para utilizar esse método, especifique a 
+                        string a dividir juntamente com um caractere para 
+                        dividir as partes:<BR><BR><FONT color=#0000ff>Nome = 
+                        "José Francisco Silva";<BR>Partes = Nome.split(" 
+                        ");</FONT><BR><BR>A instrução acima, cria um novo array 
+                        (Partes), contendo os pedaços da string Nome, como segue 
+                        abaixo:<BR><BR><FONT color=#0000ff>Partes[0] = 
+                        "José";<BR>Partes[1] = "Francisco";<BR>Partes[2] = 
+                        "Silva";</FONT><BR><BR>Podemos ainda fazer a operação 
+                        contrária, ou seja, juntar partes de um array, 
+                        utilizando o método join:<BR><BR><FONT 
+                        color=#0000ff>NomeCompleto = Partes.join(" 
+                        ");</FONT><BR><BR><FONT class=tit>Script: Rolando uma 
+                        mensagem na Barra de Status do 
+                        Navegador</FONT><BR><BR>Agora que já dominamos 
+                        perfeitamente o mundo dos arrays em JavaScript, está na 
+                        hora de começar a colocar tudo isso em prática. Com 
+                        certeza você enquanto navega pela internet, já deve ter 
+                        se deparado em algum site, em que uma mensagem fica 
+                        rolando na barra de status do navegador, pois bem, 
+                        chegou o momento de fazermos a nossa própria 
+                        mensagem.<BR>Vamos começar atribuindo a mensagem a ser 
+                        rolada em uma variável:<BR><BR><FONT 
+                        color=#0000ff>Mensagem = "Ibest.Masters - O melhor 
+                        caminho para um Site de Sucesso!";</FONT><BR><BR>Em 
+                        seguida, criamos também uma outra string, que será usada 
+                        como espécie de um separador da mensagem:<BR><BR><FONT 
+                        color=#0000ff>Espaços = 
+                        "&gt;&gt;&gt;&nbsp;&nbsp;&nbsp;&lt;&lt;&lt;";<BR></FONT><BR>Precisaremos 
+                        também de uma outra variável numérica que irá armazenar 
+                        a posição atual da string, vamos chamá-la de Posição e 
+                        seu valor inicial deverá ser 0:<BR><BR><FONT 
+                        color=#0000ff>Posicao = 0;</FONT><BR><BR>Quem irá fazer 
+                        o trabalho de rolagem na barra de status, será uma 
+                        função que iremos criar, chamada de 
+                        RolaMensagem:<BR><BR><FONT color=#0000ff>function 
+                        RolaMensagem()<BR>{<BR>&nbsp;&nbsp;&nbsp; window.status 
+                        = Mensagem.substring(Posicao, Mensagem.length) + Espaços 
+                        + Mensagem.substring(0, Posicao);<BR>&nbsp;&nbsp;&nbsp; 
+                        Posicao ++;<BR><BR>&nbsp;&nbsp;&nbsp;if (Posicao &gt; 
+                        Mensagem.length) Posicao = 
+                        0;<BR><BR>&nbsp;&nbsp;&nbsp;window.setTimeout("RolaMensagem()", 
+                        200);<BR>}</FONT><BR><BR>Resumindo a função 
+                        RolaMensagem, ela associa o resultado da Mensagem e dos 
+                        Espaços mostrando na barra de status do navegador. 
+                        Devemos ficar atentos que toda vez, esse resultado será 
+                        diferente, já que a variável Posicao vai sendo 
+                        incrementada. E por fim a instrução <B>setTimeout</B> 
+                        que permite configurar uma instrução a ser executada 
+                        depois de uma demora de tempo. O valor é descrito em 
+                        milésimos de segundos.<BR>A seguir, o código completo da 
+                        função RolaMensagem já incluso em um documento de 
+                        HTML:<BR><BR><FONT 
+                        color=#0000ff>&lt;HTML&gt;<BR>&lt;HEAD&gt;&lt;TITLE&gt;Rolando 
+                        uma Mensagem&lt;/TITLE&gt;<BR>&lt;script 
+                        language="JavaScript"&gt;<BR>&lt;!--<BR>Mensagem = 
+                        "Ibest.Masters - O melhor caminho para um Site de 
+                        Sucesso!";<BR>Espacos = "..... .....";<BR>Posicao = 
+                        0;<BR><BR>function 
+                        RolaMensagem()<BR>{<BR>&nbsp;&nbsp;&nbsp; window.status 
+                        = Mensagem.substring(Posicao, Mensagem.length)<BR>+ 
+                        Espacos + Mensagem.substring(0, Posicao); 
+                        &nbsp;&nbsp;&nbsp; Posicao 
+                        ++;<BR><BR>&nbsp;&nbsp;&nbsp;if (Posicao &gt; 
+                        Mensagem.length) Posicao = 0;<BR><BR>&nbsp;&nbsp;&nbsp; 
+                        window.setTimeout("RolaMensagem()", 
+                        200);<BR>}<BR>RolaMensagem();<BR>//--&gt;<BR>&lt;/script&gt;<BR>&lt;/HEAD&gt;<BR><BR>&lt;BODY 
+                        BGCOLOR="#FFFFFF"&gt;<BR>&lt;H1&gt;Exemplo de Rolagem de 
+                        Mensagens na barra de Status do 
+                        Navegador&lt;/H1&gt;<BR>&lt;/BODY&gt;<BR>&lt;/HTML&gt;</FONT>;<BR><BR><FONT 
+                        class=tit>Caminhando Sozinho</FONT><BR><BR>Como 
+                        aprendizado extra, tente fazer com que a função 
+                        RolaMensagem faça jus ao nome, fazendo-a rolar na 
+                        direção 
+                oposta.<BR><BR></FONT></FONT></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></BODY></HTML>

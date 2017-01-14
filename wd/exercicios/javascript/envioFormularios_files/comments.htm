@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0052)http://www.terravista.pt/meiapraia/1004/comments.htm -->
+<HTML><HEAD><TITLE>Enviar comentários</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 6.00.2716.2200" name=GENERATOR></HEAD>
+<BODY bgColor=#ffffff>
+<P><FONT face=Verdana color=#0000a0 size=3><STRONG>Envio de formulários por 
+e-mail<BR></STRONG></FONT><FONT face=Verdana size=2>Preencha este formulário e 
+click em <EM>Enviar</EM> para este ser transmitido via e-mail. Infelizmente esta 
+aplicação só funciona no Netscape 3.0 ou superior. O código para realizar esta 
+aplicação é apresentado no final.</FONT> </P>
+<FORM name=mail onsubmit="return submitForms()" method=get encType=text/plain>
+<DIV align=center>
+<CENTER>
+<TABLE border=0>
+  <TBODY>
+  <TR>
+    <TD><FONT face=Verdana size=2>Nome: </FONT></TD>
+    <TD><FONT face=Arial size=1><INPUT size=30 name=name> </FONT></TD></TR>
+  <TR>
+    <TD><FONT face=Verdana size=2>E-mail : </FONT></TD>
+    <TD><FONT face=Arial size=1><INPUT size=30 name=email> </FONT></TD></TR>
+  <TR>
+    <TD><FONT face=Verdana size=2>Nacionalidade : </FONT></TD>
+    <TD><FONT face=Arial size=1><INPUT size=30 name=country> </FONT></TD></TR>
+  <TR>
+    <TD><FONT face=Verdana size=2>Comentários : </FONT></TD>
+    <TD><FONT face=Arial size=1><TEXTAREA name=comments wrap=yes cols=40></TEXTAREA> </FONT></TD></TR>
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD><FONT face=Arial size=1><INPUT type=submit value=Enviar> <INPUT type=reset value=Apagar> 
+</FONT></TD></TR></TBODY></TABLE></CENTER></DIV></FORM>
+<SCRIPT language=JavaScript><!--
+
+// função que é chamada quando se clica em Enviar
+function submitForms()
+{
+ alert("\nOs seus comentários vão ser enviados.\n\nObrigado!");
+ return true;
+}
+
+
+// a variavel toemail contém o e-mail para onde
+// o formlário é enviado
+//
+function sendform()
+{
+ var toemail="np50fa@mail.telepac.pt";
+ toemail="mailto:" + toemail + "?subject=Comentários";
+ document.mail.action = toemail;
+}
+
+sendform();
+
+// --></SCRIPT>
+
+<DIV align=center>
+<CENTER>
+<TABLE cellPadding=8 border=2>
+  <TBODY>
+  <TR>
+    <TD bgColor=#0080ff><FONT face=Arial 
+      color=#ffff00><STRONG>Código</STRONG></FONT></TD></TR>
+  <TR>
+    <TD><PRE><FONT face=Verdana color=#000000 size=2>&lt;form method="GET" enctype="text/plain" name="mail"
+onsubmit="return submitForms()"&gt;</FONT></PRE><PRE><FONT face=Verdana color=#000000 size=2>&lt;table border="0"&gt;
+&lt;tr&gt;&lt;td&gt;Nome: &lt;/td&gt;
+&lt;td&gt;&lt;input type="text" size="30" name="name"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E-mail : &lt;/td&gt;
+&lt;td&gt;&lt;input type="text" size="30" name="email"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Nacionalidade : &lt;/td&gt;
+&lt;td&gt;&lt;input type="text" size="30" name="country"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Comentários : &lt;/td&gt;
+&lt;td&gt;&lt;textarea name="comments" rows="2" cols="50" wrap="yes"&gt;&lt;/textarea&gt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+&lt;td&gt;&lt;input type="submit" value="Enviar"&gt;
+&lt;input type="reset" value="Apagar"&gt; &lt;/font&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;</FONT></PRE><PRE><FONT face=Verdana color=#000000 size=2>&lt;script language="JavaScript"&gt;&lt;!--</FONT></PRE><PRE><FONT face=Verdana color=#000000 size=2>// função que é chamada quando se clica em Enviar</FONT></PRE><PRE><FONT face=Verdana color=#000000 size=2>function submitForms()
+{
+alert("\nOs seus comentários vão ser enviados.\n\nObrigado!");
+return true;
+}</FONT></PRE><PRE><FONT face=Verdana color=#000000 size=2>// a variavel toemail contém o e-mail para onde
+// o formlário é enviado
+//
+function sendform()
+{
+var toemail=</FONT><A href="mailto:np50fa@mail.telepac.pt"><FONT face=Verdana color=#000000 size=2>"np50fa@mail.telepac.pt"</FONT></A><FONT face=Verdana color=#000000 size=2>;
+toemail="mailto:" + toemail + "?subject=Comentários";
+document.mail.action = toemail;
+}</FONT></PRE><PRE><FONT face=Verdana color=#000000 size=2>sendform();</FONT></PRE><PRE><FONT face=Verdana color=#000000 size=2>// --&gt;&lt;/script&gt;</FONT></PRE></TD></TR></TBODY></TABLE></CENTER></DIV>
+<P align=center><A 
+href="http://www.terravista.pt/meiapraia/1004/frmain.htm"><IMG height=34 
+alt="página principal" src="comments_files/home.gif" width=40 
+border=0></A></P></NOSCRIPT>
+<SCRIPT language=JavaScript>
+if (navigator.appName.indexOf("Netscape")!=-1)
+{
+window.open("http://furacao.terravista.pt/pub/popup.html","Pub","width=480,height=60,resizable=no,scrollbars=no,menubar=no,toolbar=no,directories=no,location=no,status=no");	
+}
+else
+{
+window.open("http://furacao.terravista.pt/pub/popup.html","Pub","width=470,height=60,resizable=no,scrollbars=no,menubar=no,toolbar=no,directories=no,location=no,status=no");
+}
+</SCRIPT>
+</BODY></HTML>

@@ -1,0 +1,2634 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--
+ Generated: Mon Jun 03 13:06:41 EDT 2002 jfouffa.w3.org
+ -->
+<html lang='en-US' xml:lang="en-US" xmlns=
+"http://www.w3.org/1999/xhtml">
+<head>
+<title>ECMAScript Language Binding</title>
+<link rel='stylesheet' type='text/css' href='./spec.css' />
+<link rel='stylesheet' type='text/css' href='W3C-CR.css' />
+<link rel='next' href='acknowledgements.html' />
+<link rel='contents' href='Overview.html#contents' />
+<link rel='copyright' href='copyright-notice.html' />
+<link rel='glossary' href='glossary.html' />
+<link rel='Start' href='Overview.html' />
+<link rel='index' href='def-index.html' />
+<link rel='author' href='mailto:www-dom@w3.org' />
+<link rel='help' href='http://www.w3.org/DOM/' />
+<link rel='prev' href='java-binding.html' />
+</head>
+<body>
+<div class='navbar' align='center'><a accesskey='p' href=
+'java-binding.html'>previous</a> &nbsp; <a accesskey='n' href=
+'acknowledgements.html'>next</a> &nbsp; <a accesskey='c' href=
+'Overview.html#contents'>contents</a> &nbsp; <a accesskey='i' href=
+'def-index.html'>index</a> 
+
+<hr title='Navigation area separator' />
+</div>
+
+<div class='noprint' style='text-align: right'>
+<p style='font-family: monospace;font-size:small'>05 June 2002</p>
+</div>
+
+<div class='div1'><a id="ecma-binding" name='ecma-binding'></a> 
+
+<h1 id='ecma-binding-h1' class='adiv1'>Appendix D: ECMAScript
+Language Binding</h1>
+
+<p>This appendix contains the complete ECMAScript [<a class=
+'noxref normative' href=
+'references.html#ECMAScript'>ECMAScript</a>] binding for the Level
+2 Document Object Model HTML definitions.</p>
+
+<p><b>Note:</b> Exceptions handling is only supported by ECMAScript
+implementation conformant with the Standard ECMA-262 3rd. Edition
+([<a class='noxref normative' href=
+'references.html#ECMAScript'>ECMAScript</a>]).</p>
+
+<div class='ecma-block'>
+<dl>
+<dt>Objects that implement the <b>HTMLDOMImplementation</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt>Objects that implement the <b>HTMLDOMImplementation</b>
+interface have all properties and functions of the
+<b>DOMImplementation</b> interface as well as the properties and
+functions defined below.</dt>
+
+<dt>Functions of objects that implement the
+<b>HTMLDOMImplementation</b> interface:</dt>
+
+<dd>
+<dl>
+<dt><b>createHTMLDocument(title)</b></dt>
+
+<dd>This function returns an object that implements the
+<b>HTMLDocument</b> interface.<br />
+The <b>title</b> parameter is a <b>String</b>.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+
+<dt>Objects that implement the <b>HTMLCollection</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt>Properties of objects that implement the <b>HTMLCollection</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt><b>length</b></dt>
+
+<dd>This read-only property is a <b>Number</b>.</dd>
+</dl>
+</dd>
+
+<dt>Functions of objects that implement the <b>HTMLCollection</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt><b>item(index)</b></dt>
+
+<dd>This function returns an object that implements the <b>Node</b>
+interface.<br />
+The <b>index</b> parameter is a <b>Number</b>.<br />
+<b>Note:</b> This object can also be dereferenced using square
+bracket notation (e.g. obj[1]). Dereferencing with an integer
+<b>index</b> is equivalent to invoking the <b>item</b> function
+with that index.</dd>
+
+<dt><b>namedItem(name)</b></dt>
+
+<dd>This function returns an object that implements the <b>Node</b>
+interface.<br />
+The <b>name</b> parameter is a <b>String</b>.<br />
+<b>Note:</b> This object can also be dereferenced using square
+bracket notation (e.g. obj["foo"]). Dereferencing using a string
+index is equivalent to invoking the <b>namedItem</b> function with
+that index.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+
+<dt>Objects that implement the <b>HTMLOptionsCollection</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt>Properties of objects that implement the
+<b>HTMLOptionsCollection</b> interface:</dt>
+
+<dd>
+<dl>
+<dt><b>length</b></dt>
+
+<dd>This property is a <b>Number</b> and can raise an objewct that
+implements <b>DOMException</b> interface on setting.</dd>
+</dl>
+</dd>
+
+<dt>Functions of objects that implement the
+<b>HTMLOptionsCollection</b> interface:</dt>
+
+<dd>
+<dl>
+<dt><b>item(index)</b></dt>
+
+<dd>This function returns an object that implements the <b>Node</b>
+interface.<br />
+The <b>index</b> parameter is a <b>Number</b>.<br />
+<b>Note:</b> This object can also be dereferenced using square
+bracket notation (e.g. obj[1]). Dereferencing with an integer
+<b>index</b> is equivalent to invoking the <b>item</b> function
+with that index.</dd>
+
+<dt><b>namedItem(name)</b></dt>
+
+<dd>This function returns an object that implements the <b>Node</b>
+interface.<br />
+The <b>name</b> parameter is a <b>String</b>.<br />
+<b>Note:</b> This object can also be dereferenced using square
+bracket notation (e.g. obj["foo"]). Dereferencing using a string
+index is equivalent to invoking the <b>namedItem</b> function with
+that index.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+
+<dt>Objects that implement the <b>HTMLDocument</b> interface:</dt>
+
+<dd>
+<dl>
+<dt>Objects that implement the <b>HTMLDocument</b> interface have
+all properties and functions of the <b>Document</b> interface as
+well as the properties and functions defined below.</dt>
+
+<dt>Properties of objects that implement the <b>HTMLDocument</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt><b>title</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>referrer</b></dt>
+
+<dd>This read-only property is a <b>String</b>.</dd>
+
+<dt><b>domain</b></dt>
+
+<dd>This read-only property is a <b>String</b>.</dd>
+
+<dt><b>URL</b></dt>
+
+<dd>This read-only property is a <b>String</b>.</dd>
+
+<dt><b>body</b></dt>
+
+<dd>This property is an object that implements the
+<b>HTMLElement</b> interface.</dd>
+
+<dt><b>images</b></dt>
+
+<dd>This read-only property is an object that implements the
+<b>HTMLCollection</b> interface.</dd>
+
+<dt><b>applets</b></dt>
+
+<dd>This read-only property is an object that implements the
+<b>HTMLCollection</b> interface.</dd>
+
+<dt><b>links</b></dt>
+
+<dd>This read-only property is an object that implements the
+<b>HTMLCollection</b> interface.</dd>
+
+<dt><b>forms</b></dt>
+
+<dd>This read-only property is an object that implements the
+<b>HTMLCollection</b> interface.</dd>
+
+<dt><b>anchors</b></dt>
+
+<dd>This read-only property is an object that implements the
+<b>HTMLCollection</b> interface.</dd>
+
+<dt><b>cookie</b></dt>
+
+<dd>This property is a <b>String</b> and can raise an objewct that
+implements <b>DOMException</b> interface on setting.</dd>
+</dl>
+</dd>
+
+<dt>Functions of objects that implement the <b>HTMLDocument</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt><b>open()</b></dt>
+
+<dd>This function has no return value.</dd>
+
+<dt><b>close()</b></dt>
+
+<dd>This function has no return value.</dd>
+
+<dt><b>write(text)</b></dt>
+
+<dd>This function has no return value.<br />
+The <b>text</b> parameter is a <b>String</b>.</dd>
+
+<dt><b>writeln(text)</b></dt>
+
+<dd>This function has no return value.<br />
+The <b>text</b> parameter is a <b>String</b>.</dd>
+
+<dt><b>getElementsByName(elementName)</b></dt>
+
+<dd>This function returns an object that implements the
+<b>NodeList</b> interface.<br />
+The <b>elementName</b> parameter is a <b>String</b>.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+
+<dt>Objects that implement the <b>HTMLElement</b> interface:</dt>
+
+<dd>
+<dl>
+<dt>Objects that implement the <b>HTMLElement</b> interface have
+all properties and functions of the <b>Element</b> interface as
+well as the properties and functions defined below.</dt>
+
+<dt>Properties of objects that implement the <b>HTMLElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt><b>id</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>title</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>lang</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>dir</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>className</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+
+<dt>Objects that implement the <b>HTMLHtmlElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt>Objects that implement the <b>HTMLHtmlElement</b> interface
+have all properties and functions of the <b>HTMLElement</b>
+interface as well as the properties and functions defined
+below.</dt>
+
+<dt>Properties of objects that implement the <b>HTMLHtmlElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt><b>version</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+
+<dt>Objects that implement the <b>HTMLHeadElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt>Objects that implement the <b>HTMLHeadElement</b> interface
+have all properties and functions of the <b>HTMLElement</b>
+interface as well as the properties and functions defined
+below.</dt>
+
+<dt>Properties of objects that implement the <b>HTMLHeadElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt><b>profile</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+
+<dt>Objects that implement the <b>HTMLLinkElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt>Objects that implement the <b>HTMLLinkElement</b> interface
+have all properties and functions of the <b>HTMLElement</b>
+interface as well as the properties and functions defined
+below.</dt>
+
+<dt>Properties of objects that implement the <b>HTMLLinkElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt><b>disabled</b></dt>
+
+<dd>This property is a <b>Boolean</b>.</dd>
+
+<dt><b>charset</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>href</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>hreflang</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>media</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>rel</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>rev</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>target</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>type</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+
+<dt>Objects that implement the <b>HTMLTitleElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt>Objects that implement the <b>HTMLTitleElement</b> interface
+have all properties and functions of the <b>HTMLElement</b>
+interface as well as the properties and functions defined
+below.</dt>
+
+<dt>Properties of objects that implement the
+<b>HTMLTitleElement</b> interface:</dt>
+
+<dd>
+<dl>
+<dt><b>text</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+
+<dt>Objects that implement the <b>HTMLMetaElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt>Objects that implement the <b>HTMLMetaElement</b> interface
+have all properties and functions of the <b>HTMLElement</b>
+interface as well as the properties and functions defined
+below.</dt>
+
+<dt>Properties of objects that implement the <b>HTMLMetaElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt><b>content</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>httpEquiv</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>name</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>scheme</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+
+<dt>Objects that implement the <b>HTMLBaseElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt>Objects that implement the <b>HTMLBaseElement</b> interface
+have all properties and functions of the <b>HTMLElement</b>
+interface as well as the properties and functions defined
+below.</dt>
+
+<dt>Properties of objects that implement the <b>HTMLBaseElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt><b>href</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>target</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+
+<dt>Objects that implement the <b>HTMLIsIndexElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt>Objects that implement the <b>HTMLIsIndexElement</b> interface
+have all properties and functions of the <b>HTMLElement</b>
+interface as well as the properties and functions defined
+below.</dt>
+
+<dt>Properties of objects that implement the
+<b>HTMLIsIndexElement</b> interface:</dt>
+
+<dd>
+<dl>
+<dt><b>form</b></dt>
+
+<dd>This read-only property is an object that implements the
+<b>HTMLFormElement</b> interface.</dd>
+
+<dt><b>prompt</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+
+<dt>Objects that implement the <b>HTMLStyleElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt>Objects that implement the <b>HTMLStyleElement</b> interface
+have all properties and functions of the <b>HTMLElement</b>
+interface as well as the properties and functions defined
+below.</dt>
+
+<dt>Properties of objects that implement the
+<b>HTMLStyleElement</b> interface:</dt>
+
+<dd>
+<dl>
+<dt><b>disabled</b></dt>
+
+<dd>This property is a <b>Boolean</b>.</dd>
+
+<dt><b>media</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>type</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+
+<dt>Objects that implement the <b>HTMLBodyElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt>Objects that implement the <b>HTMLBodyElement</b> interface
+have all properties and functions of the <b>HTMLElement</b>
+interface as well as the properties and functions defined
+below.</dt>
+
+<dt>Properties of objects that implement the <b>HTMLBodyElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt><b>aLink</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>background</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>bgColor</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>link</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>text</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>vLink</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+
+<dt>Objects that implement the <b>HTMLFormElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt>Objects that implement the <b>HTMLFormElement</b> interface
+have all properties and functions of the <b>HTMLElement</b>
+interface as well as the properties and functions defined
+below.</dt>
+
+<dt>Properties of objects that implement the <b>HTMLFormElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt><b>elements</b></dt>
+
+<dd>This read-only property is an object that implements the
+<b>HTMLCollection</b> interface.</dd>
+
+<dt><b>length</b></dt>
+
+<dd>This read-only property is a <b>Number</b>.</dd>
+
+<dt><b>name</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>acceptCharset</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>action</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>enctype</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>method</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>target</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+</dl>
+</dd>
+
+<dt>Functions of objects that implement the <b>HTMLFormElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt><b>submit()</b></dt>
+
+<dd>This function has no return value.</dd>
+
+<dt><b>reset()</b></dt>
+
+<dd>This function has no return value.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+
+<dt>Objects that implement the <b>HTMLSelectElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt>Objects that implement the <b>HTMLSelectElement</b> interface
+have all properties and functions of the <b>HTMLElement</b>
+interface as well as the properties and functions defined
+below.</dt>
+
+<dt>Properties of objects that implement the
+<b>HTMLSelectElement</b> interface:</dt>
+
+<dd>
+<dl>
+<dt><b>type</b></dt>
+
+<dd>This read-only property is a <b>String</b>.</dd>
+
+<dt><b>selectedIndex</b></dt>
+
+<dd>This property is a <b>Number</b>.</dd>
+
+<dt><b>value</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>length</b></dt>
+
+<dd>This property is a <b>Number</b> and can raise an objewct that
+implements <b>DOMException</b> interface on setting.</dd>
+
+<dt><b>form</b></dt>
+
+<dd>This read-only property is an object that implements the
+<b>HTMLFormElement</b> interface.</dd>
+
+<dt><b>options</b></dt>
+
+<dd>This read-only property is an object that implements the
+<b>HTMLOptionsCollection</b> interface.</dd>
+
+<dt><b>disabled</b></dt>
+
+<dd>This property is a <b>Boolean</b>.</dd>
+
+<dt><b>multiple</b></dt>
+
+<dd>This property is a <b>Boolean</b>.</dd>
+
+<dt><b>name</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>size</b></dt>
+
+<dd>This property is a <b>Number</b>.</dd>
+
+<dt><b>tabIndex</b></dt>
+
+<dd>This property is a <b>Number</b>.</dd>
+</dl>
+</dd>
+
+<dt>Functions of objects that implement the
+<b>HTMLSelectElement</b> interface:</dt>
+
+<dd>
+<dl>
+<dt><b>add(element, before)</b></dt>
+
+<dd>This function has no return value.<br />
+The <b>element</b> parameter is an object that implements the
+<b>HTMLElement</b> interface.<br />
+The <b>before</b> parameter is an object that implements the
+<b>HTMLElement</b> interface.<br />
+This function can raise an object that implements the
+<b>DOMException</b> interface.</dd>
+
+<dt><b>remove(index)</b></dt>
+
+<dd>This function has no return value.<br />
+The <b>index</b> parameter is a <b>Number</b>.</dd>
+
+<dt><b>blur()</b></dt>
+
+<dd>This function has no return value.</dd>
+
+<dt><b>focus()</b></dt>
+
+<dd>This function has no return value.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+
+<dt>Objects that implement the <b>HTMLOptGroupElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt>Objects that implement the <b>HTMLOptGroupElement</b> interface
+have all properties and functions of the <b>HTMLElement</b>
+interface as well as the properties and functions defined
+below.</dt>
+
+<dt>Properties of objects that implement the
+<b>HTMLOptGroupElement</b> interface:</dt>
+
+<dd>
+<dl>
+<dt><b>disabled</b></dt>
+
+<dd>This property is a <b>Boolean</b>.</dd>
+
+<dt><b>label</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+
+<dt>Objects that implement the <b>HTMLOptionElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt>Objects that implement the <b>HTMLOptionElement</b> interface
+have all properties and functions of the <b>HTMLElement</b>
+interface as well as the properties and functions defined
+below.</dt>
+
+<dt>Properties of objects that implement the
+<b>HTMLOptionElement</b> interface:</dt>
+
+<dd>
+<dl>
+<dt><b>form</b></dt>
+
+<dd>This read-only property is an object that implements the
+<b>HTMLFormElement</b> interface.</dd>
+
+<dt><b>defaultSelected</b></dt>
+
+<dd>This property is a <b>Boolean</b>.</dd>
+
+<dt><b>text</b></dt>
+
+<dd>This read-only property is a <b>String</b>.</dd>
+
+<dt><b>index</b></dt>
+
+<dd>This read-only property is a <b>Number</b>.</dd>
+
+<dt><b>disabled</b></dt>
+
+<dd>This property is a <b>Boolean</b>.</dd>
+
+<dt><b>label</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>selected</b></dt>
+
+<dd>This property is a <b>Boolean</b>.</dd>
+
+<dt><b>value</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+
+<dt>Objects that implement the <b>HTMLInputElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt>Objects that implement the <b>HTMLInputElement</b> interface
+have all properties and functions of the <b>HTMLElement</b>
+interface as well as the properties and functions defined
+below.</dt>
+
+<dt>Properties of objects that implement the
+<b>HTMLInputElement</b> interface:</dt>
+
+<dd>
+<dl>
+<dt><b>defaultValue</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>defaultChecked</b></dt>
+
+<dd>This property is a <b>Boolean</b>.</dd>
+
+<dt><b>form</b></dt>
+
+<dd>This read-only property is an object that implements the
+<b>HTMLFormElement</b> interface.</dd>
+
+<dt><b>accept</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>accessKey</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>align</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>alt</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>checked</b></dt>
+
+<dd>This property is a <b>Boolean</b>.</dd>
+
+<dt><b>disabled</b></dt>
+
+<dd>This property is a <b>Boolean</b>.</dd>
+
+<dt><b>maxLength</b></dt>
+
+<dd>This property is a <b>Number</b>.</dd>
+
+<dt><b>name</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>readOnly</b></dt>
+
+<dd>This property is a <b>Boolean</b>.</dd>
+
+<dt><b>size</b></dt>
+
+<dd>This property is a <b>Number</b>.</dd>
+
+<dt><b>src</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>tabIndex</b></dt>
+
+<dd>This property is a <b>Number</b>.</dd>
+
+<dt><b>type</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>useMap</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>value</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+</dl>
+</dd>
+
+<dt>Functions of objects that implement the <b>HTMLInputElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt><b>blur()</b></dt>
+
+<dd>This function has no return value.</dd>
+
+<dt><b>focus()</b></dt>
+
+<dd>This function has no return value.</dd>
+
+<dt><b>select()</b></dt>
+
+<dd>This function has no return value.</dd>
+
+<dt><b>click()</b></dt>
+
+<dd>This function has no return value.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+
+<dt>Objects that implement the <b>HTMLTextAreaElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt>Objects that implement the <b>HTMLTextAreaElement</b> interface
+have all properties and functions of the <b>HTMLElement</b>
+interface as well as the properties and functions defined
+below.</dt>
+
+<dt>Properties of objects that implement the
+<b>HTMLTextAreaElement</b> interface:</dt>
+
+<dd>
+<dl>
+<dt><b>defaultValue</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>form</b></dt>
+
+<dd>This read-only property is an object that implements the
+<b>HTMLFormElement</b> interface.</dd>
+
+<dt><b>accessKey</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>cols</b></dt>
+
+<dd>This property is a <b>Number</b>.</dd>
+
+<dt><b>disabled</b></dt>
+
+<dd>This property is a <b>Boolean</b>.</dd>
+
+<dt><b>name</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>readOnly</b></dt>
+
+<dd>This property is a <b>Boolean</b>.</dd>
+
+<dt><b>rows</b></dt>
+
+<dd>This property is a <b>Number</b>.</dd>
+
+<dt><b>tabIndex</b></dt>
+
+<dd>This property is a <b>Number</b>.</dd>
+
+<dt><b>type</b></dt>
+
+<dd>This read-only property is a <b>String</b>.</dd>
+
+<dt><b>value</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+</dl>
+</dd>
+
+<dt>Functions of objects that implement the
+<b>HTMLTextAreaElement</b> interface:</dt>
+
+<dd>
+<dl>
+<dt><b>blur()</b></dt>
+
+<dd>This function has no return value.</dd>
+
+<dt><b>focus()</b></dt>
+
+<dd>This function has no return value.</dd>
+
+<dt><b>select()</b></dt>
+
+<dd>This function has no return value.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+
+<dt>Objects that implement the <b>HTMLButtonElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt>Objects that implement the <b>HTMLButtonElement</b> interface
+have all properties and functions of the <b>HTMLElement</b>
+interface as well as the properties and functions defined
+below.</dt>
+
+<dt>Properties of objects that implement the
+<b>HTMLButtonElement</b> interface:</dt>
+
+<dd>
+<dl>
+<dt><b>form</b></dt>
+
+<dd>This read-only property is an object that implements the
+<b>HTMLFormElement</b> interface.</dd>
+
+<dt><b>accessKey</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>disabled</b></dt>
+
+<dd>This property is a <b>Boolean</b>.</dd>
+
+<dt><b>name</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>tabIndex</b></dt>
+
+<dd>This property is a <b>Number</b>.</dd>
+
+<dt><b>type</b></dt>
+
+<dd>This read-only property is a <b>String</b>.</dd>
+
+<dt><b>value</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+
+<dt>Objects that implement the <b>HTMLLabelElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt>Objects that implement the <b>HTMLLabelElement</b> interface
+have all properties and functions of the <b>HTMLElement</b>
+interface as well as the properties and functions defined
+below.</dt>
+
+<dt>Properties of objects that implement the
+<b>HTMLLabelElement</b> interface:</dt>
+
+<dd>
+<dl>
+<dt><b>form</b></dt>
+
+<dd>This read-only property is an object that implements the
+<b>HTMLFormElement</b> interface.</dd>
+
+<dt><b>accessKey</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>htmlFor</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+
+<dt>Objects that implement the <b>HTMLFieldSetElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt>Objects that implement the <b>HTMLFieldSetElement</b> interface
+have all properties and functions of the <b>HTMLElement</b>
+interface as well as the properties and functions defined
+below.</dt>
+
+<dt>Properties of objects that implement the
+<b>HTMLFieldSetElement</b> interface:</dt>
+
+<dd>
+<dl>
+<dt><b>form</b></dt>
+
+<dd>This read-only property is an object that implements the
+<b>HTMLFormElement</b> interface.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+
+<dt>Objects that implement the <b>HTMLLegendElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt>Objects that implement the <b>HTMLLegendElement</b> interface
+have all properties and functions of the <b>HTMLElement</b>
+interface as well as the properties and functions defined
+below.</dt>
+
+<dt>Properties of objects that implement the
+<b>HTMLLegendElement</b> interface:</dt>
+
+<dd>
+<dl>
+<dt><b>form</b></dt>
+
+<dd>This read-only property is an object that implements the
+<b>HTMLFormElement</b> interface.</dd>
+
+<dt><b>accessKey</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>align</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+
+<dt>Objects that implement the <b>HTMLUListElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt>Objects that implement the <b>HTMLUListElement</b> interface
+have all properties and functions of the <b>HTMLElement</b>
+interface as well as the properties and functions defined
+below.</dt>
+
+<dt>Properties of objects that implement the
+<b>HTMLUListElement</b> interface:</dt>
+
+<dd>
+<dl>
+<dt><b>compact</b></dt>
+
+<dd>This property is a <b>Boolean</b>.</dd>
+
+<dt><b>type</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+
+<dt>Objects that implement the <b>HTMLOListElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt>Objects that implement the <b>HTMLOListElement</b> interface
+have all properties and functions of the <b>HTMLElement</b>
+interface as well as the properties and functions defined
+below.</dt>
+
+<dt>Properties of objects that implement the
+<b>HTMLOListElement</b> interface:</dt>
+
+<dd>
+<dl>
+<dt><b>compact</b></dt>
+
+<dd>This property is a <b>Boolean</b>.</dd>
+
+<dt><b>start</b></dt>
+
+<dd>This property is a <b>Number</b>.</dd>
+
+<dt><b>type</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+
+<dt>Objects that implement the <b>HTMLDListElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt>Objects that implement the <b>HTMLDListElement</b> interface
+have all properties and functions of the <b>HTMLElement</b>
+interface as well as the properties and functions defined
+below.</dt>
+
+<dt>Properties of objects that implement the
+<b>HTMLDListElement</b> interface:</dt>
+
+<dd>
+<dl>
+<dt><b>compact</b></dt>
+
+<dd>This property is a <b>Boolean</b>.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+
+<dt>Objects that implement the <b>HTMLDirectoryElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt>Objects that implement the <b>HTMLDirectoryElement</b>
+interface have all properties and functions of the
+<b>HTMLElement</b> interface as well as the properties and
+functions defined below.</dt>
+
+<dt>Properties of objects that implement the
+<b>HTMLDirectoryElement</b> interface:</dt>
+
+<dd>
+<dl>
+<dt><b>compact</b></dt>
+
+<dd>This property is a <b>Boolean</b>.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+
+<dt>Objects that implement the <b>HTMLMenuElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt>Objects that implement the <b>HTMLMenuElement</b> interface
+have all properties and functions of the <b>HTMLElement</b>
+interface as well as the properties and functions defined
+below.</dt>
+
+<dt>Properties of objects that implement the <b>HTMLMenuElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt><b>compact</b></dt>
+
+<dd>This property is a <b>Boolean</b>.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+
+<dt>Objects that implement the <b>HTMLLIElement</b> interface:</dt>
+
+<dd>
+<dl>
+<dt>Objects that implement the <b>HTMLLIElement</b> interface have
+all properties and functions of the <b>HTMLElement</b> interface as
+well as the properties and functions defined below.</dt>
+
+<dt>Properties of objects that implement the <b>HTMLLIElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt><b>type</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>value</b></dt>
+
+<dd>This property is a <b>Number</b>.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+
+<dt>Objects that implement the <b>HTMLDivElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt>Objects that implement the <b>HTMLDivElement</b> interface have
+all properties and functions of the <b>HTMLElement</b> interface as
+well as the properties and functions defined below.</dt>
+
+<dt>Properties of objects that implement the <b>HTMLDivElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt><b>align</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+
+<dt>Objects that implement the <b>HTMLParagraphElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt>Objects that implement the <b>HTMLParagraphElement</b>
+interface have all properties and functions of the
+<b>HTMLElement</b> interface as well as the properties and
+functions defined below.</dt>
+
+<dt>Properties of objects that implement the
+<b>HTMLParagraphElement</b> interface:</dt>
+
+<dd>
+<dl>
+<dt><b>align</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+
+<dt>Objects that implement the <b>HTMLHeadingElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt>Objects that implement the <b>HTMLHeadingElement</b> interface
+have all properties and functions of the <b>HTMLElement</b>
+interface as well as the properties and functions defined
+below.</dt>
+
+<dt>Properties of objects that implement the
+<b>HTMLHeadingElement</b> interface:</dt>
+
+<dd>
+<dl>
+<dt><b>align</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+
+<dt>Objects that implement the <b>HTMLQuoteElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt>Objects that implement the <b>HTMLQuoteElement</b> interface
+have all properties and functions of the <b>HTMLElement</b>
+interface as well as the properties and functions defined
+below.</dt>
+
+<dt>Properties of objects that implement the
+<b>HTMLQuoteElement</b> interface:</dt>
+
+<dd>
+<dl>
+<dt><b>cite</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+
+<dt>Objects that implement the <b>HTMLPreElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt>Objects that implement the <b>HTMLPreElement</b> interface have
+all properties and functions of the <b>HTMLElement</b> interface as
+well as the properties and functions defined below.</dt>
+
+<dt>Properties of objects that implement the <b>HTMLPreElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt><b>width</b></dt>
+
+<dd>This property is a <b>Number</b>.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+
+<dt>Objects that implement the <b>HTMLBRElement</b> interface:</dt>
+
+<dd>
+<dl>
+<dt>Objects that implement the <b>HTMLBRElement</b> interface have
+all properties and functions of the <b>HTMLElement</b> interface as
+well as the properties and functions defined below.</dt>
+
+<dt>Properties of objects that implement the <b>HTMLBRElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt><b>clear</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+
+<dt>Objects that implement the <b>HTMLBaseFontElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt>Objects that implement the <b>HTMLBaseFontElement</b> interface
+have all properties and functions of the <b>HTMLElement</b>
+interface as well as the properties and functions defined
+below.</dt>
+
+<dt>Properties of objects that implement the
+<b>HTMLBaseFontElement</b> interface:</dt>
+
+<dd>
+<dl>
+<dt><b>color</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>face</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>size</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+
+<dt>Objects that implement the <b>HTMLFontElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt>Objects that implement the <b>HTMLFontElement</b> interface
+have all properties and functions of the <b>HTMLElement</b>
+interface as well as the properties and functions defined
+below.</dt>
+
+<dt>Properties of objects that implement the <b>HTMLFontElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt><b>color</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>face</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>size</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+
+<dt>Objects that implement the <b>HTMLHRElement</b> interface:</dt>
+
+<dd>
+<dl>
+<dt>Objects that implement the <b>HTMLHRElement</b> interface have
+all properties and functions of the <b>HTMLElement</b> interface as
+well as the properties and functions defined below.</dt>
+
+<dt>Properties of objects that implement the <b>HTMLHRElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt><b>align</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>noShade</b></dt>
+
+<dd>This property is a <b>Boolean</b>.</dd>
+
+<dt><b>size</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>width</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+
+<dt>Objects that implement the <b>HTMLModElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt>Objects that implement the <b>HTMLModElement</b> interface have
+all properties and functions of the <b>HTMLElement</b> interface as
+well as the properties and functions defined below.</dt>
+
+<dt>Properties of objects that implement the <b>HTMLModElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt><b>cite</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>dateTime</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+
+<dt>Objects that implement the <b>HTMLAnchorElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt>Objects that implement the <b>HTMLAnchorElement</b> interface
+have all properties and functions of the <b>HTMLElement</b>
+interface as well as the properties and functions defined
+below.</dt>
+
+<dt>Properties of objects that implement the
+<b>HTMLAnchorElement</b> interface:</dt>
+
+<dd>
+<dl>
+<dt><b>accessKey</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>charset</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>coords</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>href</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>hreflang</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>name</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>rel</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>rev</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>shape</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>tabIndex</b></dt>
+
+<dd>This property is a <b>Number</b>.</dd>
+
+<dt><b>target</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>type</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+</dl>
+</dd>
+
+<dt>Functions of objects that implement the
+<b>HTMLAnchorElement</b> interface:</dt>
+
+<dd>
+<dl>
+<dt><b>blur()</b></dt>
+
+<dd>This function has no return value.</dd>
+
+<dt><b>focus()</b></dt>
+
+<dd>This function has no return value.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+
+<dt>Objects that implement the <b>HTMLImageElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt>Objects that implement the <b>HTMLImageElement</b> interface
+have all properties and functions of the <b>HTMLElement</b>
+interface as well as the properties and functions defined
+below.</dt>
+
+<dt>Properties of objects that implement the
+<b>HTMLImageElement</b> interface:</dt>
+
+<dd>
+<dl>
+<dt><b>name</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>align</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>alt</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>border</b></dt>
+
+<dd>This property is a <b>Number</b>.</dd>
+
+<dt><b>height</b></dt>
+
+<dd>This property is a <b>Number</b>.</dd>
+
+<dt><b>hspace</b></dt>
+
+<dd>This property is a <b>Number</b>.</dd>
+
+<dt><b>isMap</b></dt>
+
+<dd>This property is a <b>Boolean</b>.</dd>
+
+<dt><b>longDesc</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>src</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>useMap</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>vspace</b></dt>
+
+<dd>This property is a <b>Number</b>.</dd>
+
+<dt><b>width</b></dt>
+
+<dd>This property is a <b>Number</b>.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+
+<dt>Objects that implement the <b>HTMLObjectElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt>Objects that implement the <b>HTMLObjectElement</b> interface
+have all properties and functions of the <b>HTMLElement</b>
+interface as well as the properties and functions defined
+below.</dt>
+
+<dt>Properties of objects that implement the
+<b>HTMLObjectElement</b> interface:</dt>
+
+<dd>
+<dl>
+<dt><b>code</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>align</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>archive</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>border</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>codeBase</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>codeType</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>data</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>declare</b></dt>
+
+<dd>This property is a <b>Boolean</b>.</dd>
+
+<dt><b>height</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>hspace</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>name</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>standby</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>tabIndex</b></dt>
+
+<dd>This property is a <b>Number</b>.</dd>
+
+<dt><b>type</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>useMap</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>vspace</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>width</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>contentDocument</b></dt>
+
+<dd>This read-only property is an object that implements the
+<b>Document</b> interface.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+
+<dt>Objects that implement the <b>HTMLParamElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt>Objects that implement the <b>HTMLParamElement</b> interface
+have all properties and functions of the <b>HTMLElement</b>
+interface as well as the properties and functions defined
+below.</dt>
+
+<dt>Properties of objects that implement the
+<b>HTMLParamElement</b> interface:</dt>
+
+<dd>
+<dl>
+<dt><b>name</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>type</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>value</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>valueType</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+
+<dt>Objects that implement the <b>HTMLAppletElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt>Objects that implement the <b>HTMLAppletElement</b> interface
+have all properties and functions of the <b>HTMLElement</b>
+interface as well as the properties and functions defined
+below.</dt>
+
+<dt>Properties of objects that implement the
+<b>HTMLAppletElement</b> interface:</dt>
+
+<dd>
+<dl>
+<dt><b>align</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>alt</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>archive</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>code</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>codeBase</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>height</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>hspace</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>name</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>object</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>vspace</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>width</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+
+<dt>Objects that implement the <b>HTMLMapElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt>Objects that implement the <b>HTMLMapElement</b> interface have
+all properties and functions of the <b>HTMLElement</b> interface as
+well as the properties and functions defined below.</dt>
+
+<dt>Properties of objects that implement the <b>HTMLMapElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt><b>areas</b></dt>
+
+<dd>This read-only property is an object that implements the
+<b>HTMLCollection</b> interface.</dd>
+
+<dt><b>name</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+
+<dt>Objects that implement the <b>HTMLAreaElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt>Objects that implement the <b>HTMLAreaElement</b> interface
+have all properties and functions of the <b>HTMLElement</b>
+interface as well as the properties and functions defined
+below.</dt>
+
+<dt>Properties of objects that implement the <b>HTMLAreaElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt><b>accessKey</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>alt</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>coords</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>href</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>noHref</b></dt>
+
+<dd>This property is a <b>Boolean</b>.</dd>
+
+<dt><b>shape</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>tabIndex</b></dt>
+
+<dd>This property is a <b>Number</b>.</dd>
+
+<dt><b>target</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+
+<dt>Objects that implement the <b>HTMLScriptElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt>Objects that implement the <b>HTMLScriptElement</b> interface
+have all properties and functions of the <b>HTMLElement</b>
+interface as well as the properties and functions defined
+below.</dt>
+
+<dt>Properties of objects that implement the
+<b>HTMLScriptElement</b> interface:</dt>
+
+<dd>
+<dl>
+<dt><b>text</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>htmlFor</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>event</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>charset</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>defer</b></dt>
+
+<dd>This property is a <b>Boolean</b>.</dd>
+
+<dt><b>src</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>type</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+
+<dt>Objects that implement the <b>HTMLTableElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt>Objects that implement the <b>HTMLTableElement</b> interface
+have all properties and functions of the <b>HTMLElement</b>
+interface as well as the properties and functions defined
+below.</dt>
+
+<dt>Properties of objects that implement the
+<b>HTMLTableElement</b> interface:</dt>
+
+<dd>
+<dl>
+<dt><b>caption</b></dt>
+
+<dd>This property is an object that implements the
+<b>HTMLTableCaptionElement</b> interface and can raise an objewct
+that implements <b>DOMException</b> interface on setting.</dd>
+
+<dt><b>tHead</b></dt>
+
+<dd>This property is an object that implements the
+<b>HTMLTableSectionElement</b> interface and can raise an objewct
+that implements <b>DOMException</b> interface on setting.</dd>
+
+<dt><b>tFoot</b></dt>
+
+<dd>This property is an object that implements the
+<b>HTMLTableSectionElement</b> interface and can raise an objewct
+that implements <b>DOMException</b> interface on setting.</dd>
+
+<dt><b>rows</b></dt>
+
+<dd>This read-only property is an object that implements the
+<b>HTMLCollection</b> interface.</dd>
+
+<dt><b>tBodies</b></dt>
+
+<dd>This read-only property is an object that implements the
+<b>HTMLCollection</b> interface.</dd>
+
+<dt><b>align</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>bgColor</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>border</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>cellPadding</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>cellSpacing</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>frame</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>rules</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>summary</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>width</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+</dl>
+</dd>
+
+<dt>Functions of objects that implement the <b>HTMLTableElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt><b>createTHead()</b></dt>
+
+<dd>This function returns an object that implements the
+<b>HTMLElement</b> interface.</dd>
+
+<dt><b>deleteTHead()</b></dt>
+
+<dd>This function has no return value.</dd>
+
+<dt><b>createTFoot()</b></dt>
+
+<dd>This function returns an object that implements the
+<b>HTMLElement</b> interface.</dd>
+
+<dt><b>deleteTFoot()</b></dt>
+
+<dd>This function has no return value.</dd>
+
+<dt><b>createCaption()</b></dt>
+
+<dd>This function returns an object that implements the
+<b>HTMLElement</b> interface.</dd>
+
+<dt><b>deleteCaption()</b></dt>
+
+<dd>This function has no return value.</dd>
+
+<dt><b>insertRow(index)</b></dt>
+
+<dd>This function returns an object that implements the
+<b>HTMLElement</b> interface.<br />
+The <b>index</b> parameter is a <b>Number</b>.<br />
+This function can raise an object that implements the
+<b>DOMException</b> interface.</dd>
+
+<dt><b>deleteRow(index)</b></dt>
+
+<dd>This function has no return value.<br />
+The <b>index</b> parameter is a <b>Number</b>.<br />
+This function can raise an object that implements the
+<b>DOMException</b> interface.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+
+<dt>Objects that implement the <b>HTMLTableCaptionElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt>Objects that implement the <b>HTMLTableCaptionElement</b>
+interface have all properties and functions of the
+<b>HTMLElement</b> interface as well as the properties and
+functions defined below.</dt>
+
+<dt>Properties of objects that implement the
+<b>HTMLTableCaptionElement</b> interface:</dt>
+
+<dd>
+<dl>
+<dt><b>align</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+
+<dt>Objects that implement the <b>HTMLTableColElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt>Objects that implement the <b>HTMLTableColElement</b> interface
+have all properties and functions of the <b>HTMLElement</b>
+interface as well as the properties and functions defined
+below.</dt>
+
+<dt>Properties of objects that implement the
+<b>HTMLTableColElement</b> interface:</dt>
+
+<dd>
+<dl>
+<dt><b>align</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>ch</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>chOff</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>span</b></dt>
+
+<dd>This property is a <b>Number</b>.</dd>
+
+<dt><b>vAlign</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>width</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+
+<dt>Objects that implement the <b>HTMLTableSectionElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt>Objects that implement the <b>HTMLTableSectionElement</b>
+interface have all properties and functions of the
+<b>HTMLElement</b> interface as well as the properties and
+functions defined below.</dt>
+
+<dt>Properties of objects that implement the
+<b>HTMLTableSectionElement</b> interface:</dt>
+
+<dd>
+<dl>
+<dt><b>align</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>ch</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>chOff</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>vAlign</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>rows</b></dt>
+
+<dd>This read-only property is an object that implements the
+<b>HTMLCollection</b> interface.</dd>
+</dl>
+</dd>
+
+<dt>Functions of objects that implement the
+<b>HTMLTableSectionElement</b> interface:</dt>
+
+<dd>
+<dl>
+<dt><b>insertRow(index)</b></dt>
+
+<dd>This function returns an object that implements the
+<b>HTMLElement</b> interface.<br />
+The <b>index</b> parameter is a <b>Number</b>.<br />
+This function can raise an object that implements the
+<b>DOMException</b> interface.</dd>
+
+<dt><b>deleteRow(index)</b></dt>
+
+<dd>This function has no return value.<br />
+The <b>index</b> parameter is a <b>Number</b>.<br />
+This function can raise an object that implements the
+<b>DOMException</b> interface.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+
+<dt>Objects that implement the <b>HTMLTableRowElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt>Objects that implement the <b>HTMLTableRowElement</b> interface
+have all properties and functions of the <b>HTMLElement</b>
+interface as well as the properties and functions defined
+below.</dt>
+
+<dt>Properties of objects that implement the
+<b>HTMLTableRowElement</b> interface:</dt>
+
+<dd>
+<dl>
+<dt><b>rowIndex</b></dt>
+
+<dd>This read-only property is a <b>Number</b>.</dd>
+
+<dt><b>sectionRowIndex</b></dt>
+
+<dd>This read-only property is a <b>Number</b>.</dd>
+
+<dt><b>cells</b></dt>
+
+<dd>This read-only property is an object that implements the
+<b>HTMLCollection</b> interface.</dd>
+
+<dt><b>align</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>bgColor</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>ch</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>chOff</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>vAlign</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+</dl>
+</dd>
+
+<dt>Functions of objects that implement the
+<b>HTMLTableRowElement</b> interface:</dt>
+
+<dd>
+<dl>
+<dt><b>insertCell(index)</b></dt>
+
+<dd>This function returns an object that implements the
+<b>HTMLElement</b> interface.<br />
+The <b>index</b> parameter is a <b>Number</b>.<br />
+This function can raise an object that implements the
+<b>DOMException</b> interface.</dd>
+
+<dt><b>deleteCell(index)</b></dt>
+
+<dd>This function has no return value.<br />
+The <b>index</b> parameter is a <b>Number</b>.<br />
+This function can raise an object that implements the
+<b>DOMException</b> interface.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+
+<dt>Objects that implement the <b>HTMLTableCellElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt>Objects that implement the <b>HTMLTableCellElement</b>
+interface have all properties and functions of the
+<b>HTMLElement</b> interface as well as the properties and
+functions defined below.</dt>
+
+<dt>Properties of objects that implement the
+<b>HTMLTableCellElement</b> interface:</dt>
+
+<dd>
+<dl>
+<dt><b>cellIndex</b></dt>
+
+<dd>This read-only property is a <b>Number</b>.</dd>
+
+<dt><b>abbr</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>align</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>axis</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>bgColor</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>ch</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>chOff</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>colSpan</b></dt>
+
+<dd>This property is a <b>Number</b>.</dd>
+
+<dt><b>headers</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>height</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>noWrap</b></dt>
+
+<dd>This property is a <b>Boolean</b>.</dd>
+
+<dt><b>rowSpan</b></dt>
+
+<dd>This property is a <b>Number</b>.</dd>
+
+<dt><b>scope</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>vAlign</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>width</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+
+<dt>Objects that implement the <b>HTMLFrameSetElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt>Objects that implement the <b>HTMLFrameSetElement</b> interface
+have all properties and functions of the <b>HTMLElement</b>
+interface as well as the properties and functions defined
+below.</dt>
+
+<dt>Properties of objects that implement the
+<b>HTMLFrameSetElement</b> interface:</dt>
+
+<dd>
+<dl>
+<dt><b>cols</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>rows</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+
+<dt>Objects that implement the <b>HTMLFrameElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt>Objects that implement the <b>HTMLFrameElement</b> interface
+have all properties and functions of the <b>HTMLElement</b>
+interface as well as the properties and functions defined
+below.</dt>
+
+<dt>Properties of objects that implement the
+<b>HTMLFrameElement</b> interface:</dt>
+
+<dd>
+<dl>
+<dt><b>frameBorder</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>longDesc</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>marginHeight</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>marginWidth</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>name</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>noResize</b></dt>
+
+<dd>This property is a <b>Boolean</b>.</dd>
+
+<dt><b>scrolling</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>src</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>contentDocument</b></dt>
+
+<dd>This read-only property is an object that implements the
+<b>Document</b> interface.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+
+<dt>Objects that implement the <b>HTMLIFrameElement</b>
+interface:</dt>
+
+<dd>
+<dl>
+<dt>Objects that implement the <b>HTMLIFrameElement</b> interface
+have all properties and functions of the <b>HTMLElement</b>
+interface as well as the properties and functions defined
+below.</dt>
+
+<dt>Properties of objects that implement the
+<b>HTMLIFrameElement</b> interface:</dt>
+
+<dd>
+<dl>
+<dt><b>align</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>frameBorder</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>height</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>longDesc</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>marginHeight</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>marginWidth</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>name</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>scrolling</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>src</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>width</b></dt>
+
+<dd>This property is a <b>String</b>.</dd>
+
+<dt><b>contentDocument</b></dt>
+
+<dd>This read-only property is an object that implements the
+<b>Document</b> interface.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</div>
+
+<!-- ecma-block -->
+<p>HTMLAnchorElement objects in <code>String</code> expressions are
+evaluated as <a href=
+'html.html#ID-88517319'><code>HTMLAnchorElement.href</code></a>.
+For example:</p>
+
+<div class='code-block'>
+<pre>
+     alert(" The absolute URI is " + myAnchorElement);
+ 
+</pre>
+</div>
+
+<p>is equivalent to</p>
+
+<div class='code-block'>
+<pre>
+     alert(" The absolute URI is " + myAnchorElement.href);
+ 
+</pre>
+</div>
+</div>
+
+<!-- div1 ecma-binding -->
+<div class='navbar' align='center'>
+<hr title='Navigation area separator' />
+<a accesskey='p' href='java-binding.html'>previous</a> &nbsp; <a
+accesskey='n' href='acknowledgements.html'>next</a> &nbsp; <a
+accesskey='c' href='Overview.html#contents'>contents</a> &nbsp; <a
+accesskey='i' href='def-index.html'>index</a></div>
+</body>
+</html>
+

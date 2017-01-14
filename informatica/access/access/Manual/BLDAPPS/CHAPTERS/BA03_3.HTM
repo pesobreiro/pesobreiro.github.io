@@ -1,0 +1,367 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>Using Pop-up Forms and Dialog Boxes</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba03_2.htm" OnClick="SyncURL(&quot;chapters/ba03_2.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<a NAME="3UsingPopupFormsandDialogBoxes"></a>
+<p CLASS="heading3OrgHeading1h1">Using Pop-up Forms and Dialog Boxes</p>
+<p CLASS="Textttext">You can use pop-up forms and dialog boxes in your application to:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspDisplay information to the user.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspPrompt the user for data needed by the application to continue.</p>
+<p CLASS="Textttext">A pop-up form stays on top of other open forms, even when another form is active. For example, the property sheet in form Design view is a pop-up form. Another example of a pop-up form is the ProductsPopup form in the Orders sample application, which is discussed earlier in this chapter.</p>
+<p CLASS="Arta"><img SRC="..\images\ABAC0305.jpg"></p>
+<p CLASS="Textttext">The ProductsPopup form is <span CLASS="NewTermntrm">modeless</span>, which means you can access other objects and menu commands in Microsoft Access while the form is open and make them active. In contrast, a <span CLASS="NewTermntrm">modal</span> pop-up form prevents you from accessing other Microsoft Access objects or menu commands until you close or hide the form. Use a modeless pop-up form when you want the user to be able to shift the focus between the pop-up form and other elements of the user interface without having to close the pop-up form. For example, use a modeless pop-up form if you want to be able to view information on the pop-up form while accessing menu commands and toolbar buttons.
+<p CLASS="Textttext">A familiar example of a modal pop-up form is a dialog box. For example, the PrintInvoiceDialog form is a dialog box in the Orders sample application that prompts the user to specify an order invoice to print.</p>
+<p CLASS="Arta"><img SRC="..\images\ABAC0306.jpg"></p>
+<p CLASS="Textttext">Use a dialog box (a modal pop-up form) when you want the user to close the dialog box or respond to its message before proceeding, such as when you collect information your application needs to complete an operation.</p>
+<p CLASS="heading9ListProcedureHeadinglproch"><span CLASS="ProcedureIconproci"><img SRC="../images/bluetri.jpg" ALIGN="LEFT" WIDTH="9" HEIGHT="17">&nbsp;&nbsp;&nbsp;</span>To create a modeless pop-up form</p>
+<p CLASS="ListProcedureSingleItemlprocs"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspCreate the form and set its <span CLASS="ElementNameeln">PopUp</span> property to Yes (the default setting of the <span CLASS="ElementNameeln">Modal</span> property is No).</p>
+<p CLASS="heading9ListProcedureHeadinglproch"><span CLASS="ProcedureIconproci"><img SRC="../images/bluetri.jpg" ALIGN="LEFT" WIDTH="9" HEIGHT="17">&nbsp;&nbsp;&nbsp;</span>To create a modal pop-up form (such as a dialog box)</p>
+<p CLASS="ListProcedureSingleItemlprocs"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspCreate the form and set its <span CLASS="ElementNameeln">PopUp</span> and <span CLASS="ElementNameeln">Modal</span> properties to Yes.</p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>You use the <span CLASS="ElementNameeln">BorderStyle</span> property to set the style of the border for a pop-up form or dialog box. To display a dialog box with a typical thick border that has no <span CLASS="ElementNameeln">Minimize</span> and <span CLASS="ElementNameeln">Maximize</span> buttons, set the <span CLASS="ElementNameeln">BorderStyle</span> property to Dialog. For more information on the different border styles you can use, search the Help index for &quot;BorderStyle property.&quot; For information on the interaction between the <span CLASS="ElementNameeln">BorderStyle</span>, <span CLASS="ElementNameeln">MinMaxButtons</span>, and <span CLASS="ElementNameeln">ControlBox</span> properties when creating pop-up forms and dialog boxes, search the Help index for &quot;pop-up forms.&quot;</p>
+<p CLASS="Textttext">You can also open any form as a dialog box by setting the <span CLASS="NewTermntrm">windowmode</span> argument of the <span CLASS="ElementNameeln">OpenForm</span> method to <span CLASS="ElementNameeln">acDialog</span> (or in a macro, by setting the Window Mode argument of the OpenForm action to Dialog). The following line of code opens a dialog box named FilterDialog:</p>
+<p CLASS="CodeTextct">DoCmd.OpenForm &quot;FilterDialog&quot;, windowmode:=acDialog</p>
+<p CLASS="Textttext">When you use this technique, Microsoft Access suspends execution of the code or macro until the dialog box form is hidden or closed.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on the <span CLASS="NewTermntrm">windowmode</span> argument of the <span CLASS="ElementNameeln">OpenForm</span> method or action, search the Help index for &quot;OpenForm method&quot; or &quot;OpenForm action.&quot;
+<p CLASS="TipIcontpi"></p>
+<p CLASS="TipTexttpt"><span CLASS="TipHeadingtph">Tip&nbsp;&nbsp;&nbsp;</span>If you simply want to display a short message to the user or prompt the user for short text input, the easiest approach is to use a message box or input box instead of a pop-up form. For more information on displaying a message in a message box, see <a HREF="../chapters/ba03_3.htm#4UsingaMessageBoxtoDisplayaMessage" OnClick="SyncURL(&quot;chapters/ba03_3.htm&quot;)">&quot;Using a Message Box to Display a Message&quot;</a> later in this chapter. For more information on displaying an input box to prompt the user for text input, search the Help index for &quot;InputBox function.&quot;
+<p CLASS="heading6OrgHeading4h4"><img SRC="../images/example.gif" WIDTH="73" HEIGHT="21"><!--example space-->&nbsp;&nbsp;<a NAME="XCreatingaPopupFormtoDisplayDetailsAboutanIteminaSubform"></a>Creating a Pop-up Form to Display Details About an Item in a Subform</p>
+<p CLASS="Textttext">The Orders form in the Orders sample application includes a command button named Details that opens a form showing details about the current product in the subform. </p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For information on creating the Details command button, see the example <a HREF="../chapters/ba03_1.htm#XCustomizingaCommandButtonThatOpensaForm" OnClick="SyncURL(&quot;chapters/ba03_1.htm&quot;)">&quot;Customizing a Command Button That Opens a Form&quot;</a> earlier in this chapter.</p>
+<p CLASS="Textttext">Because you want users to be able to continue filling out an order while answering customers' questions about the product, you need the form opened by the Details button to stay on top of the Orders form.</p>
+<p CLASS="Arta"><img SRC="..\images\ABAC0307.jpg"></p>
+<p CLASS="Textttext"><span CLASS="ElementNameeln">Step One: Create the pop-up form&nbsp;&nbsp;&nbsp;</span>Use the Form Wizard to create the pop-up form, specifying the product, supplier, and category information you want to display. Name the form ProductsPopup.
+<p CLASS="Textttext"><span CLASS="ElementNameeln">Step Two: Set the form's properties&nbsp;&nbsp;&nbsp;</span>Open the form in Design view and set properties to make the form look and work like a dialog box. The following table shows the property settings for the form.</p>
+<!--mstheme--></font><table WIDTH="100%" BORDER="0" CELLPADDING="5" CELLSPACING="0" FRAME="VOID" RULES="THEAD"><thead>
+<tr VALIGN="TOP" BGCOLOR="#DDDDDD">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Property</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Setting&nbsp;&nbsp;</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Comment</p></font><!--mstheme--></font></td></tr><tbody>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">AllowDeletions</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">No</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Prevents users from deleting records.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">AllowAdditions</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">No</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Prevents users from adding new records.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">RecordsetType</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Snapshot</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Prevents users from modifying product information on the form.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">ScrollBars</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Neither</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Because the form always shows one entire record, scroll bars aren't needed.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">RecordSelectors</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">No</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Not needed.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">NavigationButtons</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">No</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Not needed.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">AutoCenter</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Yes</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Centers the dialog box on the screen.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">PopUp</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Yes</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Keeps the form on top.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Modal</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">No</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Allows users to work with other objects while the form is open.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">BorderStyle</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Dialog</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Displays the form as a dialog box. </p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">MinMaxButtons</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">None</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Not needed.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">ShortcutMenu</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">No</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Because users can't edit data on this form, a shortcut menu isn't needed.</p></font><!--mstheme--></font></td></tr>
+</table><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>Menu commands the user chooses when a pop-up form is open don't apply to the pop-up form. For example, when the ProductsPopup form is open on top of the Orders form, menu commands can perform operations on the Orders form and its data, but they don't affect the ProductsPopup form. A pop-up form can't have a custom menu bar associated with it.</p>
+<a NAME="4UsingaCustomDialogBoxtoCollectInformation"></a>
+<p CLASS="heading4OrgHeading2h2">Using a Custom Dialog Box to Collect Information</p>
+<p CLASS="Textttext">You use a dialog box in your application to display important messages or to collect information your application needs to complete an operation. Typically, the user responds to a dialog box by providing information and then closing the dialog box by clicking a command button labeled OK or Cancel. For dialog boxes that give the user more than one choice, you can use command buttons with captions that indicate what action each button takes.</p>
+<p CLASS="Arta"><img SRC="..\images\ABAC0308.jpg"></p>
+<p CLASS="Textttext">You can make your dialog box easier to use with the keyboard by specifying default and cancel buttons:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspThe <span CLASS="NewTermntrm">default button</span> is chosen when the user presses <span CLASS="KeyNamekn">ENTER</span> without first clicking a different button. To specify the default button for a dialog box, set the button's <span CLASS="ElementNameeln">Default</span> property to Yes in the property sheet (or to <span CLASS="ElementNameeln">True</span> in Visual Basic). Only one command button on a form can have its <span CLASS="ElementNameeln">Default</span> property set to Yes. It's a good idea to choose a button that won't cause a problem if the user presses <span CLASS="KeyNamekn">ENTER</span> by accident. For example, in a dialog box that deletes data, it's safer to make the default button Cancel rather than OK.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspThe <span CLASS="NewTermntrm">cancel button</span> is chosen when a user presses the ESC key without first clicking a different button. To specify the cancel button for a dialog box, set the command button's <span CLASS="ElementNameeln">Cancel</span> property to Yes in the property sheet (or to <span CLASS="ElementNameeln">True</span> in Visual Basic). Only one command button on a form can have its <span CLASS="ElementNameeln">Cancel</span> property set to Yes.</p>
+<p CLASS="TipTexttpt"><span CLASS="TipHeadingtph">Tip&nbsp;&nbsp;&nbsp;</span>When a user clicks a command button in a dialog box, you often want to hide the dialog box without closing it. That way, you can use the values entered in the dialog box to complete the actions the command button performs. To hide a dialog box, set the form's <span CLASS="ElementNameeln">Visible</span> property to <span CLASS="ElementNameeln">False</span>. After your macro or event procedure has completed the actions that use the information from the dialog box, you can use the <span CLASS="ElementNameeln">Close</span> method or action to close the dialog box.
+<p CLASS="heading6OrgHeading4h4"><img SRC="../images/example.gif" WIDTH="73" HEIGHT="21"><!--example space-->&nbsp;&nbsp;<a NAME="XCreatingaDialogBoxtoPrintInvoices"></a>Creating a Dialog Box to Print Invoices</p>
+<p CLASS="Textttext">Northwind sales representatives frequently print an invoice for an order immediately after taking the order. You can create a dialog box to make it easier for the sales representatives to print the invoice.</p>
+<p CLASS="Arta"><img SRC="..\images\ABAC0309.jpg"></p>
+<p CLASS="Textttext">Users open the dialog box using a button on a custom toolbar attached to the Orders form.
+<p CLASS="Textttext"><span CLASS="ElementNameeln">Step One: Create the query for the list box&nbsp;&nbsp;&nbsp;</span>If the list box will display values from more than one table, you must first create a query that displays the appropriate rows. Create a query called OrderList that includes three fields from the Customers and Orders tables, as shown in the following illustration.</p>
+<p CLASS="Arta"><img SRC="..\images\ABAC0310.jpg"></p>
+<p CLASS="Textttext"><span CLASS="ElementNameeln">Step Two: Create the dialog box and the list box&nbsp;&nbsp;&nbsp;</span>Create a blank form and add an unbound list box to it using the List Box Wizard. Specify the OrderList query as the row source for the list box, and include all three fields as columns in the list box. Select OrderID as the list box's bound column. Adjust the column widths so the data in all three columns is visible at the same time. The List Box Wizard creates the list box and sets its properties. The following table shows some of the properties for the list box in the Orders sample application.</p>
+<!--mstheme--></font><table WIDTH="100%" BORDER="0" CELLPADDING="5" CELLSPACING="0" FRAME="VOID" RULES="THEAD"><thead>
+<tr VALIGN="TOP" BGCOLOR="#DDDDDD">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Property</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Setting&nbsp;&nbsp;</p></font><!--mstheme--></font></td></tr><tbody>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">RowSourceType</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Table/Query</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">RowSource</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">OrderList</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">ColumnCount</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">3</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">ColumnWidths</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">1.25 in;0.5 in;0.5 in. (3.18 cm;1.27 cm;1.27 cm)</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">BoundColumn</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">2</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Width</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">2.6 in. (6.6 cm)</p></font><!--mstheme--></font></td></tr>
+</table><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="Textttext"><span CLASS="ElementNameeln">Step Three: Create buttons for the dialog box&nbsp;&nbsp;&nbsp;</span>Add three command buttons to the form using the Command Button Wizard: a Preview button, a Print button, and a Cancel button. For the first button, tell the wizard that you want it to preview the Invoice report. Tell the wizard to display the text &quot;Preview&quot;<img SRC="../images/Emdash.gif" BORDER="0" VSPACE="0" HSPACE="0" WIDTH="16" HEIGHT="5">instead of a picture<img SRC="../images/Emdash.gif" BORDER="0" VSPACE="0" HSPACE="0" WIDTH="16" HEIGHT="5">on the button. Follow the same steps to create a Print button that prints the report and a Cancel button that closes the form.
+<p CLASS="Textttext"><span CLASS="ElementNameeln">Step Four: Modify the event procedures that the wizard creates&nbsp;&nbsp;&nbsp;</span>When the user chooses to preview or print the report, you want to hide the dialog box before opening the report. Additionally, you want the report to print only the record the user selects in the dialog box.
+<p CLASS="Textttext">Open the event procedures for the Preview and Print buttons. In the procedures, hide the dialog box by setting its <span CLASS="ElementNameeln">Visible</span> property to <span CLASS="ElementNameeln">False</span>. To filter records in the report so only the selected record is included, pass the criteria identifying the record in the <span CLASS="NewTermntrm">wherecondition</span> argument of the <span CLASS="ElementNameeln">OpenReport</span> method.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on filtering records, see <a HREF="../chapters/ba03_4.htm" OnClick="SyncURL(&quot;chapters/ba03_4.htm&quot;)">&quot;Filtering and Sorting Data in Forms and Reports&quot;</a> later in this chapter.</p>
+<p CLASS="Textttext">The event procedure for the Preview command button with the new lines of code is:</p>
+<p CLASS="CodeTextct">Private Sub Preview_Click()<br>&nbsp;&nbsp;&amp;nbspOn Error GoTo Err_Print_Click<br>&nbsp;&nbsp;&amp;nbspDim strDocName As String<br>&nbsp;&nbsp;&amp;nbspDim strLinkCriteria As String<br>&nbsp;&nbsp;&amp;nbspMe.Visible = False<br>&nbsp;&nbsp;&amp;nbspstrDocName = &quot;Invoice&quot;<br>&nbsp;&nbsp;&amp;nbspstrLinkCriteria = &quot;OrderID = &quot; &amp; OrderID<br>&nbsp;&nbsp;&amp;nbspDoCmd.OpenReport strDocName, acViewPreview, , strLinkCriteria<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.<br>End Sub</p>
+<p CLASS="Textttext">The event procedure for the Print command button is identical, except that it passes the <span CLASS="ElementNameeln">acViewNormal</span> constant (instead of <span CLASS="ElementNameeln">acViewPreview</span>) to the <span CLASS="ElementNameeln">OpenReport</span> method.</p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>If you prefer, you can use macros instead of event procedures to make the dialog box work. In the macros for the Preview and Print buttons, use the SetValue action to set the dialog box's <span CLASS="ElementNameeln">Visible</span> property to No, and use the OpenReport action to preview or print the report, setting the Where Condition argument as follows:
+<p CLASS="NoteTextnt">OrderID = Forms!PrintInvoiceDialog!OrderID
+<p CLASS="NoteTextnt">In the macro for the Cancel button, use the Close action to close the dialog box. In the macro for the list box's DblClick event, use the RunMacro action to run the Preview button's macro.</p>
+<p CLASS="Textttext"><span CLASS="ElementNameeln">Step Five: Set properties to make the form behave like a dialog box&nbsp;&nbsp;&nbsp;</span>Set the form's <span CLASS="ElementNameeln">PopUp</span> and <span CLASS="ElementNameeln">Modal</span> properties to Yes, and then save the form with the name PrintInvoiceDialog.
+<p CLASS="Textttext">The following table shows some of the property settings for the form.</p>
+<!--mstheme--></font><table WIDTH="100%" BORDER="0" CELLPADDING="5" CELLSPACING="0" FRAME="VOID" RULES="THEAD"><thead>
+<tr VALIGN="TOP" BGCOLOR="#DDDDDD">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Property</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Setting</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Comment</p></font><!--mstheme--></font></td></tr><tbody>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">ScrollBars</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Neither</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Not needed.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">RecordSelectors</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">No</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Not needed.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">NavigationButtons</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">No</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Not needed.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">AutoCenter</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Yes</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Centers the dialog box on the screen.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">PopUp</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Yes</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Keeps the form on top.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Modal</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Yes</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Prevents users from working with other objects while the dialog box is visible.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">BorderStyle</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Dialog</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Displays the form with thick borders that can't be resized and with no <span CLASS="ElementNameeln">Minimize</span> or <span CLASS="ElementNameeln">Maximize</span> buttons. (This is the standard border style for a dialog box.)</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">MinMaxButtons</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">None</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Not needed.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">ShortcutMenu</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">No</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Not needed.</p></font><!--mstheme--></font></td></tr>
+</table><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="Textttext"><span CLASS="ElementNameeln">Step Six: Create the macro that opens the dialog box&nbsp;&nbsp;&nbsp;</span>Create a macro to open the dialog box. Add two actions to it: an OpenForm action that opens the PrintInvoiceDialog form, and a SetValue action that sets the OrderID list box on the form to the ID number of the current order on the Orders form. Save the macro with the settings as shown in the following illustration, and name it PrintInvoice.</p>
+<p CLASS="Arta"><img SRC="..\images\ABAC0311.jpg"></p>
+<p CLASS="Textttext">The arguments for the SetValue action are:</p>
+<!--mstheme--></font><table WIDTH="100%" BORDER="0" CELLPADDING="5" CELLSPACING="0" FRAME="VOID" RULES="THEAD"><thead>
+<tr VALIGN="TOP" BGCOLOR="#DDDDDD">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Argument</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Setting&nbsp;&nbsp;</p></font><!--mstheme--></font></td></tr><tbody>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Item</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">[Forms]![PrintInvoiceDialog]![OrderID]</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Expression</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">[Forms]![Orders]![OrderID]</p></font><!--mstheme--></font></td></tr>
+</table><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="Textttext"><span CLASS="ElementNameeln">Step Seven: Add a toolbar button to run the macro&nbsp;&nbsp;&nbsp;</span>Create a custom toolbar for the Orders form, and add a button that runs the PrintInvoice macro.</p>
+<p CLASS="Arta"><img SRC="..\images\ABAC0312.jpg"></p>
+<p CLASS="Textttext">When a user clicks the button, the macro opens the dialog box. If you want, you can also include the Print Invoice command on a custom menu bar for the form. To see an example of a custom menu bar, use the <span CLASS="ElementNameeln">Customize</span> dialog box (<span CLASS="ElementNameeln">View</span> menu, <span CLASS="ElementNameeln">Toolbars</span> submenu) to view the OrdersMenuBar toolbar in the Orders sample application.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on creating custom menus and toolbars, see Chapter 1, <a HREF="../chapters/ba01_1.htm" OnClick="SyncURL(&quot;chapters/ba01_1.htm&quot;)">&quot;Creating an Application.&quot;</a>
+<p CLASS="TipIcontpi"></p>
+<p CLASS="TipTexttpt"><span CLASS="TipHeadingtph">Tip&nbsp;&nbsp;&nbsp;</span>To make the dialog box even easier to use, you can write an event procedure that lets users double-click an order in the list box to choose the order and the Preview button at the same time. To do this, write an event procedure for the list box's DblClick event that calls the Preview command button's Click event procedure, as follows:</p>
+<p CLASS="CodeTextct">Private Sub OrderID_DblClick(Cancel As Integer)<br>&nbsp;&nbsp;&amp;nbspPreview_Click<br>End Sub</p>
+<a NAME="4UsingaMessageBoxtoDisplayaMessage"></a>
+<p CLASS="heading4OrgHeading2h2">Using a Message Box to Display a Message</p>
+<p CLASS="Textttext">When you want to display a brief message such as an error, warning, or alert, you can use a predefined dialog box called a <span CLASS="NewTermntrm">message box</span>. You specify the message to display and when the message box is to appear. The following illustration shows a typical message box.</p>
+<p CLASS="Arta"><img SRC="..\images\ABAC0313.jpg"></p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>When a user has the Office Assistant displayed, message box information displays in a speech balloon associated with the Assistant. If the Office Assistant is hidden or wasn't installed, a message box displays as a dialog box, as shown in the preceding illustration.</p>
+<p CLASS="Textttext">You can use an action or a function to display a message box. The following table describes each method.</p>
+<!--mstheme--></font><table WIDTH="100%" BORDER="0" CELLPADDING="5" CELLSPACING="0" FRAME="VOID" RULES="THEAD"><thead>
+<tr VALIGN="TOP" BGCOLOR="#DDDDDD">
+<td WIDTH="120"><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Use this</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">To </p></font><!--mstheme--></font></td></tr><tbody>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">MsgBox action</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Display a message in a message box using a macro.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">MsgBox</span> function</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Display a message in a message box using Visual Basic. It can return a value to Visual Basic indicating which command button a user has clicked.</p></font><!--mstheme--></font></td></tr>
+</table><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="Textttext">To display the message box in the previous illustration using a macro, you add a MsgBox action to the macro and set the arguments as shown in the following table.</p>
+<!--mstheme--></font><table WIDTH="100%" BORDER="0" CELLPADDING="5" CELLSPACING="0" FRAME="VOID" RULES="THEAD"><thead>
+<tr VALIGN="TOP" BGCOLOR="#DDDDDD">
+<td WIDTH="120"><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Argument</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Setting</p></font><!--mstheme--></font></td></tr><tbody>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Message</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">The order is saved.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Beep</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Yes</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Type</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">None</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Title</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Save Order</p></font><!--mstheme--></font></td></tr>
+</table><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="Textttext">To display the same message with Visual Basic, use the following code:</p>
+<p CLASS="CodeTextct">MsgBox &quot;The order is saved.&quot;, , &quot;Save Order&quot;</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on the MsgBox action or function, search the Help index for &quot;MsgBox action&quot; or &quot;MsgBox function.&quot;</p>
+<!--mstheme--></font><table CELLPADDING="3" BORDER="2" BORDERCOLOR="#0000FF" bordercolordark="#660000" bordercolorlight="#CC9966"><tr BGCOLOR="#FFFFFF"><td><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="SidebarHeadingsbrh">Displaying a Two-Line Message in a Message Box</p>
+<p CLASS="SidebarTextsbrt">You can display your message on two or more lines in a message box and specify where you want a new line to start. To do this when you're using the <span CLASS="ElementNameeln">MsgBox</span> function in Visual Basic code, use the <span CLASS="ElementNameeln">vbCrLf</span> constant where you want the new line to start. The <span CLASS="ElementNameeln">vbCrLf</span> constant is equivalent to the concatenation of the special characters for a carriage return and line feed, Chr(13) and Chr(10).
+<p CLASS="SidebarTextsbrt">For example, to use the <span CLASS="ElementNameeln">MsgBox</span> function to display &quot;New Product:&quot; on one line and &quot;Enter a 5-digit Product ID&quot; on the next line, you use the following code:
+<p CLASS="SidebarTextsbrt"><span CLASS="CodeTextFeaturedElementctfe">MsgBox &quot;New Product:&quot; &amp; vbCrLf &amp; &quot;Enter a 5-digit Product ID&quot;</span>
+<p CLASS="SidebarTextsbrt">However, when you're using the MsgBox action in a macro, you must concatenate the special characters for carriage return and line feed into the message expression. For example, to produce the same result, you enter the following expression in the Message argument of a MsgBox action:
+<p CLASS="SidebarTextsbrt">= &quot;New Product: &quot; &amp; Chr(13) &amp; Chr(10) &amp; &quot;Enter a 5-digit Product ID&quot; </p><!--mstheme--></font></td></tr></table><!--mstheme--><font face="book antiqua, times new roman, times">
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="ba03_4.htm" OnClick="SyncURL(&quot;chapters/ba03_4.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

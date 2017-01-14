@@ -1,0 +1,10 @@
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+  <s:Body>  
+    <save_tModel generic="2.0" xmlns="urn:uddi-org:api_v2">    
+      <authInfo>MyAuthInformation</authInfo>
+      <tModel tModelKey="">
+        <name>MyTModel</name>
+      </tModel>  
+    </save_tModel>
+  </s:Body>
+</s:Envelope>

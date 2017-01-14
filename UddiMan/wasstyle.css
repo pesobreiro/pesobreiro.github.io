@@ -1,0 +1,383 @@
+/* WebSphere Application Server */
+/* WASICSTYLE.CSS - IE/English          */
+/* Revision date 12/14/2002 SLT     */
+/* -------------------------------- */
+/* (C) COPYRIGHT International Business Machines Corp. 2000, 2002    */
+/* All Rights Reserved                                               */
+/* Licensed Materials - Property of IBM                              */
+/* US Government Users Restricted Rights - Use, duplication or       */
+/* disclosure restricted by GSA ADP Schedule Contract with IBM Corp. */
+/* -------------------------------- */
+
+/* Added by Tricia for WAS related info links */
+TABLE.links   	{ font-family : Arial, Helvetica, sans-serif;  
+			  font-size : 8pt;
+			  width : 100%;
+			  height : auto;
+			  display : block;
+			  border : 0;
+			  margin-top : 0em;
+			  margin : 0px;
+ 			  padding-left : 0px;
+			  padding-right : 0px;
+			  spacing : 0px;
+			  float : none;
+			  clear : none; }
+TR.linksh      	{ background-color: #FCCC04;
+			  valign : middle;
+		        }
+TR.linksh2		{ background-color: #7DABE4;
+                    valign : middle;
+			  }	
+TD.linksh		{ height : 20;
+			  }
+TR.links          { font-family : Arial, sans-serif; 
+			  valign : top;
+			  padding-top : .25em;
+			  padding-bottom : .25em; }
+TD.links		{ font-family: Arial, sans-serif;
+                    }		
+A.links 		{ font-family : Arial, Helvetica, sans-serif;
+			  text-decoration : none; }
+
+A.bookshelf			{ color: #FFFFFF;}
+
+/*************** BANNER PAGE **************************/
+
+.header {  margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px ; font-family: Arial, Helvetica, sans-serif}
+.top-navigation { color: #FFFFFF; font-size:70%; background-color:#6B7A92; font-family: Arial,Helvetica, sans-serif; padding-left: 10px; padding-right: 5px;}  
+.top-nav-item  { color: #FFFFFF; font-family: Arial,Helvetica,sans-serif; font-weight:bold; text-decoration: none  } 
+a.top-nav-item  { color: #FFFFFF; font-family: Arial,Helvetica,sans-serif; font-weight:bold;  } 
+a:active.top-nav-item  { color: #FFFFFF; font-family: sans-serif; }  
+a:hover.top-nav-item {  text-decoration: underline}
+
+/*************************************************************/
+
+
+/* NAVIGATION FRAME STYLE: class="nav" */
+A.nav		        { color: #000000;text-decoration: none;}
+A:link.nav      	{ color: #000000;}
+A:visited.nav   	{ color: #000000;}
+A:active.nav            { color: #000000;}
+A:hover.nav             { text-decoration: underline;color: #006699;}
+BODY.nav                { font-family: Arial, sans-serif;background-color: #ffffff;color: #000000;}
+TABLE.nav               { font-family: Arial, sans-serif;margin-top : 0;margin-left: 0;margin : 0;padding : 0;}
+TR.nav                  { font-family: Arial, sans-serif;}
+TH.nav		        { font-family: Arial, sans-serif;
+                          font-weight: bold;text-align: left;font-color: #000000;text-align: center;}
+TD.nav                  { font-family: Arial, sans-serif;color: #000000;font-weight:bold;}
+/* -------------------------------- */
+
+/* MAIN FRAME STYLE FOR HELP CONTENT: DO NOT use a class reference */
+BODY			{ background-color : #FFFFFF;
+                        font-family : Arial, Helvetica, sans-serif;
+						}
+BODY.sampnav  {background-color: #ffffff;
+	      color: #000000;
+              font-size: 75%;
+              border-right: 1px ridge black;
+              margin-right: 0px; }
+
+BODY.sampcont { font-family : Arial, Helvetica, sans-serif;
+                margin-top : 10px;
+                margin-bottom : 0px;
+                margin-left : 15px;
+				font-size: 75%;}
+body.topmenu {
+	font-family: Arial, sans-serif;
+	background-color: #000000;
+	color: #99ccff;
+	vertical-align : top;
+	margin : 1px 3px;
+	font-size: 75%;
+}
+				
+/* Header Properties */
+H1			{ font-size : 13pt;
+			  font-family : Arial, Helvetica, sans-serif;
+			  margin-bottom : 0;}
+H2			{ font-size: 10pt;
+			  font-family : Arial, Helvetica, sans-serif;
+			  margin-bottom : 0;}
+H3			{ font-size : 12pt;
+			  font-family : Arial, Helvetica, sans-serif;
+			  font-style : italic;
+			  margin-bottom : 0;}
+H4			{ font-size : 11pt;
+			  font-family : Arial, Helvetica, sans-serif;
+			  margin-bottom : 0;}
+H5			{ font-size : 11pt;
+			  font-family : Arial, Helvetica, sans-serif;
+			  font-style : italic;
+			  margin-bottom : 0;}
+H1.samp         {
+	font-family : Arial, Helvetica, sans-serif;
+	margin-bottom : 0;
+}              
+			  
+H1.sampnav              {
+	font-family : Arial, Helvetica, sans-serif;
+	color: #000000;
+	font-size: 10pt;
+}  
+
+H2.sampnav              {
+	font-family : Arial, Helvetica, sans-serif;
+	color: #000000;
+	font-size: 100%;
+}  
+
+H3.sampnav              {
+	font-family : Arial, Helvetica, sans-serif;
+	color: #000000;
+	font-size: 10pt;
+} 
+			  
+/* Paragraph Properties */
+P			{ font-family : Arial, Helvetica, sans-serif;
+			  margin-top : 8px;
+			  font-size : 10pt;
+			  margin-bottom : 0;}
+
+/* Anchor Properties */
+A			{ font-family : Arial, Helvetica, sans-serif;
+			  text-decoration : none;}
+A:link			{ color : #006699;}
+A:visited		{ color : #996699;}
+A:active		{ color : #006699;}
+A:hover			{ color : #006699;
+			  text-decoration : underline;}
+			  
+A.sampnav		{
+	color: #000000;
+	text-decoration: none;
+	font-size : 75%;
+}
+A:link.sampnav      	{ color: #000000;}
+A:visited.sampnav   	{ color: #000000;}
+A:active.sampnav        { color: #999966;}
+A:hover.sampnav         { text-decoration: underline;color: #000000;}
+
+
+A.submenu		{ color: #006699; text-decoration: none; }
+A:link.submenu      	{ color: #006699; }
+A:visited.submenu   	{ color: #996699; }
+A:active.submenu        { color: #006699;}
+A:hover.submenu         { text-decoration: underline;color: #006699; }			
+
+A.activesubmenu	{
+	font-family : Arial, Helvetica, sans-serif;
+	color: #000000;
+	text-decoration :none;
+	font-weight : bold;
+}  
+A.topmenu       {
+	font-family : Arial, Helvetica, sans-serif;
+/*ont-size: 75%;*/
+	text-decoration : none;
+	color: #ffffff;
+	margin-top : auto;
+}
+
+A:link.title	  { color : #ffffff; font-size: 75%;}
+A:visited.title { color : #ffffff; font-size: 75%;}
+A:active.title     { color : #ffffff; font-size: 75%;}
+A:hover.title	    { color : #ffffff;text-decoration : none; font-size: 75%;}
+
+A.title       {
+	font-family : Arial, Helvetica, sans-serif;
+font-size: 75%;
+	text-decoration : none;
+	color: #ffffff;
+	margin-top : auto;
+}
+
+A:link.topmenu	  { color : #ffffff;}
+A:visited.topmenu  { color : #ffffff;}
+A:active.topmenu     { color : #ffffff;}
+A:hover.topmenu	    { color : #ffffff;text-decoration : underline;}
+
+A.breadcrumb       {
+	font-family : Arial, Helvetica, sans-serif;
+	text-decoration : none;
+	color: #666666;
+	margin-top : auto;
+}
+A:link.breadcrumb	  { color : #666666;}
+A:visited.breadcrumb  { color : #666666;}
+A:active.breadcrumb     { color : #666666;}
+A:hover.breadcrumb	    { color : #666666;text-decoration : none; }
+/* List Properties */
+OL			{ font-family : Arial, Helvetica, sans-serif;
+			  text-align : left;
+			  margin-top : 0;
+			  margin-bottom : 6px;
+			  list-style-type : decimal;
+			  font-size : 10pt;
+			  }
+
+OL OL			{ list-style-type : lower-alpha;}
+UL			{ font-family : Arial, Helvetica, sans-serif;
+			  text-align : left;
+			  margin-top : 0;
+			  margin-bottom : 6px;
+			  list-style-type : disc;
+			  font-size : 10pt;
+			  }
+
+DL			{ padding : 0;
+			  margin : 0;
+			  margin-top : 6px;
+			  margin-bottom : 6px;
+			  margin-left : 23px;
+			  list-style-type : none;
+			  font-family : Arial, Helvetica, sans-serif;
+			  font-size : 10pt;
+			  }
+DT			{ padding : 0;
+			  margin : 0;
+			  margin-top : 6px;
+			  margin-bottom : 6px;
+			  list-style-type : none;
+			  font-family : Arial, Helvetica, sans-serif;
+			  font-weight : bold;
+			  font-size : 10pt;
+			  }
+DD			{ padding : 0;
+			  margin : 0;
+			  margin-top : 6px;
+			  margin-bottom : 6px;
+			  list-style-type : none;
+			  font-family : Arial, Helvetica, sans-serif;
+			  text-indent : 0;
+			  font-size : 10pt;
+			  }
+LI			{ font-family : Arial, Helvetica, sans-serif;
+			  margin-bottom : 3px;
+			  font-size : 10pt;
+			  }
+
+/* Table Properties */
+TABLE   		{ font-family : Arial, Helvetica, sans-serif;  
+			  width : auto;
+			  height : auto;
+			  display : block;
+			  border : 0;
+			  margin-top : 3em;
+			  margin : 2px;
+			  padding : 2px;
+			  float : none;
+			  clear : none;}
+TH			{ font-family : Arial, Helvetica, sans-serif;
+			  font-weight : bold;
+			  text-align : left; 
+                          background-color: #99ccff;}
+TD			{ font-family : Arial, Helvetica, sans-serif;}
+
+TABLE.sampnav		{ font-family : Arial, Helvetica, sans-serif;margin-top : 0;margin-left: 0;margin : 0;padding : 0;}
+TR.sampnav              { font-family : Arial, Helvetica, sans-serif; color: #FFFFFF}
+TH.sampnav		{ font-family : Arial, Helvetica, sans-serif;
+                          font-weight: bold;text-align: left;
+                          font-color: #000000;
+                          text-align: center;; 
+                          color: #FFFFFF }
+TH.sampintro		{ font-family : Arial, Helvetica, sans-serif;
+			  font-weight : bold;
+			  text-align : center; 
+                          background-color: #99ccff;} 
+
+TD.sampnav              {
+	font-family : Arial, Helvetica, sans-serif;
+	color: #000000;
+	font-size: 75%;
+}  
+
+TD.breadcrumb              {
+	font-family : Arial, Helvetica, sans-serif;
+	color: #999966;
+	font-size: 75%;
+}  
+
+TD.sampcont  		{
+	font-family : Arial, Helvetica, sans-serif;
+	color: #000000;
+	font-size: medium;
+}
+TD.submenu	{
+	font-family : Arial, Helvetica, sans-serif;
+	color: #000000;
+	font-size: 75%;
+}
+
+TD.topmenu {
+	font-family : Arial, Helvetica, sans-serif;
+	font-size: 75%;
+	text-decoration : none;
+	color: #000000;
+	margin-top : auto;
+}
+TD.topmenu {
+	font-family : Arial, Helvetica, sans-serif;
+	font-size: 75%;
+	text-decoration : none;
+	color: #000000;
+	margin-top : auto;
+}
+
+/* Text Area Properties */
+BLOCKQUOTE		{ display : block;
+			  margin : 1.17em 0;
+			  font-family : Arial, Helvetica, sans-serif;
+			  margin-left : 20px;
+			  margin-right : 20px;}
+CAPTION			{ text-align : left;
+			  font-style : italic;
+			  font-family : Arial, Helvetica, sans-serif;}
+EM, CITE		{ font-family : Arial, Helvetica, sans-serif;
+			  font-style : italic;}
+SMALL			{ font-size : 8pt;
+			  font-family : Arial, Helvetica, sans-serif;}
+PRE			{ white-space : pre;
+			  font-family : Courier;
+			  margin-top : 4px;
+			  margin-bottom : 4px;}
+SPAN			{ font-family : Arial, Helvetica, sans-serif; 
+			  font-size : 10pt;}
+SPAN.white		{ font-family : Arial, Helvetica, sans-serif; 
+			  color : white;}
+/* Text Formatting Properties */
+STRONG			{ font-family : Arial, Helvetica, sans-serif;
+			  font-weight : bold;}
+
+TT			{ font-family : Courier;}
+SAMP			{ font-family : Courier;}
+SUP			{ vertical-align : super;
+			  font-size : 8pt;}
+CENTER			{ text-align : center;}
+.heading1	        { font-size : 16pt;
+		        font-family : Arial, Helvetica, sans-serif;
+		        font-weight : bold;
+		        line-height : 1.2ex;
+		        background-color : #C0C0C0;
+		        letter-spacing : normal;
+		        text-align : left;
+		        width : auto;
+		        height : auto;}
+
+#section                {font-weight: bold; font-family : Arial, Helvetica, sans-serif;} 	
+#sample-list            {margin-left: 10px; font-family : Arial, Helvetica, sans-serif;}
+.afterp                 { font-family : Arial, Helvetica, sans-serif;
+			  margin-bottom : 3px;}
+                          
+
+LI.gallery              { font-family : Arial, Helvetica, sans-serif;
+			  margin-bottom : 3px;}
+
+/* STYLE for Samples HTML Menus */
+TH.pagemenu { font-family : Arial, Helvetica, sans-serif;
+			  font-weight : bold;
+			  text-align : center; 
+			  color: FFFFFF;
+              background-color: #9999ff;} 
+ /* -------------------------------- */
+            

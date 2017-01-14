@@ -1,0 +1,285 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>Working with Text Files</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba18_5.htm" OnClick="SyncURL(&quot;chapters/ba18_5.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<a NAME="3WorkingwithTextFiles"></a>
+<p CLASS="heading3OrgHeading1h1">Working with Text Files</p>
+<p CLASS="Textttext">You can use the Text installable ISAM to link delimited and fixed-width text files and to open them directly from your Microsoft Access database. The procedure for doing this is very similar to the procedure for connecting to external databases. When you link a text file, you specify the source database type and the path to the text file in the <span CLASS="ElementNameeln">Connect</span> property, and the file name in the <span CLASS="ElementNameeln">SourceTableName</span> property. When you open a text file directly, you specify the source database type and the path to the text file as arguments of the <span CLASS="ElementNameeln">OpenDatabase</span> method, and the file name as an argument of the <span CLASS="ElementNameeln">OpenRecordset</span> method. When specifying a connection string for text files, use the specifications described in the following table.</p>
+<!--mstheme--></font><table WIDTH="100%" BORDER="0" CELLPADDING="5" CELLSPACING="0" FRAME="VOID" RULES="THEAD"><thead>
+<tr VALIGN="TOP" BGCOLOR="#DDDDDD">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">For</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Use</p></font><!--mstheme--></font></td></tr><tbody>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Source database type</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="CodeTextct">Text</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Path</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">The full path to the folder that contains the text file you want to access.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Source table name</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">The name of the text file including the extension. If you don't specify an extension, the default .txt extension is used.</p></font><!--mstheme--></font></td></tr>
+</table><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="Textttext">In fixed-width text files, Microsoft Access recognizes <span CLASS="ElementNameeln">Null</span> values by the absence of data (spaces) in the field. In delimited text files, Microsoft Access recognizes <span CLASS="ElementNameeln">Null</span> values by the presence of two consecutive delimiting characters.</p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>Commas, tabs, or user-defined delimiters are valid in the source file.</p>
+<p CLASS="Textttext">The following table lists the size limitations of text files when linking or opening them.</p>
+<!--mstheme--></font><table WIDTH="100%" BORDER="0" CELLPADDING="5" CELLSPACING="0" FRAME="VOID" RULES="THEAD"><thead>
+<tr VALIGN="TOP" BGCOLOR="#DDDDDD">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Item</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Maximum size per text file</p></font><!--mstheme--></font></td></tr><tbody>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Field</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">255 fields</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Field name</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">64 characters</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Field width</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">32,766 characters</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Record size</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">65,000 bytes</p></font><!--mstheme--></font></td></tr>
+</table><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="ImportantTextit"><span CLASS="ImportantHeadingih">Important&nbsp;&nbsp;&nbsp;</span>Microsoft Access doesn't support multiuser access to text files. When you open a text file by using Microsoft Access, you have exclusive access to the file.</p>
+<a NAME="4CreatingaSchemaInformationFile"></a>
+<p CLASS="heading4OrgHeading2h2">Creating a Schema Information File</p>
+<p CLASS="Textttext">Microsoft Access determines the format of a text file either by reading the file directly or by using a <span CLASS="NewTermntrm">schema information file</span> that overrides the default settings in the Windows Registry. The schema information file is always named Schema.ini. In order for Microsoft Access to use the information in the Schema.ini file, you must store it in the same folder as the text data source. A Schema.ini file is always required for accessing fixed-width data, and is recommended when your text file contains Date/Time, Currency, or numeric floating-point data, or any time you want more control over handling the data in the text file. You do not need a separate Schema.ini file for each text file you want to link.
+<p CLASS="Textttext">You can use any text editor to create a Schema.ini file. In your Schema.ini file, you add <span CLASS="NewTermntrm">entries</span>, each of which specifies one of five characteristics of the text file:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspThe text file name</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspThe file format</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspThe field names, widths, and data types</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspThe character set</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspSpecial data type formats and conversions</p>
+<p CLASS="heading5OrgHeading3h3">Specifying the File Name</p>
+<p CLASS="Textttext">The first entry in a Schema.ini file is always the name of the text source file enclosed in brackets. For example, to specify the file Sample.txt as your text data source, you would add the following text as the first entry in your Schema.ini file:</p>
+<p CLASS="CodeTextct">[Sample.txt]</p>
+<p CLASS="heading5OrgHeading3h3">Specifying the File Format</p>
+<p CLASS="Textttext">The Format entry in a Schema.ini file specifies the format of the text file, such as whether it is delimited or fixed-width. You can set the Format entry to any of the values listed in the following table.</p>
+<!--mstheme--></font><table WIDTH="100%" BORDER="0" CELLPADDING="5" CELLSPACING="0" FRAME="VOID" RULES="THEAD"><thead>
+<tr VALIGN="TOP" BGCOLOR="#DDDDDD">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Format value</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">File format</p></font><!--mstheme--></font></td></tr><tbody>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">TabDelimited</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Fields in the text file are delimited by tabs.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">CSVDelimited</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Fields in the text file are delimited by commas.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Delimited(*)</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Fields in the text file are delimited by asterisks. You can substitute any character for the asterisk except the double (&quot;) quotation mark.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">FixedLength</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Fields in the text file are of a fixed width.</p></font><!--mstheme--></font></td></tr>
+</table><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="Textttext">For example, to specify a comma-delimited format, you would add the following entry to the Schema.ini file:</p>
+<p CLASS="CodeTextct">Format=CSVDelimited</p>
+<p CLASS="heading5OrgHeading3h3">Specifying the Field Names, Widths, and Data Types</p>
+<p CLASS="Textttext">For delimited text files, you can specify field names in one of two ways: </p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspInclude the field names in the first record of the text file and set the ColNameHeader entry to <span CLASS="ElementNameeln">True</span> to indicate that the first record of data specifies field names.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspSpecify each field by number and designate the field name and data type. </p>
+<p CLASS="Textttext">You can have Microsoft Access determine the data types of the fields for you. Set the MaxScanRows entry to the number of records Microsoft Access should scan when it determines the field data types. If you set the MaxScanRows entry to 0, Microsoft Access scans the entire file. For example, to specify that Microsoft Access should use the data in the first record in the text file as field names and should examine the entire file to determine the data type of each field, add the following entries to your Schema.ini file:</p>
+<p CLASS="CodeTextct">ColNameHeader=True<br>MaxScanRows=0</p>
+<p CLASS="Textttext">For fixed-width files, you must specify each field by number and designate the field name, data type, and width. To do so, set the Col<span CLASS="NewTermntrm">n</span> entry; the syntax of the Col<span CLASS="NewTermntrm">n</span> entry is:</p>
+<p CLASS="SyntaxTextsyn"><span CLASS="ElementNameeln">Col</span><span CLASS="NewTermntrm">n</span><span CLASS="ElementNameeln">=</span><span CLASS="NewTermntrm">ColumnName</span> <span CLASS="NewTermntrm">type</span> [<span CLASS="ElementNameeln">Width</span> <span CLASS="NewTermntrm">#</span>]</p>
+<p CLASS="Textttext">The following table describes each part of the Col<span CLASS="NewTermntrm">n</span> entry.</p>
+<!--mstheme--></font><table WIDTH="90%" BORDER="0" CELLPADDING="5" CELLSPACING="0" FRAME="VOID" RULES="THEAD"><thead>
+<tr VALIGN="TOP" BGCOLOR="#DDDDDD">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Part</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Description</p></font><!--mstheme--></font></td></tr><tbody>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="NewTermntrm">ColumnName</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">The name of the field. If the field name contains embedded spaces, you must enclose it in double quotation marks.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="NewTermntrm">type</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Specifies the data type for the field. It can be any of the following data types.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+</font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<!--mstheme--></font><table WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0" FRAME="VOID" RULES="NONE">
+<tr VALIGN="TOP"><td><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="TableTexttt"><u>Microsoft Jet SQL data types:</u><br><span CLASS="CodeTableTextEmbeddedctt">Byte<br>Long<br>Currency<br>Single<br>Double<br>DateTime<br>Text<br>Memo</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times">&nbsp;&nbsp;<!--mstheme--></font></td><td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><u>ODBC data types:</u><br><span CLASS="CodeTableTextEmbeddedctt">Char </span>(same as <span CLASS="CodeTableTextEmbeddedctt">Text</span>)<br><span CLASS="CodeTableTextEmbeddedctt">Float </span>(same as <span CLASS="CodeTableTextEmbeddedctt">Double</span>)<br><span CLASS="CodeTableTextEmbeddedctt">Integer </span>(same as <span CLASS="CodeTableTextEmbeddedctt">Short</span>)<br><span CLASS="CodeTableTextEmbeddedctt">LongChar </span>(same as <span CLASS="CodeTableTextEmbeddedctt">Memo</span>)<br><span CLASS="CodeTableTextEmbeddedctt">Date</span> <span CLASS="NewTermntrm">date format</span></p></font><!--mstheme--></font></td></tr>
+</table><!--mstheme--><font face="book antiqua, times new roman, times"><!--mstheme--></font></td>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Width</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">The literal string value <span CLASS="CodeTableTextEmbeddedctt">Width</span>. Indicates that the number that follows specifies the width of the field (required for fixed-width files).</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="NewTermntrm">#</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">The integer value that specifies the number of characters in the field (required if <span CLASS="ElementNameeln">Width</span> is specified).</p></font><!--mstheme--></font></td></tr>
+</table><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="Textttext">For example, to specify two fields, a 10-character CustomerID text field and a 30-character CustomerName text field, add the following entries to your Schema.ini file:</p>
+<p CLASS="CodeTextct">Col1=CustomerID Text Width 10<br>Col2=CustomerName Text Width 30</p>
+<p CLASS="heading5OrgHeading3h3">Specifying a Character Set</p>
+<p CLASS="Textttext">The CharacterSet entry specifies which character set your computer uses. You can specify one of two character sets: ANSI or OEM. For example, to specify the ANSI character set, add the following entry to your Schema.ini file:</p>
+<p CLASS="CodeTextct">CharacterSet=ANSI</p>
+<p CLASS="heading5OrgHeading3h3">Specifying Data Type Formats and Conversions</p>
+<p CLASS="Textttext">The Schema.ini file contains a number of entries that you can use to specify how data is converted or displayed when Microsoft Access reads it. The following table describes each of these entries.</p>
+<!--mstheme--></font><table WIDTH="100%" BORDER="0" CELLPADDING="5" CELLSPACING="0" FRAME="VOID" RULES="THEAD"><thead>
+<tr VALIGN="TOP" BGCOLOR="#DDDDDD">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Entry </p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Description</p></font><!--mstheme--></font></td></tr><tbody>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">DateTimeFormat</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">A format string that specifies the format for dates and times. You should specify this entry if all Date/Time fields have the same format. You can use any Date/Time format except A.M.
+ and P.M.
+ display formats.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">DecimalSymbol</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Specifies the character used to separate the integer from the fractional portion of a number.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">NumberDigits</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Specifies the number of decimal digits in the fractional portion of a number. </p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">NumberLeadingZeros</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Specifies whether a decimal value less than 1 and greater than -1 should contain leading zeros; you can set this entry to <span CLASS="ElementNameeln">False</span> (no leading zeros) or <span CLASS="ElementNameeln">True</span>. </p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">CurrencySymbol</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Specifies the currency symbol used for currency values in the text file; for example, the dollar sign ($) or Dm.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">CurrencyPosFormat</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Specifies the position of the currency symbol. You can set it to any of the following values: </p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+</font><!--mstheme--></font></td><td><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="TableTexttt"><span CLASS="nowrap">0&nbsp;&nbsp;&amp;nbspCurrency symbol prefix with no separation ($1)<br>
+1&nbsp;&nbsp;&amp;nbspCurrency symbol suffix with no separation (1$)<br>
+2&nbsp;&nbsp;&amp;nbspCurrency symbol prefix with one character separation ($ 1)<br>
+3&nbsp;&nbsp;&amp;nbspCurrency symbol suffix with one character separation (1 $)</span></p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">CurrencyDigits</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Specifies the number of digits used for the fractional portion of a currency value. </p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">CurrencyNegFormat</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Specifies the format of negative currency values. You can set it to any of the following numbers:</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+</font><!--mstheme--></font></td>
+<!--mstheme--></font><table WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0" FRAME="VOID" RULES="NONE">
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">0&nbsp;&nbsp;&nbsp;($1)
+<p CLASS="TableTexttt">1&nbsp;&nbsp;&nbsp;-$1
+<p CLASS="TableTexttt">2&nbsp;&nbsp;&nbsp;$-1
+<p CLASS="TableTexttt">3&nbsp;&nbsp;&nbsp;$1-</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">4&nbsp;&nbsp;&nbsp;(1$)
+<p CLASS="TableTexttt">5&nbsp;&nbsp;&nbsp;-1$
+<p CLASS="TableTexttt">6&nbsp;&nbsp;&amp;nbsp1-$
+<p CLASS="TableTexttt">7&nbsp;&nbsp;&amp;nbsp1$-</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">8&nbsp;&nbsp;&nbsp;-1 $
+<p CLASS="TableTexttt">9&nbsp;&nbsp;&nbsp;-$ 1
+<p CLASS="TableTexttt">10&nbsp;&amp;nbsp1 $-
+<p CLASS="TableTexttt">11&nbsp;&nbsp;$ 1-</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">12&nbsp;&nbsp;$ -1
+<p CLASS="TableTexttt">13&nbsp;&amp;nbsp1- $
+<p CLASS="TableTexttt">14&nbsp;&nbsp;($ 1)
+<p CLASS="TableTexttt">15&nbsp;&nbsp;(1 $)</p></font><!--mstheme--></font></td></tr></table><!--mstheme--><font face="book antiqua, times new roman, times"><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+</font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">The dollar sign ($) is shown only as an example; you should replace it with the appropriate currency symbol.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">CurrencyThousandSymbol</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Specifies the character used to separate thousands in currency values.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">CurrencyDecimalSymbol</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Specifies the character used to separate the whole from the fractional portion of a currency value.</p></font><!--mstheme--></font></td></tr>
+</table><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>If you omit an entry, Microsoft Access uses the default value in Windows Control Panel.</p>
+<p CLASS="heading5OrgHeading3h3">Example of a Schema Information File</p>
+<p CLASS="Textttext">The following example of a Schema.ini file specifies the format for the fixed-width file Filename.txt and the delimited file Delimit.txt:</p>
+<p CLASS="CodeTextct">[Filename.txt]<br>ColNameHeader=False<br>Format=FixedLength<br>MaxScanRows=25<br>CharacterSet=OEM<br>Col1=columnname Char Width 24<br>Col2=columnname2 Date Width 9<br>Col3=columnname7 Float Width 10<br>Col4=columnname8 Integer Width 10<br>Col5=columnname9 LongChar Width 10<br>[Delimit.txt]<br>ColNameHeader=True<br>Format=Delimited(!)<br>MaxScanRows=0<br>CharacterSet=OEM<br>Col1=username Text<br>Col2=dateofbirth DateTime</p>
+<a NAME="4LinkingTextFiles"></a>
+<p CLASS="heading4OrgHeading2h2">Linking Text Files</p>
+<p CLASS="Textttext">To link a text file to your Microsoft Access database, use the <span CLASS="ElementNameeln">CurrentDb</span> function to return an object variable that represents the current Microsoft Access database. Then create a <span CLASS="ElementNameeln">TableDef</span> object and set the connection string and source table name: set the <span CLASS="ElementNameeln">TableDef</span> object's<span CLASS="ElementNameeln"> Connect</span> property to specify the source database type and the full path to the text file, and set its <span CLASS="ElementNameeln">SourceTableName</span> property to the name of the text file.</p>
+<p CLASS="ImportantTextit"><span CLASS="ImportantHeadingih">Important&nbsp;&nbsp;&nbsp;</span>If you want Microsoft Access to use the information in the schema information file, you must place the text file and the Schema.ini file in the same folder. For more information on schema information files, see <a HREF="#4CreatingaSchemaInformationFile" OnClick="SyncURL(&quot;chapters/ba18_6.htm&quot;)">&quot;Creating a Schema Information File&quot;</a> earlier in this chapter.</p>
+<p CLASS="Textttext">The following example links a text file to a Microsoft Access database. It assumes that you want to link the Sample text file located in the Data subfolder of the My Documents folder.</p>
+<p CLASS="CodeTextct">Sub LinkTextFile()<br>&nbsp;&nbsp;&amp;nbspDim dbs As Database<br>&nbsp;&nbsp;&amp;nbspDim tdfSales As TableDef<br>&nbsp;&nbsp;&amp;nbspDim rstSales As Recordset<br>&nbsp;&nbsp;&nbsp;' Open the Microsoft Access database.<br>&nbsp;&nbsp;&amp;nbspSet dbs = CurrentDb<br>&nbsp;&nbsp;&nbsp;' Create a TableDef object.<br>&nbsp;&nbsp;&amp;nbspSet tdfSales = dbs.CreateTableDef(&quot;Central Division Sales&quot;)<br>&nbsp;&nbsp;&nbsp;' Set the connection string to specify the source database type and the<br>&nbsp;&nbsp;&nbsp;' full path to the file that you want to link.<br>&nbsp;&nbsp;&amp;nbsptdfSales.Connect = &quot;Text;DATABASE=C:\My Documents\Data&quot;<br>&nbsp;&nbsp;&nbsp;' Set the SourceTableName property to the name of the file you want to access.<br>&nbsp;&nbsp;&amp;nbsptdfSales.SourceTableName = &quot;Sample.txt&quot;<br>&nbsp;&nbsp;&nbsp;' Append the TableDef object to the TableDefs collection to create the link.<br>&nbsp;&nbsp;&amp;nbspdbs.TableDefs.Append tdfSales<br>&nbsp;&nbsp;&nbsp;' Create a Recordset object from the linked text file.<br>&nbsp;&nbsp;&amp;nbspSet rstSales = dbs.OpenRecordset(&quot;Central Division Sales&quot;)<br>End Sub
+<p CLASS="TipIcontpi"></p>
+<p CLASS="TipTexttpt"><span CLASS="TipHeadingtph">Tip&nbsp;&nbsp;&nbsp;</span>Instead of specifying the connection string and source table name by setting properties of the <span CLASS="ElementNameeln">TableDef</span> object, you can specify them by using the<span CLASS="NewTermntrm"> connect</span> and <span CLASS="NewTermntrm">source</span> arguments of the <span CLASS="ElementNameeln">CreateTableDef</span> method. You can also use the Microsoft Access user interface to link external data. For more information on using the<span CLASS="ElementNameeln"> CreateTableDef</span> method or the user interface to link external data, see <a HREF="../chapters/ba18_3.htm#4LinkingExternalTables" OnClick="SyncURL(&quot;chapters/ba18_3.htm&quot;)">&quot;Linking External Tables&quot;</a> earlier in this chapter.</p>
+<a NAME="4OpeningTextFiles"></a>
+<p CLASS="heading4OrgHeading2h2">Opening Text Files</p>
+<p CLASS="Textttext">To open a text file directly from your Microsoft Access database, create a <span CLASS="ElementNameeln">Database</span> object and set the arguments of the <span CLASS="ElementNameeln">OpenDatabase</span> method to specify the full path to the text file, whether to open the text file exclusively, whether to open it with read/write or read-only permissions, and the source database type. Specify the file name as the <span CLASS="NewTermntrm">source</span> argument of the <span CLASS="ElementNameeln">OpenRecordset</span> method.
+<p CLASS="Textttext">The following example opens an external text file directly from a Microsoft Access database and then creates a <span CLASS="ElementNameeln">Recordset</span> object from the text file.</p>
+<p CLASS="CodeTextct">Sub OpenTextFile()<br>&nbsp;&nbsp;&amp;nbspDim dbs As Database<br>&nbsp;&nbsp;&amp;nbspDim rstAwards As Recordset<br>&nbsp;&nbsp;&nbsp;' Point to a folder that contains the text file you want to open.<br>&nbsp;&nbsp;&amp;nbspSet dbs = OpenDatabase(&quot;C:\My Documents\Data&quot;, False, False, &quot;Text;&quot;)<br>&nbsp;&nbsp;&nbsp;' Create a Recordset object from the Awards text file.<br>&nbsp;&nbsp;&amp;nbspSet rstAwards = dbs.OpenRecordset(&quot;Awards.txt&quot;)<br>End Sub</p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="ba18_7.htm" OnClick="SyncURL(&quot;chapters/ba18_7.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

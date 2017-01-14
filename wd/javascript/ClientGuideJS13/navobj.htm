@@ -1,0 +1,410 @@
+<HTML>
+<HEAD>
+<TITLE>Using Navigator Objects
+</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="evnt.htm">Previous</A>
+ | <A HREF="windows.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT><BR><BR>
+<HR>
+<A NAME="1001595">
+<P></A><CENTER><H2>Chapter 11<BR>
+<A NAME="1005423">
+Using Navigator Objects</A></H2></CENTER>
+<A NAME="1005424">
+This chapter describes JavaScript objects in Navigator and explains how to use them. These client-side JavaScript objects are sometimes referred to as <I>Navigator objects</I>, to distinguish them from server-side objects or user-defined objects.</A></P>
+<A NAME="1016526">
+This chapter contains the following sections:</A></P>
+<ul><LI><A NAME="1016527">
+<A HREF="navobj.htm#1006931">Navigator Object Hierarchy</A>
+</A></LI><LI><A NAME="1016528">
+<A HREF="navobj.htm#1006066">Document Properties: an Example</A>
+</A></LI><LI><A NAME="1017147">
+<A HREF="navobj.htm#1007007">JavaScript Reflection and HTML Layout</A>
+</A></LI><LI><A NAME="1017152">
+<A HREF="navobj.htm#1009022">Key Navigator Objects</A>
+</A></LI><LI><A NAME="1017207">
+<A HREF="navobj.htm#1017919">Navigator Object Arrays</A>
+</A></LI><LI><A NAME="1018091">
+<A HREF="navobj.htm#1016546">Using the write Method</A>
+</A></LI></ul>
+<HR><H2><A NAME="Navigator Object Hierarchy"></A>
+<A NAME="1006931">
+ Navigator Object Hierarchy
+</A></H2><A NAME="1014686">
+When you load a document in Navigator, it creates a number of JavaScript objects with property values based on the HTML in the document and other pertinent information. These objects exist in a hierarchy that reflects the structure of the HTML page itself. The following figure illustrates this object hierarchy.</A></P>
+<P><A NAME="1014691">
+<B>Figure 11.1&nbsp;&nbsp;&nbsp;Navigator object hierarchy<P>
+<IMG SRC="graphics/nav_hier.gif">
+
+</B></A></P>
+
+
+<A NAME="1014692">
+In this hierarchy, an object's "descendants" are properties of the object. For example, a form named <CODE>form1</CODE> is an object as well as a property of <CODE>document</CODE>, and is referred to as <CODE>document.form1</CODE>.</A></P>
+<A NAME="1016328">
+For a list of all objects and their properties, methods, and event handlers, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsref/index.htm" TARGET="_top"><I>Client-Side JavaScript Reference</I></A>.</A></P>
+<A NAME="1007993">
+Every page has the following objects:</A></P>
+<ul><P><LI><A NAME="1007995">
+<CODE>navigator</CODE>: has properties for the name and version of Navigator being used, for the MIME types supported by the client, and for the plug-ins installed on the client.</A></LI>
+<P><LI><A NAME="1007997">
+<CODE>window</CODE>: the top-level object; has properties that apply to the entire window. Each "child window" in a frames document also has a <CODE>window</CODE> object.</A></LI>
+<P><LI><A NAME="1007999">
+<CODE>document</CODE>: contains properties based on the content of the document, such as title, background color, links, and forms.</A></LI>
+<P><LI><A NAME="1008001">
+<CODE>location</CODE>: has properties based on the current URL.</A></LI>
+<P><LI><A NAME="1008003">
+<CODE>history</CODE>: contains properties representing URLs the client has previously requested.</A></LI>
+</ul><A NAME="1008004">
+Depending on its content, the document may contain other objects. For instance, each form (defined by a <CODE>FORM</CODE> tag) in the document has a corresponding <CODE>Form</CODE> object.</A></P>
+<A NAME="1006964">
+To refer to specific properties, you must specify the object name and all its ancestors. Generally, an object gets its name from the <CODE>NAME</CODE> attribute of the corresponding HTML tag. For more information and examples, see <A HREF="windows.htm#996824">Chapter 12, "Using Windows and Frames."</A></A></P>
+<A NAME="1008045">
+For example, the following code refers to the <CODE>value</CODE> property of a text field named <CODE>text1</CODE> in a form named <CODE>myform</CODE> in the current document:</A></P>
+<PRE><A NAME="1006965">document.myform.text1.value</A></PRE><A NAME="1010227">
+If an object is on a form, you must include the form name when referring to that object, even if the object does not need to be on a form. For example, images do not need to be on a form. The following code refers to an image that is on a form:</A></P>
+<PRE><A NAME="1010232">document.imageForm.aircraft.src='f15e.gif'</A></PRE><A NAME="1010233">
+The following code refers to an image that is <EM>not</EM> on a form:</A></P>
+<PRE><A NAME="1010234">document.aircraft.src='f15e.gif'</A></PRE>
+<HR><H2><A NAME="Document Properties: an Example"></A>
+<A NAME="1006066">
+ Document Properties: an Example
+</A></H2><A NAME="1006536">
+The properties of the <CODE>document</CODE> object are largely content-dependent. That is, they are created based on the HTML in the document. For example, <CODE>document</CODE> has a property for each form and each anchor in the document.</A></P>
+<A NAME="1004228">
+Suppose you create a page named <CODE>simple.html</CODE> that contains the following HTML:</A></P>
+<PRE><A NAME="1004229">&lt;HEAD&gt;&lt;TITLE&gt;A Simple Document&lt;/TITLE&gt;<br>&lt;SCRIPT&gt;<br>function update(form) {<br>&nbsp;&nbsp;&nbsp;alert("Form being updated")<br>}<br>&lt;/SCRIPT&gt;<br>&lt;/HEAD&gt;</A></PRE><PRE><A NAME="1013650">&lt;BODY&gt;<br>&lt;FORM NAME="myform" ACTION="foo.cgi" METHOD="get" &gt;Enter a value:<br>&lt;INPUT TYPE="text" NAME="text1" VALUE="blahblah" SIZE=20 &gt;<br>Check if you want: <br>&lt;INPUT TYPE="checkbox" NAME="Check1" CHECKED &nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;onClick="update(this.form)"&gt; Option #1<br>&lt;P&gt;<br>&lt;INPUT TYPE="button" NAME="button1" VALUE="Press Me"<br>&nbsp;&nbsp;&nbsp;onClick="update(this.form)"&gt;<br>&lt;/FORM&gt;<br>&lt;/BODY&gt;</A></PRE><A NAME="1006054">
+Given the preceding HTML example, the basic objects might have properties like those shown in the following table.</A></P>
+<A NAME="1016413">
+<P><B><A NAME="1006006">
+Table 11.1&nbsp;Example object property values</A></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1006046">
+<B>Property
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1006048">
+<B>Value
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1006038">document.title</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1006040"> "A Simple Document"</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1006018">document.fgColor</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1006020"> #000000</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1006022">document.bgColor</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1006024"> #ffffff</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1006462">location.href</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1006464"> "http://www.royalairways.com/samples/simple.html"</A></PRE>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1006026">history.length</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1006028"> 7</A></PRE>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+<A NAME="1017748">
+Notice that the value of <CODE>document.title</CODE> reflects the value specified in the <CODE>TITLE</CODE> tag. The values for <CODE>document.fgColor</CODE> (the color of text) and <CODE>document.bgColor</CODE> (the background color) were not set in the HTML, so they are based on the default values specified in the Preferences dialog box (when the user chooses Preferences from the Navigator Edit menu).</A></P>
+<A NAME="1006058">
+Because the document has a form, there is also a <CODE>Form</CODE> object called <CODE>myform</CODE> (based on the form's <CODE>NAME</CODE> attribute) that has child objects for the checkbox and the button. Each of these objects has a name based on the <CODE>NAME</CODE> attribute of the HTML tag that defines it, as follows:</A></P>
+<ul><P><LI><A NAME="1004238">
+<CODE>document.myform</CODE>, the form</A></LI>
+<P><LI><A NAME="1006083">
+<CODE>document.myform.Check1</CODE>, the checkbox</A></LI>
+<P><LI><A NAME="1006084">
+<CODE>document.myform.button1</CODE>, the button</A></LI>
+</ul><A NAME="1007050">
+The <CODE>Form</CODE> object <CODE>myform</CODE> has other properties based on the attributes of the <CODE>FORM</CODE> tag, for example,</A></P>
+<ul><P><LI><A NAME="1004242">
+<CODE>action</CODE> is <CODE>http://www.royalairways.com/samples/mycgi.cgi</CODE>, the URL to which the form is submitted.</A></LI>
+<P><LI><A NAME="1006196">
+<CODE>method</CODE> is "get," based on the value of the <CODE>METHOD</CODE> attribute.</A></LI>
+<P><LI><A NAME="1006237">
+<CODE>length</CODE> is 3, because there are three input elements in the form.</A></LI>
+</ul><A NAME="1006085">
+The <CODE>Form</CODE> object has child objects named <CODE>button1</CODE> and <CODE>text1</CODE>, corresponding to the button and text fields in the form. These objects have their own properties based on their HTML attribute values, for example,</A></P>
+<ul><P><LI><A NAME="1006365">
+<CODE>button1.value</CODE> is "Press Me"</A></LI>
+<P><LI><A NAME="1006369">
+<CODE>button1.name</CODE> is "Button1"</A></LI>
+<P><LI><A NAME="1006379">
+<CODE>text1.value</CODE> is "blahblah"</A></LI>
+<P><LI><A NAME="1006380">
+<CODE>text1.name</CODE> is "text1"</A></LI>
+</ul><A NAME="1004470">
+In practice, you refer to these properties using their full names, for example, <CODE>document.myform.button1.value</CODE>. This full name is based on the Navigator object hierarchy, starting with <CODE>document</CODE>, followed by the name of the form, <CODE>myform</CODE>, then the element name, <CODE>button1</CODE>, and, finally, the property name.</A></P>
+
+<HR><H2><A NAME="JavaScript Reflection and HTML Layout"></A>
+<A NAME="1007007">
+ JavaScript Reflection and HTML Layout
+</A></H2><A NAME="1007008">
+JavaScript object property values are based on the content of your HTML document, sometimes referred to as <I>reflection</I> because the property values reflect the HTML. To understand JavaScript reflection, it is important to understand how the Navigator performs <I>layout</I>--the process by which Navigator transforms HTML tags into graphical display on your computer.</A></P>
+<A NAME="1007009">
+Generally, layout happens sequentially in the Navigator: the Navigator starts at the top of the HTML file and works downward, displaying output to the screen as it goes. Because of this "top-down" behavior, JavaScript reflects only HTML that it has encountered. For example, suppose you define a form with a couple of text-input elements:</A></P>
+<PRE><A NAME="1007011">&lt;FORM NAME="statform"&gt;<br>&lt;INPUT TYPE = "text" name = "userName" size = 20&gt;<br>&lt;INPUT TYPE = "text" name = "Age" size = 3&gt;</A></PRE><A NAME="1007012">
+These form elements are reflected as JavaScript objects that you can use <I>after</I> the form is defined: <CODE>document.statform.userName</CODE> and <CODE>document.statform.Age</CODE>. For example, you could display the value of these objects in a script after defining the form:</A></P>
+<PRE><A NAME="1007013">&lt;SCRIPT&gt;<br>document.write(document.statform.userName.value)<br>document.write(document.statform.Age.value)<br>&lt;/SCRIPT&gt;</A></PRE><A NAME="1007014">
+However, if you tried to do this before the form definition (above it in the HTML page), you would get an error, because the objects don't exist yet in the Navigator.</A></P>
+<A NAME="1007015">
+Likewise, once layout has occurred, setting a property value does not affect its value or appearance. For example, suppose you have a document title defined as follows:</A></P>
+<PRE><A NAME="1007016">&lt;TITLE&gt;My JavaScript Page&lt;/TITLE&gt;</A></PRE><A NAME="1008366">
+This is reflected in JavaScript as the value of <CODE>document.title</CODE>. Once the Navigator has displayed this in the title bar of the Navigator window, you cannot change the value in JavaScript. If you have the following script later in the page, it will not change the value of <CODE>document.title</CODE>, affect the appearance of the page, or generate an error.</A></P>
+<PRE><A NAME="1007018">document.title = "The New Improved JavaScript Page"</A></PRE><A NAME="1007020">
+There are some important exceptions to this rule: you can update the value of form elements dynamically. For example, the following script defines a text field that initially displays the string "Starting Value." Each time you click the button, you add the text "...Updated!" to the value.</A></P>
+<PRE><A NAME="1007021">&lt;FORM NAME="demoForm"&gt;<br>&lt;INPUT TYPE="text" NAME="mytext" SIZE="40" VALUE="Starting Value"&gt;<br>&lt;P&gt;&lt;INPUT TYPE="button" VALUE="Click to Update Text Field"<br>&nbsp;&nbsp;&nbsp;onClick="document.demoForm.mytext.value += '...Updated!' "&gt;<br>&lt;/FORM&gt;</A></PRE><A NAME="1009017">
+This is a simple example of updating a form element after layout.</A></P>
+<A NAME="1009035">
+Using event handlers, you can also change a few other properties after layout has completed, such as <CODE>document.bgColor</CODE>.</A></P>
+
+<HR><H2><A NAME="Key Navigator Objects"></A>
+<A NAME="1009022">
+ Key Navigator Objects
+</A></H2><A NAME="1009186">
+This section describes some of the most useful Navigator objects: <CODE>window</CODE>, <CODE>Frame</CODE>, <CODE>document</CODE>, <CODE>Form</CODE>, <CODE>location</CODE>, <CODE>history</CODE>, and <CODE>navigator</CODE>. For more detailed information on these objects, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsref/index.htm" TARGET="_top"><I>Client-Side JavaScript Reference</I></A>.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1010392">
+ window and Frame Objects
+</A></H3>
+
+<A NAME="1004280">
+The <CODE>window</CODE> object is the "parent" object for all other objects in Navigator. You can create multiple windows in a JavaScript application. A <CODE>Frame</CODE> object is defined by the <CODE>FRAME</CODE> tag in a <CODE>FRAMESET</CODE> document. <CODE>Frame</CODE> objects have the same properties and methods as <CODE>window</CODE> objects and differ only in the way they are displayed.</A></P>
+<A NAME="1004281">
+The <CODE>window</CODE> object has numerous useful methods, including the following:</A></P>
+<ul><P><LI><A NAME="1004282">
+<CODE>open</CODE> and <CODE>close</CODE>: Opens and closes a browser window; you can specify the size of the window, its content, and whether it has a button bar, location field, and other "chrome" attributes.</A></LI>
+<P><LI><A NAME="1004283">
+<CODE>alert</CODE>: Displays an Alert dialog box with a message.</A></LI>
+<P><LI><A NAME="1004284">
+<CODE>confirm</CODE>: Displays a Confirm dialog box with OK and Cancel buttons.</A></LI>
+<P><LI><A NAME="1004285">
+<CODE>prompt</CODE>: Displays a Prompt dialog box with a text field for entering a value.</A></LI>
+<P><LI><A NAME="1010362">
+<CODE>blur</CODE> and <CODE>focus</CODE>: Removes focus from, or gives focus to a window.</A></LI>
+<P><LI><A NAME="1010373">
+<CODE>scrollTo</CODE>: Scrolls a window to a specified coordinate.</A></LI>
+<P><LI><A NAME="1012025">
+<CODE>setInterval</CODE>: Evaluates an expression or calls a function each time the specified period elapses.</A></LI>
+<P><LI><A NAME="1004286">
+<CODE>setTimeout</CODE>: Evaluates an expression or calls a function once after the specified period elapses.</A></LI>
+</ul><A NAME="1013954">
+<CODE>window</CODE> also has several properties you can set, such as <CODE>location</CODE> and <CODE>status</CODE>.</A></P>
+<A NAME="1008408">
+You can set <CODE>location</CODE> to redirect the client to another URL. For example, the following statement redirects the client to the Netscape home page, as if the user had clicked a hyperlink or otherwise loaded the URL:</A></P>
+<PRE><A NAME="1008402">location = "http://home.netscape.com"</A></PRE><A NAME="1004287">
+You can use the <CODE>status</CODE> property to set the message in the status bar at the bottom of the client window; for more information, see <A HREF="advtopic.htm#1006028">"Using the Status Bar" on page&nbsp;204</A>.</A></P>
+<A NAME="1015199">
+For more information on windows and frames, see <A HREF="windows.htm#996824">Chapter 12, "Using Windows and Frames."</A> This book does not describe the full set of methods and properties of the <CODE>window</CODE> object. For the complete list, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsref/index.htm" TARGET="_top"><I>Client-Side JavaScript Reference</I></A>.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1015208">
+ document Object
+</A></H3>
+
+<A NAME="1018064">
+Each page has one <CODE>document</CODE> object.</A></P>
+<A NAME="1004290">
+Because its <CODE>write</CODE> and <CODE>writeln</CODE> methods generate HTML, the <CODE>document</CODE> object is one of the most useful Navigator objects. For information on <CODE>write</CODE> and <CODE>writeln</CODE>, see <A HREF="navobj.htm#1016546">"Using the write Method" on page&nbsp;183</A>.</A></P>
+<A NAME="1008427">
+The <CODE>document</CODE> object has a number of properties that reflect the colors of the background, text, and links in the page: <CODE>bgColor</CODE>, <CODE>fgColor</CODE>, <CODE>linkColor</CODE>, <CODE>alinkColor</CODE>, and <CODE>vlinkColor</CODE>. Other useful document properties include <CODE>lastModified</CODE>, the date the document was last modified, <CODE>referrer</CODE>, the previous URL the client visited, and <CODE>URL</CODE>, the URL of the document. The <CODE>cookie</CODE> property enables you to get and set cookie values; for more information, see <A HREF="advtopic.htm#1017771">"Using Cookies" on page&nbsp;205</A>.</A></P>
+<A NAME="1010134">
+The <CODE>document</CODE> object is the ancestor for all the <CODE>Anchor</CODE>, <CODE>Applet</CODE>, <CODE>Area</CODE>, <CODE>Form</CODE>, <CODE>Image</CODE>, <CODE>Layer</CODE>, <CODE>Link</CODE>, and <CODE>Plugin</CODE> objects in the page.</A></P>
+<A NAME="1010205">
+Users can print and save generated HTML by using the commands on the Navigator File menu (JavaScript&nbsp;1.1 and later).</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1010137">
+ Form Object
+</A></H3>
+
+<A NAME="1004294">
+Each form in a document creates a <CODE>Form</CODE> object. Because a document can contain more than one form, <CODE>Form</CODE> objects are stored in an array called <CODE>forms</CODE>. The first form (topmost in the page) is <CODE>forms[0]</CODE>, the second <CODE>forms[1]</CODE>, and so on. In addition to referring to each form by name, you can refer to the first form in a document as</A></P>
+<PRE><A NAME="1004301">document.forms[0]</A></PRE><A NAME="1004302">
+Likewise, the elements in a form, such as text fields, radio buttons, and so on, are stored in an <CODE>elements</CODE> array. You could refer to the first element (regardless of what it is) in the first form as</A></P>
+<PRE><A NAME="1006532">document.forms[0].elements[0]</A></PRE><A NAME="1011487">
+Each form element has a <CODE>form</CODE> property that is a reference to the element's parent form. This property is especially useful in event handlers, where you might need to refer to another element on the current form. In the following example, the form <CODE>myForm</CODE> contains a <CODE>Text</CODE> object and a button. When the user clicks the button, the value of the <CODE>Text</CODE> object is set to the form's name. The button's <CODE>onClick</CODE> event handler uses <CODE>this.form</CODE> to refer to the parent form, <CODE>myForm</CODE>.</A></P>
+<PRE><A NAME="1011510">&lt;FORM NAME="myForm"&gt;<br>Form name:&lt;INPUT TYPE="text" NAME="text1" VALUE="Beluga"&gt;<br>&lt;P&gt;<br>&lt;INPUT NAME="button1" TYPE="button" VALUE="Show Form Name"<br>&nbsp;&nbsp;&nbsp;onClick="this.form.text1.value=this.form.name"&gt;<br>&lt;/FORM&gt;</A></PRE>
+<H3><A NAME="Head2;"></A>
+<A NAME="1004213">
+ location Object
+</A></H3>
+
+<A NAME="1006560">
+The <CODE>location</CODE> object has properties based on the current URL. For example, the <CODE>hostname</CODE> property is the server and domain name of the server hosting the document.</A></P>
+<A NAME="1010450">
+The <CODE>location</CODE> object has two methods:</A></P>
+<ul><P><LI><A NAME="1010455">
+<CODE>reload</CODE> forces a reload of the window's current document.</A></LI>
+<P><LI><A NAME="1010464">
+<CODE>replace</CODE> loads the specified URL over the current history entry.</A></LI>
+</ul>
+<H3><A NAME="Head2;"></A>
+<A NAME="1010406">
+ history Object
+</A></H3>
+
+<A NAME="1006577">
+The <CODE>history</CODE> object contains a list of strings representing the URLs the client has visited. You can access the current, next, and previous history entries by using the <CODE>history</CODE> object's <CODE>current</CODE>, <CODE>next</CODE>, and <CODE>previous</CODE> properties. You can access the other history values using the <CODE>history</CODE> array. This array contains an entry for each history entry in source order; each array entry is a string containing a URL.</A></P>
+<A NAME="1011397">
+You can also redirect the client to any history entry by using the <CODE>go</CODE> method. For example, the following code loads the URL that is two entries back in the client's history list.</A></P>
+<PRE><A NAME="1006582">history.go(-2)</A></PRE><A NAME="1006583">
+The following code reloads the current page:</A></P>
+<PRE><A NAME="1006584">history.go(0)</A></PRE><A NAME="1006585">
+The history list is displayed in the Navigator Go menu.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1011844">
+ navigator Object
+</A></H3>
+
+<A NAME="1011845">
+The <CODE>navigator</CODE> object contains information about the version of Navigator in use. For example, the <CODE>appName</CODE> property specifies the name of the browser, and the <CODE>appVersion</CODE> property specifies version information for the Navigator.</A></P>
+<A NAME="1011846">
+The <CODE>navigator</CODE> object has three methods:</A></P>
+<ul><P><LI><A NAME="1011847">
+<CODE>javaEnabled</CODE> specifies whether Java is enabled</A></LI>
+<P><LI><A NAME="1014002">
+<CODE>preference</CODE> lets you use a signed script to get or set various user preferences (JavaScript&nbsp;1.2 and later)</A></LI>
+<P><LI><A NAME="1017090">
+<CODE>taintEnabled</CODE> specifies whether data tainting is enabled (JavaScript&nbsp;1.1 only)</A></LI>
+</ul>
+<HR><H2><A NAME="Navigator Object Arrays"></A>
+<A NAME="1017919">
+ Navigator Object Arrays
+</A></H2><A NAME="1017920">
+Some Navigator objects have properties whose values are themselves arrays. These arrays are used to store information when you don't know ahead of time how many values there will be. The following table shows which properties of which objects have arrays as values.</A></P>
+<A NAME="1018013">
+<P><B><A NAME="1017924">
+Table 11.2&nbsp;Predefined JavaScript arrays</A></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1017930">
+<B>Object
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1017932">
+<B>Property
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1017934">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left COLSPAN=1 ROWSPAN=7><PRE><A NAME="1017936">document</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1017938">anchors</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1017940">
+Reflects a document's <CODE>&lt;A&gt;</CODE> tags that contain a <CODE>NAME</CODE> attribute in source order</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1017944">applets</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1017946">
+Reflects a document's <CODE>&lt;APPLET&gt;</CODE> tags in source order</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1017950">embeds</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1017952">
+Reflects a document's <CODE>&lt;EMBED&gt;</CODE> tags in source order</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1017956">forms</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1017958">
+Reflects a document's <CODE>&lt;FORM&gt;</CODE> tags in source order</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1017962">images</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1017964">
+Reflects a document's <CODE>&lt;IMG&gt;</CODE> tags in source order (images created with the <CODE>Image()</CODE> constructor are not included in the <CODE>images</CODE> array)</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1018276">layers</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1018278">
+Reflects a document's <CODE>&lt;LAYER&gt;</CODE> and <CODE>&lt;ILAYER&gt;</CODE> tags in source order</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1017968">links</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1017970">
+Reflects a document's <CODE>&lt;AREA&nbsp;HREF="..."&gt;</CODE> tags, <CODE>&lt;A&nbsp;HREF=""&gt;</CODE> tags, and <CODE>Link</CODE> objects created with the <CODE>link</CODE> method in source order</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1017978">Form</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1017980">elements</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1017982">
+Reflects a form's elements (such as <CODE>Checkbox</CODE>, <CODE>Radio</CODE>, and <CODE>Text</CODE> objects) in source order</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1018305">Function</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1018307">arguments</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1018309">
+Reflects the arguments to a function</A></P>
+<TR><TD VALIGN=baseline ALIGN=left COLSPAN=1 ROWSPAN=2><PRE><A NAME="1017984">navigator</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1017986">mimeTypes</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1017988">
+Reflects all the MIME types supported by the client (either internally, via helper applications, or by plug-ins)</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1017992">plugins</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1017994">
+Reflects all the plug-ins installed on the client in source order</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1017996">select</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1017998">options</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1018000">
+Reflects the options in a <CODE>Select</CODE> object (<CODE>&lt;OPTION&gt;</CODE> tags) in source order</A></P>
+<TR><TD VALIGN=baseline ALIGN=left COLSPAN=1 ROWSPAN=2><PRE><A NAME="1018002">window</A></PRE><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1018004">frames</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1018006">
+Reflects all the <CODE>&lt;FRAME&gt;</CODE> tags in a window containing a <CODE>&lt;FRAMESET&gt;</CODE> tag in source order</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1018010">history</A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1018012">
+Reflects a window's history entries</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+<A NAME="1018015">
+You can index arrays by either their ordinal number or their name (if defined). For example, if the second <CODE>&lt;FORM&gt;</CODE> tag in a document has a <CODE>NAME</CODE> attribute of "myForm", you can refer to the form as <CODE>document.forms[1]</CODE> or <CODE>document.forms["myForm"]</CODE> or <CODE>document.myForm</CODE>.</A></P>
+<A NAME="1018018">
+For example, suppose the following form element is defined:</A></P>
+<PRE><A NAME="1018019">&lt;INPUT TYPE="text" NAME="Comments"&gt;</A></PRE><A NAME="1018322">
+If you need to refer to this form element by name, you can specify <CODE>document.forms["Comments"]</CODE>.</A></P>
+<A NAME="1018329">
+All predefined JavaScript arrays have a length property that indicates the number of elements in the array. For example, to obtain the number of forms in a document, use its <CODE>length</CODE> property: <CODE>document.forms.length</CODE>.</A></P>
+<B><A NAME="HeadRunIn;"></A>
+<A NAME="1018323">
+JavaScript 1.0. </A></B><A NAME="1018324">
+You must index arrays by their ordinal number, for example <CODE>document.forms[0]</CODE>.</A></P>
+
+<HR><H2><A NAME="Using the write Method"></A>
+<A NAME="1016546">
+ Using the write Method
+</A></H2><A NAME="1016617">
+The <CODE>write</CODE> method of <CODE>document</CODE> displays output in the Navigator. "Big deal," you say, "HTML already does that." But in a script you can do all kinds of things you can't do with ordinary HTML. For example, you can display text conditionally or based on variable arguments. For these reasons, <CODE>write</CODE> is one of the most often-used JavaScript methods.</A></P>
+<A NAME="1016548">
+The <CODE>write</CODE> method takes any number of string arguments that can be string literals or variables. You can also use the string concatenation operator (+) to create one string from several when using <CODE>write</CODE>.</A></P>
+<A NAME="1016549">
+Consider the following script, which generates dynamic HTML with JavaScript:</A></P>
+<PRE><A NAME="1016550">&lt;HEAD&gt; <br>&lt;SCRIPT&gt;<br>&lt;!--- Hide script from old browsers<br>// This function displays a horizontal bar of specified width<br>function bar(widthPct) {<br>&nbsp;&nbsp;&nbsp;document.write("&lt;HR ALIGN='left' WIDTH=" + widthPct + "%&gt;");<br>}</A></PRE><PRE><A NAME="1016551">// This function displays a heading of specified level and some text<br>function output(headLevel, headText, text) {<br>&nbsp;&nbsp;&nbsp;document.write("&lt;H", headLevel, "&gt;", headText, "&lt;/H",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;headLevel, "&gt;&lt;P&gt;", text)<br>}<br>// end script hiding from old browsers --&gt;<br>&lt;/SCRIPT&gt;<br>&lt;/HEAD&gt;</A></PRE><PRE><A NAME="1016552">&lt;BODY&gt;<br>&lt;SCRIPT&gt;<br>&lt;!--- hide script from old browsers<br>bar(25) <br>output(2, "JavaScript Rules!", "Using JavaScript is easy...")<br>// end script hiding from old browsers --&gt;<br>&lt;/SCRIPT&gt;<br>&lt;P&gt; This is some standard HTML, unlike the above that is generated.<br>&lt;/BODY&gt;</A></PRE><A NAME="1016553">
+The HEAD of this document defines two functions:</A></P>
+<ul><P><LI><A NAME="1016554">
+<CODE>bar</CODE>, which displays an HTML horizontal rule of a width specified by the function's argument.</A></LI>
+<P><LI><A NAME="1016555">
+<CODE>output</CODE>, which displays an HTML heading of the level specified by the first argument, heading text specified by the second argument, and paragraph text specified by the third argument.</A></LI>
+</ul><A NAME="1016556">
+The document <CODE>BODY</CODE> then calls the two functions to produce the display shown in the following figure.</A></P>
+<P><A NAME="1016564">
+<B>Figure 11.2&nbsp;&nbsp;&nbsp;Display created using JavaScript functions<P>
+<IMG SRC="graphics/gs1.gif">
+
+</B></A></P>
+
+
+<A NAME="1016565">
+The following line creates the output of the <CODE>bar</CODE> function:</A></P>
+<PRE><A NAME="1016566">document.write("&lt;HR ALIGN='left' WIDTH=", widthPct, "%&gt;")</A></PRE><A NAME="1016567">
+Notice that the definition of <CODE>bar</CODE> uses single quotation marks inside double quotation marks. You must do this whenever you want to indicate a quoted string inside a string literal. Then the call to <CODE>bar</CODE> with an argument of 25 produces output equivalent to the following HTML:</A></P>
+<PRE><A NAME="1016568">&lt;HR ALIGN="left" WIDTH=25%&gt;</A></PRE><A NAME="1016570">
+<CODE>write</CODE> has a companion method, <CODE>writeln</CODE>, which adds a newline sequence (a carriage return or a carriage return and linefeed, depending on the platform) at the end of its output. Because HTML generally ignores new lines, there is no difference between <CODE>write</CODE> and <CODE>writeln</CODE> except inside tags such as <CODE>PRE</CODE>, which respect carriage returns.</A></P>
+
+<H3><A NAME="Head2;"></A>
+<A NAME="1016574">
+ Printing Output
+</A></H3>
+
+<A NAME="1016575">
+Navigator versions 3.0 and later print output created with JavaScript. To print output, the user chooses Print from the Navigator File menu. Navigator&nbsp;2.0 does <I>not</I> print output created with JavaScript.</A></P>
+<A NAME="1016576">
+If you print a page that contains layers (Navigator&nbsp;4.0 and later), each layer is printed separately on the same page. For example, if three layers overlap each other in the browser, the printed page shows each layers separately.</A></P>
+<A NAME="1016577">
+If you choose Page Source from the Navigator View menu or View Frame Source from the right-click menu, the web browser displays the content of the HTML file with the generated HTML. If you instead want to view the HTML source showing the scripts which generate HTML (with the <CODE>document.write</CODE> and <CODE>document.writeln</CODE> methods), do not use the Page Source and View Frame Source menu items. In this situation, use the <CODE>view-source:</CODE> protocol. For example, assume the file <CODE>file://c|/test.html</CODE> contains this text:</A></P>
+<PRE><A NAME="1016578">&lt;HTML&gt;<br>&lt;BODY&gt;<br>Hello, <br>&lt;SCRIPT&gt;document.write(" there.")&lt;/SCRIPT&gt;<br>&lt;/BODY&gt;<br>&lt;/HTML&gt;</A></PRE><A NAME="1016579">
+If you load this URL into the web browser, it displays the following:</A></P>
+<PRE><A NAME="1016580">Hello, there.</A></PRE><A NAME="1016581">
+If you choose Page Source from the View menu, the browser displays the following:</A></P>
+<PRE><A NAME="1016582">&lt;HTML&gt;<br>&lt;BODY&gt;<br>Hello, <br>&nbsp;there.<br>&lt;/BODY&gt;<br>&lt;/HTML&gt;</A></PRE><A NAME="1016583">
+If you load <CODE>view-source:file://c|/test.html</CODE>, the browser displays the following:</A></P>
+<PRE><A NAME="1016584">&lt;HTML&gt;<br>&lt;BODY&gt;<br>Hello, <br>&lt;SCRIPT&gt;document.write(" there.")&lt;/SCRIPT&gt;<br>&lt;/BODY&gt;<br>&lt;/HTML&gt;</A></PRE>
+<H3><A NAME="Head2;"></A>
+<A NAME="1016870">
+ Displaying Output
+</A></H3>
+
+<A NAME="1016871">
+JavaScript in Navigator generates its results from the top of the page down. Once text has been displayed, you cannot change it without reloading the page. In general, you cannot update part of a page without updating the entire page. However, you can update the following:</A></P>
+<ul><P><LI><A NAME="1016872">
+A layer's contents.</A></LI>
+<P><LI><A NAME="1016875">
+A "subwindow" in a frame separately. For more information, see <A HREF="windows.htm#996824">Chapter 12, "Using Windows and Frames."</A></A></LI>
+<P><LI><A NAME="1016879">
+Form elements without reloading the page; see <A HREF="evnt.htm#1009637">"Example: Using an Event Handler" on page&nbsp;160</A>.</A></LI>
+</ul>
+<HR>
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="evnt.htm">Previous</A>
+ | <A HREF="windows.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT>
+<P ALIGN=right>
+<FONT SIZE=-2><I>Last Updated:  05/27/99  21:21:36</I></FONT>
+<P> <CENTER>Copyright (c) 1999
+<A HREF="http://home.netscape.com/misc/contact_info.html"
+TARGET=_top>Netscape Communications Corporation</A></FONT>
+</CENTER>
+<P>
+</BODY>
+</HTML>
+
+

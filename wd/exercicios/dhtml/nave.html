@@ -1,0 +1,27 @@
+<html>
+<body>
+<div id="nave" style="position:relative">
+<img src="nave.gif">
+</div>
+<div id="texto" style="position:relative"><p>Texto</p>
+</div>
+<script>
+function anda(){
+	if (nave.style.pixelLeft<1000)
+		nave.style.pixelLeft+=5
+	
+	moveid2=setTimeout("anda()",10)
+}
+
+function volta(){
+	clearTimeout(moveid2)
+	nave.style.pixelLeft=0
+}
+</script>
+
+<form>
+<input type="button" value="Anda" onClick="anda()">
+<input type="button" value="volta" onClick="volta()">
+</form>
+</body>
+</html>

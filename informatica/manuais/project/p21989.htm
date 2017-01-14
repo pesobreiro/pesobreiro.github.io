@@ -1,0 +1,75 @@
+<!doctype html public" -//IETF//DTD 	HTML//EN">
+<HTML>
+
+<HEAD>
+<SCRIPT LANGUAGE="JAVASCRIPT">
+<!-- 
+
+function checkbrowse()
+{
+var bn, bv, ver
+bn = navigator.appName;
+bv = parseInt(navigator.appVersion);
+if (bn=="Microsoft Internet Explorer" && bv<"4") ver = "IE3";
+else ver = "NotIE3";
+if (ver=="IE3") top.cont.parts.location.href="part21.htm";
+if (ver=="NotIE3") top.cont.parts.location.href="nav/part21.htm";
+}
+//-->
+</SCRIPT>
+<TITLE>Sharing Resources Among Projects</TITLE>
+<META NAME="GENERATOR" 	CONTENT="Merch. System HTML Development">
+<META NAME="AUTHOR" 	CONTENT="Merch. System HTML Development">
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" OnLoad="checkbrowse();">
+<Font Face ="Verdana, Arial, Helvetica">
+
+<P align=right><SMALL>
+<A HREF="p21988.htm" Target="TOC"><IMG SRC="prev.gif"ALT="Previous page"BORDER=0></A>
+<A HREF="p21981.htm" Target="TOC"><IMG SRC="toc21.gif"ALT="Contents"BORDER=0></A>
+<A HREF="p219810.htm" Target="TOC"><IMG SRC="Next.gif"ALT="Next 
+page"BORDER=0></A></SMALL></P>
+<H1>Sharing Resources Among Projects</H1>
+
+<P>
+With several projects on your plate at once, managing resources can be complicated if you try to manage them 
+for each project separately. If you use some of your resources for different projects, Microsoft Project can help 
+you simplify resource management by enabling you to share resources among projects. You do this by 
+creating a <I>resource pool</I>, a project file containing information about a group of resources that several 
+projects share in common.
+<P>
+By creating a resource pool, you can:
+<UL>
+<LI>Share resources among a number of projects.
+<LI>Add shared resources to a new project quickly.
+<LI>Easily review resource usage and costs across all projects without opening each individual project file.
+<LI>Identify and resolve conflicts that may result when resources are assigned to more than one project.
+<LI>Update the same piece of resource information — such as a resource rate, a resource calendar, or a 
+resource cost — for all projects at once rather than one project at a time.
+<LI>Print resource reports that provide details about resource usage across projects.
+</UL>
+<P>
+When you create a resource pool, all the resource information that resides in the pool appears in each project 
+file that shares the pool, because the resource pool is linked to the projects. Whenever you change information 
+in the resource pool, such as a resource rate, you can transmit that change to all the linked projects. Likewise, if 
+you update resource information in a project, you can transmit that change back to the resource pool.
+<P>
+<IMG SRC="2106.GIF" ALT="Image File: 2106">
+<P>
+By default, the information in the resource pool takes precedence, so resource information that’s already in the 
+resource pool can’t be overwritten by information added later from projects that share the pool. You can, 
+however, specify that the inserted project takes precedence.
+<P>
+You can share resources among projects whether or not you consolidate the projects. If you know in advance 
+that a number of projects will share the same resources, you don’t need to enter those resources into each 
+project individually. Instead, you can create a resource pool containing resource information only (no tasks or 
+task information), and then have all related projects use this project’s resources. If, after creating several 
+projects that include both tasks and resources, you realize that they have many resources in common, you can 
+designate one project as the resource pool for all the projects.
+<P align = Center > <A HREF="http://www.microsoft.com/misc/cpyright.htm"><EM>&#169;1996-1997 Microsoft Corporation. All rights 
+reserved.</EM></A></P>
+</BODY>
+</FONT>
+</HTML>
+

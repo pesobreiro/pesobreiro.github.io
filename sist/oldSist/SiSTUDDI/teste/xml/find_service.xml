@@ -1,0 +1,7 @@
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+  <s:Body>  
+    <find_service generic="2.0" businessKey="myBusinessKey" xmlns="urn:uddi-org:api_v2">    
+      <name>MyService</name>  
+    </find_service>
+  </s:Body>
+</s:Envelope>

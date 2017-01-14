@@ -1,0 +1,656 @@
+<HTML>
+<HEAD>
+<TITLE>
+</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="document.htm">Previous</A>
+ | <A HREF="fileup.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT><BR><BR>
+<HR>
+
+<H1><A NAME="event"></A>
+<A NAME="1193137">
+ event
+</A></H1>
+<A NAME="1193138">
+The <CODE>event</CODE> object contains properties that describe a JavaScript event, and is passed as an argument to an event handler when the event occurs.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193141">
+<I>Client-side object</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193143">
+</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1193145">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1193147">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+<A NAME="1193148">
+In the case of a mouse-down event, for example, the <CODE>event</CODE> object contains the type of event (in this case MouseDown), the x and y position of the cursor at the time of the event, a number representing the mouse button used, and a field containing the modifier keys (Control, Alt, Meta, or Shift) that were depressed at the time of the event. The properties used within the <CODE>event</CODE> object vary from one type of event to another. This variation is provided in the descriptions of individual event handlers.</A></P>
+<A NAME="1210047">
+See <A HREF="handlers.htm#1130823">Chapter 3, "Event Handlers,"</A> for complete information about event handlers. For more information on handling events, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193153">
+ Created by
+</A></H4>
+
+<A NAME="1193154">
+<CODE>event</CODE> objects are created by Communicator when an event occurs. You do not create them yourself.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193155">
+ Security
+</A></H4>
+
+<A NAME="1193156">
+Setting any property of this object requires the <CODE>UniversalBrowserWrite</CODE> privilege. In addition, getting the <CODE>data</CODE> property of the <CODE>DragDrop</CODE> event requires the <CODE>UniversalBrowserRead</CODE> privilege. For information on security, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1193164">
+ Property Summary
+</A></H4>
+
+<A NAME="1193165">
+Not all of these properties are relevant to each event type. To learn which properties are used by an event, see the "Event object properties used" section of the individual event handler.</A></P>
+<A NAME="1200027">
+<P><B></B>
+<TABLE BORDER="2" CELLPADDING=5>
+<TR><TH VALIGN=baseline ALIGN=left><B><A NAME="1193168">
+<B>Property
+</B></A><B><TH VALIGN=baseline ALIGN=left><B><A NAME="1193170">
+<B>Description
+</B></A><B>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193183"><A HREF="event.htm#1196314"><CODE>data</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193185">
+Returns an array of strings containing the URLs of the dropped objects. Passed with the DragDrop event.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193188"><A HREF="event.htm#1196351"><CODE>height</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193190">
+Represents the height of the window or frame. </A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193193"><A HREF="event.htm#1196388"><CODE>layerX</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193195">
+Number specifying either the object width when passed with the resize event, or the cursor's horizontal position in pixels relative to the layer in which the event occurred. Note that <CODE>layerX</CODE> is synonymous with x.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193198"><A HREF="event.htm#1200409"><CODE>layerY</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193200">
+Number specifying either the object height when passed with the resize event, or the cursor's vertical position in pixels relative to the layer in which the event occurred. Note that <CODE>layerY</CODE> is synonymous with y.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193203"><A HREF="event.htm#1196474"><CODE>modifiers</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193205">
+String specifying the modifier keys associated with a mouse or key event. Modifier key values are: ALT_MASK, CONTROL_MASK, SHIFT_MASK, and META_MASK.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193208"><A HREF="event.htm#1196515"><CODE>pageX</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193210">
+Number specifying the cursor's horizontal position in pixels, relative to the page.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193213"><A HREF="event.htm#1196562"><CODE>pageY</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193215">
+Number specifying the cursor's vertical position in pixels relative to the page.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193218"><A HREF="event.htm#1196601"><CODE>screenX</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193220">
+Number specifying the cursor's horizontal position in pixels, relative to the screen.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193223"><A HREF="event.htm#1196638"><CODE>screenY</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193225">
+Number specifying the cursor's vertical position in pixels, relative to the screen.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1202990"><A HREF="event.htm#1196872"><CODE>target</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1202992">
+String representing the object to which the event was originally sent. (All events)</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1203047"><A HREF="event.htm#1196898"><CODE>type</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1203049">
+String representing the event type. (All events)</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193228"><A HREF="event.htm#1200787"><CODE>which</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193230">
+Number specifying either the mouse button that was pressed or the ASCII value of a pressed key. For a mouse, 1 is the left button, 2 is the middle button, and 3 is the right button.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1193233"><A HREF="event.htm#1196719"><CODE>width</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1193235">
+Represents the width of the window or frame.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1203148"><A HREF="event.htm#1197547"><CODE>x</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1203150">
+Synonym for <A HREF="event.htm#1196388"><CODE>layerX</CODE></A>.</A></P>
+<TR><TD VALIGN=baseline ALIGN=left><PRE><A NAME="1203141"><A HREF="event.htm#1197589"><CODE>y</CODE></A></A></PRE><TD VALIGN=baseline ALIGN=left><P><A NAME="1203143">
+Synonym for <A HREF="event.htm#1200409"><CODE>layerY</CODE></A>.</A></P>
+
+</TABLE>
+<TABLE>
+<TR><TD>
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1209588">
+ Method Summary
+</A></H4>
+
+<A NAME="1209599">
+This object inherits the <A HREF="object.htm#1193628"><CODE>watch</CODE></A> and <A HREF="object.htm#1193499"><CODE>unwatch</CODE></A> methods from <A HREF="object.htm#1193136"><CODE>Object</CODE></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1209600">
+ Examples
+</A></H4>
+
+<A NAME="1193237">
+The following example uses the event object to provide the type of event to the alert message. </A></P>
+<PRE><A NAME="1193238">&lt;A HREF="http://home.netscape.com" onClick='alert("Link got an event: "<br>+ event.type)'&gt;Click for link event&lt;/A&gt;</A></PRE><A NAME="1193239">
+The following example uses the event object in an explicitly called event handler. </A></P>
+<PRE><A NAME="1193240">&lt;SCRIPT&gt;<br>function fun1(evnt) {<br>&nbsp;&nbsp;&nbsp;alert ("Document got an event: " + evnt.type);<br>&nbsp;&nbsp;&nbsp;alert ("x position is " + evnt.layerX);<br>&nbsp;&nbsp;&nbsp;alert ("y position is " + evnt.layerY);<br>&nbsp;&nbsp;&nbsp;if (evnt.modifiers &amp; Event.ALT_MASK)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert ("Alt key was down for event.");<br>&nbsp;&nbsp;&nbsp;return true;<br>&nbsp;&nbsp;&nbsp;}<br>document.onmousedown = fun1;<br>&lt;/SCRIPT&gt;</A></PRE>
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1196314">
+data
+</A></H2>
+
+<A NAME="1196327">
+For the DragDrop event, returns an array of strings containing the URLs of the dropped objects.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1196317">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1196322">
+<A HREF="event.htm#1193137"><CODE>event</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1196324">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1196326">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1196328">
+ Security
+</A></H4>
+
+<A NAME="1196329">
+Setting this property requires the <CODE>UniversalBrowserWrite</CODE> privilege. In addition, getting this property for the <CODE>DragDrop</CODE> event requires the <CODE>UniversalBrowserRead</CODE> privilege. For information on security, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1196351">
+height
+</A></H2>
+
+<A NAME="1197475">
+Represents the height of the window or frame.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1196354">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1196359">
+<A HREF="event.htm#1193137"><CODE>event</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1196361">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1196363">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1196365">
+ Security
+</A></H4>
+
+<A NAME="1196366">
+Setting this property requires the <CODE>UniversalBrowserWrite</CODE> privilege. For information on security, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1196375">
+ See also
+</A></H4>
+
+<A NAME="1196376">
+<A HREF="event.htm#1196719"><CODE>event.width</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1196388">
+layerX
+</A></H2>
+
+<A NAME="1196401">
+Number specifying either the object width when passed with the resize event, or the cursor's horizontal position in pixels relative to the layer in which the event occurred.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1196391">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1196396">
+<A HREF="event.htm#1193137"><CODE>event</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1196398">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1196400">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1196402">
+ Security
+</A></H4>
+
+<A NAME="1196984">
+Setting this property requires the <CODE>UniversalBrowserWrite</CODE> privilege. For information on security, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1196408">
+ Description
+</A></H4>
+
+<A NAME="1196409">
+This property is synonymous with the <A HREF="event.htm#1197547"><CODE>event.x</CODE></A> property.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1196412">
+ See also
+</A></H4>
+
+<A NAME="1200406">
+<A HREF="event.htm#1200409"><CODE>event.layerY</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1200409">
+layerY
+</A></H2>
+
+<A NAME="1200410">
+Number specifying either the object height when passed with the resize event, or the cursor's vertical position in pixels relative to the layer in which the event occurred.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1200413">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1200418">
+<A HREF="event.htm#1193137"><CODE>event</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1200420">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1200422">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1196439">
+ Security
+</A></H4>
+
+<A NAME="1197009">
+Setting this property requires the <CODE>UniversalBrowserWrite</CODE> privilege. For information on security, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1196445">
+ Description
+</A></H4>
+
+<A NAME="1197703">
+This property is synonymous with the <A HREF="event.htm#1197589"><CODE>event.y</CODE></A> property.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1196449">
+ See also
+</A></H4>
+
+<A NAME="1196450">
+<A HREF="event.htm#1196388"><CODE>event.layerX</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1196474">
+modifiers
+</A></H2>
+
+<A NAME="1196487">
+String specifying the modifier keys associated with a mouse or key event. Modifier key values are: ALT_MASK, CONTROL_MASK, SHIFT_MASK, and META_MASK.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1196477">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1196482">
+<A HREF="event.htm#1193137"><CODE>event</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1196484">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1196486">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1196488">
+ Security
+</A></H4>
+
+<A NAME="1197030">
+Setting this property requires the <CODE>UniversalBrowserWrite</CODE> privilege. For information on security, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1196498">
+ See also
+</A></H4>
+
+<A NAME="1196499">
+<A HREF="event.htm#1200787"><CODE>event.which</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1196515">
+pageX
+</A></H2>
+
+<A NAME="1196528">
+Number specifying the cursor's horizontal position in pixels, relative to the page.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1196518">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1196523">
+<A HREF="event.htm#1193137"><CODE>event</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1196525">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1196527">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1196529">
+ Security
+</A></H4>
+
+<A NAME="1198187">
+Setting this property requires the <CODE>UniversalBrowserWrite</CODE> privilege. For information on security, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1196539">
+ See also
+</A></H4>
+
+<A NAME="1196540">
+<A HREF="event.htm#1196562"><CODE>event.pageY</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1196562">
+pageY
+</A></H2>
+
+<A NAME="1196575">
+Number specifying the cursor's vertical position in pixels relative to the page.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1196565">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1196570">
+<A HREF="event.htm#1193137"><CODE>event</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1196572">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1196574">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1196576">
+ Security
+</A></H4>
+
+<A NAME="1197096">
+Setting this property requires the <CODE>UniversalBrowserWrite</CODE> privilege. For information on security, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1196586">
+ See also
+</A></H4>
+
+<A NAME="1196587">
+<A HREF="event.htm#1196515"><CODE>event.pageX</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1196601">
+screenX
+</A></H2>
+
+<A NAME="1196614">
+Number specifying the cursor's horizontal position in pixels, relative to the screen.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1196604">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1196609">
+<A HREF="event.htm#1193137"><CODE>event</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1196611">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1196613">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1196615">
+ Security
+</A></H4>
+
+<A NAME="1197105">
+Setting this property requires the <CODE>UniversalBrowserWrite</CODE> privilege. For information on security, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1196625">
+ See also
+</A></H4>
+
+<A NAME="1196626">
+<A HREF="event.htm#1196638"><CODE>event.screenY</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1196638">
+screenY
+</A></H2>
+
+<A NAME="1196651">
+Number specifying the cursor's vertical position in pixels, relative to the screen.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1196641">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1196646">
+<A HREF="event.htm#1193137"><CODE>event</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1196648">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1196650">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1196652">
+ Security
+</A></H4>
+
+<A NAME="1198245">
+Setting this property requires the <CODE>UniversalBrowserWrite</CODE> privilege. For information on security, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1196662">
+ See also
+</A></H4>
+
+<A NAME="1196663">
+<A HREF="event.htm#1196601"><CODE>event.screenX</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1196872">
+target
+</A></H2>
+
+<A NAME="1196885">
+String representing the object to which the event was originally sent.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1196875">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1196880">
+<A HREF="event.htm#1193137"><CODE>event</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1196882">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1196884">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1196886">
+ Security
+</A></H4>
+
+<A NAME="1198262">
+Setting this property requires the <CODE>UniversalBrowserWrite</CODE> privilege. For information on security, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1196896">
+ See also
+</A></H4>
+
+<A NAME="1196897">
+<A HREF="event.htm#1196898"><CODE>event.type</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1196898">
+type
+</A></H2>
+
+<A NAME="1196911">
+String representing the event type.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1196901">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1196906">
+<A HREF="event.htm#1193137"><CODE>event</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1196908">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1196910">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1196912">
+ Security
+</A></H4>
+
+<A NAME="1198298">
+Setting this property requires the <CODE>UniversalBrowserWrite</CODE> privilege. For information on security, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1196922">
+ See also
+</A></H4>
+
+<A NAME="1200784">
+<A HREF="event.htm#1196872"><CODE>event.target</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1200787">
+which
+</A></H2>
+
+<A NAME="1200788">
+Number specifying either the mouse button that was pressed or the ASCII value of a pressed key. For a mouse, 1 is the left button, 2 is the middle button, and 3 is the right button.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1200791">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1200796">
+<A HREF="event.htm#1193137"><CODE>event</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1200798">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1200800">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1196696">
+ Security
+</A></H4>
+
+<A NAME="1198319">
+Setting this property requires the <CODE>UniversalBrowserWrite</CODE> privilege. For information on security, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1196706">
+ See also
+</A></H4>
+
+<A NAME="1196707">
+<A HREF="event.htm#1196474"><CODE>event.modifiers</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1196719">
+width
+</A></H2>
+
+<A NAME="1196732">
+Represents the width of the window or frame.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1196722">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1196727">
+<A HREF="event.htm#1193137"><CODE>event</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1196729">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1196731">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1196733">
+ Security
+</A></H4>
+
+<A NAME="1198336">
+Setting this property requires the <CODE>UniversalBrowserWrite</CODE> privilege. For information on security, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1196743">
+ See also
+</A></H4>
+
+<A NAME="1196744">
+<A HREF="event.htm#1196351"><CODE>event.height</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1197547">
+x
+</A></H2>
+
+<A NAME="1197643">
+Number specifying either the object width when passed with the resize event, or the cursor's horizontal position in pixels relative to the layer in which the event occurred.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1197646">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1197651">
+<A HREF="event.htm#1193137"><CODE>event</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1197653">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1197655">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1197561">
+ Security
+</A></H4>
+
+<A NAME="1198353">
+Setting this property requires the <CODE>UniversalBrowserWrite</CODE> privilege. For information on security, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1197568">
+ Description
+</A></H4>
+
+<A NAME="1197569">
+This property is synonymous with the <A HREF="event.htm#1196388"><CODE>event.layerX</CODE></A> property.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1197572">
+ See also
+</A></H4>
+
+<A NAME="1197576">
+<A HREF="event.htm#1197589"><CODE>event.y</CODE></A></A></P>
+
+<HR><H2><A NAME="Head2Ref;"></A>
+<A NAME="1197589">
+y
+</A></H2>
+
+<A NAME="1205994">
+Synonym for <CODE>layerY</CODE>.<TABLE BORDER="0">
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1197592">
+<I>Property of</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1197597">
+<A HREF="event.htm#1193137"><CODE>event</CODE></A></A></P>
+<TR><TD VALIGN=baseline ALIGN=left><P><A NAME="1197599">
+<I>Implemented in</I></A></P><TD VALIGN=baseline ALIGN=left><P><A NAME="1197601">
+JavaScript 1.2</A></P>
+
+</TABLE>
+</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1197603">
+ Security
+</A></H4>
+
+<A NAME="1198384">
+Setting this property requires the <CODE>UniversalBrowserWrite</CODE> privilege. For information on security, see the <A HREF="http://developer.netscape.com/docs/manuals/js/client/jsguide/index.htm" TARGET="_top"><I>Client-Side JavaScript Guide</I></A>.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1197610">
+ Description
+</A></H4>
+
+<A NAME="1197691">
+This property is synonymous with the <A HREF="event.htm#1200409"><CODE>event.layerY</CODE></A> property.</A></P>
+
+<H4><A NAME="Head3;"></A>
+<A NAME="1197614">
+ See also
+</A></H4>
+
+<A NAME="1197618">
+<A HREF="event.htm#1197547"><CODE>event.x</CODE></A></A></P>
+
+<HR>
+
+<FONT SIZE=-1><A HREF="contents.htm">Table of Contents</A> | <A HREF="document.htm">Previous</A>
+ | <A HREF="fileup.htm">Next</A>
+ | <A HREF="bklast.htm">Index</A>
+</FONT>
+<P ALIGN=right>
+<FONT SIZE=-2><I>Last Updated:  05/28/99  11:59:24</I></FONT>
+<P> <CENTER>Copyright (c) 1999
+<A HREF="http://home.netscape.com/misc/contact_info.html"
+TARGET=_top>Netscape Communications Corporation</A></FONT>
+</CENTER>
+<P>
+</BODY>
+</HTML>
+
+
