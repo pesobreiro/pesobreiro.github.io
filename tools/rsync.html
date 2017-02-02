@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" title="Default" href="../index.css">
+	<title>Rsync</title>
+</head>
+<body>
+<h1>RSync</h1>
+<p>Ferramenta para copiar ficheiros, pode copiar localmente ou de um host remotamente, utilizar uma shell remota ou ainda um daemon rsync. Disponibilizar v&aacute;rias op&ccedil;&otilde;es para controlar o comportamento do utilit&aacute;rio e possui as vantagens: (1) especifica&ccedil;&atilde;o flex&iacute;vel para controlar os ficheiro a serem copiados; (2) copia as diferen&ccedil;as entre ficheiros, enviando apenas as diferen&ccedil;as; (3) utilizado para backups e mirroring e (4) utiliza&ccedil;&atilde;o como um copy avan&ccedil;ado.</p>
+
+
+<ol>Outras carater&iacute;sticas do rsync s&atilde;o:
+	<li>Permite a copia de links, dispositivo, propriet&aacute;rios, grupos e permiss&otilde;es;</li>
+	<li>Op&ccedil;&otilde;es de inclus&atilde;o e exclus&atilde;o similares ao tar GNU;</li>
+	<li>Modo de exclus&atilde;o CVS para ignorar os mesmos ficheiros que o CVS ignoraria;</li>
+	<li>Pode utilizar um shell remoto, como o ssh e rsh;</li>
+	<li>N&atilde;o requer privil&eacute;gios de super utilizador;</li>
+	<li>Pipelining de transfer&ecirc;ncia de ficheiros para minimizar os custos de lat&ecirc;ncia</li>
+	<li>Suporte para daemons rsync an&oacute;nimos ou autenticados - ideal para mirroring;</li>
+</ol>
+
+<h2>Exemplos</h2>
+<p>Copiar duas pastas e ficheiros e sincronizar recursivamente o conte&uacute;do, s&oacute; copia os ficheiros que foram alterados:
+rsync -avz ~/Desktop/ ~/temp
+Atualiza&ccedil;&atilde;o Zotero:
+rsync -avz ~/Google\ Drive/Zotero/storage/ ~/Documents/Zotero/storage</p>
+
+<ul>Origem "~/Desktop" Destino "~/temp", os par&acirc;metros significam:
+	<li>a - significa o mesmo do que -rlptgoD, onde: (1) r - &eacute; para realizar a recursividade nas diretorias; (2) l - copia links simb&oacute;licos como links simb&oacute;licos; (3) p - preserva as permiss&otilde;es; (4) t - preserva o tempo; (5) g - preserva o grupo; (6) o - preserva o owner e (7) D - preserva ficheiros especiais, outras propriedades;</li>
+	<li>v - modo verbose;</li>
+	<li>z -comprime os ficheiros durante a transfer&ecirc;ncia;</li>
+</ul>
+<ul>
+Observa&ccedil;&otilde;es: 
+	<li>N&atilde;o faz sincroniza&ccedil;&atilde;o de elementos que j&aacute; n&atilde;o existem, ou seja, n&atilde;o est&atilde;o na origem e mant&ecirc;m no destino;</li>
+	<li>Se a pasta for eliminada da origem mant&ecirc;m-se no destino;</li>
+	<li>Se for criada uma pasta no destino n&atilde;o cria na origem;</li>
+	<li>Se for criado um ficheiro novo no destino n&atilde;o cria na origem;</li>
+	<li>Se for alterado um ficheiro j&aacute; existente no destino altera na origem;</li>
+</ul>
+
+Informa&ccedil;&otilde;es:<br>
+<a href="http://rsync.samba.org/documentation.html">http://rsync.samba.org/documentation.html</a><br>
+<a href="http://everythinglinux.org/rsync/">http://everythinglinux.org/rsync/</a>
+
+<p align="center"> <a href="index.html">Back</a></p>
+
+</body>
+</html>
