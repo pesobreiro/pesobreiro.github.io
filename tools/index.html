@@ -12,6 +12,15 @@
         <li>Simple tool to recover data <a href="http://www.cgsecurity.org/wiki/PhotoRec">Photorec and testdisk</a> </li>
         <li>How to clone several computers <a href="http://oakdome.com/k5/tutorials/computer-cloning/free-computer-cloning.php">here</a>.</li>
         <li> <a href="rsync.html">Rsync</a> a good tool for backup</li>
+        <li>To create a boot usb using a ISO: 
+        	<blockquote>
+	        	<li>execute diskutil list
+	        	<li>sudo umount /dev/disk1s1 replace disk1s1 by the USB identifier</li>
+	        	<li>sudo dd if=~/Desktop/Microwatt-R10-32bit.iso of=/dev/rdisk1s1 bs=1m</li>
+	        	<li>diskutil eject /dev/disk1s1</li>
+        	</blockquote>
+        	Carefull if the spotlight is working in the USB. It should be disabled to avoid the message that its busy when is ejected. Another option is to use the GUI <a href="https://github.com/thefanclub/dd-utility">https://github.com/thefanclub/dd-utility</a> or try the <a href="http://unetbootin.sourceforge.net/">UNetbootin</a>
+        </li>
 	</ul>
 	<p align="center"> <a href="../index.html">Back</a></p>
 </body>
