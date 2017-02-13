@@ -173,29 +173,25 @@
     <H2 align="center">Coisas mais atuais</H2>
     <ol>
         <li>Preciso de por o Squid a funcionar, vou come&ccedil;ar com uma <a href="http://www.deckle.co.uk/squid-users-guide/squid-configuration-basics.html">configura&ccedil;&atilde;o B&aacute;sica</a> </li>
-        <li>
-        	Gosto de trabalhar com o <a href="https://sourceforge.net/projects/lxle/?source=typ_redirect">LXLE</a>, d&aacute; para utilizar em PCs antigos. Mas ninguem me tira o Mac (Oldie mas funciona)
-        </li>
-        <li>
-        	Tips for programming and data analysis it's available <a href="programacao/index.html">here</a>
-        </li>
-        <li>
-        	Programacao e analise de dados Estou a utilizar o <a href="http://www.python.org">Python</a> para Data Analysis com packages como o Pandas, Pygame, Numpy, ...</li>
+        <li>Gosto de trabalhar com o <a href="https://sourceforge.net/projects/lxle/?source=typ_redirect">LXLE</a>, d&aacute; para utilizar em PCs antigos. Mas ninguem me tira o Mac (Oldie mas funciona) </li>
+        <li>Estou a utilizar o <a href="http://www.python.org">Python</a> para Data Analysis com packages como o Pandas, Pygame, Numpy, ...</li>
         <li>Estou a tentar criar um caso para exemplificar como &eacute; que se pode gerar valor com o <a href="https://studio.azureml.net/">Machine Learning</a> com os dados das empresas</li>
         <li>Vou passar isto tudo para ingl&ecirc;s :-) </li>
         <li>http://www.starr.net/is/type/htmlcodes.html</li>
         <li>Working with github <a href="github/index.html">here</a></li>
         <li>StarUML </li>
+        <li>Simple tool to recover data <a href="http://www.cgsecurity.org/wiki/PhotoRec">Photorec and testdisk</a> </li>
         <li>Markdown cheat sheet <a href="https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf">here</a>   </li>
+<<<<<<< HEAD
+
+        <li><a href="http://exercism.io">Exercism.io</a></li>
+=======
+        <li>Tools:<a href="tools/sublime.html">Sublime</a> </li>
         <li>To access to the startup menu in Windows 10 execute shell:startup</li>
         <li>Just for fun <a href="https://www.google.com/trends/correlate"> Google Correlate</a> and <a href="https://www.google.com/trends/">Google Trends</a></li>
         <li>Markdown <a href="index.md">test</a> </li>
-<<<<<<< HEAD
-=======
         <li>To install a Google Cloud printer first install <a href="https://tools.google.com/dlpage/cloudprintservice/index.html">Cloud Print Service</a> with the Windows Credentials, after this step install the <a href="https://tools.google.com/dlpage/cloudprintdriver/">Cloud Printer Driver</a>. The description of all steps are available <a href="http://www.howtogeek.com/168717/how-to-enable-native-google-cloud-printing-and-printer-sharing-in-windows/">here</a>.</li>
-        <li><a href="http://exercism.io">Exercism.io</a></li>
-        <li>Several usefull <a href="tools/index.html">tools</a></li>
->>>>>>> c3aa7bce3496f488270055e7a09d1ef3bb0bf335
+>>>>>>> dcc4e27e41cee7ff904973d97d6b6d5ccce3f097
     </ol>    
 	</BLOCKQUOTE>
     </BLOCKQUOTE>
