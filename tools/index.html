@@ -35,6 +35,17 @@
         	</blockquote>
         </li>
 	</ul>
+        <ul>Command line tools
+                <li>head and tail:  utilities for showing a specified number of lines from the top or bottom of the file. Default 10. Let's try it with our file.
+                tail -n 3 csvfile.csv</li>
+                <li>wc: Word count. count the number of bytes, characters, words, or lines in the file. wc -l file.csv </li>
+                <li>With grep, you can search a file or other input for a particular pattern of characters. grep -i "text" file.csv</li>
+                <li>tr: translate a file from a format to another. grep "20 Jan 2017" file.csv | tr ',' '\t' > file.tsv. Translate file to transform comma by tabs to tab delimited file.</li>
+                <li>awk: <a href="http://www.grymoire.com/Unix/Awk.html#uh-0">AWK</a> is an excellent tool for processing rows and columns. awk -F "\t" '{print $3 "  " $NF}' jan20only.tsv 
+                <br> The -F "\t" we pass to awk simply tells it that we're working with tab-separated data. Within the braces, we're actually telling awk to execute just a little bit of code. We're telling it to print the third column with $3, and then the last column with $NF (the "number of fields"), and place two spaces between them to make it a little more legible</li>
+        </ul>
+
+
 	<p align="center"> <a href="../index.html">Back</a></p>
 </body>
 </html>
