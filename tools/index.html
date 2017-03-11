@@ -25,8 +25,14 @@
         </li>
         <li>Shared folder beetween virtualbox running linux and host: (1) Install Guest Additions; (2) Define shared folder, e.g. name Dropbox path c:\Dropbox; (3) create folder "Share" in the home directory; (4) sudo mount -t vboxsf Dropbox ~/Share/ </li>
         <li>Recover windows 10 boot:
-        	<li>ALT+F10 or F8 to access the windows recovery</li>
-        	<li>Repair computer > Troubleshoot > Advanced options > Command prompt</li>
+        	<blockquote>
+        		<li>ALT+F10 or F8 to access the windows recovery</li>
+        		<li>Repair computer > Troubleshoot > Advanced options > Command prompt</li>
+        		<li>bootrec /fixmbr</li>
+        		<li>bootrec /fixboot</li>
+        		<li>bootrec /scanos</li>
+        		<li>bootrec /rebuildbcd   > Type A</li>
+        	</blockquote>
         </li>
 	</ul>
 	<p align="center"> <a href="../index.html">Back</a></p>
