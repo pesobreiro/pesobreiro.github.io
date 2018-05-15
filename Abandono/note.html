@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title></title>
+
+<script src="libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="libs/navigation-1.1/tabsets.js"></script>
+<script src="libs/navigation-1.1/codefolding.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densityDpi=device-dpi" />
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"></link>
+<script src="libs/exploratory/resources/jquery.min.js"></script>
+<script src="libs/exploratory/resources/d3.min.js"></script>
+<script src="libs/exploratory/resources/viz.min.js"></script>
+<script src="libs/exploratory/resources/plotly.min.js"></script>
+<style  type="text/css">
+  /* plotly exploratory extension */
+  .js-plotly-plot .plotly .legendpoints  .pointtext  text {
+    visibility: hidden!important;
+  }
+  /**
+   * Workaround to make the circles in the legend in even size. 
+   * https://community.plot.ly/t/controlling-legend-circle-size-in-bubble-plot/3418
+   * https://stackoverflow.com/questions/40098827/r-plotly-version-4-5-2-scatterplot-legend-bubble-size-settings
+   * https://stackoverflow.com/questions/524696/how-to-create-a-style-tag-with-javascript
+   */
+  .legendpoints path.scatterpts { 
+    d: path('M 3.2 0 A 3.2 3.2 0 1 1 0 -3.2 A 3.2 3.2 0 0 1 3.2 0 Z'); 
+  }
+
+</style>
+<link href="libs/exploratory/resources/pivot.css" rel="stylesheet"></link>
+<script src="libs/exploratory/resources/jquery.balloon.min.js"></script>
+
+<style  type="text/css">
+  /* pivot adjustment */
+  .pivot-metainfo {
+    display:none;
+  }
+  .viz-container {
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+  }
+</style>
+<script src="libs/exploratory\analytics\dadosClientes_2.js"></script>
+<script src="libs/exploratory\analytics\dadosClientes_1.js"></script>
+
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="libs\exploratory\resources\note-base.css" type="text/css" />
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
+
+
+
+
+
+<style type="text/css">
+/* Styles for plain html output with a single column layout, which is 
+   either no TOC or no-floating TOC case.  */ 
+.main-container {
+  max-width: 770px!important; /* it overrides 940px hardcoded by rmarkdown. 700px + padding left/right */
+  padding-left:30px;
+  padding-right:40px;
+}
+</style>
+
+<div class="fluid-row" id="header">
+
+<div class="btn-group pull-right">
+<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+
+</div>
+
+
+<div id="procedimento" class="section level1">
+<h1>Procedimento</h1>
+<p>Os dados enviados foram acessos com: ‘Nº Inscr.’, ‘Data Acesso’, ‘Hora Entrada’, ‘Hora Saída’, ‘Turma’ e Faturação: ‘Nº Inscr.’, ‘Data’, ‘Produto / Serviço’, ‘Tipo’, ‘Valor Desconto’.</p>
+<p>Para a data de inicio foi considera a primeira fatura. Para a data de fim foi considerado a última fatura. Foram considerados sócios inativos todos os sócios que não têm uma fatura nos dois últimos meses.</p>
+<p>O critério de exclusão foi utilizado a partir de uma folha de cálculo onde foram identificados serviços como pack’s de utilização esporádica, workshops, consulta de nutrição e serviços de estética entre outros. Está na folha de cálculo.</p>
+<p>Os serviços que os sócios realizavam o maior número de vezes foram considerados com o serviço principal que utilizavam no ginásio. Isto foi baseado na faturação. Depois criou-se uma categoria para estes serviços para reduzir uma listagem de 157. Voltou-se a analisar os dados e estas categorias com utilizações muito baixas, como aulas, surf foram retirados.</p>
+<p>Com estes dados realizamos a análise da sobrevivência dos clientes do clube VII. Esta análise representam o abandono ao longo do tempo e permite avaliar a evolução do abandono a partir das categorias obtidas.</p>
+</div>
+<div id="evolucao-global" class="section level1">
+<h1>Evolução global</h1>
+<p><script data-id="analytics_sbnfIktU7N4w" data-object-name="analytics_dadosClientes_2" data-viz="survival_curve" data-analysis="dadosClientes_2" data-height="" data-width="" ></script><div id="loading-analytics_sbnfIktU7N4w" style="width:100%; height:400px; display:table;margin-bottom:38px" class="viz-rendering-error"><div style="width:100%; height:100%; display:table-cell; vertical-align:middle; text-align:center; font-size:14px; color:#999; background-color:white;font-family:sans-serif "><div>Loading... </div></div></div> Temos representado a evolução do abandono, por exemplo nos primeiros 10 meses ficaram 74% dos sócios, i.e. 26% abandonoram nestes meses.</p>
+<script data-id="analytics_H91JbcC4CWLN" data-object-name="analytics_dadosClientes_2" data-viz="cohort_table" data-analysis="dadosClientes_2" data-height="" data-width="" ></script><div id="loading-analytics_H91JbcC4CWLN" style="width:100%; height:400px; display:table;margin-bottom:38px" class="viz-rendering-error"><div style="width:100%; height:100%; display:table-cell; vertical-align:middle; text-align:center; font-size:14px; color:#999; background-color:white;font-family:sans-serif "><div>Loading... </div></div></div>
+<p>Neste quadro está representado quantos sócios ficam a longo dos meses, por exemplo nos primeiros quatro meses perdem 10% dos sócios.</p>
+</div>
+<div id="evolucao-por-tipo-de-modalidade" class="section level1">
+<h1>Evolução por tipo de modalidade</h1>
+<script data-id="analytics_XTEFQ3pa8lKg" data-object-name="analytics_dadosClientes_1" data-viz="survival_curve" data-analysis="dadosClientes_1" data-height="" data-width="" ></script><div id="loading-analytics_XTEFQ3pa8lKg" style="width:100%; height:400px; display:table;margin-bottom:38px" class="viz-rendering-error"><div style="width:100%; height:100%; display:table-cell; vertical-align:middle; text-align:center; font-size:14px; color:#999; background-color:white;font-family:sans-serif "><div>Loading... </div></div></div>
+<p><script data-id="analytics_k1FzTAKxrrv7" data-object-name="analytics_dadosClientes_1" data-viz="cohort_table" data-analysis="dadosClientes_1" data-height="" data-width="" ></script><div id="loading-analytics_k1FzTAKxrrv7" style="width:100%; height:400px; display:table;margin-bottom:38px" class="viz-rendering-error"><div style="width:100%; height:100%; display:table-cell; vertical-align:middle; text-align:center; font-size:14px; color:#999; background-color:white;font-family:sans-serif "><div>Loading... </div></div></div> Neste quadro está representado quantos sócios ficam a longo dos meses, por exemplo nos primeiros quatro meses perdem aproximadamente 23% dos sócios nos tipo de modalidade flex. No tipo familiar só perdem aproximadamente 4.5%.</p>
+</div>
+
+<!-- BEGIN: Exploratory custom footer -->
+
+<script>
+
+var FULL_WIDTH_MARGIN_LEFT = 60;
+var $body = $(document.body);
+var bodyWidth = $body.width();
+// The default body max-width is set to 782px so if it is less than 902px 
+// (782 + 60 left margin + 60 right margin) we cancel stretching images. 
+$('img[width="full"]').each(function() {
+  var $elem = $(this);
+  if (bodyWidth > 902) {
+    $elem.attr("width", "");  // remove "full"
+    var elemOffsetLeft = $elem.offset().left;
+    $elem.css({"width": (bodyWidth - (FULL_WIDTH_MARGIN_LEFT*2) )+'px', "max-width": (bodyWidth - (FULL_WIDTH_MARGIN_LEFT*2) )+'px', "margin-left": (-1 *(elemOffsetLeft - FULL_WIDTH_MARGIN_LEFT)) + "px" });
+  } else {
+    $elem.attr("width", "100%"); // replace "full" with "100%"
+  }
+});
+
+$('a').each(function(index, a){
+  var $link = $(this);
+  if($link.attr('href') && !$link.attr('href').startsWith('file')){// tab has a with href="file" so exclude tab
+    $link.attr('target','_blank'); // make sure link opens another tab or window.
+  }
+});
+
+
+</script>
+
+<script>
+
+
+// Find exploratory vizs
+var $vizs = $("script[data-id]");
+
+var _generateSnapshot = function() {
+  var $elem = $(this); // this <a> tag
+  var id = $elem.attr("id").replace(/^a\-/, "");
+  var objectName = $elem.attr("data-object-name");
+  var viz = window[objectName];
+  if (!window._datauris) 
+    window._datauris = {};
+  
+  // If it is analytics, find the viz metadata in analytics json.
+  if (/^analytics_/.test(id)) {
+    var vizName = $elem.attr("data-viz");
+    viz = viz.vizs[vizName].metadata;
+  }
+    
+  switch (viz.options.marker) {
+    case 'pivot':
+    case 'table':
+      // do nothing.
+      break;
+    case 'map':
+    case 'maphmap':
+    case 'geojson':
+        
+      var map = window._leaflet_map_objs[id];
+      var options = {
+        exclude: ['.leaflet-control-zoom', '.leaflet-control-attribution', '.info-box'],
+        format: 'image/png'
+      };
+      return map.export(options)
+      .then(function(res) {
+        window._datauris[id] = res ? res.data : "null";
+        return null;
+      })
+      .catch(function(e){
+        window._datauris[id] = "null";
+      });
+    
+      break;
+    default:
+      // plotly
+      var graphDiv = document.querySelector("#div-"+id+" .js-plotly-plot");
+      var origw = graphDiv.clientWidth;
+      var origh = graphDiv.scrollHeight;
+      var width = 1200; 
+      var height = graphDiv.scrollHeight > graphDiv.clientHeight ? width * origh / origw : 800;
+      return Plotly.toImage(graphDiv,  {format: "png", width: width, height: height})
+      .then(function(res){
+        window._datauris[id] = !!res ? res : "null";
+      }) 
+      .catch(function(e){
+        window._datauris[id] = "null";
+      });
+      break;
+  }  
+
+};
+
+var _processViz = function() {
+  
+  var $elem = $(this); // This script tag
+  var id = $elem.attr("data-id");
+  var objectName = $elem.attr("data-object-name");
+
+  $('#loading-'+id).hide();
+  
+  var viz = window[objectName];
+  var vizName = $elem.attr("data-viz");
+
+  // If it is analytics, find the viz metadata in analytics json.
+  if (/^analytics_/.test(id)) {
+    viz = viz.vizs[vizName].metadata;
+  }
+
+  var bodyWidth = $(document.body).width();
+  var isHeightFull = $elem.attr("data-height") === 'full';
+  // The default body max-width is set to 782px so if it is less than 902px 
+  // (782 + 60 left margin + 60 right margin) we cancel stretching images. 
+  var isWidthFull = $elem.attr("data-width") === 'full' && bodyWidth > 902 ;
+  var containerWidth = $elem.parent().width();
+
+  var FULL_WIDTH_MARGIN_LEFT = 60;
+  
+  var minHeight = isWidthFull ? (bodyWidth - (FULL_WIDTH_MARGIN_LEFT*2)) *9/16 : containerWidth*5/8 ;
+  // Make the chart portrait mode if the width is less than 500px (mobile case)
+  if (containerWidth < 500) {
+    minHeight = isWidthFull ? (bodyWidth - (FULL_WIDTH_MARGIN_LEFT*2)) *16/9 : containerWidth*8/5 ;
+  }
+  
+  // Insert a viz canvas div right after the script tag.
+  var $div = $("<div>").attr('id','div-'+id).css({"min-height":minHeight+"px", "margin-bottom":"38px" }).addClass("viz-container markdown-viz-container")   
+  // Add a border to table/pivot
+  if ( /^(table|pivot)$/.test(viz.options.marker)) {
+    $div.css({"border-radius":"3px", "border":"1px solid rgb(204,204,204)", "padding":"0px 0px 0px 4px"});
+  }
+  // If plotly viz, add white background color to make viz visible on TOC
+  // if the viz width="full".
+  if (! /^(table|pivot|map|maphmap|geojson)/.test(viz.options.marker)) {
+    $div.css({"background-color": "#ffffff"});
+  }
+    
+
+  $elem.after($div);
+
+  var $trigger = $("<a>").attr({'id':'a-'+id, 'data-viz':vizName, 'data-object-name':objectName}).addClass("viz-snapshot-trigger").click(_generateSnapshot);
+  $elem.after($trigger);   
+
+  // Figure out the canvas div width and height.
+  var width= $div.width(); 
+  var height=$div.height();
+
+  // If no scroll specified for height, not to set hight to let the div 
+  // expand to fit the content without the vertical scrollbar. 
+
+  // allow full height setting only if 
+  // 1. the viz is either pivot or table, or 
+  // 2. plotly chart with repeating.
+  var allowFullHeight = !!viz.options.facet || /^(table|pivot)$/.test(viz.options.marker);
+  if (isHeightFull && allowFullHeight) {
+    // In case of full height setting, not to specify height. 
+  } else {
+    $div.css({'height': height+'px'});
+  }
+  
+  if (isWidthFull) {
+    width = bodyWidth - (FULL_WIDTH_MARGIN_LEFT*2);
+    var divOffset = $div.offset();
+    $div.css({'width': width+'px', 'margin-left':'-'+ (divOffset.left - FULL_WIDTH_MARGIN_LEFT) + 'px'});
+  } else {
+    $div.css({'width': width+'px'});
+  }
+
+  // in case of facet, make the viz width a bit smaller for the vert scroll bar. 
+  viz.options.width = (!viz.options.facet ? width : width-20);
+  viz.options.height= height;
+
+  // Show no data message if data is empty. 
+  // Some chart can render its own no data message so bypass for those cases. 
+  if (VizUtil.shouldRenderNoData(viz.options.data, viz.options.marker)) {
+    VizUtil.renderNoData($div[0]);
+    return;
+  }
+
+  switch (viz.options.marker) {
+    case 'pivot':
+    case 'table':
+    case 'singlevalue':
+
+      PivotTableGenerator.render(viz.options, viz.options.data, $div[0]);
+
+      // adjust height 
+      var pTitleHeight = $div.find('.pivot-title').outerHeight(true); 
+      if ($div.find('.pivot-title').hasClass("hidden")) {
+        pTitleHeight = 0;
+      }
+      var pColTitleHeight = $div.find('.pivot-col-title').outerHeight(true);
+      if ($div.find('.pivot-col-title').hasClass("hidden")) {
+        pColTitleHeight = 0;
+      }
+      var pHeaderHeight = $div.find('.pivot-table-frame.pivot-table-col-header-frame').outerHeight();
+      var pBodyHeight = $div.find('.pivot-table-frame.pivot-table-body-frame').outerHeight();
+      var horizScrollBarHeight = 18;
+      var pHeight = pTitleHeight + pColTitleHeight + pHeaderHeight + pBodyHeight + horizScrollBarHeight;
+      //console.log(pTitleHeight + " " +pColTitleHeight + " " + pHeaderHeight + " " + pBodyHeight + " " + pHeight + " " + $div.height())
+      if (viz.options.marker==="singlevalue"){
+        $div.css({'height':'120px', 'min-height':'120px'});
+      } else if (pHeight < $div.height()) {
+        $div.css({"height": (pHeight)+'px', "min-height":""});
+      }
+
+      break;
+    case 'map':
+    case 'maphmap':
+      $div.parent().parent().css({"background-color":"#fff"});
+      MapGenerator.render(viz.options, viz.options.data, $div[0]);
+      break;
+    case 'geojson':
+      $div.parent().parent().css({"background-color":"#fff"});
+      var geojsonObjectName = 'geojson_' + viz.options.geojson; 
+      MapGenerator.render(viz.options, viz.options.data, $div[0], window[geojsonObjectName]);
+      break;
+    default:
+      $div.css({"overflow-y":"auto"});
+      PlotlyGraphGenerator.render(viz.options, viz.options.data, $div[0], true);
+      break;
+  }
+
+}
+
+
+
+$vizs.each(function(index) {
+  setTimeout(_processViz.bind(this) ,50);
+});
+
+
+
+
+</script>
+<!-- END: Exploratory custom footer -->
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+
+</body>
+</html>

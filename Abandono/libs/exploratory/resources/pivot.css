@@ -1,0 +1,302 @@
+/* pivot */
+/* make this css compatible because it needs to be embedded in server side and note */
+
+.pivot-view {
+  margin-top:0px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-right: 5px solid transparent; /* margin-right somehow doesn't work with width:100% */
+  font-size:14px;
+  background-color: #fff;
+  position:relative;
+  padding-top:27px;
+}
+
+.pivot-col-header-view {
+  width: 100%;
+  height: 29px;
+  overflow: hidden;
+  border-right: 5px solid transparent; /* margin-right somehow doesn't work with width:100% */
+  font-size:14px;
+  background-color: #fff;
+  position:relative;
+}
+
+.pivot-body-view {
+  width: 100%;
+  height: 100%; /*calc( 100% - 28px );*/
+  overflow: auto;
+  border-right: 5px solid transparent; /* margin-right somehow doesn't work with width:100% */
+  font-size:14px;
+  background-color: #fff;
+  position:relative;
+}  
+
+
+.pivot-table-frame {
+  display:table;
+}
+.pivot-table-frame .pivot-row {
+  display:table-row;
+}
+.pivot-table-frame .pivot-row .pivot-cell {
+  display:table-cell;
+}
+
+.pivot-view .pivot-table-frame .pivot-row .pivot-cell {
+  /* border-right: 1px solid #dfdfdf;*/
+  /* border-bottom: 1px solid #dfdfdf;*/
+  background-color: #fff;
+  padding: 4px 10px;
+  min-width: 60px;
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align:right;
+  white-space: nowrap;
+  font-family: "Helvetica Neue", Arial, Helvetica, lato, sans-serif;
+}
+.pivot-view .pivot-table-frame .pivot-row .pivot-cell.text-col {
+  text-align:left; 
+}
+
+
+.pivot-view .pivot-table-frame .pivot-row:nth-of-type(2n+1) .pivot-cell{
+  background-color:#f8f8f8;
+}
+
+.pivot-view .pivot-table-frame .pivot-row .pivot-cell:first-of-type {
+  /* border-left: 1px solid #dfdfdf;*/
+}
+.pivot-view .pivot-table-frame .pivot-row .pivot-cell.header {
+  /* background-color: #f0f0f0;*/
+  text-align:right; /* same alignment as measure numbers*/
+  font-weight: bold;
+  /* max-width: 150px;*/
+  background-color: #fff;
+  border-bottom: 1px solid #cfcfcf;
+  /* font-family:Georgia, Palatino, serif;*/
+}
+
+
+.pivot-view .pivot-table-frame .pivot-row .pivot-cell.total {
+  text-align:right; 
+  font-weight: bold;
+  background-color: #fff;
+  border-top: 1px solid #cfcfcf;
+}
+.pivot-view .pivot-table-frame .pivot-row .pivot-cell.total.text-col {
+  text-align:left; 
+}
+.pivot-view .pivot-table-frame .pivot-row .pivot-cell.row-total{
+  border-top: 0px;
+  font-weight: bold;
+  text-align:right; 
+}
+
+
+.pivot-view .pivot-table-frame .pivot-row .pivot-cell.row-header {
+  text-align:left; 
+  padding-right:20px;
+  max-width: 250px;
+}
+
+.pivot-view .pivot-table-frame .pivot-row .pivot-cell.row-header.wrap {
+  white-space:initial;
+  min-width:250px; /* set the same value with max-width above to make it fix size */ 
+  padding-right:5px;
+}
+
+.pivot-view .pivot-table-frame .pivot-row .pivot-cell.row-header.wrap-responsive-width {
+  white-space:initial;
+  padding-right:5px;
+}
+
+.pivot-view .pivot-table-frame .pivot-row .pivot-cell.header.col-header {
+  cursor:pointer;
+}
+.pivot-view .pivot-table-frame .pivot-row .pivot-cell.header.col-header.text-col,
+.pivot-view .pivot-table-frame .pivot-row .pivot-cell.header.row-header.text-col {
+  text-align:left; 
+}
+
+.pivot-view .pivot-table-frame .pivot-row .pivot-cell.row-header.no-bottom-border {
+  border-bottom:0px solid white;
+}
+
+.pivot-view .pivot-table-frame .pivot-row .pivot-cell.row-header.bottom-border {
+  border-bottom:1px solid #dfdfdf;
+}
+.pivot-view .pivot-table-frame .pivot-row .pivot-cell.bottom-border {
+  border-bottom:1px solid #dfdfdf;
+}
+
+.pivot-view .pivot-table-frame .pivot-row .pivot-cell.header.row-header {
+  text-align:left; 
+  max-width: 250px;
+}
+
+/* table case */
+.pivot-view.type-table .pivot-table-frame .pivot-row .pivot-cell {
+  /* text-align:left; */ 
+  max-width: 400px;
+}
+
+.pivot-view .pivot-table-frame .pivot-row .pivot-cell.row-header.grouped {
+  background-color:#fff; 
+}
+.pivot-view .pivot-table-frame .pivot-row .pivot-cell.row-header.thick {
+  font-weight:bold; 
+}
+
+
+.pivot-view .pivot-table-frame .pivot-row:first-of-type .pivot-cell {
+  /* border-top: 1px solid #dfdfdf;*/
+  text-align:right;
+}
+
+
+.pivot-col-header-view {
+  position: absolute;
+  left:0;
+  top:0;
+  height:28px;
+  overflow-x: hidden; 
+  overflow-y: hidden;
+}
+
+.pivot-metainfo {
+  margin-top: -22px;
+  position: absolute;
+  height:18px;
+  font-size: 12px;
+  color: #999;
+  font-family: "Helvetica Neue", Arial, Helvetica, lato, sans-serif;
+  padding-left:9px;
+  background-color: #fff;
+}
+.pivot-metainfo.with-title {
+  margin-top: -10px;
+}
+
+.pivot-title {
+  height: 33px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+  padding-top: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #4d4d4d;
+  font-family: "Helvetica Neue", Arial, Helvetica, lato, sans-serif;
+  background-color: #fff;
+  margin-bottom:6px;
+
+}    
+.pivot-title.hidden {
+  display: none;
+}
+
+.pivot-col-title {
+  height: 20px;
+  font-size:14px;
+  padding-left:10px;
+  text-align: left;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #4d4d4d;
+  font-family: "Helvetica Neue", Arial, Helvetica, lato, sans-serif;
+  background-color: #fff;
+}    
+.pivot-col-title.hidden {
+  display: none;
+}
+
+
+
+.pivot-table-frame.pivot-data-popover .pivot-row .pivot-cell {
+}
+.pivot-table-frame.pivot-data-popover  .pivot-row .pivot-cell.value-cell {
+  color: #111;
+  font-weight:bold;
+  
+}
+
+.pivot-balloon-style {
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  padding: 10px 8px;
+  font-size: 14px;
+  font-weight: normal;
+  background-color: #fff;
+  color: #555;
+  box-shadow: 2px 2px 1px #ddd;
+  z-index:1050; /* VizPreviewDialog uses 1040 so it should be bigger than that. */
+}
+
+
+.pivot-col-header-view .pivot-cell.header .pivot-cell-text {
+  text-overflow: ellipsis;
+  overflow:hidden;
+  width: 100%;
+}
+
+
+.pivot-body-view .pivot-cell.header.col-header, .pivot-body-view .pivot-cell.header.row-header {
+  height: 0px!important;
+  overflow:hidden;
+  padding-top:0px;
+  padding-bottom:0px;
+  line-height:0px;
+}
+.pivot-body-view .pivot-cell.header.col-header .pivot-cell-text, .pivot-body-view .pivot-cell.header.row-header .pivot-cell-text {
+  height: 0px!important;
+  overflow:hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+  width: 100%;
+}
+
+
+.single-value-box {
+  width:100%;
+  position:relative;
+  display: table;
+}
+
+.single-value-box .single-value-innerbox {
+  border-radius:2px;
+  font-family: "Source Sans Pro",Calibri,Candara,Arial,sans-serif;
+  display:table-cell;
+  vertical-align:middle;
+
+}
+.single-value-box .single-value-innerbox .single-value-text {
+  font-size:38px;
+  line-height:1em;
+  font-weight:bold;
+  margin-bottom:10px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.single-value-box .single-value-innerbox .single-value-caption {
+  font-size:15px;
+  line-height:1em;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.single-value-box .single-value-icon{
+  position:absolute;
+  top:25px;
+  right:25px;
+  font-size:80px;
+  color:rgba(0, 0, 0, 0.15);
+}
+
+
