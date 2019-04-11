@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title></title>
+
+<script src="libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="libs/navigation-1.1/tabsets.js"></script>
+<script src="libs/navigation-1.1/codefolding.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densityDpi=device-dpi" />
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"></link>
+<script src="libs/exploratory/resources/jquery.min.js"></script>
+<script src="libs/exploratory/resources/d3.min.js"></script>
+<script src="libs/exploratory/resources/viz.min.js"></script>
+<script src="libs/exploratory/resources/leaflet.min.js"></script>
+<script src="libs/exploratory/resources/leaflet-heat.js"></script>
+<script src="libs/exploratory/resources/html2canvas.min.js"></script>
+<script src="libs/exploratory/resources/leaflet_export.js"></script>
+<link href="libs/exploratory/resources/leaflet.css" rel="stylesheet"></link>
+
+<style  type="text/css">
+/* leaflet exploratory extension */
+
+/* map legend. should be in pure css for viz share/note  */
+.leaflet-container .info.info-box {
+  color: #555;
+  padding: 8px 8px 4px 8px;
+  border-radius: 2px;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+.leaflet-container .info.info-box .info-box-title{
+  font-size:12px;
+  font-weight:bold;
+  overflow:hidden;
+  margin-bottom:2px;
+}
+.leaflet-container .info.info-box .info-box-table{
+  display:table;
+}
+
+.leaflet-container .info.info-box .info-box-value{
+  font-size:12px;
+  font-weight:normal;
+  display: table-row;
+}
+.leaflet-container .info.info-box .info-box-value .label-col , 
+.leaflet-container .info.info-box .info-box-value .value-col { 
+  display: table-cell; 
+  text-align:left;
+  padding-right:5px;
+}
+.leaflet-container .info.info-box .info-box-value .label-col {
+  color: #999;
+}
+
+.leaflet-container .info.legend {
+    color: #555;
+    padding: 8px 8px 4px 8px;
+    border-radius: 2px;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+.leaflet-container .legend .legend-row {
+  height:16px;
+  line-height:16px;
+}
+
+.leaflet-container .legend.circle .legend-row {
+  line-height:15px;
+}
+
+.leaflet-container .legend i {
+    width: 14px;
+    height: 14px;
+    float: left;
+    margin-right: 8px;
+    border-radius: 50%;
+}
+
+.leaflet-container .legend.circle i {
+  opacity: 0.8;
+}
+.leaflet-container .legend.square i {
+  width: 16px;
+  height: 16px;
+  border-radius: 0;
+  opacity: 0.65;
+}
+
+.leaflet-container .leaflet-popup-content-wrapper .popup-content-row {
+  display:table-row;
+}
+.leaflet-container .leaflet-popup-content-wrapper .popup-content-cell {
+  text-align:right;
+  display:table-cell;
+}
+
+/* disables all the links in the map attribution area at bottom. only for desktop */
+.leaflet-container .leaflet-control-attribution.leaflet-control a {
+  pointer-events: none;
+}
+</style>
+<script src="libs/exploratory\layout\ooc2gYd0.js"></script>
+<script src="libs/exploratory\layout\TIG5hbx6.js"></script>
+<script src="libs/exploratory\layout\OBr8err0.js"></script>
+
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="libs\exploratory\resources\note-base.css" type="text/css" />
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
+
+
+
+
+
+<style type="text/css">
+/* Styles for plain html output with a single column layout, which is 
+   either no TOC or no-floating TOC case.  */ 
+.main-container {
+  max-width: 770px!important; /* it overrides 940px hardcoded by rmarkdown. 700px + padding left/right */
+  padding-left:30px;
+  padding-right:40px;
+}
+</style>
+
+<div class="fluid-row" id="header">
+
+<div class="btn-group pull-right">
+<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+
+</div>
+
+
+<p>Taxa de desemprego <script data-id="viz_1" data-object-name="viz_ooc2gYd0" data-viz="ooc2gYd0" data-height="normal" data-width="normal" ></script><div data-id="viz_1" style="width:100%; height:400px; display:table;margin-bottom:38px" class="viz-rendering-error viz-loading"><div style="width:100%; height:100%; display:table-cell; vertical-align:middle; text-align:center; font-size:14px; color:#999; background-color:white;font-family:sans-serif "><div>Loading... </div></div></div></p>
+<p>Poder de compra <script data-id="viz_2" data-object-name="viz_TIG5hbx6" data-viz="TIG5hbx6" data-height="normal" data-width="normal" ></script><div data-id="viz_2" style="width:100%; height:400px; display:table;margin-bottom:38px" class="viz-rendering-error viz-loading"><div style="width:100%; height:100%; display:table-cell; vertical-align:middle; text-align:center; font-size:14px; color:#999; background-color:white;font-family:sans-serif "><div>Loading... </div></div></div></p>
+<p>Instituições de ensino <script data-id="viz_3" data-object-name="viz_OBr8err0" data-viz="OBr8err0" data-height="normal" data-width="normal" ></script><div data-id="viz_3" style="width:100%; height:400px; display:table;margin-bottom:38px" class="viz-rendering-error viz-loading"><div style="width:100%; height:100%; display:table-cell; vertical-align:middle; text-align:center; font-size:14px; color:#999; background-color:white;font-family:sans-serif "><div>Loading... </div></div></div></p>
+
+<!-- BEGIN: Exploratory custom footer -->
+
+<script>
+
+var FULL_WIDTH_MARGIN_SIDE = 60;
+var $body = $(document.body);
+var screenWidth = $body.width();
+// The default body max-width is set to 782px so if it is less than 902px 
+// (782 + 60 left margin + 60 right margin) we cancel stretching images. 
+$('img[width="full"]').each(function() {
+  var $elem = $(this);
+  if (screenWidth > 902) {
+    $elem.attr("width", "");  // remove "full"
+    var elemOffsetLeft = $elem.offset().left;
+    $elem.css({"width": (screenWidth - (FULL_WIDTH_MARGIN_SIDE*2) )+'px', "max-width": (screenWidth - (FULL_WIDTH_MARGIN_SIDE*2) )+'px', "margin-left": (-1 *(elemOffsetLeft - FULL_WIDTH_MARGIN_SIDE)) + "px" });
+  } else {
+    $elem.attr("width", "100%"); // replace "full" with "100%"
+  }
+});
+
+$('a').each(function(index, a){
+  var $link = $(this);
+  if($link.attr('href') && !$link.attr('href').startsWith('file')){// tab has a with href="file" so exclude tab
+    $link.attr('target','_blank'); // make sure link opens another tab or window.
+  }
+});
+
+
+</script>
+
+<script>
+
+
+// Find exploratory vizs
+var $vizs = $("script[data-id]");
+// View area width. 
+var screenWidth = $(document.body).width();
+// View area height. 
+var screenHeight = $(window).height();
+
+// In case of shared note, the note is loaded in the iframe so the screen
+// height is shorter than the actual screen size so we need to adjust it.
+// Accessing the parent fails if you open it locally (including opening on desktop) 
+// because of the cross origin so just to check. 
+if (!/^file:/.test(window.location.href)) {
+  var offset = $(window.parent.document).find("iframe.markdown-content-frame").offset();
+  if (offset && offset.top) {
+    screenHeight+=offset.top;
+  }
+}
+
+var _generateSnapshot = function() {
+  var $elem = $(this); // this <a> tag
+  var id = $elem.attr("data-id").replace(/^a\-/, "");
+  var objectName = $elem.attr("data-object-name");
+  var analyticsName = null;
+
+  var viz = window[objectName];
+  if (!window._datauris) 
+    window._datauris = {};
+  
+  // If it is analytics, find the viz metadata in analytics json.
+  if (/^analytics_/.test(id)) {
+    var vizName = $elem.attr("data-viz");
+    // If no corresponding metadata found, just return. 
+    if (!viz.vizs[vizName]) {
+      return;
+    }
+    analyticsName = viz.name;
+    viz = viz.vizs[vizName].metadata;
+  }
+  
+  if (VizUtil.isPivot(viz.options.marker)) {
+      // do nothing.
+  } else if (VizUtil.isLeaflet(viz.options.marker)) {
+    var map = window._leaflet_map_objs[id];
+    var options = {
+      exclude: ['.leaflet-control-zoom', '.leaflet-control-attribution', '.info-box'],
+      format: 'image/png'
+    };
+    return map.export(options)
+    .then(function(res) {
+      window._datauris[id] = res ? res.data : "null";
+      return null;
+    })
+    .catch(function(e){
+      window._datauris[id] = "null";
+    });
+  } else if (VizUtil.isROutput(viz.options.marker)) {
+  } else if (VizUtil.isPlotly(viz.options.marker)) {
+    // plotly
+    var graphDiv = document.querySelector('div[data-id="div-'+id+'"] .js-plotly-plot');
+    var origw = graphDiv.clientWidth;
+    var origh = graphDiv.scrollHeight;
+    var width = 1200; 
+    var height = graphDiv.scrollHeight > graphDiv.clientHeight ? width * origh / origw : 800;
+    return Plotly.toImage(graphDiv,  {format: "png", width: width, height: height})
+    .then(function(res){
+      window._datauris[id] = !!res ? res : "null";
+    }) 
+    .catch(function(e){
+      window._datauris[id] = "null";
+    });
+  }
+
+};
+
+var _processViz = function() {
+  
+  var $elem = $(this); // This script tag
+  var id = $elem.attr("data-id");
+  var objectName = $elem.attr("data-object-name");
+  // Hide loading placeholer
+  // It could match multiple elements if there are same charts.
+  $('.viz-loading[data-id="'+id+'"]').hide();
+  // Backward compatibility. The rmarkdown renders the old cached data if available.
+  $('.viz-rendering-error[id="loading-'+id+'"]').hide();
+  
+  var viz = window[objectName];
+  var vizName = $elem.attr("data-viz");
+  var analyticsName = null;
+
+  // If it is analytics, find the viz metadata in analytics json.
+  if (/^analytics_/.test(id)) {
+    if (viz.vizs[vizName]) {
+      analyticsName = viz.name;
+      viz = VizUtil.analyticify(viz.vizs[vizName].metadata);
+    } else {
+      // If no metadata found, just set viz to null. 
+      // Usually it shouldn't happen but just in case it happens. #9689
+      viz = null;
+    }
+  }
+
+  var containerWidth = $elem.parent().width();
+
+  // The default body max-width: 782px. 
+  // The default body width including margin: 902px (782 + 60(side margin) * 2), 
+  var FULL_WIDTH_MARGIN_SIDE = screenWidth > 902 ? 60 : 0;  
+  var FULL_HEIGHT_MARGIN_TOP = 10;  
+
+  var isFullHeightMode = false;
+  var isFullWidthMode = false;
+
+  // User-specified height
+  var userHeightStr = $elem.attr("data-height");
+  var userHeight = null;
+  if (userHeightStr) {
+    if (userHeightStr==="full") {
+      isFullHeightMode = true;
+      userHeight = screenHeight  - FULL_HEIGHT_MARGIN_TOP;
+    } else if (/%$/.test(userHeightStr)) {
+      userHeight = parseInt(userHeightStr.replace("%",""));
+      userHeight = isNaN(userHeight) ? null : (screenHeight * userHeight / 100) - FULL_HEIGHT_MARGIN_TOP;
+    } else {
+      userHeight = parseInt(userHeightStr.replace("px",""));
+      userHeight = isNaN(userHeight) ? null : userHeight;
+    }
+  }
+  // User-specified width
+  var userWidthStr = $elem.attr("data-width");
+  var userWidth = null;
+  if (userWidthStr) {
+    if (userWidthStr==="full") {
+      isFullWidthMode = true;
+      userWidth = screenWidth - FULL_WIDTH_MARGIN_SIDE*2;
+    } else if (/%$/.test(userWidthStr)) {
+      userWidth = parseInt(userWidthStr.replace("%",""));
+      userWidth = isNaN(userWidth) ? null : (screenWidth * userWidth / 100) - (FULL_WIDTH_MARGIN_SIDE*2);
+    } else {
+      userWidth = parseInt(userWidthStr.replace("px",""));
+      userWidth = isNaN(userWidth) ? null : userWidth;
+    }
+  }
+
+  // Special handling. If user specified "full" for width and nothing 
+  // specified for height, set the height to the screen height. 
+  if (isFullWidthMode && !userHeight) {
+    userHeight = screenHeight  - FULL_HEIGHT_MARGIN_TOP;
+  }
+
+  // Set the min height. If userHeight is available, just use it. 
+  // If not, try to set a rectangle shape. Use landscape mode If the screen is 
+  // large enough. If small (mobile case), use portrait mode.
+  var minHeight = userHeight || (containerWidth<500 ? containerWidth*8/5 : containerWidth*5/8);
+
+  // Insert a viz canvas div right after the script tag.
+  var $div = $("<div>").attr('data-id','div-'+id).css({"min-height":minHeight+"px", "margin-bottom":"38px" }).addClass("viz-container markdown-viz-container")   
+  $elem.after($div);
+  // If viz is not available, render no data and exit. 
+  if (!viz) {
+    $div.height(minHeight);
+    VizUtil.renderNoData($div[0], "No chart data found: "+vizName);
+    // Mark it as rendered.
+    window._vizRenderingStatus[id] = true;  
+    return;
+  } 
+ 
+  // Add a border to table/pivot
+  if ( /^(table|pivot)$/.test(viz.options.marker)) {
+    $div.css({"border-radius":"3px", "border":"1px solid rgb(204,204,204)", "padding":"0px 0px 0px 4px"});
+  }
+  // If plotly viz, add white background color to make viz visible on TOC
+  // if the viz width="full".
+  if (! /^(table|pivot|map|maphmap|geojson)/.test(viz.options.marker)) {
+    $div.css({"background-color": "#ffffff"});
+  }
+
+
+  var $trigger = $("<a>").attr({'data-id':'a-'+id, 'data-viz':vizName, 'data-object-name':objectName}).addClass("viz-snapshot-trigger").click(_generateSnapshot);
+  $elem.after($trigger);   
+
+  var divWidth  = $div.width(); 
+  var divHeight = $div.height();
+  var width = userWidth ||  divWidth;
+  var height = userHeight || divHeight
+
+  // If no scroll specified for height, not to set hight to let the div 
+  // expand to fit the content without the vertical scrollbar. 
+
+  // allow full height setting only if 
+  // 1. the viz is either pivot or table, or 
+  // 2. plotly chart with repeating.
+  var allowFullHeight = !!viz.options.facet || /^(table|pivot)$/.test(viz.options.marker);
+  if (isFullHeightMode && allowFullHeight) {
+    // In case of full height setting, not to specify height. 
+  } else {
+    $div.css({'height': height+'px'});
+  }
+
+  $div.css({'width': width+'px'});
+    // If the width is given by user, adjust the left margin to locate the viz 
+    // in the center.
+    if (userWidth && userWidth !== divWidth) {
+      $div.css('margin-left', ((userWidth - divWidth) / 2 * -1 ) + 'px');
+    }
+
+  // in case of facet, make the viz width a bit smaller for the vert scroll bar. 
+  viz.options.width = (!viz.options.facet ? width : width-20);
+  viz.options.height= height;
+
+  // Show no data message if data is empty. 
+  // Some chart can render its own no data message so bypass for those cases. 
+  if (VizUtil.shouldRenderNoData(viz.options.data, viz.options)) {
+    VizUtil.renderNoData($div[0]);
+    // Mark it as rendered.
+    window._vizRenderingStatus[id] = true;    
+    return;
+  }
+
+  if (VizUtil.isPivot(viz.options.marker)) {
+    // Render pivot table
+    PivotTableGenerator.render(viz.options, viz.options.data, $div[0]);
+    // adjust height 
+    var pTitleHeight = $div.find('.pivot-title').outerHeight(true); 
+    if ($div.find('.pivot-title').hasClass("hidden")) {
+      pTitleHeight = 0;
+    }
+    var pColTitleHeight = $div.find('.pivot-col-title').outerHeight(true);
+    if ($div.find('.pivot-col-title').hasClass("hidden")) {
+      pColTitleHeight = 0;
+    }
+    var pHeaderHeight = $div.find('.pivot-table-frame.pivot-table-col-header-frame').outerHeight();
+    var pBodyHeight = $div.find('.pivot-table-frame.pivot-table-body-frame').outerHeight();
+    var horizScrollBarHeight = 18;
+    var pHeight = pTitleHeight + pColTitleHeight + pHeaderHeight + pBodyHeight + horizScrollBarHeight;
+    //console.log(pTitleHeight + " " +pColTitleHeight + " " + pHeaderHeight + " " + pBodyHeight + " " + pHeight + " " + $div.height())
+    if (viz.options.marker==="singlevalue"){
+      $div.css({'height':'120px', 'min-height':'120px'});
+    } else if (pHeight < $div.height()) {
+      $div.css({"height": (pHeight)+'px', "min-height":""});
+    }
+
+  } else if (VizUtil.isLeaflet(viz.options.marker)) {
+    // Render leaflet map
+    switch (viz.options.marker) {
+      case 'map':
+      case 'maphmap':
+        $div.parent().parent().css({"background-color":"#fff"});
+        MapGenerator.render(viz.options, viz.options.data, $div[0]);
+        break;
+      case 'geojson':
+        $div.parent().parent().css({"background-color":"#fff"});
+        var geojsonObjectName = 'geojson_' + viz.options.geojson; 
+        MapGenerator.render(viz.options, viz.options.data, $div[0], window[geojsonObjectName]);
+        break;
+      default:
+        break;
+    }
+  } else if (VizUtil.isROutput(viz.options.marker)) {
+    // Render R output
+    ROutputGenerator.render(viz.options, {"outputFile": [ "libs/exploratory/layout_output/"+ (analyticsName ? analyticsName+"-" : "") + viz.name+".png"]}, $div[0], true);
+  } else if (VizUtil.isPlotly(viz.options.marker)) {
+    // Render plotly graph
+    $div.css({"overflow-y":"auto"});
+    PlotlyGraphGenerator.render(viz.options, viz.options.data, $div[0], true);
+  }
+
+  // Mark it as rendered.
+  window._vizRenderingStatus[id] = true;
+}
+
+// Track the viz rendering status. 
+window._vizRenderingStatus = {};
+
+$vizs.each(function(index) {
+  window._vizRenderingStatus[$(this).attr("data-id")] = false;
+  setTimeout(_processViz.bind(this) ,50);
+});
+
+
+</script>
+<!-- END: Exploratory custom footer -->
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+
+</body>
+</html>

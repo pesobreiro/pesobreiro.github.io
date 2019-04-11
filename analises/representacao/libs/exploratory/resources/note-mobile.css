@@ -1,0 +1,40 @@
+
+@media only screen and (max-width : 766px) { 
+  
+  .main-container h1 {
+    font-size: 1.5em;
+    margin-top:10px;
+  }
+
+  .main-container h2 {
+    font-size: 1.3em;
+  }
+
+}
+@media only screen and (max-device-width : 766px) { 
+
+  .main-container h1 {
+    font-size: 1.5em;
+    margin-top:10px;
+  }
+
+  .main-container h2 {
+    font-size: 1.3em;
+  }
+
+  .container-fluid.main-container .highlight pre, 
+  .container-fluid.main-container pre {
+    padding: 12px;
+  }
+  
+  .container-fluid.main-container pre>code {
+    font-size: 13px;
+  }
+  .container-fluid.main-container .nav-tabs>li>a {
+    font-size: 13px;
+  }
+  .container-fluid.main-container .nav-pills>li>a {
+    font-size: 13px;
+  }
+}
+

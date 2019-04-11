@@ -1,0 +1,964 @@
+/* styles for html output */ 
+
+@font-face {
+  font-family: octicons-link;
+  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+.main-container {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  line-height: 1.5;
+  color:#333;
+  font-family: Georgia, Cambria, "Times New Roman", Times, serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 19px;
+  word-wrap: break-word;
+  padding-top:30px;
+}
+
+.main-container h1, .main-container h2, .main-container h3, 
+.main-container h4, .main-container h5, .main-container h6 {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.main-container .viz-container, .main-container table {
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+
+
+
+.main-container .pl-c {
+  color: #6a737d;
+}
+
+.main-container .pl-c1,
+.main-container .pl-s .pl-v {
+  color: #005cc5;
+}
+
+.main-container .pl-e,
+.main-container .pl-en {
+  color: #6f42c1;
+}
+
+.main-container .pl-smi,
+.main-container .pl-s .pl-s1 {
+  color: #24292e;
+}
+
+.main-container .pl-ent {
+  color: #22863a;
+}
+
+.main-container .pl-k {
+  color: #d73a49;
+}
+
+.main-container .pl-s,
+.main-container .pl-pds,
+.main-container .pl-s .pl-pse .pl-s1,
+.main-container .pl-sr,
+.main-container .pl-sr .pl-cce,
+.main-container .pl-sr .pl-sre,
+.main-container .pl-sr .pl-sra {
+  color: #032f62;
+}
+
+.main-container .pl-v,
+.main-container .pl-smw {
+  color: #e36209;
+}
+
+.main-container .pl-bu {
+  color: #b31d28;
+}
+
+.main-container .pl-ii {
+  color: #fafbfc;
+  background-color: #b31d28;
+}
+
+.main-container .pl-c2 {
+  color: #fafbfc;
+  background-color: #d73a49;
+}
+
+.main-container .pl-c2::before {
+  content: "^M";
+}
+
+.main-container .pl-sr .pl-cce {
+  font-weight: bold;
+  color: #22863a;
+}
+
+.main-container .pl-ml {
+  color: #735c0f;
+}
+
+.main-container .pl-mh,
+.main-container .pl-mh .pl-en,
+.main-container .pl-ms {
+  font-weight: bold;
+  color: #005cc5;
+}
+
+.main-container .pl-mi {
+  font-style: italic;
+  color: #24292e;
+}
+
+.main-container .pl-mb {
+  font-weight: bold;
+  color: #24292e;
+}
+
+.main-container .pl-md {
+  color: #b31d28;
+  background-color: #ffeef0;
+}
+
+.main-container .pl-mi1 {
+  color: #22863a;
+  background-color: #f0fff4;
+}
+
+.main-container .pl-mc {
+  color: #e36209;
+  background-color: #ffebda;
+}
+
+.main-container .pl-mi2 {
+  color: #f6f8fa;
+  background-color: #005cc5;
+}
+
+.main-container .pl-mdr {
+  font-weight: bold;
+  color: #6f42c1;
+}
+
+.main-container .pl-ba {
+  color: #586069;
+}
+
+.main-container .pl-sg {
+  color: #959da5;
+}
+
+.main-container .pl-corl {
+  text-decoration: underline;
+  color: #032f62;
+}
+
+.main-container .octicon {
+  display: inline-block;
+  vertical-align: text-top;
+  fill: currentColor;
+}
+
+.main-container a {
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects;
+}
+
+.main-container a:active,
+.main-container a:hover {
+  outline-width: 0;
+}
+
+.main-container strong {
+  font-weight: inherit;
+}
+
+.main-container strong {
+  font-weight: bolder;
+}
+
+.main-container h1 {
+  font-size: 1.8em;
+  margin: 0.67em 0;
+}
+
+.main-container img {
+  border-style: none;
+}
+
+.main-container .figure {
+  margin-bottom: 38px;
+}
+
+.main-container svg:not(:root) {
+  overflow: hidden;
+}
+
+.main-container code,
+.main-container kbd,
+.main-container pre {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+.main-container hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+}
+
+.main-container input {
+  font: inherit;
+  margin: 0;
+}
+
+.main-container input {
+  overflow: visible;
+}
+
+.main-container [type="checkbox"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.main-container * {
+  box-sizing: border-box;
+}
+
+.main-container input {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.main-container a {
+  color: #00ab6d;
+  text-decoration: none;
+
+}
+
+.main-container .nav-tabs>li>a {
+  color: #00ab6d;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.main-container .nav-tabs>li.active>a {
+  color: #555;
+}
+
+.main-container a:hover {
+  text-decoration: underline;
+}
+
+.main-container strong {
+  font-weight: 600;
+}
+
+.main-container hr {
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #dfe2e5;
+}
+
+.main-container hr::before {
+  display: table;
+  content: "";
+}
+
+.main-container hr::after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.main-container table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+.main-container td,
+.main-container th {
+  padding: 0;
+}
+
+
+.main-container p {
+  color: #333;
+  font-family: Georgia, Cambria, "Times New Roman", Times, serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  line-height: 1.68;
+  letter-spacing: 0.1px;
+}
+
+.main-container li {
+  color: #333;
+  font-family: Georgia, Cambria, "Times New Roman", Times, serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.main-container blockquote {
+  margin: 0;
+}
+
+.main-container ul,
+.main-container ol {
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.main-container ol ol,
+.main-container ul ol {
+  list-style-type: lower-roman;
+}
+
+.main-container ul ul ol,
+.main-container ul ol ol,
+.main-container ol ul ol,
+.main-container ol ol ol {
+  list-style-type: lower-alpha;
+}
+
+.main-container dd {
+  margin-left: 0;
+}
+
+.main-container code {
+  font-family: Menlo, Monaco, "Courier New", Courier, monospace;
+  font-size: 12px;
+  color: #333;
+}
+
+.main-container pre {
+  margin-top: 0;
+  margin-bottom: 0;
+  font: 12px Menlo, Monaco, "Courier New", Courier, monospace;
+  color: #333;
+}
+
+.main-container .octicon {
+  vertical-align: text-bottom;
+}
+
+.main-container .pl-0 {
+  padding-left: 0 !important;
+}
+
+.main-container .pl-1 {
+  padding-left: 4px !important;
+}
+
+.main-container .pl-2 {
+  padding-left: 8px !important;
+}
+
+.main-container .pl-3 {
+  padding-left: 16px !important;
+}
+
+.main-container .pl-4 {
+  padding-left: 24px !important;
+}
+
+.main-container .pl-5 {
+  padding-left: 32px !important;
+}
+
+.main-container .pl-6 {
+  padding-left: 40px !important;
+}
+
+.main-container::before {
+  display: table;
+  content: "";
+}
+
+.main-container::after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.main-container>*:first-child {
+  margin-top: 0 !important;
+}
+
+.main-container>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+.main-container a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}
+
+.main-container .anchor {
+  float: left;
+  padding-right: 4px;
+  margin-left: -20px;
+  line-height: 1;
+}
+
+.main-container .anchor:focus {
+  outline: none;
+}
+
+
+.main-container blockquote,
+.main-container ul,
+.main-container ol,
+.main-container dl,
+.main-container table,
+.main-container pre {
+  margin-top: 0;
+  margin-bottom: 1.4em; 
+}
+
+.main-container p {
+  margin-top: 0;
+  margin-bottom: 1.4em;
+}
+
+.main-container hr {
+  height: 0.25em;
+  padding: 0;
+  margin: 24px 0;
+  background-color: #e1e4e8;
+  border: 0;
+}
+
+.main-container blockquote {
+  padding: 0 1em;
+  color: #6a737d;
+  border-left: 0.25em solid #dfe2e5;
+}
+
+.main-container blockquote>:first-child {
+  margin-top: 0;
+}
+
+.main-container blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.main-container kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #444d56;
+  vertical-align: middle;
+  background-color: #fafbfc;
+  border: solid 1px #c6cbd1;
+  border-bottom-color: #959da5;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #959da5;
+}
+
+.main-container h1,
+.main-container h2,
+.main-container h3,
+.main-container h4,
+.main-container h5,
+.main-container h6 {
+  margin: 1.7em 0 1.0em 0;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+
+.main-container h1 .octicon-link,
+.main-container h2 .octicon-link,
+.main-container h3 .octicon-link,
+.main-container h4 .octicon-link,
+.main-container h5 .octicon-link,
+.main-container h6 .octicon-link {
+  color: #1b1f23;
+  vertical-align: middle;
+  visibility: hidden;
+}
+
+.main-container h1:hover .anchor,
+.main-container h2:hover .anchor,
+.main-container h3:hover .anchor,
+.main-container h4:hover .anchor,
+.main-container h5:hover .anchor,
+.main-container h6:hover .anchor {
+  text-decoration: none;
+}
+
+.main-container h1:hover .anchor .octicon-link,
+.main-container h2:hover .anchor .octicon-link,
+.main-container h3:hover .anchor .octicon-link,
+.main-container h4:hover .anchor .octicon-link,
+.main-container h5:hover .anchor .octicon-link,
+.main-container h6:hover .anchor .octicon-link {
+  visibility: visible;
+}
+
+.main-container h1 {
+  font-size: 1.8em;
+  border-bottom: 1px solid transparent;
+}
+
+.main-container h2 {
+  font-size: 1.42em;
+  border-bottom: 1px solid transparent;
+}
+
+.main-container h3 {
+  font-size: 1.1em;
+}
+
+.main-container h4 {
+  font-size: 1.3em;
+  color: #6a737d;
+}
+
+.main-container h5 {
+  font-size: 1.1em;
+  color: #6a737d;
+}
+
+.main-container h6 {
+  font-size: 0.8em;
+  color: #6a737d;
+  font-weight: normal;
+}
+
+.main-container ul,
+.main-container ol {
+  padding-left: 2em;
+}
+
+.main-container ul ul,
+.main-container ul ol,
+.main-container ol ol,
+.main-container ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.main-container p.caption {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size:0.8em;
+  margin-top:4px;
+  color:#999999;
+  /* Center align doesn't work well. It aligns to the center of the whole text area, not aligned to the image. */
+  /* text-align:center; */
+}
+
+
+.main-container li>p {
+  margin-top: 24px;
+}
+
+/* This affects the bullet list as well as tabsets. Be careful if you change */
+.main-container li+li {
+  /*margin-top: 0.5em; original */
+  margin-top: 10px;
+}
+
+
+
+.main-container dl {
+  padding: 0;
+}
+
+.main-container dl dt {
+  padding: 0;
+  margin-top: 24px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.main-container dl dd {
+  padding: 0 16px;
+  margin-bottom: 24px;
+}
+
+
+.main-container img {
+  max-width: 100%;
+  box-sizing: content-box;
+  background-color: #fff;
+}
+
+.main-container code {
+  padding: 0;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(27,31,35,0.05);
+  border-radius: 3px;
+}
+
+.main-container code::before,
+.main-container code::after {
+  letter-spacing: -0.2em;
+  content: "\00a0";
+}
+
+.main-container pre {
+  word-wrap: normal;
+}
+
+.main-container pre>code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre-wrap;
+  background: transparent;
+  border: 0;
+}
+
+.main-container .highlight {
+  margin-bottom: 24px;
+}
+
+.main-container .highlight pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.main-container .highlight pre,
+.main-container pre {
+  padding: 24px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f8f8f8!important;
+  border-radius: 3px;
+  border: none;
+}
+
+.main-container pre code {
+  display: inline;
+  max-width: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0;
+}
+
+.main-container pre code::before,
+.main-container pre code::after {
+  content: normal;
+}
+
+.main-container .full-commit .btn-outline:not(:disabled):hover {
+  color: #005cc5;
+  border-color: #005cc5;
+}
+
+.main-container kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font: 11px Menlo, Monaco, "Courier New", Courier, monospace;
+  
+  line-height: 10px;
+  color: #444d56;
+  vertical-align: middle;
+  background-color: #f8f8f8;
+  border: solid 1px #d1d5da;
+  border-bottom-color: #c6cbd1;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #c6cbd1;
+}
+
+.main-container :checked+.radio-label {
+  position: relative;
+  z-index: 1;
+  border-color: #0366d6;
+}
+
+.main-container .task-list-item {
+  list-style-type: none;
+}
+
+.main-container .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.main-container .task-list-item input {
+  margin: 0 0.2em 0.25em -1.6em;
+  vertical-align: middle;
+}
+
+.main-container hr {
+  border-bottom-color: #eaecef;
+  height:1px; 
+  width:80%;
+  margin-left:auto; 
+  margin-right:auto;
+  margin-top:48px; 
+  margin-bottom:48px;
+}
+
+.main-container ul.nav li:first-child {
+  margin-top: 10px;
+}
+
+.main-container ul.nav > a {
+  font-family:  -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  color: #00ab6d;
+}
+
+.main-container ul.nav {
+  padding-left: 0;
+}
+
+.main-container .nav-pills>li.active>a, 
+.main-container .nav-pills>li.active>a:focus,
+.main-container .nav-pills>li.active>a:hover {
+  background-color: #00ab6d;
+  color: #fff;
+}
+
+.main-container .nav-pills>li>a {
+  font-family:  -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  color: #00ab6d;
+}
+
+/* TOC styles */
+
+div.tocify {
+  border:0;
+}
+
+#TOC ul  {
+  margin-bottom:0;
+}
+.tocify-header {
+  text-indent:0;
+}
+
+div.tocify ul {
+  font-size: 14px;
+  padding-left:0;
+}
+
+#TOC ul li {
+  /* use sans-serif for toc */
+  font-family:  -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+/* use green for active item background */
+#TOC .list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover { 
+  background-color: transparent;
+  color: #00ab6d;
+  font-weight:bold;
+}
+
+
+/* for table output in general such as directly calling kable() */
+.main-container table {
+  font-size: 14px;
+  /* white-space: nowrap; */
+  width: 100%!important;
+}
+.main-container table tr.header{
+  background-color: transparent;
+}
+
+.main-container .pagedtable{
+  font-size: 14px;
+  white-space: nowrap;
+}
+.main-container .pagedtable table{
+  margin-bottom:0px;
+}
+.main-container .pagedtable a:not([href]){
+  color: #00ab6d;
+}
+
+.main-container .pagedtable-index {
+    width: 30px;
+    display: inline-block;
+    text-align: center; 
+    border: 0;
+}
+.main-container .pagedtable-index-nav {
+    cursor: pointer;
+    padding: 0 5px 0 5px;
+    float: right;
+    border: 0;
+}
+.main-container .pagedtable-index-current {
+    cursor: default;
+    text-decoration: none;
+    font-weight: bold;
+    color: #333!important;
+    border: 0;
+}
+.main-container .pagedtable-index-nav-disabled {
+    cursor: default;
+    text-decoration: none;
+    color: #999!important;
+}
+
+.main-container .pagedtable-footer {
+  font-size: 14px;
+  font-family: "Helvetica Neue",Arial,Helvetica,lato,sans-serif;
+}
+
+.main-container .pagedtable-header-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: initial;
+}
+
+.main-container pre:not([class]) {
+  margin-bottom:32px;
+}
+
+/* Exploratory specific styles */
+
+/* error message that rmd engine shows */
+.main-container .viz-not-found {
+  border: 1px solid #e0e0e0;
+  width: 100%;
+  height: 500px;
+  font-size: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  text-align:center;
+  padding-top:247px;
+  color: #999;
+  background-color:#f8f8f8;
+  
+}
+/* error message that viz rendering engine shows */
+.main-container .viz-rendering-error {
+  border: 1px solid #e0e0e0;
+  color: #999;
+  background-color:#f8f8f8;
+}
+
+.main-container pre.missing-message {
+  border: 1px solid #e0e0e0;
+  color: #999;
+  background-color:#f8f8f8;
+  padding:20px;
+  margin-top: 0;
+  margin-bottom: 20px;
+  overflow: hidden;
+  
+} 
+.main-container pre.missing-message code {
+  font-size: 13px;
+  color: #999;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+
+.main-container .tab-content  > .tab-pane.fade.active {
+  display: inline;
+}
+
+.main-container div.sourceCode { overflow-x: auto; }
+.main-container div.sourceCode > div.row { margin-left:0; margin-right:0 }
+.main-container .code-folding-btn { 
+  margin-right: -15px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  color: #00ab6d;
+  border-color: #00ab6d;
+  padding: 1px 8px;
+  outline:none;
+}
+.main-container .code-folding-btn:hover{ background-color:  rgba(0,171,109, 0.05); }
+.main-container .code-folding-btn:focus,
+.main-container .code-folding-btn:active { background-color: #ffffff;}
+
+.main-container table.sourceCode, .main-container tr.sourceCode, .main-container td.lineNumbers, .main-container td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+.main-container table.sourceCode { width: 100%; line-height: 100%; }
+.main-container td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+.main-container td.sourceCode { padding-left: 5px; }
+.main-container code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+.main-container code > span.dt { color: #902000; } /* DataType */
+.main-container code > span.dv { color: #40a070; } /* DecVal */
+.main-container code > span.bn { color: #40a070; } /* BaseN */
+.main-container code > span.fl { color: #40a070; } /* Float */
+.main-container code > span.ch { color: #4070a0; } /* Char */
+.main-container code > span.st { color: #4070a0; } /* String */
+.main-container code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+.main-container code > span.ot { color: #007020; } /* Other */
+.main-container code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+.main-container code > span.fu { color: #06287e; } /* Function */
+.main-container code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+.main-container code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+.main-container code > span.cn { color: #880000; } /* Constant */
+.main-container code > span.sc { color: #4070a0; } /* SpecialChar */
+.main-container code > span.vs { color: #4070a0; } /* VerbatimString */
+.main-container code > span.ss { color: #bb6688; } /* SpecialString */
+.main-container code > span.im { } /* Import */
+.main-container code > span.va { color: #19177c; } /* Variable */
+.main-container code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+.main-container code > span.op { color: #666666; } /* Operator */
+.main-container code > span.bu { } /* BuiltIn */
+.main-container code > span.ex { } /* Extension */
+.main-container code > span.pp { color: #bc7a00; } /* Preprocessor */
+.main-container code > span.at { color: #7d9029; } /* Attribute */
+.main-container code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+.main-container code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+.main-container code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+.main-container code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  
+
+/* leaflet zoom control */  
+.main-container .leaflet-bar a, .main-container .leaflet-bar a:hover {
+  background-color: #fff;
+  color:black;
+}
+
+/* Hide master code folding control (show/hide all) because it opens up a new nw window. 
+ * I'm not sure the following selector picks the master control. It may match 
+ * other things since there's no explicit class for the show hide contorl. 
+ */
+.main-container .fluid-row > .btn-group.pull-right {
+  display:none;
+}
+
+/*
+ * tocify adds a huge empty space at the end of the generated html document
+ * if you enable the TOC. I still don't know what it is for but we don't need it 
+ * so we hide it for now.
+ */
+
+.main-container .tocify-extend-page {
+  display:none;
+}
+
+/* Remove top margins from TOC items */
+.main-container .tocify li+li {
+  margin-top: 0px;
+}
+
+
+.main-container a.btn.btn-primary {
+  color: #fff;
+  background-color: #00ab6d;
+  border-color: #00ab6d;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  text-decoration: none;
+  font-weight:700;
+  padding:14px;
+  font-size:16px;
+  line-height:100%;
+  border:none;
+  border-radius:3px;
+}
+
+.main-container a.btn.btn-primary:hover,  
+.main-container a.btn.btn-primary:active,  
+.main-container a.btn.btn-primary:visited,  
+{
+  text-decoration: none;
+  background-color: #00ab6d;
+  border-color: #00ab6d;
+}
+
