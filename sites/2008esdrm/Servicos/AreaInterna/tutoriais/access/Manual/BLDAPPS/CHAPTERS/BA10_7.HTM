@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>Identifying Users</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba10_6.htm" OnClick="SyncURL(&quot;chapters/ba10_6.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<a NAME="3IdentifyingUsers"></a>
+<p CLASS="heading3OrgHeading1h1">Identifying Users</p>
+<p CLASS="Textttext">In your multiuser application, you may want to identify the user currently logged on to the system. This is useful for administrative functions, such as storing the user's name with edited records to create an audit trail. Several methods are available to achieve this functionality. One involves user-level security, and another requires you to maintain your own user information.
+<p CLASS="Textttext">If you establish user-level security in your database, users must log on to your application with predefined user names and passwords. The user names are then available to your application through the <span CLASS="ElementNameeln">UserName</span> property of the <span CLASS="ElementNameeln">Workspace</span> object. The following function writes audit information to a record. It is assumed that the recordset rst includes the fields UserLastModified and DateTimeLastModified.</p>
+<p CLASS="CodeTextct">Function WriteAuditTrail(rst As Recordset) As Integer<br>&nbsp;&nbsp;&amp;nbspOn Error GoTo ErrorHandler<br>&nbsp;&nbsp;&nbsp;' Edit the current record in the recordset.<br>&nbsp;&nbsp;&amp;nbsprst.Edit<br>&nbsp;&nbsp;&amp;nbsprst!UserLastModified = Workspaces(0).UserName<br>&nbsp;&nbsp;&amp;nbsprst!DateTimeLastModified = Now<br>&nbsp;&nbsp;&amp;nbsprst.Update<br>ErrorHandler:<br>&nbsp;&nbsp;&amp;nbspSelect Case Err<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbspCase 0<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' conSuccess is defined at the module level as a public constant<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' of type Integer with a value of zero.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbspWriteAuditTrail = conSuccess<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbspExit Function<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbspCase Else<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbspMsgBox &quot;Error &quot; &amp; Err &amp; &quot;: &quot; &amp; Error, vbOKOnly, &quot;ERROR&quot;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbspWriteAuditTrail = Err<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbspExit Function<br>&nbsp;&nbsp;&amp;nbspEnd Select<br>End Function</p>
+<p CLASS="Textttext">If you don't want to establish user-level security, but still require user name functionality, you can have your application prompt the user for a name and password at startup and store those values in code variables or in a temporary table. This way, you still have access to the user's name, but you don't have to establish user-level security in your database.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For information on establishing user-level security in your database, see Chapter 14, <a HREF="../chapters/ba14_1.htm" OnClick="SyncURL(&quot;chapters/ba14_1.htm&quot;)">&quot;Securing Your Application.&quot;</a></p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="ba11_1.htm" OnClick="SyncURL(&quot;chapters/ba11_1.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

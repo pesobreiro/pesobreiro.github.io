@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>Running Selected Portions of Code</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba07_4.htm" OnClick="SyncURL(&quot;chapters/ba07_4.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<a NAME="3RunningSelectedPortionsofCode"></a>
+<p CLASS="heading3OrgHeading1h1">Running Selected Portions of Code</p>
+<p CLASS="Textttext">If you know exactly which statement caused an error, using a single breakpoint may be sufficient. More often, however, you can only guess the general vicinity of the statement that caused the error. Setting a breakpoint helps you get to that general area. Once there, you can step through your code and run it line by line to see the effect of each statement.
+<p CLASS="Textttext">You can also step through each line of code in a called procedure<span CLASS="EmDashemd"><img SRC="../images/Emdash.gif" BORDER="0" VSPACE="0" HSPACE="0" WIDTH="16" HEIGHT="5"></span>a procedure the current procedure calls<span CLASS="EmDashemd"><img SRC="../images/Emdash.gif" BORDER="0" VSPACE="0" HSPACE="0" WIDTH="16" HEIGHT="5"></span>or step over the called-procedure code. (Stepping through statements is sometimes referred to as <span CLASS="NewTermntrm">tracing.</span>) If necessary, you can also back up and start execution at a previous line.</p>
+<a NAME="4SteppingThroughStatements"></a>
+<p CLASS="heading4OrgHeading2h2">Stepping Through Statements</p>
+<p CLASS="Textttext"><span CLASS="NewTermntrm">Stepping</span> is the process of running one statement at a time. After running each statement, you can see how it affected the variables and objects in the database.</p>
+<p CLASS="heading9ListProcedureHeadinglproch"><span CLASS="ProcedureIconproci"><img SRC="../images/bluetri.jpg" ALIGN="LEFT" WIDTH="9" HEIGHT="17">&nbsp;&nbsp;&nbsp;</span>To step through code one statement at a time
+<p CLASS="ListProcedureSingleItemlprocs"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&nbsp;<img SRC="..\images\STEPINTO.gif">&amp;nbspClick the<span CLASS="ElementNameeln"> Step Into</span> button on the toolbar.</p>
+<p CLASS="Textttext">When the <span CLASS="ElementNameeln">Step Into</span> command is carried out, Visual Basic runs the current statement and then automatically advances to the next statement and suspends execution.
+<p CLASS="Textttext">A line of code can contain two or more statements separated by a colon (:). You can step from one statement to the next even if they are on the same line. However, breakpoints apply only to the first statement in a line.</p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>If your Microsoft Access workgroup has security enabled (if you logged on by using the <span CLASS="ElementNameeln">Logon</span> dialog box), you can step through code in a called procedure only if you have Read Design permission for the called procedure's module. If you try to step into a called procedure and you don't have Read Design permission for the called procedure's module, Visual Basic runs the called procedure without stepping through the code one statement at a time.
+<p CLASS="TipIcontpi"></p>
+<p CLASS="TipTexttpt"><span CLASS="TipHeadingtph">Tip&nbsp;&nbsp;&nbsp;</span>You can also step through code by placing the cursor within the procedure and pressing F8.  If at any point you want to run the rest of the procedure without stepping through it, press F5.</p>
+<a NAME="4SteppingOverProcedures"></a>
+<p CLASS="heading4OrgHeading2h2">Stepping Over Procedures</p>
+<p CLASS="Textttext">If you don't want to step through the lines of code in a called procedure, you can step over the entire procedure.</p>
+<p CLASS="heading9ListProcedureHeadinglproch"><span CLASS="ProcedureIconproci"><img SRC="../images/bluetri.jpg" ALIGN="LEFT" WIDTH="9" HEIGHT="17">&nbsp;&nbsp;&nbsp;</span>To step over an entire procedure
+<p CLASS="ListProcedureSingleItemlprocs"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&nbsp;<img SRC="..\images\STEPOVER.gif">&amp;nbspClick the<span CLASS="ElementNameeln"> Step Over</span> button on the toolbar.</p>
+<p CLASS="Textttext">The <span CLASS="ElementNameeln">Step Over</span> command is identical to the <span CLASS="ElementNameeln">Step Into</span> command except when the current statement contains a call to a procedure. The <span CLASS="ElementNameeln">Step Into</span> command steps into the procedure that was called and lets you step through it line by line, but the <span CLASS="ElementNameeln">Step Over</span> command runs the called procedure as a unit and then steps into the next statement in the current procedure. For example, suppose the current statement calls the procedure GetQueryCriteria:</p>
+<p CLASS="CodeTextct">GetQueryCriteria strCriteria</p>
+<p CLASS="Textttext">If you use the <span CLASS="ElementNameeln">Step Into</span> command, the Module window displays the GetQueryCriteria procedure and the first statement in that procedure is the current statement. The <span CLASS="ElementNameeln">Step Into</span> command is the best choice if you want to analyze the code within GetQueryCriteria.
+<p CLASS="Textttext">If you use the <span CLASS="ElementNameeln">Step Over</span> command, the Module window continues to display the current procedure while Visual Basic runs the GetQueryCriteria procedure. Execution then advances to the statement immediately after the call to GetQueryCriteria. <span CLASS="ElementNameeln">Step Over</span> is a better choice than <span CLASS="ElementNameeln">Step Into</span> if you want to stay within the current procedure and don't need to analyze how GetQueryCriteria works.</p>
+<a NAME="4SteppingOutofProcedures"></a>
+<p CLASS="heading4OrgHeading2h2">Stepping Out of Procedures</p>
+<p CLASS="Textttext">If you step into a procedure and then decide that you don't want to step all the way through it, you can step out of the procedure.</p>
+<p CLASS="heading9ListProcedureHeadinglproch"><span CLASS="ProcedureIconproci"><img SRC="../images/bluetri.jpg" ALIGN="LEFT" WIDTH="9" HEIGHT="17">&nbsp;&nbsp;&nbsp;</span>To step out of a procedure
+<p CLASS="ListProcedureSingleItemlprocs"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&nbsp;<img SRC="..\images\STEPOUT.gif">&amp;nbspClick the<span CLASS="ElementNameeln"> Step Out</span> button on the toolbar.</p>
+<p CLASS="Textttext">When the<span CLASS="ElementNameeln"> Step Out</span> command is carried out, Visual Basic runs the rest of the procedure, including any nested procedures that it calls, in one step.
+ Execution stops when it returns to the calling procedure. If the current procedure wasn't called by another procedure, the <span CLASS="ElementNameeln">Step Out</span> command has the same effect as the <span CLASS="ElementNameeln">Continue</span> command; that is, the current procedure runs to completion.
+<p CLASS="Textttext">You can freely alternate between the <span CLASS="ElementNameeln">Step Into</span>, <span CLASS="ElementNameeln">Step Over</span>, and <span CLASS="ElementNameeln">Step Out</span> commands. The command you choose depends on which portions of code you want to analyze at any given time.</p>
+<a NAME="4SettingtheNextStatementtoBeRun"></a>
+<p CLASS="heading4OrgHeading2h2">Setting the Next Statement to Be Run</p>
+<p CLASS="Textttext">When you know a certain section of code is causing trouble, you may want to skip over it. This doesn't solve the problem, of course<img SRC="../images/Emdash.gif" BORDER="0" VSPACE="0" HSPACE="0" WIDTH="16" HEIGHT="5">eventually, you'll have to debug that section. However, skipping lines of code enables you to move on and examine other parts of your code.
+<p CLASS="Textttext">At other times, you may want to rerun previous lines of code in the procedure. Perhaps you've modified those lines or changed the value of a variable and want to see if these changes produce different results.
+<p CLASS="Textttext">Visual Basic enables you to continue execution at a line of code other than the next one as long as that line is within the same procedure.</p>
+<p CLASS="heading9ListProcedureHeadinglproch"><span CLASS="ProcedureIconproci"><img SRC="../images/bluetri.jpg" ALIGN="LEFT" WIDTH="9" HEIGHT="17">&nbsp;&nbsp;&nbsp;</span>To set the next statement to be run</p>
+<p CLASS="ListProcedureSingleItemlprocs"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspRight-click the line of code where you want to continue execution, and then click <span CLASS="ElementNameeln">Set Next Statement</span> on the shortcut menu.</p>
+<p CLASS="Textttext">You can choose to continue execution or step through the lines of code starting with the statement you set.</p>
+<p CLASS="ImportantTextit"><span CLASS="ImportantHeadingih">Important&nbsp;&nbsp;&nbsp;</span>You can use the <span CLASS="ElementNameeln">Set Next Statement </span>command in a procedure only if you've suspended execution in that procedure.</p>
+<p CLASS="Textttext">You can also use the <span CLASS="ElementNameeln">Run To Cursor</span> command (<span CLASS="ElementNameeln">Debug</span> menu) to run your application until the line that you have selected is run. You may find this command useful if you want to stop execution before a large loop farther down in your code. Or you may want to use this command if you're sure that a certain section of your code is functioning properly, and you want to continue troubleshooting later in the procedure. To run code until it comes to a specific line, right-click the line of code, and then click <span CLASS="ElementNameeln">Run To Cursor</span> on the shortcut menu.</p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="ba07_6.htm" OnClick="SyncURL(&quot;chapters/ba07_6.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

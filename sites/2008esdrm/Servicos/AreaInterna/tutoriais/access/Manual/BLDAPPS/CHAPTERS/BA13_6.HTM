@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>Designing Forms and Reports for Speed</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba13_5.htm" OnClick="SyncURL(&quot;chapters/ba13_5.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<a NAME="3DesigningFormsandReportsforSpeed"></a>
+<p CLASS="heading3OrgHeading1h1">Designing Forms and Reports for Speed</p>
+<p CLASS="Textttext">Most interaction between the user and your application happens through forms and reports. Each open form or report in your application uses memory and requires some disk activity. This section contains suggestions on how you can design and manage forms and reports so your application runs faster.</p>
+<a NAME="4OptimizingFormLoadingandPaging"></a>
+<p CLASS="heading4OrgHeading2h2">Optimizing Form Loading and Paging</p>
+<p CLASS="Textttext">The following tips can reduce the amount of time the user spends waiting for a form to load and to switch between pages.</p>
+<a NAME="6Simplifytheformsdesign"></a>
+<p CLASS="heading6OrgHeading4h4">Simplify the Form's Design</p>
+<p CLASS="Textttext">The number and type of controls on a form can greatly affect the time it takes for the form to load. To make your forms load more quickly:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspMinimize the number of controls on your form. Loading controls is the biggest performance cost when loading a form. Where applicable, reuse controls on your form in multiple situations.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspAvoid overlapping controls.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspGroup the controls on pages instead of displaying them all at once. That way, for forms that must contain many controls, Microsoft Access doesn't have to generate all the controls at the same time.</p>
+<a NAME="6Eliminatecodefromformsthatdontneedit"></a>
+<p CLASS="heading6OrgHeading4h4">Eliminate Code from Forms That Don't Need It</p>
+<p CLASS="Textttext">A form without a form module loads more quickly and occupies less disk space than one with a form module. To make your forms load more quickly, find alternatives to using event procedures in your forms and remove any existing form modules that you can.
+<p CLASS="Textttext">There are several alternatives to using event procedures in your forms and controls. For example, suppose your application uses a switchboard form exclusively to navigate to other forms. When you design your switchboard form, instead of using command buttons with event procedures, you can use command buttons with macros. You can also use labels, text boxes, or command buttons that navigate to objects by using hyperlinks.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on hyperlinks, see Chapter 21, <a HREF="../chapters/ba21_1.htm" OnClick="SyncURL(&quot;chapters/ba21_1.htm&quot;)">&quot;Developing Applications for the Internet and the World Wide Web&quot;</a> or search the Help index for &quot;hyperlinks.&quot;</p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>If a form and its controls don't use event procedures, the form doesn't need a form module. If a form currently contains event procedures, and you remove all event procedure code from that form, the empty form module isn't deleted automatically. If you want to delete the empty form module, you must do so manually by setting the form's <span CLASS="ElementNameeln">HasModule</span> property to No. You don't need to do this for forms that have never had any code because when you create a new form, the <span CLASS="ElementNameeln">HasModule</span> property is set to No by default and a form module isn't created for the form.</p>
+<p CLASS="Textttext">You can still use code with a form that has no form module by using an expression to call a <span CLASS="ElementNameeln">Function</span> procedure from a standard module. To do this, define a <span CLASS="ElementNameeln">Function</span> procedure in a standard module and then call that <span CLASS="ElementNameeln">Function</span> procedure from an event property of the form or a control. For example, to open a Data Entry form when a user clicks a command button, type the following expression in the <span CLASS="ElementNameeln">OnClick</span> event property setting in the command button's property sheet:
+<p CLASS="Textttext">=OpenDataEntry()</p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>You can't use <span CLASS="ElementNameeln">Sub</span> procedures to do this, because they can't be called using an expression.</p>
+<p CLASS="Textttext">If you call a <span CLASS="ElementNameeln">Function</span> procedure from a standard module by using an expression, the form opens more quickly because the module isn't loaded into memory when the form is opened. However, the standard module takes time to load into memory the first time an expression calls a <span CLASS="ElementNameeln">Function</span> procedure from it.</p>
+<a NAME="6UsesavedqueriesforRecordSourceandRowSourcepropertysettings"></a>
+<p CLASS="heading6OrgHeading4h4">Use Saved Queries for RecordSource and RowSource Property Settings</p>
+<p CLASS="Textttext">A saved query gives better performance than an SQL SELECT statement. Therefore, you should use saved queries for <span CLASS="ElementNameeln">RecordSource</span> and <span CLASS="ElementNameeln">RowSource</span> property settings.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on the <span CLASS="ElementNameeln">RecordSource</span> and <span CLASS="ElementNameeln">RowSource</span> properties, search the Help index for the name of the property.</p>
+<a NAME="6UseanImagecontroltodisplaybitmaps"></a>
+<p CLASS="heading6OrgHeading4h4">Use an Image Control to Display Bitmaps</p>
+<p CLASS="Textttext">If an unbound object frame doesn't need to be activated, use an image control instead of an unbound object frame control to display a bitmap. Object frame controls are actual windows and use significant system resources; an image control doesn't use nearly as many resources.
+<p CLASS="Textttext">If you have existing unbound object frame controls containing bitmaps that don't need to be activated, you can greatly reduce a form's load time by converting them to image controls.</p>
+<p CLASS="heading9ListProcedureHeadinglproch"><span CLASS="ProcedureIconproci"><img SRC="../images/bluetri.jpg" ALIGN="LEFT" WIDTH="9" HEIGHT="17">&nbsp;&nbsp;&nbsp;</span>To convert an unbound object frame containing a bitmap to an image control</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">1</span>&nbsp;&nbsp;&amp;nbspOpen the form in Design view.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">2</span>&nbsp;&nbsp;&amp;nbspClick the unbound object frame.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">3</span>&nbsp;&nbsp;&amp;nbspOn the <span CLASS="ElementNameeln">Format</span> menu, point to <span CLASS="ElementNameeln">Change To</span>, and then click <span CLASS="ElementNameeln">Image</span>. </p>
+<p CLASS="ListText1lt1">Microsoft Access converts the unbound object frame to an image control. The bitmap remains on the form, but you can't open the application used to create the bitmap from the form; therefore, you can't edit the image.</p>
+<p CLASS="Textttext">Also, avoid using bitmaps that were created from large palettes or that contain many colors because they take longer to load and use more memory.</p>
+<a NAME="6CloseformsthatcontainunboundOLEobjectswhennotinuse"></a>
+<p CLASS="heading6OrgHeading4h4">Close Forms That Contain Unbound OLE Objects When Not in Use</p>
+<p CLASS="Textttext">When the user activates an unbound OLE object, information about the object is stored in RAM. This memory isn't released until the form closes. To minimize the performance impact of unbound OLE objects, design your application so that forms that contain such objects close when they aren't being used, such as when the focus shifts to another form. In addition, if you want to display an object<img SRC="../images/Emdash.gif" BORDER="0" VSPACE="0" HSPACE="0" WIDTH="16" HEIGHT="5">such as part of a Microsoft Excel worksheet<img SRC="../images/Emdash.gif" BORDER="0" VSPACE="0" HSPACE="0" WIDTH="16" HEIGHT="5">but you don't want the user to be able to edit the object, set the control's <span CLASS="ElementNameeln">Enabled</span> property to <span CLASS="ElementNameeln">False</span>. That way, the user can't activate the object.</p>
+<a NAME="6Inmultiplepageformsinitializepagesonlywhenneeded"></a>
+<p CLASS="heading6OrgHeading4h4">In Multiple-Page Forms, Initialize Pages Only When Needed</p>
+<p CLASS="Textttext">If your application uses multiple-page forms, initialize and prepare only the first page when the form opens. Don't spend time preparing pages or data structures until the user moves to the page that contains them. If a subform, list box, or ActiveX control takes a long time to fill, wait until the user goes to that page before setting the <span CLASS="ElementNameeln">ControlSource</span> or <span CLASS="ElementNameeln">RowSource</span> property.</p>
+<a NAME="6Considerconvertingsubformstolistboxesorcomboboxes"></a>
+<p CLASS="heading6OrgHeading4h4">Consider Converting Subforms to List Boxes or Combo Boxes</p>
+<p CLASS="Textttext">When Microsoft Access loads a form with a subform, it's actually loading two forms into memory. To speed up the form's load time, use a list box, a combo box, or a form based on a query that contains all of the fields that you want to display.</p>
+<a NAME="6Optimizelistboxandcomboboxperformance"></a>
+<p CLASS="heading6OrgHeading4h4">Optimize List Box and Combo Box Performance</p>
+<p CLASS="Textttext">To help your forms load more quickly, set the <span CLASS="ElementNameeln">RowSource</span> property of your list boxes and combo boxes to a query that includes only fields from the record source that are absolutely necessary. Create an index for the first field displayed in the list box or combo box, and any other fields that are used for criteria.
+<p CLASS="Textttext">The bound column in your list box or combo box should have the text data type, not a numeric data type. To find a match in the list, Microsoft Access needs to convert a numeric value to text in order to do the character-by-character match. If it already has a text data type, this conversion isn't necessary.
+<p CLASS="Textttext">If you don't need Microsoft Access to automatically fill in the text box portion of your combo box with a value that matches the characters your user types, set the <span CLASS="ElementNameeln">AutoExpand</span> property to No.</p>
+<a NAME="6Placecodeinastandardmoduletoreduceformloadtime"></a>
+<p CLASS="heading6OrgHeading4h4">Place Code in a Standard Module to Reduce Form Load Time</p>
+<p CLASS="Textttext">For a complex form that the user opens frequently, consider moving some of the form's code into a standard module. This reduces the time it takes to load the form.</p>
+<a NAME="6Openandhideallformsatstartup"></a>
+<p CLASS="heading6OrgHeading4h4">Open and Hide All Forms at Startup</p>
+<p CLASS="Textttext">If you use many forms on a frequent basis, you may want to open and hide all forms when your application opens. To open the forms, you can add Visual Basic code to the startup form's Open event procedure. To hide the forms, use the OpenForm action and set the Window Mode argument to Hidden. Then, instead of having your application open each form when the user needs it, set the form's <span CLASS="ElementNameeln">Visible</span> property to <span CLASS="ElementNameeln">True</span>. When the user finishes with a form, set its <span CLASS="ElementNameeln">Visible</span> property to <span CLASS="ElementNameeln">False</span>. While this technique slows startup because your application opens all its forms at that time, it can improve performance after startup considerably.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on using event procedures, see Chapter 2, <a HREF="../chapters/ba02_1.htm" OnClick="SyncURL(&quot;chapters/ba02_1.htm&quot;)">&quot;Introducing Visual Basic.&quot;</a> For more information on setting a form's properties while it's being used, see Chapter 3, <a HREF="../chapters/ba03_1.htm" OnClick="SyncURL(&quot;chapters/ba03_1.htm&quot;)">&quot;Using Forms to Collect, Filter, and Display Information.&quot;</a></p>
+<p CLASS="ImportantTextit"><span CLASS="ImportantHeadingih">Important&nbsp;&nbsp;&nbsp;</span>Remember that any reference to properties, methods, or controls on a form, or to a form variable declared with the <span CLASS="ElementNameeln">New </span>keyword, causes Visual Basic to load the form. For more information on the <span CLASS="ElementNameeln">New</span> keyword, search the Help index for &quot;New keyword.&quot;</p>
+<a NAME="6Dontopenformsandreportsacrossanetwork"></a>
+<p CLASS="heading6OrgHeading4h4">Don't Open Forms and Reports Across a Network</p>
+<p CLASS="Textttext">If your application uses data that's shared over a network, split the application into two database files<img SRC="../images/Emdash.gif" BORDER="0" VSPACE="0" HSPACE="0" WIDTH="16" HEIGHT="5">a back-end database that contains all the tables, and a front-end database that contains all the other objects in your application and that links to the tables in the back-end database. Store the back-end database on the network server, and distribute copies of the front-end database to your users so that each user has a local copy. Local forms and reports open faster and reduce network traffic.</p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>You can use the Database Splitter Wizard to separate your tables from the other objects in your database. For information on using this wizard, see <a HREF="../chapters/ba15_3.htm" OnClick="SyncURL(&quot;chapters/ba15_3.htm&quot;)">&quot;Separating Your Application's Tables from Its Other Objects&quot;</a> in Chapter 15, &quot;Delivering Your Application.&quot;</p>
+<a NAME="4OptimizingOperationsonFormsandReports"></a>
+<p CLASS="heading4OrgHeading2h2">Optimizing Operations on Forms and Reports</p>
+<p CLASS="Textttext">The following section suggests ways you can speed up common operations on forms and reports and provide feedback to the user during long operations.</p>
+<a NAME="6Setonlythepropertiesthatneedtobeset"></a>
+<p CLASS="heading6OrgHeading4h4">Set Only the Properties That Need to Be Set</p>
+<p CLASS="Textttext">Setting a property in code always uses processor time. You may want to check the value of a property before you set it in code because it may already be set to the value you want.</p>
+<a NAME="6UsetheRequerymethodinsteadoftheRequeryaction"></a>
+<p CLASS="heading6OrgHeading4h4">Use the Requery Method Instead of the Requery Action</p>
+<p CLASS="Textttext">If you're updating data in a form or control, use the <span CLASS="ElementNameeln">Requery</span> method rather than the Requery action to update the data. The <span CLASS="ElementNameeln">Requery</span> method's performance is significantly better than the Requery action's performance.</p>
+<a NAME="6Forfastprintingusefewergraphicobjectsonformsandreports"></a>
+<p CLASS="heading6OrgHeading4h4">For Fast Printing, Use Fewer Graphic Objects on Forms and Reports</p>
+<p CLASS="Textttext">Microsoft Access treats lines, bordered controls, and opaque controls on a form or report as individual bitmaps. Forms and reports that contain these or other graphic objects can print more slowly than forms and reports without graphic objects. For faster printing on nonlaser printers, delete some or all of the graphic objects from the form or report. For faster printing on a laser printer, be sure the form or report's <span CLASS="ElementNameeln">FastLaserPrinting</span> property is set to Yes.</p>
+<a NAME="6Givetheuserfeedbackduringlongoperations"></a>
+<p CLASS="heading6OrgHeading4h4">Give the User Feedback During Long Operations</p>
+<p CLASS="Textttext">When performing time-consuming operations, give the user visual feedback that something is happening. Use the <span CLASS="ElementNameeln">Hourglass</span> method or action to display the hourglass, or create a progress meter to keep the user informed of the operation's progress.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For information on displaying a progress meter, search the Help index for &quot;SysCmd function.&quot;</p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="ba13_7.htm" OnClick="SyncURL(&quot;chapters/ba13_7.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

@@ -1,0 +1,302 @@
+<!-- Dragon Style Sheet - 07/30/96 14:41:23 -->
+<style type="text/css">
+BLOCKQUOTE.sidebar	{ margin-left: -6pt; margin-bottom: 2pt; margin-top: 3pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.ArtButtonab	{ margin-top: 2pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.Arta	{ margin-right: -250pt; margin-top: 4pt; margin-bottom: 12pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.AssociativeLinkNSRalnsr	{ font: sans-serif "Arial" Helvetica; font-size: 10pt; color: #808080; }
+P.CalloutKeyTextcallkt	{ margin-left: 12pt; text-indent: -12pt; margin-bottom: 4pt; font: sans-serif "Arial" Helvetica; font-size: 9pt; }
+P.CautionEndcae	{ margin-right: 1pt; margin-top: 1pt; margin-bottom: 3pt; border-style: medium; border-color: #0000ff; font: sans-serif "Arial" Helvetica; font-size: 10pt; color: #0000ff; }
+P.CautionStartcas	{ margin-right: 1pt; margin-top: 3pt; margin-bottom: 2pt; border-style: medium; border-color: #0000ff; font: sans-serif "Arial" Helvetica; font-size: 10pt; color: #0000ff; }
+P.CautionTextcat	{ margin-bottom: 4pt; font: sans-serif "Arial Narrow" Helvetica Narrow; font-size: 10pt; }
+P.ChapterAppendixTitlecht	{ text-align: left; font: sans-serif "Arial" Helvetica; font-size: 26pt; color: #0000ff; }
+P.ChapterArtcha	{ font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.ChapterSummaryTextchsum	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.CodeTextNSRctnsr	{ margin-right: -250pt; font: monospace "Courier New" ; font-size: 10pt; line-height: 10pt; }
+P.CodeTextct	{ margin-right: -250pt; font: monospace "Courier New" ; font-size: 10pt; line-height: 10pt; }
+P.Copyright	{ font-size: 9pt; color: maroon; text-decoration: underline; }
+P.CropBoundingSlugcbs	{ font: sans-serif "Arial" Helvetica; font-size: 8pt; }
+P.CrossRefIconcri	{ text-align: right; margin-top: 2pt; font: sans-serif "Arial Narrow" Helvetica Narrow; font-size: 10pt; color: #0000ff; }
+P.CrossRefTextcrt	{ margin-bottom: 6pt; font: sans-serif "Arial Narrow" Helvetica Narrow"; font-size: 10pt; }
+P.DescriptionText1dt1	{ margin-left: 12pt; text-indent: -12pt; margin-bottom: 4pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.DescriptionText2dt2	{ margin-left: 12pt; text-indent: -12pt; margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.ErrorDescriptionerrd	{ margin-right: -250pt; margin-bottom: 4pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.ErrorMessageerrm	{ margin-right: -250pt; font-weight: bold; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.ErrorTexterrt	{ margin-right: -250pt; font-style: italic; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.ExampleLabelexl	{ text-align: center; border-style: medium; border-color: #ffffff; font-weight: bold; font: sans-serif "Arial" Helvetica; color: #ffffff; }
+P.ExceptionEndxend	{ margin-bottom: 7pt; font-weight: bold; font: sans-serif "Arial" Helvetica; font-size: 8pt; }
+P.ExceptionStartxs	{ margin-top: 2pt; margin-bottom: 2pt; font-weight: bold; font: sans-serif "Arial" Helvetica; font-size: 8pt; }
+P.FigureTitleft	{ margin-top: 3pt; font-weight: bold; font: sans-serif "Arial" Helvetica; font-size: 9pt; }
+P.Fixthisparagraphfixp	{ font: sans-serif "Arial" Helvetica; font-size: 10pt; color: #ff0000; }
+P.GlossaryTitlegt	{ font-weight: bold; font: sans-serif "Arial" Helvetica; font-size: 10pt; color: #808000; }
+P.ImportantCodeTextict	{ font: monospace "Courier New" ; font-size: 10pt; line-height: 10pt; }
+P.ImportantListBulletedItem1ilb	{ margin-left: 12pt; text-indent: -12pt; margin-bottom: 4pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.ImportantListSequentialItem1ils	{ margin-left: 12pt; text-indent: -12pt; margin-bottom: 4pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.ImportantTextit	{ margin-bottom: 4pt; font: sans-serif "Arial Narrow" Helvetica Narrow; font-size: 10pt; }
+P.IndexTitleixt	{ font-weight: bold; font: sans-serif "Arial" Helvetica; font-size: 10pt; color: #808000; }
+P.Indexinx	{ font: sans-serif "Arial" Helvetica; font-size: 10pt; color: #ff00ff; }
+P.IntroTitleint	{ text-align: right; font: sans-serif "Arial" Helvetica; font-size: 30pt; }
+P.ListAlphaItem2lalph2	{ margin-left: 40pt; text-indent: -12pt; margin-bottom: 4pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.ListArt1la	{ margin-left: 28pt; margin-top: 4pt; margin-bottom: 8pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.ListArt2la2	{ margin-left: 40pt; margin-top: 4pt; margin-bottom: 8pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.ListBulletedItem	{ margin-left: 28pt; text-indent: -12pt; margin-bottom: 2pt; font: sans-serif "Arial" Helvetica; font-size: 10pt;  list-style: circle outside}
+P.ListBulletedItem1lb1	{ margin-left: 28pt; text-indent: -12pt; margin-bottom: 2pt; font: sans-serif "Arial" Helvetica; font-size: 10pt;  list-style: circle outside}
+P.ListBulletedItem2lb2	{ margin-left: 40pt; text-indent: -12pt; margin-bottom: 2pt; font: sans-serif "Arial" Helvetica; font-size: 10pt;  list-style: circle outside}
+P.ListCautionEnd1lcae	{ margin-left: 28pt; margin-right: 1pt; margin-top: 1pt; margin-bottom: 2pt; border-style: medium; border-color: #0000ff; font: sans-serif "Arial" Helvetica; font-size: 10pt; color: #0000ff; }
+P.ListCautionStart1lcas	{ margin-left: 28pt; margin-right: 1pt; margin-top: 3pt; margin-bottom: 2pt; border-style: medium; border-color: #0000ff; font: sans-serif "Arial" Helvetica; font-size: 10pt; color: #0000ff; }
+P.ListCautionText1lcat	{ margin-left: 28pt; margin-bottom: 3pt; font: sans-serif "Arial Narrow" Helvetica Narrow; font-size: 10pt; }
+P.ListCodeText1lct1	{ margin-left: 28pt; font: monospace "Courier New" ; font-size: 10pt; line-height: 10pt; }
+P.ListCodeText2lct2	{ margin-left: 40pt; font: monospace "Courier New" ; font-size: 10pt; line-height: 10pt; }
+P.ListFigureTitle2ft2	{ margin-left: 40pt; margin-top: 3pt; font-weight: bold; font: sans-serif "Arial" Helvetica; font-size: 9pt; }
+P.ListFigureTitleft1	{ margin-left: 28pt; margin-top: 3pt; font-weight: bold; font: sans-serif "Arial" Helvetica; font-size: 9pt; }
+P.ListImportantText1lit	{ margin-left: 28pt; margin-bottom: 3pt; font: sans-serif "Arial Narrow" Helvetica Narrow; font-size: 10pt; }
+P.ListMulti-ColumnItemlmc	{ margin-left: 28pt; margin-bottom: 2pt; font: sans-serif "Arial" Helvetica; font-size: 9pt; }
+P.ListNoteText1lnt	{ margin-left: 28pt; margin-bottom: 3pt; font: sans-serif "Arial Narrow" Helvetica Narrow; font-size: 10pt; }
+P.ListProcedureItem1lproc	{ margin-left: 28pt; text-indent: -14pt; margin-bottom: 2pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.ListProcedureSingleItemlprocs	{ margin-left: 28pt; text-indent: -12pt; margin-bottom: 2pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.ListProcedureTextlproct	{ margin-left: 28pt; margin-bottom: 2pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.ListSequentialItem1ls	{ margin-left: 28pt; text-indent: -12pt; margin-bottom: 2pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.ListSequentialItem2ls2	{ margin-left: 40pt; text-indent: -12pt; margin-bottom: 2pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.ListSyntaxText1lsyn1	{ margin-left: 28pt; text-indent: -12pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.ListSyntaxText2lsyn2	{ margin-left: 40pt; text-indent: -12pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.ListText1lt1	{ margin-left: 28pt; margin-bottom: 2pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.ListText2lt2	{ margin-left: 40pt; margin-bottom: 2pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.ListTipText1ltpt	{ margin-left: 28pt; margin-bottom: 2pt; font: sans-serif "Arial Narrow" Helvetica Narrow; font-size: 10pt; }
+P.NSRNavigationalHeadingnsrnh	{ font: sans-serif "Arial" Helvetica; font-size: 10pt; color: #808080; }
+P.NSRTextnsrt	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.NormalDONOTUSE	{ font-weight: bold; font: sans-serif "Arial" Helvetica; font-size: 10pt; color: #808000; }
+P.NoteCodeTextnct	{ font: monospace "Courier New" ; font-size: 10pt; line-height: 10pt; }
+P.NoteListBulletedItem1nlb	{ margin-left: 28pt; text-indent: -12pt; margin-bottom: 2pt; font: sans-serif "Arial Narrow" Helvetica Narrow; font-size: 10pt;  list-style: circle outside}
+P.NoteListSequentialItem1nls	{ margin-left: 28pt; text-indent: -12pt; margin-bottom: 2pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.NoteTextnt	{ margin-bottom: 4pt; font: sans-serif "Arial Narrow" Helvetica Narrow; font-size: 10pt; }
+P.OpeningBarbar	{ font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.PageBreakpbt	{ font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.ProcedureTextproct	{ margin-top: 2pt; margin-bottom: 2pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.SidebarArtsbra	{ margin-right: 12pt; margin-top: 4pt; margin-bottom: 2pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.SidebarCrossRefTextsbrcrt	{ margin-right: 12pt; margin-bottom: 2pt; font: sans-serif "Arial Narrow" Helvetica Narrow; font-size: 10pt; }
+P.SidebarEndRulesbrer	{ margin-right: 12pt; margin-bottom: 2pt; font: sans-serif Arial Helvetica; font-size: 3pt; color: #808080; }
+P.SidebarEndSpacingatPageBreaksbrespb	{ font: sans-serif "Arial" Helvetica; font-size: 10pt; color: #808080; }
+P.SidebarEndSpacingsbres	{ text-align: right; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.SidebarHeadingsbrh	{ margin-right: 12pt; font-weight: bold; font: sans-serif "Arial Narrow" Helvetica Narrow; }
+P.SidebarListBulletedItem1sbrlb	{ margin-left: 12pt; text-indent: -12pt; margin-right: 12pt; margin-bottom: 4pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.SidebarListEndsbrle	{ text-align: right; margin-right: 12pt; font-weight: bold; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.SidebarStartRulesbrsr	{ margin-right: 12pt; margin-bottom: 3pt; font: sans-serif Arial Helvetica; font-size: 3pt; color: #808080; }
+P.SidebarStartSpacingatPageBreaksbrsspb	{ font: sans-serif "Arial" Helvetica; font-size: 10pt; color: #808080; }
+P.SidebarStartSpacingsbrss	{ text-align: right; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.SidebarTextsbrt	{ margin-right: 12pt; margin-bottom: 2pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.Sluglineslug	{ font: sans-serif "Arial" Helvetica; font-size: 7pt; }
+P.Spacing4Points4	{ text-align: right; font: sans-serif "Arial" Helvetica; font-size: 4pt; }
+P.Spacing4PointsatPageBreak4pb	{ font: sans-serif "Arial" Helvetica; font-size: 4pt; color: #808080; }
+P.Spacing6Points6	{ text-align: right; font: sans-serif "Arial" Helvetica; font-size: 6pt; }
+P.Spacing6PointsNSR6nsr	{ text-align: right; font: sans-serif "Arial" Helvetica; font-size: 6pt; }
+P.Spacing6PointsNSRatPageBreak6nsrpb	{ font: sans-serif "Arial" Helvetica; font-size: 6pt; color: #808080; }
+P.Spacing6PointsatPageBreak6pb	{ font: sans-serif "Arial" Helvetica; font-size: 6pt; color: #808080; }
+P.SpacingAfterNSRsansr	{ font: sans-serif "Arial" Helvetica; font-size: 6pt; color: #808080; }
+P.SpacingatTopofWindowNSRsatownsr	{ font: sans-serif "Arial" Helvetica; font-size: 6pt; color: #808080; }
+P.SpacingatTopofWindowsatow	{ font: sans-serif "Arial" Helvetica; font-size: 6pt; color: #808080; }
+P.SyntaxTextNSRsynnsr	{ margin-right: -250pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.SyntaxTextsyn	{ margin-right: -250pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.TOCHeadingtoch	{ margin-top: 3pt; font-weight: bold; font: sans-serif "Arial" Helvetica; }
+P.TableArttart	{ margin-top: 2pt; margin-bottom: 3pt; font: sans-serif "Arial" Helvetica; font-size: 9pt; }
+P.TableCodeTexttct	{ font: monospace "Courier New" ; font-size: 10pt; line-height: 10pt; }
+P.TableCrossRefTexttcrt	{ margin-bottom: 3pt; font: sans-serif "Arial Narrow" Helvetica Narrow; font-size: 10pt; }
+P.TableFootnoteTexttft	{ margin-left: 12pt; text-indent: -12pt; margin-bottom: 3pt; font: sans-serif "Arial" Helvetica; font-size: 8pt; }
+P.TableHeadingth	{ font-weight: bold; font: sans-serif "Arial" Helvetica; font-size: 9pt; }
+P.TableListBulletedItem1tlb	{ margin-left: 28pt; text-indent: -12pt; margin-bottom: 3pt; font: sans-serif "Arial" Helvetica; font-size: 9pt; }
+P.TableListSequentialItem1tls	{ margin-left: 28pt; text-indent: -12pt; margin-bottom: 3pt; font: sans-serif "Arial" Helvetica; font-size: 9pt; }
+P.TableNumericTexttnt	{ text-align: right; margin-bottom: 3pt; font: sans-serif "Arial" Helvetica; font-size: 9pt; }
+P.TableProcedureTexttproct	{ margin-left: 28pt; margin-bottom: 3pt; font: sans-serif "Arial" Helvetica; font-size: 9pt; }
+P.TableRuletr	{ margin-right: 1pt; margin-bottom: 3pt; border-style: medium; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.TableSyntaxTexttsyn	{ margin-left: 12pt; text-indent: -12pt; font: sans-serif "Arial" Helvetica; font-size: 9pt; }
+P.TableTextIndentedtti	{ margin-left: 28pt; margin-bottom: 3pt; font: sans-serif "Arial" Helvetica; font-size: 9pt; }
+P.TableTexttt	{ margin-bottom: 3pt; font: sans-serif "Arial" Helvetica; font-size: 9pt; }
+P.TableTitlettl	{ font-weight: bold; font: sans-serif "Arial" Helvetica; font-size: 9pt; }
+P.Textttext	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.TipIcontpi	{ text-align: right; margin-top: 2pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; color: #0000ff; }
+P.TipListBulletedItem1tplb	{ margin-left: 12pt; text-indent: -12pt; margin-bottom: 4pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.TipListSequentialItem1tpls	{ margin-left: 12pt; text-indent: -12pt; margin-bottom: 4pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.TipTexttpt	{ margin-bottom: 4pt; font: sans-serif "Arial Narrow" Helvetica Narrow; font-size: 10pt; }
+P.TopicSidebarArtWideEndSectionBreaktsawesb	{ font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.TopicSidebarArtWideStartSectionBreaktsawssb	{ font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.TopicSidebarArtWidetsaw	{ margin-top: 6pt; margin-bottom: 12pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.TopicSidebarArttsa	{ margin-top: 6pt; margin-bottom: 12pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.TopicSidebarCrossRefTexttscrt	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.TopicSidebarEndSectionBreaktsesb	{ font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.TopicSidebarEndatTopicBreaktsetopb	{ margin-top: 4pt; margin-bottom: 13pt; border-style: medium; border-color: #0000ff; font: sans-serif "Arial" Helvetica; font-size: 10pt; color: #0000ff; }
+P.TopicSidebarEndtse	{ margin-top: 2pt; margin-bottom: 13pt; border-style: medium; border-color: #0000ff; font: sans-serif "Arial" Helvetica; font-size: 10pt; color: #0000ff; }
+P.TopicSidebarHeading1tsh1	{ margin-top: 1pt; margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 20pt; }
+P.TopicSidebarHeading2tsh2	{ margin-top: 3pt; font-weight: bold; font: sans-serif "Arial" Helvetica; }
+P.TopicSidebarListBulletedItem1tslb	{ margin-left: 12pt; text-indent: -12pt; margin-bottom: 4pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.TopicSidebarProcedureTexttsproct	{ margin-top: 2pt; margin-bottom: 4pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.TopicSidebarStartSectionBreaktsssb	{ font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.TopicSidebarStartatTopicBreaktsstopb	{ margin-top: 6pt; margin-bottom: 1pt; border-style: medium; border-color: #0000ff; font: sans-serif "Arial" Helvetica; font-size: 10pt; color: #0000ff; }
+P.TopicSidebarStarttss	{ margin-top: 6pt; margin-bottom: 1pt; border-style: medium; border-color: #0000ff; font: sans-serif "Arial" Helvetica; font-size: 10pt; color: #0000ff; }
+P.TopicSidebarTexttst	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.WarningEndwe	{ margin-right: 1pt; margin-top: 1pt; margin-bottom: 3pt; border-style: medium; border-color: #0000ff; font: sans-serif "Arial" Helvetica; font-size: 10pt; color: #0000ff; }
+P.WarningIconwi	{ text-align: right; margin-top: 2pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; color: #0000ff; }
+P.WarningStartws	{ margin-right: 1pt; margin-top: 3pt; margin-bottom: 2pt; border-style: medium; border-color: #0000ff; font: sans-serif "Arial" Helvetica; font-size: 10pt; color: #0000ff; }
+P.WarningTextwt	{ margin-bottom: 4pt; font: sans-serif "Arial Narrow" Helvetica Narrow; font-size: 10pt; }
+P.annotationtextat	{ margin-top: 8pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.footerf	{ font: sans-serif "Arial" Helvetica; font-size: 8pt; }
+P.footnotetextfoot	{ font: sans-serif "Arial" Helvetica; font-size: 10pt; color: #808080; }
+P.headerh	{ font: sans-serif "Arial" Helvetica; font-size: 8pt; }
+P.heading1DONOTUSEh1	{ margin-right: -144pt; margin-top: 8pt; margin-bottom: 3pt; font-weight: bold; font: sans-serif "Arial" Helvetica; font-size: 14pt; color: #808000; }
+P.heading2ChapterNumberAppendixLetterchn	{ text-align: left; font-weight: bold; font: sans-serif "Arial Narrow" Helvetica; font-size: 10pt; }
+P.heading3OrgHeading1h1	{ margin-top: 5pt; margin-bottom: 3pt; font: sans-serif "Arial" Helvetica; font-size: 24pt; }
+P.heading4OrgHeading2h2	{ margin-top: 4pt; margin-bottom: 2pt; font: sans-serif "Arial" Helvetica; font-size: 20pt; }
+P.heading5OrgHeading3h3	{ margin-top: 3pt; margin-bottom: 1pt; font: sans-serif "Arial" Helvetica; font-size: 16pt; }
+P.heading6OrgHeading4h4	{ margin-top: 3pt; font: sans-serif "Arial Narrow" Helvetica Narrow; font-size: 12pt; font-weight: bold; }
+P.heading7OrgHeading5h5	{ margin-top: 2pt; font: sans-serif "Arial Narrow" Helvetica Narrow; font-size: 10pt; font-weight: bold; }
+P.heading8DONOTUSEh8	{ font-weight: bold; font: sans-serif "Arial" Helvetica; font-size: 10pt; color: #808000; }
+P.heading9ListProcedureHeadinglproch	{ margin-top: 2pt; margin-bottom: 4pt; font-weight: bold; font: sans-serif "Arial" Helvetica; font-size: 10pt; color: #0000ff; }
+P.tableoffigurestof	{ margin-top: 3pt; font-weight: bold; font: sans-serif "Arial" Helvetica; }
+P.toc1toc1DONOTUSEtoc1	{ margin-bottom: 2pt; font-weight: bold; font: sans-serif "Arial" Helvetica; font-size: 10pt; color: #808000; }
+P.toc2toc2DONOTUSEtoc2	{ margin-bottom: 2pt; font-weight: bold; font: sans-serif "Arial" Helvetica; font-size: 10pt; color: #808000; }
+P.toc3toc3	{ text-indent: -6pt; margin-bottom: 2pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.toc4toc4	{ text-indent: -6pt; margin-bottom: 2pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.toc5toc5	{ text-indent: -6pt; margin-bottom: 2pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.toc7	{ font-weight: bold; font: sans-serif "Arial" Helvetica; font-size: 10pt; color: #808000; }
+P.zzCallout	{ font-weight: bold; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzCommentBullet	{ margin-left: 12pt; text-indent: -12pt; margin-bottom: 4pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzCommentNumbered	{ margin-left: 12pt; text-indent: -12pt; margin-bottom: 4pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzCommentText	{ margin-bottom: 4pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzHidden	{ font: sans-serif "Arial" Helvetica; font-size: 10pt; color: #808080; }
+P.zzIcon	{ text-align: right; margin-top: 2pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; color: #0000ff; }
+P.zzMonoSpace	{ font: monospace "Courier New" ; font-size: 8pt; }
+P.zzRule	{ margin-right: 1pt; border-style: medium; border-color: #0000ff; font: sans-serif "Arial" Helvetica; font-size: 10pt; color: #0000ff; }
+P.zzSansSerif	{ font-weight: bold; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzSerif	{ font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzSidebarSansSerif	{ margin-right: 12pt; border-style: thick; border-color: #0000ff; border-style: medium; border-color: #0000ff; border-style: medium; border-color: #0000ff; border-style: medium; border-color: #0000ff; font-weight: bold; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzSidebarSerif	{ margin-right: 12pt; border-style: thick; border-color: #0000ff; border-style: medium; border-color: #0000ff; border-style: medium; border-color: #0000ff; border-style: medium; border-color: #0000ff; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzSpacing	{ text-align: right; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzTable	{ margin-bottom: 3pt; font: sans-serif "Arial" Helvetica; font-size: 9pt; }
+P.zzzDeleteMe1	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe10	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe11	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe12	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe13	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe14	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe15	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe16	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe17	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe18	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe19	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe2	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe20	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe21	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe22	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe23	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe24	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe25	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe26	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe27	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe28	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe29	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe3	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe30	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe31	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe32	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe33	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe34	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe35	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe36	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe37	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe38	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe39	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe4	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe40	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe41	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe42	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe43	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe44	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe45	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe46	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe47	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe48	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe49	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe5	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe50	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe51	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe52	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe53	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe54	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe55	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe56	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe57	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe58	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe59	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe6	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe60	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe61	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe62	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe63	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe64	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe65	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe7	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe8	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+P.zzzDeleteMe9	{ margin-bottom: 6pt; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+SPAN.Bullet	{ font-weight: bold; font: sans-serif "Arial" Helvetica; font-size: 12pt; color: #0000ff; }
+SPAN.CalloutHeadingcallh	{ font-weight: bold; font: sans-serif "Arial" Helvetica; font-size: 9pt; color: #0000ff; }
+SPAN.CalloutKeyAlphacallka	{ font-weight: bold; font: sans-serif "Arial" Helvetica; font-size: 9pt; color: #0000ff; }
+SPAN.CalloutKeyNumericcallkn	{ font-weight: bold; font: sans-serif "Arial" Helvetica; font-size: 9pt; color: #0000ff; }
+SPAN.CautionHeadingcah	{ font-weight: bold; font: sans-serif "Arial Narrow" Helvetica Narrow; font-size: 10pt; color: #0000ff; }
+SPAN.CodeContinuationccont	{ font:  MSIcons ; font-size: 14pt; }
+SPAN.CodeTableTextEmbeddedctt	{ font: monospace "Courier New" ; font-size: 10pt; }
+SPAN.CodeTextEmbeddedcte	{ font: monospace "Courier New" ; font-size: 10pt; }
+SPAN.CodeTextFeaturedElementctfe	{ font: monospace "Courier New" ; font-size: 10pt; }
+SPAN.ConditionalMarkcm	{ color: #800000; }
+SPAN.Continuedcont	{ font-style: italic; }
+SPAN.CrossRefBookTitlecrbt	{ font-style: italic; }
+SPAN.CrossRefHeadingcrh	{ font-weight: bold; font: sans-serif "Arial Narrow" Helvetica Narrow; font-size: 10pt; color: #0000ff; }
+SPAN.CrossRefKeywordTextcrkt	{ font-weight: bold; }
+SPAN.DetailLabeldet	{ font-weight: bold; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+SPAN.ElementNameJumpelnj	{ font-weight: bold; }
+SPAN.ElementNamePopupelnp	{ font-weight: bold; }
+SPAN.ElementNameeln	{ font-weight: bold; }
+SPAN.ExceptionArrowxa	{ font:  MSIcons ; font-size: 11pt; }
+SPAN.ExceptionEndEmbeddedxeem	{ font-weight: bold; font: sans-serif "Arial" Helvetica; font-size: 8pt; }
+SPAN.ExceptionStartEmbeddedxsem	{ font-weight: bold; font: sans-serif "Arial" Helvetica; font-size: 8pt; }
+SPAN.Fixthistextfixt	{ color: #ff0000; }
+SPAN.ImportantHeadingih	{ font-weight: bold; font: sans-serif "Arial Narrow" Helvetica Narrow; font-size: 10pt; color: #0000ff; }
+SPAN.JumpContextIDjumpid	{ color: #800000; }
+SPAN.LanguageElementEmphasizedJumpleej	{ font-weight: bold; }
+SPAN.LanguageElementEmphasizedPopupleep	{ font-weight: bold; }
+SPAN.LanguageElementEmphasizedlee	{ font-weight: bold; }
+SPAN.LineBreakPrintlbrp	{ font: sans-serif "Arial" Helvetica; }
+SPAN.LineBreaklnbrk	{ font: sans-serif "Arial" Helvetica; }
+SPAN.LiteralJumplj	{ font-weight: bold; }
+SPAN.LiteralPopuplp	{ font-weight: bold; }
+SPAN.Literall	{ font-weight: bold; }
+SPAN.lproc	{ font-weight: bold; color: #0000ff; }
+SPAN.NamedArgumentJumpnargj	{ font-weight: bold; font-style: italic; }
+SPAN.NamedArgumentPopupnargp	{ font-weight: bold; font-style: italic; }
+SPAN.NamedArgumentnarg	{ font-weight: bold; font-style: italic; }
+SPAN.NewTermJumpntrmj	{ font-style: italic; }
+SPAN.NewTermPopupntrmp	{ font-style: italic; }
+SPAN.NewTermntrm	{ font-style: italic; }
+SPAN.NoteHeadingnh	{ font-weight: bold; font: sans-serif "Arial Narrow" Helvetica Narrow; font-size: 10pt; color: #0000ff; }
+SPAN.Operatorop	{ font-weight: bold; }
+SPAN.PlaceholderJumppj	{ font-style: italic; }
+SPAN.PlaceholderPopuppp	{ font-style: italic; }
+SPAN.Placeholderp	{ font-style: italic; }
+SPAN.PopupContextIDpopid	{ color: #800080; }
+SPAN.ProcedureIconproci	{ font:  MSIcons ; font-size: 11pt; color: #0000ff; }
+SPAN.ProcedureLabelprocl	{ font-weight: bold; font: sans-serif "Arial" Helvetica; font-size: 10pt; color: #0000ff; }
+SPAN.ReviewCommentsrc	{ color: #800000; }
+SPAN.TableFootnoteReferencetfr	{ font: sans-serif "Arial" Helvetica; font-size: 6pt; }
+SPAN.TipHeadingtph	{ font-weight: bold; font: sans-serif "Arial Narrow" Helvetica Narrow; font-size: 10pt; color: #0000ff; }
+SPAN.WarningHeadingwh	{ font-weight: bold; font: sans-serif "Arial Narrow" Helvetica Narrow; font-size: 10pt; color: #0000ff; }
+SPAN.annotationreferenceAnnotationReferencear	{ font-size: 11pt; color: #800080; }
+SPAN.footnotereferenceFootnoteReferenceONLINEUSEONLYfr	{ font-weight: bold; font: sans-serif "Arial" Helvetica; font-size: 8pt; color: #ff0000; vertical-align: super; }
+SPAN.pagenumberPageNumberpn	{ font-weight: bold; font: sans-serif "Arial" Helvetica; font-size: 8pt; }
+SPAN.Xref	{ margin-bottom: 4pt; font: sans-serif "Arial Narrow" Helvetica Narrow; font-size: 10pt; }
+SPAN.zzCallout	{ font-weight: bold; font: sans-serif "Arial" Helvetica; font-size: 9pt; }
+SPAN.zzCommentHead	{ font-weight: bold; font: sans-serif "Arial" Helvetica; font-size: 10pt; color: #0000ff; }
+SPAN.zzDecorative	{ font:  MSIcons ; font-size: 11pt; }
+SPAN.zzMonoSpace	{ font: monospace "Courier New" ; font-size: 8pt; }
+SPAN.zzSansSerif	{ font-weight: bold; font: sans-serif "Arial" Helvetica; font-size: 10pt; }
+SPAN.zzSerif	{ font: sans-serif "Arial" Helvetica; }
+SPAN.nowrap	{ margin-right: -250pt; }
+SPAN.Registeredreg { font: sans-serif "Arial" Helvetica; font-size: 14pt; }
+SPAN.copyright	{ font-style: italic; font: sans-serif "Arial" Helvetica; font-size: 9pt; }
+</style>
+<!-- number of styles: 289 -->

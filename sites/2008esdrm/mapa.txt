@@ -1,0 +1,723 @@
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site
+
+09-04-2008  17:27    <DIR>          .
+09-01-2008  19:06    <DIR>          ..
+09-04-2008  17:18    <DIR>          _notes
+27-03-2008  14:19    <DIR>          Alunos
+26-11-2007  16:29    <DIR>          CSS
+09-04-2008  17:18    <DIR>          Departamentos
+14-02-2008  18:49    <DIR>          Docentes
+25-01-2008  12:07    <DIR>          Documentos
+25-01-2008  13:06    <DIR>          Ensino
+09-04-2008  17:18    <DIR>          GabinetesApoio
+09-04-2008  17:18    <DIR>          ID
+28-01-2008  16:37    <DIR>          images
+09-04-2008  17:18             5.589 index.html
+09-04-2008  17:18    <DIR>          Inicio
+09-04-2008  17:27                41 mapa.txt
+29-11-2007  16:58    <DIR>          Novidades
+22-01-2008  16:39    <DIR>          Old
+09-04-2008  17:18    <DIR>          Organizacao
+29-11-2007  16:27    <DIR>          Scripts
+09-04-2008  17:18    <DIR>          Servicos
+09-04-2008  17:18    <DIR>          Templates
+               2 ficheiro(s)            5.630 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\_notes
+
+09-04-2008  17:18    <DIR>          .
+09-04-2008  17:27    <DIR>          ..
+               0 ficheiro(s)                0 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\Alunos
+
+27-03-2008  14:19    <DIR>          .
+09-04-2008  17:27    <DIR>          ..
+08-04-2008  17:25    <DIR>          _notes
+08-04-2008  17:22            10.990 GuiaInformativo.html
+08-04-2008  17:22            10.435 indexAlunos.html
+08-04-2008  17:22            10.534 Reprografia.html
+08-04-2008  17:22            12.135 Requerimentos.html
+08-04-2008  17:22            10.474 ServicosAcademicos.html
+               5 ficheiro(s)           54.568 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\Alunos\_notes
+
+08-04-2008  17:25    <DIR>          .
+27-03-2008  14:19    <DIR>          ..
+               0 ficheiro(s)                0 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\CSS
+
+26-11-2007  16:29    <DIR>          .
+09-04-2008  17:27    <DIR>          ..
+08-04-2008  17:25    <DIR>          _notes
+23-11-2007  18:24             1.580 conteudo.css
+18-09-2007  13:18             1.008 conteudoOld.css
+09-11-2007  16:34             1.590 menu.css
+09-11-2007  16:21             1.590 menuOld.css
+16-11-2007  19:27             1.761 menuVertical.css
+               5 ficheiro(s)            7.529 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\CSS\_notes
+
+08-04-2008  17:25    <DIR>          .
+26-11-2007  16:29    <DIR>          ..
+               0 ficheiro(s)                0 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\Departamentos
+
+09-04-2008  17:18    <DIR>          .
+09-04-2008  17:27    <DIR>          ..
+08-04-2008  17:25    <DIR>          _notes
+09-04-2008  17:18    <DIR>          ADRL
+09-04-2008  17:18    <DIR>          CF
+09-04-2008  17:18             6.229 IndexDepartamentos.html
+09-04-2008  17:18    <DIR>          PCSD
+09-04-2008  17:18    <DIR>          TD
+               1 ficheiro(s)            6.229 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\Departamentos\_notes
+
+08-04-2008  17:25    <DIR>          .
+09-04-2008  17:18    <DIR>          ..
+               0 ficheiro(s)                0 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\Departamentos\ADRL
+
+09-04-2008  17:18    <DIR>          .
+09-04-2008  17:18    <DIR>          ..
+08-04-2008  17:25    <DIR>          _notes
+09-04-2008  17:18             6.661 Actividades.html
+09-04-2008  17:18             9.604 Competencias.html
+09-04-2008  17:18             7.829 Constituicao.html
+09-04-2008  17:18             6.788 Curso.html
+09-04-2008  17:18             6.702 IndexADRL.html
+               5 ficheiro(s)           37.584 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\Departamentos\ADRL\_notes
+
+08-04-2008  17:25    <DIR>          .
+09-04-2008  17:18    <DIR>          ..
+               0 ficheiro(s)                0 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\Departamentos\CF
+
+09-04-2008  17:18    <DIR>          .
+09-04-2008  17:18    <DIR>          ..
+08-04-2008  17:25    <DIR>          _notes
+09-04-2008  17:18             6.663 Actividades.html
+09-04-2008  17:18             7.398 Competencias.html
+09-04-2008  17:18             7.675 Constituicao.html
+09-04-2008  17:18             6.820 Curso.html
+09-04-2008  17:18             6.705 IndexCF.html
+               5 ficheiro(s)           35.261 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\Departamentos\CF\_notes
+
+08-04-2008  17:25    <DIR>          .
+09-04-2008  17:18    <DIR>          ..
+               0 ficheiro(s)                0 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\Departamentos\PCSD
+
+09-04-2008  17:18    <DIR>          .
+09-04-2008  17:18    <DIR>          ..
+08-04-2008  17:25    <DIR>          _notes
+09-04-2008  17:18             6.671 Actividades.html
+09-04-2008  17:18            12.551 Competencias.html
+09-04-2008  17:18             8.191 Constituicao.html
+09-04-2008  17:18             6.934 Curso.html
+09-04-2008  17:18             6.652 IndexPCSD.html
+               5 ficheiro(s)           40.999 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\Departamentos\PCSD\_notes
+
+08-04-2008  17:25    <DIR>          .
+09-04-2008  17:18    <DIR>          ..
+               0 ficheiro(s)                0 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\Departamentos\TD
+
+09-04-2008  17:18    <DIR>          .
+09-04-2008  17:18    <DIR>          ..
+08-04-2008  17:25    <DIR>          _notes
+09-04-2008  17:18             6.634 Actividades.html
+09-04-2008  17:18             8.157 Competencias.html
+09-04-2008  17:18             8.552 Constituicao.html
+09-04-2008  17:18             6.741 Curso.html
+09-04-2008  17:18             6.632 IndexTD.html
+               5 ficheiro(s)           36.716 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\Departamentos\TD\_notes
+
+08-04-2008  17:25    <DIR>          .
+09-04-2008  17:18    <DIR>          ..
+               0 ficheiro(s)                0 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\Docentes
+
+14-02-2008  18:49    <DIR>          .
+09-04-2008  17:27    <DIR>          ..
+08-04-2008  17:26    <DIR>          _notes
+28-11-2007  19:26            10.155 Copy of index.asp
+08-04-2008  17:21             7.596 index.asp
+08-04-2008  17:21             5.353 IndexDocentes.html
+28-11-2007  20:07            13.681 infoDocente.asp
+               4 ficheiro(s)           36.785 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\Docentes\_notes
+
+08-04-2008  17:26    <DIR>          .
+14-02-2008  18:49    <DIR>          ..
+               0 ficheiro(s)                0 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\Documentos
+
+25-01-2008  12:07    <DIR>          .
+09-04-2008  17:27    <DIR>          ..
+26-11-2007  16:29    <DIR>          Alunos
+25-01-2008  12:08    <DIR>          Organizacao
+26-11-2007  16:32    <DIR>          ServicosAcademicos
+               0 ficheiro(s)                0 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\Documentos\Alunos
+
+26-11-2007  16:29    <DIR>          .
+25-01-2008  12:07    <DIR>          ..
+08-04-2008  17:26    <DIR>          _notes
+23-11-2007  18:34           669.485 GuiaInformativoESDRM-13-11-2007.pdf
+               1 ficheiro(s)          669.485 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\Documentos\Alunos\_notes
+
+08-04-2008  17:26    <DIR>          .
+26-11-2007  16:29    <DIR>          ..
+               0 ficheiro(s)                0 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\Documentos\Organizacao
+
+25-01-2008  12:08    <DIR>          .
+25-01-2008  12:07    <DIR>          ..
+25-01-2008  12:07    <DIR>          Estatutos
+25-01-2008  12:08    <DIR>          Regulamentos
+               0 ficheiro(s)                0 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\Documentos\Organizacao\Estatutos
+
+25-01-2008  12:07    <DIR>          .
+25-01-2008  12:08    <DIR>          ..
+               0 ficheiro(s)                0 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\Documentos\Organizacao\Regulamentos
+
+25-01-2008  12:08    <DIR>          .
+25-01-2008  12:08    <DIR>          ..
+               0 ficheiro(s)                0 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\Documentos\ServicosAcademicos
+
+26-11-2007  16:32    <DIR>          .
+25-01-2008  12:07    <DIR>          ..
+08-04-2008  17:26    <DIR>          _notes
+23-11-2007  19:09             8.183 CalendarioLectivo2007-2008.pdf
+23-11-2007  19:22            21.238 DeclaracaoPresenca.pdf
+23-11-2007  19:23            19.642 ReqCertificadosDiplomas.pdf
+23-11-2007  19:22           119.009 ReqConcursosEspeciais.pdf
+23-11-2007  19:22            20.601 ReqDeclaracaoMatricula.pdf
+23-11-2007  19:23            12.071 ReqExames.pdf
+23-11-2007  19:23           113.111 ReqPermuta.pdf
+23-11-2007  19:23           121.621 ReqRegimesReingressoMudancaCurso.pdf
+23-11-2007  19:23           116.262 ReqTrabalhadorEstudante.pdf
+23-11-2007  19:13           591.829 TabelaEmolumentosIPS.pdf
+              10 ficheiro(s)        1.143.567 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\Documentos\ServicosAcademicos\_notes
+
+08-04-2008  17:26    <DIR>          .
+26-11-2007  16:32    <DIR>          ..
+               0 ficheiro(s)                0 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\Ensino
+
+25-01-2008  13:06    <DIR>          .
+09-04-2008  17:27    <DIR>          ..
+08-04-2008  17:27    <DIR>          _notes
+29-11-2007  18:24    <DIR>          EscolaVerao
+29-11-2007  18:11    <DIR>          FormacaoContinua
+08-04-2008  17:21             8.460 IndexEnsino.html
+04-12-2007  19:19    <DIR>          Licenciatura
+08-04-2008  17:21            11.473 LicenciaturaCF.html
+08-04-2008  17:21            11.189 LicenciaturaDNTA.html
+08-04-2008  17:21            12.366 LicenciaturaGOD.html
+08-04-2008  17:21            11.057 LicenciaturaPDE.html
+08-04-2008  17:21            11.462 LicenciaturaTD.html
+29-11-2007  18:12    <DIR>          Mestrado
+               6 ficheiro(s)           66.007 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\Ensino\_notes
+
+08-04-2008  17:27    <DIR>          .
+25-01-2008  13:06    <DIR>          ..
+               0 ficheiro(s)                0 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\Ensino\EscolaVerao
+
+29-11-2007  18:24    <DIR>          .
+25-01-2008  13:06    <DIR>          ..
+               0 ficheiro(s)                0 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\Ensino\FormacaoContinua
+
+29-11-2007  18:11    <DIR>          .
+25-01-2008  13:06    <DIR>          ..
+               0 ficheiro(s)                0 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\Ensino\Licenciatura
+
+04-12-2007  19:19    <DIR>          .
+25-01-2008  13:06    <DIR>          ..
+04-12-2007  18:51    <DIR>          CF
+04-12-2007  18:38    <DIR>          DNTA
+04-12-2007  19:28    <DIR>          GOD
+04-12-2007  19:51    <DIR>          PDE
+03-12-2007  17:29    <DIR>          TD
+               0 ficheiro(s)                0 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\Ensino\Licenciatura\CF
+
+04-12-2007  18:51    <DIR>          .
+04-12-2007  19:19    <DIR>          ..
+08-04-2008  17:26    <DIR>          _notes
+08-04-2008  17:21            14.651 CondicoesAcesso.html
+08-04-2008  17:21            10.555 Docentes.html
+08-04-2008  17:21            10.555 InscricaoPropinas.html
+08-04-2008  17:21            10.555 ModeloFormacao.html
+08-04-2008  17:21            10.565 PlanoEstudos.html
+08-04-2008  17:21            12.597 SaidasProfissionais.html
+               6 ficheiro(s)           69.478 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\Ensino\Licenciatura\CF\_notes
+
+08-04-2008  17:26    <DIR>          .
+04-12-2007  18:51    <DIR>          ..
+               0 ficheiro(s)                0 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\Ensino\Licenciatura\DNTA
+
+04-12-2007  18:38    <DIR>          .
+04-12-2007  19:19    <DIR>          ..
+08-04-2008  17:26    <DIR>          _notes
+08-04-2008  17:21            12.159 CondicoesAcesso.html
+08-04-2008  17:21            10.465 Docentes.html
+08-04-2008  17:21            10.543 InscricaoPropinas.html
+08-04-2008  17:21            10.517 ModeloFormacao.html
+08-04-2008  17:21            10.483 PlanoEstudos.html
+08-04-2008  17:21            11.815 SaidasProfissionais.html
+               6 ficheiro(s)           65.982 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\Ensino\Licenciatura\DNTA\_notes
+
+08-04-2008  17:26    <DIR>          .
+04-12-2007  18:38    <DIR>          ..
+               0 ficheiro(s)                0 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\Ensino\Licenciatura\GOD
+
+04-12-2007  19:28    <DIR>          .
+04-12-2007  19:19    <DIR>          ..
+08-04-2008  17:26    <DIR>          _notes
+08-04-2008  17:21            12.157 CondicoesAcesso.html
+08-04-2008  17:21            10.530 Docentes.html
+08-04-2008  17:21            10.542 InscricaoPropinas.html
+08-04-2008  17:21            10.556 ModeloFormacao.html
+08-04-2008  17:21            10.540 PlanoEstudos.html
+08-04-2008  17:21            11.713 SaidasProfissionais.html
+               6 ficheiro(s)           66.038 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\Ensino\Licenciatura\GOD\_notes
+
+08-04-2008  17:26    <DIR>          .
+04-12-2007  19:28    <DIR>          ..
+               0 ficheiro(s)                0 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\Ensino\Licenciatura\PDE
+
+04-12-2007  19:51    <DIR>          .
+04-12-2007  19:19    <DIR>          ..
+08-04-2008  17:26    <DIR>          _notes
+08-04-2008  17:21            12.260 CondicoesAcesso.html
+08-04-2008  17:21            10.509 Docentes.html
+08-04-2008  17:21            10.563 InscricaoPropinas.html
+08-04-2008  17:21            10.555 ModeloFormacao.html
+08-04-2008  17:21            10.526 PlanoEstudos.html
+08-04-2008  17:21            12.464 SaidasProfissionais.html
+               6 ficheiro(s)           66.877 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\Ensino\Licenciatura\PDE\_notes
+
+08-04-2008  17:26    <DIR>          .
+04-12-2007  19:51    <DIR>          ..
+               0 ficheiro(s)                0 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\Ensino\Licenciatura\TD
+
+03-12-2007  17:29    <DIR>          .
+04-12-2007  19:19    <DIR>          ..
+08-04-2008  17:27    <DIR>          _notes
+08-04-2008  17:21            12.253 CondicoesAcesso.html
+08-04-2008  17:21            10.465 Docentes.html
+08-04-2008  17:21            10.521 InscricaoPropinas.html
+08-04-2008  17:21            10.515 ModeloFormacao.html
+08-04-2008  17:21            10.483 PlanoEstudos.html
+08-04-2008  17:21            11.900 SaidasProfissionais.html
+               6 ficheiro(s)           66.137 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\Ensino\Licenciatura\TD\_notes
+
+08-04-2008  17:27    <DIR>          .
+03-12-2007  17:29    <DIR>          ..
+               0 ficheiro(s)                0 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\Ensino\Mestrado
+
+29-11-2007  18:12    <DIR>          .
+25-01-2008  13:06    <DIR>          ..
+               0 ficheiro(s)                0 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\GabinetesApoio
+
+09-04-2008  17:18    <DIR>          .
+09-04-2008  17:27    <DIR>          ..
+09-04-2008  17:18    <DIR>          _notes
+09-04-2008  17:18             8.396 ApoioPsicologico.html
+09-04-2008  17:18             7.161 Empreendedorismo.html
+09-04-2008  17:18             7.719 GabineteMercadoTrabalho.html
+09-04-2008  17:18            11.264 GabineteQualidade.html
+09-04-2008  17:18             6.847 IndexGabinetesApoio.html
+09-04-2008  17:18             7.460 MobilidadeInternacional.html
+               6 ficheiro(s)           48.847 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\GabinetesApoio\_notes
+
+09-04-2008  17:18    <DIR>          .
+09-04-2008  17:18    <DIR>          ..
+09-04-2008  17:18               402 MobilidadeInternacional.html.mno
+               1 ficheiro(s)              402 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\ID
+
+09-04-2008  17:18    <DIR>          .
+09-04-2008  17:27    <DIR>          ..
+08-04-2008  17:27    <DIR>          _notes
+09-04-2008  17:18    <DIR>          AE_ESDRM
+09-04-2008  17:18             8.277 IndexID.html
+09-04-2008  17:18             8.151 LaboratoriosAssociados.html
+09-04-2008  17:18    <DIR>          LID
+09-04-2008  17:18             8.284 PrestacaoServicos.html
+09-04-2008  17:18             8.205 ProjectosID.html
+09-04-2008  17:18             8.152 ProtocolosInternacionais.html
+09-04-2008  17:18             8.152 ProtocolosNacionais.html
+               6 ficheiro(s)           49.221 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\ID\_notes
+
+08-04-2008  17:27    <DIR>          .
+09-04-2008  17:18    <DIR>          ..
+               0 ficheiro(s)                0 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\ID\AE_ESDRM
+
+09-04-2008  17:18    <DIR>          .
+09-04-2008  17:18    <DIR>          ..
+08-04-2008  17:27    <DIR>          _notes
+09-04-2008  17:18             8.314 IndexAE_ESDRM.html
+               1 ficheiro(s)            8.314 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\ID\AE_ESDRM\_notes
+
+08-04-2008  17:27    <DIR>          .
+09-04-2008  17:18    <DIR>          ..
+               0 ficheiro(s)                0 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\ID\LID
+
+09-04-2008  17:18    <DIR>          .
+09-04-2008  17:18    <DIR>          ..
+08-04-2008  17:27    <DIR>          _notes
+09-04-2008  17:18             9.693 Areas.html
+09-04-2008  17:18             8.656 Contactos.html
+09-04-2008  17:18             8.250 HorarioFuncionamento.html
+09-04-2008  17:18             8.653 IndexLID.html
+09-04-2008  17:18             8.295 ProjectosDesenvolvidos.html
+09-04-2008  17:18             8.275 ProjectosRealizados.html
+09-04-2008  17:18             8.339 Responsavel.html
+09-04-2008  17:18             8.273 SubAreas.html
+               8 ficheiro(s)           68.434 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\ID\LID\_notes
+
+08-04-2008  17:27    <DIR>          .
+09-04-2008  17:18    <DIR>          ..
+               0 ficheiro(s)                0 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\images
+
+28-01-2008  16:37    <DIR>          .
+09-04-2008  17:27    <DIR>          ..
+12-03-2008  19:06    <DIR>          _notes
+28-05-2007  15:01                88 BarraBrancaDir.gif
+09-11-2007  16:41            20.968 cabecalho.jpg
+28-05-2007  15:01             3.474 FotoInstituicao.gif
+28-05-2007  15:01             2.174 index_r10_c2.gif
+28-05-2007  15:01               318 index_r11_c2.gif
+28-05-2007  15:01                87 index_r11_c4.gif
+28-05-2007  15:01               140 index_r11_c5.gif
+28-05-2007  15:01               103 index_r11_c6.gif
+28-05-2007  15:01               661 index_r11_c7.gif
+28-05-2007  15:01               943 index_r3_c1.gif
+28-05-2007  15:01             1.055 index_r4_c9.gif
+28-05-2007  15:01               165 index_r5_c3.gif
+28-05-2007  15:01               610 index_r6_c3.gif
+28-05-2007  15:01                91 index_r6_c8.gif
+28-05-2007  15:01             1.064 index_r6_c9.gif
+28-05-2007  15:01             5.850 index_r7_c3.gif
+28-05-2007  15:01             5.135 index_r8_c9.gif
+28-05-2007  15:01                58 index_r9_c1.gif
+28-05-2007  15:01               378 index_r9_c2.gif
+28-01-2008  16:39    <DIR>          Instituicao
+28-05-2007  15:01                68 Lupa.gif
+28-05-2007  15:01             1.204 Menu.gif
+28-05-2007  15:01                71 SeparadorDireita.gif
+28-05-2007  15:01                43 spacer.gif
+09-11-2007  14:24           216.273 topo.jpg
+28-05-2007  15:01            11.104 TopoIndex.gif
+28-05-2007  15:01               510 TopoIndexDireita.gif
+28-05-2007  15:01             2.273 TopoIndexEsq.gif
+              27 ficheiro(s)          274.908 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\images\_notes
+
+12-03-2008  19:06    <DIR>          .
+28-01-2008  16:37    <DIR>          ..
+09-11-2007  14:24            15.698 topo.jpg.mno
+               1 ficheiro(s)           15.698 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\images\Instituicao
+
+28-01-2008  16:39    <DIR>          .
+28-01-2008  16:37    <DIR>          ..
+12-03-2008  19:06    <DIR>          _notes
+14-06-2007  14:56    <DIR>          images
+14-06-2007  14:51            10.179 Topo.jpg
+14-06-2007  14:51             3.334 TopoDireito.jpg
+14-06-2007  14:51             3.273 TopoEsquerdo.jpg
+14-06-2007  14:56             1.774 TopoEsquerdoBaixo.jpg
+               4 ficheiro(s)           18.560 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\images\Instituicao\_notes
+
+12-03-2008  19:06    <DIR>          .
+28-01-2008  16:39    <DIR>          ..
+14-06-2007  14:56               211 TopoEsquerdoBaixo.jpg.mno
+               1 ficheiro(s)              211 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\images\Instituicao\images
+
+14-06-2007  14:56    <DIR>          .
+28-01-2008  16:39    <DIR>          ..
+               0 ficheiro(s)                0 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\Inicio
+
+09-04-2008  17:18    <DIR>          .
+09-04-2008  17:27    <DIR>          ..
+08-04-2008  17:27    <DIR>          _notes
+09-04-2008  17:18             5.522 quemSomos.html
+09-04-2008  17:18             5.511 visitaGuiada.html
+               2 ficheiro(s)           11.033 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\Inicio\_notes
+
+08-04-2008  17:27    <DIR>          .
+09-04-2008  17:18    <DIR>          ..
+               0 ficheiro(s)                0 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\Novidades
+
+29-11-2007  16:58    <DIR>          .
+09-04-2008  17:27    <DIR>          ..
+               0 ficheiro(s)                0 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\Old
+
+22-01-2008  16:39    <DIR>          .
+09-04-2008  17:27    <DIR>          ..
+03-03-2008  18:39    <DIR>          _notes
+13-07-2005  12:41         4.386.144 AnimTopoFotos.swf
+28-01-2008  16:42    <DIR>          images
+13-07-2005  12:41            30.741 mm_menu.js
+13-07-2005  18:24            11.778 PaginaInicial3.htm
+               3 ficheiro(s)        4.428.663 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\Old\_notes
+
+03-03-2008  18:39    <DIR>          .
+22-01-2008  16:39    <DIR>          ..
+               0 ficheiro(s)                0 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\Old\images
+
+28-01-2008  16:42    <DIR>          .
+22-01-2008  16:39    <DIR>          ..
+03-03-2008  18:39    <DIR>          _notes
+11-07-2005  18:24            18.096 Animacao.jpg
+11-07-2005  18:24             2.774 AreaPrivada.jpg
+11-07-2005  18:24             1.796 BarraNovidades.jpg
+11-07-2005  18:24             9.979 BarraTopo.jpg
+11-07-2005  18:24             7.965 Links.jpg
+11-07-2005  18:24             8.200 LinksFundo.jpg
+11-07-2005  18:24            28.247 Novidades.jpg
+11-07-2005  18:24               861 NovidadesAnimacao.jpg
+11-07-2005  18:24             1.094 NovidadesCondicao.jpg
+11-07-2005  18:24               861 NovidadesGod.jpg
+11-07-2005  18:24               861 NovidadesPsicologia.jpg
+11-07-2005  18:24               861 NovidadesTreino.jpg
+11-07-2005  18:24               428 PaginaInicial3_r10_c1.jpg
+11-07-2005  18:24               470 PaginaInicial3_r11_c3.jpg
+11-07-2005  18:24             2.945 PaginaInicial3_r13_c3.jpg
+11-07-2005  18:24             2.398 PaginaInicial3_r14_c1.jpg
+11-07-2005  18:24             1.104 PaginaInicial3_r1_c11.jpg
+11-07-2005  18:24               671 PaginaInicial3_r3_c11.jpg
+11-07-2005  18:24               581 PaginaInicial3_r5_c1.jpg
+11-07-2005  18:24               699 PaginaInicial3_r6_c15.jpg
+11-07-2005  18:24               560 PaginaInicial3_r6_c2.jpg
+11-07-2005  18:24             5.449 PaginaInicial3_r6_c3.jpg
+11-07-2005  18:24               456 PaginaInicial3_r8_c12.jpg
+11-07-2005  18:24               505 PaginaInicial3_r8_c14.jpg
+11-07-2005  18:24               293 PaginaInicial3_r8_c5.jpg
+11-07-2005  18:24               456 PaginaInicial3_r8_c7.jpg
+11-07-2005  18:24               456 PaginaInicial3_r8_c9.jpg
+11-07-2005  18:24             1.484 PaginaInicial3_r9_c3.jpg
+11-07-2005  18:24             1.187 Pesquisar.jpg
+19-07-2005  14:07                43 spacer.gif
+11-07-2005  18:24             8.629 TituloNovidades.jpg
+              31 ficheiro(s)          110.409 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\Old\images\_notes
+
+03-03-2008  18:39    <DIR>          .
+28-01-2008  16:42    <DIR>          ..
+               0 ficheiro(s)                0 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\Organizacao
+
+09-04-2008  17:18    <DIR>          .
+09-04-2008  17:27    <DIR>          ..
+08-04-2008  17:38    <DIR>          _notes
+09-04-2008  17:18            10.308 ComoChegar.html
+09-04-2008  17:18            17.540 ConselhoCientifico.html
+09-04-2008  17:18            13.216 ConselhoConsultivo.html
+09-04-2008  17:18            12.848 ConselhoPedagogico.html
+09-04-2008  17:18            10.664 Contactos.html
+09-04-2008  17:18            79.886 Estatutos.html
+09-04-2008  17:18            15.643 historia.html
+09-04-2008  17:18            10.437 indexOrganizacao.html
+09-04-2008  17:18            10.372 InformacoesTuristicas.html
+09-04-2008  17:18            10.376 LinksUteis.html
+09-04-2008  17:18            21.805 mapa.html
+09-04-2008  17:18            10.330 MensagemInstitucional.html
+09-04-2008  17:18            10.316 Missao.html
+09-04-2008  17:18            10.342 Organizacao.html
+09-04-2008  17:18            10.358 orgaosGestao.html
+              15 ficheiro(s)          254.441 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\Organizacao\_notes
+
+08-04-2008  17:38    <DIR>          .
+09-04-2008  17:18    <DIR>          ..
+               0 ficheiro(s)                0 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\Scripts
+
+29-11-2007  16:27    <DIR>          .
+09-04-2008  17:27    <DIR>          ..
+03-03-2008  18:39    <DIR>          _notes
+28-11-2007  20:07             8.321 AC_RunActiveContent.js
+               1 ficheiro(s)            8.321 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\Scripts\_notes
+
+03-03-2008  18:39    <DIR>          .
+29-11-2007  16:27    <DIR>          ..
+               0 ficheiro(s)                0 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\Servicos
+
+09-04-2008  17:18    <DIR>          .
+09-04-2008  17:27    <DIR>          ..
+08-04-2008  17:27    <DIR>          _notes
+09-04-2008  17:18             6.612 Academicos.html
+09-04-2008  17:18             6.842 Auxiliares.html
+09-04-2008  17:18    <DIR>          Biblioteca
+09-04-2008  17:18            12.542 Biblioteca.html
+09-04-2008  17:18             6.618 CentroInformatica.html
+09-04-2008  17:18             6.915 Contabilidade.html
+09-04-2008  17:18             6.657 Expediente.html
+09-04-2008  17:18             7.090 IndexServicos.html
+09-04-2008  17:18             6.685 Marketing.html
+09-04-2008  17:18             6.810 RecursosHumanos.html
+09-04-2008  17:18             6.811 SecretariaOrgaosGestao.html
+              10 ficheiro(s)           73.582 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\Servicos\_notes
+
+08-04-2008  17:27    <DIR>          .
+09-04-2008  17:18    <DIR>          ..
+               0 ficheiro(s)                0 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\Servicos\Biblioteca
+
+09-04-2008  17:18    <DIR>          .
+09-04-2008  17:18    <DIR>          ..
+08-04-2008  17:27    <DIR>          _notes
+09-04-2008  17:18             8.389 Aquisicoes.html
+09-04-2008  17:18             8.890 Catalogo.html
+09-04-2008  17:18             8.704 ComissaoCoordenadora.html
+09-04-2008  17:18             8.116 NormasRegulamentos.html
+09-04-2008  17:18            10.400 Periodico.html
+               5 ficheiro(s)           44.499 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\Servicos\Biblioteca\_notes
+
+08-04-2008  17:27    <DIR>          .
+09-04-2008  17:18    <DIR>          ..
+               0 ficheiro(s)                0 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\Templates
+
+09-04-2008  17:18    <DIR>          .
+09-04-2008  17:27    <DIR>          ..
+27-03-2008  13:55    <DIR>          _notes
+08-04-2008  17:22            10.335 Alunos.dwt
+09-04-2008  17:18             6.582 Departamentos.dwt
+08-04-2008  17:21             5.286 Docentes.dwt
+08-04-2008  17:21            10.825 Ensino.dwt
+09-04-2008  17:18             6.075 GabinetesApoio.dwt
+09-04-2008  17:18             5.388 Inicio.dwt
+09-04-2008  17:18             8.122 Investigacao.dwt
+09-04-2008  17:18            10.482 Organizacao.dwt
+09-04-2008  17:18             6.649 Servicos.dwt
+               9 ficheiro(s)           69.744 bytes
+
+ Direct—rio de Y:\Sites\esdrm\Design\Site\Templates\_notes
+
+27-03-2008  13:55    <DIR>          .
+09-04-2008  17:18    <DIR>          ..
+24-01-2008  12:19               117 Inicio.dwt.mno
+               1 ficheiro(s)              117 bytes
+
+     Total de ficheiros listados:
+             216 ficheiro(s)        7.960.276 bytes
+             215 Dir(s)        68.065.165.312 bytes livres

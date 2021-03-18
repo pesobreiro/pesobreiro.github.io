@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>Programming Style</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="baint_2.htm" OnClick="SyncURL(&quot;chapters/baint_2.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<a NAME="3ProgrammingStyle"></a>
+<p CLASS="heading3OrgHeading1h1">Programming Style</p>
+<p CLASS="Textttext">This manual uses the following guidelines in its Visual Basic code:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspVisual Basic keywords are in lowercase with an initial capital letter.</p>
+<p CLASS="ListCodeText1lct1">Dim intSomeValue As Integer, strTextValue As String<br>&nbsp;&nbsp;&amp;nbspDim intStartNumber As Integer<br>&nbsp;&nbsp;&nbsp;' If, Then, and Str are Visual Basic keywords.<br>&nbsp;&nbsp;&amp;nbspIf intSomeValue = 0 Then strTextValue = Str(intStartNumber)
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspVariable names begin with a lowercase prefix, followed by a lowercase word or words with an initial capital letter. Variables are declared at beginning of an example.</p>
+<p CLASS="ListCodeText1lct1">Dim dblIncome as Double<br>&nbsp;&nbsp;&amp;nbspDim strFirstName as String * 30
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspLine labels are used instead of line numbers for error-handling routines and for <span CLASS="ElementNameeln">On...GoSub</span> and <span CLASS="ElementNameeln">On...GoTo</span> statements.</p>
+<p CLASS="ListCodeText1lct1">On Error GoTo ErrorHandler<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.<br>&nbsp;&nbsp;&amp;nbspErrorHandler:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbspMsgBox Err.Description
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspAn apostrophe ( ' ) introduces a comment.</p>
+<p CLASS="ListCodeText1lct1">' This is a comment; these two lines<br>' are ignored when the program is running.
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspControl-flow blocks and statements in <span CLASS="ElementNameeln">Sub</span> and <span CLASS="ElementNameeln">Function</span> procedures are indented.</p>
+<p CLASS="ListCodeText1lct1">Sub SomeCode()<br>&nbsp;&nbsp;&amp;nbspIf intX &gt; 0 Then<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbspintP = intQ<br>&nbsp;&nbsp;&amp;nbspEnd If<br>End Sub</p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="baint_4.htm" OnClick="SyncURL(&quot;chapters/baint_4.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

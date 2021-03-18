@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>Encrypting a Database</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba14_2.htm" OnClick="SyncURL(&quot;chapters/ba14_2.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<a NAME="3EncryptingaDatabase"></a>
+<p CLASS="heading3OrgHeading1h1">Encrypting a Database</p>
+<p CLASS="Textttext">If you want to protect your secured database from unauthorized access by someone using a disk editor or other utility program, you can <span CLASS="NewTermntrm">encrypt</span> it. Encryption makes a database indecipherable, which protects it from unauthorized viewing or use, particularly during electronic transmission or when it's stored on floppy disk, tape, or compact disc. Encrypting an unsecured database will have no effect because anybody can open the database with Microsoft Access or Visual Basic and gain full access to all objects in the database.
+<p CLASS="Textttext">The User-Level Security Wizard automatically encrypts your database. You can encrypt or decrypt a database by starting Microsoft Access without opening a database, and then using the <span CLASS="ElementNameeln">Encrypt/Decrypt Database</span> command (<span CLASS="ElementNameeln">Tools</span> menu,<span CLASS="ElementNameeln"> Security</span> submenu). You can also use the <span CLASS="ElementNameeln">CompactDatabase</span> method of the <span CLASS="ElementNameeln">DBEngine</span> object to encrypt or decrypt a database. For example, the following procedure creates an encrypted version of the Orders sample database named Eorders:</p>
+<p CLASS="CodeTextct">Sub EncryptDb()<br>&nbsp;&nbsp;&amp;nbspConst conFilePath = &quot;C:\Program Files\Microsoft Office\Office\Samples\&quot;<br>&nbsp;&nbsp;&amp;nbspDBEngine.CompactDatabase conFilePath &amp; &quot;Orders.mdb&quot;, conFilePath &amp; _<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;EOrders.mdb&quot;, dbLangGeneral, dbEncrypt<br>End Sub</p>
+<p CLASS="Textttext">When you encrypt a database using the same file name as that of the original database, Microsoft Access deletes the original unencrypted file if the encryption process is successful. If an error occurs, Microsoft Access doesn't delete the original file.</p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>Encrypting a database slows its performance by up to 15 percent. Also, an encrypted database cannot be compressed by programs such as DriveSpace or PKZIP. If you try to compress an encrypted database, its size doesn't change.</p>
+<!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<!--DocFooterEnd-->
+<a HREF="ba15_1.htm" OnClick="SyncURL(&quot;chapters/ba15_1.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

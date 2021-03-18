@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>Manipulating ActiveX Controls</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba16_3.htm" OnClick="SyncURL(&quot;chapters/ba16_3.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<a NAME="3ManipulatingActiveXControls"></a>
+<p CLASS="heading3OrgHeading1h1">Manipulating ActiveX Controls</p>
+<p CLASS="Textttext">An ActiveX control is an object with three distinct categories of attributes: methods, events, and properties. The methods, events, and properties for an ActiveX control are contained in a single file that is identified by the .ocx file name extension.
+<p CLASS="Textttext">A property is a control characteristic such as color, width, height, or font. You can set the properties for an ActiveX control in Visual Basic code or in the control's property sheet. If an ActiveX control provides its own custom properties dialog box, you can also set the properties for the ActiveX control there. To open the custom properties dialog box for an ActiveX control, click the <span CLASS="ElementNameeln">Custom</span> property box in the control's property sheet, and then click the <span CLASS="ElementNameeln">Build</span> button next to the <span CLASS="ElementNameeln">Custom</span> property box, as shown in the following illustration.</p>
+<p CLASS="Arta"><img SRC="..\images\ABAC1603.jpg"></p>
+<a NAME="4UsingMethodsEventsandPropertiesinCode"></a>
+<p CLASS="heading4OrgHeading2h2">Using Methods, Events, and Properties in Code</p>
+<p CLASS="Textttext">As a developer, you can use the methods associated with an ActiveX control to manipulate that control. For example, you can use the <span CLASS="ElementNameeln">Refresh</span> method of the Calendar control to repaint the calendar.</p>
+<p CLASS="CodeTextct">Forms!EntryForm!Calendar.Refresh</p>
+<p CLASS="Textttext">You can use the events associated with a control to update the control or to synchronize the control with a selected record, section, or environment. For example, you can use the Click<span CLASS="ElementNameeln"> </span>event of the Calendar control to start a procedure that retrieves the specified date and sets the value of a control on a different, synchronized form.
+<p CLASS="Textttext">You can use the properties associated with a control to display or retrieve data. For example, you can use the <span CLASS="ElementNameeln">Value </span>property of the Calendar control to retrieve the date selected by the user.
+<p CLASS="Textttext">The following example uses the Calendar control's Click event and <span CLASS="ElementNameeln">Value</span> property to assign a chosen date from the Calendar control to a control on another form. The Click event occurs when the user clicks a date in the control. The code then uses the <span CLASS="ElementNameeln">Value </span>property to retrieve the selected date.</p>
+<p CLASS="CodeTextct">Private Sub Calendar_Click()<br>&nbsp;&nbsp;&amp;nbspForms!SyncForm!DateVal = Forms!EntryForm!Calendar.Value<br>End Sub</p>
+<p CLASS="Textttext">To limit the dates a user can select with the<span CLASS="ElementNameeln"> </span>Calendar control, you can use the BeforeUpdate event to examine the requested date and then either accept or reject the requested date, depending on whether it falls within the acceptable range.</p>
+<p CLASS="CodeTextct">Private Sub Calendar_BeforeUpdate (Cancel As Integer)<br>&nbsp;&nbsp;&amp;nbspDim dteFirstDate As Date&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' Starting date.<br>&nbsp;&nbsp;&amp;nbspDim dteLastDate As Date&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' Ending date.<br>&nbsp;&nbsp;&amp;nbspDim dteReqDate As Date&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' User's requested date.<br>&nbsp;&nbsp;&amp;nbspdteFirstDate = #1/1/90#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' Assign starting date.<br>&nbsp;&nbsp;&amp;nbspdteLastDate = #1/1/98#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' Assign ending date.<br>&nbsp;&nbsp;&nbsp;' Retrieve requested date.<br>&nbsp;&nbsp;&amp;nbspdteReqDate = Forms!EntryForm!Calendar.Value<br>&nbsp;&nbsp;&amp;nbspIf dteReqDate &lt; dteFirstDate Then&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' If user requests invalid date.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbspCancel = True&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' Cancel the update.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbspExit Sub&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' Exit subroutine.<br>&nbsp;&nbsp;&amp;nbspElseIf dteReqDate &gt; dteLastDate Then<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbspCancel = True<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbspExit Sub<br>&nbsp;&nbsp;&amp;nbspEnd If<br>End Sub</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For information on the methods, events, and properties of the Calendar control, search the Help index for &quot;Calendar control.&quot;</p>
+<p CLASS="Textttext">Events for ActiveX controls don't have corresponding event properties. Instead, you can access the events for an ActiveX control through the <span CLASS="ElementNameeln">Procedure</span> box in the Module window. In form Design view, click <span CLASS="ElementNameeln">Code</span> on the <span CLASS="ElementNameeln">View</span> menu, then click the ActiveX control in the <span CLASS="ElementNameeln">Object</span> box. The <span CLASS="ElementNameeln">Procedure</span> box lists the event procedures for the ActiveX control, as shown in the following illustration.</p>
+<p CLASS="Arta"><img SRC="..\images\ABAC1604.jpg"></p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>In some cases, the events for an ActiveX control have names that are identical to Microsoft Access events. In this situation, the Microsoft Access event is assigned the original event name, and the ActiveX control event is assigned the event name concatenated with the word &quot;Object.&quot; For example, if the control supports an Enter event, then the <span CLASS="ElementNameeln">Procedure</span> box for the control contains an Enter event and an EnterObject event.</p>
+<a NAME="4DataBindingSupport"></a>
+<p CLASS="heading4OrgHeading2h2">Data Binding Support</p>
+<p CLASS="Textttext">Some ActiveX controls can be bound to a single column in a form's underlying table or query. For example, the Calendar control can be bound to a Date/Time field. By setting the control's <span CLASS="ElementNameeln">ControlSource</span> property, you can display, edit, and update the value in a field of the table or query that is named in the form's <span CLASS="ElementNameeln">RecordSource </span>property.
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>Your form must be in Single Form view to use data-bound ActiveX controls. This means that you can't set a form's <span CLASS="ElementNameeln">DefaultView</span> property to Continuous Forms if that form contains a data-bound ActiveX control. Additionally, you can't access ActiveX controls at all in Datasheet view.</p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="ba17_1.htm" OnClick="SyncURL(&quot;chapters/ba17_1.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

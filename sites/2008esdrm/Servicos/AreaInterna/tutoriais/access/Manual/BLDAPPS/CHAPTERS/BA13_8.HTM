@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>Minimizing Stack Usage</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba13_7.htm" OnClick="SyncURL(&quot;chapters/ba13_7.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<a NAME="3MinimizingStackUsage"></a>
+<p CLASS="heading3OrgHeading1h1">Minimizing Stack Usage</p>
+<p CLASS="Textttext">Like most programming languages, Visual Basic uses a <span CLASS="NewTermntrm">stack</span> to preserve your local variables and arguments during procedure calls. The maximum size of the stack is fixed and cannot be changed. Visual Basic uses some of this space for purposes such as storing intermediate values when evaluating expressions; this makes the actual size of the stack available to your code smaller.
+<p CLASS="Textttext">On both Windows 95 and Windows NT platforms, stack size grows dynamically up to a limit of about 1 MB as needed. For this reason, running out of stack space occurs much less frequently than in previous versions of Windows. The remaining stack space should be adequate for most purposes. However, if your procedures call procedures that call other procedures, and you declare many large local variables and arguments in each procedure, you may run out of stack space. The following sections describe techniques for minimizing the amount of space your application uses on the stack.</p>
+<a NAME="6Lookforunboundedrecursion"></a>
+<p CLASS="heading6OrgHeading4h4">Look for Unbounded Recursion</p>
+<p CLASS="Textttext">One of the most common reasons for running out of stack space is <span CLASS="NewTermntrm">unbounded recursion</span><img SRC="../images/Emdash.gif" BORDER="0" VSPACE="0" HSPACE="0" WIDTH="16" HEIGHT="5">a procedure that calls itself repeatedly until the stack is exhausted. In Visual Basic, this is often the result of a cascading event (such as changing the <span CLASS="ElementNameeln">Text</span> property in the Change event for a text box). When you encounter an &quot;Out of stack space&quot; error, look for cascading events first before you try to reduce the amount of stack space your code uses. To examine the sequence of procedure calls that led to the &quot;Out of stack space&quot; error, use the <span CLASS="ElementNameeln">Calls</span> dialog box (<span CLASS="ElementNameeln">View</span> menu).</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on the <span CLASS="ElementNameeln">Calls</span> dialog box, see <a HREF="../chapters/ba07_9.htm" OnClick="SyncURL(&quot;chapters/ba07_9.htm&quot;)">&quot;Tracing Nested Procedures&quot;</a> in Chapter 7, &quot;Debugging Visual Basic Code.&quot;</p>
+<a NAME="6DeclareStringVariablesDifferently"></a>
+<p CLASS="heading6OrgHeading4h4">Declare String Variables Differently</p>
+<p CLASS="Textttext">Every nonstatic local string variable uses some space on the stack. How you declare a string variable determines how much stack memory Visual Basic must allocate for it. The following table summarizes how much memory is allocated for different types of nonstatic string variables, and how that allocation is distributed between stack memory and the remaining large pool of memory referred to as <span CLASS="NewTermntrm">heap memory</span>.</p>
+<!--mstheme--></font><table WIDTH="100%" BORDER="0" CELLPADDING="5" CELLSPACING="0" FRAME="VOID" RULES="THEAD"><thead>
+<tr VALIGN="TOP" BGCOLOR="#DDDDDD">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">String variable type</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Stack usage</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Heap usage</p></font><!--mstheme--></font></td></tr><tbody>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Local, fixed-length strings 64 characters or less</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">2 bytes for each character in the string</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">None</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Local, fixed-length strings 65 characters or more</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">4-byte pointer to the variable in heap memory</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">2 bytes for each character in the string</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Local, variable-length strings</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">4-byte pointer to the variable in heap memory</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Variable, depending on the length of the string</p></font><!--mstheme--></font></td></tr>
+</table><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>How memory is allocated for fixed-length string variables may change in later versions of Microsoft Access. As a result, you may need to reevaluate decisions made on basis of the information in this table.</p>
+<p CLASS="Textttext">If you are using a large number of fixed-length strings 64 characters in length or less, you can reduce stack usage by replacing them with local, variable-length strings or by making the fixed-length strings static.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For information on the consequences of declaring static variables, see <a HREF="#6DeclareproceduresorlocalvariableswiththeStatickeyword" OnClick="SyncURL(&quot;chapters/ba13_8.htm&quot;)">&quot;Declare Procedures or Local Variables with the Static Keyword&quot;</a> later in this section.</p>
+<p CLASS="Textttext">Another way to reduce stack memory usage is to manage string variables by using an array. Visual Basic uses only a 4-byte pointer on the stack for each array.
+<p CLASS="Textttext">If you continue to run out of stack space after trying different methods of declaring local variables, consider using module-level variables instead of passing local values as arguments to procedures. However, keep in mind that this makes your code more difficult to maintain, modify, and debug.</p>
+<a NAME="6AvoidVariantdatatypesinargumentsandlocalvariables"></a>
+<p CLASS="heading6OrgHeading4h4">Avoid Variant Data Types in Arguments and Local Variables</p>
+<p CLASS="Textttext">The <span CLASS="ElementNameeln">Variant</span> data type is larger than any of the other data types, so it uses more of the stack when you use it for local variables and arguments.</p>
+<a NAME="6DeclareproceduresorlocalvariableswiththeStatickeyword"></a>
+<p CLASS="heading6OrgHeading4h4">Declare Procedures or Local Variables with the Static Keyword</p>
+<p CLASS="Textttext">If you aren't calling a procedure recursively and continue to run out of stack space, consider declaring the procedure with the <span CLASS="ElementNameeln">Static</span> keyword. This places all of the procedure's local variables in regular memory rather than on the stack. However, this technique has its disadvantages. Because static variables are never discarded, they use memory in your application as long as it is running. Also, because static variables are not reset to their initial values each time the procedure is called, the code in the procedure must be carefully written to handle this. If you don't want to declare the entire procedure with the <span CLASS="ElementNameeln">Static </span>keyword, consider using the <span CLASS="ElementNameeln">Static</span> keyword to declare some of the local variables.</p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="ba13_9.htm" OnClick="SyncURL(&quot;chapters/ba13_9.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

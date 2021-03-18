@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>CHAPTER 7</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba06_4.htm" OnClick="SyncURL(&quot;chapters/ba06_4.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<p CLASS="heading2ChapterNumberAppendixLetterchn">CHAPTER&nbsp; 7</p>
+<p CLASS="ChapterAppendixTitlecht">Debugging Visual Basic Code</p>
+<p CLASS="ChapterSummaryTextchsum">Visual Basic provides debugging tools to help you analyze how your application operates. These tools are particularly useful in locating the source of errors (bugs). You can also use them to experiment with changes to your application or to learn how applications created by others work. This chapter shows you how to use the debugging tools included in Visual Basic.
+<a NAME="3AvoidingBugs"></a>
+<p CLASS="heading3OrgHeading1h1">Avoiding Bugs</p>
+<p CLASS="Textttext">The first step in avoiding or fixing bugs is understanding the three kinds of errors you can encounter:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&nbsp;<span CLASS="ElementNameeln">Compile errors</span>&nbsp;&nbsp;&amp;nbspThese errors are the result of an incorrectly constructed statement. You may have mistyped a keyword, omitted some necessary punctuation, or forgotten to balance pairs of statements such as <span CLASS="ElementNameeln">If</span> and <span CLASS="ElementNameeln">End If</span> or <span CLASS="ElementNameeln">For</span> and <span CLASS="ElementNameeln">Next</span>. Visual Basic detects these errors during compilation or when you try to run the code. </p>
+<p CLASS="ListText1lt1">Unless you've cleared the <span CLASS="ElementNameeln">Auto Syntax Check</span> check box on the <span CLASS="ElementNameeln">Module</span> tab of the <span CLASS="ElementNameeln">Options</span> dialog box (<span CLASS="ElementNameeln">Tools</span> menu), Visual Basic displays an error message whenever you enter a syntax error in the Module window.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&nbsp;<span CLASS="ElementNameeln">Run-time errors</span>&nbsp;&nbsp;&amp;nbspThese errors occur, and are detected by Visual Basic, when a statement attempts an impossible operation while the code is running. An example of an impossible operation is division by zero. Suppose you have this statement:</p>
+<p CLASS="ListCodeText1lct1">Speed = Miles / Hours</p>
+<p CLASS="ListText1lt1">If <span CLASS="CodeTextEmbeddedcte">Hours</span> is zero, division is an invalid operation even though the statement itself is syntactically correct. The error is a run-time error because the code must run before Visual Basic can detect the error. Not all run-time errors are easily anticipated or fixed. For example, a &quot;Disk full&quot; error may require you to cancel an update and restore a table to its initial state.
+<p CLASS="ListText1lt1"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span><span CLASS="Xref">For more information on fixing run-time errors, see Chapter 8, <a HREF="../chapters/ba08_1.htm" OnClick="SyncURL(&quot;chapters/ba08_1.htm&quot;)">&quot;Handling Run-Time Errors.&quot;</a></span></p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&nbsp;<span CLASS="ElementNameeln">Program logic errors</span>&nbsp;&nbsp;&amp;nbspCode containing a program logic error may be syntactically valid and able to perform operations that are entirely valid, but it can still produce incorrect results. For example, your program may generate an incorrect result at the end of a long series of calculations. Visual Basic can't detect program logic errors; you must test the code and analyze the results to verify that the code is performing correctly.</p>
+<p CLASS="Textttext">Because successful debugging requires that you understand what's going on when your code runs, you'll want to design code that's easy to analyze. Try the following techniques when designing your code to make the debugging process easier:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspBreak up your code into <span CLASS="ElementNameeln">Sub</span> and <span CLASS="ElementNameeln">Function</span> procedures that have specific, well-defined purposes.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspInclude plenty of comments. As you go back and analyze your code, you'll understand it much better if you've written comments that describe the purpose of each procedure.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspPut the <span CLASS="ElementNameeln">Option Explicit</span> statement in each module. This statement makes Visual Basic generate an error message when it discovers a variable that hasn't been explicitly declared. One of the most common sources of errors is mistyping a variable name.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspDevelop a consistent naming scheme for the variables in your code. You'll recall the purpose and scope of a variable more quickly if it has a meaningful name. For example, you could use the prefix <span CLASS="NewTermntrm">pv</span> to indicate a public variable, or <span CLASS="NewTermntrm">str</span> to indicate a string variable.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspWhenever possible, declare objects and variables with the specific data type you intend to use, instead of generic <span CLASS="ElementNameeln">Object</span> or <span CLASS="ElementNameeln">Variant</span> types. This practice, in addition to making your code run faster, causes Visual Basic to report errors if you make an improper assignment or try to perform an invalid maneuver with the object or variable in your code.</p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="BA07_2.HTM" OnClick="SyncURL(&quot;chapters/BA07_2.HTM&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

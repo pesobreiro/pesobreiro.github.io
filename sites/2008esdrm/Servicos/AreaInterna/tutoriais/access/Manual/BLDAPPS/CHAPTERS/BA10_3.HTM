@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>Locking Shared Data with Bound Forms</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba10_2.htm" OnClick="SyncURL(&quot;chapters/ba10_2.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<a NAME="3LockingSharedDatawithBoundForms"></a>
+<p CLASS="heading3OrgHeading1h1">Locking Shared Data with Bound Forms</p>
+<p CLASS="Textttext">The easiest way to create a multiuser application is to create forms that are bound to tables or queries. You control how Microsoft Access locks data by setting multiuser options and form properties.</p>
+<a NAME="4SelectingaLockingStrategy"></a>
+<p CLASS="heading4OrgHeading2h2">Selecting a Locking Strategy</p>
+<p CLASS="Textttext">When you share data with bound forms, you can specify how Microsoft Access locks records in a form. There are three locking strategies to choose from:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&nbsp;<span CLASS="ElementNameeln">No Locks</span>&nbsp;&nbsp;&amp;nbspMicrosoft Access doesn't lock the record you're editing. This strategy ensures that records can always be edited, but it can create editing conflicts between users. </p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&nbsp;<span CLASS="ElementNameeln">All Records</span>&nbsp;&nbsp;&amp;nbspMicrosoft Access locks all records in the underlying table or query of the form that contains the record you're editing for the entire time you have the form open. This strategy is very restrictive, so choose it only when you know you're the only person who needs to edit records at any one time. </p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&nbsp;<span CLASS="ElementNameeln">Edited Record&nbsp;&nbsp;&nbsp;</span>Microsoft Access locks the page that contains the record you're editing. This strategy ensures that you can always finish making changes that you start.</p>
+<p CLASS="Textttext">To set a locking strategy for all forms in the database, select one of these options on the <span CLASS="ElementNameeln">Advanced</span> tab of the <span CLASS="ElementNameeln">Options</span> dialog box (<span CLASS="ElementNameeln">Tools</span> menu). If you want to set the locking strategy for an individual form, set the form's <span CLASS="ElementNameeln">RecordLocks</span> property to one of these settings. You can specify a locking strategy for one, many, or all forms in a database by setting the <span CLASS="ElementNameeln">RecordLocks</span> property in code.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on the <span CLASS="ElementNameeln">RecordLocks</span> property, search the Help index for &quot;RecordLocks property.&quot;</p>
+<a NAME="4SettingLockingOptions"></a>
+<p CLASS="heading4OrgHeading2h2">Setting Locking Options</p>
+<p CLASS="Textttext">In addition to specifying a locking strategy, you can set other options that control how Microsoft Access handles locking in your multiuser application. The following options help you avoid locking conflicts with other users:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&nbsp;<span CLASS="ElementNameeln">Number Of Update Retries&nbsp;&nbsp;&nbsp;</span>Sets the number of times Microsoft Access tries to save a changed record that is locked before displaying an error message.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&nbsp;<span CLASS="ElementNameeln">Update Retry Interval&nbsp;&nbsp;&nbsp;</span>Sets the number of milliseconds after which Microsoft Access automatically tries to save a changed record that is locked by another user.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&nbsp;<span CLASS="ElementNameeln">Refresh Interval&nbsp;&nbsp;&nbsp;</span>Sets the number of seconds after which Microsoft Access automatically updates records.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&nbsp;<span CLASS="ElementNameeln">ODBC Refresh Interval&nbsp;&nbsp;&nbsp;</span>Sets the number of seconds after which Microsoft Access automatically refreshes records that you're accessing by using Open Database Connectivity (ODBC).</p>
+<p CLASS="Textttext">You set these options on the <span CLASS="ElementNameeln">Advanced</span> tab of the <span CLASS="ElementNameeln">Options</span> dialog box (<span CLASS="ElementNameeln">Tools</span> menu). Alternatively, you can set these options in code by using the <span CLASS="ElementNameeln">SetOption</span> method of the<span CLASS="ElementNameeln"> Application </span>object. For example, the following lines of code set the <span CLASS="ElementNameeln">Number Of Update Retries</span> and the <span CLASS="ElementNameeln">Update Retry Interval</span> options:</p>
+<p CLASS="CodeTextct">Application.SetOption &quot;Number of Update Retries&quot;, 5<br>Application.SetOption &quot;Update Retry Interval (msec)&quot;, 500</p>
+<p CLASS="Textttext">When you share data with bound forms, Microsoft Access displays standard messages when locking conflicts occur.</p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="ba10_4.htm" OnClick="SyncURL(&quot;chapters/ba10_4.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>The Developer SolutionsSolutions Sample Application</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times">
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<a HREF="Appa_1.htm" OnClick="SyncURL(&quot;chapters/Appa_1.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<a NAME="3TheDeveloperSolutionsSampleApplication"></a>
+<p CLASS="heading3OrgHeading1h1">The Developer Solutions Sample Application</p>
+<p CLASS="Textttext">The Developer Solutions sample application contains examples of the forms, reports, and interface elements you most commonly use to create applications.</p>
+<p CLASS="heading9ListProcedureHeadinglproch"><span CLASS="ProcedureIconproci"><img SRC="../images/bluetri.jpg" ALIGN="LEFT" WIDTH="9" HEIGHT="17">&nbsp;&nbsp;&nbsp;</span>To open the Developer Solutions sample application</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">1</span>&nbsp;&nbsp;&amp;nbspStart Microsoft Access.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">2</span>&nbsp;&nbsp;&amp;nbspIn the <span CLASS="ElementNameeln">Microsoft Access</span> dialog box, make sure that <span CLASS="ElementNameeln">Open an Existing Database</span> is selected, and then click <span CLASS="ElementNameeln">OK</span>.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">3</span>&nbsp;&nbsp;&amp;nbspIn the <span CLASS="ElementNameeln">Open</span> dialog box, navigate to the Office folder in the <span CLASS="ElementNameeln">Look In</span> box, double-click the Samples folder, and then double-click Solutions.</p>
+<p CLASS="ListText1lt1">Developer Solutions displays a startup form, and then automatically opens the Developer Solutions form. The Developer Solutions form lists all the examples in the sample application by category.</p>
+<p CLASS="ListArt1la"><img SRC="..\images\ABAAPP01.jpg">
+<p CLASS="TipTexttpt"><span CLASS="TipHeadingtph">Tip&nbsp;&nbsp;&nbsp;</span>When you open a form or report in Developer Solutions, the Show Me topic for that form or report is automatically displayed if the check box at the bottom of the Developer Solutions form is selected.</p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>If you close the Show Me window, or if you clear the check box on the Developer Solutions form that automatically displays Show Me topics, you can display a topic by either clicking the Show Me button on a form's toolbar, or searching the Help index for the name of the topic.</p>
+<a NAME="4ASampleofWhatYoullFindinDeveloperSolutions"></a>
+<p CLASS="heading4OrgHeading2h2">A Sample of What You'll Find in Developer Solutions</p>
+<p CLASS="Textttext">The sample forms and reports in Developer Solutions cover the main areas of application design, from changing a form's toolbars in response to events, to creating a crosstab report with dynamic column headings.</p>
+<a NAME="5SampleForms"></a>
+<p CLASS="heading5OrgHeading3h3">Sample Forms</p>
+<p CLASS="Textttext">Forms are the major component of a Microsoft Access application. You use them not only to enter and view data, but also as a way to organize your application into a coherent system. In Developer Solutions, there are examples of forms that:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspSwitch between entering and editing records.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspFill a record with data from the previous record.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspSearch for records based on values you enter in one or more fields.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspProgressively display more detail about a given subject.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspSynchronize data between two forms.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspCollect and store temporary information.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspSelect more than one item in a list box.</p>
+<p CLASS="Textttext">In many cases, several techniques are combined on one form, as shown in the EnterOrEditProducts form.</p>
+<p CLASS="Arta"><img SRC="..\images\ABAAPP02.jpg"></p>
+<p CLASS="Textttext">To display this form, in the Developer Solutions form, click Sample Forms in the Select A Category Of Examples box, and then click EnterOrEditProducts in the Select An Example box.</p>
+<a NAME="5SampleReports"></a>
+<p CLASS="heading5OrgHeading3h3">Sample Reports</p>
+<p CLASS="Textttext">With most applications, you'll want a way to format and print data for distribution. The reports in Developer Solutions show you how to:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspCreate a report for a preprinted form.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspCreate a form letter.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspCreate crosstab reports.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspDraw a circle around important information.</p>
+<p CLASS="Textttext">For example, the SalesLetter report uses Visual Basic code to draw a circle around the sales totals that meet or exceed the goal. To preview this report, in the Developer Solutions form, click Sample Reports in the Select A Category Of Examples box, and then click SalesLetter in the Select An Example box.</p>
+<a NAME="5SampleCode"></a>
+<p CLASS="heading5OrgHeading3h3">Sample Code</p>
+<p CLASS="Textttext">Developer Solutions also includes procedures that you may find useful when developing your own applications. Procedures included in Developer Solutions show you how to:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspLink tables at startup.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspClose all objects when the user exits the application.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspCapitalize the first letter of every word in a field.</p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<!--mstheme--></font></body></html>

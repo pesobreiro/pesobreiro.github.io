@@ -1,0 +1,461 @@
+<VisualStudioProject>
+    <CSHARP
+        ProjectType = "Web"
+        ProductVersion = "7.10.3077"
+        SchemaVersion = "2.0"
+        ProjectGuid = "{79103943-8709-40C8-BE07-35B3ADE5ACB1}"
+    >
+        <Build>
+            <Settings
+                ApplicationIcon = ""
+                AssemblyKeyContainerName = ""
+                AssemblyName = "pnl"
+                AssemblyOriginatorKeyFile = ""
+                DefaultClientScript = "JScript"
+                DefaultHTMLPageLayout = "Grid"
+                DefaultTargetSchema = "IE50"
+                DelaySign = "false"
+                OutputType = "Library"
+                PreBuildEvent = ""
+                PostBuildEvent = ""
+                RootNamespace = "pnl"
+                RunPostBuildEvent = "OnBuildSuccess"
+                StartupObject = ""
+            >
+                <Config
+                    Name = "Debug"
+                    AllowUnsafeBlocks = "false"
+                    BaseAddress = "285212672"
+                    CheckForOverflowUnderflow = "false"
+                    ConfigurationOverrideFile = ""
+                    DefineConstants = "DEBUG;TRACE"
+                    DocumentationFile = ""
+                    DebugSymbols = "true"
+                    FileAlignment = "4096"
+                    IncrementalBuild = "false"
+                    NoStdLib = "false"
+                    NoWarn = ""
+                    Optimize = "false"
+                    OutputPath = "bin\"
+                    RegisterForComInterop = "false"
+                    RemoveIntegerChecks = "false"
+                    TreatWarningsAsErrors = "false"
+                    WarningLevel = "4"
+                />
+                <Config
+                    Name = "Release"
+                    AllowUnsafeBlocks = "false"
+                    BaseAddress = "285212672"
+                    CheckForOverflowUnderflow = "false"
+                    ConfigurationOverrideFile = ""
+                    DefineConstants = "TRACE"
+                    DocumentationFile = ""
+                    DebugSymbols = "false"
+                    FileAlignment = "4096"
+                    IncrementalBuild = "false"
+                    NoStdLib = "false"
+                    NoWarn = ""
+                    Optimize = "true"
+                    OutputPath = "bin\"
+                    RegisterForComInterop = "false"
+                    RemoveIntegerChecks = "false"
+                    TreatWarningsAsErrors = "false"
+                    WarningLevel = "4"
+                />
+            </Settings>
+            <References>
+                <Reference
+                    Name = "System"
+                    AssemblyName = "System"
+                    HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.dll"
+                />
+                <Reference
+                    Name = "System.Drawing"
+                    AssemblyName = "System.Drawing"
+                    HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Drawing.dll"
+                />
+                <Reference
+                    Name = "System.Data"
+                    AssemblyName = "System.Data"
+                    HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Data.dll"
+                />
+                <Reference
+                    Name = "System.Web"
+                    AssemblyName = "System.Web"
+                    HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Web.dll"
+                />
+                <Reference
+                    Name = "System.XML"
+                    AssemblyName = "System.Xml"
+                    HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
+                />
+                <Reference
+                    Name = "Microsoft.Data.Odbc"
+                    AssemblyName = "Microsoft.Data.Odbc"
+                    HintPath = "C:\Program Files\Microsoft.Net\Odbc.Net\Microsoft.Data.Odbc.dll"
+                    AssemblyFolderKey = "hklm\dn\microsoft odbc .net data provider"
+                />
+            </References>
+        </Build>
+        <Files>
+            <Include>
+                <File
+                    RelPath = "AssemblyInfo.cs"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Global.asax"
+                    SubType = "Component"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "Global.asax.cs"
+                    DependentUpon = "Global.asax"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Global.asax.resx"
+                    DependentUpon = "Global.asax.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "Inscricao.aspx"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "Inscricao.aspx.cs"
+                    DependentUpon = "Inscricao.aspx"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Inscricao.aspx.resx"
+                    DependentUpon = "Inscricao.aspx.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "inscritos.aspx"
+                    SubType = "Form"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "inscritos.aspx.cs"
+                    DependentUpon = "inscritos.aspx"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "inscritos.aspx.resx"
+                    DependentUpon = "inscritos.aspx.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "web.config"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "documentos\Acompanhamento pós.doc"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "documentos\Conteudo.doc"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "images\alves.bmp"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "images\banniere_haut.jpg"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "images\formadores_clip_image001.jpg"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "images\formadores_clip_image001_0000.jpg"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "images\formadores_clip_image002.jpg"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "images\index_r1_c1.jpg"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "images\index_r10_c1.jpg"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "images\index_r10_c5.jpg"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "images\index_r11_c1.jpg"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "images\index_r12_c1.jpg"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "images\index_r13_c1.jpg"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "images\index_r14_c1.jpg"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "images\index_r14_c5.jpg"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "images\index_r15_c1.jpg"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "images\index_r15_c5.jpg"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "images\index_r16_c1.jpg"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "images\index_r16_c7.jpg"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "images\index_r17_c5.jpg"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "images\index_r18_c5.jpg"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "images\index_r19_c7.jpg"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "images\index_r2_c1.jpg"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "images\index_r2_c2.jpg"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "images\index_r2_c3.jpg"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "images\index_r2_c5.jpg"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "images\index_r2_c9.jpg"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "images\index_r3_c5.jpg"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "images\index_r4_c2.jpg"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "images\index_r5_c1.jpg"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "images\index_r5_c4.jpg"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "images\index_r5_c5.jpg"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "images\index_r6_c1.jpg"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "images\index_r7_c1.jpg"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "images\index_r7_c5.jpg"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "images\index_r7_c6.jpg"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "images\index_r7_c7.jpg"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "images\index_r7_c8.jpg"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "images\index_r8_c1.jpg"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "images\index_r9_c1.jpg"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "images\spacer.gif"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "images\Thumbs.db"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "images\_notes\index_r1_c1.jpg.mno"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "images\_notes\index_r10_c1.jpg.mno"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "images\_notes\index_r10_c5.jpg.mno"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "images\_notes\index_r11_c1.jpg.mno"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "images\_notes\index_r12_c1.jpg.mno"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "images\_notes\index_r13_c1.jpg.mno"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "images\_notes\index_r14_c1.jpg.mno"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "images\_notes\index_r14_c5.jpg.mno"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "images\_notes\index_r15_c1.jpg.mno"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "images\_notes\index_r15_c5.jpg.mno"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "images\_notes\index_r16_c1.jpg.mno"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "images\_notes\index_r16_c7.jpg.mno"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "images\_notes\index_r17_c5.jpg.mno"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "images\_notes\index_r18_c5.jpg.mno"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "images\_notes\index_r19_c7.jpg.mno"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "images\_notes\index_r2_c1.jpg.mno"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "images\_notes\index_r2_c2.jpg.mno"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "images\_notes\index_r2_c3.jpg.mno"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "images\_notes\index_r2_c5.jpg.mno"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "images\_notes\index_r2_c9.jpg.mno"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "images\_notes\index_r3_c5.jpg.mno"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "images\_notes\index_r4_c2.jpg.mno"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "images\_notes\index_r5_c1.jpg.mno"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "images\_notes\index_r5_c4.jpg.mno"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "images\_notes\index_r5_c5.jpg.mno"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "images\_notes\index_r6_c1.jpg.mno"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "images\_notes\index_r7_c1.jpg.mno"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "images\_notes\index_r7_c5.jpg.mno"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "images\_notes\index_r7_c6.jpg.mno"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "images\_notes\index_r7_c7.jpg.mno"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "images\_notes\index_r7_c8.jpg.mno"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "images\_notes\index_r8_c1.jpg.mno"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "images\_notes\index_r9_c1.jpg.mno"
+                    BuildAction = "None"
+                />
+            </Include>
+        </Files>
+    </CSHARP>
+</VisualStudioProject>
+

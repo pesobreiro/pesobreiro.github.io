@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>Unanticipated Errors</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba08_3.htm" OnClick="SyncURL(&quot;chapters/ba08_3.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<a NAME="3UnanticipatedErrors"></a>
+<p CLASS="heading3OrgHeading1h1">Unanticipated Errors</p>
+<p CLASS="Textttext">When you are designing code to handle errors that may occur in a group of nested procedures, you need to examine calling procedures for errors by tracing the calls list backward. The calls list (sometimes called a procedure invocation path) is the sequence of calls that leads to the currently running procedure; it is displayed in the <span CLASS="ElementNameeln">Calls</span> dialog box.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also</span>&nbsp;&nbsp;&amp;nbspFor more information on the <span CLASS="ElementNameeln">Calls</span> dialog box, see Chapter 7, <a HREF="../chapters/ba07_1.htm" OnClick="SyncURL(&quot;chapters/ba07_1.htm&quot;)">&quot;Debugging Visual Basic Code.&quot;</a></p>
+<p CLASS="Textttext">Two different events can occur during the execution of your code that would cause Visual Basic to search back along the calls list for an enabled error handler:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspAn error occurs in a procedure that doesn't have enabled error-handling code.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspAn error occurs within an active error handler.</p>
+<p CLASS="Textttext">As previously noted, an enabled error handler is one that is turned on by running an <span CLASS="ElementNameeln">On Error </span>statement and that hasn't yet been turned off, either by an <span CLASS="ElementNameeln">On Error GoTo 0</span> statement or by exiting the procedure in which it is enabled. An <span CLASS="NewTermntrm">active</span> error handler is one in which code execution is currently taking place. Suppose that the following is the calls list for a group of three nested procedures in your Visual Basic code:</p>
+<p CLASS="ListSequentialItem1ls">1.&nbsp;&amp;nbspProcedure A is called from a form event.</p>
+<p CLASS="ListSequentialItem1ls">2.&nbsp;&amp;nbspProcedure A calls Procedure B.</p>
+<p CLASS="ListSequentialItem1ls">3.&nbsp;&amp;nbspProcedure B calls Procedure C.</p>
+<p CLASS="Textttext">If an error occurs in Procedure C and you haven't enabled error-handling code within that procedure, then Visual Basic searches backward along the calls list first to Procedure B, then to Procedure A, and then to the initial event procedure if necessary. If you haven't included appropriate error-handling code along the calls list to deal with the error, then Visual Basic displays an appropriate error message and halts execution.
+<p CLASS="Textttext">If Visual Basic encounters enabled error-handling code, but the error-handling code's range of errors doesn't include the one that has most recently occurred, an unanticipated error can occur within the current procedure. In such a case, the procedure could run endlessly, especially if your error-handling code runs a <span CLASS="ElementNameeln">Resume</span> statement.
+<p CLASS="Textttext">To prevent such situations, use the <span CLASS="ElementNameeln">Raise </span>method of the<span CLASS="ElementNameeln"> Err </span>object in a <span CLASS="ElementNameeln">Case Else</span> clause. This generates an error within the error handler, forcing Visual Basic to search back farther along the calls list for error-handling code that can deal with the error. This strategy is illustrated in the VerifyFile function included earlier in this chapter.
+<p CLASS="Textttext">If Visual Basic finds enabled error-handling code, execution continues with that error-handling code. If the error-handling code includes a <span CLASS="ElementNameeln">Resume</span> or a <span CLASS="ElementNameeln">Resume Next</span> statement, execution continues as shown in the following table.</p>
+<!--mstheme--></font><table WIDTH="100%" BORDER="0" CELLPADDING="5" CELLSPACING="0" FRAME="VOID" RULES="THEAD"><thead>
+<tr VALIGN="TOP" BGCOLOR="#DDDDDD">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Statement</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Result</p></font><!--mstheme--></font></td></tr><tbody>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Resume</span> </p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Visual Basic runs the call to the next procedure in the calls list. Using the example calls list given earlier, if Procedure A has enabled error-handling code that includes a <span CLASS="ElementNameeln">Resume</span> statement, Visual Basic reruns the call to Procedure B.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Resume Next</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Execution returns to the statement following the last statement run in the current procedure. This is the statement after the call to the next procedure in the calls list. Using the example calls list given earlier, if Procedure A has enabled error-handling code that includes a <span CLASS="ElementNameeln">Resume Next</span> statement, execution returns to the statement in Procedure A after the call to Procedure B.</p></font><!--mstheme--></font></td></tr>
+</table><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="ImportantTextit"><span CLASS="ImportantHeadingih">Important&nbsp;&nbsp;&nbsp;</span>Execution resumes in the procedure where the error-handling code is found, not necessarily in the procedure where the error occurred. If you don't take this into account when you're creating error-handling code and nesting procedures, your code may perform in ways you don't intend, and the behavior of a search backward along the calls list can be hard to predict.</p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="ba08_5.htm" OnClick="SyncURL(&quot;chapters/ba08_5.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

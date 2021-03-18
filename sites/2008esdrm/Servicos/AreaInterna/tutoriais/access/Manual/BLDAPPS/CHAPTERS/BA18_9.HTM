@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>Improving Performance</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba18_8.htm" OnClick="SyncURL(&quot;chapters/ba18_8.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<a NAME="3ImprovingPerformance"></a>
+<p CLASS="heading3OrgHeading1h1">Improving Performance</p>
+<p CLASS="Textttext">When you link or open external tables in a Microsoft Access database, you're accessing the data through an additional service layer (the installable ISAM). Because more overhead is required when maintaining a connection, transferring and translating data, and maintaining a external index in a foreign format, certain operations are significantly slower when you're using an external data source.
+<p CLASS="Textttext">If your application only needs to read through records in an external table in a single pass, you can dramatically improve the performance of your application by using forward-only-type <span CLASS="ElementNameeln">Recordset</span> objects. There are a couple of disadvantages of using forward-only-type <span CLASS="ElementNameeln">Recordset</span> objects that you should be aware of. One is that your movement through the <span CLASS="ElementNameeln">Recordset</span> object is limited<img SRC="../images/Emdash.gif" BORDER="0" VSPACE="0" HSPACE="0" WIDTH="16" HEIGHT="5">you can only move forward. The other is that the following DAO methods and properties are unavailable with forward-only-type<span CLASS="ElementNameeln"> Recordset</span> objects:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&nbsp;<span CLASS="ElementNameeln">Bookmark</span> property</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&nbsp;<span CLASS="ElementNameeln">Clone</span> method</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&nbsp;<span CLASS="ElementNameeln">FindFirst</span> method</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&nbsp;<span CLASS="ElementNameeln">FindLast </span>method<span CLASS="ElementNameeln"></span></p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&nbsp;<span CLASS="ElementNameeln">FindNext</span> method</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&nbsp;<span CLASS="ElementNameeln">Move</span> method (with any value other than 1)</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&nbsp;<span CLASS="ElementNameeln">MoveFirst</span> method</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&nbsp;<span CLASS="ElementNameeln">MoveLast</span> method<span CLASS="ElementNameeln"></span></p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&nbsp;<span CLASS="ElementNameeln">MovePrevious</span> method</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&nbsp;<span CLASS="ElementNameeln">OpenRecordset</span> method</p>
+<p CLASS="Textttext">Despite these disadvantages, using a forward-only-type <span CLASS="ElementNameeln">Recordset</span> object can significantly improve performance, especially when the external tables you are accessing are very large.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on forward-only-type <span CLASS="ElementNameeln">Recordset</span> objects, see Chapter 9, <a HREF="../chapters/ba09_1.htm" OnClick="SyncURL(&quot;chapters/ba09_1.htm&quot;)">&quot;Working with Records and Fields,&quot;</a> or search the Help index for &quot;OpenRecordset method.&quot;</p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="ba18_10.htm" OnClick="SyncURL(&quot;chapters/ba18_10.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

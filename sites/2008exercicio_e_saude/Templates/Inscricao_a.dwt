@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>Untitled Document</title>
+<!-- TemplateEndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+//-->
+</script>
+<style type="text/css">
+<!--
+.style1 {color: #99CC33}
+a:link {
+	color: #99cc33;
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+	color: #99cc33;
+}
+a:hover {
+	text-decoration: none;
+	color: #99cc33;
+}
+a:active {
+	text-decoration: none;
+	color: #99cc33;
+}
+.style2 {font-family: Arial, Helvetica, sans-serif}
+-->
+</style>
+</head>
+
+<body>
+ <div id="Layer1" style="position:absolute; width:200px; height:93px; z-index:1; color: #99CC33; background-color: #003300; layer-background-color: #003300; border: 1px none #000000; font-family: Arial, Helvetica, sans-serif; left: 40px; top: 46px;">
+   <div align="center">
+     <p>&nbsp;</p>
+     <!-- <p><a href="Inscricao_online.dwt">-->
+     <a href="../Inscricao_a.htm">Enviar por email</a> </div>
+</div>
+ <div id="Layer2" style="position:absolute; width:200px; height:97px; z-index:2; left: 40px; top: 186px; background-color: #003300; layer-background-color: #003300; border: 1px none #000000;">
+   <div align="center">
+     <p>&nbsp;</p>
+     <p class="style1"><a href="../FICHA_INSCRICAO.pdf" class="style2">Imprimir</a></p>
+   </div>
+</div>
+<p>&nbsp;</p>
+</body>
+</html>

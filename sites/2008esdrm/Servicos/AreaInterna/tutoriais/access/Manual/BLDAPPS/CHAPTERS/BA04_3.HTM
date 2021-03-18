@@ -1,0 +1,324 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>Fundamental Variable Data Types</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba04_2.htm" OnClick="SyncURL(&quot;chapters/ba04_2.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<a NAME="3FundamentalVariableDataTypes"></a>
+<p CLASS="heading3OrgHeading1h1">Fundamental Variable Data Types</p>
+<p CLASS="Textttext">When you declare a variable, you can also supply a data type for the variable. All variables have a data type that determines what kind of data they can store. By default, if you don't supply a data type (or if you declare the variable implicitly), the variable is given the <span CLASS="ElementNameeln">Variant</span> data type.</p>
+<a NAME="4TheVariantDataType"></a>
+<p CLASS="heading4OrgHeading2h2">The Variant Data Type</p>
+<p CLASS="Textttext">The <span CLASS="ElementNameeln">Variant</span> data type can store many kinds of data. Like a text box control on a form, a <span CLASS="ElementNameeln">Variant</span> variable is equally capable of storing numbers, strings of text, dates and times, or the <span CLASS="ElementNameeln">Null</span> value. You don't have to convert between these types of data when assigning them to a <span CLASS="ElementNameeln">Variant</span> variable; Visual Basic automatically performs any necessary conversion, as shown in the following example:</p>
+<p CLASS="CodeTextct">Dim varX&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' Variant by default.<br>varX = &quot;17&quot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' varX contains the two-character string &quot;17&quot;.<br>varX = varX - 15&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' varX now contains the numeric value 2.<br>varX = &quot;U&quot; &amp; varX&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' varX now contains the string &quot;U2&quot;.</p>
+<p CLASS="Textttext">Although you can perform operations on <span CLASS="ElementNameeln">Variant</span> variables without much concern for what kind of data they actually contain, there are some pitfalls you'll want to avoid:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspIf you perform arithmetic operations on a <span CLASS="ElementNameeln">Variant</span>, or use a <span CLASS="ElementNameeln">Variant</span> in an arithmetic function, the variable must contain a valid number. For example, you can't perform any arithmetic operations on the value <span CLASS="CodeTextEmbeddedcte">&quot;U2&quot;</span> even though it contains a numeric character, because the entire value isn't a valid number. Likewise, you can't perform any calculations on the value <span CLASS="CodeTextEmbeddedcte">&quot;1040EZ&quot;</span>. However, you can perform numeric calculations on the values <span CLASS="CodeTextEmbeddedcte">&quot;+10&quot;</span> and <span CLASS="CodeTextEmbeddedcte">&quot;-1.7E62&quot;</span> because they are valid numbers.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspYou can use the <span CLASS="ElementNameeln">IsNumeric</span> function to determine if the value contained by a <span CLASS="ElementNameeln">Variant</span> variable can be used as a valid number in an expression. For example:
+<p CLASS="ListCodeText1lct1">If IsNumeric(varX) And IsNumeric(varY) Then<br>&nbsp;&nbsp;&amp;nbspvarZ = varX * varY<br>Else<br>&nbsp;&nbsp;&amp;nbspvarZ = Null<br>End If
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspIf you're concatenating strings, use the <span CLASS="ElementNameeln">&amp;</span> operator instead of the <span CLASS="ElementNameeln">+</span> operator. The result of the <span CLASS="ElementNameeln">+</span> operator can be ambiguous when used with two <span CLASS="ElementNameeln">Variant</span> values.</p>
+<p CLASS="ListText1lt1">If both of the <span CLASS="ElementNameeln">Variant </span>values contain numbers, then the <span CLASS="ElementNameeln">+</span> operator performs addition. If both of the <span CLASS="ElementNameeln">Variant</span> values contain strings, then the <span CLASS="ElementNameeln">+</span> operator performs string concatenation. However, if one of the values is a number and the other is a string, the situation becomes more complicated. Visual Basic first attempts to convert the string into a number. If the conversion is successful, then the <span CLASS="ElementNameeln">+</span> operator adds the two values; if unsuccessful, it generates a &quot;<span CLASS="CodeTextEmbeddedcte">Type mismatch&quot;</span> error.
+<p CLASS="ListText1lt1">To make sure that concatenation occurs, regardless of the representation of the value in the variables, use the <span CLASS="ElementNameeln">&amp;</span> operator. For example, the following code:
+<p CLASS="ListText1lt1"></p>
+<p CLASS="ListCodeText1lct1">Sub Test()<br>&nbsp;&nbsp;&amp;nbspDim varX As Variant, varY As Variant<br><br>&nbsp;&nbsp;&amp;nbspvarX = &quot;6&quot;<br>&nbsp;&nbsp;&amp;nbspvarY = &quot;7&quot;<br>&nbsp;&nbsp;&amp;nbspDebug.Print varX + varY, varX &amp; varY<br>&nbsp;&nbsp;&amp;nbspvarX = 6<br>&nbsp;&nbsp;&amp;nbspDebug.Print varX + varY, varX &amp; varY<br>End Sub<br>
+<p CLASS="ListText1lt1">produces the following result in the Debug window:
+<p CLASS="ListText1lt1"></p>
+<p CLASS="ListCodeText1lct1">67&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbsp67<br>13&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbsp67
+
+<p CLASS="ImportantTextit"><span CLASS="ImportantHeadingih">Important&nbsp;&nbsp;&nbsp;</span>When typing your code, it's important to leave a space between any variable name and the <span CLASS="ElementNameeln">&amp;</span> operator. If you don't leave a space, Visual Basic assumes you intended to use the <span CLASS="ElementNameeln">&amp;</span> as the type-declaration character for the variable name.</p>
+<p CLASS="Textttext">In addition to strings and numbers, <span CLASS="ElementNameeln">Variant</span> variables can also contain date/time values. For example:</p>
+<p CLASS="CodeTextct">Function Century() As Integer<br>&nbsp;&nbsp;&amp;nbspDim varToday As Variant<br>&nbsp;&nbsp;&amp;nbspvarToday = Now<br>&nbsp;&nbsp;&amp;nbspIf varToday &gt;= #1/1/2001# Then<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbspCentury = 21<br>&nbsp;&nbsp;&amp;nbspElse<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbspCentury = 20<br>&nbsp;&nbsp;&amp;nbspEnd If<br>End Function</p>
+<p CLASS="Textttext">In the same way that you can use the <span CLASS="ElementNameeln">IsNumeric</span> function to determine if a <span CLASS="ElementNameeln">Variant</span> variable contains a valid numeric value, you can use the <span CLASS="ElementNameeln">IsDate</span> function to determine if a <span CLASS="ElementNameeln">Variant</span> variable contains a valid date/time value. For example:</p>
+<p CLASS="CodeTextct">Function Century (ByVal varDate As Variant) As Variant<br>&nbsp;&nbsp;&amp;nbspIf IsDate(varDate) Then<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbspCentury = ((Year(varDate) - 1) \ 100) + 1<br>&nbsp;&nbsp;&amp;nbspElse<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbspCentury = Null<br>&nbsp;&nbsp;&amp;nbspEnd If<br>End Function</p>
+<p CLASS="Textttext">Objects, including Automation objects, can also be stored in <span CLASS="ElementNameeln">Variant </span>variables. This can be useful when you need to handle a variety of data types, including objects. For example, all the elements in an array must have the same data type. Setting the data type of an array to <span CLASS="ElementNameeln">Variant</span> allows you to store objects alongside other data types in an array.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on arrays, see <a HREF="../chapters/ba04_6.htm" OnClick="SyncURL(&quot;chapters/ba04_6.htm&quot;)">&quot;Arrays&quot;</a> later in this chapter.</p>
+<a NAME="5TheEmptyValue"></a>
+<p CLASS="heading5OrgHeading3h3">The Empty Value</p>
+<p CLASS="Textttext">Sometimes you need to know if a <span CLASS="ElementNameeln">Variant</span> variable has ever been assigned a value since the variable was created. A <span CLASS="ElementNameeln">Variant</span> variable has the <span CLASS="ElementNameeln">Empty</span> value before it's assigned a value. The <span CLASS="ElementNameeln">Empty</span> value is a special value different from 0, a zero-length string (<span CLASS="CodeTextEmbeddedcte">&quot;&quot;</span>), or the <span CLASS="ElementNameeln">Null</span> value. You can use the <span CLASS="ElementNameeln">IsEmpty</span> function to determine if a<span CLASS="ElementNameeln"> Variant</span> variable has the <span CLASS="ElementNameeln">Empty</span> value.</p>
+<p CLASS="CodeTextct">If IsEmpty(varX) Then varX = 0</p>
+<p CLASS="Textttext">When you use a <span CLASS="ElementNameeln">Variant</span> in an expression, an <span CLASS="ElementNameeln">Empty</span> value is treated as either 0 or a zero-length string, depending on the expression. The <span CLASS="ElementNameeln">Empty</span> value disappears as soon as any value is assigned to a <span CLASS="ElementNameeln">Variant</span> variable (including the value of 0, the zero-length string, and the <span CLASS="ElementNameeln">Null</span> value). You can set a <span CLASS="ElementNameeln">Variant</span> variable back to the <span CLASS="ElementNameeln">Empty</span> value by assigning the <span CLASS="ElementNameeln">Empty</span> keyword to the <span CLASS="ElementNameeln">Variant</span>.</p>
+<a NAME="5TheNullValue"></a>
+<p CLASS="heading5OrgHeading3h3">The Null Value</p>
+<p CLASS="Textttext">The <span CLASS="ElementNameeln">Variant</span> data type can contain one other special value: <span CLASS="ElementNameeln">Null</span>. <span CLASS="ElementNameeln">Null</span> is commonly used in database applications to indicate unknown or missing data. Fields and controls that haven't been initialized have a default value of <span CLASS="ElementNameeln">Null</span>. You can use the <span CLASS="ElementNameeln">IsNull</span> function to determine if a <span CLASS="ElementNameeln">Variant</span> variable contains the <span CLASS="ElementNameeln">Null</span> value.</p>
+<p CLASS="CodeTextct">If IsNull(varX) And IsNull(varY) Then<br>&nbsp;&nbsp;&amp;nbspvarZ = Null<br>Else<br>&nbsp;&nbsp;&amp;nbspvarZ = 0<br>End If</p>
+<p CLASS="Textttext">A <span CLASS="ElementNameeln">Null</span> value has some unique characteristics:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspExpressions involving <span CLASS="ElementNameeln">Null</span> always result in <span CLASS="ElementNameeln">Null</span>. Thus, <span CLASS="ElementNameeln">Null</span> is said to <span CLASS="NewTermntrm">propagate</span> through expressions; if any part of the expression evaluates to <span CLASS="ElementNameeln">Null</span>, the entire expression evaluates to <span CLASS="ElementNameeln">Null</span>.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspMost functions return <span CLASS="ElementNameeln">Null</span> if you pass them <span CLASS="ElementNameeln">Null</span>, a <span CLASS="ElementNameeln">Variant</span> containing <span CLASS="ElementNameeln">Null</span>, or an expression that evaluates to <span CLASS="ElementNameeln">Null</span> as an argument.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&nbsp;<span CLASS="ElementNameeln">Null</span> values propagate through intrinsic (built-in) functions that return <span CLASS="ElementNameeln">Variant</span> data types.</p>
+<p CLASS="Textttext">You can assign a <span CLASS="ElementNameeln">Null</span> value by using the <span CLASS="ElementNameeln">Null</span> keyword. For example:</p>
+<p CLASS="CodeTextct">varZ = Null</p>
+<p CLASS="Textttext">Only <span CLASS="ElementNameeln">Variant</span> variables can contain <span CLASS="ElementNameeln">Null</span> values. If you assign <span CLASS="ElementNameeln">Null</span> to a variable of any data type other than <span CLASS="ElementNameeln">Variant</span>, a trappable error occurs. Assigning <span CLASS="ElementNameeln">Null</span> to a <span CLASS="ElementNameeln">Variant</span> variable doesn't cause an error, and <span CLASS="ElementNameeln">Null</span> will propagate through expressions involving <span CLASS="ElementNameeln">Variant</span> variables (though <span CLASS="ElementNameeln">Null</span> doesn't propagate through certain functions). For example, the following code:</p>
+<p CLASS="CodeTextct">Sub Test()<br>&nbsp;&nbsp;&amp;nbspDim varX As Variant, varY As Variant<br>&nbsp;&nbsp;&amp;nbspvarX = &quot;6&quot;<br>&nbsp;&nbsp;&amp;nbspvarY = Null<br>&nbsp;&nbsp;&amp;nbspDebug.Print varX + varY, varX &amp; varY<br>End Sub</p>
+<p CLASS="Textttext">produces this result in the Debug window: </p>
+<p CLASS="CodeTextct">Null&nbsp;&nbsp;&amp;nbsp6</p>
+<p CLASS="Textttext">In addition, you can return <span CLASS="ElementNameeln">Null</span> from any <span CLASS="ElementNameeln">Function</span> procedure that has a <span CLASS="ElementNameeln">Variant</span> return value.
+<p CLASS="TipIcontpi"></p>
+<p CLASS="TipTexttpt"><span CLASS="TipHeadingtph">Tip&nbsp;&nbsp;&nbsp;</span>The fact that <span CLASS="ElementNameeln">Null</span> propagates makes it useful as an error value. If you write <span CLASS="ElementNameeln">Function</span> procedures that return <span CLASS="ElementNameeln">Null</span> when an error occurs, and then combine these functions in expressions, you can use the <span CLASS="ElementNameeln">IsNull</span> function to test the final result of the expression to see if an error has occurred. Because <span CLASS="ElementNameeln">Null</span> propagates, the final result is <span CLASS="ElementNameeln">Null</span> if an error has occurred in any of the functions; you don't have to test the result of each function separately.</p>
+<a NAME="4OtherFundamentalDataTypes"></a>
+<p CLASS="heading4OrgHeading2h2">Other Fundamental Data Types</p>
+<p CLASS="Textttext">The <span CLASS="ElementNameeln">Variant</span> data type handles all types of fundamental data and converts between them automatically. However, you can usually create more concise, faster code by using other data types where appropriate. For example, if a variable will always contain small integer values, you can save several bytes, and significantly increase the speed of arithmetic operations on the variable, by declaring that variable to be <span CLASS="ElementNameeln">Integer</span> instead of <span CLASS="ElementNameeln">Variant</span>.
+<p CLASS="Textttext">The following table lists the fundamental data types in Visual Basic, <br>including <span CLASS="ElementNameeln">Variant</span>.</p>
+<!--mstheme--></font><table WIDTH="100%" BORDER="0" CELLPADDING="5" CELLSPACING="0" FRAME="VOID" RULES="THEAD"><thead>
+<tr VALIGN="TOP" BGCOLOR="#DDDDDD">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Data type</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Description</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Range</p></font><!--mstheme--></font></td></tr><tbody>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Byte</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">1-byte binary data</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">0 to 255</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Integer</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">2-byte integer</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">- 32,768 to 32,767</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Long</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">4-byte integer</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">- 2,147,483,648 to 2,147,483,647</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Single</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">4-byte floating-point number</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">- 3.402823E38 to - 1.401298E - 45 (negative values)
+<p CLASS="TableTexttt">1.401298E - 45 to 3.402823E38 (positive values)</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Double </span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">8-byte floating-point number</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">- 1.79769313486231E308 to <br>- 4.94065645841247E - 324 (negative values)
+<p CLASS="TableTexttt">4.94065645841247E - 324 to 1.79769313486231E308 (positive values)</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Currency</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">8-byte number with fixed decimal point</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">- 922,337,203,685,477.5808 to 922,337,203,685,477.5807</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">String</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">String of characters</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Zero to approximately two billion characters</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Variant</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Date/time, floating-point number, integer,  string, or object. 16 bytes, plus 1 byte for each character if a string value.</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Date values: January 1, 100 to December 31, <br>9999<br>Numeric values: same range as <span CLASS="ElementNameeln">Double</span><br>String values: same range as <span CLASS="ElementNameeln">String</span> <br>Can also contain <span CLASS="ElementNameeln">Error</span> or <span CLASS="ElementNameeln">Null</span> values</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Boolean</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">2 bytes</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">True</span> or <span CLASS="ElementNameeln">False</span></p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Date</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">8-byte date/time value</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">January 1, 100 to December 31, 9999</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Object</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">4 bytes</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Any <span CLASS="ElementNameeln">Object</span> reference</p></font><!--mstheme--></font></td></tr>
+</table><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>You can also declare arrays of any of these fundamental data types. For more information, see <a HREF="../chapters/ba04_6.htm" OnClick="SyncURL(&quot;chapters/ba04_6.htm&quot;)">&quot;Arrays&quot;</a> later in this chapter.</p>
+<p CLASS="Textttext">When you declare a variable by using a <span CLASS="ElementNameeln">Dim</span>, <span CLASS="ElementNameeln">Public</span>, <span CLASS="ElementNameeln">Private</span>, or <span CLASS="ElementNameeln">Static</span> statement, you use the <span CLASS="ElementNameeln">As</span> <span CLASS="NewTermntrm">type</span> clause to specify the data type of the variable. For example, the following statements declare <span CLASS="ElementNameeln">Integer</span>, <span CLASS="ElementNameeln">Currency</span>,<span CLASS="ElementNameeln"> Double</span>, and <span CLASS="ElementNameeln">String</span> variables, respectively:</p>
+<p CLASS="CodeTextct">Dim intX As Integer<br>Public curBillsPaid As Currency<br>Private dblAmt As Double<br>Static strName As String</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on the <span CLASS="ElementNameeln">Dim</span>, <span CLASS="ElementNameeln">Public</span>, <span CLASS="ElementNameeln">Private</span>, or <span CLASS="ElementNameeln">Static</span> statements, search the Help index for the name of the statement.</p>
+<p CLASS="Textttext">A declaration statement can combine multiple declarations, as in the following statements:</p>
+<p CLASS="CodeTextct">Dim intX As Integer, dblAmt As Double<br>Dim strName As String, curBillsPaid As Currency<br>Dim varTest, intY As Integer, varAmount</p>
+<p CLASS="ImportantTextit"><span CLASS="ImportantHeadingih">Important&nbsp;&nbsp;&nbsp;</span>In a multiple declaration statement, you must use the <span CLASS="ElementNameeln">As</span> <span CLASS="NewTermntrm">type</span> clause for each variable whose data type you want to specify. If you don't specify a data type, Visual Basic declares the variable as <span CLASS="ElementNameeln">Variant</span>. In the last line of code in the preceding example, Visual Basic declares only the variable <span CLASS="CodeTextEmbeddedcte">intY</span> as <span CLASS="ElementNameeln">Integer</span>. The variables <span CLASS="CodeTextEmbeddedcte">Test</span> and <span CLASS="CodeTextEmbeddedcte">Amount</span> are each declared as <span CLASS="ElementNameeln">Variant</span>.</p>
+<p CLASS="Textttext">Most of the Visual Basic data types match the data types for fields that contain data. The few field data types that aren't directly matched by a Visual Basic data type can be handled by another Visual Basic data type.</p>
+<!--mstheme--></font><table WIDTH="95%" BORDER="0" CELLPADDING="5" CELLSPACING="0" FRAME="VOID" RULES="THEAD"><thead>
+<tr VALIGN="TOP" BGCOLOR="#DDDDDD">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Field data type</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Compatible Visual Basic data type</p></font><!--mstheme--></font></td></tr><tbody>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">AutoNumber (Long Integer)</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Long</span></p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">AutoNumber (Replication ID)</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">No compatible Visual Basic type</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Currency</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Currency</span></p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Date/Time</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Date</span></p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Hyperlink</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">No compatible Visual Basic type</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Memo</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">String</span></p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Number (Byte)</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Byte</span></p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Number (Integer)</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Integer</span></p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Number (Long Integer)</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Long</span></p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Number (Single)</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Single</span></p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Number (Double)</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Double</span></p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Number (Replication ID)</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">No compatible Visual Basic type</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">OLE Object</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Array with the <span CLASS="ElementNameeln">Byte</span> data type</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Text</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">String</span></p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Yes/No</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Boolean</span></p></font><!--mstheme--></font></td></tr>
+</table><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>SQL data types are also used in Microsoft Access queries. For information on these data types, search the Help index for &quot;ANSI SQL data types.&quot;</p>
+<p CLASS="Textttext">If a variable must be able to accept <span CLASS="ElementNameeln">Null</span> values, declare it as a <span CLASS="ElementNameeln">Variant</span> rather than one of the other fundamental data types. The <span CLASS="ElementNameeln">Variant</span> data type can accept <span CLASS="ElementNameeln">Null</span> values, while the other fundamental data types cannot.</p>
+<a NAME="5NumericDataTypes"></a>
+<p CLASS="heading5OrgHeading3h3">Numeric Data Types</p>
+<p CLASS="Textttext">If you know that a variable always stores whole numbers (for example, 12) rather than fractional numbers (for example, 3.57), declare it as an <span CLASS="ElementNameeln">Integer</span> or <span CLASS="ElementNameeln">Long</span> data type. Operations are faster with integers, and <span CLASS="ElementNameeln">Integer</span> and <span CLASS="ElementNameeln">Long</span> use less memory than <span CLASS="ElementNameeln">Variant</span>, <span CLASS="ElementNameeln">Double</span>, or <span CLASS="ElementNameeln">Currency</span>. Integers are especially useful as the counter variables in <span CLASS="ElementNameeln">For...Next</span> loops.
+<p CLASS="Textttext">If the variable contains a fraction, declare it as a <span CLASS="ElementNameeln">Single</span>, <span CLASS="ElementNameeln">Double</span>, or <span CLASS="ElementNameeln">Currency</span> variable. The <span CLASS="ElementNameeln">Currency</span> data type supports up to 4 digits to the right of the decimal point and 15 to the left; it's a fast and accurate fixed-point data type suitable for monetary calculations. Floating-point (<span CLASS="ElementNameeln">Single</span> and <span CLASS="ElementNameeln">Double</span>) numbers have much larger ranges than <span CLASS="ElementNameeln">Currency</span>, but are subject to small rounding errors.</p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>Floating-point values can be expressed as <span CLASS="NewTermntrm">mmm</span>E<span CLASS="NewTermntrm">eee</span>, in which <span CLASS="NewTermntrm">mmm</span> is the mantissa and <span CLASS="NewTermntrm">eee</span> is the exponent (a power of ten). The highest positive value of a <span CLASS="ElementNameeln">Single</span> data type is 3.402823E+38, or 3.4 times 10 to the 38th power; the highest positive value of a <span CLASS="ElementNameeln">Double</span> data type is 1.79769313486231E+308, or about 1.8 times 10 to the 308th power.</p>
+<p CLASS="Textttext">If the variable contains binary data, declare it as an array of the <span CLASS="ElementNameeln">Byte</span> data type. Using <span CLASS="ElementNameeln">Byte</span> variables to store binary data preserves the data during format conversions. When <span CLASS="ElementNameeln">String</span> variables are converted between ANSI/DBCS and Unicode<span CLASS="Trademarktm">&#153;</span> formats, any binary data in the variable may be corrupted. Visual Basic will automatically convert between ANSI/DBCS and Unicode in any of the following circumstances:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspReading from files</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspWriting to files</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspCalling DLLs</p>
+<p CLASS="Textttext">All arithmetic operators work with the <span CLASS="ElementNameeln">Byte </span>data type.
+<p CLASS="Textttext">All numeric variables can be assigned to each other and to variables of the <span CLASS="ElementNameeln">Variant</span> data type. Visual Basic rounds off (doesn't truncate) the fractional part of a floating-point number before assigning it to an integer.</p>
+<a NAME="5TheStringDataType"></a>
+<p CLASS="heading5OrgHeading3h3">The String Data Type</p>
+<p CLASS="Textttext">If you have a variable that will always contain a string and never a numeric value, you can declare it as a <span CLASS="ElementNameeln">String </span>data type.</p>
+<p CLASS="CodeTextct">Dim strAny As String</p>
+<p CLASS="Textttext">You can then assign strings to this variable and manipulate it by using string functions.</p>
+<p CLASS="CodeTextct">strAny = &quot;Database&quot;<br>strAny = Left(strAny, 4)</p>
+<p CLASS="Textttext">Fixed-length strings in standard modules can be declared as <span CLASS="ElementNameeln">Public</span> or <span CLASS="ElementNameeln">Private</span>. In form and report modules, fixed-length strings must be declared as <span CLASS="ElementNameeln">Private</span>.
+<p CLASS="Textttext">By default, a string variable or argument is a <span CLASS="NewTermntrm">variable-length string</span>, which means the string grows or shrinks as you assign new data to it. You can also declare strings that have a fixed length. You specify a <span CLASS="NewTermntrm">fixed-length string</span> with the following syntax:</p>
+<p CLASS="SyntaxTextsyn"><span CLASS="ElementNameeln">String</span> <span CLASS="ElementNameeln">*</span> <span CLASS="Placeholderp">size</span>
+<p CLASS="SyntaxTextsyn"><span CLASS="Placeholderp"></span></p>
+<p CLASS="Textttext">For example, the following code declares a string that is always 50 characters long:</p>
+<p CLASS="CodeTextct">Dim strEmpName As String * 50</p>
+<p CLASS="Textttext">If you assign a string of fewer then 50 characters, <span CLASS="CodeTextEmbeddedcte">strEmpName</span> is padded with enough trailing spaces to total 50 characters. If you assign a string that is too long for the fixed-length string, the extra characters are truncated. For example, the following code:</p>
+<p CLASS="CodeTextct">Dim strJust4 As String * 4<br>Dim strAny As String<br>strAny = &quot;Database&quot;<br>Debug.Print strAny<br>strJust4 = strAny<br>Debug.Print strJust4</p>
+<p CLASS="Textttext">produces the following result in the Debug window:</p>
+<p CLASS="CodeTextct">Database<br>Data</p>
+<p CLASS="Textttext">Because fixed-length strings are padded with trailing spaces, you may find the <span CLASS="ElementNameeln">Trim</span>, <span CLASS="ElementNameeln">LTrim</span>, and <span CLASS="ElementNameeln">RTrim </span>functions useful when working with them.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on the <span CLASS="ElementNameeln">Trim</span>, <span CLASS="ElementNameeln">LTrim</span>, or <span CLASS="ElementNameeln">RTrim </span>functions, search the Help index for the name of the function.</p>
+<p CLASS="Textttext">Visual Basic compares strings in one of several different ways, depending on the <span CLASS="ElementNameeln">Option Compare</span> statement specified in the Declarations section of your modules. You can specify either <span CLASS="ElementNameeln">Option Compare Database</span>, <span CLASS="ElementNameeln">Option Compare Binary</span>, or <span CLASS="ElementNameeln">Option Compare Text</span> to determine the relative ordering used in a comparison, and whether or not string comparisons are case-sensitive.
+<p CLASS="Textttext">Microsoft Access automatically inserts an <span CLASS="ElementNameeln">Option Compare Database</span> statement in the Declarations section of a new module, specifying that the string comparisons in that module are based on the database sort order. If no <span CLASS="ElementNameeln">Option Compare</span> statement is specified in a module, Visual Basic does case-sensitive <span CLASS="ElementNameeln">Binary</span> comparisons in that module based on the character's relative order of appearance in the ANSI character set.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on the <span CLASS="ElementNameeln">Option Compare </span>statement, search the Help index for &quot;Option Compare statement.&quot;</p>
+<a NAME="5TheBooleanDataType"></a>
+<p CLASS="heading5OrgHeading3h3">The Boolean Data Type</p>
+<p CLASS="Textttext">If you have a variable that will contain simple yes/no or on/off information, you can declare it as a <span CLASS="ElementNameeln">Boolean </span>data type. The default value of <span CLASS="ElementNameeln">Boolean</span> is <span CLASS="ElementNameeln">False</span>. In the following example, <span CLASS="CodeTextEmbeddedcte">blnCreditExceeded</span> is a <span CLASS="ElementNameeln">Boolean</span> variable that stores a simple <span CLASS="ElementNameeln">True</span> or <span CLASS="ElementNameeln">False</span> setting.</p>
+<p CLASS="CodeTextct">Dim blnCreditExceeded As Boolean<br>' Add all charges.<br>Do Until rstCharges.EOF<br>&nbsp;&nbsp;&amp;nbspcurAmt = curAmt + rstCharges(&quot;Amount&quot;).Value<br>&nbsp;&nbsp;&amp;nbsprstCharges.MoveNext<br>Loop<br>' Ask if the credit limit is exceeded.<br>If curAmt &gt; curLimit Then blnCreditExceeded = True</p>
+<a NAME="5TheDateDataType"></a>
+<p CLASS="heading5OrgHeading3h3">The Date Data Type</p>
+<p CLASS="Textttext">Date and time values can be contained both in the specific <span CLASS="ElementNameeln">Date</span> data type and in <span CLASS="ElementNameeln">Variant</span> variables. The same general characteristics apply to dates in both types. 
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information, see <a HREF="../chapters/ba04_3.htm#4TheVariantDataType" OnClick="SyncURL(&quot;chapters/ba04_3.htm&quot;)">&quot;The Variant Data Type&quot;</a> earlier in this chapter.
+<p CLASS="Textttext">When other numeric data types are converted to <span CLASS="ElementNameeln">Date</span>, values to the left of the decimal represent date information, while values to the right of the decimal represent time. Midnight is 0, and noon is 0.5. Negative whole numbers represent dates before December 30, 1899.</p>
+<a NAME="5TheObjectDataType"></a>
+<p CLASS="heading5OrgHeading3h3">The Object Data Type</p>
+<p CLASS="Textttext">Object variables are stored as 32-bit (4-byte) addresses that refer to objects within an application or within some other application. A variable declared as <span CLASS="ElementNameeln">Object</span> can subsequently be assigned (by using the <span CLASS="ElementNameeln">Set</span> statement) to refer to any actual object recognized by the application. For example:</p>
+<p CLASS="CodeTextct">Const conFilePath As String = &quot;C:\Program Files\Microsoft Office\Office\Samples\&quot;<br>Dim objDb As Object<br>Set objDb = OpenDatabase(conFilePath &amp; &quot;Northwind.mdb&quot;)</p>
+<p CLASS="Textttext">When declaring object variables, instead of using a <span CLASS="ElementNameeln">Variant</span> data type or the generic <span CLASS="ElementNameeln">Object </span>data type, declare objects as they are listed in the <span CLASS="ElementNameeln">Classes</span> box in the Object Browser. Visual Basic can resolve references to the properties and methods of objects with specific types at compile time rather than at run time. This catches common errors sooner, and makes your code run faster.
+<p CLASS="TipIcontpi"></p>
+<p CLASS="TipTexttpt"><span CLASS="TipHeadingtph">Tip&nbsp;&nbsp;&nbsp;</span>You may want to think of the objects listed in the <span CLASS="ElementNameeln">Classes</span> box in the Object Browser as additional data types that are available to you. You can declare objects from other applications <img SRC="../images/Emdash.gif" BORDER="0" VSPACE="0" HSPACE="0" WIDTH="16" HEIGHT="5">and other applications can declare objects from your application<img SRC="../images/Emdash.gif" BORDER="0" VSPACE="0" HSPACE="0" WIDTH="16" HEIGHT="5">in the same way that you declare ordinary object data types in Visual Basic.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on objects and the Object Browser, see Chapter 5, <a HREF="../chapters/ba05_1.htm" OnClick="SyncURL(&quot;chapters/ba05_1.htm&quot;)">&quot;Working with Objects and Collections.&quot;</a></p>
+<a NAME="4ArgumentDataTypes"></a>
+<p CLASS="heading4OrgHeading2h2">Argument Data Types</p>
+<p CLASS="Textttext">The arguments for procedures you write have the <span CLASS="ElementNameeln">Variant</span> data type by default. However, you can declare other data types for arguments. For example, the following function accepts a <span CLASS="ElementNameeln">String</span> and an <span CLASS="ElementNameeln">Integer</span>:</p>
+<p CLASS="CodeTextct">Function Reverse (strAny As String, ByVal intChars As Integer) As String<br>' Reverses the first intChars characters in strAny.<br>&nbsp;&nbsp;&amp;nbspDim strTemp As String, intCount As Integer<br>&nbsp;&nbsp;&amp;nbspIf intChars &gt; Len(strAny) Then intChars = Len(strAny)<br>&nbsp;&nbsp;&amp;nbspFor intCount = intChars To 1 Step - 1<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbspstrTemp = strTemp + Mid(strAny, intCount, 1)<br>&nbsp;&nbsp;&amp;nbspNext<br>&nbsp;&nbsp;&amp;nbspReverse = strTemp + Right(strAny, Len(strAny) - intChars)<br>End Function</p>
+<p CLASS="Textttext">If you specify a data type for an argument, you must either:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspPass a value of that type for the argument.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspDeclare the argument by using the <span CLASS="ElementNameeln">ByVal</span> keyword to specify that the argument is passed <span CLASS="NewTermntrm">by value</span> rather than <span CLASS="NewTermntrm">by reference</span>. When you pass a variable by value, changes to the variable in the procedure don't affect its value in the calling procedure.</p>
+<p CLASS="ListText1lt1"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span><span CLASS="Xref">For more information on the <span CLASS="ElementNameeln">ByVal </span>keyword, search the Help index for &quot;ByVal keyword.&quot;</span></p>
+<p CLASS="Textttext">For example, you can't pass a <span CLASS="ElementNameeln">Variant</span> by reference to a string argument. Thus, the following code produces an error:</p>
+<p CLASS="CodeTextct">Dim varTest As Variant<br>varTest = &quot;Testing&quot;<br>Debug.Print Reverse(varTest, 4)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' Error: argument type mismatch.</p>
+<p CLASS="Textttext">One way to avoid this problem is to pass an expression, rather than a<span CLASS="ElementNameeln"> Variant</span>, for an argument. Visual Basic then evaluates the expression and, if it can, passes it as the required data type. The simplest way to turn a variable into an expression is to enclose it in parentheses. For example:</p>
+<p CLASS="CodeTextct">Debug.Print Reverse((varTest), 4)&nbsp;&nbsp;&nbsp;' Makes the variable an expression.</p>
+<p CLASS="Textttext">However, the best way to ensure that arguments are passed correctly is to declare the arguments with the <span CLASS="ElementNameeln">ByVal</span> keyword, as illustrated by the second argument, <span CLASS="CodeTextEmbeddedcte">ByVal intChars As Integer</span>, in the preceding Reverse function example. Thus, you can pass a <span CLASS="ElementNameeln">Variant</span> as the second argument to the Reverse function. For example:</p>
+<p CLASS="CodeTextct">Dim strTest As String, varTest As Variant<br>strTest = &quot;Testing&quot;<br>varTest = &quot;2&quot;<br>Debug.Print Reverse(strTest, varTest)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' Works!</p>
+<p CLASS="Textttext">When you pass a variable to a procedure by reference, the variable's value can be changed by that procedure. On the other hand, when you pass the variable by value, only a <span CLASS="Placeholderp">copy</span> of the variable is passed to the procedure; therefore, if the procedure changes that value, the change affects only the copy and not the variable itself. This is important in the Reverse function; if the second argument isn't declared with the <span CLASS="ElementNameeln">ByVal</span> keyword, bugs could appear in the code. For example, suppose the second argument wasn't declared with the <span CLASS="ElementNameeln">ByVal</span> keyword, and you called it as follows:</p>
+<p CLASS="CodeTextct">Dim intTest As Integer, strTest As String<br>intTest = 10<br>strTest = &quot;Testing&quot;<br>Debug.Print Reverse(strTest, intTest)&nbsp;&nbsp;&nbsp;' Now intTest = 7 (length of strTest).</p>
+<p CLASS="Textttext">You don't usually expect a function to modify its arguments, as happens here. To avoid this kind of side effect in any procedures that modify their arguments, declare those arguments with the <span CLASS="ElementNameeln">ByVal</span> keyword.</p>
+<a NAME="4FunctionReturnDataTypes"></a>
+<p CLASS="heading4OrgHeading2h2">Function Return Data Types</p>
+<p CLASS="Textttext">The value returned by a function has a data type. When you define the function, you can declare the data type of the value the function returns. For example, the Reverse function in the preceding section returns a <span CLASS="ElementNameeln">String</span>.
+<p CLASS="Textttext">As with variables, Visual Basic can work more efficiently with functions if you explicitly declare a data type for the values they return. If you don't declare a data type, functions use the <span CLASS="ElementNameeln">Variant</span> data type. For example, if you don't set a return value for a function (by assigning a value to the name of the function), the function returns a <span CLASS="ElementNameeln">Variant</span> containing the <span CLASS="ElementNameeln">Empty</span> value.
+<p CLASS="Textttext">If you declare the function to return a <span CLASS="ElementNameeln">String</span>, as in the Reverse function example, the function returns a zero-length string (<span CLASS="CodeTextEmbeddedcte">&quot;&quot;</span>) if you don't assign a return value. If you declare the function to return a numeric data type, such as <span CLASS="ElementNameeln">Integer</span> or <span CLASS="ElementNameeln">Double</span>, it returns zero if you don't explicitly assign a return value.</p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="ba04_4.htm" OnClick="SyncURL(&quot;chapters/ba04_4.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

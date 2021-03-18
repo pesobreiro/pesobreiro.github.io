@@ -1,0 +1,319 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>Making Microsoft Access Data Available on the Internet</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba21_2.htm" OnClick="SyncURL(&quot;chapters/ba21_2.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<a NAME="3MakingMicrosoftAccessDataAvailableontheInternet"></a>
+<p CLASS="heading3OrgHeading1h1">Making Microsoft Access Data Available on the Internet</p>
+<p CLASS="Textttext">With Microsoft Access, you can make your data available on the Internet or an intranet by:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspSaving data as HTML documents.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspSynchronizing a database replica with a replica or Design Master on an HTTP or FTP server.</p>
+<a NAME="4SavingDataasHTMLDocuments"></a>
+<p CLASS="heading4OrgHeading2h2">Saving Data as HTML Documents</p>
+<p CLASS="Textttext">Microsoft Access has four ways to save data from your database as HTML documents:
+<p CLASS="Textttext"><span CLASS="ElementNameeln">Save data as static HTML documents&nbsp;&nbsp;&nbsp;</span>You can create <span CLASS="NewTermntrm">static</span> HTML documents from table, query, and form datasheets, and from reports. When you save data as static HTML documents, the resulting pages reflect the state of the data at the time it was saved, like a snapshot. If your data changes, you must save the pages again to share the new data.
+<p CLASS="Textttext"><span CLASS="ElementNameeln">Save table, query, and form datasheets as IDC/HTX files&nbsp;&nbsp;&nbsp;</span>You can save your table, query, and form datasheets as Internet Database Connector/HTML extension (IDC/HTX) files that generate HTML documents by querying a copy of your database located on a Web server for current data.
+<p CLASS="Textttext"><span CLASS="ElementNameeln">Save forms and datasheets as ActiveX Server pages&nbsp;&nbsp;&nbsp;</span>You can save your forms as ActiveX Server pages (ASP) that emulate most of the functionality of your forms and display data from a database located on a Web server. You can also save table, query, and form datasheets as ActiveX Server pages that display current data from a copy of your database located on a Web server.
+<p CLASS="Textttext"><span CLASS="ElementNameeln">Automate the publishing of dynamic and static HTML documents&nbsp;&nbsp;&nbsp;</span> You can use the Publish to the Web Wizard to automate the process of saving multiple objects to any combination of all three file types. In the Publish to the Web Wizard, IDC/HTX files and ActiveX Server (ASP) files are collectively referred to as <span CLASS="NewTermntrm">dynamic</span> Web pages because these file types display current data to users.
+<p CLASS="Textttext">The following sections discuss each of these options in more detail.</p>
+<a NAME="5SavingDataasStaticHTMLDocuments"></a>
+<p CLASS="heading5OrgHeading3h3">Saving Data as Static HTML Documents</p>
+<p CLASS="Textttext">With Microsoft Access 97, you can save table, query, and form datasheets, and reports as static HTML documents.</p>
+<p CLASS="heading9ListProcedureHeadinglproch"><span CLASS="ProcedureIconproci"><img SRC="../images/bluetri.jpg" ALIGN="LEFT" WIDTH="9" HEIGHT="17">&nbsp;&nbsp;&nbsp;</span>To save a table, query, or form datasheet, or a report as a static HTML document</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">1</span>&nbsp;&nbsp;&amp;nbspIn the Database window, click the table, query, form, or report you want to save.<span CLASS="ElementNameeln"></span></p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">2</span>&nbsp;&nbsp;&amp;nbspOn the <span CLASS="ElementNameeln">File</span> menu, click <span CLASS="ElementNameeln">Save As/Export</span>. </p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">3</span>&nbsp;&nbsp;&amp;nbspIn the <span CLASS="ElementNameeln">Save As</span> dialog box, click <span CLASS="ElementNameeln">To An External File Or Database</span>, and then click <span CLASS="ElementNameeln">OK</span>.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">4</span>&nbsp;&nbsp;&amp;nbspIn the <span CLASS="ElementNameeln">Save As Type</span> box, click <span CLASS="ElementNameeln">HTML Documents (*.htm; *.html)</span>.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">5</span>&nbsp;&nbsp;&amp;nbspIf you want to preserve formatting, select the <span CLASS="ElementNameeln">Save Formatted</span> check box. To automatically open the resulting HTML document in your Web browser, select the<span CLASS="ElementNameeln"> Autostart</span> check box.<span CLASS="ElementNameeln"></span></p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">6</span>&nbsp;&nbsp;&amp;nbspSpecify the file name and location to save the file, and then click <span CLASS="ElementNameeln">Export</span>. </p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">7</span>&nbsp;&nbsp;&amp;nbspIn the <span CLASS="ElementNameeln">HTML Output Options</span> dialog box, if you want Microsoft Access to merge an HTML template with the resulting HTML document, specify that as well, and then click <span CLASS="ElementNameeln">OK</span>.</p>
+<p CLASS="ListText1lt1"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span><span CLASS="Xref">For information on HTML templates, see <a HREF="#6UsinganHTMLTemplateWhenYouSaveDataasHTMLDocuments" OnClick="SyncURL(&quot;chapters/ba21_3.htm&quot;)">&quot;Using an HTML Template When You Save Data as HTML Documents&quot;</a> later in this chapter.</span></p>
+<p CLASS="Textttext">You can also save data as static HTML documents by using the Publish to the Web Wizard (available through the<span CLASS="ElementNameeln"> Save As HTML</span> command on the <span CLASS="ElementNameeln">File</span> menu), the <span CLASS="ElementNameeln">OutputTo</span> method in code, or the OutputTo action in macros.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on saving table, query, or form datasheets, and reports as HTML documents, search the Help index for &quot;Saving database objects, saving in Internet/Web formats&quot; or &quot;OutputTo method.&quot;</p>
+<p CLASS="Textttext">When saving table, query, and form datasheets, Microsoft Access saves each datasheet to a single HTML file. Microsoft Access saves reports as multiple HTML documents, with one HTML file per printed page. To name each page, Microsoft Access uses the name of the object and appends _Page<span CLASS="NewTermntrm">nn</span> to the end of each page's file name after the first page; for example, ProductList.htm, ProductList_Page2.htm, ProductList_Page3.htm, and so on.</p>
+<a NAME="6SavingTableQueryandFormDatasheetsasStaticHTMLDocuments"></a>
+<p CLASS="heading6OrgHeading4h4">Saving Table, Query, and Form Datasheets as Static HTML Documents</p>
+<p CLASS="Textttext">When you save a table, query, or form datasheet as an HTML document, the HTML document generated is based on the table or query associated with the datasheet, including the current setting of the <span CLASS="ElementNameeln">OrderBy</span> or <span CLASS="ElementNameeln">Filter</span> property of the table or query. 
+<p CLASS="Textttext">If you select the <span CLASS="ElementNameeln">Save Formatted</span> check box, the HTML document contains an HTML table that reflects as closely as possible the appearance of the datasheet by using the appropriate HTML tags to specify color, font, and alignment. The HTML document follows as closely as possible the page orientation and margins of the datasheet. Whenever you want to use settings that are different from the default orientation and margins for a datasheet, you must first open the datasheet, and then use the <span CLASS="ElementNameeln">Page Setup</span> command (<span CLASS="ElementNameeln">File</span> menu) to change settings before you save the datasheet as an HTML document.
+<p CLASS="Textttext">If you select the <span CLASS="ElementNameeln">Save Formatted</span> check box, and a field has a <span CLASS="ElementNameeln">Format</span> or <span CLASS="ElementNameeln">InputMask</span> property setting, those settings are reflected in the data in the HTML document. For example, if a field's <span CLASS="ElementNameeln">Format</span> property is set to Currency, the data in the HTML document is formatted with a dollar sign, a comma as the thousand separator, and two decimal places; for example, $1,123.45.</p>
+<a NAME="6SavingReportsasStaticHTMLDocuments"></a>
+<p CLASS="heading6OrgHeading4h4">Saving Reports as Static HTML Documents</p>
+<p CLASS="Textttext">When you save a report as HTML documents, the series of HTML documents generated is based on the report's underlying table or query, including the current <span CLASS="ElementNameeln">OrderBy</span> or <span CLASS="ElementNameeln">Filter</span> property settings of the table or query.
+<p CLASS="Textttext">The HTML documents closely approximate the proportions and layout of the actual report and follow as closely as possible the page orientation and margins set for the report. To change the page orientation and margins, open the report in Print Preview, and then use the <span CLASS="ElementNameeln">Page Setup</span> command to change settings before you save the report as HTML documents. These settings are saved from session to session for reports, so if you change them once, they will be used the next time you save the form or report as HTML documents.</p>
+<a NAME="6NavigationControlsWhenSavingMultipleHTMLDocumentsPerObject"></a>
+<p CLASS="heading6OrgHeading4h4">Navigation Controls When Saving Multiple HTML Documents Per Object</p>
+<p CLASS="Textttext">If you specify an HTML template that contains placeholders for navigation controls when you save a report as multiple HTML documents, Microsoft Access creates hyperlinks that the user can use to navigate to the first, previous, next, and last pages in the publication. Where Microsoft Access places the hyperlinks depends on where you locate the placeholders in the HTML template.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For information on HTML templates and placeholders, see <a HREF="#6UsinganHTMLTemplateWhenYouSaveDataasHTMLDocuments" OnClick="SyncURL(&quot;chapters/ba21_3.htm&quot;)">&quot;Using an HTML Template When You Save Data as HTML Documents&quot;</a> later in this chapter.</p>
+<a NAME="6HowMicrosoftAccessSavesDataTypesinHTMLFormat"></a>
+<p CLASS="heading6OrgHeading4h4">How Microsoft Access Saves Data Types in HTML Format</p>
+<p CLASS="Textttext">When you save data as static HTML documents, Microsoft Access saves values from most data types as strings and formats them as closely as possible to their appearance in the datasheet or report.  There are two exceptions:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspOLE Object fields are not saved. </p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspHyperlink field values are saved as hyperlinks in the HTML document. The hyperlinks use HTML anchor tags with an HREF attribute, as described in the following table.</p>
+<!--mstheme--></font><table WIDTH="100%" BORDER="0" CELLPADDING="5" CELLSPACING="0" FRAME="VOID" RULES="THEAD"><thead>
+<tr VALIGN="TOP" BGCOLOR="#DDDDDD"><td BGCOLOR="#FFFFFF" WIDTH="5"><!--mstheme--><font face="book antiqua, times new roman, times">&nbsp;&nbsp;<!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">If</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Anchor tag format</p></font><!--mstheme--></font></td></tr><tbody>
+<tr VALIGN="TOP"><td BGCOLOR="#FFFFFF" WIDTH="5"><!--mstheme--><font face="book antiqua, times new roman, times">&nbsp;&nbsp;<!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">The hyperlink doesn't include a subaddress</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="nowrap">&lt;A HREF=&quot;<span CLASS="NewTermntrm">address</span>&quot;&gt;<span CLASS="NewTermntrm">displaytext</span>&lt;/A&gt; </span></p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP"><td BGCOLOR="#FFFFFF" WIDTH="5"><!--mstheme--><font face="book antiqua, times new roman, times">&nbsp;&nbsp;<!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">The hyperlink includes a subaddress</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="nowrap">&lt;A HREF=&quot;<span CLASS="NewTermntrm">address</span>#<span CLASS="NewTermntrm">subaddress</span>&quot;&gt;<span CLASS="NewTermntrm">displaytext</span>&lt;/A&gt; </span></p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP"><td BGCOLOR="#FFFFFF" WIDTH="5"><!--mstheme--><font face="book antiqua, times new roman, times">&nbsp;&nbsp;<!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Display text isn't specified</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="nowrap">&lt;A HREF=&quot;<span CLASS="NewTermntrm">address</span>&quot;&gt;<span CLASS="NewTermntrm">address</span>&lt;/A&gt;</span></p></font><!--mstheme--></font></td></tr>
+</table><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="Textttext">Microsoft Access determines the <span CLASS="NewTermntrm">displaytext</span>, <span CLASS="NewTermntrm">address</span>, and <span CLASS="NewTermntrm">subaddress</span> values by parsing the value stored in the Hyperlink field.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For information on the <span CLASS="NewTermntrm">displaytext</span>, <span CLASS="NewTermntrm">address</span>, and <span CLASS="NewTermntrm">subaddress</span> values, see <a HREF="../chapters/ba21_2.htm#5TheHyperlinkFieldStorageFormat" OnClick="SyncURL(&quot;chapters/ba21_2.htm&quot;)">&quot;The Hyperlink Field Storage Format&quot;</a> earlier in this chapter.</p>
+<a NAME="6UsinganHTMLTemplateWhenYouSaveDataasHTMLDocuments"></a>
+<p CLASS="heading6OrgHeading4h4">Using an HTML Template When You Save Data as HTML Documents</p>
+<p CLASS="Textttext">When you save data as HTML documents, you can use an HTML template to give a consistent look to the HTML documents you create. For example, you can include your company's logo, name, and address in the page's header, use the background that is used throughout your company, or include standard text in the header or footer of the HTML document.</p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>You can use an HTML template when you save data as static HTML documents, when you save datasheets as IDC/HTX files, when you save a form or datasheet as an ActiveX Server page, and when you use the Publish to the Web Wizard.</p>
+<p CLASS="Textttext">The HTML template can be any HTML document; that is, a text file that includes HTML tags and user-specified text and references. In addition, the HTML template can include placeholders that tell Microsoft Access where to insert certain pieces of data in the HTML documents. When data is saved as HTML documents, the placeholders are replaced with data. The following table describes each of the placeholders that you can use in an HTML template.</p>
+<!--mstheme--></font><table WIDTH="100%" BORDER="0" CELLPADDING="5" CELLSPACING="0" FRAME="VOID" RULES="THEAD"><thead>
+<tr VALIGN="TOP" BGCOLOR="#DDDDDD">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Placeholder</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Description</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Location</p></font><!--mstheme--></font></td></tr><tbody>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">&lt;!--AccessTemplate_Title--&gt;</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">The name of the object being saved</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Between &lt;TITLE&gt; and &lt;/TITLE&gt;</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">&lt;!--AccessTemplate_Body--&gt;</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">The data or object being saved</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Between &lt;BODY&gt; and &lt;/BODY&gt;</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">&lt;!--AccessTemplate_FirstPage--&gt;</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">An anchor tag to the first page</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Between &lt;BODY&gt; and &lt;/BODY&gt; or after &lt;/BODY&gt;</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">&lt;!--AccessTemplate_PreviousPage--&gt;</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">An anchor tag to the previous page</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Between &lt;BODY&gt; and &lt;/BODY&gt; or after &lt;/BODY&gt;</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">&lt;!--AccessTemplate_NextPage--&gt;</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">An anchor tag to the next page</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Between &lt;BODY&gt; and &lt;/BODY&gt; or after &lt;/BODY&gt;</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">&lt;!--AccessTemplate_LastPage--&gt;</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">An anchor tag to the last page</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Between &lt;BODY&gt; and &lt;/BODY&gt; or after &lt;/BODY&gt;</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">&lt;!--AccessTemplate_PageNumber--&gt;</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">The current page number </p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Between &lt;BODY&gt; and &lt;/BODY&gt; or after &lt;/BODY&gt;</p></font><!--mstheme--></font></td></tr>
+</table><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="Textttext">When you install Microsoft Access, sample HTML template files and graphics files are installed in the Access subfolder of the Templates folder. The default location of this folder is C:\Program Files\Microsoft Office\Office\Templates\Access.</p>
+<a NAME="5SavingTableQueryandFormDatasheetsasIDCHTXFiles"></a>
+<p CLASS="heading5OrgHeading3h3">Saving Table, Query, and Form Datasheets as IDC/HTX Files</p>
+<p CLASS="Textttext">With Microsoft Access, you can save a table, query, or form datasheet as Internet Database Connector/HTML extension<span CLASS="NewTermntrm"> </span>(IDC/HTX) files that generate HTML documents by querying a copy of your database located on a Web server. In contrast to static HTML documents, IDC/HTX files display current data from your database; therefore, the HTML documents that they generate are called dynamic.</p>
+<p CLASS="heading9ListProcedureHeadinglproch"><span CLASS="ProcedureIconproci"><img SRC="../images/bluetri.jpg" ALIGN="LEFT" WIDTH="9" HEIGHT="17">&nbsp;&nbsp;&nbsp;</span>To save a table, query, or form datasheet as IDC/HTX files</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">1</span>&nbsp;&nbsp;&amp;nbspIn the Database window, click the table, query, or form you want to save.<span CLASS="ElementNameeln"></span></p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">2</span>&nbsp;&nbsp;&amp;nbspOn the <span CLASS="ElementNameeln">File</span> menu, click <span CLASS="ElementNameeln">Save As/Export.</span> </p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">3</span>&nbsp;&nbsp;&amp;nbspIn the <span CLASS="ElementNameeln">Save As</span> dialog box, click <span CLASS="ElementNameeln">To An External File Or Database</span>, and then click <span CLASS="ElementNameeln">OK</span>.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">4</span>&nbsp;&nbsp;&amp;nbspIn the <span CLASS="ElementNameeln">Save As Type </span>box, click <span CLASS="ElementNameeln">Microsoft IIS 1-2 (*.htx/*.idc)</span>.<span CLASS="ElementNameeln"></span></p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">5</span>&nbsp;&nbsp;&amp;nbspSpecify the file name and location to save the files, and then click <span CLASS="ElementNameeln">Export</span>. </p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">6</span>&nbsp;&nbsp;&amp;nbspIn the <span CLASS="ElementNameeln">HTML Output Options</span> dialog box, specify:</p>
+<p CLASS="ListBulletedItem2lb2"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspThe data source name that will be used for a copy of the current database.</p>
+<p CLASS="ListBulletedItem2lb2"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspA user name and password, if required to open the database.</p>
+<p CLASS="ListBulletedItem2lb2"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspAn HTML template, if you want Microsoft Access to merge one with the HTML extension (HTX) file.</p>
+<p CLASS="ListNoteText1lnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span><span CLASS="Xref">You can specify any of these items later, except the HTML template, by editing the resulting IDC file in a text editor such as Notepad.</span></p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">7</span>&nbsp;&nbsp;&amp;nbspClick <span CLASS="ElementNameeln">OK</span>.</p>
+<p CLASS="Textttext">You can also save a table, query, or form datasheet as IDC/HTX files by using the Publish to the Web Wizard (available through the<span CLASS="ElementNameeln"> Save As HTML</span> command on the <span CLASS="ElementNameeln">File</span> menu), the <span CLASS="ElementNameeln">OutputTo</span> method in code, or the OutputTo action in macros.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on saving table, query, or form datasheets as IDC/HTX files, search the Help index for &quot;Saving database objects, saving in Internet/Web formats&quot; or &quot;OutputTo method.&quot;</p>
+<a NAME="6HowtheInternetDatabaseConnectorWorks"></a>
+<p CLASS="heading6OrgHeading4h4">How the Internet Database Connector Works</p>
+<p CLASS="Textttext">When you save a table, form, or query datasheet as Internet Connector files, Microsoft Access creates two files: an <span CLASS="NewTermntrm">Internet Database Connector (IDC) file</span> and <span CLASS="NewTermntrm">HTML extension (HTX) file</span>. These files are used to generate a Web page that displays current data from your database.
+<p CLASS="Textttext">An IDC file contains the necessary information to connect to a specified Open Database Connectivity (ODBC) data source and to run an SQL statement that queries the database. The information needed to connect to the database includes the data source name, and if user-level security is established for the database, the user name and password required to open the database. For example, if you save the Current Product List query datasheet from the Northwind sample application as IDC/HTX files, Microsoft Access creates the following IDC file:</p>
+<p CLASS="CodeTextct">Datasource:Northwind<br>Template:Current Product List.htx<br>SQLStatement:SELECT [Product List].ProductID, [Product List].ProductName<br>+FROM Products AS [Product List]<br>+WHERE ((([Product List].Discontinued)=No))<br>+ORDER BY [Product List].ProductName;<br>Password:<br>Username:</p>
+<p CLASS="Textttext">An IDC file also contains the name and location of an HTML extension (HTX) file. The HTX file is a template for the HTML document; it contains field merge codes that indicate where the values returned by the SQL statement should be inserted. For example, if you save the Current Product List query datasheet from the Northwind sample application as IDC/HTX files, Microsoft Access creates the following HTX file:</p>
+<p CLASS="CodeTextct">&lt;HTML&gt;<br>&lt;TITLE&gt;Current Product List&lt;/TITLE&gt;<br>&lt;BODY&gt;<br>&lt;TABLE BORDER=0 BGCOLOR=#ffffff&gt;&lt;FONT FACE=&quot;Arial&quot; COLOR=#000000&gt;<br>&lt;CAPTION&gt;&lt;B&gt;Current Product List&lt;/B&gt;&lt;/CAPTION&gt;<br>&lt;THEAD&gt;<br>&lt;TR&gt;<br>&lt;TD&gt;&lt;FONT SIZE=2 FACE=&quot;Arial&quot; COLOR=#000000&gt;Product ID&lt;/FONT&gt;&lt;/TD&gt;<br>&lt;TD&gt;&lt;FONT SIZE=2 FACE=&quot;Arial&quot; COLOR=#000000&gt;Product Name&lt;/FONT&gt;&lt;/TD&gt;<br>&lt;/TR&gt;<br>&lt;/THEAD&gt;<br>&lt;TBODY&gt;<br>&lt;%BeginDetail%&gt;<br>&lt;TR VALIGN=TOP&gt;<br>&lt;TD ALIGN=RIGHT&gt;&lt;FONT SIZE=2 FACE=&quot;Arial&quot; COLOR=#000000&gt;&lt;%ProductID%&gt;&lt;BR&gt;&lt;/FONT&gt;&lt;/TD&gt;<br>&lt;TD&gt;&lt;FONT SIZE=2 FACE=&quot;Arial&quot; COLOR=#000000&gt;&lt;%ProductName%&gt;&lt;BR&gt;&lt;/FONT&gt;&lt;/TD&gt;<br>&lt;/TR&gt;<br>&lt;%EndDetail%&gt;<br>&lt;/TBODY&gt;<br>&lt;TFOOT&gt;&lt;/TFOOT&gt;<br>&lt;/BODY&gt;<br>&lt;/HTML&gt;</p>
+<p CLASS="Textttext">Microsoft Access saves the HTX file to be used with an IDC file with the same name as the IDC file, except with an .htx file name extension rather than an .idc file name extension. After the database information has been merged into the HTML document, it is returned to the Web browser.
+<p CLASS="Textttext">If you open Current Product List.idc from a Microsoft Internet Information Server that has an appropriately defined Northwind data source name (DSN), the Web page shown in the following illustration is generated.</p>
+<p CLASS="Arta"><img SRC="..\images\ABAC2103.jpg"></p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>You can also reference an HTML template when you create IDC and HTX files. An HTML template contains additional HTML code to enhance the appearance of the resulting pages. If you specify an HTML template, it is merged with the HTX file. For information on the format of an HTML template, see <a HREF="#6UsinganHTMLTemplateWhenYouSaveDataasHTMLDocuments" OnClick="SyncURL(&quot;chapters/ba21_3.htm&quot;)">&quot;Using an HTML Template When You Save Data as HTML Documents&quot;</a> earlier in this chapter.</p>
+<a NAME="6RequirementsforUsingIDCHTXFiles"></a>
+<p CLASS="heading6OrgHeading4h4">Requirements for Using IDC/HTX Files</p>
+<p CLASS="Textttext">To use IDC/HTX files, your database and the IDC/HTX files must reside on a Microsoft Windows NT Server running Microsoft Internet Information Server version 1.0, 2.0, or 3.0, or on a computer running Windows 95 or Windows NT Workstation and Personal Web Server. Microsoft Internet Information Server and Personal Web Server use a component called the Internet Database Connector (Httpodbc.dll) to generate Web pages from IDC/HTX files.
+<p CLASS="Textttext">The Internet Database Connector component requires ODBC drivers to access a database. To access a Microsoft Access database, the Microsoft Access Desktop driver (Odbcjt32.dll) must be installed on your Web server. This driver is installed when you install Microsoft Internet Information Server if you select the <span CLASS="ElementNameeln">ODBC Drivers And Administration</span> check box during Setup.
+<p CLASS="Textttext">However, the Microsoft Access Desktop driver isn't installed with Personal Web Server. If Microsoft Access is installed on the computer you are using to run Personal Web Server, and if you selected the driver when you installed Microsoft Access, the driver is already available. If you don't have Microsoft Access installed on the computer you are using to run Personal Web Server, you must install the Microsoft Access Desktop driver.</p>
+<p CLASS="heading9ListProcedureHeadinglproch"><span CLASS="ProcedureIconproci"><img SRC="../images/bluetri.jpg" ALIGN="LEFT" WIDTH="9" HEIGHT="17">&nbsp;&nbsp;&nbsp;</span>To install the Microsoft Access Desktop driver</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">1</span>&nbsp;&nbsp;&amp;nbspRun the Microsoft Office or Microsoft Access Setup program.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">2</span>&nbsp;&nbsp;&amp;nbspIf you are running Setup for the first time, click <span CLASS="ElementNameeln">Custom</span>.</p>
+<p CLASS="ListText1lt1">If you are not running Setup for the first time, click <span CLASS="ElementNameeln">Add/Remove</span>.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">3</span>&nbsp;&nbsp;&amp;nbspSelect the <span CLASS="ElementNameeln">Data Access And ActiveX Controls</span> check box, and then click <span CLASS="ElementNameeln">Change Option</span>.</p>
+<p CLASS="ListNoteText1lnt"><span CLASS="ImportantHeadingih">Important&nbsp;&nbsp;&nbsp;</span><span CLASS="Xref">The <span CLASS="ElementNameeln">Microsoft Access</span> check box must also be selected or the driver will not be installed.</span></p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">4</span>&nbsp;&nbsp;&amp;nbspSelect the <span CLASS="ElementNameeln">Database Drivers</span> check box, and then click <span CLASS="ElementNameeln">Change Option</span>.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">5</span>&nbsp;&nbsp;&amp;nbspSelect the <span CLASS="ElementNameeln">Microsoft Access Driver</span> check box, and then click <span CLASS="ElementNameeln">OK</span>.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">6</span>&nbsp;&nbsp;&amp;nbspClick <span CLASS="ElementNameeln">Continue</span>, and follow the instructions in the remaining Setup dialog boxes.</p>
+<p CLASS="Textttext">After the Microsoft Access Desktop driver is installed, you must create either a system DSN or a file DSN that specifies the name and connection information for each database you want to use on the server. You then specify that DSN when you generate the IDC/HTX files.
+<p CLASS="Textttext"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For information on how to define a system DSN or a file DSN, search the Help index for &quot;ODBC, setting up data sources.&quot; For more information on Microsoft Internet Information Server, see the Microsoft Internet Information Server Web site, located at <a HREF="http://www.microsoft.com/infoserv/iisinfo.htm" TARGET="_top"><img SRC="..\images\external.gif" BORDER="0" HSPACE="0" VSPACE="0">http://www.microsoft.com/infoserv/iisinfo.htm</a>. For more information on using IDC/HTX files, search the Microsoft Internet Information Server Help index for &quot;database connector.&quot;
+<p CLASS="TipIcontpi"></p>
+<p CLASS="TipTexttpt"><span CLASS="TipHeadingtph">Tip&nbsp;&nbsp;&nbsp;</span>You can learn more about applications that use IDC/HTX files by reading about the Job Forum application. For information on the Job Forum application, see the Job Forum white paper, located at <a HREF="http://www.microsoft.com/accessdev/accwhite/jobforpa.htm" TARGET="_top"><img SRC="..\images\external.gif" BORDER="0" HSPACE="0" VSPACE="0">http://www.microsoft.com/accessdev/accwhite/jobforpa.htm</a>.</p>
+<a NAME="5SavingFormsandDatasheetsasActiveXServerPages"></a>
+<p CLASS="heading5OrgHeading3h3">Saving Forms and Datasheets as ActiveX Server Pages </p>
+<p CLASS="Textttext">With Microsoft Access, you can save a form as an ActiveX Server page that emulates much of the functionality of your form. When saving a form as an ActiveX Server page, Microsoft Access saves most, but not all, controls on the form as ActiveX controls that perform the same or similar functions. Microsoft Access doesn't save or run Visual Basic code behind the form or controls. To copy the layout of your form as closely as possible, Microsoft Access uses the Microsoft HTML Layout control to position the controls on ActiveX Server pages. The resulting page uses a feature of ActiveX Server called <span CLASS="NewTermntrm">server-side scripting</span> to connect to a copy of your database on an Internet server.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For information on the Microsoft HTML Layout control, see <a HREF="http://www.microsoft.com/workshop/author/layout/layout.htm" TARGET="_top"><img SRC="..\images\external.gif" BORDER="0" HSPACE="0" VSPACE="0">http://www.microsoft.com/workshop/author/layout/layout.htm</a>.</p>
+<p CLASS="Textttext">Users who open a form saved as an ActiveX Server page can browse records, update or delete existing records, and add new records. 
+<p CLASS="Textttext">You can also save table, query, and form datasheets as ActiveX Server pages. When you open a datasheet saved as an ActiveX Server page, Microsoft Access displays current data from a copy of your database located on an Internet server, much like IDC/HTX files do. However, unlike IDC/HTX files, ActiveX Server pages require only one file per datasheet. The ASP file uses scripting to establish a connection to the database on the server, and contains information that it uses to format the datasheet. Unlike a form saved as an ActiveX Server page, users can't update existing records in or add new records to a datasheet saved as an ActiveX Server page.</p>
+<p CLASS="heading9ListProcedureHeadinglproch"><span CLASS="ProcedureIconproci"><img SRC="../images/bluetri.jpg" ALIGN="LEFT" WIDTH="9" HEIGHT="17">&nbsp;&nbsp;&nbsp;</span>To save a form or datasheet as an ActiveX Server page</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">1</span>&nbsp;&nbsp;&amp;nbspIn the Database window, click the form or datasheet you want to save.<span CLASS="ElementNameeln"></span></p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">2</span>&nbsp;&nbsp;&amp;nbspOn the <span CLASS="ElementNameeln">File</span> menu, click <span CLASS="ElementNameeln">Save As/Export.</span> </p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">3</span>&nbsp;&nbsp;&amp;nbspIn the <span CLASS="ElementNameeln">Save As</span> dialog box, click <span CLASS="ElementNameeln">To An External File Or Database</span>, and then click <span CLASS="ElementNameeln">OK</span>.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">4</span>&nbsp;&nbsp;&amp;nbspIn the <span CLASS="ElementNameeln">Save As Type </span>box, click <span CLASS="ElementNameeln">Microsoft ActiveX Server (*.asp)</span>.<span CLASS="ElementNameeln"></span></p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">5</span>&nbsp;&nbsp;&amp;nbspSpecify the file name and location to save the file, and then click <span CLASS="ElementNameeln">Export</span>. </p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">6</span>&nbsp;&nbsp;&amp;nbspIn the <span CLASS="ElementNameeln">HTML Output Options</span> dialog box, specify:</p>
+<p CLASS="ListBulletedItem2lb2"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspThe data source name that will be used for a copy of the current database.</p>
+<p CLASS="ListBulletedItem2lb2"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspA user name and password, if required to open the database.</p>
+<p CLASS="ListBulletedItem2lb2"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspAn HTML template, if you want Microsoft Access to merge one with the ActiveX Server page.</p>
+<p CLASS="ListText2lt2"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span><span CLASS="Xref">For information on HTML templates, see <a HREF="#6UsinganHTMLTemplateWhenYouSaveDataasHTMLDocuments" OnClick="SyncURL(&quot;chapters/ba21_3.htm&quot;)">&quot;Using an HTML Template When You Save Data as HTML Documents&quot;</a> earlier in this chapter.</span></p>
+<p CLASS="ListBulletedItem2lb2"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspThe URL for the server where ActiveX Server page will reside.</p>
+<p CLASS="ListBulletedItem2lb2"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspThe<span CLASS="ElementNameeln"> Session Timeout</span> setting, which determines how long a connection to the server is maintained after the user stops working the ActiveX Server page.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">7</span>&nbsp;&nbsp;&amp;nbspClick <span CLASS="ElementNameeln">OK</span>.</p>
+<p CLASS="Textttext">You can also save forms and datasheets as ActiveX Server pages by using the Publish to the Web Wizard (available through the<span CLASS="ElementNameeln"> Save As HTML</span> command on the <span CLASS="ElementNameeln">File</span> menu), the <span CLASS="ElementNameeln">OutputTo</span> method in code, or the OutputTo action in macros.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on saving forms and datasheets as ActiveX Server pages, search the Help index for &quot;saving database objects, saving in Internet/Web formats&quot; or &quot;OutputTo method.&quot;</p>
+<a NAME="6FormViewsSupportedforActiveXServerPages"></a>
+<p CLASS="heading6OrgHeading4h4">Form Views Supported for ActiveX Server Pages</p>
+<p CLASS="Textttext">If the form you save as an ActiveX Server page has its <span CLASS="ElementNameeln">DefaultView</span> property set to Single Form or Continuous Forms, the ActiveX Server page displays as a single form, unless it is open in Datasheet view when you use the <span CLASS="ElementNameeln">Save As/Export</span> command (<span CLASS="ElementNameeln">File</span> menu). If the form has its <span CLASS="ElementNameeln">DefaultView</span> property set to Datasheet, the ActiveX Server page displays as a datasheet. Subforms always display as datasheets, regardless of their <span CLASS="ElementNameeln">DefaultView</span> property setting. All field data types are saved unformatted, that is, <span CLASS="ElementNameeln">Format</span> and <span CLASS="ElementNameeln">InputMask</span> property settings aren't saved.</p>
+<a NAME="6ControlTypesSupportedforActiveXServerPages"></a>
+<p CLASS="heading6OrgHeading4h4">Control Types Supported for ActiveX Server Pages</p>
+<p CLASS="Textttext">When Microsoft Access saves a form as an ActiveX Server page, it replaces Microsoft Access controls with ActiveX controls, as described in the following table.</p>
+<!--mstheme--></font><table WIDTH="100%" BORDER="0" CELLPADDING="5" CELLSPACING="0" FRAME="VOID" RULES="THEAD"><thead>
+<tr VALIGN="TOP" BGCOLOR="#DDDDDD">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Microsoft Access control</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">ActiveX control</p></font><!--mstheme--></font></td></tr><tbody>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Text box</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Text box.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Text box control bound to a Hyperlink field</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Text box that displays the hyperlink text, but the hyperlink can't be followed.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">List box</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">List box (single-column only).</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Combo box</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Combo box.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Label</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Label. If the label has <span CLASS="ElementNameeln">HyperlinkAddress</span> and/or <span CLASS="ElementNameeln">HyperlinkSubAddress</span> properties set, a hyperlink is created for the label.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Command button</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Command button, but any code behind the button isn't saved. If the command button has <span CLASS="ElementNameeln">HyperlinkAddress</span> and/or <span CLASS="ElementNameeln">HyperlinkSubAddress</span> properties set, a hyperlink is created for the button.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Option group</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Option group, but without a group frame.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Option button</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Option button.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Check box</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Check box.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Toggle button</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Toggle button.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">ActiveX control</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">ActiveX control, but any code behind the control isn't saved.</p></font><!--mstheme--></font></td></tr>
+</table><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="Textttext">Microsoft Access doesn't support the following when saving a form as an ActiveX Server page:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspTab controls</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspRectangles</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspLines</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspPage breaks</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspUnbound object frames</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspBound object frames</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspImage controls</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspThe background of a form set with the <b>Picture</b> property</p>
+<a NAME="6RequirementsforUsingActiveXServerPages"></a>
+<p CLASS="heading6OrgHeading4h4">Requirements for Using ActiveX Server Pages</p>
+<p CLASS="Textttext">To display and use an ActiveX Server page, a copy of your database and ActiveX Server page must reside on a Microsoft Windows NT Server running Microsoft Internet Information Server version 3.0 and ActiveX Server. ActiveX Server pages require the Microsoft Access Desktop driver and a valid DSN to access a database.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For information on installing the Microsoft Access Desktop driver and defining DSNs, see <a HREF="#6RequirementsforUsingIDCHTXFiles" OnClick="SyncURL(&quot;chapters/ba21_3.htm&quot;)">&quot;Requirements for Using IDC/HTX Files&quot;</a> earlier in this chapter.</p>
+<a NAME="5UsingthePublishtotheWebWizard"></a>
+<p CLASS="heading5OrgHeading3h3">Using the Publish to the Web Wizard</p>
+<p CLASS="Textttext">With the Publish to the Web Wizard, you can publish a set of Microsoft Access database objects to any combination of static HTML documents, IDC/HTX files, or ActiveX Server pages (ASP). Using the wizard, you can:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspPick any combination of tables, queries, forms, or reports to save.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspSpecify an HTML template to use for the selected objects.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspSelect any combination of static HTML documents, IDC/HTX files, or ActiveX Server pages (ASP).</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspCreate a home page to tie together the Web pages you create.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspSpecify the folder where you save your files.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspUse the Web Publishing Wizard to move the files created by the Publish to the Web Wizard to a Web server.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspSave the answers you provide the wizard as a Web publication profile, and then select that profile the next time you use the wizard. This saves you from having to answer the wizard's questions again.</p>
+<p CLASS="Textttext">To run the Publish to the Web Wizard, click<span CLASS="ElementNameeln"> Save As HTML</span> on the <span CLASS="ElementNameeln">File</span> menu.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on using the Publish to the Web Wizard, search the Help index for &quot;Saving database objects, saving in Internet/Web formats.&quot;</p>
+<a NAME="4SynchronizingDatabaseReplicasovertheInternet"></a>
+<p CLASS="heading4OrgHeading2h2">Synchronizing Database Replicas over the Internet</p>
+<p CLASS="Textttext">With Microsoft Access 97, you can synchronize replicas over the Internet. Before you can synchronize over the Internet, you must configure your Internet server for replication. To configure your Internet server, you need Replication Manager, which includes a wizard that takes you through the configuration process. </p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on Replication Manager, see <a HREF="../chapters/ba20_2.htm#4ReplicationManager" OnClick="SyncURL(&quot;chapters/ba20_2.htm&quot;)">&quot;Replication Manager&quot;</a> in Chapter 20, &quot;Using Replication in Your Application.&quot;</p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="ba21_4.htm" OnClick="SyncURL(&quot;chapters/ba21_4.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

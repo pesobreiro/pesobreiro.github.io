@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>Designating a New Design Master</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba20_10.htm" OnClick="SyncURL(&quot;chapters/ba20_10.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<a NAME="3DesignatingaNewDesignMaster"></a>
+<p CLASS="heading3OrgHeading1h1">Designating a New Design Master</p>
+<p CLASS="Textttext">The Design Master replica is the most important replica in a set because it is the only replica where you can make changes to the structure of the database. Under certain circumstances, you may need to make another replica the Design Master. For example, you may have the Design Master replica on your computer and another member of your development team has a replica on his or her computer. While you are on vacation, you want the other developer to be able to make changes to the database. To designate a new Design Master, first set the <span CLASS="ElementNameeln">DesignMasterID</span> property of the current Design Master to the value of the other replica's <span CLASS="ElementNameeln">ReplicaID</span> property, and then synchronize the two replicas, as shown in the following code:</p>
+<p CLASS="CodeTextct">' Current Design Master replica.<br>Set dbs = OpenDatabase(strOldDM), True<br>' New Design Master replica.<br>Set dbNewDM = DBEngine(0).OpenDatabase(strNewDM), True&nbsp;&nbsp;&nbsp;<br>dbs.DesignMasterID = dbNewDM.ReplicaID<br>dbs.Synchronize strNewDM, dbRepImpExpChanges<br>dbs.Close<br>dbNewDM.Close</p>
+<p CLASS="Textttext">You must have the Design Master replica open to make another replica the Design Master. The Design Master replica is, by definition, a read/write replica. If you make a read-only replica the Design Master, the new Design Master is made read/write and the old Design Master is made read-only.
+<p CLASS="Textttext">If the replica serving as the Design Master is totally erased or corrupted, you can designate another replica to act as the Design Master. However, remember that you can have only one Design Master at a time.
+<p CLASS="Textttext">If you decide to make your own replica the new Design Master for the set, synchronize all the replicas in the replica set before setting the <span CLASS="ElementNameeln">DesignMasterID</span> property in your replica. You must have your replica open to make it the Design Master.</p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="ba20_12.htm" OnClick="SyncURL(&quot;chapters/ba20_12.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

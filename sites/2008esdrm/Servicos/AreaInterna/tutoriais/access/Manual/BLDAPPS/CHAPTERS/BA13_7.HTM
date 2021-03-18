@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>Additional Tips for Fast Code</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba13_6.htm" OnClick="SyncURL(&quot;chapters/ba13_6.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<a NAME="3AdditionalTipsforFastCode"></a>
+<p CLASS="heading3OrgHeading1h1">Additional Tips for Fast Code</p>
+<p CLASS="Textttext">In general, you can do more to improve the speed of your code by choosing more efficient algorithms than by implementing particular coding &quot;tricks.&quot; However, certain techniques can help you write more efficient code. This section gives tips you can use to speed up your code.</p>
+<a NAME="6UseobjectvariablestorefertopropertiescontrolsandDAOobjects"></a>
+<p CLASS="heading6OrgHeading4h4">Use Object Variables to Refer to Properties, Controls, and DAO Objects</p>
+<p CLASS="Textttext">If you refer more than once to the value of a property or control on a form, or to a DAO object or its property, create object variables and refer to the variables rather than using full identifiers. This approach is especially effective for speeding up a looping operation on a series of properties, controls, or objects.</p>
+<a NAME="6UsetheMekeywordforformreferenceswithinaneventprocedure"></a>
+<p CLASS="heading6OrgHeading4h4">Use the Me Keyword for Form References Within an Event Procedure</p>
+<p CLASS="Textttext">When you make form references within an event procedure, use the <span CLASS="ElementNameeln">Me</span> keyword to refer to the form. This restricts the search for the form to the instance of the form in which code is currently running.</p>
+<a NAME="6Useconstantswheneverpossible"></a>
+<p CLASS="heading6OrgHeading4h4">Use Constants Whenever Possible</p>
+<p CLASS="Textttext">If your code has strings or numbers that don't change, declare them as constants instead of variables. Using constants makes your application run faster. Constants also make your code more readable and easier to maintain. Constants are resolved once when your program is compiled, with the appropriate value written into the code. With variables, on the other hand, each time the application runs and finds a variable, it needs to get the current value of the variable. Whenever possible, use the intrinsic constants listed in the Object Browser rather than creating your own.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For information on constants, see Chapter 4, <a HREF="../chapters/ba04_1.htm" OnClick="SyncURL(&quot;chapters/ba04_1.htm&quot;)">&quot;Working with Variables, Data Types, and Constants.&quot;</a></p>
+<a NAME="6UsetheIlffunctionjudiciously"></a>
+<p CLASS="heading6OrgHeading4h4">Use the Ilf Function Judiciously</p>
+<p CLASS="Textttext">Avoid using the <span CLASS="ElementNameeln">Ilf</span> function if either of the return expressions takes a long time to evaluate. When you use the<span CLASS="ElementNameeln"> Ilf</span> function, Microsoft Access always evaluates both expressions, even though it returns only one of them. It's often more efficient to replace the <span CLASS="ElementNameeln">Ilf</span> function with an <span CLASS="ElementNameeln">If...Then...Else</span> statement block.</p>
+<a NAME="6Usespecificobjecttypes"></a>
+<p CLASS="heading6OrgHeading4h4">Use Specific Object Types</p>
+<p CLASS="Textttext">References to objects and their methods and properties are resolved either when an application is compiled or when it runs. To improve execution speed when working with Automation objects, instead of using a <span CLASS="ElementNameeln">Variant</span> data type or the generic <span CLASS="ElementNameeln">Object </span>data type, declare objects as they are listed in the <span CLASS="ElementNameeln">Classes </span>box in the Object Browser. This ensures that Visual Basic recognizes the specific type of object you're referencing, allowing the reference to be resolved at compile time.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For information on object types and on using the Object Browser, see Chapter 5, <a HREF="../chapters/ba05_1.htm" OnClick="SyncURL(&quot;chapters/ba05_1.htm&quot;)">&quot;Working with Objects and Collections.&quot;</a></p>
+<a NAME="6UsetheIntegerorLongdatatypeformathwhenpossible"></a>
+<p CLASS="heading6OrgHeading4h4">Use the Integer or Long Data Type for Math When Possible</p>
+<p CLASS="Textttext">Use the <span CLASS="ElementNameeln">Integer</span> or <span CLASS="ElementNameeln">Long</span> data type for math when the size and type of numbers permit. The <span CLASS="ElementNameeln">Variant</span> data type, though more flexible, uses more memory and processor time as it translates between data types. The following table ranks the numeric data types by calculation speed.</p>
+<!--mstheme--></font><table WIDTH="100%" BORDER="0" CELLPADDING="5" CELLSPACING="0" FRAME="VOID" RULES="THEAD"><thead>
+<tr VALIGN="TOP" BGCOLOR="#DDDDDD">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Numeric data types</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Speed</p></font><!--mstheme--></font></td></tr><tbody>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Integer</span>,<span CLASS="ElementNameeln"> Long</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Fastest</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Single</span>,<span CLASS="ElementNameeln"> Double</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Next-to-fastest</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Currency</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Next-to-slowest</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Variant</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Slowest</p></font><!--mstheme--></font></td></tr>
+</table><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on data types, see Chapter 4, <a HREF="../chapters/ba04_1.htm" OnClick="SyncURL(&quot;chapters/ba04_1.htm&quot;)">&quot;Working with Variables, Data Types, and Constants.&quot;</a></p>
+<a NAME="6Usestringfunctionswhenappropriate"></a>
+<p CLASS="heading6OrgHeading4h4">Use String Functions When Appropriate</p>
+<p CLASS="Textttext">Some functions have two versions, one that returns a <span CLASS="ElementNameeln">Variant</span> data type (for example, the <span CLASS="ElementNameeln">Str</span> function) and one that returns a <span CLASS="ElementNameeln">String</span> data type (for example, the <span CLASS="ElementNameeln">Str$</span> function). Use string functions when working with strings. Your operations run faster when you use string functions because Microsoft Access doesn't need to perform type conversions.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on string functions, search the Help index for &quot;returning strings.&quot;</p>
+<a NAME="6Usedynamicarraysinsteadoffixedsizearrays"></a>
+<p CLASS="heading6OrgHeading4h4">Use Dynamic Arrays Instead of Fixed-Size Arrays</p>
+<p CLASS="Textttext">Consider using dynamic arrays instead of fixed-size arrays because you can reclaim memory when you no longer need the data in a dynamic array. Use either the <span CLASS="ElementNameeln">Erase</span> statement or the <span CLASS="ElementNameeln">ReDim </span>statement with the<span CLASS="ElementNameeln"> Preserve</span> keyword to discard unneeded data and reclaim the memory used by the array. For example, you can reclaim the memory used by a dynamic array by using the <span CLASS="ElementNameeln">Erase</span> statement, as follows:</p>
+<p CLASS="CodeTextct">Erase intArray</p>
+<p CLASS="Textttext">While the <span CLASS="ElementNameeln">Erase</span> statement completely eliminates the array, the <span CLASS="ElementNameeln">ReDim </span>statement used with the<span CLASS="ElementNameeln"> Preserve</span> keyword makes the array smaller without losing its contents.</p>
+<p CLASS="CodeTextct">ReDim Preserve intArray(10, conNewUpperBound)</p>
+<p CLASS="Textttext">Erasing a fixed-size array doesn't reclaim the memory for the array; it simply clears out the values of each element of the array. If each element was a string, or a <span CLASS="ElementNameeln">Variant</span> data type containing a string or an array, then erasing the array would reclaim the memory from those strings or <span CLASS="ElementNameeln">Variant </span>data types, not the memory for the array itself.</p>
+<a NAME="6Replaceprocedurecallswithinlinecode"></a>
+<p CLASS="heading6OrgHeading4h4">Replace Procedure Calls with Inline Code</p>
+<p CLASS="Textttext">Although using procedures makes your code more modular, performing each procedure call always involves some additional work and time. If you have a loop that calls a procedure many times, you can eliminate this overhead by removing the procedure call and placing the body of the procedure directly inline within the loop. If you place the same code inline in several loops, however, the duplicate code increases the size of your application. It also increases the chance that you won't remember to update each section of duplicate code when you make changes.</p>
+<a NAME="6UsetheFindmethodsonindexedfields"></a>
+<p CLASS="heading6OrgHeading4h4">Use the Find Methods on Indexed Fields</p>
+<p CLASS="Textttext">When locating records that satisfy a specified criteria, the Find methods are much more efficient than the <span CLASS="ElementNameeln">Seek</span> method when used on a field that is indexed.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For information on the Find methods, see <a HREF="../chapters/ba09_1.htm#5FindingaRecordinaDynasetorSnapshotTypeRecordsetObject" OnClick="SyncURL(&quot;chapters/ba09_1.htm&quot;)">&quot;Finding a Record in a Dynaset- or Snapshot-Type Recordset Object&quot;</a> in Chapter 9, &quot;Working with Records and Fields.&quot;</p>
+<a NAME="6Usebookmarksforfastrelocation"></a>
+<p CLASS="heading6OrgHeading4h4">Use Bookmarks for Fast Relocation</p>
+<p CLASS="Textttext">Use bookmarks instead of the <span CLASS="ElementNameeln">FindNext</span> method or some other means to return to a particular record. By using the <span CLASS="ElementNameeln">Bookmark</span> property, you can write a procedure to find a target record, store its bookmark value in a variable, move to other records, and return to the original record by referring to the bookmark.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on the <span CLASS="ElementNameeln">Bookmark</span> property, search the Help index for &quot;Bookmark property.&quot;</p>
+<a NAME="6Openaddindatabasesforreadonlyaccess"></a>
+<p CLASS="heading6OrgHeading4h4">Open Add-in Databases for Read-only Access</p>
+<p CLASS="Textttext">If your application includes add-ins and doesn't need to write to them, load the add-in databases for read-only access rather than for read/write permission. The read-only database loads and runs faster because a locking information (.ldb) file doesn't need to be maintained.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For information on working with add-ins, see Chapter 17, <a HREF="../chapters/ba17_1.htm" OnClick="SyncURL(&quot;chapters/ba17_1.htm&quot;)">&quot;Creating Wizards, Builders, and Menu Add-ins.&quot;</a></p>
+<a NAME="6Considerreducingthenumberofproceduresandmodules"></a>
+<p CLASS="heading6OrgHeading4h4">Consider Reducing the Number of Procedures and Modules</p>
+<p CLASS="Textttext">While your application runs, each called procedure is placed in its own public block of memory. Microsoft Access incurs some overhead when creating and managing these blocks. You can reduce some of this overhead by combining short procedures into larger procedures and by consolidating your procedures into fewer modules. Keep in mind that using larger procedures in fewer modules makes your code more difficult to debug and maintain.</p>
+<a NAME="6Organizeyourmodules"></a>
+<p CLASS="heading6OrgHeading4h4">Organize Your Modules</p>
+<p CLASS="Textttext">Visual Basic loads modules on demand<img SRC="../images/Emdash.gif" BORDER="0" VSPACE="0" HSPACE="0" WIDTH="16" HEIGHT="5">that is, it loads a module into memory only when your code calls one of the procedures in that module. If you never call a procedure in a particular module, Visual Basic never loads that module. Place related procedures in the same module so that Visual Basic only needs to load that module.</p>
+<a NAME="6Eliminatedeadcodeandunusedvariables"></a>
+<p CLASS="heading6OrgHeading4h4">Eliminate Dead Code and Unused Variables</p>
+<p CLASS="Textttext">As you develop and modify your applications, you may leave behind <span CLASS="NewTermntrm">dead code</span><img SRC="../images/Emdash.gif" BORDER="0" VSPACE="0" HSPACE="0" WIDTH="16" HEIGHT="5">entire procedures that are not called from anywhere in your code. You may also have declared variables that are no longer used. Consider reviewing your code to find and remove unused procedures and variables; for example, <span CLASS="ElementNameeln">Debug.Print</span> statements.
+<p CLASS="Textttext">To search for references to a particular variable, use the <span CLASS="ElementNameeln">Find</span> command (<span CLASS="ElementNameeln">Edit</span> menu). Or, if you have <span CLASS="ElementNameeln">Option Explicit</span> statements in each of your modules, you can quickly discover if a variable is used in your application by removing its declaration and running the application. If the variable is used, Visual Basic generates an error. If you don't see an error, the variable was not used.
+<p CLASS="Textttext">If your application has places in which the contents of a string variable or a <span CLASS="ElementNameeln">Variant</span> data type containing a string isn't needed, assign a zero-length string (&quot;&quot;) to that variable. If you no longer need an object variable, set that variable to the <span CLASS="ElementNameeln">Nothing</span> keyword to reclaim the memory used by the object reference.</p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>You can also use compiler directives and conditional compilation to ignore portions of code based on constant values that you specify. For more information, see Chapter 7, <a HREF="../chapters/ba07_1.htm" OnClick="SyncURL(&quot;chapters/ba07_1.htm&quot;)">&quot;Debugging Visual Basic Code.&quot;</a></p>
+<a NAME="6Considerstrippingcommentsfromyourdeliveredapplication"></a>
+<p CLASS="heading6OrgHeading4h4">Consider Stripping Comments from Your Delivered Application</p>
+<p CLASS="Textttext">Comments in code use memory. If your application contains many lines of commented code, consider stripping the comments from your code in the delivered application. Before delivering the application, save the code to a text file. Make a copy of the text file and strip out the comments. Then load the stripped code back into your application. Retain the text file that contains the commented code for your reference and future development work.</p>
+<a NAME="6ConsidersavingyourapplicationasanmDEfile"></a>
+<p CLASS="heading6OrgHeading4h4">Consider Saving Your Application as an MDE File</p>
+<p CLASS="Textttext">If it is appropriate for the situation your application will be used in, consider saving your application as an MDE file. Saving a database containing code as an MDE file removes the source code from the file and provides some additional optimization of memory use.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on MDE files, see <a HREF="../chapters/ba14_1.htm#4SavingYourApplicationasanMDEFile" OnClick="SyncURL(&quot;chapters/ba14_1.htm&quot;)">&quot;Saving Your Application as an MDE File&quot;</a> in Chapter 14, &quot;Securing Your Application.&quot;</p>
+<a NAME="6Deliveryourapplicationwithmodulescompiled"></a>
+<p CLASS="heading6OrgHeading4h4">Deliver Your Application with Modules Compiled</p>
+<p CLASS="Textttext">Compile your modules before saving them and before delivering your application. This decreases the time it takes to load the module when your application calls a procedure that resides there. To compile all procedures in all modules in the current database, click <span CLASS="ElementNameeln">Compile And Save All Modules</span> on the <span CLASS="ElementNameeln">Debug</span> menu in the Module window.</p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="ba13_8.htm" OnClick="SyncURL(&quot;chapters/ba13_8.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

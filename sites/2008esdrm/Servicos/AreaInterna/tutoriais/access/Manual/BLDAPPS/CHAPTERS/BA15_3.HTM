@@ -1,0 +1,34 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>Separating Your Application's Tables from Its Other Objects</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba15_2.htm" OnClick="SyncURL(&quot;chapters/ba15_2.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<a NAME="3SeparatingYourApplicationsTablesfromItsOtherObjects"></a>
+<p CLASS="heading3OrgHeading1h1">Separating Your Application's Tables from Its Other Objects</p>
+<p CLASS="Textttext">If you're distributing your application to a number of users, or if your data is located on a server, consider using a back-end database to hold the tables that contain your data and a front-end database to hold the application's other objects (queries, forms, reports, macros, and modules). You can then base all objects in your application on linked tables from the back-end database.
+<p CLASS="Textttext">When you separate the application's data from its objects, you can easily distribute new versions of your front-end database that include upgraded queries, forms, reports, macros, and modules without disturbing the application's data. Similarly, if you need to exchange one set of data for another or back up your data, you can perform these operations on your back-end database without affecting the objects in your front-end database. And if your data is located on a server, you can reduce the network load and improve performance by having users run the front-end database on their workstations rather than from the server.
+<p CLASS="Textttext">Users open and use the front-end database. Because the objects in the front-end database are based on linked tables, changes that users make to the data using these objects change the data in the back-end database. The following illustration demonstrates this configuration.</p>
+<p CLASS="Arta"><img SRC="..\images\ABAC1501.jpg"></p>
+<p CLASS="Textttext">If you know from the beginning that you intend to split your application into two database files, you can develop the application with this in mind. Or you can keep tables and objects together in the same file and split them only when you're finished with development and are ready to distribute the application.
+<p CLASS="Textttext">The easiest way to split an application after creating its objects is to use the Database Splitter Wizard.</p>
+<p CLASS="heading9ListProcedureHeadinglproch"><span CLASS="ProcedureIconproci"><img SRC="../images/bluetri.jpg" ALIGN="LEFT" WIDTH="9" HEIGHT="17">&nbsp;&nbsp;&nbsp;</span>To split an application after creating its objects</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">1</span>&nbsp;&nbsp;&amp;nbspOn the <span CLASS="ElementNameeln">Tools</span> menu, point to <span CLASS="ElementNameeln">Add-ins</span>, and then click <span CLASS="ElementNameeln">Database Splitter</span>.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">2</span>&nbsp;&nbsp;&amp;nbspFollow the instructions in the dialog boxes that appear.</p>
+<p CLASS="Textttext">The Database Splitter Wizard creates a new, empty back-end database. It moves all tables in the current database to the new back-end database, preserving table relationships and properties. The current database is now the front-end database. The wizard then links each table in the back-end database to the front-end database.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on using linked tables, search the Help index for &quot;linked tables.&quot;</p>
+<p CLASS="Textttext">The links used by linked tables in the front-end database are based on the location of the back-end database. If users move the back-end database to a different location, the links will fail. If the current links are broken, you can automate the process of linking tables for your users by prompting them for the path to the back-end database when they start your application. Then you can use the <span CLASS="ElementNameeln">RefreshLink</span> method to refresh your application's links. To see an example of how this works, open the Developer Solutions sample application in the Samples subfolder of your Office folder. In the upper part of the Developer Solutions form, double-click <span CLASS="ElementNameeln">Use Multiple Databases</span>. In the lower part, double-click <span CLASS="ElementNameeln">Link Tables At Startup</span>.</p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="ba15_4.htm" OnClick="SyncURL(&quot;chapters/ba15_4.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

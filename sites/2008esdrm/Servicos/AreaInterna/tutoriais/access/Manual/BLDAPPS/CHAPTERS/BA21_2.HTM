@@ -1,0 +1,345 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>Using Hyperlinks in Microsoft Access Applications</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba21_1.htm" OnClick="SyncURL(&quot;chapters/ba21_1.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<a NAME="3UsingHyperlinksinMicrosoftAccessApplications"></a>
+<p CLASS="heading3OrgHeading1h1">Using Hyperlinks in Microsoft Access Applications</p>
+<p CLASS="Textttext">Hyperlinks can jump to two kinds of objects: a Web page or other content on the Internet or an intranet, or to a Microsoft Office document (Microsoft Word document, Microsoft Excel worksheet, Microsoft PowerPoint slide, or Microsoft Access database object) stored on a local hard disk or a LAN.
+<p CLASS="Textttext">There are two ways you can use hyperlinks in Microsoft Access applications:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspCreate a field with the Hyperlink data type to store hyperlink addresses in a table, and then bind that field to a text box on a form. Like other bound fields, as the user moves from record to record, the value in the text box changes to display the current record's hyperlink value. For example, you can use hyperlinks in this way to create an application in which users can jump to Web pages, or to other content on the Internet or an intranet, from a predefined list of addresses. You can also use hyperlinks in this way to create an application that displays and manages Microsoft Office documents.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspCreate a label, image control, or command button on a form that references a specified hyperlink address. In this case, the hyperlink doesn't change as you move from record to record. For example, you can use hyperlinks in this way to navigate to other database objects within the same database, or to open a Web page on an intranet that contains updated information on how to use your application.</p>
+<p CLASS="Textttext">Regardless of how a hyperlink is defined in your application, if the hyperlink jumps to a database object or opens another Microsoft Office document, you can use the Web toolbar to navigate between the hyperlinks you've previously followed. For example, in the following illustration, the Products form has a command button with a hyperlink that opens a report. Once you have clicked the hyperlink, you can use the Web toolbar to navigate between other objects you've opened with hyperlinks. </p>
+<p CLASS="Arta"><img SRC="..\images\ABAC2101.jpg"></p>
+<p CLASS="Textttext">Similarly, if you follow a hyperlink from a Microsoft Access form to open a Microsoft Word document, you can click the <span CLASS="ElementNameeln">Back</span> button on the Web toolbar in Microsoft Word to return to the form.</p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>By default, after a user clicks a hyperlink on a form, Microsoft Access continues to display the Web toolbar when the user closes the form. If you want to prevent this, you can use Visual Basic code in the OnClose event of the form to hide the toolbar. To see an example of Visual Basic code that does this, open the Products form in the Northwind sample application in Design view, and then display the event procedure in the OnClose event of the form. </p>
+<a NAME="4StoringHyperlinksinTables"></a>
+<p CLASS="heading4OrgHeading2h2">Storing Hyperlinks in Tables</p>
+<p CLASS="Textttext">In Microsoft Access 97, a field in a table can store hyperlinks as data. To create a Hyperlink field, add a field in table Design view and set its <span CLASS="ElementNameeln">DataType</span> property to Hyperlink. You can also create a Hyperlink field in table Datasheet view by clicking <span CLASS="ElementNameeln">Hyperlink Column</span> on the <span CLASS="ElementNameeln">Insert</span> menu.
+<p CLASS="Textttext">You can follow a hyperlink stored in a table by clicking it in the table, but more typically, the field will be bound to a text box control on a form.</p>
+<p CLASS="heading9ListProcedureHeadinglproch"><span CLASS="ProcedureIconproci"><img SRC="../images/bluetri.jpg" ALIGN="LEFT" WIDTH="9" HEIGHT="17">&nbsp;&nbsp;&nbsp;</span>To add a text box that is bound to a Hyperlink field to a form</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">1</span>&nbsp;&nbsp;&amp;nbspOpen the form in Design view.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">2</span>&nbsp;&nbsp;&amp;nbspMake sure the form's <span CLASS="ElementNameeln">RecordSource</span> property is set to the table that contains the Hyperlink field, or to a query that includes the table.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">3</span>&nbsp;&nbsp;&nbsp;<img SRC="..\images\FIELDLST.gif">&amp;nbspClick <span CLASS="ElementNameeln">Field List</span> on the toolbar.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">4</span>&nbsp;&nbsp;&amp;nbspDrag the Hyperlink field from the field list to the form.</p>
+<p CLASS="Textttext">To see an example of how to use a Hyperlink field, open the Suppliers form in the Northwind sample application. The Home Page text box on the form is bound to the HomePage field in the Suppliers table. Clicking a hyperlink in the text box starts your Web browser and displays the supplier's home page.</p>
+<p CLASS="Arta"><img SRC="..\images\ABAC2102.jpg"></p>
+<p CLASS="Textttext">You can also use hyperlinks in Microsoft Access to jump to database objects and other Microsoft Office documents. For example, you could create a document management application that uses a Hyperlink field to store paths to Microsoft Word documents on a network. Users of such an application could add records to track new documents, or click the hyperlink in a previously added record to open the specified document.</p>
+<a NAME="5TheHyperlinkFieldStorageFormat"></a>
+<p CLASS="heading5OrgHeading3h3">The Hyperlink Field Storage Format</p>
+<p CLASS="Textttext">A Hyperlink field stores up to three pieces of information: the <span CLASS="NewTermntrm">displaytext</span>, the <span CLASS="NewTermntrm">address</span>, and the<span CLASS="NewTermntrm"> subaddress</span>. Each piece is separated by the pound sign (#), in the following format:</p>
+<p CLASS="SyntaxTextsyn"><span CLASS="NewTermntrm">displaytext</span><span CLASS="ElementNameeln">#</span><span CLASS="NewTermntrm">address</span><span CLASS="ElementNameeln">#</span><span CLASS="Placeholderp">subaddress</span></p>
+<p CLASS="Textttext">The following table describes each piece of the Hyperlink field storage format.</p>
+<!--mstheme--></font><table WIDTH="100%" BORDER="0" CELLPADDING="5" CELLSPACING="0" FRAME="VOID" RULES="THEAD"><thead>
+<tr VALIGN="TOP" BGCOLOR="#DDDDDD">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Piece</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Description</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Required?</p></font><!--mstheme--></font></td></tr><tbody>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="NewTermntrm">displaytext</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">The text the user sees in the Hyperlink field in a table, or in a text box bound to the Hyperlink field. You can set the display text to any text string. For example, you may want the display text to be a descriptive name for the Web site or object specified by the <span CLASS="NewTermntrm">address</span> and <span CLASS="NewTermntrm">subaddress</span>. If you do not specify display text, Microsoft Access displays the value of <span CLASS="NewTermntrm">address</span> instead.</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">No</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="NewTermntrm">address</span> </p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">A valid URL that points to a page or file on the Internet or an intranet, or the path to a file on a local hard drive or LAN. If you enter a path on a LAN, you can omit a mapped drive letter and use the universal naming convention (UNC) format: <span CLASS="ElementNameeln">\\</span><span CLASS="NewTermntrm">server</span><span CLASS="ElementNameeln">\</span><span CLASS="NewTermntrm">share</span><span CLASS="ElementNameeln">\</span><span CLASS="NewTermntrm">path</span><span CLASS="ElementNameeln">\</span><span CLASS="NewTermntrm">filename.</span> This prevents the path from becoming invalid if the database is later copied to another computer's hard drive or into a shared network folder.</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Yes, unless <span CLASS="NewTermntrm">subaddress</span> points to an object in the current database (.mdb) file.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="NewTermntrm">subaddress</span> </p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">The location within a file or document; for example, a database object, such as a form or report. When referring to a database object, the name of the object should be preceded by its type: Table, Query, Form, Report, Macro, or Module. Other possible values for<span CLASS="NewTermntrm"> subaddress</span> include a bookmark in a Microsoft Word document, an anchor in an HTML document, a Microsoft PowerPoint slide, or a cell in a Microsoft Excel worksheet.</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">No</p></font><!--mstheme--></font></td></tr>
+</table><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="Textttext">Each piece of the Hyperlink field storage format can be up to 2,000 characters. The maximum length of the entire Hyperlink field value is 6,000 characters.
+<p CLASS="Textttext">The following table gives examples of valid Hyperlink field values.</p>
+<!--mstheme--></font><table WIDTH="100%" BORDER="0" CELLPADDING="5" CELLSPACING="0" FRAME="VOID" RULES="THEAD"><thead>
+<tr VALIGN="TOP" BGCOLOR="#DDDDDD">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Hyperlink field value</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Jumps to</p></font><!--mstheme--></font></td></tr><tbody>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Cajun Delights#http://www. cajundelights.com/cajun.htm#</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">The Cajun Delights Web page. Only the words &quot;Cajun Delights&quot; are displayed in the field or text box.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">#http://www.cajundelights.com/cajun.htm#</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">The Cajun Delights Web page. The text &quot;http://www.cajundelights.com&quot; appears in the field or text box because no display text is specified.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">#http://www.cajundelights. com/cajun.htm#Price</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">The HTML anchor with the NAME attribute Price on the Cajun Delights Web page.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Resume#c:\windows\personal\resume.doc#</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">A Microsoft Word file named Resume.doc located in the \Windows\Personal folder. Only the word &quot;Resume&quot; is displayed in the field or text box.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">#c:\windows\personal\resume.doc#</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">A Microsoft Word file named Resume.doc located in the \Windows\Personal folder. The text &quot;c:\windows\personal\resume.doc&quot; appears in the field or text box because no display text is specified.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">#c:\windows\personal\resume. doc#Qualifications</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">The section in the Resume.doc Microsoft Word file marked with the bookmark name Qualifications.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">#\\databases\samples\northwind.mdb#Form Suppliers</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">The Suppliers form in the Northwind sample application located in the Samples share on the Databases server on a LAN (UNC format path).</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Suppliers Form##Form Suppliers</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">The Suppliers form in the current database. The words &quot;Suppliers Form&quot; are displayed in the field or text box.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">#c:\windows\personal\1996 Sales.ppt#13</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Slide 13 in the 1996 Sales Microsoft PowerPoint presentation located in the \Windows\Personal folder.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">#c:\windows\personal\budget.xls#Sheet1!A2</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">The A2 cell in Sheet1 of the Budget.xls file located in the \Windows\Personal folder.</p></font><!--mstheme--></font></td></tr>
+</table><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="Textttext">You can display the stored hyperlink format by pressing F2 when the insertion point is in the Hyperlink field.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on the Hyperlink field storage format, search the Help index for &quot;hyperlinks, addresses.&quot;</p>
+<a NAME="5EnteringaURLasaHyperlinkAddress"></a>
+<p CLASS="heading5OrgHeading3h3">Entering a URL as a Hyperlink Address</p>
+<p CLASS="Textttext">To create a hyperlink that jumps to a Web page or other Internet content, you must enter a valid URL as the hyperlink address. You can enter a URL that points to any Internet file type or resource supported by the browser or to an ActiveX control, such as the WebBrowser control, that will be used to display or run it. You enter most URLs in the following format:
+<p CLASS="Textttext"><span CLASS="NewTermntrm">protocol</span><span CLASS="ElementNameeln">://</span><span CLASS="NewTermntrm">serveraddress</span><span CLASS="ElementNameeln">/</span><span CLASS="NewTermntrm">path</span>
+<p CLASS="Textttext"><span CLASS="NewTermntrm">Protocol</span> specifies the Internet protocol used to establish the connection to the server, and is generally followed by a colon and two slash marks. S<span CLASS="NewTermntrm">erveraddress</span> specifies what is usually called the <span CLASS="NewTermntrm">domain name</span> of the Internet server. <span CLASS="NewTermntrm">Path</span> specifies the location and name of the page or file on the Internet server. For example, the URL to the home page of the Microsoft Access Developer Forum is:
+<p CLASS="Textttext"><a HREF="http://www.microsoft.com/accessdev/" TARGET="_top"><img SRC="../images/External.gif" BORDER="0" VSPACE="0" HSPACE="0" WIDTH="18" HEIGHT="19">&amp;nbsphttp://www.microsoft.com/accessdev/</a>
+<p CLASS="Textttext">When you type a URL into a Hyperlink field, Microsoft Access automatically recognizes the following Internet protocols.</p>
+<!--mstheme--></font><table WIDTH="100%" BORDER="0" CELLPADDING="5" CELLSPACING="0" FRAME="VOID" RULES="THEAD"><thead>
+<tr VALIGN="TOP" BGCOLOR="#DDDDDD">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Protocol</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Protocol name</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Description</p></font><!--mstheme--></font></td></tr><tbody>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">http</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Hypertext Transfer Protocol</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Jumps to Web pages that contain text, graphics, sound, and other digital information from a Web server on the World Wide Web.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">ftp</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">File Transfer Protocol</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Transfers files between computers on the Internet.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">gopher</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Gopher protocol</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Displays information on a Gopher server.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">wais</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">WAIS protocol</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Accesses a Wide Area Information Servers database.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">file</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">File protocol</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Opens a file on a local hard drive or LAN.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">https</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Hypertext Transfer Protocol with privacy</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Establishes an HTTP connection that uses Secure Sockets Layer (SSL) encryption.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">mailto</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">MailTo protocol</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Opens your electronic mail program to send a message to the specified Internet e-mail address. A URL that uses the MailTo protocol has a different format:<br>(<span CLASS="ElementNameeln">mailto:</span><span CLASS="NewTermntrm">username</span><span CLASS="ElementNameeln">@</span><span CLASS="NewTermntrm">domain</span>)</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">msn</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Microsoft Network protocol</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Jumps to a location on The Microsoft Network.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">news</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">News protocol</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Starts a newsreader and opens the specified Usenet newsgroup. A URL that uses the News protocol has a different format:<br>(<span CLASS="ElementNameeln">news:</span><span CLASS="NewTermntrm">newsgroupname</span>)</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">nntp</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Network News Transfer Protocol</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Performs the same function as News protocol, except two slashes follow the colon (<span CLASS="ElementNameeln">nntp://</span><span CLASS="NewTermntrm">newsgroupname</span>).</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">mid</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Musical Instrument Digital Interface (MIDI) protocol</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Plays MIDI sequencer files if the user's computer has a sound card.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">cid</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">CompuServe<span CLASS="Registeredreg">®</span> Dialer (CID) protocol </p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Establishes a point-to-point protocol (PPP) connection with the Internet through CompuServe's network.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">prospero</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Prospero protocol</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Opens files on the Prospero distributed file system.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">telnet</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Telnet protocol</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Starts a telnet <span CLASS="NewTermntrm">terminal emulation program</span>. A terminal emulation program is a command-line interface that you can use to issue commands on a remote computer. For example, by using telnet to connect to a UNIX server, you can issue UNIX commands to perform operations on that server.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">rlogin</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Rlogin protocol</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Starts an Rlogin terminal emulation program.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">tn3270</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">TN3270 protocol</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Starts a TN3270 terminal emulation program.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">pnm</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">RealAudio protocol</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Plays RealAudio streaming audio from a RealAudio server. Streaming audio and other streaming media formats establish a connection to the server and start playing immediately without downloading an entire file.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">mms</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Microsoft Media Server (MMS) protocol</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Plays media such as ActiveMovie<span CLASS="Trademarktm">&#153;</span> streaming format files (.asf) from an MMS server.</p></font><!--mstheme--></font></td></tr>
+</table><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="Textttext">If you create a field by importing a column of data and all records in the imported data begin with one of these protocols, Microsoft Access automatically sets the data type of the imported field to Hyperlink. Similarly, if you create a new table in Datasheet view, and every entry you make in a field begins with one of these protocols, Microsoft Access sets the data type of the new field to Hyperlink when you save the table.</p>
+<a NAME="4CreatingaLabelImageControlorCommandButtonThatFollowsaHyperlink"></a>
+<p CLASS="heading4OrgHeading2h2">Creating a Label, Image Control, or Command Button That Follows a Hyperlink</p>
+<p CLASS="Textttext">To add a label, image control, or command button that follows a hyperlink to a form, set the <span CLASS="ElementNameeln">HyperlinkAddress</span> and <span CLASS="ElementNameeln">HyperlinkSubAddress</span> properties of the control to point to the content on the Internet or an intranet, or to the Microsoft Office document or Microsoft Access database object you want to jump to. </p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>The <span CLASS="ElementNameeln">HyperlinkAddress</span> and <span CLASS="ElementNameeln">HyperlinkSubAddress</span> property settings correspond to the <span CLASS="NewTermntrm">address</span> and <span CLASS="NewTermntrm">subaddress</span> values entered for a Hyperlink field. For more information on these values, see <a HREF="#5TheHyperlinkFieldStorageFormat" OnClick="SyncURL(&quot;chapters/ba21_2.htm&quot;)">&quot;The Hyperlink Field Storage Format&quot;</a> earlier in this chapter.</p>
+<p CLASS="Textttext">Additionally, to create the hyperlink display text for a label or command button control, you must set the <span CLASS="ElementNameeln">Caption</span> property. No text displays for an image control, so there is no corresponding display text setting.
+<p CLASS="Textttext">You can also create a label that follows a hyperlink by opening the form in Design view, and then using the <span CLASS="ElementNameeln">Hyperlink</span> command (<span CLASS="ElementNameeln">Insert</span> menu). However, this method won't define the display text. To define display text, you must set the label's <span CLASS="ElementNameeln">Caption</span> property.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on creating a label, image control, or command button that follows a hyperlink, search the Help index for &quot;hyperlinks, creating.&quot;</p>
+<a NAME="4UsingVisualBasicMethodsandPropertiestoWorkwithHyperlinks"></a>
+<p CLASS="heading4OrgHeading2h2">Using Visual Basic Methods and Properties to Work with Hyperlinks</p>
+<p CLASS="Textttext">Microsoft Access 97 provides a several methods and properties that you can use to work with hyperlinks in Visual Basic code. The following table summarizes these methods and properties.</p>
+<!--mstheme--></font><table WIDTH="100%" BORDER="0" CELLPADDING="5" CELLSPACING="0" FRAME="VOID" RULES="THEAD"><thead>
+<tr VALIGN="TOP" BGCOLOR="#DDDDDD">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Method or property name</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Description</p></font><!--mstheme--></font></td></tr><tbody>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Follow</span> method</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">The <span CLASS="ElementNameeln">Follow</span> method has the same effect as clicking a hyperlink. When you use the <span CLASS="ElementNameeln">Follow</span> method, you don't need to know the address specified by a control's <span CLASS="ElementNameeln">HyperlinkAddress</span> or <span CLASS="ElementNameeln">HyperlinkSubAddress</span> property, or by the Hyperlink field that is bound to a text box control. You only need to know the name of the control that contains the hyperlink.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">FollowHyperlink</span> method</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Follows a hyperlink specified in code or passed to the method from an unbound text box. For example, you can prompt a user to type a hyperlink address in a dialog box, and then use the <span CLASS="ElementNameeln">FollowHyperlink</span> method to navigate to that address. You can also use the <span CLASS="ElementNameeln">FollowHyperlink</span> method to specify a hyperlink for controls other than labels, image controls, and command buttons, or text boxes bound to Hyperlink fields.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">AddToFavorites</span> method</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Adds the hyperlink address specified in the referenced control to the Favorites folder.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Hyperlink</span> property</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Returns a reference to a hyperlink object in code. You can use the <span CLASS="ElementNameeln">Hyperlink</span> property to access the properties and methods of any control that contains a hyperlink.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">HyperlinkAddress</span> property</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Specifies or determines the address of a hyperlink for a label, image control, or command button.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">HyperlinkSubAddress</span> property</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Specifies or determines the location within the Microsoft Office document or object specified by the <span CLASS="ElementNameeln">HyperlinkAddress</span> property.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">HyperlinkPart</span> function</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Parses the three parts of a hyperlink stored in a table.</p></font><!--mstheme--></font></td></tr>
+</table><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on these methods and properties, search the Help index for the name of the method or property.</p>
+<a NAME="5ExampleofUsingtheFollowMethod"></a>
+<p CLASS="heading5OrgHeading3h3">Example of Using the Follow Method</p>
+<p CLASS="Textttext">This example uses the <span CLASS="ElementNameeln">Follow</span> method to automatically open the Web page specified in a text box bound to a Hyperlink field on a form. Add the following code to the OnCurrent event of a form. Note that you must use the <span CLASS="ElementNameeln">Hyperlink</span> property to return a reference to the object that contains the hyperlink.</p>
+<p CLASS="CodeTextct">Private Sub Form_Current()<br>&nbsp;&nbsp;&amp;nbspDim txt As TextBox<br>&nbsp;&nbsp;&amp;nbspOn Error GoTo Error_Form1<br>&nbsp;&nbsp;&nbsp;' Set reference to the txtAddress text box bound to a Hyperlink field.<br>&nbsp;&nbsp;&amp;nbspSet txt = txtAddress<br>&nbsp;&nbsp;&nbsp;' Follow the hyperlink.<br>&nbsp;&nbsp;&amp;nbsptxt.Hyperlink.Follow<br>Exit_Form1:<br>&nbsp;&nbsp;&amp;nbspExit Sub<br>Error_Form1: <br>&nbsp;&nbsp;&amp;nbspMsgBox Err &amp; &quot;: &quot; &amp; Err.Description<br>&nbsp;&nbsp;&amp;nbspResume Exit_Form1<br>End Sub</p>
+<a NAME="5ExampleofUsingtheFollowHyperlinkMethod"></a>
+<p CLASS="heading5OrgHeading3h3">Example of Using the FollowHyperlink Method</p>
+<p CLASS="Textttext">This example uses the <span CLASS="ElementNameeln">FollowHyperlink</span> method to add a hyperlink to a control that doesn't support the <span CLASS="ElementNameeln">HyperlinkAddress</span> or <span CLASS="ElementNameeln">HyperlinkSubAddress</span> properties. Add the following code to the Click event of an unbound object frame named OLEUnbound1 to start a Web browser and open the specified hyperlink address when you click the image.</p>
+<p CLASS="CodeTextct">Private Sub OLEUnbound1_Click()<br>&nbsp;&nbsp;&amp;nbspDim strAddress As String<br>&nbsp;&nbsp;&amp;nbspOn Error GoTo Error_OLEUnbound1<br>&nbsp;&nbsp;&nbsp;' Set reference to hyperlink address.<br>&nbsp;&nbsp;&amp;nbspstrAddress = &quot;http://www.microsoft.com&quot;<br>&nbsp;&nbsp;&nbsp;' Follow hyperlink address.<br>&nbsp;&nbsp;&amp;nbspApplication.FollowHyperlink strAddress, , True<br>Exit_OLEUnbound1:<br>&nbsp;&nbsp;&amp;nbspExit Sub<br>Error_OLEUnbound1:<br>&nbsp;&nbsp;&amp;nbspMsgBox Err &amp; &quot;: &quot; &amp; Err.Description<br>&nbsp;&nbsp;&amp;nbspResume Exit_OLEUnbound1<br>End Sub
+<p CLASS="TipIcontpi"></p>
+<p CLASS="TipTexttpt"><span CLASS="TipHeadingtph">Tip&nbsp;&nbsp;&nbsp;</span>Controls that don't support the <span CLASS="ElementNameeln">HyperlinkAddress</span> or <span CLASS="ElementNameeln">HyperlinkSubAddress</span> properties don't provide any feedback to the user to indicate that they contain a hyperlink. One way to inform a user that the control contains a hyperlink is to set the control's <span CLASS="ElementNameeln">ControlTipText </span>property so that a text message appears when users rest the pointer on the control.</p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>You can also use the <span CLASS="ElementNameeln">FollowHyperlink</span> method to prompt a user to enter a hyperlink address and then to follow it. For an example of how to do this, search the Help index for &quot;FollowHyperlink method.&quot;</p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="ba21_3.htm" OnClick="SyncURL(&quot;chapters/ba21_3.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>Compacting a Replicated Database</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba20_8.htm" OnClick="SyncURL(&quot;chapters/ba20_8.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<a NAME="3CompactingaReplicatedDatabase"></a>
+<p CLASS="heading3OrgHeading1h1">Compacting a Replicated Database</p>
+<p CLASS="Textttext">When you convert a database to a Design Master, Microsoft Jet adds three new fields to your tables and adds new system tables to your database. Many of these new tables contain only a few records, but some of the new tables can grow significantly depending upon the frequency of synchronization between replicas. To reclaim unused space and to help optimize performance, compact your database frequently. In addition, always compact your database before you synchronize.</p>
+<p CLASS="heading9ListProcedureHeadinglproch"><span CLASS="ProcedureIconproci"><img SRC="../images/bluetri.jpg" ALIGN="LEFT" WIDTH="9" HEIGHT="17"></span>&nbsp;&nbsp;&amp;nbspTo compact a replicated database</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">1</span>&nbsp;&nbsp;&amp;nbspCompact the database into the file Db1.mdb. Don't open the file Db1.mdb with Microsoft Access.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">2</span>&nbsp;&nbsp;&amp;nbspRename the original (uncompacted) database by giving it a .bak file name extension. For example, if your original database was named Customers.mdb, rename it to Customers.bak.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">3</span>&nbsp;&nbsp;&amp;nbspRename Db1.mdb to the original name of your database. For example, rename Db1.mdb to Customers.mdb.</p>
+<p CLASS="Textttext">Now you can open your original database. Because it has the same path and the same name, the value of its <span CLASS="ElementNameeln">ReplicaID</span> property doesn't change and it is still recognized as the Design Master.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on compacting databases, see <a HREF="../chapters/ba15_5.htm#4CompactingaDatabase" OnClick="SyncURL(&quot;chapters/ba15_5.htm&quot;)">&quot;Compacting a Database&quot;</a> in Chapter 15, &quot;Delivering Your Application.&quot;</p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="ba20_10.htm" OnClick="SyncURL(&quot;chapters/ba20_10.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

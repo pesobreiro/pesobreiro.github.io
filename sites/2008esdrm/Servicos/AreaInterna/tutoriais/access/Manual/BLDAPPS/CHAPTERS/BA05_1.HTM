@@ -1,0 +1,291 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>CHAPTER 5</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba04_6.htm" OnClick="SyncURL(&quot;chapters/ba04_6.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<p CLASS="heading2ChapterNumberAppendixLetterchn">CHAPTER&nbsp; 5</p>
+<p CLASS="ChapterAppendixTitlecht">Working with Objects and Collections</p>
+<p CLASS="ChapterSummaryTextchsum">A Microsoft Access database is made up of different kinds of objects. Some kinds of objects are used to display the data in your database, while others are used to store and manage the data itself, or to assist you in programming in Visual Basic. You can create a database using tables, queries, forms, reports, and macros without writing any Visual Basic code. If your needs are more sophisticated, however, you can use Visual Basic to create, control, and manage all of the different types of objects in a Microsoft Access database. This chapter explains how to program with objects in Visual Basic.
+<a NAME="3UnderstandingObjectsandCollections"></a>
+<p CLASS="heading3OrgHeading1h1">Understanding Objects and Collections</p>
+<p CLASS="Textttext">As you've seen in earlier chapters of this book, you can produce powerful applications in Microsoft Access without programming. However, when you need a more sophisticated application, writing Visual Basic code gives you a greater degree of control over what your application does. When you program in Visual Basic, you work with <span CLASS="NewTermntrm">objects </span>that correspond to different aspects of your database. <span CLASS="NewTermntrm">Collections </span>are sets of objects of the same type. Programming with objects and collections gives you added flexibility in that you can design your application to respond to user actions and input in a customized way.
+<p CLASS="Textttext">Objects available to you in Microsoft Access come from four different sources:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspMicrosoft Access provides objects that you use to display your data, such as <span CLASS="ElementNameeln">Form</span>, <span CLASS="ElementNameeln">Report</span>, and <span CLASS="ElementNameeln">Control</span> objects.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspMicrosoft DAO provides Data Access Objects (DAO), such as the <span CLASS="ElementNameeln">TableDef </span>and <span CLASS="ElementNameeln">QueryDef </span>objects, which determine the structure of your database and which you can use to manipulate data in Visual Basic.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspVisual Basic provides objects that give you more flexibility in programming, such as the <span CLASS="ElementNameeln">Debug </span>object and the <span CLASS="ElementNameeln">Err </span>object.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspMicrosoft Office provides objects that you can use to customize the interface of your application, such as the <span CLASS="ElementNameeln">CommandBar </span>and <span CLASS="ElementNameeln">FileSearch</span> objects.</p>
+<p CLASS="Textttext">Many of the objects that you work with in Visual Basic correspond to specific parts of your Microsoft Access database. For example, the Microsoft Access <span CLASS="ElementNameeln">Form </span>and <span CLASS="ElementNameeln">Report </span>objects correspond to your forms and reports, while the DAO <span CLASS="ElementNameeln">TableDef </span>and <span CLASS="ElementNameeln">QueryDef </span>objects correspond to your tables and queries. The Microsoft Office <span CLASS="ElementNameeln">CommandBar </span>object corresponds to the toolbars and menu bars you see in Microsoft Access.
+<p CLASS="Textttext">Other objects you may work with in Visual Basic are more abstract. For example, the Visual Basic <span CLASS="ElementNameeln">Err </span>object contains information about errors that occur while Visual Basic code is running, rather than corresponding to a specific part of your database.
+<p CLASS="Textttext">Even though the objects available to you in Microsoft Access come from several different sources and perform different functions, you can work with them in similar ways. You'll find that the concepts you need to understand in order to program with one object apply to most objects.
+<p CLASS="Textttext">For example, every object has <span CLASS="NewTermntrm">properties</span> and <span CLASS="NewTermntrm">methods</span> associated with it. Once you understand how to work with one object's properties and methods, you can use those same concepts to work with any object's properties and methods. You use properties to determine or change some characteristic of an object. For example, you use a form's <span CLASS="ElementNameeln">Visible </span>property to determine whether or not the form is visible to the user. You use methods to perform a particular operation on an object. For example, the <span CLASS="ElementNameeln">Repaint </span>method completes any pending screen updates on a specified form.</p>
+<a NAME="4OrganizationofObjectsandCollections"></a>
+<p CLASS="heading4OrgHeading2h2">Organization of Objects and Collections</p>
+<p CLASS="Textttext">Each application that supplies objects to Microsoft Access provides an <span CLASS="NewTermntrm">object library</span>. The object library contains information about an application's objects and their properties and methods. Microsoft Access includes four built-in object libraries, which are described in the following sections.
+<p CLASS="Textttext">Microsoft Access objects and DAO objects are organized in <span CLASS="NewTermntrm">object hierarchies</span>. In an object hierarchy, certain objects contain other objects and collections. A collection is a special type of object that is actually a set of all objects of a given type. When you refer to a collection in code, you are referring to all the objects in the set. For example, the Microsoft Access <span CLASS="ElementNameeln">Application </span>object contains a <span CLASS="ElementNameeln">Forms </span>collection, which contains individual <span CLASS="ElementNameeln">Form </span>objects. A <span CLASS="ElementNameeln">Form </span>object contains a <span CLASS="ElementNameeln">Controls</span> collection, which in turn contains individual <span CLASS="ElementNameeln">Control </span>objects. The following illustration shows this relationship.</p>
+<p CLASS="Arta"><img SRC="..\images\ABAC0501.jpg"></p>
+<p CLASS="Textttext">You can think of a collection as an array of objects that's already declared by Microsoft Access. Collections, like arrays, have elements, and you refer to the objects in a collection as elements of the collection. You can refer to an element of a collection by its name or by its position within the collection.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on arrays, see <a HREF="../chapters/ba04_6.htm" OnClick="SyncURL(&quot;chapters/ba04_6.htm&quot;)">&quot;Arrays&quot;</a> in Chapter 4, &quot;Working with Variables, Data Types, and Constants.&quot;</p>
+<p CLASS="Textttext">The following sections describe the four object libraries included in Microsoft Access.</p>
+<a NAME="5MicrosoftAccessObjects"></a>
+<p CLASS="heading5OrgHeading3h3">Microsoft Access Objects</p>
+<p CLASS="Textttext">You're probably already familiar with some of the objects in the Microsoft Access 8.0 object library. Microsoft Access <span CLASS="ElementNameeln">Form</span>, <span CLASS="ElementNameeln">Report</span>, and <span CLASS="ElementNameeln">Control</span> objects correspond to your forms, reports, and controls. You use these objects to control the way you display the data in your database. The <span CLASS="ElementNameeln">Application </span>object and the <span CLASS="ElementNameeln">Reference </span>object make it easier to work with objects in other applications. The <span CLASS="ElementNameeln">Module </span>object gives you control over the Visual Basic modules in your database. You use the <span CLASS="ElementNameeln">DoCmd </span>object to include macro actions in your code and the <span CLASS="ElementNameeln">Screen </span>object to refer to the active object on the screen.
+<p CLASS="Textttext">The following table describes the objects provided by the Microsoft Access 8.0 object library.</p>
+<!--mstheme--></font><table WIDTH="100%" BORDER="0" CELLPADDING="5" CELLSPACING="0" FRAME="VOID" RULES="THEAD"><thead>
+<tr VALIGN="TOP" BGCOLOR="#DDDDDD">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Object</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Description</p></font><!--mstheme--></font></td></tr><tbody>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Application</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Microsoft Access itself</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Control</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Control on a form or report</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">DoCmd</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Macro actions used in Visual Basic code</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Form</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Open form, including subforms</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Module</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Standard module or class module</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Reference</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Reference to an application's object library</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Report</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Open report, including subreports</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Screen</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Screen display</p></font><!--mstheme--></font></td></tr>
+</table><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For information on an individual object, search the Help index for the name of the object.</p>
+<p CLASS="Textttext">Of the objects listed in the preceding table, the <span CLASS="ElementNameeln">Control</span>, <span CLASS="ElementNameeln">Form</span>, <span CLASS="ElementNameeln">Module</span>, <span CLASS="ElementNameeln">Reference</span>, and <span CLASS="ElementNameeln">Report</span> objects belong to collections. The <span CLASS="ElementNameeln">Application </span>object is the top-level object in the hierarchy, and all other objects exist beneath it. The following illustration shows the hierarchical organization of Microsoft Access objects and collections.</p>
+<p CLASS="Arta"><img SRC="..\images\ABAC0502.jpg"></p>
+<a NAME="5DAOObjects"></a>
+<p CLASS="heading5OrgHeading3h3">DAO Objects</p>
+<p CLASS="Textttext">The Microsoft DAO 3.5 object library provides DAO objects, which you can use to work with the Microsoft Jet database engine. Some DAO objects represent the structure of your database and the relationships between the data in it. These objects include the <span CLASS="ElementNameeln">Database</span>,<span CLASS="ElementNameeln"> TableDef</span>, <span CLASS="ElementNameeln">QueryDef</span>, <span CLASS="ElementNameeln">Field</span>, <span CLASS="ElementNameeln">Index</span>, <span CLASS="ElementNameeln">Parameter</span>, <span CLASS="ElementNameeln">Property</span>, and <span CLASS="ElementNameeln">Relation </span>objects. Other objects are responsible for the security of your database, including the <span CLASS="ElementNameeln">Container</span>, <span CLASS="ElementNameeln">Document</span>, <span CLASS="ElementNameeln">User</span>, <span CLASS="ElementNameeln">Group</span>, and <span CLASS="ElementNameeln">Workspace </span>objects. The <span CLASS="ElementNameeln">Recordset </span>object provides you with direct access to the data in the database. The <span CLASS="ElementNameeln">DBEngine </span>object gives you control over the Microsoft Jet database engine itself. The <span CLASS="ElementNameeln">Connection</span> object represents a network connection to an Open Database Connectivity (ODBC) database and is available only when you're working with an ODBCDirect <span CLASS="ElementNameeln">Workspace</span> object.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on the <span CLASS="ElementNameeln">Connection</span> object and ODBCDirect, search the Help index for &quot;Connection object.&quot;</p>
+<p CLASS="Textttext">The following table describes the DAO objects provided by the Microsoft DAO 3.5 object library.</p>
+<!--mstheme--></font><table WIDTH="100%" BORDER="0" CELLPADDING="5" CELLSPACING="0" FRAME="VOID" RULES="THEAD"><thead>
+<tr VALIGN="TOP" BGCOLOR="#DDDDDD">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Object</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Description</p></font><!--mstheme--></font></td></tr><tbody>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Connection</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Network connection to an ODBC database</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Container</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Security information for various types of objects in the database</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Database</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Open database</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">DBEngine</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Microsoft Jet database engine itself</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Document</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Security information for individual objects in the database</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Error</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Data access error information</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Field</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Field in a table, query, recordset, index, or relation</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Group</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Group account in Microsoft Jet's current workgroup</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Index</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Table index</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Parameter</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Query parameter</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Property</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Property of an object</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">QueryDef</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Saved query in a database</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Recordset</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Set of records defined by a table or query</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Relation</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Relationship between two table or query fields</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">TableDef</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Saved table in a database</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">User</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">User account in Microsoft Jet's current workgroup</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Workspace</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Active Microsoft Jet session</p></font><!--mstheme--></font></td></tr>
+</table><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="Textttext">Every object in the Microsoft DAO 3.5 object library belongs to an associated collection, except the <span CLASS="ElementNameeln">DBEngine </span>object. The <span CLASS="ElementNameeln">DBEngine </span>object is the top-level object that gives you access to all other objects in the collection, like the Microsoft Access <span CLASS="ElementNameeln">Application </span>object in the Microsoft Access object hierarchy. The following illustration shows the hierarchical organization of the DAO objects. For simplicity, it shows only the <span CLASS="ElementNameeln">DBEngine</span> object and the collections for all other objects in the object hierarchy.</p>
+<p CLASS="Arta"><img SRC="..\images\ABAC0503.jpg"></p>
+<p CLASS="Textttext">Each DAO object also contains a <span CLASS="ElementNameeln">Properties </span>collection. The <span CLASS="ElementNameeln">Properties </span>collection contains <span CLASS="ElementNameeln">Property </span>objects that represent the properties available for each object in the DAO object hierarchy.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on the <span CLASS="ElementNameeln">Properties </span>collection, see <a HREF="../chapters/ba05_2.htm#5ThePropertiesCollection" OnClick="SyncURL(&quot;chapters/ba05_2.htm&quot;)">&quot;The Properties Collection&quot;</a> later in this chapter.</p>
+<a NAME="5VisualBasicObjects"></a>
+<p CLASS="heading5OrgHeading3h3">Visual Basic Objects</p>
+<p CLASS="Textttext">The Visual Basic for Applications object library provides three objects to Microsoft Access, but these objects aren't organized in an object hierarchy. None of them belong to a collection of other objects. The following table describes the objects provided by the Visual Basic for Applications object library.</p>
+<!--mstheme--></font><table WIDTH="100%" BORDER="0" CELLPADDING="5" CELLSPACING="0" FRAME="VOID" RULES="THEAD"><thead>
+<tr VALIGN="TOP" BGCOLOR="#DDDDDD">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Object</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Description</p></font><!--mstheme--></font></td></tr><tbody>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Collection</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">User-defined collection</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Debug</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Debug window</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Err</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Information about Visual Basic errors</p></font><!--mstheme--></font></td></tr>
+</table><!--mstheme--><font face="book antiqua, times new roman, times">
+<a NAME="5MicrosoftOfficeObjects"></a>
+<p CLASS="heading5OrgHeading3h3">Microsoft Office Objects</p>
+<p CLASS="Textttext">The Microsoft Office 8.0 object library provides objects you can use to customize the appearance of your application or to implement some features common to Microsoft Office applications. For example, you can create customized toolbars and menu bars in code by using the <span CLASS="ElementNameeln">CommandBar </span>object. You can perform custom file searches by using the <span CLASS="ElementNameeln">FileSearch </span>object. You can also customize the Office Assistant to respond to the user's actions.</p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>In order to use objects in the Microsoft Office 8.0 object library from Visual Basic, you must first set a <span CLASS="NewTermntrm">reference</span> to the object library. When you set a reference to an object library, you notify Visual Basic that you may want to use the objects in that library. To set a reference to the Microsoft Office 8.0 object library, open a module and click <span CLASS="ElementNameeln">References</span> on the <span CLASS="ElementNameeln">Tools</span> menu. Then select the <span CLASS="ElementNameeln">Microsoft Office 8.0 Object Library </span>check box in the <span CLASS="ElementNameeln">Available References</span> box.</p>
+<p CLASS="Textttext">Not all of the objects in the Microsoft Office 8.0 object library are useful in Microsoft Access. The following table describes some of the objects in the Microsoft Office 8.0 object library which Microsoft Access developers may find useful.</p>
+<!--mstheme--></font><table WIDTH="100%" BORDER="0" CELLPADDING="5" CELLSPACING="0" FRAME="VOID" RULES="THEAD"><thead>
+<tr VALIGN="TOP" BGCOLOR="#DDDDDD">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Object</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Description</p></font><!--mstheme--></font></td></tr><tbody>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Assistant</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">The Office Assistant</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Balloon</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Balloon associated with the Office Assistant</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">BalloonCheckBox</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Check box control for the balloon</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">BalloonLabel</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Label control for the balloon</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">CommandBar</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Toolbar or menu bar</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">CommandBarButton</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Button on a <span CLASS="ElementNameeln">CommandBar</span> object</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">CommandBarComboBox</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Combo box control on a <span CLASS="ElementNameeln">CommandBar</span> object</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">CommandBarControl</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Any control on a <span CLASS="ElementNameeln">CommandBar</span> object</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">CommandBarPopup</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Pop-up text on a <span CLASS="ElementNameeln">CommandBar</span> object</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">FileSearch</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Microsoft Office file searching</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">FoundFiles</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Files found through file search operation</p></font><!--mstheme--></font></td></tr>
+</table><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>The Office Assistant is not available in Microsoft Access run-time applications.</p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="ba05_2.htm" OnClick="SyncURL(&quot;chapters/ba05_2.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

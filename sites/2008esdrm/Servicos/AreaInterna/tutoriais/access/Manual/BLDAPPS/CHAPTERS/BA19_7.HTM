@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>Handling Errors from the Server</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba19_6.htm" OnClick="SyncURL(&quot;chapters/ba19_6.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<a NAME="3HandlingErrorsfromtheServer"></a>
+<p CLASS="heading3OrgHeading1h1">Handling Errors from the Server</p>
+<p CLASS="Textttext">Whenever your application causes an error to occur on the server, Microsoft Access displays two messages: first the Microsoft Access error message and then the message from the server. If you trap an ODBC error (numbered 3146 through 3299) in a Visual Basic procedure, the <span CLASS="ElementNameeln">Err</span> object returns both the Microsoft Access message and all server error messages concatenated together. The value returned by the <span CLASS="ElementNameeln">Err</span> object tells you which server error occurred as well as the text of the server error message.
+<p CLASS="Textttext">The following error-handling code demonstrates how you can obtain the server error number and message when an ODBC error occurs.</p>
+<p CLASS="CodeTextct">Dim intRemoteError As Integer, strErrorText As String<br>Dim intNumStart As Integer, intTextStart As Integer<br>Select Case Err<br>&nbsp;&nbsp;&amp;nbspCase 3146 To 3299&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' It's an ODBC error, so parse it.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' Find error number.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbspintNumStart = InStr(Err, &quot;(#&quot;) + 2<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbspintRemoteError = Val(Mid$(Err, intNumStart))<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' Find error message.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbspintTextStart = InStr(Err, &quot;] &quot;) + 2<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbspstrErrorText = Mid$(Err, intTextStart, _<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbspintNumStart - intTextStart - 3)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;. ' Handle remote error.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.<br>&nbsp;&nbsp;&amp;nbspCase Else<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;. ' Handle other errors.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.<br>End Select</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on errors, search the Help index for &quot;errors.&quot;</p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="ba19_8.htm" OnClick="SyncURL(&quot;chapters/ba19_8.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>Tracing Nested Procedures</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba07_8.htm" OnClick="SyncURL(&quot;chapters/ba07_8.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<a NAME="3TracingNestedProcedures"></a>
+<p CLASS="heading3OrgHeading1h1">Tracing Nested Procedures
+<p CLASS="Textttext">When your application is running, Microsoft Access keeps track of each time one procedure calls another. If you're tracing the progress of your application and want to find out which procedures have been called, click <span CLASS="ElementNameeln">Calls</span> on the <span CLASS="ElementNameeln">View</span> menu. Or, in the Debug window, click the <span CLASS="ElementNameeln">Calls</span> button <img SRC="..\images\VBCALLS.gif">to the right of the <span CLASS="ElementNameeln">Procedure</span> box.
+<p CLASS="Textttext">The <span CLASS="ElementNameeln">Calls</span> dialog box displays a list of all active procedure calls<img SRC="../images/Emdash.gif" BORDER="0" VSPACE="0" HSPACE="0" WIDTH="16" HEIGHT="5">the procedures in an application that are started but not completed.
+<p CLASS="Textttext">The <span CLASS="ElementNameeln">Calls</span> dialog box is especially helpful if you want to trace nested procedures. For example, an event procedure can call a second procedure, which can call a third procedure<img SRC="../images/Emdash.gif" BORDER="0" VSPACE="0" HSPACE="0" WIDTH="16" HEIGHT="5">all before the event procedure that started this chain has finished. In the following illustration, the <span CLASS="ElementNameeln">Calls</span> dialog box lists two active procedure calls: the form's Load event procedure has called the IsLoaded <span CLASS="ElementNameeln">Function</span> procedure.</p>
+<p CLASS="Arta"><img SRC="..\images\ABAC0712.jpg"></p>
+<p CLASS="Textttext">The <span CLASS="ElementNameeln">Calls</span> dialog box lists all the active procedure calls in a series of nested procedure calls. It places the earliest active procedure call at the bottom of the list and adds subsequent procedure calls to the top. The information given for each procedure begins with the name of the database and module that contain the procedure, followed by the name of the called procedure.
+<p CLASS="Textttext">You can use the <span CLASS="ElementNameeln">Show</span> button to display the statement that calls the next procedure listed in the <span CLASS="ElementNameeln">Calls</span> dialog box. If you choose the current (top) procedure in the <span CLASS="ElementNameeln">Calls</span> dialog box and then click <span CLASS="ElementNameeln">Show</span>, Visual Basic displays the current statement (the statement at which execution is suspended).</p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="ba07_10.htm" OnClick="SyncURL(&quot;chapters/ba07_10.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

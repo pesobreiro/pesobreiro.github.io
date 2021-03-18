@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>CHAPTER 16</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba15_5.htm" OnClick="SyncURL(&quot;chapters/ba15_5.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<p CLASS="heading2ChapterNumberAppendixLetterchn">CHAPTER&nbsp; 16</p>
+<p CLASS="ChapterAppendixTitlecht">Using ActiveX Controls</p>
+<p CLASS="ChapterSummaryTextchsum">ActiveX controls extend the functionality of Microsoft Access. You can use Microsoft Access-compatible ActiveX controls to enhance your applications. This chapter describes ActiveX controls and explains how to add them to your application.</p>
+<a NAME="3OverviewofActiveXControls"></a>
+<p CLASS="heading3OrgHeading1h1">Overview of ActiveX Controls</p>
+<p CLASS="Textttext">In addition to the standard built-in controls that appear in the toolbox, Microsoft Access supports <span CLASS="NewTermntrm">ActiveX controls</span>, formerly called <span CLASS="NewTermntrm">OLE controls</span> or <span CLASS="NewTermntrm">custom controls</span>. An ActiveX control, like a built-in control, is an object that you place on a form to display data or perform an action. However, unlike a built-in control, the code that supports the ActiveX control is stored in a separate file or files which you must install in order to use the control. 
+<p CLASS="Textttext">The following ActiveX controls are available for you to use with Microsoft Access:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspThe Calendar control, which makes it easy to display and update a monthly calendar on a form. You can choose to install this control when you install Microsoft Access.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspThe WebBrowser control, which you can use to display Web pages and other documents in a Microsoft Access form. The WebBrowser control is supplied by Microsoft Internet Explorer version 3.0, which is available in Microsoft Office 97. If you haven't purchased Microsoft Office 97, you can download Microsoft Internet Explorer version 3.0 from Microsoft's main Web site, at <a HREF="http://www.microsoft.com/" TARGET="_top"><img SRC="..\images\external.gif" BORDER="0" HSPACE="0" VSPACE="0">http://www.microsoft.com/</a>. When you install Internet Explorer, the WebBrowser control is automatically available for you to use from Microsoft Access.</p>
+<p CLASS="ListText1lt1"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span><span CLASS="Xref">For more information on using the WebBrowser control, see Chapter 21, <a HREF="../chapters/ba21_1.htm" OnClick="SyncURL(&quot;chapters/ba21_1.htm&quot;)">&quot;Developing Applications for the Internet and the World Wide Web.&quot;</a>
+</span>
+<p CLASS="ListText1lt1"></p>
+<p CLASS="Textttext">Other ActiveX controls are available in Microsoft Office 97, Developer Edition and from third-party vendors.
+<p CLASS="Textttext">Some ActiveX controls, including the Calendar control and the WebBrowser control, are automatically registered with the system when you install the control files. Others must be registered manually. Once the control has been registered, you can add it to a form that is open in Design view.
+<p CLASS="Textttext">You can use the methods, events, and properties associated with a control to manipulate the control's appearance and behavior. In addition, many ActiveX controls can be <span CLASS="NewTermntrm">data-bound</span><img SRC="../images/Emdash.gif" BORDER="0" VSPACE="0" HSPACE="0" WIDTH="16" HEIGHT="5">they can store or display data from a field in the form's underlying table or query.</p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>If you distribute an application that uses ActiveX controls, you must make sure that the controls are installed on each computer that runs your application.</p>
+<a NAME="4SupportforActiveXControls">
+<p CLASS="heading4OrgHeading2h2">Support for ActiveX Controls</p></a>
+<p CLASS="Textttext">Other applications and languages that support ActiveX technologies, such as Microsoft Word, Microsoft Excel, or Microsoft Visual Basic, can support ActiveX controls just like Microsoft Access. However, each application may support a different subset of ActiveX technologies. For this reason, controls that work in some applications may not work in others.
+<p CLASS="Textttext">For example, if you've installed Visual Basic or Microsoft Office and the ActiveX controls they include, you may have several ActiveX controls that don't work in Microsoft Access. When you add a control to a form, you may see controls in the list of ActiveX controls that aren't compatible with Microsoft Access. Using a control that hasn't been certified for use with Microsoft Access can cause unpredictable results.
+<p CLASS="Textttext">To determine whether a specific ActiveX control is compatible with Microsoft Access, see the documentation provided with the control or contact the vendor of the control.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on which ActiveX controls are compatible with Microsoft Access, search the Help index for &quot;ActiveX controls.&quot;</p>
+<a NAME="4TypesofActiveXControls"></a>
+<p CLASS="heading4OrgHeading2h2">Types of ActiveX Controls</p>
+<p CLASS="Textttext">There are two types of ActiveX controls. The first type is visible both at design time and at run time. An example of this type of ActiveX control is the Calendar control included with Microsoft Access. The Calendar control displays a calendar for a particular month in a particular year, as shown in the following illustration.</p>
+<p CLASS="Arta"><img SRC="..\images\ABAC1601.jpg"></p>
+<p CLASS="Textttext">After you install the required files, you can place this control on your form. You can use the methods, events, and properties of the Calendar control to:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspDisplay a calendar for any month of any given year.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspStore a date selected by the user in the current record.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspTrigger an action from an event based on the current date value.</p>
+<p CLASS="Textttext">The second type of ActiveX control is visible only at design time. Typically, this type of control is provided to simplify interaction between a Microsoft Access application and one or more dynamic-link libraries (DLLs) or executable files. The ImageList control included in Microsoft Office 97, Developer Edition is an example of this type of ActiveX control.</p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="ba16_2.htm" OnClick="SyncURL(&quot;chapters/ba16_2.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

@@ -1,0 +1,305 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0053)http://www.littlewhitedog.com/reviews_other_00009.asp -->
+<html><head><title>HowTo: Make a crossover cable</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta content="Before you buy ANY hardware or software, you had better find out what the littlewhitedog has to say first." name="Description">
+<meta content="crossover, cross-over, cable, howto, howto, make, mdix, Hardware Reviews, Software Reviews, Tweaking, Software, Motherboards, CPU, AMD, Athlon, Intel, Video Cards, DDR, SDR, RAMDAC, AGP, AGP 4X, AMD Athlon, Coppermine, Flip Chip, Slot 1, Processors, Slot A, Socket 370, OC, Mobo, Mobos, littleblackdog, littlewhitedog, Tweaking, Megahertz, Mhz, Gigabyte, Megabyte, Binary, Ascii, Power Supply, 300 Watt, 250 Watt, Geeks, Nerds, Pentium, Gamers, 3D Games, Cooling, Water Cooling, Air Cooling, Video Overclocking, S3, 3Dfx, Spot, Fido, Rover, Eggman, Pipehead, Networking, Abit, Tyan, Overclocking, Hardcore Games, Rating, FPS, Quake3, Benchmarking, Testing, Speed, Pushing Processors, T-Shirts, LBD, LWD, Frames Per Second, News, Hardware, Software, Contests, CPU's, Central Processing Unit, Fans, Cases, CD-ROM, RAM, 100MHz, 133MHz, Bus Speed, FSB, Front Side Bus, Fun, Telling it like it is, Multiplier, Double Data Rate, Overclocking,hardware, reviews, BP6, Athlon, AMD, Intel, Abit, BE6-II, BE6-2, BE6, Celeron, KA7, Softwae, Overclock, Overclocked, Overclocker, LittleWhiteDog, Game, Games, Gaming, Gamer, Gamers, Tweak, Tweaks, Tweaking, Tweaker, Tweakers, GeForce" name="Keywords"><!--- To use  class=           withing the <a> </a> tags--->
+<style>.funky:hover {
+	COLOR: #ff9900; TEXT-DECORATION: underline
+}
+.funky {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+.fresh:hover {
+	COLOR: #ffffff; TEXT-DECORATION: underline
+}
+.fresh {
+	COLOR: #ff9900; TEXT-DECORATION: none
+}
+.fishy:hover {
+	COLOR: #ff9900; TEXT-DECORATION: underline
+}
+.fishy {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+</style>
+
+<meta content="Microsoft FrontPage 4.0" name="GENERATOR">
+
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<body leftMargin="0" topMargin="0" marginheight="0" marginwidth="0" background="../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times">
+<p align="center"><!---HEADER Table end---><!---AD Table include start---><font size="6">Como
+fazer um cabo Crossover</font><br><!---AD TABLE---><!---AD Table include end---><!---BEGIN CONTENT TABLES--->
+      <!--mstheme--></font><table cellSpacing="0" cellPadding="10" width="100%" align="center" border="0">
+        <tbody>
+        <tr>
+          
+      <td vAlign="center" align="left" colSpan="3"> 
+        <!--mstheme--><font face="book antiqua, times new roman, times">
+        <div align="justify"><br>
+          <br>
+          <font face="tahoma, arial, verdana, helvetica" color="#ffffff" size="2"><font face="tahoma, arial, verdana, helvetica" color="#ff9900" size="3"><b><u>Introdu&ccedil;&atilde;o</u></b></font><br>
+          </font><font size="2" face="tahoma, arial, verdana, helvetica">Este 
+          documento mostra como construir correctamente um cabo Crossover. Este 
+          cabo pode ser usado para ligar dois computadores directamente um ao 
+          outro sem o uso de um hub ou switch. O</font><font size="2" face="tahoma, arial, verdana, helvetica">s 
+          terminais (fichas RJ45) de um cabo crossover s&atilde;o diferentes um 
+          do outro, considerando que um cabo normal (n&atilde;o Crossover) tem 
+          terminais id&ecirc;nticos. Os usos deles s&atilde;o mostrados nos diagramas 
+          seguintes.<br>
+          <br>
+          </font> </div>
+        <center>
+          <font size="2" face="tahoma, arial, verdana, helvetica"><img src="HowTo%20Make%20a%20crossover%20cable_files/figure1.gif" WIDTH="300" HEIGHT="135"><br>
+          Uso do cabo Crossover<br>
+          <br>
+          <img src="HowTo%20Make%20a%20crossover%20cable_files/figure2.gif" WIDTH="300" HEIGHT="191"><br>
+          Uso de cabos normais</font> 
+        </center>
+        <font size="2" face="tahoma, arial, verdana, helvetica"><br>
+        <br>
+        Typically the ports on a hub are MDIX ports. This allows the machine at 
+        the other end to utilize its MDI Port (which is what typically a NIC card 
+        uses) without the need for a crossover cable. When I say that the ports 
+        on the hub are MDIX ports, what I mean is that one of the functions of 
+        the hub is to automatically perform the crossover functions, which are 
+        required to properly align the cables with each other. When no hub or 
+        switch is used, your cable itself must physically perform these crossover 
+        functions. <br>
+        <br>
+        To expand on this a little, when using a hub or switch, the <u>Transmit</u> 
+        wires on the workstation need to be connected to the <u>Receive</u> wires 
+        on the hub; likewise, the <u>Receive</u> wires on the hub need to be connected 
+        to the <u>Transmit</u> wires on the workstation. But if you remember what 
+        we stated earlier - cables which are run from PC to Hub are 'straight 
+        through' type cables. This is because the hub is providing the required 
+        crossover functions internally for you. Thus, when you connect two machines 
+        together without the use of a hub or switch, a crossover cable is required 
+        - because both 'ends' are essentially the same - a NIC Card. The crossover 
+        function must take place somewhere, and since there is no hub or switch 
+        to do it for you, the cable must. <br>
+        <br>
+        Now that we know what a crossover cable is for, let's talk for a few about 
+        types of cabling. The two most common unshielded twisted-pair (UTP) network 
+        standards are the 10 Mbit (10BASE-T Ethernet) and the 100Mbit (100BASE-TX 
+        Fast Ethernet). In order for a cable to properly support 100 Mbit transfers, 
+        it must be rated <u>Category 5</u> (or CAT 5). This type of low loss extended 
+        frequency cable will support 10 Base T, 100 Base-T and the newer 100VG-AnyLAN 
+        applications. Other types of cabling include Category 3 which supports 
+        data rates up to 16 Mbps, and Category 1 which only supports speeds up 
+        to 1Mbps. The cable we are about to make is considered Category 5, and 
+        will work on both 10 Mbit and 100 Mbit systems, assuming all components 
+        used (cables and jacks) are rated for Category 5. <br>
+        <br>
+        <br>
+        <br>
+        <font color="#ff9900"><b><u>What you need</u></b> </font><br>
+        <b>Cable</b> - Be sure the cable(s) you are using is properly rated for 
+        CAT 5. It should state clearly on the jacket of the cable, what it is 
+        rated at. One option that you have when selecting your cable is to use 
+        a pre-made normal 'straight through' cable, and simply whack off one of 
+        the ends, and replace with a new &quot;Crossed Over&quot; end. For the 
+        purpose of this article, though, we aren't going to go that route. We 
+        are going to make the whole thing from scratch - using bulk CAT 5 cable. 
+        <br>
+        <br>
+        </font>
+        <center>
+          <font size="2" face="tahoma, arial, verdana, helvetica"><img src="HowTo%20Make%20a%20crossover%20cable_files/stuff.gif" WIDTH="400" HEIGHT="247"><br>
+          Keep everything within hands reach of you... </font>
+        </center>
+        <font size="2" face="tahoma, arial, verdana, helvetica"><br>
+        <br>
+        <b>Connectors</b> - Crossover cables are terminated with CAT 5 RJ-45 (RJ 
+        stands for &quot;Registered Jack&quot;) modular plugs. RJ-45 plugs are 
+        similar to those you'll see on the end of your telephone cable except 
+        they have eight versus four contacts on the end of the plug. Also, make 
+        sure the ends you select are rated for CAT 5 wiring. There are also different 
+        types of jacks which are used for different types of cabling (such as 
+        Solid Core wire). Make sure you buy the correct jacks for your cabling. 
+        <br>
+        <br>
+        <b>Crimper</b> - You will need a modular crimping tool. My advice on what 
+        brand to get? Well, I really don't have a preference at this point, but 
+        make sure you buy a good one. If you spend about 40 to 50 bucks, you should 
+        have one that will last ya a lifetime. Spend 10 to 20 bucks, and you might 
+        be able to make a few cables with it if you're lucky. You definitely get 
+        what you pay for when it comes to crimpers! <br>
+        <br>
+        <b>Stripper</b> - No I'm not talking about what <a class="fresh" href="http://www.littlewhitedog.com/reviews_other_00002.asp">Spot 
+        had at his bachelor party</a>, I am talking about a tool to strip the 
+        ends off the wires you pervert! There are several specialized tools, which 
+        can be used to strip the jackets off of cabling. If you do not have access 
+        to one of these tools, cautious use of a razor blade or knife should work 
+        just fine - but keep in mind if you go the razor blade / knife route, 
+        extra special care must be used as to not damage the wires inside the 
+        jacket. <br>
+        <br>
+        <b>Cutters</b> - You need a pair of cutters that will allow you to cut 
+        a group of cables in a straight line. It is very important that all the 
+        wires are the same lengths, and without proper cutters, this can be a 
+        difficult task. <br>
+        <br>
+        <br>
+        <br>
+        <font color="#ff9900"><b><u>Doing the deed</u></b> </font><br>
+        You now know what crossover cables are used for. You know why you need 
+        one. You also know what you need to make one, so I guess we're ready... 
+        First thing you will want to do it cut off the appropriate length of cable 
+        that you will need. Be sure that it is plenty long enough. If you screw 
+        up, and don't cut it long enough, you will have to start all over, and 
+        you will not only waste you time, but cable and the RJ-45 ends as well. 
+        If you are pulling this cable through a wall, or ceiling, make sure the 
+        pulling is completed first. It is much more difficult to pull a cable 
+        with the ends already on it. So you have all the parts, you understand 
+        the concepts, and you have your cable, lets get started!</font> <blockquote> 
+        <p align="center"><b><u><font face="tahoma, arial, verdana, helvetica" size="3">Baby steps... 
+              </font></u></b> 
+              <font face="tahoma, arial, verdana, helvetica" size="2"><br><br><b>1)</b> - Start by stripping off 
+              about 2 inches of the plastic jacket off the end of the cable. Be 
+              very careful at this point, as to not nick or cut into the wires, 
+              which are inside. Doing so could alter the characteristics of your 
+              cable, or even worse render is useless. Check the wires, <b>one 
+              more time</b> for nicks or cuts. If there are any, just whack the 
+              whole end off, and start over. <br><br>
+              <center><img alt="Step 1 picture" src="HowTo%20Make%20a%20crossover%20cable_files/step1.gif" WIDTH="300" HEIGHT="243"> 
+              <br><br></center><b>2)</b> - Spread the wires apart, 
+              but be sure to hold onto the base of the jacket with your other 
+              hand. You do not want the wires to become untwisted down inside 
+              the jacket. Category 5 cable must only have 1/2 of an inch of 
+              'untwisted' wire at the end; otherwise it will be 'out of spec'. 
+              At this point, you obviously have ALOT more than 1/2 of an inch of 
+              un-twisted wire, but don't worry - well take care of that soon 
+              enough. <br><br>
+              <img alt="Step 2a picture" src="HowTo%20Make%20a%20crossover%20cable_files/step2.gif" WIDTH="300" HEIGHT="166">
+              <center> 
+              <br><br></center><b>3)</b> - Up to this point, things 
+              have been pretty easy. Things will get a little bit tricky here, 
+              but don't worry, we'll get through this together. We are at a 
+              point in this article where a decision needs to be made. You need 
+              to decide which end of the cable you are making at this point in 
+              time. If you are making your cable from scratch like I am doing 
+              while writing this article, you have 2 end jacks, which must be 
+              installed on your cable. If you are using a pre-made cable, with 
+              one of the ends whacked off, you only have one end to install - 
+              the crossed over end. Below are two diagrams, which show how you 
+              need to arrange the cables for each type of cable end. Decide at 
+              this point which end you are making and examine the associated 
+              picture below. <br><br>
+              </font>
+              <center>
+              <!--mstheme--></font><table cellSpacing="0" cellPadding="5" align="center" border="0" <tr>
+                <tbody>
+                <tr>
+                  <td align="middle"><!--mstheme--><font face="book antiqua, times new roman, times"><font face="book antiqua, times new roman, times"><img alt="Step 2b picture" src="HowTo%20Make%20a%20crossover%20cable_files/568a_normal.gif" WIDTH="144" HEIGHT="484"></font> 
+                  <!--mstheme--></font></td>
+                  <td align="middle"><!--mstheme--><font face="book antiqua, times new roman, times"><font face="book antiqua, times new roman, times"><img alt="Step 2c picture" src="HowTo%20Make%20a%20crossover%20cable_files/568a_crossed.gif" WIDTH="144" HEIGHT="483"></font> 
+                  <!--mstheme--></font></td></tr>
+                <tr>
+                  <td align="middle"><!--mstheme--><font face="book antiqua, times new roman, times"><font face="tahoma, arial, verdana, helvetica" size="2">568a - <b>standard</b> end<br>(you will need one of 
+                    the ends on<br>your cable to look like this) </font><!--mstheme--></font></td>
+                  <td align="middle"><!--mstheme--><font face="book antiqua, times new roman, times"><font face="tahoma, arial, verdana, helvetica" size="2">Crossed over end wire pattern<br>(you will want the 
+                    other end to look<br>like this) 
+              </font><!--mstheme--></font></td></tr></tbody></table><!--mstheme--><font face="book antiqua, times new roman, times">
+              <p align="center"><font face="tahoma, arial, verdana, helvetica" size="2"><br></center>Begin to untwist the 
+              twisted exposed wires on your cable. Use caution so that you do 
+              not untwist them down inside the jacket. Once you have all the 
+              wires untwisted begin to arrange them in the proper order based on 
+              the pictures above. This stage can be a pain in the ass, 
+              especially some of the middle wires. Once you get all the wired 
+              arranged in the proper order, make sure your wire cutters are 
+              within reach then grasp them right at the point where they enter 
+              the jacket. Make sure you keep them in the proper order! Grab your 
+              cutters now. Line them up along your prepared wires about 1/2 inch 
+              above the jacket. Be sure at this point that you are both 1/2 inch 
+              above the jacket, and that your cutters are aligned straight 
+              across the wires. You want to make a clean cut here - also make 
+              sure you don't let go of that jacket / wires! <br><br>
+              <img alt="Step 3 picture" src="HowTo%20Make%20a%20crossover%20cable_files/step3.gif" WIDTH="300" HEIGHT="262"><br><br><b>4)</b> - Don't worry. From this 
+              point forward things get a lot easier. Grab your jack, and begin 
+              to slide the wires into the jack. Once you get to the point where 
+              the jacket begins to enter the jack things might get a little 
+              tough, but just have some patience and hold onto those wires. It 
+              will fit in there just fine. Once it is in as far as it will go 
+              the wires should extend almost to the front of the jack, and about 
+              3/8 of an inch of the jacket will be inside the jack. Like the 
+              pictures below. <br><br>
+              <center><img alt="Step 4 picture" src="HowTo%20Make%20a%20crossover%20cable_files/step4.gif" WIDTH="300" HEIGHT="382"> 
+              </center><br><br><b>5)</b> - Grab those crimpers - 
+              because not all crimpers are exactly the same your pictures may 
+              not match exactly what you see below. Be sure to keep a good grip 
+              on that jack and the cable. Insert the jack into the crimper. It 
+              should only go in one way, so you don't have a whole lot to worry 
+              about inserting it. Begin to compress those crimpers. You will 
+              more than likely hear a clicking sound. Keep squeezing. If you try 
+              to let go to early, nothing will happen. They will not release. 
+              Keep going until they stop clicking / stop moving all together. At 
+              this point, you should be able to let go of the jack, and the 
+              crimpers. The crimpers should release now leaving you with a 
+              crimped jack. If the crimpers do not release, you probably are a 
+              wimp and didn't press hard enough. Go ask your mom to help you at 
+              this point. She can probably finish what you started. <br><br>
+              </font>
+              <center>
+              <!--mstheme--></font><table cellSpacing="0" cellPadding="5" align="center" border="0" <tr>
+                <tbody>
+                <tr>
+                  <td align="middle"><!--mstheme--><font face="book antiqua, times new roman, times"><font face="tahoma, arial, verdana, helvetica" size="2"><img alt="Step 5a picture" src="HowTo%20Make%20a%20crossover%20cable_files/step5a.gif" width="202" height="149"> </font> <!--mstheme--></font></td>
+                  <td align="middle"><!--mstheme--><font face="book antiqua, times new roman, times"><font face="book antiqua, times new roman, times"><img alt="Step 5b picture" src="HowTo%20Make%20a%20crossover%20cable_files/step5b.gif" WIDTH="150" HEIGHT="162"></font> <!--mstheme--></font></td></tr>
+                <tr>
+                  <td align="middle"><!--mstheme--><font face="book antiqua, times new roman, times"><font face="tahoma, arial, verdana, helvetica" size="2">Insert the jack into the crimper </font><!--mstheme--></font></td>
+                  <td align="middle"><!--mstheme--><font face="book antiqua, times new roman, times"><font face="tahoma, arial, verdana, helvetica" size="2">Crimp it! Crimp it good! 
+              </font><!--mstheme--></font></td></tr></tbody></table><!--mstheme--><font face="book antiqua, times new roman, times"></center>
+              <p align="center"><font face="tahoma, arial, verdana, helvetica" size="2"><br><br><b>6)</b> - It's time to examine what we have done. 
+              If you look at the end of the jack (distal), you should see that 
+              the copper connectors should not be pressed down into the wires. 
+              Toward the back of the jack (where the jacket meets the jack) it 
+              should be crimped securely holding the jacket / cable in the jack. 
+              If something has gone wrong, don't worry, its not the end of the 
+              world. Grab those cutters, and just whack the whole jack off and 
+              start back at step 1 (a pain in the ass I know, but its better to 
+              have a cable that works, than to spend hours trouble shooting your 
+              PC trying to figure out why you can't see the other machine). If 
+              everything is cool, all you have to do now is make the other end 
+              of the cable (unless you are using a pre-fab cable and have 
+              whacked one of the ends off), so go back to step one, and make the 
+              other end now. <br><br>
+              <img alt="Step 6 picture" src="HowTo%20Make%20a%20crossover%20cable_files/step6.gif" WIDTH="300" HEIGHT="253"><br><br><font face="tahoma, arial, verdana, helvetica" color="#ff9900" size="3"><b><u>In closing</u></b> </font><br>You 
+              should now have a fully functional CAT 5 Crossover cable. It's a 
+              good idea to label it as such, especially if you have a lot of 
+              other cables lying around. So what are ya waiting for... install 
+              the cable and test it out. If it doesn't work, double-check the 
+              ends. There is always a possibility that you have overlooked 
+              something. If so just whack the bad end and make new one. Remember 
+              the more jacks you install, and the more cables you make, the 
+              easier it gets. It's really not that hard to do, the first time is 
+              definitely the most difficult. <br><br>Here are a few other things 
+              to keep in mind...</font> 
+              <blockquote>
+                <!--mstheme--></font><!--msthemelist--><table border="0" cellpadding="0" cellspacing="0" width="100%">
+                  <!--msthemelist--><tr><td valign="top" width="42"><img src="../../_themes/expeditn/expbul1a.gif" width="15" height="15" hspace="13"></td><td valign="top" width="100%"><!--mstheme--><font face="book antiqua, times new roman, times"><font face="tahoma, arial, verdana, helvetica" size="2">Maximum Cable length for including connectors is 100 
+                  meters (or about 328 feet)</font>
+                  <!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/expeditn/expbul1a.gif" width="15" height="15" hspace="13"></td><td valign="top" width="100%"><!--mstheme--><font face="book antiqua, times new roman, times"><font face="tahoma, arial, verdana, helvetica" size="2">Do not allow the cable to be sharply bent, or kinked, at 
+                  any time. This can cause permanent damage to the cables' 
+                  interior</font>
+                  <!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/expeditn/expbul1a.gif" width="15" height="15" hspace="13"></td><td valign="top" width="100%"><!--mstheme--><font face="book antiqua, times new roman, times"><font face="tahoma, arial, verdana, helvetica" size="2">Do not overtighten cable ties</font>
+                  <!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/expeditn/expbul1a.gif" width="15" height="15" hspace="13"></td><td valign="top" width="100%"><!--mstheme--><font face="book antiqua, times new roman, times"><font face="tahoma, arial, verdana, helvetica" size="2">Do not use excessive force when pulling cable through 
+                  floors, walls or ceilings</font>
+                  <!--msthemelist--><tr><td valign="baseline" width="42"><img src="../../_themes/expeditn/expbul1a.gif" width="15" height="15" hspace="13"></td><td valign="top" width="100%"><!--mstheme--><font face="book antiqua, times new roman, times"><font face="tahoma, arial, verdana, helvetica" size="2">Do not use staples to secure category-5 cable, use the 
+                  proper hangers, which can be found at most hardware stores</font><!--mstheme--></font><!--msthemelist--></td></tr>
+                <!--msthemelist--></table><!--mstheme--><font face="book antiqua, times new roman, times">
+              </blockquote>
+              <p align="center"><font face="tahoma, arial, verdana, helvetica" size="2"><a href="javascript:top.history.back()"><b>Anterior</b></a> 
+              <br></font><font face="tahoma, arial, verdana, helvetica" color="#ffffff" size="2"><font color="#cacaca"><br></font></p>
+              </blockquote></font><!--mstheme--></font></td></tr></tbody></table><!--mstheme--><font face="book antiqua, times new roman, times"><!---END CONTENT TABLES---><!---AD Table include start---><br><br><!---AD TABLE--->
+      <p><br><br><!---AD Table include end---></p>
+<!---  ABSOLUTE BOTTOM FOOTER CODE Include line starts here ---><!-- VC layer -->
+<script language="JavaScript">
+<!--
+document.write('<LAYER SRC="' + ValueBanner + '&t=html" WIDTH="' + IWidth + '" ');
+document.write('HEIGHT="' + IHeight + '" VISIBILITY="hide" onLoad=');
+document.write('"moveToAbsolute(VC.pageX,VC.pageY); clip.width=' + IWidth + '; ');
+document.write('clip.height=' + IHeight + '; visibility=\'show\'"></LAYER>');
+// -->
+</script>
+<!-- vc layer --><!---  ABSOLUTE BOTTOM FOOTER CODE Include line ends here ---><!--mstheme--></font></body></html>

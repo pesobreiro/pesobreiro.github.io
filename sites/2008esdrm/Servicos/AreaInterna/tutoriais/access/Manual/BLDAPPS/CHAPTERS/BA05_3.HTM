@@ -1,0 +1,160 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>Working with Properties and Methods</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba05_2.htm" OnClick="SyncURL(&quot;chapters/ba05_2.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<a NAME="3WorkingwithPropertiesandMethods"></a>
+<p CLASS="heading3OrgHeading1h1">Working with Properties and Methods</p>
+<p CLASS="Textttext">To describe an object's characteristics, you use its properties. You can set properties to change their values, or read properties to get information about the object. To control how an object behaves, you use its methods. An object's methods determine what operations you can perform on that object.
+<p CLASS="Textttext">Because a collection is also an object, each collection in Microsoft Access has its own properties and methods. You can set or read the properties of a collection, or apply its methods, in the same manner that you would for any object.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For information on the properties and methods an object supports, search the Help index for the name of the object. You can also search the Help index for the name of a property or method.</p>
+<a NAME="4SettingandReadingProperties"></a>
+<p CLASS="heading4OrgHeading2h2">Setting and Reading Properties</p>
+<p CLASS="Textttext">Visual Basic provides a standard syntax for setting and reading properties in code. When you set a property, you give it a new value. You can use the following syntax to set a property for any type of object:</p>
+<p CLASS="SyntaxTextsyn"><span CLASS="NewTermntrm">object</span><span CLASS="ElementNameeln">.</span><span CLASS="NewTermntrm">property</span> <span CLASS="ElementNameeln">=</span> <span CLASS="NewTermntrm">setting</span></p>
+<p CLASS="Textttext">The following line of code sets the <span CLASS="ElementNameeln">Caption </span>property of the Employees form:</p>
+<p CLASS="CodeTextct">Forms!Employees.Caption = &quot;Employees Form&quot;</p>
+<p CLASS="Textttext">When you read the value of a property, you determine its current value. In order to read the property, you can assign its value to a variable or to another property, or you can display it in the Debug window, in a dialog box, or in a control on a form or report. The following example assigns the value of the <span CLASS="ElementNameeln">Caption </span>property to a variable and then displays the value of that property in a dialog box.</p>
+<p CLASS="CodeTextct">Dim strCaption As String<br>strCaption = Forms!Employees.Caption<br>MsgBox strCaption</p>
+<a NAME="4PropertiesThatReturnObjects"></a>
+<p CLASS="heading4OrgHeading2h2">Properties That Return Objects</p>
+<p CLASS="Textttext">Sometimes you may want your code to refer to whatever object happens to be in a particular state at the time a procedure is running, rather than to a specific object. Writing code in this way can make your application more flexible. For instance, you may want to change the caption of the active form, without knowing the form's name. Or you may want to hide the control that has just lost the focus.
+<p CLASS="Textttext">Rather than determining an object's characteristics, some properties of an object represent another object that is related in some way. These properties return an object reference that you can work with directly or assign to an object variable, just as you would any object reference. The following table lists several properties that return objects.</p>
+<!--mstheme--></font><table WIDTH="100%" BORDER="0" CELLPADDING="5" CELLSPACING="0" FRAME="VOID" RULES="THEAD"><thead>
+<tr VALIGN="TOP" BGCOLOR="#DDDDDD">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Property</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Applies to</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Returns a reference to</p></font><!--mstheme--></font></td></tr><tbody>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">ActiveControl</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Screen</span>, <span CLASS="ElementNameeln">Form</span>, or <span CLASS="ElementNameeln">Report </span>object</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">The <span CLASS="ElementNameeln">Control</span> object that has the focus.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">ActiveForm</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Screen </span>object</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">The <span CLASS="ElementNameeln">Form</span> object that has the focus or that contains the control with the focus.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">ActiveReport</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Screen </span>object</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">The <span CLASS="ElementNameeln">Report</span> object that has the focus or that contains the control with the focus.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Application</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Numerous objects</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">The Microsoft Access <span CLASS="ElementNameeln">Application </span>object.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">DBEngine</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Application</span> object</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">The <span CLASS="ElementNameeln">DBEngine </span>object.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Form</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Subform <span CLASS="ElementNameeln">Control </span>object</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">The <span CLASS="ElementNameeln">Form</span> object associated with the subform control.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Me</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Form </span>or <span CLASS="ElementNameeln">Report </span>object</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">The <span CLASS="ElementNameeln">Form</span> or <span CLASS="ElementNameeln">Report</span> object in which code is currently running.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Module</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Form </span>or <span CLASS="ElementNameeln">Report </span>object</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">The <span CLASS="ElementNameeln">Module</span> object associated with a <span CLASS="ElementNameeln">Form</span> or <span CLASS="ElementNameeln">Report</span> object.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Parent</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Numerous objects</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">The object or collection that contains an object.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">PreviousControl</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Screen </span>object</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">The <span CLASS="ElementNameeln">Control </span>object that had the focus immediately before the currently active control.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">RecordsetClone</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Form </span>object</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">A clone of the form's underlying recordset. </p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Report</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Subreport <span CLASS="ElementNameeln">Control </span>object</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">The <span CLASS="ElementNameeln">Report </span>object associated with the subreport control.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Section</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Form</span>, <span CLASS="ElementNameeln">Report</span>, or <span CLASS="ElementNameeln">Control</span> object</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">A section on a form or report.</p></font><!--mstheme--></font></td></tr>
+</table><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For information on properties that return objects, search the Help index for the specific property name.</p>
+<a NAME="5TheSectionProperty"></a>
+<p CLASS="heading5OrgHeading3h3">The Section Property</p>
+<p CLASS="Textttext">The <span CLASS="ElementNameeln">Section</span> property returns a reference to a section of a form or report. For example, you can use the <span CLASS="ElementNameeln">Section</span> property to return a reference to the detail section of a form. Once you've returned a reference to a section, you can set the section's properties. The following example uses the <span CLASS="ElementNameeln">Section</span> property to set a property of the detail section on an Employees form.</p>
+<p CLASS="CodeTextct">Forms!Employees.Section(acDetail).Visible = False</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on setting properties of sections, search the Help index for &quot;Section<span CLASS="ElementNameeln"> </span>property.&quot;</p>
+<a NAME="5TheMeProperty"></a>
+<p CLASS="heading5OrgHeading3h3">The Me Property</p>
+<p CLASS="Textttext">The <span CLASS="ElementNameeln">Me </span>property returns an object reference to the <span CLASS="ElementNameeln">Form</span> or <span CLASS="ElementNameeln">Report</span> object in which the code is currently running. You can use the <span CLASS="ElementNameeln">Me </span>property to refer to a <span CLASS="ElementNameeln">Form</span> or <span CLASS="ElementNameeln">Report</span> object from within that object, without needing to know the name of the form or report. You can also use it to pass a <span CLASS="ElementNameeln">Form</span> or <span CLASS="ElementNameeln">Report</span> object to a procedure that takes an argument of type <span CLASS="ElementNameeln">Form</span> or <span CLASS="ElementNameeln">Report</span>.
+<p CLASS="Textttext">For example, the following code uses the <span CLASS="ElementNameeln">Me </span>property to return a reference to the Employees form, the form in which the code is running. It then passes this reference to the ChangeDetailColor procedure which it calls when the form's Current event occurs. It also uses the <span CLASS="ElementNameeln">Me </span>property to return references to the Employees form in order to set a property and to return the values of the FirstName and LastName controls on the form. Note that the <span CLASS="ElementNameeln">.</span> (dot) operator is used to set the property, and the<span CLASS="ElementNameeln"> ! </span>operator is used to refer to the controls on the form.</p>
+<p CLASS="CodeTextct">' Place this procedure in a standard module.<br>Sub ChangeDetailColor(frm As Form)<br>&nbsp;&nbsp;&amp;nbspfrm.Section(acDetail).BackColor = RGB(Rnd * 256, Rnd * 256, Rnd * 256)<br>End Sub<br>' Place this procedure in the form module associated with the Employees form.<br>Private Sub Form_Current()<br>&nbsp;&nbsp;&amp;nbspChangeDetailColor Me<br>&nbsp;&nbsp;&amp;nbspMe.Caption = Me!FirstName.Value &amp; &quot; &quot; &amp; Me!LastName.Value<br>End Sub</p>
+<p CLASS="Textttext">In most cases, the form or report represented by the <span CLASS="ElementNameeln">Me</span> property is the same form or report represented by the <span CLASS="ElementNameeln">ActiveForm</span> or <span CLASS="ElementNameeln">ActiveReport</span> property of the <span CLASS="ElementNameeln">Screen</span> object. However, the <span CLASS="ElementNameeln">ActiveForm</span> and <span CLASS="ElementNameeln">ActiveReport</span> properties represent the active form or report, whereas the <span CLASS="ElementNameeln">Me</span> property represents the form or report in which the code is running. For example, a Timer event can occur on a form called Customers, even if the Customers form isn't active. In a Timer event procedure for the Customers form, <span CLASS="CodeTextEmbeddedcte">Screen.ActiveForm</span> represents the active form, whatever it is, and <span CLASS="ElementNameeln">Me</span> always represents the Customers form.</p>
+<a NAME="4UsingMethods"></a>
+<p CLASS="heading4OrgHeading2h2">Using Methods</p>
+<p CLASS="Textttext">Methods are built-in operations that you can perform on an object. There are two kinds of methods: those that return a value or an object, as a function does, and those that perform a specific operation, as a statement does. To apply a method to an object, you use the following syntax:</p>
+<p CLASS="SyntaxTextsyn"><span CLASS="NewTermntrm">object</span><span CLASS="ElementNameeln">.</span><span CLASS="NewTermntrm">method</span> [[(] <span CLASS="NewTermntrm">arg1</span>, <span CLASS="NewTermntrm">arg2</span>...[)]]</p>
+<p CLASS="Textttext">Many methods take one or more <span CLASS="NewTermntrm">arguments</span>. An argument provides the method with additional information for its operation. If the method returns a value or an object, you must enclose its argument list in parentheses; otherwise you should omit the parentheses.
+<p CLASS="Textttext">The following example shows the syntax for several different methods. The <span CLASS="ElementNameeln">OpenRecordset </span>method creates a new <span CLASS="ElementNameeln">Recordset </span>object and returns a reference to the new object. You can assign this object reference to an object variable by using the <span CLASS="ElementNameeln">Set </span>statement. Because the <span CLASS="ElementNameeln">OpenRecordset </span>method returns a value, you must enclose its arguments in parentheses. The <span CLASS="ElementNameeln">FindFirst </span>method, on the other hand, doesn't return a value. It simply sets the current record pointer to the first record that matches the criteria given in the <span CLASS="ElementNameeln">FindFirst </span>argument. Since this method doesn't return a value, you don't need to enclose its arguments in parentheses. The same is true for the <span CLASS="ElementNameeln">Print </span>method of the <span CLASS="ElementNameeln">Debug </span>object. Finally, the <span CLASS="ElementNameeln">Close </span>method of the <span CLASS="ElementNameeln">Recordset </span>object doesn't take any arguments.</p>
+<p CLASS="CodeTextct">Sub FindEmployee()<br>&nbsp;&nbsp;&amp;nbspDim dbs As Database, rst As Recordset<br>&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&amp;nbspSet dbs = CurrentDb<br>&nbsp;&nbsp;&nbsp;' Requires parentheses.<br>&nbsp;&nbsp;&amp;nbspSet rst = dbs.OpenRecordset(&quot;Employees&quot;, dbOpenDynaset)<br>&nbsp;&nbsp;&amp;nbsprst.FindFirst &quot;[HireDate] &gt;= #1-1-93#&quot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' No parentheses needed.<br>&nbsp;&nbsp;&amp;nbspDebug.Print rst!LastName&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' No parentheses needed.<br>&nbsp;&nbsp;&amp;nbsprst.Close&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' Doesn't take arguments.<br>&nbsp;&nbsp;&amp;nbspSet dbs = Nothing<br>End Sub</p>
+<a NAME="4PerformingMultipleActionsonanObject"></a>
+<p CLASS="heading4OrgHeading2h2">Performing Multiple Actions on an Object</p>
+<p CLASS="Textttext">You'll often need to perform several different actions on the same object. For example, you may need to set several properties for the same object within a single procedure. Instead of using many separate statements to do this, you can use the <span CLASS="ElementNameeln">With...End With</span> statement. The following example uses the <span CLASS="ElementNameeln">With...End With </span>statement to set several properties for a command button named HelpButton in a form's Load event.</p>
+<p CLASS="CodeTextct">Private Sub Form_Load()<br>&nbsp;&nbsp;&amp;nbspWith Me!HelpButton<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.Caption = &quot;Help&quot;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.Visible = True<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.Top = 200<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.Left = 5000<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.Enabled = True<br>&nbsp;&nbsp;&amp;nbspEnd With<br>End Sub</p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="ba05_4.htm" OnClick="SyncURL(&quot;chapters/ba05_4.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

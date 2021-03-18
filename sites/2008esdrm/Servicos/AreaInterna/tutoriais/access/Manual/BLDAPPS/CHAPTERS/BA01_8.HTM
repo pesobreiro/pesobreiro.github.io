@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>Making Key Assignments</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba01_7.htm" OnClick="SyncURL(&quot;chapters/ba01_7.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<a NAME="3MakingKeyAssignments"></a>
+<p CLASS="heading3OrgHeading1h1">Making Key Assignments</p>
+<p CLASS="Textttext">You can assign actions to key combinations by using a special key assignment macro. For example, suppose you frequently print the currently selected record. You can assign this task to a key combination, such as <span CLASS="KeyNamekn">CTRL+R</span>. Then, whenever you want to print the current record<img SRC="../images/Emdash.gif" BORDER="0" VSPACE="0" HSPACE="0" WIDTH="16" HEIGHT="5">no matter what form is active<img SRC="../images/Emdash.gif" BORDER="0" VSPACE="0" HSPACE="0" WIDTH="16" HEIGHT="5">you can just press <span CLASS="KeyNamekn">CTRL+R</span>. You can make as many key assignments as you want in your application.
+<p CLASS="Textttext">When you press a key combination in an open database, Microsoft Access looks for a key assignment macro called AutoKeys. If it finds a macro that assigns actions to the key combination you pressed, Microsoft Access carries out the actions.
+<p CLASS="TipIcontpi"></p>
+<p CLASS="TipTexttpt"><span CLASS="TipHeadingtph">Tip&nbsp;&nbsp;&nbsp;</span>For even greater control over keystrokes, you can use a form or control's KeyDown or KeyPress events to check which key the user pressed and respond appropriately. Use these events, in conjunction with the <span CLASS="ElementNameeln">KeyPreview</span> property, when you want to have different key assignments for each form or control in your application. For more information, see Chapter 6, <a HREF="../chapters/ba06_1.htm" OnClick="SyncURL(&quot;chapters/ba06_1.htm&quot;)">&quot;Responding to Events.&quot;</a></p>
+<p CLASS="heading9ListProcedureHeadinglproch"><span CLASS="ProcedureIconproci"><img SRC="../images/bluetri.jpg" ALIGN="LEFT" WIDTH="9" HEIGHT="17">&nbsp;&nbsp;&nbsp;</span>To assign a set of actions to a key combination</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">1</span>&nbsp;&nbsp;&amp;nbspIn the Database window, click the <span CLASS="ElementNameeln">Macro</span> tab and then click <span CLASS="ElementNameeln">New</span>.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">2</span>&nbsp;&nbsp;&nbsp;<img SRC="..\images\MACRONMS.gif">&amp;nbspDisplay the <span CLASS="ElementNameeln">Macro Name</span> column by clicking <span CLASS="ElementNameeln">Macro Names</span> on the toolbar. In the <span CLASS="ElementNameeln">Macro Name</span> column, type the key combination you want from the table following this procedure.</p>
+<p CLASS="ListImportantText1lit"><span CLASS="ImportantHeadingih">Important&nbsp;&nbsp;&nbsp;</span><span CLASS="Xref">You use a special syntax (the Visual Basic <span CLASS="ElementNameeln">SendKeys</span> statement syntax) to specify the key combination. For a full description and examples of the <span CLASS="ElementNameeln">SendKeys</span> statement syntax, search the Help index for &quot;SendKeys statement.&quot;</span></p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">3</span>&nbsp;&nbsp;&amp;nbspIn the <span CLASS="ElementNameeln">Action</span> column, enter the actions you want this key combination to carry out.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">4</span>&nbsp;&nbsp;&amp;nbspSave the macro with the name AutoKeys.</p>
+<p CLASS="ListText1lt1">Microsoft Access makes the key assignment immediately. When you press the key combination, Microsoft Access carries out the actions.</p>
+<p CLASS="Textttext">If you want the key assignment to be active only under certain conditions, enter an expression that specifies the conditions in the <span CLASS="ElementNameeln">Condition</span> column. To display the <span CLASS="ElementNameeln">Condition</span> column, click <span CLASS="ElementNameeln">Conditions</span> <img SRC="..\images\CONDITN.gif" BORDER="0" HSPACE="0" VSPACE="0">on the toolbar.
+<p CLASS="Textttext">If you want to make several key assignments at once, create a macro for each key combination. Put the macros in a macro group named AutoKeys.
+<p CLASS="Textttext">The following table gives the <span CLASS="ElementNameeln">SendKeys</span> syntax for some commonly used key combinations.</p>
+<!--mstheme--></font><table WIDTH="100%" BORDER="0" CELLPADDING="5" CELLSPACING="0" FRAME="VOID" RULES="THEAD"><thead>
+<tr VALIGN="TOP" BGCOLOR="#DDDDDD">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">SendKeys syntax example</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Key combination</p></font><!--mstheme--></font></td></tr><tbody>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">^A</span> or <span CLASS="ElementNameeln">^4</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="KeyNamekn">CTRL+ </span>any letter or number key</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">{F1}</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">F1 (or other function key)</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">^{F1}</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="KeyNamekn">CTRL+F1</span> (or other function key)</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">+{F1}</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="KeyNamekn">SHIFT+</span>F1 (or other function key)</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">%+{ F1}</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="KeyNamekn">ALT+SHIFT+</span>F1 (or other function key)</p></font><!--mstheme--></font></td></tr>
+</table><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>If you assign a set of actions to a key combination that is already being used by Microsoft Access (for example, <span CLASS="KeyNamekn">CTRL+C</span> for <span CLASS="ElementNameeln">Copy</span>), the actions that you assign to this key combination in the key assignment macro replace the Microsoft Access key assignment in all Microsoft Access windows in the current database. If you have a custom menu command that you want associated with a key combination, you must define the key combination in the AutoKeys macro group. You can display text for the key combination with the menu command by specifying its <span CLASS="ElementNameeln">ShortcutText</span> property.
+<p CLASS="heading6OrgHeading4h4"><img SRC="../images/example.gif" WIDTH="73" HEIGHT="21"><!--example space-->&nbsp;&nbsp;<a NAME="XAssigningthePrintCurrentRecordCommandtoaKeyCombination"></a>Assigning the Print Current Record Command to a Key Combination</p>
+<p CLASS="Textttext">Northwind sales representatives frequently want to print the current record in either the Orders form or the ProductsPopup form. You can provide a convenient way for them to perform this task without having to go through the selection and print procedures each time: Assign these actions to the <span CLASS="KeyNamekn">CTRL+R</span> key combination.
+<p CLASS="Textttext">Create a macro named AutoKeys. Type <span CLASS="ElementNameeln">^R</span> (the Visual Basic <span CLASS="ElementNameeln">SendKeys</span> statement syntax for CTRL+R) in the <span CLASS="ElementNameeln">Macro Name</span> column, then select the RunMacro action and enter the PrintCurrentRecord macro as the action argument. (The Orders database includes the PrintCurrentRecord macro, which selects and then prints the current record. You can see how this macro works by opening it in Design view; then you can import the macro into your database if you want.)
+<p CLASS="Textttext">If the user presses CTRL+R when the active window is not a form, such as while viewing a report in Print Preview, Microsoft Access displays an error message indicating that there is no current record. You can enter a condition to ensure that the key assignment is in effect only when a form is the active window.
+<p CLASS="Textttext">The UtilityFunctions module in the Orders database includes a Visual Basic function named IsForm that you can use to check whether the active window is a form.</p>
+<p CLASS="Arta"><img SRC="..\images\ABAC0118.jpg"></p>
+<p CLASS="Textttext">If the active window is a form, the IsForm function returns a value of -1, which means the condition is true. If the form isn't open, the function returns a value of 0, which means the condition is false.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For information on how to write and use Visual Basic functions, see Chapter 2, <a HREF="../chapters/ba02_1.htm" OnClick="SyncURL(&quot;chapters/ba02_1.htm&quot;)">&quot;Introducing Visual Basic.&quot;</a></p>
+<p CLASS="Textttext">Save the AutoKeys macro. Whenever a form is the active window, pressing <span CLASS="KeyNamekn">CTRL+R</span> now runs the PrintCurrentRecord macro, which selects and prints the current record. This key assignment is in effect every time you open the Orders database.</p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="ba02_1.htm" OnClick="SyncURL(&quot;chapters/ba02_1.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>Accessing Data with ODBCDirect</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba19_8.htm" OnClick="SyncURL(&quot;chapters/ba19_8.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<a NAME="3AccessingDatawithODBCDirect"></a>
+<p CLASS="heading3OrgHeading1h1">Accessing Data with ODBCDirect</p>
+<p CLASS="Textttext">This chapter describes how to use Microsoft Jet to access ODBC data on remote servers. <span CLASS="NewTermntrm">ODBCDirect</span> provides a second way to access ODBC data. With ODBCDirect, you can write code in your application that uses DAO to access data sources directly. Your code does not have to be processed by Microsoft Jet. There are several advantages to ODBCDirect:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspYour application's performance improves because your queries and their result sets don't have to go through Microsoft Jet.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspYou get broader access to server-specific functionality, including some operations that aren't possible when you are using Microsoft Jet. For example, you can use ODBCDirect to specify input values for a stored procedure.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspYou can perform asynchronous queries, which means that your application does not have to wait until a query is finished before performing other operations.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspYou can cache recordset updates locally and then submit the changes to a server in a single batch.</p>
+<p CLASS="Textttext">Though ODBCDirect has these advantages, it does not provide many of the advanced features that Microsoft Jet provides, such as support for linked tables and heterogeneous data access. However, you can use the features of both Microsoft Jet and ODBCDirect simultaneously in your applications to optimize performance, and to develop your applications as quickly and efficiently as possible.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on ODBCDirect, see the <span CLASS="NewTermntrm">Microsoft Office 97/Visual Basic Programmer's Guide</span>, or search the Help index for &quot;What's New in DAO?&quot;</p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="ba20_1.htm" OnClick="SyncURL(&quot;chapters/ba20_1.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

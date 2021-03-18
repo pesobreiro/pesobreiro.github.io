@@ -1,0 +1,138 @@
+/* Menu principal */
+
+/* @group Menu Horizontal */
+
+#menuh {
+	font-size: small;
+	font-family: Trebuchet MS, arial, sans-serif;
+	color: white;
+}
+
+#menuh a:link{
+	color: white;
+	text-decoration: none;
+	font-weight: bold;
+}
+#menuh a:visited{
+	color: white;
+	text-decoration: none;
+	font-weight: bold;
+}
+#menuh a:hover{
+	color: white;
+	text-decoration: overline;
+	font-weight: bold;
+}
+
+#menuh a:active{
+	color: white;
+	text-decoration: none;
+	font-weight: bold;
+}
+/* @end */
+
+
+/* @group Texto menu vertical */
+li#invite {
+	text-align:left;
+	text-transform:uppercase; /*nao transforme em maisculas*/
+	font-size:10pt;
+	margin: 0 0 0px 10px;
+	padding:1px 0 0 0;
+	color:white;
+	height:19px;
+}
+li#inviteContexto{
+	height: 19px;
+	padding: 0px 0px 0px 10px; /* Avanço da primeira Linha para não ficar encostado ao inicio da célula */
+	text-decoration: none;
+}
+li#inviteContexto a:link{
+	height: 19px;
+	padding: 0px 0px 0px 0px;
+	text-decoration: none;
+	color: white;
+}
+li#inviteContexto a:visited{
+	height: 19px;
+	padding: 0px 0px 0px 0px;
+	text-decoration: none;
+	color: white;
+}
+li#inviteContexto a:hover{
+	height: 19px;
+	text-decoration: underline;
+	color: white;
+}
+li#inviteContexto a:active{
+	height: 19px;
+	padding: 0px 0px 0px 0px;
+	color: white;
+}
+/* @end */
+
+/* @group SubMenu */
+
+#rollovermenu{
+	width:120pt;
+	background-color:#339900;
+	font: small Trebuchet MS, arial, sans-serif;
+	color: black;
+	
+}
+
+#rollovermenu, #rollovermenu ul { /* all lists */
+	margin: 0;
+	list-style: none;
+	color: black;
+}
+#rollovermenu ul{
+	border:1px solid #333333;
+	border-color: #006633 #006633 #006633 #006633;
+	width:260px;
+	padding-bottom:7px;
+}
+
+#rollovermenu ul a:link, #rollovermenu a:visited {
+	display: block;
+	border:none;
+	padding:0px 0px 0px 0px;
+	height:18px;
+	color: black;
+}
+#rollovermenu ul a:visited{
+	color: black;
+}
+
+#rollovermenu ul a:hover{
+	color: black;
+}
+
+#roolovermenu ul a:active{
+	color: black;
+}
+
+#rollovermenu li { /* items do submenu */
+	position: relative;
+	text-align: left;
+	cursor: default;
+	padding:0px 0px;
+	margin:0px;
+}
+
+#rollovermenu li ul { /* sub menu */
+	position: absolute;
+	border:1px solid #000000; /* Preto */
+	border-color: #006633 #006633 #006633 #006633; /*Branco*/
+	left: -999em;
+	color: black;
+}
+
+#rollovermenu li:hover ul, #rollovermenu li.sfhover ul { /* lists nested under hovered list items */
+	left:130px;
+	top:0px;
+	color: black;
+	background-color: white;
+	text-decoration: none;
+}
+/* @end */

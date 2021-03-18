@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>Making a Replicated Database a Regular Database</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba20_11.htm" OnClick="SyncURL(&quot;chapters/ba20_11.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<a NAME="3MakingaReplicatedDatabaseaRegularDatabase"></a>
+<p CLASS="heading3OrgHeading1h1">Making a Replicated Database a Regular Database</p>
+<p CLASS="Textttext">After you've converted a database to a Design Master, you can't convert it back to a regular database. However, if you no longer want to use replication, you can create a new, regular database that contains all of the objects and data in your replicated database without the additional system fields, tables, and properties associated with replication.</p>
+<p CLASS="heading9ListProcedureHeadinglproch"><span CLASS="ProcedureIconproci"><img SRC="../images/bluetri.jpg" ALIGN="LEFT" WIDTH="9" HEIGHT="17">&nbsp;&nbsp;&nbsp;</span>To make a replicated database a regular database</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">1</span>&nbsp;&nbsp;&amp;nbspCreate and open a new, blank database in Microsoft Access.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">2</span>&nbsp;&nbsp;&amp;nbspOn the <span CLASS="ElementNameeln">File</span> menu, point to <span CLASS="ElementNameeln">Get External Data</span>, and then click <span CLASS="ElementNameeln">Import</span>.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">3</span>&nbsp;&nbsp;&amp;nbspIn the <span CLASS="ElementNameeln">Import</span> dialog box, click the replica that contains the objects that you want in the new, regular database, and then click <span CLASS="ElementNameeln">Import</span>.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">4</span>&nbsp;&nbsp;&amp;nbspIn the <span CLASS="ElementNameeln">Import Objects</span> dialog box, click the objects (except tables) that you want to import into the new database, and then click <span CLASS="ElementNameeln">OK</span>.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">5</span>&nbsp;&nbsp;&amp;nbspIn the new database, create a query for each table in the replica that takes all the data in the replica and puts it into tables in the new database.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">6</span>&nbsp;&nbsp;&amp;nbspFor each table in the new database, create the same indexes and relationships that existed in the replica table.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">7</span>&nbsp;&nbsp;&amp;nbspSave your new database.</p>
+<!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<!--DocFooterEnd-->
+<a HREF="ba21_1.htm" OnClick="SyncURL(&quot;chapters/ba21_1.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

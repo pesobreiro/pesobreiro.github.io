@@ -1,0 +1,258 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>Preparing Your Add-in for Installation</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba17_5.htm" OnClick="SyncURL(&quot;chapters/ba17_5.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<a NAME="3PreparingYourAddinforInstallation"></a>
+<p CLASS="heading3OrgHeading1h1">Preparing Your Add-in for Installation</p>
+<p CLASS="Textttext">After you have completed the initial phase of testing and debugging, you're almost ready to install your add-in by using the Add-in Manager, which is available from the <span CLASS="ElementNameeln">Add-ins</span> submenu (<span CLASS="ElementNameeln">Tools</span> menu). Your users will also use the Add-in Manager to install your add-in.
+<p CLASS="Textttext">After your add-in is installed, its name appears in the appropriate place in Microsoft Access. If your add-in is a form wizard, for example, it appears in the list of form wizards that users see when creating a new form. Users can run your add-in by choosing it from the list.
+<p CLASS="Textttext">However, before you can use the Add-in Manager, you must first set several database properties and create a USysRegInfo table in your add-in's database.</p>
+<a NAME="4SettingDatabaseProperties"></a>
+<p CLASS="heading4OrgHeading2h2">Setting Database Properties</p>
+<p CLASS="Textttext">The first step in preparing your add-in for installation is to set database properties which provide general information about your add-in.</p>
+<p CLASS="heading9ListProcedureHeadinglproch"><span CLASS="ProcedureIconproci"><img SRC="../images/bluetri.jpg" ALIGN="LEFT" WIDTH="9" HEIGHT="17">&nbsp;&nbsp;&nbsp;</span>To set database properties before you install your add-in</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">1</span>&nbsp;&nbsp;&amp;nbspIn the Database window, click <span CLASS="ElementNameeln">Database Properties</span> on the <span CLASS="ElementNameeln">File</span> menu.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">2</span>&nbsp;&nbsp;&amp;nbspClick the <span CLASS="ElementNameeln">Summary</span> tab (if it's not already selected).</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">3</span>&nbsp;&nbsp;&amp;nbspIn the <span CLASS="ElementNameeln">Title</span>, <span CLASS="ElementNameeln">Company</span>, and <span CLASS="ElementNameeln">Comments</span> boxes, enter values that provide information about your add-in.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">4</span>&nbsp;&nbsp;&amp;nbspClick <span CLASS="ElementNameeln">OK</span> to close the dialog box and save the changes that you've made.</p>
+<a NAME="4CreatingtheUSysRegInfoTable"></a>
+<p CLASS="heading4OrgHeading2h2">Creating the USysRegInfo Table</p>
+<p CLASS="Textttext">When users install your add-in, the Add-in Manager uses a table in the add-in's database named USysRegInfo to determine what type of add-in to install and to get general information about the add-in to display for your users. You create the USysRegInfo table in the database that contains the add-in, and then you add records that give the Add-in Manager the information it needs to install your add-in.</p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>Table names that start with USys or MSys are system tables that aren't displayed in the Database window unless you select the <span CLASS="ElementNameeln">System Objects</span> check box on the <span CLASS="ElementNameeln">View</span> tab of the <span CLASS="ElementNameeln">Options</span> dialog box (<span CLASS="ElementNameeln">Tools</span> menu). The built-in Microsoft Access system tables all start with MSys. You can use the prefix USys to create your own system tables and hide them by clearing the <span CLASS="ElementNameeln">System Objects</span> check box.</p>
+<p CLASS="Textttext">The simplest way to create a USysRegInfo table is to import the table from one of the wizards that comes with Microsoft Access.</p>
+<p CLASS="heading9ListProcedureHeadinglproch"><span CLASS="ProcedureIconproci"><img SRC="../images/bluetri.jpg" ALIGN="LEFT" WIDTH="9" HEIGHT="17">&nbsp;&nbsp;&nbsp;</span>To create the USysRegInfo table</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">1</span>&nbsp;&nbsp;&amp;nbspIf your system doesn't currently display system objects, display them. On the <span CLASS="ElementNameeln">Tools</span> menu, click <span CLASS="ElementNameeln">Options</span>, then click the <span CLASS="ElementNameeln">View</span> tab. Under <span CLASS="ElementNameeln">Show</span>, select the <span CLASS="ElementNameeln">System Objects</span> check box, then click <span CLASS="ElementNameeln">OK</span>.</p>
+<p CLASS="ListText1lt1">Microsoft Access displays the system tables (tables with names that start with MSys or USys) in the Database window. With system objects showing, your USysRegInfo table will be displayed in the list of tables in the Database window.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">2</span>&nbsp;&nbsp;&amp;nbspOn the <span CLASS="ElementNameeln">File</span> menu, point to <span CLASS="ElementNameeln">Get External Data</span>, then click <span CLASS="ElementNameeln">Import</span>.</p>
+<p CLASS="ListText1lt1">Microsoft Access displays the <span CLASS="ElementNameeln">Import</span> dialog box.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">3</span>&nbsp;&nbsp;&amp;nbspIn the <span CLASS="ElementNameeln">Look In</span> box, click the folder where Microsoft Access is installed.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">4</span>&nbsp;&nbsp;&amp;nbspClick <span CLASS="ElementNameeln">Wztool80</span>, then click <span CLASS="ElementNameeln">Import</span>.</p>
+<p CLASS="ListText1lt1">Microsoft Access displays the <span CLASS="ElementNameeln">Import Objects</span> dialog box.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">5</span>&nbsp;&nbsp;&amp;nbspOn the <span CLASS="ElementNameeln">Tables</span> tab of the <span CLASS="ElementNameeln">Import Objects</span> dialog box, click <span CLASS="ElementNameeln">USysRegInfo</span> in the list of table objects, then click <span CLASS="ElementNameeln">OK</span>.</p>
+<p CLASS="ListText1lt1">Microsoft Access imports the table.
+<p CLASS="Textttext">The USysRegInfo table imported from Wztool80 is empty. You now need to add the records that will register your add-in. The next section describes how to do this.</p>
+<a NAME="4AddingRecordstotheUSysRegInfoTable"></a>
+<p CLASS="heading4OrgHeading2h2">Adding Records to the USysRegInfo Table</p>
+<p CLASS="Textttext">After you have imported a copy of the USysRegInfo table from Wztool80, you need to add records to the table. There are four fields in your USysRegInfo table: Subkey, Type, ValName, and Value. When you add records to the table, you define values in these fields as described in the following sections.</p>
+<a NAME="5AddingtheFirstRecord"></a>
+<p CLASS="heading5OrgHeading3h3">Adding the First Record</p>
+<p CLASS="Textttext">The value in the Subkey field defines the names of the subkeys that the Add-in Manager creates in the Windows Registry to register your add-in. This value must be the same for all records in the USysRegInfo table. The value you enter in the Subkey field consists of two parts; the first part is called the root key, which is followed by the subkeys below it.
+<p CLASS="Textttext">The root key can be either <span CLASS="ElementNameeln">HKEY_CURRENT_ACCESS_PROFILE</span> or <span CLASS="ElementNameeln">HKEY_LOCAL_MACHINE</span>. If you use <span CLASS="ElementNameeln">HKEY_CURRENT_ACCESS_ PROFILE</span> and the installation is using a user profile (an alternate set of Windows Registry keys that is invoked when Microsoft Access is started with the <span CLASS="ElementNameeln">/profile</span> command-line option), the Add-in Manager adds the keys and values required to register the add-in in the user profile. If you use <span CLASS="ElementNameeln">HKEY_CURRENT_ACCESS_ PROFILE</span> and a user profile is not in use, the Add-in Manager adds the keys and values required to register the add-in in the appropriate key below <span CLASS="ElementNameeln">HKEY_LOCAL_ MACHINE</span>. If you want to make sure that your add-in is registered for all users of Microsoft Access, use <span CLASS="ElementNameeln">HKEY_LOCAL_MACHINE</span> as your root key. If you use <span CLASS="ElementNameeln">HKEY_LOCAL_MACHINE</span>, the Add-in Manager always adds the keys and values to register the add-in in the appropriate key below <span CLASS="ElementNameeln">HKEY_LOCAL_MACHINE</span>.
+<p CLASS="Textttext">The format of the second part of this entry depends on the kind of add-in you're installing.</p>
+<a NAME="6EnteringtheSubkeyValueforControlWizardsActiveXControlWizardsorBuilders"></a>
+<p CLASS="heading6OrgHeading4h4">Entering the Subkey Value for Control Wizards, ActiveX Control Wizards, or Builders<span CLASS="DetailLabeldet"></span>
+<p CLASS="Textttext">If the <span CLASS="ElementNameeln">Control Wizards</span> tool <img SRC="..\images\CNTLWIZH.gif">in the toolbox is pressed in, a control wizard is invoked when a user adds a control to a form or report with one of the control tools in the toolbox. An ActiveX control wizard is invoked when a user adds an ActiveX control, formerly called OLE controls or custom controls, to a form or report with the <span CLASS="ElementNameeln">More Controls</span> tool <img SRC="..\images\MORCNTRL.gif">in the toolbox. A builder is invoked when a user clicks the <span CLASS="ElementNameeln">Build</span> button <img SRC="..\images\BUILDBUT.gif">next to a property box in a property sheet. To register a control wizard, ActiveX control wizard, or builder, the format for the value you enter in the Subkey field is:
+<p CLASS="Textttext"><span CLASS="ElementNameeln">HKEY_CURRENT_ACCESS_PROFILE\Wizards\</span><span CLASS="NewTermntrm">WizardType</span>\<span CLASS="NewTermntrm">WizardSubType\WizardName</span>
+<p CLASS="Textttext">Note that the first part of the value you enter in the Subkey field can be either <span CLASS="ElementNameeln">HKEY_CURRENT_ACCESS_PROFILE</span> or <span CLASS="ElementNameeln">HKEY_LOCAL_MACHINE</span>, as described earlier. The second part of the entry must begin with <span CLASS="ElementNameeln">Wizards</span>. Assuming there is no user profile in use, this causes the <span CLASS="ElementNameeln">Add-in Manager</span> to write the keys and values to register the wizard or builder in the <span CLASS="ElementNameeln">HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Office\8.0\Access\Wizards </span>key. <span CLASS="NewTermntrm">WizardType</span> defines whether the add-in is a control wizard, ActiveX control wizard, or a builder (called a property wizard in the Windows Registry). <span CLASS="NewTermntrm">WizardSubType</span> defines the specific type of wizard. <span CLASS="NewTermntrm">WizardName</span> is the name of the key where the values to register the wizard or builder will be added.</p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span><span CLASS="NewTermntrm">WizardName</span> must follow Microsoft Access object-naming rules. For information on Microsoft Access object-naming rules, search the Help index for &quot;naming conventions.&quot;</p>
+<p CLASS="Textttext">The following table describes the possible values for <span CLASS="NewTermntrm">WizardType</span> and <span CLASS="NewTermntrm">WizardSubType</span>.</p>
+<!--mstheme--></font><table WIDTH="100%" BORDER="0" CELLPADDING="5" CELLSPACING="0" FRAME="VOID" RULES="THEAD"><thead>
+<tr VALIGN="TOP" BGCOLOR="#DDDDDD">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth"><span CLASS="NewTermntrm">WizardType</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth"><span CLASS="NewTermntrm">WizardSubType</span></p></font><!--mstheme--></font></td></tr><tbody>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Control Wizards</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">The name of the tool in the toolbox that creates the control you want to associate your wizard with. This must be the name of the tool without spaces. The names of the tools are: <span CLASS="ElementNameeln">Label</span>, <span CLASS="ElementNameeln">TextBox</span>, <span CLASS="ElementNameeln">OptionGroup</span>, <span CLASS="ElementNameeln">ToggleButton</span>, <span CLASS="ElementNameeln">OptionButton</span>, <span CLASS="ElementNameeln">CheckBox</span>, <span CLASS="ElementNameeln">ComboBox</span>, <span CLASS="ElementNameeln">ListBox</span>, <span CLASS="ElementNameeln">CommandButton</span>, <span CLASS="ElementNameeln">Image</span>, <span CLASS="ElementNameeln">UnboundObjectFrame</span>, <span CLASS="ElementNameeln">BoundObjectFrame</span>, <span CLASS="ElementNameeln">PageBreak</span>, <span CLASS="ElementNameeln">TabControl</span>, <span CLASS="ElementNameeln">SubformSubreport</span>, <span CLASS="ElementNameeln">Line</span>, and <span CLASS="ElementNameeln">Rectangle</span>.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">ActiveX Control Wizards</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">The value of the <span CLASS="ElementNameeln">Class</span> property of the ActiveX control. To see this value, open a form or report in Design view, right-click the ActiveX control, click <span CLASS="ElementNameeln">Properties</span>, and then read the value in the <span CLASS="ElementNameeln">Class</span> box. For example, DBOutl.DataOutline is the value of the <span CLASS="ElementNameeln">Class</span> property for the Microsoft Data Outline Control 1.1 included with Microsoft Access.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Property Wizards</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">The name of the property that you want the builder to be associated with. This must be the name of the property without spaces. For example, the names entered for standard Microsoft Access builders are: <span CLASS="ElementNameeln">BackColor</span>, <span CLASS="ElementNameeln">BorderColor</span>, <span CLASS="ElementNameeln">FieldName</span>, <span CLASS="ElementNameeln">ForeColor</span>, <span CLASS="ElementNameeln">InputMask</span>, <span CLASS="ElementNameeln">MenuBar</span>, <span CLASS="ElementNameeln">LinkChildFields</span>, <span CLASS="ElementNameeln">LinkMasterFields</span>, <span CLASS="ElementNameeln">ODBCConnectStr</span>, <span CLASS="ElementNameeln">Picture</span>, and <span CLASS="ElementNameeln">ShortcutMenuBar</span>.</p></font><!--mstheme--></font></td></tr>
+</table><!--mstheme--><font face="book antiqua, times new roman, times">
+<a NAME="6EnteringtheSubkeyValueforObjectWizards"></a>
+<p CLASS="heading6OrgHeading4h4">Entering the Subkey Value for Object Wizards</p>
+<p CLASS="Textttext">An object wizard is used to create a table, query, form, or report. An object wizard is invoked when a user clicks its name in the corresponding<span CLASS="ElementNameeln"> New </span><span CLASS="NewTermntrm">Object </span>dialog box. To register an object wizard, the format for the value you enter in the Subkey field is:
+<p CLASS="Textttext"><span CLASS="ElementNameeln">HKEY_CURRENT_ACCESS_PROFILE\Wizards\</span><span CLASS="NewTermntrm">WizardType</span>\<span CLASS="NewTermntrm">WizardName</span>
+<p CLASS="Textttext">Note that the first part of the value you enter in the Subkey field can be either <span CLASS="ElementNameeln">HKEY_CURRENT_ACCESS_PROFILE</span> or <span CLASS="ElementNameeln">HKEY_LOCAL_MACHINE</span>, as described earlier. The second part must begin with <span CLASS="ElementNameeln">Wizards</span>. Assuming there is no user profile in use, this causes the Add-in Manager to write the keys and values to register the wizard in <span CLASS="ElementNameeln">HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft \Office\8.0\Access\Wizards</span>. <span CLASS="NewTermntrm">WizardType</span> defines what kind of object wizard is being installed. <span CLASS="NewTermntrm">WizardName</span> is the name that displays in the corresponding <span CLASS="ElementNameeln">New </span><span CLASS="NewTermntrm">Object </span>dialog box and is also the name of the key where the values to register the wizard will be added. The following table describes the possible values for <span CLASS="NewTermntrm">WizardType</span> and <span CLASS="NewTermntrm">WizardName</span>.</p>
+<!--mstheme--></font><table WIDTH="100%" BORDER="0" CELLPADDING="5" CELLSPACING="0" FRAME="VOID" RULES="THEAD"><thead>
+<tr VALIGN="TOP" BGCOLOR="#DDDDDD">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth"><span CLASS="NewTermntrm">WizardType</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth"><span CLASS="NewTermntrm">WizardName</span></p></font><!--mstheme--></font></td></tr><tbody>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Form Wizards</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">User-defined. The name you enter will be displayed in the <span CLASS="ElementNameeln">New Form</span> dialog box. For example, the names entered for standard Microsoft Access form wizards are: AutoForm: Columnar; AutoForm: Datasheet; AutoForm: Tabular; Chart Wizard; Form Wizard; PivotTable Wizard.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Query Wizards</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">User-defined. The name you enter will be displayed in the <span CLASS="ElementNameeln">New Query </span>dialog box. For example, the names entered for standard Microsoft Access query wizards are: Crosstab Query Wizard, Find Duplicates Query Wizard, Find Unmatched Query Wizard, Simple Query Wizard.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Report Wizards</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">User-defined. The name you enter will be displayed in the <span CLASS="ElementNameeln">New Report</span> dialog box. For example, the names entered for standard Microsoft Access report wizards are: AutoReport: Columnar; AutoReport: Tabular; Chart Wizard; Label Wizard; Report Wizard.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">Table Wizards</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">User-defined. The name you enter will be displayed in the <span CLASS="ElementNameeln">New Table</span> dialog box. For example, the name entered for the standard Microsoft Access table wizard is: Table Wizard.</p></font><!--mstheme--></font></td></tr></table><!--mstheme--><font face="book antiqua, times new roman, times">
+<a NAME="6EnteringtheSubkeyValueforMenuAddins"></a>
+<p CLASS="heading6OrgHeading4h4">Entering the Subkey Value for Menu Add-ins</p>
+<p CLASS="Textttext">A menu add-in is invoked when a user clicks its name on the <span CLASS="ElementNameeln">Add-ins</span> submenu (<span CLASS="ElementNameeln">Tools</span> menu.) To register a menu add-in, the format for the value you enter in the Subkey field is:
+<p CLASS="Textttext"><span CLASS="ElementNameeln">HKEY_CURRENT_ACCESS_PROFILE\Menu Add-Ins\</span><span CLASS="NewTermntrm">MenuAddInName</span>
+<p CLASS="Textttext">Note that the first part of the value you enter in the Subkey field can be either <span CLASS="ElementNameeln">HKEY_CURRENT_ACCESS_PROFILE</span> or <span CLASS="ElementNameeln">HKEY_LOCAL_MACHINE</span>, as described earlier. The second part must begin with<span CLASS="ElementNameeln"> Menu Add-Ins</span>. Assuming there is no user profile in use, this will cause the Add-in Manager to write the keys and values to register the menu add-in in <span CLASS="ElementNameeln">HKEY_LOCAL_MACHINE\SOFTWARE \Microsoft\Office\8.0\Access\Menu Add-Ins</span>. <span CLASS="NewTermntrm">MenuAddInName</span> defines the name that displays on the <span CLASS="ElementNameeln">Add-ins</span> submenu and is also the name of the key where the values to register the add-in will be added. To define an access key for the menu add-in so that you can use the keyboard to choose the menu add-in, type an ampersand (&amp;) before the letter that you want to be the access key.</p>
+<a NAME="6TheTypeValNameandValueFields"></a>
+<p CLASS="heading6OrgHeading4h4">The Type, ValName, and Value Fields</p>
+<p CLASS="Textttext">No matter what kind of add-in you're installing, for the first record, the value in the Type field must be 0 (which means &quot;add this key&quot;), and the ValName and Value fields must be left blank.</p>
+<a NAME="5AddingtheSecondandSubsequentRecords"></a>
+<p CLASS="heading5OrgHeading3h3">Adding the Second and Subsequent Records</p>
+<p CLASS="Textttext">The first record in the USysRegInfo table creates a key or keys used to register your add-in. Each record following the first record defines a value added to the last key in the Windows Registry subtree. The value in the Subkey field must be the same for all records in the table. You can simply copy the value you entered in the Subkey field of the first record to the subsequent records.
+<p CLASS="Textttext">The value in the Type field defines the type of the value created in the Windows Registry; you can either enter 1 to create a String value (REG_SZ in Windows NT Workstation 3.51) or 4 to create a DWORD value (REG_DWORD in Windows NT Workstation 3.51).
+<p CLASS="Textttext">The value in the ValName field defines the name of the value. The value in the Value field defines the value itself. The number of records you need to add depends on the type of add-in you are registering.
+<p CLASS="Textttext">The following table describes the records you need to add to define values for control wizards, builders, or ActiveX control wizards.</p>
+<!--mstheme--></font><table WIDTH="100%" BORDER="0" CELLPADDING="5" CELLSPACING="0" FRAME="VOID" RULES="THEAD"><thead>
+<tr VALIGN="TOP" BGCOLOR="#DDDDDD">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Type</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">ValName</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Value</p></font><!--mstheme--></font></td></tr><tbody>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">4</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Can Edit</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Specifies whether or not a wizard or builder can be used to modify an existing control or property of the same type. 1 = Yes, 0 = No.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">1</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Description</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">User-defined. If more than one wizard has been defined for a control, or more than one builder has been defined for a property, this string appears in the <span CLASS="ElementNameeln">Choose Builder</span> dialog box so that users can select which wizard or builder to use.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">1</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Function</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">The function used to start the wizard or builder.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">1</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Library</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Specifies the path and name of the add-in database: |ACCDIR\<span CLASS="NewTermntrm">AddInDBName.mda.</span> The first part is always the same. The Add-in Manager will substitute the path to the folder where Microsoft Access is installed. The second part is the name of the database that contains your wizard or builder.</p></font><!--mstheme--></font></td></tr>
+</table><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="Textttext">The following table describes the records you need to add to define values for object wizards.</p>
+<!--mstheme--></font><table WIDTH="100%" BORDER="0" CELLPADDING="5" CELLSPACING="0" FRAME="VOID" RULES="THEAD"><thead>
+<tr VALIGN="TOP" BGCOLOR="#DDDDDD">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Type</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">ValName</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Value</p></font><!--mstheme--></font></td></tr><tbody>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">1</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Bitmap</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Specifies the path to the bitmap (.bmp) that is displayed above the description on the left side of the<span CLASS="ElementNameeln"> New </span><span CLASS="NewTermntrm">Object </span>dialog box when the wizard is selected.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">4</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Datasource Required</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Enter this record for form and report wizards only. Specifies whether the user must specify the table or query where the object's data comes from in the <span CLASS="ElementNameeln">New </span><span CLASS="NewTermntrm">Object </span>dialog box before running the wizard. 1 = Yes, 0 = No.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">1</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Description</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">User-defined. Specifies the text that is displayed on the left side of the <span CLASS="ElementNameeln">New </span><span CLASS="NewTermntrm">Object </span>dialog box when the wizard is selected.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">1</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Function</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">The function used to start the wizard or builder.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">4</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Index</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Specifies the order in which the wizard is displayed in the list in the <span CLASS="ElementNameeln">New </span><span CLASS="NewTermntrm">Object </span>dialog box, where 0 is the first item in the list.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">1</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Library</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Specifies the path and name of the add-in database: |ACCDIR\<span CLASS="NewTermntrm">AddInDBName.mda. </span>The first part is always the same. The Add-in Manager substitutes the path to the folder where Microsoft Access is installed. The second part is the name of the database that contains your wizard.</p></font><!--mstheme--></font></td></tr>
+</table><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="Textttext">The following table describes the records you need to add to define values for menu add-ins.</p>
+<!--mstheme--></font><table WIDTH="100%" BORDER="0" CELLPADDING="5" CELLSPACING="0" FRAME="VOID" RULES="THEAD"><thead>
+<tr VALIGN="TOP" BGCOLOR="#DDDDDD">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Type</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">ValName</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Value</p></font><!--mstheme--></font></td></tr><tbody>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">1</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Expression</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">User-defined. The name of the function used to start the wizard or builder formatted as an expression: <span CLASS="NewTermntrm">=FunctionName</span>()</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">1</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Library</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Specifies the path and name of the add-in database:<span CLASS="ElementNameeln"> </span>|ACCDIR\<span CLASS="NewTermntrm">AddInDBName.mda. </span>The first part is always the same. The Add-in Manager substitutes the path to the folder where Microsoft Access is installed. The second part is the name of the database that contains your menu add-in.</p></font><!--mstheme--></font></td></tr></table><!--mstheme--><font face="book antiqua, times new roman, times">
+<a NAME="4UsingtheAddinManagertoInstallanAddin"></a>
+<p CLASS="heading4OrgHeading2h2">Using the Add-in Manager to Install an Add-in</p>
+<p CLASS="Textttext">After you create your add-in and add the USysRegInfo table, you and your users can install the add-in by using the Add-in Manager.</p>
+<p CLASS="heading9ListProcedureHeadinglproch"><span CLASS="ProcedureIconproci"><img SRC="../images/bluetri.jpg" ALIGN="LEFT" WIDTH="9" HEIGHT="17">&nbsp;&nbsp;&nbsp;</span>To install an add-in using the Add-in Manager</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">1</span>&nbsp;&nbsp;&amp;nbspOn the <span CLASS="ElementNameeln">Tools</span> menu, point to <span CLASS="ElementNameeln">Add-ins</span>, then click <span CLASS="ElementNameeln">Add-in Manager</span>.</p>
+<p CLASS="ListText1lt1">Microsoft Access displays the <span CLASS="ElementNameeln">Add-in Manager</span> dialog box.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">2</span>&nbsp;&nbsp;&amp;nbspTo make the add-in you want to install appear in the list, click <span CLASS="ElementNameeln">Add New</span>. Microsoft Access displays the <span CLASS="ElementNameeln">Open</span> dialog box. Click the add-in you want to add and click <span CLASS="ElementNameeln">Open</span>. (To add an add-in located on a floppy disk, insert the floppy disk in a disk drive, click the disk drive in the <span CLASS="ElementNameeln">Look In</span> box, click the file in the <span CLASS="ElementNameeln">File Name</span> box, and then click <span CLASS="ElementNameeln">Open</span>.)</p>
+<p CLASS="ListText1lt1">Microsoft Access copies the add-in to your Office folder and adds it to the list in the <span CLASS="ElementNameeln">Available Add-ins</span> box.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">3</span>&nbsp;&nbsp;&amp;nbspIn the <span CLASS="ElementNameeln">Available Add-ins</span> box, click the add-in you want to install.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">4</span>&nbsp;&nbsp;&amp;nbspClick <span CLASS="ElementNameeln">Install</span>.</p>
+<p CLASS="ListText1lt1">The Add-in Manager installs the add-in, and puts an x beside the add-in in the list. If the database doesn't contain a USysRegInfo table, then the Add-in Manager generates an error.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">5</span>&nbsp;&nbsp;&amp;nbspWhen you're finished installing the add-in, click <span CLASS="ElementNameeln">Close</span>.</p>
+<p CLASS="Textttext">To uninstall an add-in using the Add-in Manager, click the add-in in the <span CLASS="ElementNameeln">Available Add-ins</span> box and click <span CLASS="ElementNameeln">Uninstall</span>.
+<p CLASS="Textttext">Once you have installed your add-in, you need to perform the second phase of testing and debugging.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For information on testing and debugging your add-in, see <a HREF="../chapters/ba17_5.htm" OnClick="SyncURL(&quot;chapters/ba17_5.htm&quot;)">&quot;Testing and Debugging Your Add-in&quot;</a> earlier in this chapter.</p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="ba17_7.htm" OnClick="SyncURL(&quot;chapters/ba17_7.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>Testing and Debugging Your Add-in</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba17_4.htm" OnClick="SyncURL(&quot;chapters/ba17_4.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<a NAME="3TestingandDebuggingYourAddin"></a>
+<p CLASS="heading3OrgHeading1h1">Testing and Debugging Your Add-in</p>
+<p CLASS="Textttext">You test and debug your add-in in two phases: the first during development and the second after it's installed in Microsoft Access.
+<p CLASS="Textttext">During development, test and debug each object as you create it. Keep in mind how your add-in will be started by the user, and test it in that context. For example, if you are creating a control wizard, test it in the context of form design.
+<p CLASS="Textttext">After you test the individual objects or components of your add-in, test the overall operation. For example, determine whether:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspAll the functionality you want is available and working.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspAll parts of the add-in work together correctly.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspYour add-in anticipates and allows for different user configurations.</p>
+<p CLASS="Textttext">Your add-in should work without problems while it is open as a database before you begin to test it when it is loaded as an add-in.
+<p CLASS="Textttext">To test and debug in the second phase, you need to install your add-in. The following sections discuss the installation process.</p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="ba17_6.htm" OnClick="SyncURL(&quot;chapters/ba17_6.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>Synchronizing Replicas</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba20_6.htm" OnClick="SyncURL(&quot;chapters/ba20_6.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<a NAME="3SynchronizingReplicas"></a>
+<p CLASS="heading3OrgHeading1h1">Synchronizing Replicas</p>
+<p CLASS="Textttext">For database replication to be useful, replicas must communicate with one another to keep up-to-date information. Synchronization is the process of making the design and data in the replicas identical. As changes are made to the existing records in one replica, those changes are communicated to each of the other replicas that have that same record. Similarly, new records added or old records deleted from one replica are communicated to the other replicas in the replica set.
+<p CLASS="Textttext">You can synchronize one replica with another by using Microsoft Access menu commands, the Windows Briefcase or Visual Basic code. The method you use corresponds to the method you used to implement database replication.</p>
+<p CLASS="heading9ListProcedureHeadinglproch"><span CLASS="ProcedureIconproci"><img SRC="../images/bluetri.jpg" ALIGN="LEFT" WIDTH="9" HEIGHT="17"></span>&nbsp;&nbsp;&amp;nbspTo synchronize two replicas by using Microsoft Access menu commands</p>
+<p CLASS="ListProcedureSingleItemlprocs"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspOn the <span CLASS="ElementNameeln">Tools</span> menu, point to <span CLASS="ElementNameeln">Replication</span>, and then click <span CLASS="ElementNameeln">Synchronize Now</span>.</p>
+<p CLASS="heading9ListProcedureHeadinglproch"><span CLASS="ProcedureIconproci"><img SRC="../images/bluetri.jpg" ALIGN="LEFT" WIDTH="9" HEIGHT="17"></span>&nbsp;&nbsp;&amp;nbspTo synchronize two replicas by using the Windows Briefcase</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">1</span>&nbsp;&nbsp;&amp;nbspDouble-click the My Briefcase icon on your desktop, and click the database file.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">2</span>&nbsp;&nbsp;&amp;nbspOn the <span CLASS="ElementNameeln">Briefcase</span> menu, click <span CLASS="ElementNameeln">Update Selection</span>. If you want to synchronize all the replicas in the Briefcase, click <span CLASS="ElementNameeln">Update All</span>.</p>
+<p CLASS="Textttext">You can also keep the replicas synchronized by using the <span CLASS="ElementNameeln">Synchronize </span>method in Visual Basic code. The syntax of the <span CLASS="ElementNameeln">Synchronize </span>method is:
+<p CLASS="Textttext"><span CLASS="NewTermntrm">database</span><span CLASS="ElementNameeln">.Synchronize</span> <span CLASS="NewTermntrm">pathname</span><span CLASS="ElementNameeln">, </span><span CLASS="NewTermntrm">exchange</span>
+<p CLASS="Textttext"><span CLASS="NewTermntrm">Database</span> is an object variable that represents the <span CLASS="ElementNameeln">Database</span> object that is the replica. In the <span CLASS="NewTermntrm">pathname</span> argument, you specify the path to the target replica. You can use the <span CLASS="NewTermntrm">pathname</span> argument to synchronize one user's replica with another replica in the set. You can set the <span CLASS="NewTermntrm">exchange</span><span CLASS="ElementNameeln"> </span>argument to a constant that indicates which direction to synchronize changes between the two replicas. For example, the following code sets the <span CLASS="NewTermntrm">exchange</span> argument to the <span CLASS="ElementNameeln">dbRepImpExpChanges</span> constant to perform a two-way synchronization between replicas.</p>
+<p CLASS="CodeTextct">Sub SynchronizeDBs(strDBName, strSyncTargetDB)<br>&nbsp;&nbsp;&amp;nbspDim dbs As Database<br>&nbsp;&nbsp;&amp;nbspSet dbs = OpenDatabase(strDBName)<br>&nbsp;&nbsp;&nbsp;' Synchronize replicas (bidirectional exchange).<br>&nbsp;&nbsp;&amp;nbspdbs.Synchronize strSyncTargetDB, dbRepImpExpChanges<br>&nbsp;&nbsp;&amp;nbspdbs.Close<br>End Sub</p>
+<p CLASS="Textttext">If you do not provide an <span CLASS="NewTermntrm">exchange</span> argument, the exchange is bidirectional (import and export).
+<p CLASS="Textttext">When Microsoft Jet synchronizes replicas, it always synchronizes design changes before it synchronizes changes to data. The design of both replicas must be at the same version level before data can be exchanged. For example, even if you set the <span CLASS="NewTermntrm">exchange</span><span CLASS="ElementNameeln"> </span>argument to the<span CLASS="ElementNameeln"> dbRepExportChanges </span>constant to specify<span CLASS="ElementNameeln"> </span>that data changes flow only from the current replica to the designated target, design changes could be made to the current replica if it has a lower version number than the target replica.
+<p CLASS="Textttext">If you want to prevent users from making changes to the design of your database, do not make the replica on the network server the Design Master. Instead, keep the Design Master replica at a network location that is accessible only by you. As you make changes to your application, you can synchronize with the replica on the server and rely on it to pass these changes on to other replicas the replica set.</p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>You can now synchronize replicas over the Internet. Before you can synchronize over the Internet, you must configure your Internet server for replication. To configure your Internet server, you need Replication Manager, which includes a wizard that takes you through the configuration process. For more information on Replication Manager, see <a HREF="../chapters/ba20_2.htm#4ReplicationManager" OnClick="SyncURL(&quot;chapters/ba20_2.htm&quot;)">&quot;Replication Manager&quot;</a> earlier in this chapter.</p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="ba20_8.htm" OnClick="SyncURL(&quot;chapters/ba20_8.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

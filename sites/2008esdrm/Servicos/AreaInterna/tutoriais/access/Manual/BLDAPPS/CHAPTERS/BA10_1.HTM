@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>CHAPTER 10</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba09_2.htm" OnClick="SyncURL(&quot;chapters/ba09_2.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<p CLASS="heading2ChapterNumberAppendixLetterchn">CHAPTER&nbsp; 10</p>
+<p CLASS="ChapterAppendixTitlecht">Creating Multiuser Applications</p>
+<p CLASS="ChapterSummaryTextchsum">If you're developing an application for multiple users on a network, you want to make sure that your application helps users share data effectively. This chapter covers issues you should consider when creating a multiuser application. It explores locking strategies that control multiuser access to data and discusses ways your application can handle locking conflicts in a multiuser environment.
+<a NAME="3MultiuserApplicationsandLocking"></a>
+<p CLASS="heading3OrgHeading1h1">Multiuser Applications and Locking</p>
+<p CLASS="Textttext">When working in a single-user environment, your application doesn't encounter conflicting requests for resources. Because only one user is accessing data at a time, you can reasonably assume that the needed data will always be exclusively available. In a multiuser environment, on the other hand, multiple users may be accessing data at the same time, so the only reasonable assumption is that conflicts will occur when two or more users try to change the same data.
+<p CLASS="Textttext">You can prevent such conflicts by making sure that only one user at a time can change data. To protect shared data in this way, you can <span CLASS="NewTermntrm">lock </span>data while a user edits it. When data is locked, any number of users can read it, but only one user can make changes to it. 
+<p CLASS="Textttext">There are two techniques you can use to lock data in your multiuser application: bound forms and Visual Basic code that makes direct updates to data in <span CLASS="ElementNameeln">Recordset</span> objects. When you use bound forms, Microsoft Access performs certain aspects of locking automatically. Alternatively, you can write your own locking procedures in Visual Basic; this approach gives you more control over your application's locking behavior.</p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="ba10_2.htm" OnClick="SyncURL(&quot;chapters/ba10_2.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

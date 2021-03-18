@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>Importing, Linking, and Exporting Data on the Internet</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba21_3.htm" OnClick="SyncURL(&quot;chapters/ba21_3.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<a NAME="3ImportingLinkingandExportingDataontheInternet"></a>
+<p CLASS="heading3OrgHeading1h1">Importing, Linking, and Exporting Data on the Internet</p>
+<p CLASS="Textttext">With Microsoft Access, you can import or link data from HTML tables or other data sources on an Internet server. You can also export data in your database to an Internet server.</p>
+<a NAME="4ImportingandLinkingDatafromHTMLTables"></a>
+<p CLASS="heading4OrgHeading2h2">Importing and Linking Data from HTML Tables</p>
+<p CLASS="Textttext">You can import or link data formatted as an HTML table to a Microsoft Access database. Before Microsoft Access imports or links the data, it copies the data into the local cache. Whenever you open a linked table, Microsoft Access makes a local copy from the original on the Internet or an intranet before opening it. For this reason, the data in the table is read-only. Similarly, if you export the linked HTML table to an HTML file, Microsoft Access exports it to a local file, not the original file on the Internet.</p>
+<p CLASS="heading9ListProcedureHeadinglproch"><span CLASS="ProcedureIconproci"><img SRC="../images/bluetri.jpg" ALIGN="LEFT" WIDTH="9" HEIGHT="17">&nbsp;&nbsp;&nbsp;</span>To import or link data from HTML tables</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">1</span>&nbsp;&nbsp;&amp;nbspOn the <span CLASS="ElementNameeln">File</span> menu, point to<span CLASS="ElementNameeln"> Get External Data</span>, and then click either <span CLASS="ElementNameeln">Import</span> or <span CLASS="ElementNameeln">Link Tables</span>.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">2</span>&nbsp;&nbsp;&amp;nbspIn the <span CLASS="ElementNameeln">Files Of Type</span> list, click <span CLASS="ElementNameeln">HTML Documents (*.htm; *.html)</span>.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">3</span>&nbsp;&nbsp;&amp;nbspSpecify the file to import or link from by using any of the following methods:</p>
+<p CLASS="ListBulletedItem2lb2"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspUse the <span CLASS="ElementNameeln">Look In</span> box and the list of files below it to browse through the file system on your local hard drive or LAN.</p>
+<p CLASS="ListBulletedItem2lb2"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspIn the <span CLASS="ElementNameeln">File Name</span> box, type a valid http:// or ftp:// URL.</p>
+<p CLASS="ListBulletedItem2lb2"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspIn the <span CLASS="ElementNameeln">Look In</span> box, click <span CLASS="ElementNameeln">Internet Locations (FTP)</span> and select a previously defined FTP site.</p>
+<p CLASS="ListBulletedItem2lb2"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspIn the <span CLASS="ElementNameeln">Look In</span> box, click <span CLASS="ElementNameeln">Add/Modify FTP Locations</span>, then specify a new FTP site and browse its files.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">4</span>&nbsp;&nbsp;&amp;nbspClick <span CLASS="ElementNameeln">Import</span> or <span CLASS="ElementNameeln">Link</span>.</p>
+<p CLASS="ListText1lt1"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span><span CLASS="Xref">For information on linking HTML files by using Visual Basic, see <a HREF="../chapters/ba18_7.htm" OnClick="SyncURL(&quot;chapters/ba18_7.htm&quot;)">&quot;Working with HTML Files&quot;</a> in Chapter 18, &quot;Accessing External Data.&quot;
+</span>
+<p CLASS="ListText1lt1"></p>
+<p CLASS="Textttext">When you import or link data from an HTML table, Microsoft Access parses the information contained within the HTML tags. The primary HTML tags that define tables are:</p>
+<!--mstheme--></font><table WIDTH="100%" BORDER="0" CELLPADDING="5" CELLSPACING="0" FRAME="VOID" RULES="THEAD"><thead>
+<tr VALIGN="TOP" BGCOLOR="#DDDDDD">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">HTML tag pair</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Description</p></font><!--mstheme--></font></td></tr><tbody>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">&lt;TABLE&gt;...&lt;/TABLE&gt;</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Specifies the beginning and end of the table.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">&lt;TH...&gt;...&lt;/TH&gt;</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Specifies table header cells.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">&lt;TR...&gt;...&lt;/TR&gt;</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Specifies a row in a table.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">&lt;TD...&gt;...&lt;/TD&gt;</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Specifies table data cells.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">&lt;CAPTION...&gt;...&lt;/CAPTION&gt;</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Specifies the table's caption, usually at the beginning or end of the table.</p></font><!--mstheme--></font></td></tr>
+</table><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="Textttext">Microsoft Access applies the following rules when it interprets the progression of tags and tag pairs within the HTML table it imports or links:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspThe &lt;TD&gt; tag pair may be closed with either a &lt;/TD&gt; tag or a &lt;/TH&gt; tag.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspThe &lt;TH&gt; tag pair may be closed with either a &lt;/TH&gt; tag or a &lt;/TD&gt; tag.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspThe &lt;TR&gt; tag is not required to start a new row. If a &lt;TD&gt; tag follows a &lt;/TR&gt; tag, Microsoft Access assumes this is the beginning of a new row.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspIf a &lt;/TABLE&gt; tag is not preceded by a &lt;/TR&gt; tag, then Microsoft Access assumes this is the end of the row.</p>
+<p CLASS="Textttext">In many cases, a table cell can display something other than text. If a table cell contains an embedded graphic file, there is a &lt;IMG SRC...&gt; tag associated with it. This tag may or may not have additional text that would be displayed. If additional text is present, Microsoft Access imports it, but Microsoft Access doesn't import the embedded graphic and the tag that defines it. However, this is not true of embedded anchor &lt;A HREF&gt; tags; Microsoft Access imports anchor tags as Hyperlink fields.
+<p CLASS="Textttext">HTML tables can contain lists that are embedded within a table cell. Lists in an HTML table cell are formatted with the &lt;LI&gt; and &lt;/LI&gt; tags. Microsoft Access inserts a carriage return and line feed (&lt;CR&gt;&lt;LF&gt;) after each list item and imports each item in the list as a separate field for that record.
+<p CLASS="Textttext">HTML tables can also contain tables that are embedded within a table cell. You can import these as separate tables.
+<p CLASS="Textttext">To achieve the most predictable results, import simple HTML tables with a fixed number of fields per record, without embedded lists or tables.</p>
+<a NAME="4ExportingImportingandLinkingDatafromOtherDataSourcesonInternetServers"></a>
+<p CLASS="heading4OrgHeading2h2">Exporting, Importing, and Linking Data from Other Data Sources on Internet Servers</p>
+<p CLASS="Textttext">You can export any Microsoft Access-compatible external data file to an FTP server. You can't export files to HTTP servers through the Internet, because you can't write to them using the HTTP protocol.</p>
+<p CLASS="heading9ListProcedureHeadinglproch"><span CLASS="ProcedureIconproci"><img SRC="../images/bluetri.jpg" ALIGN="LEFT" WIDTH="9" HEIGHT="17">&nbsp;&nbsp;&nbsp;</span>To export data from external data sources on Internet servers</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">1</span>&nbsp;&nbsp;&amp;nbspOn the <span CLASS="ElementNameeln">File</span> menu, click <span CLASS="ElementNameeln">Save As/Export</span>. </p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">2</span>&nbsp;&nbsp;&amp;nbspIn the <span CLASS="ElementNameeln">Save As</span> dialog box, click <span CLASS="ElementNameeln">To An External File Or Database</span>, and then click <span CLASS="ElementNameeln">OK</span>.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">3</span>&nbsp;&nbsp;&amp;nbspIn the <span CLASS="ElementNameeln">Save As Type </span>box, select the type of file you want to export.<span CLASS="ElementNameeln"></span></p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">4</span>&nbsp;&nbsp;&amp;nbspTo export files on an FTP server:</p>
+<p CLASS="ListBulletedItem2lb2"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspIn the <span CLASS="ElementNameeln">File Name</span> box, type a valid ftp:// URL.</p>
+<p CLASS="ListBulletedItem2lb2"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspIn the <span CLASS="ElementNameeln">Save In</span> box, click <span CLASS="ElementNameeln">Internet Locations (FTP)</span> and select a previously defined FTP site.</p>
+<p CLASS="ListBulletedItem2lb2"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspIn the <span CLASS="ElementNameeln">Save In</span> box, click <span CLASS="ElementNameeln">Add/Modify FTP Locations</span>, then specify a new FTP site and browse its files. </p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">5</span>&nbsp;&nbsp;&amp;nbspClick <span CLASS="ElementNameeln">Export</span>.</p>
+<p CLASS="Textttext">You can also import and link any Microsoft Access-compatible external data file, except Microsoft Access databases and ODBC data sources, by using an FTP or HTTP connection. An FTP or HTTP connection is only maintained long enough to perform a single transaction. Therefore, when you import or link a file located on an FTP or HTTP server, Microsoft Access copies the data file to the user's local cache. Microsoft Access then imports or links to the data file in the local cache. For this reason, files linked with an FTP or HTTP connection are read-only. </p>
+<p CLASS="heading9ListProcedureHeadinglproch"><span CLASS="ProcedureIconproci"><img SRC="../images/bluetri.jpg" ALIGN="LEFT" WIDTH="9" HEIGHT="17">&nbsp;&nbsp;&nbsp;</span>To import or link data from external data sources on Internet servers</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">1</span>&nbsp;&nbsp;&amp;nbspOn the <span CLASS="ElementNameeln">File</span> menu, point to<span CLASS="ElementNameeln"> Get External Data</span>, and then click either <span CLASS="ElementNameeln">Import</span> or <span CLASS="ElementNameeln">Link Tables</span>.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">2</span>&nbsp;&nbsp;&amp;nbspIn the <span CLASS="ElementNameeln">Files Of Type</span> list, select the type of file you want to import or link.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">3</span>&nbsp;&nbsp;&amp;nbspTo import or link files on an FTP server:</p>
+<p CLASS="ListBulletedItem2lb2"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspIn the <span CLASS="ElementNameeln">File Name</span> box, type a valid ftp:// URL.</p>
+<p CLASS="ListBulletedItem2lb2"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspIn the <span CLASS="ElementNameeln">Look In</span> box, click <span CLASS="ElementNameeln">Internet Locations (FTP)</span> and select a previously defined FTP site.</p>
+<p CLASS="ListBulletedItem2lb2"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspIn the <span CLASS="ElementNameeln">Look In</span> box, click <span CLASS="ElementNameeln">Add/Modify FTP Locations</span>, then specify a new FTP site and browse its files. </p>
+<p CLASS="ListText1lt1">To import or link files on an HTTP server: </p>
+<p CLASS="ListBulletedItem2lb2"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspIn the <span CLASS="ElementNameeln">File Name</span> box, type a valid http:// URL.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">4</span>&nbsp;&nbsp;&amp;nbspClick <span CLASS="ElementNameeln">Import</span> or <span CLASS="ElementNameeln">Link</span>.</p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="ba21_5.htm" OnClick="SyncURL(&quot;chapters/ba21_5.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

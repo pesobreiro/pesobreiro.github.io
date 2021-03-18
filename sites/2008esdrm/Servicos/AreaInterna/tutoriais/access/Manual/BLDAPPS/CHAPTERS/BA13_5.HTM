@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>Speeding Up the Start of Your Application</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba13_4.htm" OnClick="SyncURL(&quot;chapters/ba13_4.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<a NAME="3SpeedingUptheStartofYourApplication"></a>
+<p CLASS="heading3OrgHeading1h1">Speeding Up the Start of Your Application</p>
+<p CLASS="Textttext">First impressions are important. The first impression your application makes depends, in part, on how long it takes to display the first form. You can use the following techniques to speed up the start of your application.</p>
+<a NAME="6UseaFormModuleforAnyCodeinYourStartupForm"></a>
+<p CLASS="heading6OrgHeading4h4">Use a Form Module for Any Code in Your Startup Form</p>
+<p CLASS="Textttext">If your startup form calls procedures in several modules, then all of those modules are loaded when your application starts up, and that takes time. Put any procedures that your startup form calls in a single form module; your startup form shouldn't call procedures in standard modules.</p>
+<a NAME="6Minimizetheamountofcodeinyourstartupform"></a>
+<p CLASS="heading6OrgHeading4h4">Minimize the Amount of Code in Your Startup Form</p>
+<p CLASS="Textttext">Because the amount of time required to load a form is directly related to the size and complexity of the form and its code, simplify your startup form to make sure it's displayed as soon as possible after your application starts. For the highest level of performance, don't use any code in your startup form.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on simplifying your forms' design and reducing the amount of code in your forms, see <a HREF="../chapters/ba13_6.htm#4OptimizingFormLoadingandPaging" OnClick="SyncURL(&quot;chapters/ba13_6.htm&quot;)">&quot;Optimizing Form Loading and Paging&quot;</a> later in this chapter.</p>
+<a NAME="6DontuseActiveXcontrolsonyourstartupform"></a>
+<p CLASS="heading6OrgHeading4h4">Don't Use ActiveX Controls on Your Startup Form</p>
+<p CLASS="Textttext">Visual Basic loads an ActiveX control at the same time it loads the form using the ActiveX control. Using ActiveX controls, formerly called OLE controls or custom<span CLASS="NewTermntrm"> </span>controls<span CLASS="NewTermntrm">,</span> on a form increases the time it takes to load and display the form. Visual Basic can load and display your startup form more quickly if it doesn't include ActiveX controls. Typically, the startup form is a simple <span CLASS="ElementNameeln">About</span> dialog box, an introductory screen, or a <span CLASS="ElementNameeln">Logon</span> dialog box.</p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="ba13_6.htm" OnClick="SyncURL(&quot;chapters/ba13_6.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

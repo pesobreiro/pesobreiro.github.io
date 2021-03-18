@@ -1,0 +1,71 @@
+<html>
+<head>
+<title>Visual Basic Web Page Demo</title>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+
+<body Language="VBS" onLoad="InitPath" leftmargin="0" topmargin="0" STYLE="text-decoration:none" background="../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times">
+<a NAME="#FocusHere"></a>
+<!--mstheme--></font><table CELLPADDING="0" BORDER="0">
+<tr>
+<td CELLPADDING="0"><!--mstheme--><font face="book antiqua, times new roman, times">
+
+<script LANGUAGE="VBScript">
+	Dim MyPath	
+	Dim TreeReturn
+
+	Sub InitPath()
+		MyPath = UCase(Top.location.href)
+		'msgbox MyPath
+		cnt=instr(MyPath, "HTM")
+		if cnt<>0 then
+			lc=0
+			while lc=0
+				if mid(MyPath, cnt, 1)="/" or mid (MyPath, cnt, 1)="\" then
+					lc=cnt
+				else
+					cnt=cnt-1
+				end if
+			wend
+			MyPath = Left(MyPath, lc)
+			'msgbox MyPath
+		END IF
+	end sub
+
+	Sub TreeCtl1_DblClick()
+		TreeReturn=TreeCtl1.URL
+		if TreeReturn<>"" then
+			top.frames(1).location.href=MyPath  & TreeReturn
+		end if
+	end sub
+
+	Sub TreeCtl1_Init()
+		TreeCtl1.Font="arial"
+		TreeCtl1.Font.Size="10"
+
+		'Hack-ola: no onsize function, so we size it ourselves
+		TreeCtl1.ResizeToFitParent("HTML_Internet Explorer")
+	end sub
+
+</script>
+
+<object CLASSID="CLSID:B9D029D3-CDE3-11CF-855E-00A0C908FAF9" CODEBASE="treectl.cab#Version=1,0,0,0" ID="TreeCtl1" WIDTH="530" HEIGHT="1900">
+	<param NAME="_Version" VALUE="65536">
+	<param NAME="_ExtentX" VALUE="3911">
+	<param NAME="_ExtentY" VALUE="8858">
+	<param NAME="_StockProps" VALUE="29">
+	<param NAME="_Answer" VALUE="42">
+	<param NAME="FileName" VALUE="bahtml.itc">
+	<param NAME="Style" VALUE="7">
+	<param NAME="ExpandToLevel" VALUE="2">
+	<param NAME="BorderStyle" VALUE="1">
+	<param NAME="font" VALUE="arial">
+	<param NAME="font.size" VALUE="10">
+</object>
+
+
+<!--mstheme--></font></td>
+</tr>
+</table><!--mstheme--><font face="book antiqua, times new roman, times">
+<!--mstheme--></font></body>
+</noframes>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>Establishing Access to External Data</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba18_2.htm" OnClick="SyncURL(&quot;chapters/ba18_2.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<a NAME="3EstablishingAccesstoExternalData"></a>
+<p CLASS="heading3OrgHeading1h1">Establishing Access to External Data</p>
+<p CLASS="Textttext">As mentioned earlier, this chapter discusses two ways to access external data: linking external tables to your Microsoft Access database and opening external tables directly. To link a table, you can use either the Microsoft Access user interface or Visual Basic code; you must use Visual Basic to open tables directly. The procedure for linking a table in code is similar to the procedure for opening a table directly. The following table summarizes the key differences.</p>
+<!--mstheme--></font><table WIDTH="100%" BORDER="0" CELLPADDING="5" CELLSPACING="0" FRAME="VOID" RULES="THEAD"><thead>
+<tr VALIGN="TOP" BGCOLOR="#DDDDDD">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">To link an external table</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">To open an external table directly</p></font><!--mstheme--></font></td></tr><tbody>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Open the Microsoft Access database to which you are linking the table.</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Open the external data source.</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Create a <span CLASS="ElementNameeln">TableDef</span> object for the external table.</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Create a <span CLASS="ElementNameeln">Recordset</span> object for the external table.</p></font><!--mstheme--></font></td></tr>
+</table><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="Textttext">When you use Visual Basic to link a table or to open it directly, you use <span CLASS="NewTermntrm">connection strings</span>, which are string expressions that pass the values necessary to establish a connection to an external data source.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on connection strings, see <a HREF="#4SpecifyingConnectionInformation" OnClick="SyncURL(&quot;chapters/ba18_3.htm&quot;)">&quot;Specifying Connection Information&quot;</a> later in this chapter.</p>
+<a NAME="4LinkingExternalTables"></a>
+<p CLASS="heading4OrgHeading2h2">Linking External Tables</p>
+<p CLASS="Textttext">You can use either the Microsoft Access user interface or Visual Basic code to link external tables.</p>
+<p CLASS="heading9ListProcedureHeadinglproch"><span CLASS="ProcedureIconproci"><img SRC="../images/bluetri.jpg" ALIGN="LEFT" WIDTH="9" HEIGHT="17">&nbsp;&nbsp;&nbsp;</span>To link an external table by using the Microsoft Access user interface</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">1</span>&nbsp;&nbsp;&amp;nbspOpen the Microsoft Access database to which you are linking the table.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">2</span>&nbsp;&nbsp;&amp;nbspOn the <span CLASS="ElementNameeln">File</span> menu, point to <span CLASS="ElementNameeln">Get External Data</span>, and then click <span CLASS="ElementNameeln">Link Tables</span>.</p>
+<p CLASS="ListText1lt1">The <span CLASS="ElementNameeln">Link</span> dialog box appears.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">3</span>&nbsp;&nbsp;&amp;nbspIn the <span CLASS="ElementNameeln">Files Of Type</span> box, select the file type.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">4</span>&nbsp;&nbsp;&amp;nbspSelect the drive and folder where the external table is located and then double-click its icon.</p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>You can also modify links to external tables after the links are created. To do so, point to <span CLASS="ElementNameeln">Add-ins</span> on the <span CLASS="ElementNameeln">Tools</span> menu, and click <span CLASS="ElementNameeln">Linked Table Manager</span>.</p>
+<p CLASS="heading9ListProcedureHeadinglproch"><span CLASS="ProcedureIconproci"><img SRC="../images/bluetri.jpg" ALIGN="LEFT" WIDTH="9" HEIGHT="17">&nbsp;&nbsp;&nbsp;</span>To link an external table by using Visual Basic code</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">1</span>&nbsp;&nbsp;&amp;nbspOpen the database that will contain the link. If it is the current database, use the <span CLASS="ElementNameeln">CurrentDb</span> function to return an object variable that represents the current database. If it isn't the current database, use the <span CLASS="ElementNameeln">OpenDatabase</span> method to open the database you want.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">2</span>&nbsp;&nbsp;&amp;nbspUsing the <span CLASS="ElementNameeln">CreateTableDef</span> method, create a new <span CLASS="ElementNameeln">TableDef</span> object.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">3</span>&nbsp;&nbsp;&amp;nbspSet the <span CLASS="ElementNameeln">Connect</span> property of the <span CLASS="ElementNameeln">TableDef</span> object to a connection string that specifies the type of data source you're connecting to and the path to the file that contains the table. If the external data source is protected with security, you can also use the connection string to specify user name and password information required to access the data source.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">4</span>&nbsp;&nbsp;&amp;nbspSet the <span CLASS="ElementNameeln">SourceTableName</span> property of the <span CLASS="ElementNameeln">TableDef</span> object to the name of the table whose data you want to access.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">5</span>&nbsp;&nbsp;&amp;nbspAppend the <span CLASS="ElementNameeln">TableDef</span> object to the <span CLASS="ElementNameeln">TableDefs</span> collection to create a link.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on the syntax and format of connection strings, see <a HREF="#4SpecifyingConnectionInformation" OnClick="SyncURL(&quot;chapters/ba18_3.htm&quot;)">&quot;Specifying Connection Information&quot;</a> later in this chapter, or search the Help index for &quot;Connect property.&quot;</p>
+<p CLASS="Textttext">The following code links a FoxPro table to a Microsoft Access database. It assumes you want to link the Q1Sales table in a FoxPro version 3.0 database named Region1 on the server and shared folder \\Sales\Regional.</p>
+<p CLASS="CodeTextct">Sub LinkFoxProTable()<br>&nbsp;&nbsp;&amp;nbspDim dbs As Database<br>&nbsp;&nbsp;&amp;nbspDim tdfSales As TableDef<br>&nbsp;&nbsp;&amp;nbspDim rst As Recordset<br>&nbsp;&nbsp;&nbsp;' Open the Microsoft Access database.<br>&nbsp;&nbsp;&amp;nbspSet dbs = CurrentDb<br>&nbsp;&nbsp;&nbsp;' Create a TableDef object.<br>&nbsp;&nbsp;&amp;nbspSet tdfSales = dbs.CreateTableDef(&quot;Western Region Sales&quot;)<br>&nbsp;&nbsp;&nbsp;' Set the connection string to specify the source database type and the<br>&nbsp;&nbsp;&nbsp;' path to the file that contains the table you want to link.<br>&nbsp;&nbsp;&amp;nbsptdfSales.Connect = &quot;FoxPro 3.0;DATABASE=\\Sales\Regional\Region1&quot;<br>&nbsp;&nbsp;&nbsp;' Set the SourceTableName property to the name of the table you want to access.<br>&nbsp;&nbsp;&amp;nbsptdfSales.SourceTableName = &quot;Q1Sales&quot;<br>&nbsp;&nbsp;&nbsp;' Append the TableDef object to the TableDefs collection to create a link.<br>&nbsp;&nbsp;&amp;nbspdbs.TableDefs.Append tdfSales<br>&nbsp;&nbsp;&nbsp;' Create a Recordset object from the linked table.<br>&nbsp;&nbsp;&amp;nbspSet rst = dbs.OpenRecordset(&quot;Western Region Sales&quot;)<br>End Sub</p>
+<p CLASS="ImportantTextit"><span CLASS="ImportantHeadingih">Important&nbsp;&nbsp;&nbsp;</span>Use a semicolon (;) to separate arguments specified in the <span CLASS="ElementNameeln">Connect</span> property. Don't include any spaces on either side of the semicolon.</p>
+<p CLASS="Textttext">Instead of specifying the connection string and source table name by setting properties of the <span CLASS="ElementNameeln">TableDef</span> object, you can specify them by using the<span CLASS="NewTermntrm"> connect</span> and <span CLASS="NewTermntrm">source</span> arguments of the <span CLASS="ElementNameeln">CreateTableDef</span> method, as shown in the following example:</p>
+<p CLASS="CodeTextct">Sub LinkFoxProTable2()<br>&nbsp;&nbsp;&amp;nbspDim dbs As Database<br>&nbsp;&nbsp;&amp;nbspDim tdfSales As TableDef<br>&nbsp;&nbsp;&nbsp;' Open the Microsoft Access database.<br>&nbsp;&nbsp;&amp;nbspSet dbs = CurrentDb<br>&nbsp;&nbsp;&nbsp;' Specify the connection string and table name as arguments of the<br>&nbsp;&nbsp;&nbsp;' CreateTableDef method.<br>&nbsp;&nbsp;&amp;nbspSet tdfSales = dbs.CreateTableDef(&quot;Western Region Sales&quot;, 0, &quot;Q1Sales&quot;, _<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;FoxPro 3.0;DATABASE=\\Sales\Regional\Region1;&quot;)<br>&nbsp;&nbsp;&nbsp;' Append the TableDef object to the TableDefs collection to create a link.<br>&nbsp;&nbsp;&amp;nbspdbs.TableDefs.Append tdfSales<br>End Sub</p>
+<a NAME="4MaintainingLinkstoExternalTables"></a>
+<p CLASS="heading4OrgHeading2h2">Maintaining Links to External Tables</p>
+<p CLASS="Textttext">Links to external tables are convenient because they store all of the connection information you need to access the table in the future. Connection information for linked tables resides in the <span CLASS="ElementNameeln">TableDef</span> object for that table in your Microsoft Access database. If you move or delete the external table, you must update the corresponding <span CLASS="ElementNameeln">TableDef</span> object to reflect this change.</p>
+<p CLASS="heading5OrgHeading3h3">Updating Links to External Tables That Have Moved</p>
+<p CLASS="Textttext">If you move a table that you previously linked, you need to refresh the link before you can access the table again. To refresh a link, you must reset the <span CLASS="ElementNameeln">Connect</span> property of the <span CLASS="ElementNameeln">TableDef</span> object to point to the table's new location. Then, use the <span CLASS="ElementNameeln">RefreshLink</span> method of the <span CLASS="ElementNameeln">TableDef</span> object to update the link information.
+<p CLASS="Textttext">To see an example of how this works, open the Developer Solutions sample application in the Samples subfolder of your Office folder. In the upper part of the Developer Solutions form, double-click <span CLASS="ElementNameeln">Use Multiple Databases</span>. In the lower part, double-click <span CLASS="ElementNameeln">Link Tables At Startup</span>. </p>
+<p CLASS="heading5OrgHeading3h3">Deleting Links to External Tables</p>
+<p CLASS="Textttext">You can also delete the <span CLASS="ElementNameeln">TableDef</span> object associated with an external table. This removes the table's icon from your Microsoft Access database along with the associated linking information. When you delete a <span CLASS="ElementNameeln">TableDef</span> that defines a linked table from your Microsoft Access database, the external table is unaffected.</p>
+<a NAME="4OpeningExternalTables"></a>
+<p CLASS="heading4OrgHeading2h2">Opening External Tables</p>
+<p CLASS="Textttext">In contrast to linking external tables, when you open an external table directly, you must supply the connection information at the beginning of each session to establish a connection to the data source. None of the information needed to establish a connection to the external data source is stored in your Microsoft Access database.
+<p CLASS="Textttext">When you open a table directly, you specify the source and connection information as arguments of the <span CLASS="ElementNameeln">OpenDatabase</span> method instead of setting them separately as properties of a <span CLASS="ElementNameeln">TableDef</span> object. The following code uses the FoxPro table from the preceding examples to show how to open a table directly:</p>
+<p CLASS="CodeTextct">Sub OpenFoxProTable()<br>&nbsp;&nbsp;&amp;nbspDim dbs As Database<br>&nbsp;&nbsp;&amp;nbspDim rstSales As Recordset<br>&nbsp;&nbsp;&nbsp;' Open an external FoxPro database named Region1.<br>&nbsp;&nbsp;&amp;nbspSet dbs = OpenDatabase(&quot;\\Sales\Regional\Region1&quot;, False, False, &quot;FoxPro 3.0;&quot;)<br>&nbsp;&nbsp;&nbsp;' Create a Recordset from the Q1Sales table.<br>&nbsp;&nbsp;&amp;nbspSet rstSales = dbs.OpenRecordset(&quot;Q1Sales&quot;)<br>End Sub</p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>Use the <span CLASS="NewTermntrm">dbname</span> argument of the <span CLASS="ElementNameeln">OpenDatabase</span> method to specify the path and file name, and use the <span CLASS="NewTermntrm">source</span> argument of the <span CLASS="ElementNameeln">OpenRecordset</span> method to specify the table name. For external data sources that store one table per file, the <span CLASS="NewTermntrm">dbname</span> argument should contain the full path to the file, and the <span CLASS="NewTermntrm">source</span> argument should contain the table name. For Paradox databases, the table name should not have an extension. However, you can include an extension for dBASE and FoxPro databases. For external data sources that store multiple tables in a file, the <span CLASS="NewTermntrm">dbname</span> argument should contain the full path to the file, including the file name and extension; the <span CLASS="NewTermntrm">source</span> argument should contain the table name.</p>
+<p CLASS="Textttext">By default, Microsoft Jet determines which types of <span CLASS="ElementNameeln">Recordset</span> objects are available for the data source you are accessing and creates the type that will result in the best performance. If you open the data source directly, Microsoft Jet opens a table-type <span CLASS="ElementNameeln">Recordset</span> object. If you want more control over the type of <span CLASS="ElementNameeln">Recordset </span>object you open, you can specify a <span CLASS="NewTermntrm">type</span> argument for the <span CLASS="ElementNameeln">OpenRecordset</span> method.</p>
+<p CLASS="ImportantTextit"><span CLASS="ImportantHeadingih">Important&nbsp;&nbsp;&nbsp;</span>You cannot specify that Microsoft Jet open a table-type <span CLASS="ElementNameeln">Recordset</span> object for ODBC databases and linked installable ISAM tables.</p>
+<p CLASS="Textttext">After you've opened the table, you can manipulate the <span CLASS="ElementNameeln">Recordset</span> object you created just as you would any other <span CLASS="ElementNameeln">Recordset</span> object in your Microsoft Access database. Keep in mind, however, that you must reestablish your connection to the external data source and re-create the <span CLASS="ElementNameeln">Recordset</span> object for each session.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on working with <span CLASS="ElementNameeln">Recordset</span> objects, see Chapter 9, <a HREF="../chapters/ba09_1.htm" OnClick="SyncURL(&quot;chapters/ba09_1.htm&quot;)">&quot;Working with Records and Fields,&quot;</a> or search the Help index for &quot;Recordsets.&quot;</p>
+<a NAME="4SpecifyingConnectionInformation"></a>
+<p CLASS="heading4OrgHeading2h2">Specifying Connection Information</p>
+<p CLASS="Textttext">Earlier in this chapter, several examples of connection strings showed how to specify connection information. The following sections contain additional information on connection strings, their syntax, and their format.</p>
+<p CLASS="heading5OrgHeading3h3">Specifying Paths and File Names</p>
+<p CLASS="Textttext">When you specify a file name for a database, spreadsheet, text file, or HTML file, you must include the fully qualified path to the file. On a local drive, the path must include the drive letter, all folders and subfolders, and the file name. For example, to specify the FoxPro database Region1 located in the \FoxPro3 folder on the local drive C, use the following path:</p>
+<p CLASS="CodeTextct">C:\FoxPro3\Region1</p>
+<p CLASS="Textttext">On a network drive, the path must include the server name, share name, all folders and subfolders, and the file name. For example, to specify the FoxPro database Region1 on the Regional share on the Sales server, use the following path:</p>
+<p CLASS="CodeTextct">\\Sales\Regional\Region1</p>
+<p CLASS="Textttext">You can also map a network path to a network drive and indicate the path as the drive letter followed by the file name. For example, to specify the FoxPro database Region1 on the Regional share on the Sales server where the network path \\Sales\Regional has been mapped to the network drive G, use the following path:</p>
+<p CLASS="CodeTextct">G:\Region1</p>
+<p CLASS="Textttext">To specify the FoxPro database Region1 on the Regional share on the File Transfer Protocol (FTP) server named Sales, use the following path:</p>
+<p CLASS="CodeTextct">ftp://Sales/Regional/Region1</p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>ODBC data sources use a different specifier, called a <span CLASS="NewTermntrm">data source name</span> (DSN), to indicate the path and file name. For all ODBC data sources, use a zero-length string (&quot; &quot;) as the path and file name. For more information on the ODBC DSN, see the following section, <a HREF="#6SpecifyingDataSourceNamesforODBCDataSources" OnClick="SyncURL(&quot;chapters/ba18_3.htm&quot;)">&quot;Specifying Data Source Names for ODBC Data Sources.&quot;</a></p>
+<a NAME="6SpecifyingDataSourceNamesforODBCDataSources"></a>
+<p CLASS="heading5OrgHeading3h3">Specifying Data Source Names for ODBC Data Sources</p>
+<p CLASS="Textttext">ODBC data sources use data source names, or DSNs, for specifying the path and file name and connection information. You can add a DSN by using the ODBC Manager in Windows Control Panel or the <span CLASS="ElementNameeln">RegisterDatabase</span> method of the <span CLASS="ElementNameeln">DBEngine</span> object. Data source names are stored in the Windows Registry key <span CLASS="ElementNameeln">\HKEY_CURRENT_USER\Software\ODBC</span>\<span CLASS="ElementNameeln">ODBC.INI</span>.
+<p CLASS="Textttext">Each entry in the <span CLASS="ElementNameeln">ODBC.INI</span> key assigns a logical DSN to a set of attributes that includes:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspThe name of the ODBC database server</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspThe name of the database on the server, if multiple databases are supported</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspThe type of server (for example, SQL Server)</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspA description of network and connection information</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspAdditional information, such as character set conversions</p>
+<p CLASS="Textttext">Because connections to ODBC data sources rely on this information, your users must have the appropriate DSN in their Windows Registry before your application attempts to access external data.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on creating a DSN through the ODBC Manager, see the ODBC Manager Help. For more information on using the <span CLASS="ElementNameeln">RegisterDatabase</span> method, search the Help index for &quot;RegisterDatabase method.&quot;</p>
+<a NAME="6SpecifyingSourceDatabaseTypes"></a>
+<p CLASS="heading5OrgHeading3h3">Specifying Source Database Types</p>
+<p CLASS="Textttext">The installable ISAM driver for each external data source has an associated database type. When accessing data from an external data source that does not use Microsoft Jet, you must specify the source database type in the connection string so that Microsoft Access knows how to handle the data. It is not necessary to specify the source database type when you are accessing data from other data sources that use Microsoft Jet.
+<p CLASS="Textttext">The following table lists the source database types for external data sources supported by Microsoft Access.</p>
+<!--mstheme--></font><table WIDTH="100%" BORDER="0" CELLPADDING="5" CELLSPACING="0" FRAME="VOID" RULES="THEAD"><thead>
+<tr VALIGN="TOP" BGCOLOR="#DDDDDD">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Data source</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Source database types</p></font><!--mstheme--></font></td></tr><tbody>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">dBASE</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableCodeTexttct">dBASE III<br>dBASE IV<br>dBASE 5.0</p></font><!--mstheme--></font></td>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Microsoft Excel</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableCodeTexttct">Excel 3.0<br>Excel 4.0<br>Excel 5.0 (used for Microsoft Excel versions 5.0 and 7.0)<br>Excel 8.0</p></font><!--mstheme--></font></td>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">FoxPro</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableCodeTexttct">FoxPro 2.0<br>FoxPro 2.5<br>FoxPro 2.6<br>FoxPro 3.0<br>FoxPro DBC</p></font><!--mstheme--></font></td>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Lotus 1-2-3</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableCodeTexttct">Lotus WK1<br>Lotus WK3<br>Lotus WKS</p></font><!--mstheme--></font></td>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">ODBC</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableCodeTexttct">ODBC</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Paradox</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableCodeTexttct">Paradox 3.<span CLASS="NewTermntrm">x</span><br>Paradox 4.<span CLASS="NewTermntrm">x</span><br>Paradox 5.<span CLASS="Placeholderp">x</span></p></font><!--mstheme--></font></td>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">Text</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableCodeTexttct">Text</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">HTML</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableCodeTexttct">HTML Import</p></font><!--mstheme--></font></td></tr>
+</table><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="ImportantTextit"><span CLASS="ImportantHeadingih">Important&nbsp;&nbsp;&nbsp;</span>In the connection strings, you must enter the source database type strings exactly as they appear in this table, including spaces and punctuation.</p>
+<a NAME="6SpecifyingPasswords"></a>
+<p CLASS="heading5OrgHeading3h3">Specifying Passwords</p>
+<p CLASS="Textttext">If an external table has been protected with a password, you can access the table if you have the correct password information. To access a password-protected table, provide the password in the PWD argument (PWD=<span CLASS="NewTermntrm">password</span>) in the connection string. You must follow the PWD argument with a semicolon. You can either prompt the user for password information and then supply it to the connection string or you can write Visual Basic code that specifies the password, as shown in the following example:</p>
+<p CLASS="CodeTextct">Set tdfRegionOne = dbs.CreateTableDef(&quot;First Quarter Sales&quot;,0,&quot;Q1Sales&quot;, _<br>&nbsp;&nbsp;&nbsp;&quot;Paradox 4.x;DATABASE=\\Sales\Regional\Region1;PWD=RollsRoyce;&quot;)</p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>You can use the PWD argument to specify database passwords only; you cannot use it to log on to a network. If your application requires network access, you must establish these connections before attempting to access the external data.</p>
+<p CLASS="Textttext">You cannot use the PWD argument to decrypt Microsoft Excel worksheets or workbooks; you must unprotect and save the worksheet or workbook in Microsoft Excel before you can open it with the Microsoft Excel installable ISAM driver.</p>
+<p CLASS="ImportantTextit"><span CLASS="ImportantHeadingih">Important&nbsp;&nbsp;&nbsp;</span>If you store sensitive data in the external data source, you may not want to specify the password in your code. If you do specify passwords in your code, consider either encrypting your database so that others cannot read the password with a text editor or disk utility, or establishing user-level security. For more information on encrypting your database or establishing user-level security, see Chapter 14, <a HREF="../chapters/ba14_1.htm" OnClick="SyncURL(&quot;chapters/ba14_1.htm&quot;)">&quot;Securing Your Application.&quot;</a></p>
+<a NAME="6SavingODBCPasswordsBetweenSessions"></a>
+<p CLASS="heading5OrgHeading3h3">Saving ODBC Passwords Between Sessions</p>
+<p CLASS="Textttext">You can save a password as part of a linked ODBC table definition by setting the <span CLASS="ElementNameeln">Attributes</span> property of the <span CLASS="ElementNameeln">TableDef</span> object to <span CLASS="ElementNameeln">dbAttachSavePWD</span>, as shown in the following example:</p>
+<p CLASS="CodeTextct">tdfRegionOne.Attributes = dbAttachSavePWD</p>
+<p CLASS="Textttext">The user is prompted once for a password to the external data source. After that, each time a user opens the linked table, Microsoft Access uses the password information that is stored with it.
+<p CLASS="Textttext">If your external data is particularly sensitive, you may not want users to be able to save their passwords. To change this behavior, you must create the MSysConf table in your external database to prohibit local storage of logon IDs and passwords. ODBC will automatically prompt users for any missing authentication information when they attempt to open the external database.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on the MSysConf table, see Chapter 19, <a HREF="../chapters/ba19_1.htm" OnClick="SyncURL(&quot;chapters/ba19_1.htm&quot;)">&quot;Developing Client/Server Applications.&quot;</a></p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="ba18_4.htm" OnClick="SyncURL(&quot;chapters/ba18_4.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

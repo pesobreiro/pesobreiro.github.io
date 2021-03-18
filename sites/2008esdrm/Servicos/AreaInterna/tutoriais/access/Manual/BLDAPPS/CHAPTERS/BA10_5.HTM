@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>Refreshing DAO Collections</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba10_4.htm" OnClick="SyncURL(&quot;chapters/ba10_4.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<a NAME="3RefreshingDAOCollections"></a>
+<p CLASS="heading3OrgHeading1h1">Refreshing DAO Collections</p>
+<p CLASS="Textttext">In a multiuser setting, users may be modifying collections by adding new tables or queries to the database, or by deleting existing objects. In this case, the Data Access Objects (DAO) library doesn't automatically keep track of changes to collections.
+<p CLASS="Textttext">For example, the following code displays all of the <span CLASS="ElementNameeln">TableDef</span> objects in the current database:</p>
+<p CLASS="CodeTextct">Sub ShowAllTables(dbsTest As Database)<br>&nbsp;&nbsp;&amp;nbspDim tdfTemp As TableDef<br>&nbsp;&nbsp;&amp;nbspFor Each tdfTemp In dbsTest.TableDefs<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbspDebug.Print tdfTemp.Name<br>&nbsp;&nbsp;&amp;nbspNext tdfTemp<br>End Sub</p>
+<p CLASS="Textttext">When this code runs, it takes a snapshot of the <span CLASS="ElementNameeln">TableDefs</span> collection as it exists at that time. It iterates through each <span CLASS="ElementNameeln">TableDef</span> object and displays its name. Assume that you have to run this code twice. The first time you run it, 10 table names are displayed. But before you can run it again, another user on the network, who also has the database open, adds a new table. Now you run the code again. It still displays 10 table names. This is because DAO doesn't automatically know about changes made to the collection by other users. To solve this problem, use the <span CLASS="ElementNameeln">Refresh</span> method to force DAO to update the collection with the most recent changes.
+<p CLASS="Textttext">To change the previous code so it always displays the most current list of <span CLASS="ElementNameeln">TableDef</span> objects, add the <span CLASS="ElementNameeln">Refresh</span> method, as follows:</p>
+<p CLASS="CodeTextct">Sub BetterShowAllTables(dbsTest As Database)<br>&nbsp;&nbsp;&amp;nbspDim tdfTemp As TableDef<br>&nbsp;&nbsp;&amp;nbspdbsTest.TableDefs.Refresh<br>&nbsp;&nbsp;&amp;nbspFor Each tdfTemp In dbsTest.TableDefs<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;nbspDebug.Print tdfTemp.Name<br>&nbsp;&nbsp;&amp;nbspNext tdfTemp<br>End Sub</p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span><span CLASS="EmSpaceems">Use the </span><span CLASS="ElementNameeln">Refresh</span><span CLASS="EmSpaceems"> method only if necessary. If a collection contains a large number of objects, refreshing the collection may take a long time.</span></p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="ba10_6.htm" OnClick="SyncURL(&quot;chapters/ba10_6.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

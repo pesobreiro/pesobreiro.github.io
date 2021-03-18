@@ -1,0 +1,94 @@
+/* Menu principal */
+#rollovermenu{
+	width: 120pt; /*Largura do menu*/
+	border: 0px solid #333333;
+	border-color: #006A34 #FFFFFF #FFFFFF #FFFFFF;
+	background-color: #A9D208;
+	color: white;
+}
+
+#rollovermenu, #rollovermenu ul { /* all lists */
+	margin: 0;
+	list-style: none;
+}
+#rollovermenu ul{
+	border:0px solid #333333;
+	border-color: #006633 #006633 #006633 #006633;
+	background-color:#006A34;
+	width:260px;
+	padding-bottom:0px;
+	color: white;
+}
+
+#rollovermenu ul a:link{
+	color: white;
+	display: block;
+	border:none;
+	text-decoration:none;
+	padding:0px 0px 0px 0px;
+	height:18px;
+	background-color:#006A34;
+}
+
+#rollovermenu ul a:visited{
+	color: white;
+	display: block;
+	border:none;
+	text-decoration:none;
+	padding:0px 0px 0px 0px;
+	height:18px;
+	background-color:#006A34;
+}
+
+#rollovermenu ul a:hover, #current a{
+	background:#006A34; /* Cor da barra Rollover */
+	color:white;		/* Cor do texto quando faz Rollover*/
+}
+
+#rollovermenu ul a:active{
+	color: white;
+	display: block;
+	border:none;
+	text-decoration:none;
+	padding:0px 0px 0px 0px;
+	height:18px;
+	background-color:#006A34;
+
+}
+
+#rollovermenu li { /* all list items */
+	position: relative;
+	text-align: left;
+	cursor: default;
+	padding:0px 5px;
+	margin:0px;
+	color:#FFFFFF;  	/* Cinzento escuro */
+}
+
+#rollovermenu li ul { /* sub menu */
+	position: absolute;
+	border:0px solid #000000; /* Preto */
+	border-color: #006633 #006633 #006633 #006633; /* Branco */
+	left: -999em;
+	background-color: white;
+}
+
+#rollovermenu li:hover ul, #rollovermenu li.sfhover ul { /* lists nested under hovered list items */
+	left:0px;
+	top:20px;
+	background-color: white;
+}
+
+/* Texto do menu*/
+#invite li {
+	text-align:left;
+	/*text-transform:uppercase; nao transforme em maisculas*/
+	font-size:10pt;
+	margin: 0 0 0px 10px;
+	padding:1px 0 0 0;
+	height:19px;
+	background-color:#A9D208;
+	//background-color:#006A34;
+	text-decoration: none;
+	color:white;
+}

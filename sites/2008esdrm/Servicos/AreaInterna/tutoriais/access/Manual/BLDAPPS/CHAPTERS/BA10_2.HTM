@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>The Microsoft Access Multiuser Model</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba10_1.htm" OnClick="SyncURL(&quot;chapters/ba10_1.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<a NAME="3TheMicrosoftAccessMultiuserModel"></a>
+<p CLASS="heading3OrgHeading1h1">The Microsoft Access Multiuser Model</p>
+<p CLASS="Textttext">To make your application available to multiple users, do one of the following:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspPlace the entire application on a network server and allow multiple users to open the database. With this strategy, users share all the database objects that make up your application, including the tables it uses to store data.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspSplit your application into two databases: a back-end database that contains your application's tables, and a front-end database that contains your application's other objects<img SRC="../images/Emdash.gif" BORDER="0" VSPACE="0" HSPACE="0" WIDTH="16" HEIGHT="5">its queries, forms, reports, macros, and modules. Then, place the back-end database on a network server and distribute the front-end database to your users. Base the objects in your front-end database on linked tables from the back-end database. This strategy keeps the data separate from the other objects in your application and reduces network traffic.</p>
+<p CLASS="ListText1lt1"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span><span CLASS="Xref">For more information on splitting your application into a front-end database and a back-end database, see <a HREF="../chapters/ba15_3.htm" OnClick="SyncURL(&quot;chapters/ba15_3.htm&quot;)">&quot;Separating Your Application's Tables from Its Other Objects&quot;</a> in Chapter 15, &quot;Delivering Your Application.&quot; For information on linking tables, search the Help index for &quot;linked tables.&quot;</span></p>
+<p CLASS="Textttext">A Microsoft Access multiuser application consists of several important components. In addition to Microsoft Access itself and your application's front-end and back-end database (.mdb) files, your multiuser application must have:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspA workgroup information (.mdw) file, which resides either on the network server or on each user's workstation.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspA locking information (.ldb) file for each database; this file resides in the same folder as the database.</p>
+<a NAME="4TheWorkgroupInformationFile"></a>
+<p CLASS="heading4OrgHeading2h2">The Workgroup Information File</p>
+<p CLASS="Textttext">The workgroup information (.mdw) file is a Microsoft Access database that stores information about users in a workgroup, including their account names, their passwords, and the groups that they belong to. It also stores preference information that each user can specify in the <span CLASS="ElementNameeln">Options</span> dialog box (<span CLASS="ElementNameeln">Tools</span> menu).</p>
+<p CLASS="Textttext">The location of the workgroup information file in multiuser environments is important. It can either be placed on each local workstation or shared on a network server. However, if it's stored locally, you must take the steps necessary to update it when security settings change.
+<p CLASS="Textttext">The workgroup information file also stores a list of the most recently used databases. If you want your application's users to have their own lists of the most recently used databases, you should either store the workgroup information file on the users' local workstations or establish user-level security.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For information on establishing user-level security, see Chapter 14, <a HREF="../chapters/ba14_1.htm" OnClick="SyncURL(&quot;chapters/ba14_1.htm&quot;)">&quot;Securing Your Application.&quot;</a></p>
+<a NAME="4TheLockingInformationFile"></a>
+<p CLASS="heading4OrgHeading2h2">The Locking Information File</p>
+<p CLASS="Textttext">The locking information (.ldb) file stores information about any records that are currently locked in the database.
+<p CLASS="Textttext">If the locking information file doesn't exist when the database is opened, the Microsoft Jet database engine creates it. It creates one locking information file for every Microsoft Access database file that is opened in shared mode. Microsoft Jet gives the file the same name as the database that was opened, but with an .ldb file name extension. For example, Northwind.mdb has an associated locking information file called Northwind.ldb. The locking information file is stored in the same folder as the database. Microsoft Jet deletes the .ldb file when the database is closed. In a multiuser setting, this is when all users have exited the application.</p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="ba10_3.htm" OnClick="SyncURL(&quot;chapters/ba10_3.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

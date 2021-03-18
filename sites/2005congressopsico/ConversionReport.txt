@@ -1,0 +1,30 @@
+﻿This report shows the steps taken to convert your Web application from ASP.NET 1.1 to ASP.NET 2.0. 
+There may be some unresolved conversion issues you will need to manually fix. 
+For more information, please refer to http://go.microsoft.com/fwlink/?LinkId=46995 or search for the help topic "Converting from Visual Studio .NET 2002 or 2003".
+Conversion Started on project file CongressoPsicologia.csproj at May 31 2006, 12:49:48.
+
+=========================ERRORS===================
+
+=========================WARNINGS=================
+Warning: This web project was converted as a file-based web application. If your site contained any IIS meta-information, e.g. sub-folders marked as virtual directories, it is recommended that you close this web site and re-open it using the Open Web Site command and selecting the Local IIS tab.
+
+=========================COMMENTS=================
+Web.Config: Added 'xhtmlConformance' attribute.
+Web.Config: added a reference for assembly Microsoft.Data.Odbc.
+Removed attribute Codebehind from file Global.asax.
+Removed attribute AutoEventWireup from file Inscricao.aspx.
+Removed attribute Codebehind from file Inscricao.aspx.
+Warning: Access level of 'Page_Load' changed to 'protected' in file Inscricao.aspx.cs (Line 23).
+Warning: Access level of 'btnEnviar_Click' changed to 'protected' in file Inscricao.aspx.cs (Line 47).
+Removed attribute AutoEventWireup from file Inscritos.aspx.
+Removed attribute Codebehind from file Inscritos.aspx.
+Warning: Access level of 'Page_Load' changed to 'protected' in file Inscritos.aspx.cs (Line 21).
+Added folder App_Code.
+Moved file Global.asax.cs to the App_Code\ directory.
+Moved file AssemblyInfo.cs to the App_Code\ directory.
+Changed HTML validation schema for all projects to 'Internet Explorer 6.0'.
+Removed file Bin\CongressoPsicologia.dll.
+Removed file Bin\CongressoPsicologia.pdb.
+Removed file CongressoPsicologia.csproj.
+Removed file CongressoPsicologia.csproj.webinfo.
+Project CongressoPsicologia.csproj has been converted successfully at May 31 2006, 12:49:51.

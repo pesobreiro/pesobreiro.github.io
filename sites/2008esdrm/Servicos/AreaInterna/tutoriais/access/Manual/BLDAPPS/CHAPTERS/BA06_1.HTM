@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>CHAPTER 6</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba05_4.htm" OnClick="SyncURL(&quot;chapters/ba05_4.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<p CLASS="heading2ChapterNumberAppendixLetterchn">CHAPTER&nbsp; 6</p>
+<p CLASS="ChapterAppendixTitlecht">Responding to Events</p>
+<p CLASS="ChapterSummaryTextchsum">Rather than running entire programs line by line, Microsoft Access applications run macros and event procedures in response to specific events for particular objects, such as a change to data in a field, or a mouse click on a command button. Understanding the events Microsoft Access recognizes can help you create powerful, flexible applications. This chapter describes the Microsoft Access event model and shows you how to manage events in your applications.
+<a NAME="3WorkingwithEvents"></a>
+<p CLASS="heading3OrgHeading1h1">Working with Events</p>
+<p CLASS="Textttext">Microsoft Access applications are <span CLASS="NewTermntrm">event-driven</span>; this means that the way they behave depends on how objects are designed to respond to events. Objects in Microsoft Access respond to the following types of events:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspMouse clicks</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspChanges in data</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspKeystrokes a user types</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspObjects receiving or losing the focus</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspForms being opened, closed, or resized</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspReports being printed or formatted</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspRun-time errors</p>
+<p CLASS="Textttext">The <span CLASS="NewTermntrm">focus</span> is the application's ability to receive input or respond to a user's mouse or keyboard actions. In Microsoft Windows, only one item at a time can have the focus. For example, when a user types, characters appear in a text box only if the text box has the focus. Which object or control receives the focus is determined by a user's actions, such as clicking in a text box or pressing TAB to move to a control. Before a user acts, settings made at design time determine which control has the focus. For example, when a user first opens or switches to a form, the control that has the focus is the one with the lowest <span CLASS="ElementNameeln">TabIndex</span> property setting. You can also explicitly set the focus in code by using the <span CLASS="ElementNameeln">SetFocus</span> method.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on the <span CLASS="ElementNameeln">TabIndex</span> property or the<span CLASS="ElementNameeln"> SetFocus</span> method, search the Help index for &quot;TabIndex property&quot; or &quot;SetFocus method.&quot;</p>
+<p CLASS="Textttext">You can see the events that are generated in Microsoft Access by opening the ShowEvents form in the Orders sample application. The ShowEvents form, a special version of the Orders form, records each event as it occurs. An accompanying EventHistory form lists the name of the event and the type or name of the object on which the event occurred, using the format <span CLASS="NewTermntrm">object_event.</span> For example, if a Click event occurs on the ShowEvents subform, the line &quot;[Subform]Form_Click&quot; is added to the Events list on the EventHistory form.</p>
+<p CLASS="Arta"><img SRC="..\images\ABAC0601.jpg"></p>
+<p CLASS="Textttext">The EventHistory form lists events in reverse order, with the most recent event at the top of the list. The form lists all events except MouseMove events, which occur each time you move the mouse pointer, and would quickly fill up the list if they were included.
+<p CLASS="Textttext">By default, Microsoft Access automatically responds to events with built-in behaviors defined for each object. For example, when a user enters or changes data in a text box, Microsoft Access automatically checks to make sure the data is of the right type.
+<p CLASS="Textttext">In addition, each object in Microsoft Access has a set of <span CLASS="NewTermntrm">event properties</span> that correspond to each event to which the object can respond. For example, the following table lists some of the event properties and corresponding events for a check box.</p>
+<!--mstheme--></font><table WIDTH="100%" BORDER="0" CELLPADDING="5" CELLSPACING="0" FRAME="VOID" RULES="THEAD"><thead>
+<tr VALIGN="TOP" BGCOLOR="#DDDDDD">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Event property</p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableHeadingth">Event</p></font><!--mstheme--></font></td></tr><tbody>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">OnGotFocus</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">GotFocus</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">OnKeyDown</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">KeyDown</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">OnKeyPress</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">KeyPress</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">OnKeyUp</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">KeyUp</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">OnLostFocus</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">LostFocus</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">OnMouseDown</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">MouseDown</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">OnMouseMove</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">MouseMove</p></font><!--mstheme--></font></td></tr>
+<tr VALIGN="TOP">
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt"><span CLASS="ElementNameeln">OnMouseUp</span></p></font><!--mstheme--></font></td>
+<td><!--mstheme--><font face="book antiqua, times new roman, times"><font FACE="Arial" SIZE="2">
+<p CLASS="TableTexttt">MouseUp</p></font><!--mstheme--></font></td></tr>
+</table><!--mstheme--><font face="book antiqua, times new roman, times">
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For a complete list of events and event properties, as well as information on when each of these events occur, search the Help index for &quot;events, listed alphabetically.&quot;</p>
+<p CLASS="Textttext">You can specify a further response to an event by setting the object's corresponding event property. When an event occurs that an object can respond to, Microsoft Access uses the setting of the object's corresponding event property to determine how to respond:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspIf the event property is blank, Microsoft Access responds to the event only with its built-in behavior.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspIf the event property is set to the name of a macro, and the event can't be canceled, Microsoft Access first performs the built-in behavior, and then runs the macro. If the event property is set to the name of a macro and the event can be canceled, Microsoft Access first runs the macro, and then performs the built-in behavior.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspIf the event property is set to [Event Procedure], and the event can't be canceled, Microsoft Access first performs the built-in behavior, and then calls the appropriate event procedure. If the event property is set to [Event Procedure], and the event can be canceled, Microsoft Access first runs the macro, and then performs the built-in behavior.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For information on which events can be canceled, see <a HREF="../chapters/ba06_3.htm" OnClick="SyncURL(&quot;chapters/ba06_3.htm&quot;)">&quot;Canceling Events&quot;</a> later in this chapter.</p>
+<p CLASS="Textttext">For example, when you click a command button whose <span CLASS="ElementNameeln">OnClick</span> event property is set to a macro, Microsoft Access:</p>
+<p CLASS="ListSequentialItem1ls">1.&nbsp;&amp;nbspMakes the button appear pressed in momentarily<img SRC="../images/Emdash.gif" BORDER="0" VSPACE="0" HSPACE="0" WIDTH="16" HEIGHT="5">the built-in behavior when a Click event occurs on a command button. Note that the Click event can't be canceled.</p>
+<p CLASS="ListSequentialItem1ls">2.&nbsp;&amp;nbspRuns the macro.</p>
+<p CLASS="ListArt1la">&nbsp;&nbsp;&nbsp;<img SRC="..\images\ABAC0602.jpg"></p>
+<p CLASS="Textttext">When the event property is set to [Event Procedure], Microsoft Access responds to the event by running the appropriate event procedure in addition to performing its built-in behavior. Event procedures are named for the event and the object for which they occur, in the format <span CLASS="NewTermntrm">object_event.</span> For example, if a user clicks the Products command button, Microsoft Access:</p>
+<p CLASS="ListSequentialItem1ls">1.&nbsp;&amp;nbspMakes the Products command button appear pressed in momentarily<img SRC="../images/Emdash.gif" BORDER="0" VSPACE="0" HSPACE="0" WIDTH="16" HEIGHT="5">its built-in behavior.</p>
+<p CLASS="ListSequentialItem1ls">2.&nbsp;&amp;nbspRuns the Products_Click event procedure.</p>
+<p CLASS="ListArt1la">&nbsp;&nbsp;&nbsp;<img SRC="..\images\ABAC0603.jpg"></p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>When you create an event procedure, Microsoft Access automatically sets the appropriate event property to [Event Procedure] if the property doesn't already have a setting. As an alternative, you can set the property to [Event Procedure], and then create the event procedure separately. For more information on creating an event procedure, see Chapter 2, <a HREF="../chapters/ba02_1.htm" OnClick="SyncURL(&quot;chapters/ba02_1.htm&quot;)">&quot;Introducing Visual Basic,&quot;</a> or search the Help index for &quot;event procedures, creating.&quot;</p>
+<p CLASS="Textttext">You can also have Microsoft Access call a function in response to an event. To do so, add to the appropriate event procedure an expression that calls the function, or type an equal sign (=) followed by the function name as the event property setting in the property sheet.
+<p CLASS="Textttext">For example, to call the CheckValues function when a form opens, you can type the following <span CLASS="ElementNameeln">OnOpen</span> property setting in the form's property sheet:
+<p CLASS="Textttext">=CheckValues()
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>Using an expression that calls a function as an event property setting for a form or control is useful when you want to use code and the form's <span CLASS="ElementNameeln">HasModule</span> property is set to <span CLASS="ElementNameeln">No</span> so that it loads more quickly. For more information, see <a HREF="../chapters/ba13_6.htm#4OptimizingFormLoadingandPaging" OnClick="SyncURL(&quot;chapters/ba13_6.htm&quot;)">&quot;Optimizing Form Loading and Paging&quot;</a> in Chapter 13, &quot;Optimizing Your Application.&quot; </p>
+<p CLASS="Textttext">The macros and Visual Basic code that Microsoft Access runs in response to events control how the objects in your application work together. By managing events, and the macros and Visual Basic code that Microsoft Access runs in response to events, you can create powerful, flexible database applications.</p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="ba06_2.htm" OnClick="SyncURL(&quot;chapters/ba06_2.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

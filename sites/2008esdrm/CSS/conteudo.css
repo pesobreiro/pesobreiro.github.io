@@ -1,0 +1,114 @@
+/* to make this example file look ok, you don't need this to make the rollover work */
+body{
+	background:#FFFFFF;
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	font-family: Trebuchet MS, arial, sans-serif;
+}
+
+/* Definições globais do texto */
+
+/* @group Definições globais */
+p,a,h1{
+		font-family: Trebuchet MS, arial, sans-serif;
+		color: black;
+}
+/* @end */
+
+/* @group LinksTexto */
+#link {
+
+	font-size:small;
+}
+
+#link a:hover {
+	background: #006A34;
+	color: #ffffff;
+} 
+
+#link a:visited{
+}
+
+/* Links sem sublinhado */
+
+#linkSSub a:link {
+	text-decoration: none;
+	font-size: small;
+	line-height: 1.3;
+}
+
+#linkSSub a:visited{
+	text-decoration: none;
+}
+
+#linkSSub a:hover {
+	text-decoration: underline;
+} 
+
+#linkSSub a:active{
+	text-decoration: none;
+}
+/* @end */
+
+
+
+#footer p{
+	margin-top:20px;
+	text-align: center;
+	color:#999999
+}
+
+#content{
+	width:75%;
+	margin:auto;
+	padding:20px;
+	border:1px solid #DDDDDD;
+	background:#f7f3f3;
+}
+
+#localizacao{
+	font-family: Trebuchet MS, arial, sans-serif;
+	font-size: small;
+
+}
+
+#titulo{
+	font-size: small;
+	font: bold;
+	margin:auto;
+}
+
+#tituloDestaque{
+	margin: auto;
+	color: #006600;
+	background: #f7f3f3;
+	font: bold small Trebuchet;
+}
+
+#tituloDestaqueSemFundo{
+	font-family: Trebuchet MS, arial, sans-serif;
+	margin: auto;
+	color: #006600;
+	font-weight: bold;
+}
+
+#conteudoDestaque{
+	font-family: Trebuchet MS, arial, sans-serif;
+	margin: auto;
+	font-size: 10pt;
+	background: #f7f3f3;
+	text-decoration: none;
+	text-align: justify;
+}
+
+#conteudo{
+	font-size: small;
+	margin:auto;
+}
+
+#forms{
+	font-size: 9pt;
+	letter-spacing: 0px;
+}

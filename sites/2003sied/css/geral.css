@@ -1,0 +1,66 @@
+A.link:active {
+	text-decoration: none;
+	color : #336666;
+}
+A:HOVER.link {
+	color : #000066;
+	text-decoration: underline;
+	font : bold;
+}
+A.link {
+	font: Arial, Helvetica, sans-serif;
+	font-size: smaller;
+	text-decoration: underline;
+	color : #000066;
+	
+}
+
+A.linkTabela:active {
+	text-decoration: none;
+	color : #336666;
+}
+A:HOVER.linkTabela {
+	color : Black;
+	text-decoration: underline;
+	font : bold;
+}
+A.linkTabela {
+	font: Arial, Helvetica, sans-serif;
+	font-size: smaller;
+	text-decoration: underline;
+	color: Black;
+}
+
+.texto {
+	font: Arial, Helvetica, sans-serif;
+	color: #006A8E;
+}
+.textoLink {
+	font-size: smaller;
+}
+
+H1.TituloAzul 
+{
+	font: Arial, Helvetica, sans-serif;
+	color : #000066;
+}
+
+.TituloAzul
+{
+	font: Arial, Helvetica, sans-serif;
+	font-size: large;
+	color : #000066;
+}
+
+.TextoNormal {
+	font: Arial, Helvetica, sans-serif;
+	font-size: smaller;
+	color: #000000;
+}
+
+.TituloTabela {
+	font: arial, Helvetica, sans-serif;
+	 font-weight: bold;
+	 font-size: smaller;
+	color : #000066;	
+}

@@ -1,0 +1,112 @@
+<html>
+	<head>
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>Sistema para Integração de Serviços para Turismo</title>
+<!-- TemplateEndEditable --> 
+<meta http-equiv="Content-Type" content="text/html;">
+		<link href="../css/geral.css" type="text/css" rel="stylesheet">
+<!--	#b0c4de -->
+<!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
+</head>
+	<body bgcolor="#ffffff">
+	<table width="100%" border="0">
+	  <tr> 
+		<td><img src="../imagens/logoSiST2.jpg"></td>
+		<td align="center" valign="top"><a href="" class="link">Login</a></td>
+	  </tr>
+	  <tr>
+	  	<!-- Menu de topo -->
+		<td></td>
+		<td align="center" valign="top">&nbsp;</td>
+	  </tr>
+	</table>
+	<table width="100%" border="0" cellSpacing="0" cellPadding="0">
+	  <tr> 
+		<td width="22%">&nbsp;</font></b></td>
+		<td width="2%">&nbsp;</td>
+		<td width="76%" bgcolor="#b0c4de"> <b><font color="#ffffff" face="Arial, Helvetica, sans-serif">Bem 
+		  vindo ao SiST</font></b> </td>
+	  </tr>
+	  <tr> 
+		<td width="22%" bgcolor="#b0c4de"><b><font color="#ffffff" face="Arial, Helvetica, sans-serif">Login</font></b></td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+	  </tr>
+	  <tr> 
+		<td bgcolor="#FFFFFF">&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+	  </tr>
+	  <tr> 
+		<td bgcolor="#FFFFFF">
+		<table width="212" border="0" cellspacing="0" cellpadding="0"      bgcolor="#E2E2E2">
+			<tr> 
+			  <td width="28" align="char"><img src="../imagens/esqcima.gif" width="28" height="33"></td>
+			  <td width="156"><b> 
+				<p align="center" class="texto">Procurar</p>
+				</b></td>
+			  <td width="28"><img src="../imagens/dircima.gif" width="28" height="33"></td>
+			</tr>
+			<tr> 
+			  <td>&nbsp;</td>
+			  <td><div align="center"><a href="file:///C|/tese/prototipo/SiSTUDDI/Pesquisar/Pesquisar.aspx" class="link">Empresa 
+				  de Tur&iacute;smo </a></div></td>
+			  <td>&nbsp;</td>
+			</tr>
+			<tr> 
+			  <td>&nbsp;</td>
+			  <td><div align="center"><a href="" class="link">Oferta Turística</a></div></td>
+			  <td>&nbsp;</td>
+			</tr>
+			<tr> 
+			  <td>&nbsp;</td>
+			  <td><div align="center"><a href="" class="link">Op&ccedil;&otilde;es 
+				  Avan&ccedil;adas</a></div></td>
+			  <td>&nbsp;</td>
+			</tr>
+			<tr> 
+			  <td width="28" align="char"><img src="../imagens/esqbaixo.gif" width="28" height="25"></td>
+			  <td><div align="center"></div></td>
+			  <td width="28"><img src="../imagens/dirbaixo.gif" width="28" height="25"></td>
+			</tr>
+		  </table>
+		</td>
+		<td>&nbsp;</td>
+		<td>O SiST é uma aplicação que permite a pesquisa 
+		  de empresas de turismo que se encontram registadas 
+		  no nosso servidor.</td>
+	  </tr>
+	  <tr>
+		<td bgcolor="#FFFFFF"><div align="center">Colocar os menus principais da aplicação</div></td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+	  </tr>
+	</table>
+		<!--Adicionar noticias e informacoes gerais-->
+		<div align="center">
+			<table width="90%" border="0">
+				<tr>
+					<td></td>
+					<td width="20%" height="100" valign="top">
+						
+        <p align="center">&nbsp;</p>
+					</td>
+					<td width="60%" height="100"></td>
+					<td width="20%" height="100">&nbsp;</td>
+				</tr>
+			</table>
+		</div>
+		
+		<div align="center">
+			<table width="100%">
+				<tr bgcolor="#b0c4de" class="textoLink">
+					<td align="center">
+						<a href="" class="link">Início</a>
+						<a href="" class="link">Procurar</a>
+						Link's principais da aplicação....................</td>
+				</tr>
+			</table>
+		
+		</div>
+	</body>
+</html>

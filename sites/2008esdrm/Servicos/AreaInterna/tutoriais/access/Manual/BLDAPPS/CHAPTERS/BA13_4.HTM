@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>Optimizing Data Retrieval and Updates</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba13_3.htm" OnClick="SyncURL(&quot;chapters/ba13_3.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<a NAME="3OptimizingDataRetrievalandUpdates"></a>
+<p CLASS="heading3OrgHeading1h1">Optimizing Data Retrieval and Updates</p>
+<p CLASS="Textttext">Because retrieving and updating data are the main operations of most database applications, performing these operations quickly speeds up the entire application. This section offers suggestions for designing the most efficient tables and queries and for writing code that updates records quickly.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For information on optimizing data retrieval and updates in client/server applications, see Chapter 19, <a HREF="../chapters/ba19_1.htm" OnClick="SyncURL(&quot;chapters/ba19_1.htm&quot;)">&quot;Developing Client/Server Applications.&quot;</a></p>
+<a NAME="6Designtableswithoutredundantdata"></a>
+<p CLASS="heading6OrgHeading4h4">Design Tables Without Redundant Data</p>
+<p CLASS="Textttext">A well-designed database is a prerequisite for fast data retrieval and updates. Take time to plan the design of your database carefully. Determine which tables, fields, and relationships your database needs to operate efficiently and accurately.
+<p CLASS="Textttext">If existing tables in your database contain redundant data, you can split the data into related tables so that you can store data more efficiently. This process is called <span CLASS="NewTermntrm">normalization</span>. You can use the Table Analyzer Wizard to manually normalize your tables, or you can have the wizard do this for you automatically.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For information on how to determine which tables, fields, and relationships belong in your database, search the Help index for &quot;database design.&quot; For more information on using the Table Analyzer Wizard, see <a HREF="#4UsingtheTableAnalyzerWizard" OnClick="SyncURL(&quot;chapters/ba13_4.htm&quot;)">&quot;Using the Table Analyzer Wizard&quot;</a> later in this chapter.</p>
+<a NAME="6Chooseappropriatedatatypesforfields"></a>
+<p CLASS="heading6OrgHeading4h4">Choose Appropriate Data Types for Fields</p>
+<p CLASS="Textttext">You can save space in your database and improve join operations by choosing appropriate data types for fields. When defining a field, choose the smallest data type that's appropriate for the data in the field. Also, give fields you use in joins the same or compatible data types.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on data types, search the Help index for &quot;data types.&quot; For information on the size of data types, search the Help index for &quot;fields, size.&quot;</p>
+<a NAME="6CreateIndexesforfieldsusedinjoinsandinsettingcriteria"></a>
+<p CLASS="heading6OrgHeading4h4">Create Indexes for Fields Used in Joins and in Setting Criteria</p>
+<p CLASS="Textttext">An <span CLASS="NewTermntrm">index</span> helps Microsoft Access find and sort records faster. You can make dramatic improvements in the speed of queries by indexing fields on both sides of joins, or by creating a relationship between those fields and indexing any field used to set criteria for the query. Finding records through the <span CLASS="ElementNameeln">Find</span> dialog box (<span CLASS="ElementNameeln">Edit</span> menu) is also much faster when searching an indexed field. Intelligent indexing of large tables can significantly improve performance when your query uses Rushmore<span CLASS="Superscriptsup">&#153;</span> query optimization.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For information on Rushmore query optimization, search the Help index for &quot;Rushmore queries.&quot;</p>
+<p CLASS="NoteTextnt"><span CLASS="NoteHeadingnh">Note&nbsp;&nbsp;&nbsp;</span>Microsoft Jet can use a descending index to optimize a query as long as criteria on the indexed field uses an equal sign (=) as the comparison operator. If the index is descending and the comparison operator is something other than an equal sign, the index won't be used. Ascending indexes (the default) can always be used to optimize a query.</p>
+<p CLASS="Textttext">Indexes take up space on your hard disk and slow down the adding, deleting, and updating of records. In most situations, the speed advantages for data retrieval outweigh these disadvantages. If your application updates data very frequently or if you have disk space constraints, you may want to limit indexes; otherwise, use them generously. Make sure to create a primary key or unique index if the data in a field or combination of fields uniquely identifies the records in a table.</p>
+<a NAME="6Usemultiplefieldindexeswhenjoiningmultiplefields"></a>
+<p CLASS="heading6OrgHeading4h4">Use Multiple-Field Indexes When Joining Multiple Fields</p>
+<p CLASS="Textttext">If you use <span CLASS="NewTermntrm">multiple-field indexes</span>, Microsoft Access can optimize queries that join multiple fields from one table to multiple fields in another table (such as LastName, FirstName in one table to LastName, FirstName in another table) or that search for values in multiple fields. When joining or searching in individual fields, use a single-field index on each field.
+<p CLASS="Textttext">If you use criteria on a field in a multiple-field index, the criteria must apply to the first field or fields in the index in order for Microsoft Jet to use the index to optimize the query. For example, if you have a multiple-field index on the two fields LastName and FirstName used in a join to the LastName and FirstName fields in another table, Microsoft Jet can use the multiple-field index to optimize the query when you have criteria on LastName only, or on LastName and FirstName, but not if the criteria is on FirstName only. If the criteria is on FirstName only, you must add a single-field index on FirstName to optimize the query. The simplest approach is to add multiple-field indexes to fields used in multiple-field joins and also add a single-field index to any field on which you use criteria to restrict the values in the field. You can add both a multiple-field index and a single-field index to the same field.</p>
+<a NAME="6Experimentwithcriteriaplacementforjoinedfields"></a>
+<p CLASS="heading6OrgHeading4h4">Experiment with Criteria Placement for Joined Fields</p>
+<p CLASS="Textttext">If you use criteria to restrict the values in a field used in a join, test whether the query runs faster with the criteria placed on the &quot;one&quot; side or the &quot;many&quot; side of the join. In some queries, you get faster performance by adding the criteria to the field on the &quot;one&quot; side of the join instead of the &quot;many&quot; side.</p>
+<a NAME="6IntotalsqueriesuseGroupByeffectively"></a>
+<p CLASS="heading6OrgHeading4h4">In Totals Queries, Use Group By Effectively</p>
+<p CLASS="Textttext">When Microsoft Access processes sums and other aggregate functions in a query, you can make the query more efficient by grouping the records effectively. For example:</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspWhen grouping records by the values in a joined field, make sure <span CLASS="ElementNameeln">Group By</span> is selected for the field that's in the same table as the field you're totaling. For example, if your query totals the Quantity field in an Order Details table and groups by OrderID, make sure <span CLASS="ElementNameeln">Group By</span> is selected for the OrderID field in the Order Details table, not the OrderID field in the Orders table.</p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspFor greater speed, use <span CLASS="ElementNameeln">Group By </span>on as few fields as possible. As an alternative, use <span CLASS="ElementNameeln">First</span> where appropriate.</p>
+<p CLASS="ListText1lt1"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span><span CLASS="Xref">For information on the <span CLASS="ElementNameeln">First</span> function , search the Help index for &quot;First function.&quot;</span></p>
+<p CLASS="ListBulletedItem1lb1"><img SRC="../images/bullet.jpg" WIDTH="5" HEIGHT="7">&amp;nbspIf a totals query includes a join, consider grouping the records in one query and then adding that query to a separate query that performs the join. This improves performance in some queries.</p>
+<a NAME="6Avoidusingdomainaggregatefunctionsinaquery"></a>
+<p CLASS="heading6OrgHeading4h4">Avoid Using Domain Aggregate Functions in a Query</p>
+<p CLASS="Textttext">Instead of using domain aggregate functions, such as the <span CLASS="ElementNameeln">DLookup</span> function, in a query, add the table referred to in the <span CLASS="ElementNameeln">DLookup</span> function to the query or create a subquery to access the table's data.</p>
+<a NAME="6UseCountinsteadofCount"></a>
+<p CLASS="heading6OrgHeading4h4">Use Count(*) Instead of Count([<span CLASS="NewTermntrm">fieldname</span>])</p>
+<p CLASS="Textttext">When using the <span CLASS="ElementNameeln">Count</span> function to calculate the number of records returned by a query, use the syntax <span CLASS="ElementNameeln">Count(</span>*<span CLASS="ElementNameeln">)</span> instead of <span CLASS="ElementNameeln">Count(</span>[<span CLASS="NewTermntrm">fieldname</span>]<span CLASS="ElementNameeln">)</span>. <span CLASS="ElementNameeln">Count(</span>*<span CLASS="ElementNameeln">)</span> is faster because it doesn't have to check for <span CLASS="ElementNameeln">Null</span> values in the specified field.</p>
+<a NAME="6Avoidcalculatedfieldsinnestedqueries"></a>
+<p CLASS="heading6OrgHeading4h4">Avoid Calculated Fields in Nested Queries</p>
+<p CLASS="Textttext">If you add a query that contains a calculated field to another query, the expression in the calculated field slows performance in the top-level query. For example, suppose this is Query1:</p>
+<p CLASS="CodeTextct">SELECT Format$(Field1) As TempField FROM Table1</p>
+<p CLASS="Textttext">Query1 is nested in the following query, Query2:</p>
+<p CLASS="CodeTextct">SELECT * FROM Query1 Where TempField = 100</p>
+<p CLASS="Textttext">When you nest Query1 in Query2, the expression <span CLASS="CodeTextEmbeddedcte">Format$(Field1)</span> in Query1 slows performance in Query2. For best performance, use calculated fields only in the top-level query of nested queries. If that's not practical, use a calculated control on the form or report that's based on the query to show the result of the expression instead of nesting the query.</p>
+<a NAME="6Deliveryourapplicationwithitsqueriescompiled"></a>
+<p CLASS="heading6OrgHeading4h4">Deliver Your Application with its Queries Compiled</p>
+<p CLASS="Textttext">After you save a query, Microsoft Jet recompiles the query the next time the query runs. On slower computers, this takes much longer than running the compiled query. (The query regains its usual speed after being compiled.) To make your application's queries run as fast as possible the first time through, make sure that all its queries are compiled when you deliver it. To compile a query, run it by opening it in Datasheet view and closing it without resaving the query.</p>
+<a NAME="4UsingtheTableAnalyzerWizard"></a>
+<p CLASS="heading4OrgHeading2h2">Using the Table Analyzer Wizard</p>
+<p CLASS="Textttext">If your database has a table that contains a great deal of duplicate information in one or more fields, you can use the Table Analyzer Wizard to split the data into smaller related tables so that you can store data more efficiently. This process is called normalization. After identifying the data that can be moved to smaller tables, the Table Analyzer Wizard identifies a unique value within each new table to use as a primary key, or if no such value exists, creates an incrementing AutoNumber field to use as the primary key. It creates foreign key fields and uses them with the primary keys to create a relationships between the new tables. Finally, the wizard searches through your data, identifies any values that appear to be inconsistent, and prompts you to choose the correct value.
+<p CLASS="Textttext">For example, the following illustration shows a single table that contains redundant and inconsistent data.</p>
+<p CLASS="Arta"><img SRC="..\images\ABAC1301.jpg"></p>
+<p CLASS="Textttext">When you run the Table Analyzer Wizard to normalize this table, it creates a set of related tables, such as those shown in the following illustration.</p>
+<p CLASS="Arta"><img SRC="..\images\ABAC1302.jpg"></p>
+<p CLASS="Textttext">Using the Table Analyzer Wizard, you can either specify the tables you want to create or have Microsoft Access normalize your tables automatically.</p>
+<p CLASS="heading9ListProcedureHeadinglproch"><span CLASS="ProcedureIconproci"><img SRC="../images/bluetri.jpg" ALIGN="LEFT" WIDTH="9" HEIGHT="17">&nbsp;&nbsp;&nbsp;</span>To use the Table Analyzer Wizard</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">1</span>&nbsp;&nbsp;&amp;nbspOn the <span CLASS="ElementNameeln">Tools</span> menu, point to <span CLASS="ElementNameeln">Analyze</span>, and then click <span CLASS="ElementNameeln">Table</span>.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">2</span>&nbsp;&nbsp;&amp;nbspThe first two screens of the wizard contain introductory information about normalization. On the third screen, double-click the table that you want to normalize.</p>
+<p CLASS="ListProcedureItem1lproc"><span CLASS="lproc">3</span>&nbsp;&nbsp;&amp;nbspFollow the instructions in the remaining screens of the wizard.</p>
+<p CLASS="ListText1lt1">In the last screen, you can create a query to view all the information from the split tables in a single datasheet.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on database design and relationships, search the Help index for &quot;database design&quot; and &quot;relationships.&quot;</p>
+<a NAME="4UsingTransactionstoUpdateRecords"></a>
+<p CLASS="heading4OrgHeading2h2">Using Transactions to Update Records</p>
+<p CLASS="Textttext">In Microsoft Access versions 2.0 and earlier, it was recommended that you always use transactions to improve performance when you add, delete, or change a set of records in code. In Microsoft Access 95 and Microsoft Access 97, you should only use explicit transactions in situations where you may need to roll back changes. Microsoft Jet can now automatically perform internal transactions to improve performance whenever it adds, deletes, or changes records. Microsoft Jet manages this process dynamically and, in nearly all cases, produces better performance than using explicit transactions.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For information on Windows Registry settings that affect internal and explicit transactions, see <a HREF="../chapters/ba13_2.htm" OnClick="SyncURL(&quot;chapters/ba13_2.htm&quot;)">&quot;Adjusting Windows Registry Settings to Improve Performance&quot;</a> earlier in this chapter. For more information on transactions, see <a HREF="../chapters/ba09_1.htm#4MicrosoftJetTransactions" OnClick="SyncURL(&quot;chapters/ba09_1.htm&quot;)">&quot;Microsoft Jet Transactions&quot;</a> in Chapter 9, &quot;Working with Records and Fields.&quot;</p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="ba13_5.htm" OnClick="SyncURL(&quot;chapters/ba13_5.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

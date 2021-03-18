@@ -1,0 +1,19 @@
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "CongressoPsicologia", "http://localhost/congressopsicologia2005/CongressoPsicologia.csproj", "{6FFB4D2E-34F9-426D-90A7-AA45FAB8EB3A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6FFB4D2E-34F9-426D-90A7-AA45FAB8EB3A}.Debug|Default.ActiveCfg = Debug|.NET
+		{6FFB4D2E-34F9-426D-90A7-AA45FAB8EB3A}.Debug|Default.Build.0 = Debug|.NET
+		{6FFB4D2E-34F9-426D-90A7-AA45FAB8EB3A}.Release|Default.ActiveCfg = Release|.NET
+		{6FFB4D2E-34F9-426D-90A7-AA45FAB8EB3A}.Release|Default.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

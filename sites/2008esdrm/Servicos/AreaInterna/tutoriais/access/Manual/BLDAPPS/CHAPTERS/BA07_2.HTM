@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>Debugging Tools and Strategies</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba07_1.htm" OnClick="SyncURL(&quot;chapters/ba07_1.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<a NAME="3DebuggingToolsandStrategies"></a>
+<p CLASS="heading3OrgHeading1h1">Debugging Tools and Strategies</p>
+<p CLASS="Textttext">When you're debugging, your task is to determine where something went wrong. Perhaps you chose the wrong operator, used the wrong function somewhere, or forgot to initialize a variable. While there are no magic tricks to debugging, Microsoft Access provides debugging tools to help you analyze run-time errors and Visual Basic code in general. These tools are particularly helpful in analyzing program logic errors.
+<p CLASS="Textttext">You can often uncover a problem with code more quickly if you can analyze what's happening to the data while portions of your code are running. One way you can do this is by using the Debug window to monitor the current values of expressions and variables as you step through a procedure. If you can isolate the problem to a variable or property that contains an incorrect value, then you know you must determine how or why the value was incorrectly assigned.
+ You can also use the Debug window to change the value of variables and properties while your code is suspended to see how different values affect your code.
+<p CLASS="Textttext">To display the Debug window, click <span CLASS="ElementNameeln">Debug Window</span> on the <span CLASS="ElementNameeln">View</span> menu. This command is available only when the Module window is active.</p>
+<p CLASS="Textttext">The following illustration points out some of the techniques you can apply by using the debugging tools provided in Microsoft Access.</p>
+<p CLASS="Arta"><img SRC="..\images\ABAC0701.jpg"></p>
+<p CLASS="Textttext">The following sections discuss specific ways to use the debugging tools.</p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="ba07_3.htm" OnClick="SyncURL(&quot;chapters/ba07_3.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>

@@ -1,0 +1,49 @@
+UNKNOWN {
+	br: #ffffff<br>
+}
+UNKNOWN {
+	br: #ffffff<br>
+}
+UNKNOWN {
+	br: #ffffff
+}
+UNKNOWN {
+	FONT-SIZE: 9pt; COLOR: #00406c; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+UNKNOWN {
+	FONT-SIZE: 12pt; COLOR: #ffffff; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+.txtbianco10 {
+	FONT-SIZE: 10pt; COLOR: #ffffff; FONT-FAMILY: Verdana, Arial, Helvetica, 
+  sans-serif
+}
+.txtbianco9 {
+	FONT-SIZE: 9pt; COLOR: #ffffff; FONT-FAMILY: Verdana, 
+  Arial, Helvetica, sans-serif
+}
+.lkbianco {
+	FONT-WEIGHT: normal; FONT-SIZE: 8pt; COLOR: #ffffff; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+.lkbianco:hover {
+	FONT-WEIGHT: normal; TEXT-DECORATION: underline
+}
+.txtbianco8 {
+	FONT-SIZE: 8pt; COLOR: #ffffff; FONT-FAMILY: Verdana, Arial, Helvetica, 
+  sans-serif
+}
+.txtblu10 {
+	FONT-SIZE: 10pt; COLOR: #00406c; FONT-FAMILY: Verdana, 
+  Arial, Helvetica, sans-serif
+}
+UNKNOWN {
+	FONT-SIZE: 8pt; COLOR: #00406c; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+.backcodice {
+	BACKGROUND-COLOR: #cccccc
+}
+.txtblu8 {
+	FONT-WEIGHT: normal; FONT-SIZE: 8pt; COLOR: #00406c; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+.titoletto8blu {
+	FONT-WEIGHT: bold; FONT-SIZE: 8pt; COLOR: #003366; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}

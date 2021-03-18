@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html><head><title>Additional Communication Solutions</title>
+<link REL="STYLESHEET" HREF="naetugp.css" TYPE="text/css">
+<script Language="VBScript">
+Dim look
+Sub SyncURL(look)
+if right(top.frames(0).frames(1).location.href, 10)="toc_tc.htm" then
+top.frames(0).frames(1).TreeCtl1.SyncToURL(look)
+end if
+End Sub
+</script>
+<meta name="Microsoft Theme" content="expeditn 011, default"></head>
+<!--DocHeaderStart-->
+<body background="../../../../_themes/expeditn/exptextb.jpg" bgcolor="#FFFFFF" text="#000000" link="#993300" vlink="#666600" alink="#CC3300"><!--mstheme--><font face="book antiqua, times new roman, times"><a HREF="ba11_3.htm" OnClick="SyncURL(&quot;chapters/ba11_3.htm&quot;)"><img SRC="..\images\prevpage.gif" ALT="Previous Page" ALIGN="RIGHT" BORDER="0"></a>
+<!--DocHeaderEnd-->
+<!-- This is a PANDA Generated HTML file. The source is a WinWord Document. -->
+<a NAME="3AdditionalCommunicationSolutions"></a>
+<p CLASS="heading3OrgHeading1h1">Additional Communication Solutions</p>
+<p CLASS="Textttext">Automation and OLE are relatively new technologies, and not all applications support them. Many applications that do not support Automation or OLE do support <span CLASS="NewTermntrm">dynamic data exchange</span> (DDE). If an application doesn't support DDE, it may be able to receive keystrokes from Microsoft Access. To determine whether an application supports Automation, OLE, DDE, or neither, consult the application's documentation.</p>
+<a NAME="4UsingDynamicDataExchange"></a>
+<p CLASS="heading4OrgHeading2h2">Using Dynamic Data Exchange</p>
+<p CLASS="Textttext">If you are working with another application that does not support Automation or OLE, you may be able to use DDE to exchange data between that application and Microsoft Access. For example, you may want to use a communications program to periodically download data and store it in your database. You can use DDE to perform this operation automatically. You can also use DDE to run macro actions or macros in another application.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on using DDE, search the Help index for &quot;DDE.&quot;</p>
+<a NAME="4SendingKeystrokestoAnotherApplication"></a>
+<p CLASS="heading4OrgHeading2h2">Sending Keystrokes to Another Application</p>
+<p CLASS="Textttext">You can send keystrokes to any active Windows-based application, which behaves just as if you had typed them. Most of the time, sending keystrokes from Microsoft Access is only useful when you need to communicate with an application that does not support Automation, OLE, or DDE, such as Windows WordPad.
+<p CLASS="Textttext">You use the <span CLASS="ElementNameeln">SendKeys</span> statement to send keystrokes to another application. For example, the following statement sends the keys &quot;ABC&quot; to the active application:</p>
+<p CLASS="CodeTextct">SendKeys &quot;ABC&quot;, True</p>
+<p CLASS="Textttext">The second argument determines whether Microsoft Access processes the keystrokes immediately, or waits until the operating system has finished processing all other events. In the previous example, the keystrokes are processed immediately, before continuing with the rest of the code. If the second argument isn't specified, or if it is set to <span CLASS="ElementNameeln">False</span>, the keystrokes aren't sent until your procedure is <span CLASS="NewTermntrm">idle</span><img SRC="../images/Emdash.gif" BORDER="0" VSPACE="0" HSPACE="0" WIDTH="16" HEIGHT="5">that is, until your Visual Basic code runs a <span CLASS="ElementNameeln">DoEvents</span> statement or until the procedure is completed.
+<p CLASS="Textttext">If you want to send keystrokes that cannot simply be typed into a string, such as <span CLASS="KeyNamekn">TAB</span> or <span CLASS="KeyNamekn">ENTER</span>, you enclose the name of each key within braces ({}), as follows:</p>
+<p CLASS="CodeTextct">SendKeys &quot;{TAB}{ENTER}&quot;</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on the <span CLASS="ElementNameeln">SendKeys</span> statement, search the Help index for &quot;SendKeys statement.&quot;</p>
+<p CLASS="Textttext">If the application you want to send keystrokes to is not active, then you need to use the <span CLASS="ElementNameeln">AppActivate</span> statement to switch to the other application. If the application is not already running, you need to start it by using the <span CLASS="ElementNameeln">Shell</span> function before you can switch to it.</p>
+<p CLASS="CrossRefTextcrt"><span CLASS="CrossRefHeadingcrh">See Also&nbsp;&nbsp;&nbsp;</span>For more information on the <span CLASS="ElementNameeln">AppActivate</span> statement or the <span CLASS="ElementNameeln">Shell</span> function, search the Help index for &quot;AppActivate statement&quot; or &quot;Shell function.&quot;</p>
+<p><!--DocFooterStart-->
+<p><span CLASS="copyright"><a HREF="cpyright.htm">© 1996 Microsoft Corporation. All rights reserved.</a></span>
+<p><!--DocFooterEnd-->
+<a HREF="ba12_1.htm" OnClick="SyncURL(&quot;chapters/ba12_1.htm&quot;)"><img SRC="..\images\nextpage.gif" ALT="Next Page" ALIGN="RIGHT" BORDER="0"></a><!--mstheme--></font></body></html>
